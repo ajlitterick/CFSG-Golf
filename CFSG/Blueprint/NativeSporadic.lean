@@ -2,8 +2,8 @@ module
 
 public import Mathlib
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.Index
-public import CFSG.Certificates.Kernel.BSeed.Text1
-public import CFSG.Certificates.Kernel.BSeed.Text2
+public import CFSG.Certificates.Kernel.BSeed.Raw1
+public import CFSG.Certificates.Kernel.BSeed.Raw2
 
 public noncomputable section
 
