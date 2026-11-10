@@ -210,6 +210,50 @@ fn main() {
     let roots: Vec<u32> = (0..nc).filter(|&i| is_root[i]).map(|i| i as u32).collect();
     eprintln!("roots {}", roots.len());
 
+    // ---- optional query: ./domtree DIR OUT MIN --path SRC TGT [--path SRC TGT ...] ----
+    // prints a shortest dependency path from a declaration named SRC to one named TGT in the
+    // visibility-filtered graph (or says there is none), then exits.
+    if args.iter().any(|a| a == "--path") {
+        let name_id = |s: &str| -> i64 { names.iter().position(|x| x == s).map(|i| i as i64).unwrap_or(-1) };
+        let mut i = 4;
+        while i + 2 < args.len() + 0 && args[i] == "--path" {
+            let (src, tgt) = (name_id(&args[i + 1]), name_id(&args[i + 2]));
+            let mut par = vec![u32::MAX; nc];
+            let mut seen = vec![false; nc];
+            let mut q: Vec<u32> = Vec::new();
+            for c in 0..nc {
+                if kind[c] == 0 && name[c] == src && src >= 0 { seen[c] = true; q.push(c as u32); }
+            }
+            let mut found: Option<usize> = None;
+            let mut qi = 0;
+            while qi < q.len() && found.is_none() {
+                let c = q[qi] as usize; qi += 1;
+                for &d in &edges[eptr[c] as usize..eptr[c + 1] as usize] {
+                    let d = d as usize;
+                    if !seen[d] {
+                        seen[d] = true; par[d] = c as u32; q.push(d as u32);
+                        if kind[d] == 0 && name[d] == tgt { found = Some(d); break; }
+                    }
+                }
+            }
+            match found {
+                None => println!("NO PATH  {} -> {}   (closure of source: {} chunks)", args[i + 1], args[i + 2], q.len()),
+                Some(mut d) => {
+                    println!("PATH  {} -> {}", args[i + 1], args[i + 2]);
+                    let mut path = vec![d];
+                    while par[d] != u32::MAX { d = par[d] as usize; path.push(d); }
+                    path.reverse();
+                    for c in path {
+                        let nm = if name[c] >= 0 { names[name[c] as usize].as_str() } else { first[c].as_str() };
+                        println!("    {}  {}:{}", nm, paths[file[c] as usize], sline[c] + 1);
+                    }
+                }
+            }
+            i += 3;
+        }
+        return;
+    }
+
     // node ids: 0 root, 1..=nc chunks
     let n = nc + 1;
     let succ_len = |v: usize| -> usize {
