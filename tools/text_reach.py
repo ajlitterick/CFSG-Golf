@@ -54,7 +54,7 @@ PREFIX_LINE_RE = re.compile(r"^(?:set_option|open|omit|include|variable)\b[^\n]*
 PREFIX_RE = re.compile(r"\A(?:(?:set_option|open|omit|include|variable)\b[^\n]*\bin\s*\n)+")
 INERT_RE = re.compile(r"\A(?:(?:public\s+)?(?:meta\s+)?import\b|module\b|prelude\b|namespace\b|end\b|"
                       r"(?:public\s+|noncomputable\s+|private\s+)*section\b|universe\b|"
-                      r"open\b(?![^\n]*\bin\s*$)(?![^\n]*(?:\(|\bhiding\b|\brenaming\b)))")
+                      r"open\b(?![^\n]*\bin[ \t]*(?:\n|\Z))(?![^\n]*(?:\(|\bhiding\b|\brenaming\b)))")
 NAME_OK = re.compile(r"[\w.'!?«»]+")
 KIND_DECL, KIND_OTHER, KIND_EXAMPLE = 0, 1, 2
 
@@ -64,32 +64,63 @@ def strip(text: str) -> str:
     return STRIP_RE.sub(lambda m: "\n" * m.group(0).count("\n"), text)
 
 
+# indented lines that start a command: declarations (their keywords cannot occur inside a
+# term) and section-structure commands
+IND_START_RE = re.compile(
+    r"(?:(?:" + "|".join(MODIFIERS) + r")\s+)*(?:" + "|".join(DECL_KW) + r")\s+[^\W\d:=]"
+    r"|instance\b|example\b"
+    r"|(?:namespace|end|variable|universe|attribute|mutual|export)\b"
+    r"|(?:(?:public|noncomputable|private)\s+)*section\b")
+
+
 def chunks_of(text: str):
-    """Yield (first_line, last_line_exclusive, kind, kw, name, text_of_chunk)."""
+    """Return ([(first_line, last_line_exclusive, kind, kw, name, text_of_chunk)], lines).
+
+    A chunk starts at a column-0 line (unless it continues the previous command) or at an
+    indented line that begins a declaration or a section command; attribute lines and
+    `... in` prefix lines directly above a declaration belong to it.
+    """
     lines = strip(text).split("\n")
-    starts = []
-    pending_attr = False
+    n = len(lines)
+    starts: list[int] = []
+    pending = -1          # index in `starts` of an attribute / prefix line awaiting its command
     for i, line in enumerate(lines):
-        if not line or line[0] in " \t":
+        if not line.strip():
+            continue
+        indented = line[0] in " \t"
+        ls = line.lstrip() if indented else line
+        is_attr_only = ls.startswith("@[") and HEAD_RE.match(ls) is None
+        is_prefix = PREFIX_LINE_RE.match(ls) is not None
+        if pending >= 0:
+            # the line after an attribute / prefix line continues that chunk
+            if is_attr_only or is_prefix:
+                continue
+            if indented and not (IND_START_RE.match(ls) or HEAD_RE.match(ls)):
+                # an indented prefix that was not followed by a command: not a chunk start
+                if starts and starts[-1] == pending and lines[pending][0] in " \t":
+                    starts.pop()
+            pending = -1
+            continue
+        if indented:
+            if IND_START_RE.match(ls) or (ls.startswith("@[") and HEAD_RE.match(ls)):
+                starts.append(i)
+            elif is_attr_only or is_prefix:
+                starts.append(i)
+                pending = i
             continue
         if line.startswith(CONT_PREFIX):
             continue
-        if pending_attr:
-            # the declaration keyword line following a pure attribute line continues that chunk
-            pending_attr = False
-            if not line.startswith("@[") and not PREFIX_LINE_RE.match(line):
-                continue
-            if PREFIX_LINE_RE.match(line) or HEAD_RE.match(line) is None:
-                pending_attr = True
-            continue
         starts.append(i)
-        if (line.startswith("@[") and HEAD_RE.match(line) is None) or PREFIX_LINE_RE.match(line):
-            pending_attr = True
+        if is_attr_only or is_prefix:
+            pending = i
     out = []
     for k, s in enumerate(starts):
-        e = starts[k + 1] if k + 1 < len(starts) else len(lines)
+        e = starts[k + 1] if k + 1 < len(starts) else n
         body = "\n".join(lines[s:e])
-        m = HEAD_RE.match(PREFIX_RE.sub("", body))
+        # first non-blank lines, dedented (a stripped doc comment may sit between a
+        # `set_option ... in` line and its declaration)
+        head = "\n".join([l.lstrip() for l in lines[s:e] if l.strip()][:8])
+        m = HEAD_RE.match(PREFIX_RE.sub("", head))
         if m is None:
             out.append((s, e, KIND_OTHER, "", "", body))
             continue
@@ -136,7 +167,7 @@ def pass2(path: str):
     ch, _ = chunks_of(text)
     res = []
     for (s, e, kind, kw, name, body) in ch:
-        if kind == KIND_OTHER and INERT_RE.match(body):
+        if kind == KIND_OTHER and INERT_RE.match(body.lstrip()):
             ids = set()   # imports, namespace/section brackets and plain `open` use nothing
         else:
             ids = {_NAMES[t] for t in set(TOKEN_RE.findall(body)) if t in _NAMES}
@@ -146,7 +177,7 @@ def pass2(path: str):
         nbytes = sum(len(l.encode("utf-8")) + 1 for l in raw_lines[s:e])
         # first word after any `open ... in` / `set_option ... in` prefix lines, so that
         # `open Lean in elab ...` is seen as an `elab` command, not as an `open`
-        rest = PREFIX_RE.sub("", body)
+        rest = PREFIX_RE.sub("", "\n".join([l.lstrip() for l in body.split("\n") if l.strip()][:8]))
         fw = rest.split(None, 1)[0] if rest.strip() else (body.split(None, 1)[0] if body.strip() else "")
         res.append((s, e, kind, kw, nid, nbytes, np.fromiter(ids, dtype=np.uint32, count=len(ids)), fw))
     return res
@@ -158,6 +189,9 @@ def main() -> None:
     ap.add_argument("--root", default="Comparator.Solution")
     ap.add_argument("--root-files", nargs="*", default=["Comparator/Solution.lean"])
     ap.add_argument("--root-names", nargs="*", default=[])
+    ap.add_argument("--all-modules", action="store_true",
+                    help="every module outside the root's import closure is a root file "
+                         "(nothing they use is reported dead)")
     ap.add_argument("--extra-roots", nargs="*", default=[],
                     help="further root modules; files only they reach are root files")
     ap.add_argument("--out", default="text_reach.tsv")
@@ -171,6 +205,8 @@ def main() -> None:
     extra: set[str] = set()
     for r in a.extra_roots:
         extra |= g.reachable(r)
+    if a.all_modules:
+        extra = set(g.mods)
     extra -= primary
     live = sorted(primary | extra)
     a.root_files = list(a.root_files) + [g.mods[m].path for m in sorted(extra)]

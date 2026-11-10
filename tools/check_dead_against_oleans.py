@@ -81,6 +81,8 @@ def main() -> None:
         declared[m] = d
 
     owner_cache: dict[int, tuple[str, str] | None] = {}
+    key_of_name = {n: k for k, n in cname.items()}
+    AUX = ("eq_", "_proof_", "match_", "_sunfold", "_unsafe_rec", "proof_", "_simp_", "_eq_")
 
     def owner(k: int):
         if k in owner_cache:
@@ -102,6 +104,10 @@ def main() -> None:
         ov = owner(v)
         if ov is None or ov[1] != "dead":
             continue
+        # auxiliary constants (`foo._proof_1`, `foo.match_1`, ...) are cached and reused by
+        # later declarations of the module; without `foo` they are simply regenerated
+        if cname[v].split(".")[-1] != ov[0]:
+            continue
         ou = owner(u)
         if ou is not None and ou[1] in ("dead", "ambiguous"):
             continue
@@ -109,6 +115,15 @@ def main() -> None:
             continue
         if ou is None and ov[0] in cname[u].split("."):
             continue  # equation lemma / auxiliary of V itself, generated in a later module
+        if ou is None:
+            # auxiliary of a declaration of another module (equation lemma made on demand):
+            # judge it by the declaration it belongs to
+            comps = cname[u].split(".")
+            if comps[-1].startswith(AUX) or comps[-1] == "eq_def":
+                pk = key_of_name.get(".".join(comps[:-1]))
+                po = owner(pk) if pk is not None else None
+                if po is not None and po[1] in ("dead", "ambiguous"):
+                    continue
         conflicts[(cmod[v], ov[0])].append(f"{cmod[u]}:{cname[u]}")
     print(f"dead declarations in built modules: {len(checked)}; conflicts: {len(conflicts)}")
     with open(a.out, "w", encoding="utf-8") as f:
