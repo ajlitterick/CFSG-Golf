@@ -29,6 +29,9 @@ theorem rp_elem (a : Nat) {k : Nat} (hk : k < 16) :
     Rp hL h1 hok (n0 (a6W a ++ tw k)) (pc (ak L a) (tk L k)) := fun x hx => by
   rw [idx_elem hL a hk hx, fd_pc _ _ hx]
 
+include hL in
+theorem rp_el (c : Nat) : Rp hL h1 hok (n0 (a6W (c / 16) ++ tw (c % 16))) (el L c) :=
+  rp_elem hL h1 hok _ (Nat.mod_lt _ (by norm_num))
 
 include hL in
 theorem rp_tk {l : Nat} (hl : l < 16) : Rp hL h1 hok (n0 (tw l)) (tk L l) :=

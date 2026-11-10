@@ -35,6 +35,9 @@ theorem oddC_sum : ∑ t ∈ range 2048, ∑ i ∈ range 24,
   interval_cases k
   exacts [oddC_0, oddC_1, oddC_2, oddC_3, oddC_4, oddC_5, oddC_6, oddC_7]
 
+@[expose] noncomputable def PBadC : Nat := nat_lit 49868768104246464290508688099752416
+
+theorem oddBadC_0 : oddScanT PBadC (betaTabT PBadC) 0 256 ≠ 0 := by decide +kernel
 
 end Certificates.Kernel.Trace6091
 

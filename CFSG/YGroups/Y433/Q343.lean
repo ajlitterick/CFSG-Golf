@@ -32,6 +32,18 @@ namespace Y343
 
 @[expose] noncomputable def F (i j k : ℕ) : Y343 := (A * B i * C i * D i * B j * C j * B k) ^ 9
 
+theorem yEdges_343 : yEdges 3 4 3 =
+    [(0, armStart 1), (0, armStart 2), (0, armStart 3),
+      (armStart 1, armStart 1 + 1), (armStart 1 + 1, armStart 1 + 2),
+      (armStart 2, armStart 2 + 1), (armStart 2 + 1, armStart 2 + 2),
+      (armStart 2 + 2, armStart 2 + 3),
+      (armStart 3, armStart 3 + 1), (armStart 3 + 1, armStart 3 + 2)] := by
+  decide
+
+theorem spiderWord_343 : spiderWord 3 4 =
+    [0, armStart 1, armStart 1 + 1, 0, armStart 2, armStart 2 + 1, 0, armStart 3,
+      armStart 3 + 1] := by
+  decide
 
 theorem spider : (T 1 * T 2 * T 3) ^ 10 = 1 := by
   have h := evalWord_yGen_of_mem (p := 3) (q := 4) (r := 3)

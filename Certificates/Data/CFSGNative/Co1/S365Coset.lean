@@ -41,5 +41,15 @@ open CFSG.Sporadic.SmallF2.Native CFSG.Sporadic.Co1.InvNative
     else break
   return (pts, par, lab)
 
+@[expose] def coverBad4 (qr pts : Array Nat) (pos : Array UInt32) (n x y : Nat) (inL : Nat → Bool)
+    (v : Nat) : Bool :=
+  tyLabN qr pts pos n v == 1 && tyLabN qr pts pos n (v ^^^ x) == 1 &&
+    tyLabN qr pts pos n (v ^^^ y) == 1 && tyLabN qr pts pos n (v ^^^ x ^^^ y) == 1 &&
+    !inL (canon4 x y v)
+
+@[expose] def coverCheckN (qr pts : Array Nat) (pos : Array UInt32) (n x y : Nat)
+    (L : Array Nat) : Bool :=
+  let S : Std.HashSet Nat := Std.HashSet.ofList L.toList
+  countBelow (coverBad4 qr pts pos n x y (fun u => S.contains u)) 16777216 0 == 0
 
 end CFSG.Sporadic.Co1.S365Native

@@ -170,6 +170,13 @@ theorem testBit_stepW (hV : VN NW NT) (S x : Nat) (hx : x < 524288) :
       · exact Or.inl h'
       · exact Or.inr ⟨w', List.mem_cons_of_mem w hw', h'⟩
 
+theorem stepW_of (S x : Nat) : ∀ {ws : List (List Nat)}, S.testBit x = true →
+    (stepW NW NT ws S).testBit x = true
+  | [], h => h
+  | w :: ws, h => by
+    have e : stepW NW NT (w :: ws) S = Nat.lor (wkC NW NT w S) (stepW NW NT ws S) :=
+      Fi24NetPt.strictN_eq _ _
+    rw [e, nlor, Nat.testBit_or, stepW_of S x h, Bool.or_true]
 
 theorem iterW_spec (hV : VN NW NT) (ws : List (List Nat)) (S : Nat) :
     ∀ d x, x < 524288 → (iterW NW NT ws d S).testBit x = true →

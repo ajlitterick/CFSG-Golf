@@ -24,6 +24,15 @@ meta def forallLt (k : Nat) (body : Expr → Expr) : Expr :=
     (mkAppN (mkConst ``LT.lt [0]) #[natT, mkConst ``instLTNat, mkBVar 0, lit k])
     (body (mkBVar 1)))
 
+meta def addChain (P : Name) (nm allNm : String) (k : Nat) (ty : Expr → Expr) : CoreM Unit := do
+  for q in [0:k] do
+    let nmq := P ++ Name.mkSimple (nm ++ toString q)
+    CFSG.KC.addThmDecl <| { name := nmq, levelParams := [], type := ty (lit q), value := reflBoolTrue }
+  let lam := mkLambda `q .default natT (ty (mkBVar 0))
+  let v := forallChain lam k fun q => mkConst (P ++ Name.mkSimple (nm ++ toString q))
+  let nmAll := P ++ Name.mkSimple allNm
+  let tyAll := forallLt k ty
+  CFSG.KC.addThmDecl <| { name := nmAll, levelParams := [], type := tyAll, value := v }
 
 meta def idxE (g : Expr) (R : Nat) (r : Expr) : Expr :=
   mkApp2 (mkConst ``Nat.add) (mkApp2 (mkConst ``Nat.mul) g (lit R)) r

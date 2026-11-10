@@ -80,46 +80,57 @@ theorem bF11 : relsSub CFSG.KD.F11.selRT CFSG.KD.F10.selRT MF10 (nat_lit 1) (nat
 theorem bHF1 : hintsOK CFSG.KD.F1.selWT (nat_lit 512) (nat_lit 80) (nat_lit 10) CFSG.KD.F1.HS = true := by
   quickRfl
 
+theorem bAF1 : aliveOK CFSG.KD.F1.LVs (nat_lit 117) CFSG.KD.F1.nC nAF1 = true := by quickRfl
 
 theorem bHF2 : hintsOK CFSG.KD.F2.selWT (nat_lit 1024) (nat_lit 66) (nat_lit 9) CFSG.KD.F2.HS = true := by
   quickRfl
 
+theorem bAF2 : aliveOK CFSG.KD.F2.LVs (nat_lit 227) CFSG.KD.F2.nC nAF2 = true := by quickRfl
 
 theorem bHF3 : hintsOK CFSG.KD.F3.selWT (nat_lit 512) (nat_lit 55) (nat_lit 8) CFSG.KD.F3.HS = true := by
   quickRfl
 
+theorem bAF3 : aliveOK CFSG.KD.F3.LVs (nat_lit 12) CFSG.KD.F3.nC nAF3 = true := by quickRfl
 
 theorem bHF4 : hintsOK CFSG.KD.F4.selWT (nat_lit 128) (nat_lit 45) (nat_lit 7) CFSG.KD.F4.HS = true := by
   quickRfl
 
+theorem bAF4 : aliveOK CFSG.KD.F4.LVs (nat_lit 1) CFSG.KD.F4.nC nAF4 = true := by quickRfl
 
 theorem bHF5 : hintsOK CFSG.KD.F5.selWT (nat_lit 128) (nat_lit 36) (nat_lit 6) CFSG.KD.F5.HS = true := by
   quickRfl
 
+theorem bAF5 : aliveOK CFSG.KD.F5.LVs (nat_lit 1) CFSG.KD.F5.nC nAF5 = true := by quickRfl
 
 theorem bHF6 : hintsOK CFSG.KD.F6.selWT (nat_lit 64) (nat_lit 21) (nat_lit 5) CFSG.KD.F6.HS = true := by
   quickRfl
 
+theorem bAF6 : aliveOK CFSG.KD.F6.LVs (nat_lit 1) CFSG.KD.F6.nC nAF6 = true := by quickRfl
 
 theorem bHF7 : hintsOK CFSG.KD.F7.selWT (nat_lit 32) (nat_lit 15) (nat_lit 4) CFSG.KD.F7.HS = true := by
   quickRfl
 
+theorem bAF7 : aliveOK CFSG.KD.F7.LVs (nat_lit 1) CFSG.KD.F7.nC nAF7 = true := by quickRfl
 
 theorem bHF8 : hintsOK CFSG.KD.F8.selWT (nat_lit 32) (nat_lit 10) (nat_lit 3) CFSG.KD.F8.HS = true := by
   quickRfl
 
+theorem bAF8 : aliveOK CFSG.KD.F8.LVs (nat_lit 1) CFSG.KD.F8.nC nAF8 = true := by quickRfl
 
 theorem bHF9 : hintsOK CFSG.KD.F9.selWT (nat_lit 16) (nat_lit 6) (nat_lit 2) CFSG.KD.F9.HS = true := by
   quickRfl
 
+theorem bAF9 : aliveOK CFSG.KD.F9.LVs (nat_lit 1) CFSG.KD.F9.nC nAF9 = true := by quickRfl
 
 theorem bHF10 : hintsOK CFSG.KD.F10.selWT (nat_lit 4) (nat_lit 3) (nat_lit 1) CFSG.KD.F10.HS = true := by
   quickRfl
 
+theorem bAF10 : aliveOK CFSG.KD.F10.LVs (nat_lit 1) CFSG.KD.F10.nC nAF10 = true := by quickRfl
 
 theorem bHF11 : hintsOK CFSG.KD.F11.selWT (nat_lit 2) (nat_lit 1) (nat_lit 0) CFSG.KD.F11.HS = true := by
   quickRfl
 
+theorem bAF11 : aliveOK CFSG.KD.F11.LVs (nat_lit 1) CFSG.KD.F11.nC nAF11 = true := by quickRfl
 
 end CFSG.KD.Fi24B
 

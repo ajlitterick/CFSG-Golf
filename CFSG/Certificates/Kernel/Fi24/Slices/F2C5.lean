@@ -7,6 +7,8 @@ public section
 
 namespace CFSG.KD.F2
 
+theorem okC_5 : ∀ t < 296, okC (296 * 5 + t) = true := by
+  kc_cover 1
 
 end CFSG.KD.F2
 

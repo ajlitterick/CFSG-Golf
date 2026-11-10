@@ -61,6 +61,11 @@ open CFSG.KC.Ord CFSG.KC.LQT.P
 @[expose] noncomputable def ofIdx (n : Nat) : Nat :=
   mk9 fun k => Nat.mod (Nat.div n (Nat.pow 3 k)) 3
 
+@[expose] noncomputable def allSL (f : Nat → Bool) : Bool :=
+  allN 19683 fun n => letB (ofIdx n) fun x => impB (Nat.beq (detK x) 1) (f x)
+
+@[expose] noncomputable def anySL (f : Nat → Bool) : Bool :=
+  anyN 19683 fun n => letB (ofIdx n) fun x => andB (Nat.beq (detK x) 1) (f x)
 
 @[expose] noncomputable def allSLc (c : Nat) (f : Nat → Bool) : Bool :=
   allN 1024 fun i => letB (Nat.add (Nat.mul 1024 c) i) fun n => impB (Nat.blt n 19683)

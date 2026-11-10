@@ -189,15 +189,45 @@ end CFSG.KD.ThS.Rows_Sm_Y3
 #kc_rows_unfold CFSG.KD.ThS.Rows_Sm_Y3.f17 1 as CFSG.KD.ThS.bs3_3_ names CFSG.KD.ThS.Rows_Sm_Y3.f17I
   eval CFSG.KD.ThS.Rows_Sm_Y3.f17P CFSG.KD.ThS.Rows_Sm_Y3.f17l0
 
+theorem CFSG.KD.ThS.sd3 : CFSG.KC.Th.andB (Nat.beq (CFSG.KD.ThS.RBp3 (nat_lit 1)) (CFSG.KD.ThS.RBf
+    (nat_lit 1))) (Nat.beq (CFSG.KD.ThS.RBp3 (nat_lit 2)) (CFSG.KD.ThS.RBf (nat_lit 2))) = true :=
+    by
+  quickRfl
 
 theorem CFSG.KD.ThS.pw3 : CFSG.KC.Th.BigS.pwOK CFSG.KD.ThS.RBp3 CFSG.KD.ThS.PW3 CFSG.KD.ThS.c
     CFSG.KD.ThS.rm CFSG.KD.ThS.PR3 (nat_lit 10) (nat_lit 3) = true := by
   quickRfl
 
+theorem CFSG.KD.ThS.gpc3 : CFSG.KC.Th.BigS.gensPcOK CFSG.KD.ThS.GL3 (nat_lit 3) CFSG.KD.ThS.PR3
+    CFSG.KD.ThS.n3 (nat_lit 2080) = true := by
+  quickRfl
 
 theorem CFSG.KD.ThS.rg3 : CFSG.KC.Th.andB (CFSG.KC.Th.BigS.regsIn CFSG.KD.ThS.PR3 CFSG.KD.ThS.n3
     (nat_lit 67)) (CFSG.KC.Th.BigS.regsIn CFSG.KD.ThS.GL3 (nat_lit 3) (nat_lit 67)) = true := by
   quickRfl
 
+theorem CFSG.KD.ThS.bf3_0 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp3 CFSG.KD.ThS.rm
+    CFSG.KD.ThS.PR3 (CFSG.KD.ThS.PT3_0 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL3 (nat_lit
+    5) (nat_lit 5)) (nat_lit 10) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bf3_1 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp3 CFSG.KD.ThS.rm
+    CFSG.KD.ThS.PR3 (CFSG.KD.ThS.PT3_1 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL3 (nat_lit
+    15) (nat_lit 5)) (nat_lit 10) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bf3_2 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp3 CFSG.KD.ThS.rm
+    CFSG.KD.ThS.PR3 (CFSG.KD.ThS.PT3_2 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL3 (nat_lit
+    25) (nat_lit 5)) (nat_lit 10) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bf3_3 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp3 CFSG.KD.ThS.rm
+    CFSG.KD.ThS.PR3 (CFSG.KD.ThS.PT3_3 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL3 (nat_lit
+    35) (nat_lit 5)) (nat_lit 10) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bl3 : CFSG.KC.Th.BigS.blocksOK CFSG.KD.ThS.BL3 CFSG.KD.ThS.nb3 CFSG.KD.ThS.n3 =
+    true := by
+  quickRfl
 
 end

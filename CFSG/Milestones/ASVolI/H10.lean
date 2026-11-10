@@ -20,5 +20,9 @@ namespace CFSG.ASVolI
 
 open CFSG.Quasithin CFSG.ASVolI.ChH
 
+@[expose] def H_10_1 : Prop :=
+  ∀ (V : Type) [CommGroup V] [Finite V], (∀ v : V, v ^ 2 = 1) →
+  ∀ (M A : Subgroup (MulAut V)), IsA2 M A → xiSub A = E3.gammaCheck (rk ↥A - 1) A
+
 
 end CFSG.ASVolI

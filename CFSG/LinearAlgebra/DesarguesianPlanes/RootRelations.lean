@@ -83,6 +83,9 @@ theorem BrauerRootRelations.commIn_10_21_20 :
     CommIn (rootSub φ Y 1 0) (rootSub φ Y 2 1) (rootSub φ Y 2 0) := by
   simpa using commIn_succ hZ hZodd h2 hJ hY₁ hY₂ (hR.commIn_02_10_12 hZ hZodd h2 hJ hY₁ hY₂)
 
+theorem BrauerRootRelations.commIn_20_12_10 :
+    CommIn (rootSub φ Y 2 0) (rootSub φ Y 1 2) (rootSub φ Y 1 0) := by
+  simpa [swap01] using commIn_swap hZ hZodd h2 hJ hY₁ hY₂ hR.commIn_X₂_one_X₂_two
 
 theorem BrauerRootRelations.commIn_12_01_02 :
     CommIn (rootSub φ Y 1 2) (rootSub φ Y 0 1) (rootSub φ Y 0 2) := by

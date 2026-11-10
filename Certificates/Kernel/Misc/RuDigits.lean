@@ -19,6 +19,20 @@ namespace CertificateChecks.KernelRu
 
 open CFSG.Quasithin CFSG.Open CFSG.Blueprint.NativeSporadic
 
+theorem ch7033_1 : nativeModeOneEntries RuSeed1 = quasithinDigits quasithinRuData1 := by
+  rw [S1.eq, D1.eq, nativeModeOneEntries, quasithinDigits, String.toList_ofList,
+    String.toList_ofList]
+  decide +kernel
+
+theorem ch7033_2 : nativeModeOneEntries RuSeed2 = quasithinDigits quasithinRuData2 := by
+  rw [S2.eq, D2.eq, nativeModeOneEntries, quasithinDigits, String.toList_ofList,
+    String.toList_ofList]
+  decide +kernel
+
+theorem ch7033_neg : nativeModeOneEntries RuSeed1 ≠ quasithinDigits quasithinRuData2 := by
+  rw [S1.eq, D2.eq, nativeModeOneEntries, quasithinDigits, String.toList_ofList,
+    String.toList_ofList]
+  decide +kernel
 
 end CertificateChecks.KernelRu
 

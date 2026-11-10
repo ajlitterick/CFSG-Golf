@@ -10,6 +10,17 @@ open CFSG.Quasithin CFSG.CosetTable
 
 section Sem
 
+variable {N n : ℕ} {X : Subgroup (Equiv.Perm (Fin N))}
+
+
+variable {G : Fin n → ↥X} {LS LSi : List (List ℕ)}
+
+
+theorem burnsideF48s_e_getD_mem {α : Type*} (l : List α) {i : ℕ} (hi : i < l.length) (d : α) :
+    l.getD i d ∈ l := by
+  rw [List.getD_eq_getElem _ _ hi]
+  exact List.getElem_mem _
+
 
 end Sem
 

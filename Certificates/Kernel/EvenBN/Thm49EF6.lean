@@ -44,6 +44,15 @@ open CFSG.KC.Enum CFSG.KS CFSG.KD.T49
 
 theorem f6K_w42 : f6K w42 = true := by quickRfl
 
+theorem f6K_neg_yp : (f6K { w42 with yp := 7 }).not = true := by quickRfl
+
+theorem f6K_neg_fz : (f6K { w42 with fz := w42.fz.tail }).not = true := by quickRfl
+
+theorem f6K_neg_o1 : (f6K { w42 with o1 := w42.o1.tail }).not = true := by quickRfl
+
+theorem f6K_neg_o2 : (f6K { w42 with o2 := [] }).not = true := by quickRfl
+
+theorem f6K_neg_f : (f6K { w42 with fw := [1] }).not = true := by quickRfl
 
 end CertificateChecks.KernelT49
 

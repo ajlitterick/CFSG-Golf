@@ -173,6 +173,10 @@ theorem eYN_pi0 (a : Nat) (η : Bool) (c : Nat) : Model.eYN a η (Model.pi0N c) 
   unfold Model.eYN
   rw [pi0_pi0]
 
+theorem ePermN_pi0 (p : Array Nat) (η : Bool) (c : Nat) :
+    Model.ePermN p η (Model.pi0N c) = Model.ePermN p η c := by
+  unfold Model.ePermN
+  rw [pi0_pi0]
 
 theorem ePauliN_pi0 (q : Model.Pauli) (η : Bool) (c : Nat) :
     Model.ePauliN q η (Model.pi0N c) = Model.ePauliN q η c := by

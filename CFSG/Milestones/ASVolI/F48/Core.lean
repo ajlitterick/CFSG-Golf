@@ -32,6 +32,13 @@ theorem burnsideF48_TC.hval {α : RankTwoAmalgam.{0}} {Y : Type} [Group Y] {c : 
     {m : ℕ} (T : burnsideF48_TC c m) : ∀ v a b : c.Γ, ∃ w, c.graph.Adj v w ∧ w ≠ a ∧ w ≠ b :=
   CFSG.ASVolI.ChF.burnsideF4a_hval T.faithful T.thick1 T.thick2
 
+open CFSG.Quasithin CFSG.Quasithin.RankTwoAmalgam CFSG.Quasithin.RankTwoAmalgam.Completion in
+theorem burnsideF48_TC.f35 {α : RankTwoAmalgam.{0}} {Y : Type} [Group Y] {c : α.Completion Y}
+    {m : ℕ} (T : burnsideF48_TC c m) {a : c.Γ} {p : GPath c.graph (m + 1)}
+    (hp : p ∈ GPath.nbPaths c.graph a (m + 1)) : GPath.F35Conclusion c.graph c.G0 a m p :=
+  GPath.lemma_F35 T.hval (T.trans a) (CosetGeom.connected rfl)
+    (fun _ _ h => CosetGeom.vtype_ne_of_adj h) T.hm hp
+
 
 open CFSG.Quasithin CFSG.Quasithin.H13.F431 CFSG.Quasithin.RankTwoAmalgam
   CFSG.Quasithin.RankTwoAmalgam.Completion in

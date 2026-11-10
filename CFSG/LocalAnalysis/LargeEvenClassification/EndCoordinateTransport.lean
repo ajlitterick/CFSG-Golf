@@ -65,8 +65,6 @@ theorem addEndCoordinateTransport_principal_iff {Source : Type sourceUniverse}
 
 section Action
 
-variable {Abelian : Type sourceUniverse} [CommGroup Abelian]
-
 
 end Action
 

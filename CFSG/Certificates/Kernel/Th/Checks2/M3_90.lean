@@ -37,5 +37,16 @@ theorem CFSG.KD.ThM3.pz : Nat.beq (CFSG.KC.Th.BigS.wordAB CFSG.KD.ThS.c CFSG.KD.
     16)) = true := by
   quickRfl
 
+theorem CFSG.KD.ThM3.pq3 : Nat.beq (CFSG.KC.Th.BigS.wordAB CFSG.KD.ThS.c CFSG.KD.ThS.rm
+    CFSG.KD.ThS.ONE (CFSG.KD.ThM3.RB (nat_lit 13)) (CFSG.KD.ThM3.RB (nat_lit 14)) (CFSG.KD.ThM3.RB
+    (nat_lit 15)) (nat_lit 340018248) (nat_lit 16)) (CFSG.KC.Th.mulB CFSG.KD.ThS.c CFSG.KD.ThS.rm
+    (CFSG.KD.ThM3.RB (nat_lit 20)) (CFSG.KD.ThM3.RB (nat_lit 16))) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThM3.pq7 : Nat.beq (CFSG.KC.Th.BigS.wordAB CFSG.KD.ThS.c CFSG.KD.ThS.rm
+    CFSG.KD.ThS.ONE (CFSG.KD.ThM3.RB (nat_lit 13)) (CFSG.KD.ThM3.RB (nat_lit 14)) (CFSG.KD.ThM3.RB
+    (nat_lit 15)) (nat_lit 74159768712) (nat_lit 20)) (CFSG.KC.Th.mulB CFSG.KD.ThS.c CFSG.KD.ThS.rm
+    (CFSG.KD.ThM3.RB (nat_lit 24)) (CFSG.KD.ThM3.RB (nat_lit 16))) = true := by
+  quickRfl
 
 end

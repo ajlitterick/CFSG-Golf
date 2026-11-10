@@ -39,6 +39,7 @@ theorem tb_5 : tb3 o0w5 = true := by quickRfl
 theorem tb_6 : tb3 o0w6 = true := by quickRfl
 theorem tb_7 : tb3 o0w7 = true := by quickRfl
 
+theorem tb_neg : tbK T6 6 [xorFields Bs6 1] = false := by decide +kernel
 
 theorem tb_ok : ∀ e ∈ o0w, 2 ^ 6 ≤ xorFields T6 (eV e) ∧ 2 ^ 8 ≤ xorFields T8 (eV e) ∧
     2 ^ 10 ≤ xorFields T10 (eV e) := by

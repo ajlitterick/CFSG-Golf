@@ -300,6 +300,9 @@ variable (F)
 @[expose] def Lij (i j : Fin n) : Subgroup (Matrix.SpecialLinearGroup (Fin n) F) :=
   Rij F i j ⊔ Rij F j i
 
+@[expose] def Vij (i j : Fin n) : Submodule F (Fin n → F) := Vi F n i ⊔ Vi F n j
+
+@[expose] def Vhatij (i j : Fin n) : Submodule F (Fin n → F) := Vhat F n i ⊓ Vhat F n j
 
 @[expose] def commSub (X : Subgroup (Matrix.SpecialLinearGroup (Fin n) F)) : Submodule F (Fin n → F) :=
   Submodule.span F {w | ∃ t ∈ X, ∃ v : Fin n → F, w = t • v - v}
@@ -317,6 +320,11 @@ variable (F)
     rw [smul_eq_mulVec'] at h1 ⊢
     rw [Matrix.mulVec_smul, h1]
 
+@[expose] def ptStab (W : Submodule F (Fin n → F)) : Subgroup (Matrix.SpecialLinearGroup (Fin n) F) where
+  carrier := {A | ∀ v ∈ W, A • v = v}
+  one_mem' := fun v _ => one_smul _ v
+  mul_mem' := fun {A B} hA hB v hv => by rw [mul_smul, hB v hv, hA v hv]
+  inv_mem' := fun {A} hA v hv => by rw [inv_smul_eq_iff]; exact (hA v hv).symm
 
 @[expose] def setStab (W : Submodule F (Fin n → F)) : Subgroup (Matrix.SpecialLinearGroup (Fin n) F) where
   carrier := {A | ∀ v, v ∈ W ↔ A • v ∈ W}

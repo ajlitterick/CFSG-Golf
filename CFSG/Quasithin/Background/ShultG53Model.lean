@@ -18,4 +18,8 @@ abbrev V4 : Type := Fin 4 → ZMod 2
   if k = 0 then heartHom σ else heartHom (totalPermHom σ)
 
 
+@[expose] def B0 (x y : V4) : ZMod 2 :=
+  x 0 * y 1 + x 1 * y 0 + x 1 * y 2 + x 2 * y 1 + x 2 * y 3 + x 3 * y 2
+
+
 end CFSG.Quasithin.ShultG53

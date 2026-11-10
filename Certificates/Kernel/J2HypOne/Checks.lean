@@ -50,5 +50,10 @@ theorem ch24273e8 : e8K = true := by quickRfl
 
 theorem ch24273four : ord2K (pc (pc (pc (E 3) (E 4)) (EI 3)) (E 4)) = true := by quickRfl
 
+theorem ch24273neg_ord : bIf(ord2K (E 3), false, true) = true := by quickRfl
+
+theorem ch24273neg_comm : bIf(commK24273 (E 0) (E 3), false, true) = true := by quickRfl
+
+theorem ch24273neg_sift : bIf(sP (E 4), false, true) = true := by quickRfl
 
 end CertificateChecks.KernelJ2HypOne

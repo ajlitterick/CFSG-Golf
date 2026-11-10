@@ -20,11 +20,17 @@ open CFSG.KC CFSG.KC.DceS CFSG.KC.Bind
 @[expose] noncomputable def relsOK (MPT RT : Nat → Nat) (MM R : Nat) : Bool :=
   Nat.rec (motive := fun _ => Bool) true (fun r acc => andB acc (Nat.beq (evalLce MPT MM (RT r)) idP)) R
 
+@[expose] noncomputable def mpOK (MPT : Nat → Nat) (n : Nat) : Bool :=
+  Nat.rec (motive := fun _ => Bool) true (fun k acc => andB acc (isPerm (MPT k))) n
 
 @[expose] noncomputable def d1LetOK (LT MPT : Nat → Nat) (NL TL MMD : Nat) : Bool :=
   Nat.rec (motive := fun _ => Bool) true (fun c acc => andB acc (orB (Nat.beq c TL)
     (andB (Nat.blt (mget MMD c) (nat_lit 255)) (Nat.beq (Nat.land (LT c) m64) (MPT (mget MMD c)))))) NL
 
+@[expose] noncomputable def tFixOK (MPT ST PBT OMT : Nat → Nat) (MM K NB I0 : Nat) : Bool :=
+  Nat.rec (motive := fun _ => Bool) true (fun j acc => andB acc
+    (letB (evalLce MPT MM (ST j)) (fun g => andB (Nat.blt (nat_lit 0) g)
+      (andB (Nat.beq (pmul g g) idP) (gOmOK NB (PBT I0) g (OMT I0)))))) K
 
 @[expose] noncomputable def tGens (MPT ST : Nat → Nat) (MM K : Nat) : Nat :=
   packGens (fun j => evalLce MPT MM (ST j)) K

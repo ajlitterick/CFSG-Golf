@@ -271,6 +271,17 @@ theorem progCert {L : List (List ℕ)} {tab : List (ℕ × ℕ × ℕ)} {prog : 
   rw [e1, ht]
   rfl
 
+example : runOK [(0, 1, 2)] [.mu 1 2 3] [some 2] init2 = true := by decide
+example : runOK [(0, 1, 2)] [.mu 1 2 3] [some 3] init2 = false := by decide
+example : runOK [(0, 1, 2)] [.mu 2 1 3] [some 2] init2 = false := by decide
+example : runOK [] [.iv 1 3] [none] init2 = false := by decide
+example : runOK [(0, 0, 2), (0, 2, 3)] [.pwr 3 1 4] [some 3] init2 = true := by decide
+example : runOK [(0, 0, 2), (0, 2, 3)] [.pwr 3 1 4] [some 2] init2 = false := by decide
+example : ordOK 2 [(0, 1, 2)] = true := by decide
+example : ordOK 2 [(0, 1, 3)] = false := by decide
+example : ordOK 2 [(0, 2, 2)] = false := by decide
+example : finOK (finSt [.mu 1 2 3] [some 2] init2) (fun _ => 3) 3 0 [2] = true := by decide
+example : finOK (finSt [.mu 1 2 3] [some 2] init2) (fun _ => 3) 3 0 [1] = false := by decide
 
 end CFSG.KC.BM.Run
 

@@ -21,9 +21,19 @@ namespace CFSG.KD.SuzB
 
 @[expose] noncomputable def R12 : Nat := R3
 
+@[expose] noncomputable def R13 : Nat := R4
+
+@[expose] noncomputable def R14 : Nat := R5
+
+@[expose] noncomputable def R15 : Nat := R6
+
+@[expose] noncomputable def R16 : Nat := R7
+
+@[expose] noncomputable def R17 : Nat := R8
 
 @[expose] noncomputable def R18 : Nat := R9
 
+@[expose] noncomputable def R3bad : Nat := Nat.add R3 1
 
 end CFSG.KD.SuzB
 

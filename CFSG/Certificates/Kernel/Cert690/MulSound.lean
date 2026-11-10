@@ -40,6 +40,10 @@ theorem testBit_bit01 (z k : ℕ) {i : ℕ} (hi : i < 6) :
     simp only [Bool.not_eq_true] at h
     rw [h, mul_zero, Nat.zero_testBit]
 
+theorem testBit_six (c : ℕ) (hc : c < 64) {j : ℕ} (hj : 6 ≤ j) : c.testBit j = false :=
+  Nat.testBit_lt_two_pow (lt_of_lt_of_le hc (by
+    calc 64 = 2 ^ 6 := by norm_num
+      _ ≤ 2 ^ j := Nat.pow_le_pow_right (by norm_num) hj))
 
 theorem testBit_pack6 {c₀ c₁ c₂ c₃ c₄ c₅ : ℕ} (h₀ : c₀ < 64) (h₁ : c₁ < 64) (h₂ : c₂ < 64)
     (h₃ : c₃ < 64) (h₄ : c₄ < 64) {j i : ℕ} (hj : j < 6) (hi : i < 6) :

@@ -44,6 +44,11 @@ theorem ch725107r :
       (pT7 (cands7.getD 4 [])) (IR.R.getD 3 []) = true :=
   ⟨by quickRfl, by quickRfl, by quickRfl, by quickRfl⟩
 
+theorem ch725107n_b : notB (psubOK 36 6 (pT7 (cands7.getD 2 [])) (pT7 (cands7.getD 0 []))) =
+    true := by quickRfl
+
+theorem ch725107n_r : notB (pirrW 36 6 7 (packT 6 x7T) (pinv 36 6 (packT 6 x7T))
+    (pT7 (cands7.getD 0 [])) (pT7 (cands7.getD 2 [])) (IR.R.getD 1 [])) = true := by quickRfl
 
 end CertificateChecks.KernelS6I
 

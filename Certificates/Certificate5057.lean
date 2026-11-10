@@ -44,6 +44,9 @@ open Equiv Perm Subgroup CFSG.GH74.GLS.C3.Prop121 CFSG.GH74.GLS.C3.Layer2 CFSG.G
 
 set_option maxRecDepth 100000
 
+private theorem sh1WW_chk_0 : (sh1WW.all fun pw => decide (evalWG sh1Gens pw.2 = pw.1)) = true ∧
+    sh1WW.length = 128 ∧ (sh1WW.map fun pw => codeP16 pw.1).Nodup := by
+  decide +kernel
 
 end CertificateChecks.Batch5057
 

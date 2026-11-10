@@ -53,6 +53,11 @@ variable {V : Type} [AddCommGroup V] [Module (ZMod 2) V]
         Matrix (Fin 2) (Fin 2) (GaloisField 2 2))).mulVec b →
         ψ ((γ : GLV V) (ψ.symm (a ⊗ₜ b))) = a' ⊗ₜ b'
 
+@[expose] def IsG112NinePartial (Γ : Subgroup (GLV V)) : Prop :=
+  Module.finrank (ZMod 2) V = 8 ∧
+    (Nonempty (↥Γ ≃* (Equiv.Perm (Fin 3) × Equiv.Perm (Fin 5))) ∨
+      Nonempty (↥Γ ≃* (Equiv.Perm (Fin 3) × ↥(alternatingGroup (Fin 5))))) ∧
+    ∃ Γ₀ : Subgroup (GLV V), Γ₀ ≤ Γ ∧ Γ₀.relIndex Γ ≤ 2 ∧ (IsTensorD3Core5 Γ₀ ∨ IsTensorD3Nat24 Γ₀)
 
 @[expose] def IsTensorD3Perm5 (Γ : Subgroup (GLV V)) : Prop :=
   ∃ (φ : ↥Γ ≃* (Equiv.Perm (Fin 3) × Equiv.Perm (Fin 5)))
@@ -101,6 +106,8 @@ variable {V : Type} [AddCommGroup V] [Module (ZMod 2) V]
     (∀ (p : ↥P) (a : ↥(permCore 6)) (b : GaloisField 2 2),
       β (a ⊗ₜ (((θ p : (GaloisField 2 2)ˣ) : GaloisField 2 2) * b)) = (p : GLV V) (β (a ⊗ₜ b)))
 
+@[expose] def IsTensorA6Z3 (E P : Subgroup (GLV V)) : Prop :=
+  ∃ φ : ↥E ≃* ↥(alternatingGroup (Fin 6)), TensorA6Z3WithMarking E P φ
 
 @[expose] def IsG112Ten (Γ X : Subgroup (GLV V)) : Prop :=
   Module.finrank (ZMod 2) V = 8 ∧
@@ -115,6 +122,18 @@ variable {V : Type} [AddCommGroup V] [Module (ZMod 2) V]
           ((φ e' : ↥(alternatingGroup (Fin 6))) : Equiv.Perm (Fin 6)) =
             τ * ((φ e : ↥(alternatingGroup (Fin 6))) : Equiv.Perm (Fin 6)) * τ⁻¹)
 
+@[expose] def IsG112TenLegacy (Γ X : Subgroup (GLV V)) : Prop :=
+  Module.finrank (ZMod 2) V = 8 ∧
+    ∃ (E P : Subgroup (GLV V)) (x : GLV V),
+      E = (genFittingLayer ↥Γ).map Γ.subtype ∧ P = (CFSG.pCore 3 ↥Γ).map Γ.subtype ∧
+      Nat.card P = 3 ∧ E ⊓ P = ⊥ ∧ (∀ e ∈ E, ∀ p ∈ P, e * p = p * e) ∧
+      (genFittingFStar ↥Γ).map Γ.subtype = E ⊔ P ∧
+      x ∈ X ∧ x ∈ Γ ∧ Γ = (E ⊔ P) ⊔ Subgroup.zpowers x ∧ (∀ p ∈ P, x * p * x⁻¹ = p⁻¹) ∧
+      (∃ (φ : ↥E ≃* ↥(alternatingGroup (Fin 6))) (τ : Equiv.Perm (Fin 6)),
+        τ.IsSwap ∧ ∀ e e' : ↥E, x * (e : GLV V) * x⁻¹ = (e' : GLV V) →
+          ((φ e' : ↥(alternatingGroup (Fin 6))) : Equiv.Perm (Fin 6)) =
+            τ * ((φ e : ↥(alternatingGroup (Fin 6))) : Equiv.Perm (Fin 6)) * τ⁻¹) ∧
+      IsTensorA6Z3 E P
 
 @[expose] def fStarIn (Γ : Subgroup (GLV V)) : Subgroup (GLV V) :=
   (genFittingFStar ↥Γ).map Γ.subtype
@@ -137,6 +156,23 @@ variable {V : Type} [AddCommGroup V] [Module (ZMod 2) V]
   (Module.finrank (ZMod 2) V = 12 ∧
     ∃ N : Subgroup ↥Γ, N.Normal ∧ N.index = 2 ∧ IsHat ↥N ↥CFSG.Blueprint.NativeSporadic.M22)
 
+@[expose] def G112FaithfulLegacy (B : LinearMap.BilinForm (ZMod 2) V) (Γ X : Subgroup (GLV V)) : Prop :=
+  (Module.finrank (ZMod 2) V = 2 ∧ Nonempty (↥Γ ≃* Equiv.Perm (Fin 3))) ∨
+  (Module.finrank (ZMod 2) V = 4 ∧ (10 ∣ Nat.card ↥Γ ∨ 18 ∣ Nat.card ↥Γ)) ∨
+  (Module.finrank (ZMod 2) V = 6 ∧ IsSubSD16Heis Γ) ∨
+  G112Concl4 Γ ∨
+  G112Concl5 B Γ ∨
+  (Module.finrank (ZMod 2) V = 6 ∧ IsG2NaturalModule Γ (CFSG.Open.quasithinG2 (ZMod 2))) ∨
+  (Module.finrank (ZMod 2) V = 8 ∧
+    IsNaturalMatrixModule (fStarIn Γ) (StatedOmega (StatedQuadPlus 2 (GaloisField 2 2))) ∧
+    ¬ X ≤ fStarIn Γ) ∨
+  G112Concl8 B Γ X ∨ G112Concl8S8 B Γ X ∨
+  IsG112NinePartial Γ ∨
+  IsG112TenLegacy Γ X ∨
+  (Module.finrank (ZMod 2) V = 8 ∧ IsL28TwistedTensorModule (fStarIn Γ)) ∨
+  G112Concl12 Γ X ∨
+  (Module.finrank (ZMod 2) V = 12 ∧
+    ∃ N : Subgroup ↥Γ, N.Normal ∧ N.index = 2 ∧ IsHat ↥N ↥CFSG.Blueprint.NativeSporadic.M22)
 
 @[expose] def G112ProposedU33 (Γ : Subgroup (GLV V)) : Prop :=
   Module.finrank (ZMod 2) V = 6 ∧
@@ -146,11 +182,25 @@ variable {V : Type} [AddCommGroup V] [Module (ZMod 2) V]
     (Γ X : Subgroup (GLV V)) : Prop :=
   G112Faithful B Γ X ∨ G112ProposedU33 Γ
 
+@[expose] def G112FaithfulLegacyWithU33 (B : LinearMap.BilinForm (ZMod 2) V)
+    (Γ X : Subgroup (GLV V)) : Prop :=
+  G112FaithfulLegacy B Γ X ∨ G112ProposedU33 Γ
 
 section Counterexample
 
 variable {V : Type} [AddCommGroup V] [Module (ZMod 2) V] [Finite V]
 
+structure G11CxF (B : LinearMap.BilinForm (ZMod 2) V) (Γ : Subgroup (GLV V)) (v₁ : V)
+    (W : Submodule (ZMod 2) V) (X X₀ : Subgroup (GLV V)) : Prop where
+  hyp : G111Hyp B Γ v₁ W X X₀
+  sqtk : IsQuotientOfSQTKTauCeti ↥Γ
+  notConcl : ¬ G112FaithfulLegacyWithU33 B Γ X
+
+structure G11SetupF (B : LinearMap.BilinForm (ZMod 2) V) (Γ : Subgroup (GLV V)) (v₁ : V)
+    (W : Submodule (ZMod 2) V) (X X₀ L : Subgroup (GLV V)) : Prop where
+  cx : G11CxF B Γ v₁ W X X₀
+  h108 : G108Hyp B Γ v₁ W X X₀ L
+  numConj : numConjugates Γ L ≤ 2
 
 structure G11CanonicalCx (B : LinearMap.BilinForm (ZMod 2) V) (Γ : Subgroup (GLV V)) (v₁ : V)
     (W : Submodule (ZMod 2) V) (X X₀ : Subgroup (GLV V)) : Prop where
@@ -178,12 +228,40 @@ open CFSG.Open CFSG.QuasithinUnique CFSG.Quasithin CFSG.Quasithin.G11 CFSG.ASVol
     (W : Submodule (ZMod 2) V) (X X₀ : Subgroup (GLV V)),
     G111Hyp B Γ v₁ W X X₀ → IsQuotientOfSQTKTauCeti ↥Γ → G112FaithfulWithU33 B Γ X
 
+@[expose] def G_11_4 : Prop :=
+  ∀ (V : Type) [AddCommGroup V] [Module (ZMod 2) V] [Finite V]
+    (B : LinearMap.BilinForm (ZMod 2) V) (Γ : Subgroup (GLV V)) (v₁ : V)
+    (W : Submodule (ZMod 2) V) (X X₀ : Subgroup (GLV V)), G11CxF B Γ v₁ W X X₀ → IsIrr Γ ⊤
+
+
+@[expose] def G_11_5 : Prop :=
+  ∀ (V : Type) [AddCommGroup V] [Module (ZMod 2) V] [Finite V]
+    (B : LinearMap.BilinForm (ZMod 2) V) (Γ : Subgroup (GLV V)) (v₁ : V)
+    (W : Submodule (ZMod 2) V) (X X₀ : Subgroup (GLV V)), G11CxF B Γ v₁ W X X₀ →
+      ∃ x ∈ X, x ≠ 1 ∧ ∀ f ∈ fittingOf Γ, x * f = f * x
+
+
+@[expose] def G_11_6 : Prop :=
+  ∀ (V : Type) [AddCommGroup V] [Module (ZMod 2) V] [Finite V]
+    (B : LinearMap.BilinForm (ZMod 2) V) (Γ : Subgroup (GLV V)) (v₁ : V)
+    (W : Submodule (ZMod 2) V) (X X₀ L : Subgroup (GLV V)), G11SetupF B Γ v₁ W X X₀ L →
+      Homogeneous (normalClosure Γ L) ∧
+      ∃ I : Submodule (ZMod 2) V, IrrPlus (normalClosure Γ L) I ∧ v₁ ∈ I ∧ Invariant X I ∧
+        (∀ J : Submodule (ZMod 2) V, IrrPlus (normalClosure Γ L) J → Invariant X J → J = I) ∧
+        (I = ⊤ ∨ Isotropic B I) ∧ SelfDual (normalClosure Γ L) I ∧
+        FaithfulOn (normalClosure Γ L) I ∧ ¬ AutAll (normalClosure Γ L) I
 
 section G11_6
 
 
 end G11_6
 
+@[expose] def G_11_7 : Prop :=
+  ∀ (V : Type) [AddCommGroup V] [Module (ZMod 2) V] [Finite V]
+    (B : LinearMap.BilinForm (ZMod 2) V) (Γ : Subgroup (GLV V)) (v₁ : V)
+    (W : Submodule (ZMod 2) V) (X X₀ L : Subgroup (GLV V)), G11CanonicalSetup B Γ v₁ W X X₀ L →
+      ∀ I : Submodule (ZMod 2) V, G116Props B Γ v₁ X L I →
+        ¬ FaithfulOn X I ∧ ¬ IsIrr (normalClosure Γ L) ⊤
 
 section G11_7
 

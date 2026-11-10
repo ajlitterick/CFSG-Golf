@@ -594,6 +594,12 @@ end Classification
 
 section Families
 
+private def fam2 : List (List (ℕ × ℕ)) := [
+  [(1, 2)],
+  [(2, 1)],
+  [(3, 3)],
+  [(1, 2), (2, 1), (3, 3)]
+]
 
 private def fam3 : List (List (ℕ × ℕ)) := [
   [(1, 2)],

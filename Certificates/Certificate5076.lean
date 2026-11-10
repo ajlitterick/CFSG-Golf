@@ -54,11 +54,17 @@ theorem conj3 : ∀ f ∈ F7L, Ty3 f → ∃ k ∈ F7L, k * f * k⁻¹ = f0 := b
   rintro f _ ⟨hd, h3, hn⟩
   exact conj_of_numMoved hd rfl (fst_cube h3) (by decide) (j := 1) (by norm_num) hn (by decide)
 
+theorem conj33 : ∀ f ∈ F7L, Ty33 f → ∃ k ∈ F7L, k * f * k⁻¹ = g0 := by
+  rintro f _ ⟨hd, h3, hn⟩
+  exact conj_of_numMoved hd rfl (fst_cube h3) (by decide) (j := 2) (by norm_num) hn (by decide)
 
 theorem card_f0 : ccardB f0 f0 = 288 := by
   rw [ccardB_self f0 _ rfl]
   exact (of_decide_eq_true Certificates.Kernel.Card7F.cent_f0_g0).1
 
+theorem card_g0 : ccardB g0 g0 = 72 := by
+  rw [ccardB_self g0 _ rfl]
+  exact (of_decide_eq_true Certificates.Kernel.Card7F.cent_f0_g0).2
 
 theorem parity_eq {a b : ℕ} (h : ((-1 : ℤˣ) ^ a) = (-1) ^ b) : (Even a ↔ Even b) := by
   rcases Nat.even_or_odd a with ha | ha <;> rcases Nat.even_or_odd b with hb | hb
@@ -104,5 +110,21 @@ namespace Certificates
 
 open CertificateChecks
 
+open CFSG in
+open CFSG.GH74 in
+open CFSG.GH74.GLS in
+open CFSG.GH74.GLS.C3 in
+open CFSG.GH74.GLS.C3.Prop121 in
+open CFSG.GH74.GLS.C3.Prop121.Card7 in
+open CFSG.GH74.GLS.C3.Prop121.Card7.FF in
+open Subgroup Equiv Perm CFSG.GH74.GLS.C3.Layer2 CFSG.GH74.GLS.C3.Layer2.Model in
+theorem certificate5076 : (∀ f ∈ F7L, f ^ 3 = 1 → f ≠ 1 → Ty3 f ∨ Ty33 f)
+    ∧ (∀ f ∈ F7L, Ty3 f → ∃ k ∈ F7L, k * f * k⁻¹ = f0)
+    ∧ (ccardB f0 f0 = 288)
+    ∧ (∀ f ∈ F7L, Ty33 f → ∃ k ∈ F7L, k * f * k⁻¹ = g0)
+    ∧ (ccardB g0 g0 = 72)
+    ∧ (∀ f ∈ F7L, IsInv f → nm7 (f : Amb 7) = 4 ∨ nm7 (f : Amb 7) = 8) :=
+  ⟨CertificateChecks.Batch5076.ord3, CertificateChecks.Batch5076.conj3, CertificateChecks.Batch5076.card_f0, CertificateChecks.Batch5076.conj33, CertificateChecks.Batch5076.card_g0,
+    CertificateChecks.Batch5076.inv_nm⟩
 
 end Certificates

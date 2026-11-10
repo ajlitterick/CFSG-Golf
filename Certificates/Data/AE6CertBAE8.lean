@@ -70,6 +70,12 @@ open CFSG.Certificates CFSG.Sporadic.Schreier CFSG.Sporadic.Schreier.Native
 @[expose] def grQ (_ : Unit := ()) : RawSchreierDatum 376 :=
   certificate (by decide) (grGens ()) grDerive #v[4, 0, 2, 6, 10, 12, 8] (by decide)
 
+@[expose] def ae8Chains (_ : Unit := ()) : Bool :=
+  let A := ae8Q ()
+  let V := v0Q ()
+  let R := grQ ()
+  A.check && A.orderCertificate == 2580480 && V.check && V.orderCertificate == 1290240 &&
+    R.check && R.orderCertificate == 2580480
 
 @[expose] def kQ8 (_ : Unit := ()) : Bool :=
   let K := k0Gens ()

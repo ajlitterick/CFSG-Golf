@@ -111,5 +111,9 @@ theorem classification (hn : 5 ≤ n) (k : Mod) {D reps : List (List Tab)} {S : 
 @[expose] def offP (DF : List (List Tab × ℕ)) (p : List Tab × ℕ) : Bool :=
   !(p.1.length == 1) && DF.all (fun q => !(q.1.all (fun t => p.1.contains t)) || decide (q.2 ≤ p.2))
 
+theorem offP_mkDF (n : ℕ) (k : Mod) (D : List (List Tab)) (A : List Tab) :
+    offP (mkDF n k D) (A, Fval n k A) = offOK n k D A := by
+  simp [offP, mkDF, offOK, List.all_map, Function.comp_def]
+
 
 end CFSG.Quasithin.B3

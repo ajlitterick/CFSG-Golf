@@ -290,6 +290,9 @@ theorem act_inv_eq_iff {g : GL (Fin 781) (ZMod 3)} {V : Submodule (ZMod 3) (Fin 
     exact act_act_inv g V
   · exact act_inv_eq_of_act_eq
 
+theorem ptFix_inv (g : GL (Fin 781) (ZMod 3)) : ptFix g⁻¹ = ptFix g := by
+  ext V
+  rw [mem_ptFix, mem_ptFix, act_inv_eq_iff]
 
 theorem act_pow_of_act {g : GL (Fin 781) (ZMod 3)} {V : Submodule (ZMod 3) (Fin 781 → ZMod 3)}
     (h : act g V = V) : ∀ n : ℕ, act (g ^ n) V = V

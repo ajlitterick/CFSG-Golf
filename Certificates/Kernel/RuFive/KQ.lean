@@ -61,6 +61,7 @@ namespace CertificateChecks.KernelRuFive
 
 open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.SporSch CFSG.KC.HeLoc CFSG.KS.Prim
 
+theorem kQN : Nat.beq Q.N 125 = true := by quickRfl
 
 theorem kQTree : allN 125 (fun i => bIf(Nat.beq i 0, true, treeAtK 2 Q.P Q.L i)) = true := by
   quickRfl
@@ -81,6 +82,13 @@ theorem kLine : allN 31 lineAt = true := by quickRfl
 
 theorem kTrans : allN 31 transAt = true := by quickRfl
 
+theorem kOrbNeg : (!allN 9 (fun i => Nat.beq (rcnt (S50.LR i))
+    ([4060, 1755, 1024, 4, 5, 1, 1, 1, 2].getD i 0))) = true := by quickRfl
+
+theorem kWordNeg : (!wordEqK 4060 12 (mask 12) (pidn 4060 12) S50.S S50.SI 8 (wd 0) (F 1)) = true := by
+  quickRfl
+
+theorem kDistNeg : (!distAt 1 1 || distAt 0 1) = true := by quickRfl
 
 end CertificateChecks.KernelRuFive
 

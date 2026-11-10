@@ -34,6 +34,11 @@ open CFSG.Certificates CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Fischer
     (fi22FinList 3510 (by decide) fi22OuterTBase) (by decide)
     (fi22WordsArr fi22OuterTGenCount 13 fi22OuterTDerivations)
 
+@[expose] def fi22OuterChainT256 : RawSchreierDatum 256 :=
+  RawSchreierDatum.ofArrays 256 (by decide) fi22OuterStrong256 fi22OuterT256GenCount
+    (by rw [fi22OuterStrong256, Array.size_ofFn]; decide)
+    (fi22FinList 256 (by decide) fi22OuterT256Base) (by decide)
+    (fi22WordsArr fi22OuterT256GenCount 16 fi22OuterT256Derivations)
 
 @[expose] def fi22OuterChainUnitary : RawSchreierDatum 693 :=
   RawSchreierDatum.ofArrays 693 (by decide) (fi22OuterStrong693 2) fi22OuterUnitaryGenCount
@@ -58,8 +63,13 @@ open CFSG.Certificates CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Fischer
 @[expose] def fi22OuterField (f k : ℕ) : Equiv.Perm (Fin 3510) :=
   fi22OuterPerm3510 (fi22OuterLine3510 f k)
 
+@[expose] def fi22OuterC : Equiv.Perm (Fin 3510) := fi22OuterField 0 0
 
 @[expose] def fi22OuterZ : Equiv.Perm (Fin 3510) := fi22OuterField 1 0
+
+
+@[expose] def fi22OuterM1 : Subgroup (Equiv.Perm (Fin 3510)) :=
+  fi22OuterM.map (MulAut.conj fi22OuterC).toMonoidHom
 
 
 @[expose] def fi22OuterCu : Equiv.Perm (Fin 693) := fi22OuterPerm693 (fi22OuterLine693 0 0)

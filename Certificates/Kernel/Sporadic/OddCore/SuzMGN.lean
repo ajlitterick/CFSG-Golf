@@ -40,6 +40,8 @@ theorem kGen : (cn (SuzMGNH.F 0) && cn (SuzMGNH.F 1) && cn (SuzMGNH.F 2) && cn (
     Nat.beq (SuzMGNH.F 2) (SuzTwG 6) && Nat.beq (SuzMGNH.F 3) (SuzTwG 2) &&
     Nat.beq (SuzMGNH.F 4) (SuzMGG 4)) = true := by quickRfl
 
+theorem negS : Bool.not (allN 9 (fun j => Nat.beq (Nat.xor (SuzMGN.S j) 1) (SuzMGNH.F j))) =
+    true := by quickRfl
 
 theorem binds : Binds 1782 11 SuzMGN.S 9 3 SuzMGN.BP nr0StrongArrs nr0Base.toArray :=
   ⟨by norm_num, by norm_num, by norm_num, by simp [nr0StrongArrs],

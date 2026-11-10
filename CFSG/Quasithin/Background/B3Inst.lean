@@ -17,5 +17,10 @@ theorem propB32B5_of {n : ℕ} {k : Mod} (hn : SQTKn n)
 theorem propB32B6_eight : PropB32B6 8 Mod.ut0 :=
   Certificates.certificate8063.2.2.1
 
+theorem strongTl6_of {k : Mod} (hk : k = Mod.u0 ∨ k = Mod.ut0) :
+    StrongTl6 k := by
+  rcases hk with rfl | rfl
+  · exact Certificates.certificate8063.2.2.2.1
+  · exact Certificates.certificate8063.2.2.2.2
 
 end CFSG.Quasithin.B3

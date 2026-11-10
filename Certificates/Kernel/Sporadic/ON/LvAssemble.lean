@@ -164,6 +164,16 @@ theorem steps_size {i : Nat} (hi : i < 29) :
   simp only [Array.size_append, List.size_toArray, List.length_map, List.length_range', Nat.mul_eq]
   omega
 
+theorem invSteps_size {i : Nat} (hi : i < 29) :
+    ((allInvSteps SA (pinvs 245520 SA) CFSG.ONSchreier.Data.baseList.toArray)[i]!).size =
+      Nat.mul 2 (len i) := by
+  have hb : i < (CFSG.ONSchreier.Data.baseList.toArray).size := by rw [base_size]; exact hi
+  unfold allInvSteps
+  rw [getElem!_pos _ i (by simpa using hb), Array.getElem_ofFn]
+  unfold levInvSteps
+  rw [levIdx_eq hi]
+  simp only [Array.size_append, List.size_toArray, List.length_map, List.length_range', Nat.mul_eq]
+  omega
 
 theorem hd0 : cbHead 245520 (Mf 0) (bK 0) (PTSf 0) (PARf 0) (LABf 0) = true := by quickRfl
 theorem hd1 : cbHead 245520 (Mf 1) (bK 1) (PTSf 1) (PARf 1) (LABf 1) = true := by quickRfl

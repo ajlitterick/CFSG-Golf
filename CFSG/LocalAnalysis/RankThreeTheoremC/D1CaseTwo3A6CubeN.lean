@@ -20,5 +20,11 @@ open CFSG.AGLEmbedding
 
 open CFSG.Open CFSG.Quasithin CFSG.QuasithinUnique CFSG.RankThreeCoreUniqueness.Helpers
 
+@[expose] def CenterCentralizesBlockV {G : Type} [Group G] (X S L : Subgroup G)
+    (hLX : L ≤ X) : Prop :=
+  ∀ c (hc : c ∈ L), QuotientGroup.mk' (CFSG.pCore 2 ↥X) ⟨c, hLX hc⟩ ∈
+      Subgroup.centralizer (barM X L : Set (↥X ⧸ CFSG.pCore 2 ↥X)) →
+    ∀ v ∈ blockV S L, c * v = v * c
+
 
 end CFSG.LocalAnalysis.RankThreeTheoremC

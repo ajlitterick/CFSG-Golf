@@ -36,6 +36,9 @@ theorem pgR_eq (p i : Nat) : pgR p i = pg 11 (mask 11) p i := by
     simp [hk, h1, h2]
   · simp [hk]
 
+theorem eq22R_eq (n x g : Nat) : eq22R n x g = eq22 n 11 (mask 11) x g g x := by
+  unfold eq22R eq22
+  simp only [pgR_eq]
 
 theorem allA_spec {α : Type} {f : α → Bool} : ∀ {A : List α}, allA f A = true → ∀ a ∈ A, f a = true
   | [], _, a, ha => absurd ha List.not_mem_nil
@@ -56,6 +59,51 @@ theorem memN_spec {p : Nat} : ∀ {L : List Nat}, memN p L = true → p ∈ L
     · rw [Nat.eq_of_beq_eq_true hb]
       exact List.mem_cons_self
 
+theorem filterEqK_spec {f : Nat → Bool} : ∀ {L Q : List Nat}, filterEqK f L Q = true →
+    L.filter f = Q
+  | [], [], _ => rfl
+  | [], _ :: _, h => (Bool.false_ne_true h).elim
+  | x :: L, Q, h => by
+    have h' : Bool.rec (motive := fun _ => Bool) (filterEqK f L Q)
+        (List.rec (motive := fun _ => Bool) false (fun q Q' _ => Bool.rec (motive := fun _ => Bool)
+          false (filterEqK f L Q') (Nat.beq x q)) Q) (f x) = true := h
+    cases hf : f x
+    · rw [hf] at h'
+      rw [List.filter_cons_of_neg (by simp [hf])]
+      exact filterEqK_spec h'
+    · rw [hf] at h'
+      cases Q with
+      | nil => exact (Bool.false_ne_true h').elim
+      | cons q Q' =>
+        obtain ⟨h1, h2⟩ := (bAnd_iff _ _).1 h'
+        rw [List.filter_cons_of_pos hf, Nat.eq_of_beq_eq_true h1, filterEqK_spec h2]
+
+theorem filterEqK_app {f : Nat → Bool} {L1 Q1 L2 Q2 : List Nat} (h1 : filterEqK f L1 Q1 = true)
+    (h2 : filterEqK f L2 Q2 = true) : filterEqK f (L1 ++ L2) (Q1 ++ Q2) = true := by
+  have e1 := filterEqK_spec h1
+  have e2 := filterEqK_spec h2
+  have key : ∀ {L Q : List Nat}, L.filter f = Q → filterEqK f L Q = true := by
+    intro L
+    induction L with
+    | nil => intro Q hQ; subst hQ; rfl
+    | cons x L ih =>
+      intro Q hQ
+      cases hf : f x
+      · rw [List.filter_cons_of_neg (by simp [hf])] at hQ
+        have h := ih hQ
+        change Bool.rec (motive := fun _ => Bool) (filterEqK f L Q)
+          (List.rec (motive := fun _ => Bool) false (fun q Q' _ => Bool.rec (motive := fun _ => Bool)
+            false (filterEqK f L Q') (Nat.beq x q)) Q) (f x) = true
+        rw [hf]
+        exact h
+      · rw [List.filter_cons_of_pos hf] at hQ
+        subst hQ
+        change Bool.rec (motive := fun _ => Bool) (filterEqK f L (x :: L.filter f))
+          (Bool.rec (motive := fun _ => Bool) false (filterEqK f L (L.filter f)) (Nat.beq x x))
+          (f x) = true
+        rw [hf, Nat.beq_refl]
+        exact ih rfl
+  exact key (by rw [List.filter_append, e1, e2])
 
 theorem gptR_eq (t0 t1 t2 t3 t4 i : Nat) :
     gptR t0 t1 t2 t3 t4 i = gpt 11 (mask 11) t0 t1 t2 t3 t4 i := by
@@ -81,9 +129,72 @@ theorem conjR_eq (T y t0 t1 t2 t3 t4 : Nat) :
     conjR T y t0 t1 t2 t3 t4 = conjPts 1755 11 (mask 11) T y t0 t1 t2 t3 t4 := by
   simp only [conjR, conjPts, gptR_eq, pgR_eq]
 
+theorem commR_eq (G t0 t1 t2 t3 t4 : Nat) :
+    commR G t0 t1 t2 t3 t4 = commPts 1755 11 (mask 11) G t0 t1 t2 t3 t4 := by
+  simp only [commR, commPts, gptR_eq, pgR_eq]
 
 @[expose] def us (p : Nat) : Nat := p >>> 64
 
+theorem pgS_eq (p i : Nat) : pgS p i = pgR (us p) i := by
+  rw [pgR_eq]
+  apply Nat.eq_of_testBit_eq
+  intro k
+  have e : pgS p i = pg 11 (mask 11) ((p >>> (64 + 704 * (i / 64))) &&& mask 704) (i % 64) := rfl
+  rw [e, testBit_pg, testBit_pg, Nat.testBit_and, Nat.testBit_shiftRight, testBit_mask, us,
+    Nat.testBit_shiftRight]
+  by_cases hk : k < 11
+  · have h1 : 11 * (i % 64) + k < 704 := by omega
+    have h2 : 64 + 704 * (i / 64) + (11 * (i % 64) + k) = 64 + (11 * i + k) := by omega
+    simp [hk, h1, h2]
+  · simp [hk]
+
+theorem canonS_imp {l : Nat} (h : canonS l = true) :
+    CFSG.KS.Prim.canonK 1755 11 (mask 11) (1755 * 11) (us l) = true := by
+  unfold canonS at h
+  obtain ⟨h1, h2⟩ := (bAnd_iff _ _).1 h
+  have e1 : Nat.shiftRight (us l) (1755 * 11) = Nat.shiftRight l (Nat.add 64 (1755 * 11)) := by
+    change (l >>> 64) >>> (1755 * 11) = l >>> (64 + 1755 * 11)
+    rw [Nat.shiftRight_add]
+  have e2 : (fun i => Nat.blt (pgS l i) 1755) =
+      (fun i => Nat.blt (pg 11 (mask 11) (us l) i) 1755) :=
+    funext fun i => by rw [pgS_eq, pgR_eq]
+  rw [e2] at h2
+  have hsz : szOK 1755 11 = true := rfl
+  unfold CFSG.KS.Prim.canonK
+  rw [hsz, e1, h1]
+  exact h2
+
+theorem zipS_imp {LR TR : Nat → Nat} {c l : Nat} (h : zipProdS LR TR c l = true) :
+    zipProdP LR TR c (us l) = true := by
+  unfold zipProdS at h
+  obtain ⟨hc, h⟩ := (bAnd_iff _ _).1 h
+  unfold zipProdP
+  refine (bAnd_iff _ _).2 ⟨canonS_imp hc, ?_⟩
+  simp only [strictB_eq] at h ⊢
+  unfold eqR
+  simp only [pgS_eq] at h
+  exact h
+
+theorem zipK_map {f g : Nat → Nat → Bool} (hfg : ∀ c l, f c l = true → g c (us l) = true) :
+    ∀ {C L : List Nat}, zipK f C L = true → zipK g C (L.map us) = true
+  | [], [], _ => rfl
+  | [], _ :: _, h => (Bool.false_ne_true h).elim
+  | _ :: _, [], h => (Bool.false_ne_true h).elim
+  | c :: C, l :: L, h => by
+    have h' : Bool.rec (motive := fun _ => Bool) false (zipK f C L) (f c l) = true := h
+    obtain ⟨h1, h2⟩ := (bAnd_iff _ _).1 h'
+    exact (bAnd_iff (g c (us l)) (zipK g C (L.map us))).2 ⟨hfg c l h1, zipK_map hfg h2⟩
+
+theorem siftPS_eq (LR TRI : Nat → Nat) (BP nb G : Nat) :
+    siftPS LR TRI BP nb G = siftP LR TRI BP nb (us G) := by
+  unfold siftPS siftP
+  congr 1
+  funext i
+  exact pgS_eq G i
+
+theorem eq22S_eq (x g : Nat) : eq22S x g = eq22R 1755 (us x) (us g) := by
+  unfold eq22S eq22R
+  simp only [pgS_eq]
 
 section Sift
 
@@ -215,6 +326,54 @@ theorem hd_of_binds {nb : Nat} (hb : Binds 1755 11 PS kS nb BP S base)
   ⟨le_rfl, Raw.Orb.isInv_of hb hp, fun _ hj hkj => absurd hj (Nat.not_lt.2 hkj),
     fun i hi => Raw.Orb.base_lt_of_levels hb hl i (by rw [← hb.2.2.2.2.2.1]; exact hi)⟩
 
+theorem zipProdP_spec (hb : Binds 1755 11 PS kS 5 BP S base)
+    (hp : allN kS (fun j => permOK 1755 11 (mask 11) (1755 * 11) (PS j) (PSI j)) = true)
+    (hl : LevelsOK 1755 11 PS PSI LR TR TRI kS 5 BP) {c l : Nat} (hc : c < tot5 LR)
+    (h : zipProdP LR TR c l = true) :
+    canonK 1755 11 (mask 11) (1755 * 11) l = true ∧
+      unpack 1755 11 (prodCode 1755 11 (mask 11) (1755 * 11) LR TR c) = unpack 1755 11 l := by
+  obtain ⟨hl0, h⟩ := (bAnd_iff _ _).1 h
+  simp only [strictB_eq] at h
+  obtain ⟨d0, d1, d2, d3, d4, -⟩ := code_facts hc
+  obtain ⟨⟨k0, k1, k2, k3, k4⟩, -, -⟩ := prod5_facts hb hp hl d0 d1 d2 d3 d4
+  have h' : eqR l
+      (trAt 1755 (1755 * 11) LR TR 0 (c / rcnt (LR 4) / rcnt (LR 3) / rcnt (LR 2) / rcnt (LR 1)))
+      (trAt 1755 (1755 * 11) LR TR 1 (c / rcnt (LR 4) / rcnt (LR 3) / rcnt (LR 2) % rcnt (LR 1)))
+      (trAt 1755 (1755 * 11) LR TR 2 (c / rcnt (LR 4) / rcnt (LR 3) % rcnt (LR 2)))
+      (trAt 1755 (1755 * 11) LR TR 3 (c / rcnt (LR 4) % rcnt (LR 3)))
+      (trAt 1755 (1755 * 11) LR TR 4 (c % rcnt (LR 4))) = true := h
+  rw [eqR_eq, eqPts_sound k0 k1 k2 k3 k4 hl0] at h'
+  refine ⟨hl0, ?_⟩
+  rw [prodCode_eq]
+  exact arr_eq_of_get (size_unpack _ _ _) (size_unpack _ _ _) fun i hi =>
+    beq_iff_eq.1 (CFSG.Monster.B.Co2.allLt_spec h' hi)
+
+theorem zipProdP_list (hb : Binds 1755 11 PS kS 5 BP S base)
+    (hp : allN kS (fun j => permOK 1755 11 (mask 11) (1755 * 11) (PS j) (PSI j)) = true)
+    (hl : LevelsOK 1755 11 PS PSI LR TR TRI kS 5 BP) {C L : List Nat}
+    (hC : ∀ c ∈ C, c < tot5 LR) (h : zipK (zipProdP LR TR) C L = true) :
+    C.map (fun k => unpack 1755 11 (prodCode 1755 11 (mask 11) (1755 * 11) LR TR k)) =
+        L.map (unpack 1755 11) ∧
+      ∀ l ∈ L, canonK 1755 11 (mask 11) (1755 * 11) l = true ∧ ∃ c ∈ C,
+        unpack 1755 11 (prodCode 1755 11 (mask 11) (1755 * 11) LR TR c) = unpack 1755 11 l := by
+  induction C generalizing L with
+  | nil =>
+    cases L with
+    | nil => exact ⟨by rw [List.map_nil, List.map_nil], fun _ h => absurd h List.not_mem_nil⟩
+    | cons _ _ => exact (Bool.false_ne_true h).elim
+  | cons c C ih =>
+    cases L with
+    | nil => exact (Bool.false_ne_true h).elim
+    | cons l L =>
+      have h' : bAnd(zipProdP LR TR c l, zipK (zipProdP LR TR) C L) = true := h
+      obtain ⟨h1, h2⟩ := (bAnd_iff _ _).1 h'
+      obtain ⟨e1, e2⟩ := zipProdP_spec hb hp hl (hC c List.mem_cons_self) h1
+      obtain ⟨ih1, ih2⟩ := ih (fun c' hc' => hC c' (List.mem_cons_of_mem _ hc')) h2
+      refine ⟨by rw [List.map_cons, List.map_cons, e2, ih1], fun l' hl' => ?_⟩
+      rcases List.mem_cons.1 hl' with rfl | hl'
+      · exact ⟨e1, c, List.mem_cons_self, e2⟩
+      · obtain ⟨g1, c', hc', g2⟩ := ih2 l' hl'
+        exact ⟨g1, c', List.mem_cons_of_mem _ hc', g2⟩
 
 theorem prodCode_rep (hb : Binds 1755 11 PS kS 5 BP S base)
     (hp : allN kS (fun j => permOK 1755 11 (mask 11) (1755 * 11) (PS j) (PSI j)) = true)
@@ -241,9 +400,133 @@ theorem prodCode_rep (hb : Binds 1755 11 PS kS 5 BP S base)
       (Raw.Orb.rep_tr hd (by omega) (c2 ▸ d2))) (Raw.Orb.rep_tr hd (by omega) (c3 ▸ d3)))
     (Raw.Orb.rep_tr hd (by omega) (c4 ▸ d4))
 
+theorem siftPf_eq {nb : Nat} (hb : Binds 1755 11 PS kS nb BP S base)
+    (hp : allN kS (fun j => permOK 1755 11 (mask 11) (1755 * 11) (PS j) (PSI j)) = true)
+    (hl : LevelsOK 1755 11 PS PSI LR TR TRI kS nb BP) :
+    ∀ d l, l + d = nb → ∀ (g : Array Nat) (gf : Nat → Nat),
+      (∀ i < 1755, g[i]! = gf i ∧ gf i < 1755) →
+      siftA 1755 (rawLevels 1755 S base) base l g = siftPf LR TRI BP d l gf := by
+  have hbl := Raw.Orb.base_lt_of_levels hb hl
+  have hbs : base.size = nb := hb.2.2.2.2.2.1
+  intro d
+  induction d with
+  | zero =>
+    intro l hl' g gf hg
+    rw [siftA, dite_eq_right (by rw [CFSG.Certificates.ChainArrays.chainLevels_size]; omega)]
+    change _ = allN 1755 (fun i => Nat.beq (gf i) i)
+    exact (allN_eq_eqA fun i hi => by
+      rw [(hg i hi).1, CFSG.Monster.B.Co2.idA_get hi, Nat.beq_eq]).symm
+  | succ d ih =>
+    intro l hl' g gf hg
+    have hlb : l < nb := by omega
+    have hls : l < (rawLevels 1755 S base).size := by
+      rw [CFSG.Certificates.ChainArrays.chainLevels_size]; omega
+    obtain ⟨A, hT⟩ := Raw.Orb.agree_levelK hb hp hbl (R := LR) (TRI := TRI) hlb (hl l hlb)
+    have hbt : base[l]! = pg 11 (mask 11) BP l := hb.2.2.2.2.2.2 l hlb
+    have hbl' := hbl l hlb
+    have hz := hg _ hbl'
+    rw [siftA, dite_eq_left hls, CFSG.Certificates.ChainArrays.chainLevels_getElem hls]
+    change _ = strictB (LR l) (fun R => strictB (rpos 11 (mask 11) (1755 * 11) R
+      (gf (pg 11 (mask 11) BP l))) (fun k => bIf(Nat.blt k (rcnt R),
+        strictB (TRI (Nat.add (roff 1755 (1755 * 11) R) k))
+          (fun t => siftPf LR TRI BP d (Nat.succ l) (fun i => pgR t (gf i))), false)))
+    rw [strictB_eq, strictB_eq, ← hbt, Raw.Orb.bIf_eq, hz.1]
+    by_cases hk : (CFSG.Certificates.ChainArrays.lev 1755 S base l).pos[gf base[l]!]! <
+        (CFSG.Certificates.ChainArrays.lev 1755 S base l).pts.size
+    · have hK := (A.pos _ hz.2).2 hk
+      have hKe := A.posE _ hz.2 hk
+      rw [ite_eq_left (Nat.blt_eq.mpr hK), strictB_eq, hKe]
+      simp only [hk, decide_true, Bool.true_and]
+      refine ih (l + 1) (by omega) _ _ fun i hi => ?_
+      have hgi := hg i hi
+      have hR := (A.tr _ hk).2
+      have e := (hT _ (hKe ▸ hK)).2 ⟨_, hgi.2⟩
+      rw [CFSG.Monster.B.Co2.compA_get hi, hgi.1, pgR_eq]
+      exact ⟨(hR.apply hgi.2).trans e.symm, lt_of_eq_of_lt e (Fin.is_lt _)⟩
+    · have hK : ¬ rpos 11 (mask 11) (1755 * 11) (LR l) (gf base[l]!) < rcnt (LR l) :=
+        fun h => hk ((A.pos _ hz.2).1 h)
+      have hb' : Nat.blt (rpos 11 (mask 11) (1755 * 11) (LR l) (gf base[l]!)) (rcnt (LR l)) =
+          false := by
+        cases e : Nat.blt (rpos 11 (mask 11) (1755 * 11) (LR l) (gf base[l]!)) (rcnt (LR l))
+        · rfl
+        · exact absurd (Nat.blt_eq.mp e) hK
+      rw [hb']
+      simp [hk]
 
 end Chain
 
+theorem surv5K_soundP {kS BP M : Nat} {PS PSI LR TR TRI : Nat → Nat}
+    {S : Array (Array Nat)} {base : Array Nat} {p : Array Nat → Bool}
+    {P : Nat → Nat → Nat → Nat → Nat → Bool} {C L : List Nat}
+    (hb : Binds 1755 11 PS kS 5 BP S base)
+    (hp : allN kS (fun j => permOK 1755 11 (mask 11) (1755 * 11) (PS j) (PSI j)) = true)
+    (hl : LevelsOK 1755 11 PS PSI LR TR TRI kS 5 BP)
+    (hP : ∀ t0 t1 t2 t3 t4, canonK 1755 11 (mask 11) (1755 * 11) t0 = true →
+      canonK 1755 11 (mask 11) (1755 * 11) t1 = true →
+      canonK 1755 11 (mask 11) (1755 * 11) t2 = true →
+      canonK 1755 11 (mask 11) (1755 * 11) t3 = true →
+      canonK 1755 11 (mask 11) (1755 * 11) t4 = true →
+      P t0 t1 t2 t3 t4 = p (unpack 1755 11 (prod5K 1755 11 (mask 11) t0 t1 t2 t3 t4)))
+    (hM : Nat.beq (maskOf C) M = true)
+    (hA : ascK (tot5 LR) C 0 = true)
+    (hZ : zipK (zipProdP LR TR) C L = true)
+    (h : all5K 1755 (1755 * 11) LR TR (survQ P M) = true) :
+    survivors5 1755 (rawLevels 1755 S base) p = L.map (unpack 1755 11) := by
+  rw [survivors5_codes hb hp hl hP hM hA h]
+  exact (zipProdP_list hb hp hl (fun c hc => ((ascK_spec hA).2 c hc).2) hZ).1
+
+theorem surv5K_propsP {kS BP : Nat} {PS PSI LR TR TRI : Nat → Nat}
+    {S : Array (Array Nat)} {base : Array Nat} {C L : List Nat}
+    (hb : Binds 1755 11 PS kS 5 BP S base)
+    (hp : allN kS (fun j => permOK 1755 11 (mask 11) (1755 * 11) (PS j) (PSI j)) = true)
+    (hl : LevelsOK 1755 11 PS PSI LR TR TRI kS 5 BP)
+    (hA : ascK (tot5 LR) C 0 = true)
+    (hZ : zipK (zipProdP LR TR) C L = true) :
+    (∀ l ∈ L, canonK 1755 11 (mask 11) (1755 * 11) l = true ∧
+      isInvA 1755 (unpack 1755 11 l) (invCand 1755 (unpack 1755 11 l)) = true ∧
+      siftA 1755 (rawLevels 1755 S base) base 0 (unpack 1755 11 l) = true) ∧
+    (L.map (unpack 1755 11)).Pairwise (fun a b => eqA 1755 a b = false) := by
+  have hd := hd_of_binds hb hp hl
+  have hbs : base.size = 5 := hb.2.2.2.2.2.1
+  obtain ⟨hC1, hC2⟩ := ascK_spec hA
+  obtain ⟨hmap, hmem⟩ := zipProdP_list hb hp hl (fun c hc => (hC2 c hc).2) hZ
+  have c0 := (lev_trAt hb hp hl (i := 0) (by omega)).1
+  have c1 := (lev_trAt hb hp hl (i := 1) (by omega)).1
+  have c2 := (lev_trAt hb hp hl (i := 2) (by omega)).1
+  have c3 := (lev_trAt hb hp hl (i := 3) (by omega)).1
+  have c4 := (lev_trAt hb hp hl (i := 4) (by omega)).1
+  refine ⟨fun l hl' => ?_, ?_⟩
+  · obtain ⟨hc, c, hcC, e⟩ := hmem l hl'
+    have hct := (hC2 c hcC).2
+    obtain ⟨d0, d1, d2, d3, d4, -⟩ := code_facts hct
+    have hr := prodCode_rep hb hp hl hct
+    rw [e] at hr
+    refine ⟨hc, isInvA_of_rep hr (rep_invCand hr), ?_⟩
+    exact sift5 hd hbs (c0 ▸ d0) (c1 ▸ d1) (c2 ▸ d2) (c3 ▸ d3) (c4 ▸ d4) hr
+  · rw [← hmap, List.pairwise_map]
+    refine hC1.imp_of_mem fun {a b} ha hb' hab => ?_
+    have hat := (hC2 a ha).2
+    have hbt := (hC2 b hb').2
+    obtain ⟨a0, a1, a2, a3, a4, ae⟩ := code_facts hat
+    obtain ⟨b0, b1, b2, b3, b4, be⟩ := code_facts hbt
+    apply Bool.eq_false_iff.2
+    intro H
+    have E := (CFSG.Monster.B.Co2.eqA_iff (prodCode_rep hb hp hl hat) (prodCode_rep hb hp hl hbt)).1 H
+    obtain ⟨r0, r1, r2, r3, r4⟩ := prod5_inj hd hbs (c0 ▸ a0) (c1 ▸ a1) (c2 ▸ a2) (c3 ▸ a3)
+      (c4 ▸ a4) (c0 ▸ b0) (c1 ▸ b1) (c2 ▸ b2) (c3 ▸ b3) (c4 ▸ b4) E
+    rw [r0, r1, r2, r3, r4, be] at ae
+    omega
+
+theorem siftP_eq {kS nb BP G : Nat} {PS PSI LR TR TRI : Nat → Nat}
+    {S : Array (Array Nat)} {base : Array Nat}
+    (hb : Binds 1755 11 PS kS nb BP S base)
+    (hp : allN kS (fun j => permOK 1755 11 (mask 11) (1755 * 11) (PS j) (PSI j)) = true)
+    (hl : LevelsOK 1755 11 PS PSI LR TR TRI kS nb BP)
+    (hG : canonK 1755 11 (mask 11) (1755 * 11) G = true) :
+    siftA 1755 (rawLevels 1755 S base) base 0 (unpack 1755 11 G) = siftP LR TRI BP nb G := by
+  obtain ⟨-, -, -, rG⟩ := canonK_facts hG
+  exact siftPf_eq hb hp hl nb 0 (Nat.zero_add nb) _ _ fun i hi =>
+    ⟨by rw [unpack_getT hi, pgR_eq], by rw [pgR_eq]; exact rG i hi⟩
 
 @[expose] noncomputable def letP (S SI : Nat → Nat) (c : Nat) : Nat :=
   nIf(Nat.beq (Nat.land c (nat_lit 1)) (nat_lit 0), S (Nat.sub (Nat.shiftRight c (nat_lit 1))

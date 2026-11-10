@@ -30,10 +30,21 @@ namespace CFSG.KC.BM
       (fun i ih => andB ih (Nat.beq (Nat.shiftRight (Nat.land (Nat.shiftRight M (Nat.mul (nat_lit 32) i))
         (nat_lit 4294967295)) k) (nat_lit 0))) k)
 
+@[expose] noncomputable def commBit (v0 vx : Nat) (Ws : List (List (List Nat))) : Nat :=
+  forceB (vecW Ws v0) (fun w => Bool.rec (motive := fun _ => Nat)
+      (Bool.rec (motive := fun _ => Nat) (nat_lit 18446744073709551616) (nat_lit 1) (Nat.beq w vx))
+      (nat_lit 0) (Nat.beq w v0))
 
 @[expose] noncomputable def app3 (A B : List (List (List Nat))) : List (List (List Nat)) :=
   List.rec (motive := fun _ => List (List (List Nat))) B (fun x _ ih => List.cons x ih) A
 
+@[expose] noncomputable def pairBits (v0 vx : Nat) (A Es : List (List (List Nat))) : Nat :=
+  List.rec (motive := fun _ => Nat → Nat → Nat) (fun _ acc => acc)
+    (fun E _ ih sh acc => forceB
+      (Nat.add acc (Nat.shiftLeft (commBit v0 vx
+        (app3 A (List.cons E (app3 A (List.cons E List.nil))))) sh))
+      (fun acc' => ih (Nat.succ sh) acc'))
+    Es (nat_lit 0) (nat_lit 0)
 
 @[expose] noncomputable def nthN (L : List Nat) (i : Nat) : Nat :=
   List.rec (motive := fun _ => Nat → Nat) (fun _ => nat_lit 0)

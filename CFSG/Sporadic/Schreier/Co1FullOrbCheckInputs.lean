@@ -24,6 +24,12 @@ open CFSG.Sporadic.SmallF2.Native CFSG.Sporadic.Th.Native
   vOrbitBFS 24 CFSG.Sporadic.Co1.Native.co1Data.colsA CFSG.Sporadic.Co1.Native.co1Data.colsB
     (fullRoot k) (fullSize k)
 
+@[expose] def fullOKOf (k : Nat) (O : VOrbit) : Bool :=
+  enumOK CFSG.Sporadic.Co1.Native.co1Data.colsA CFSG.Sporadic.Co1.Native.co1Data.colsB
+      (fullRoot k) (fullSize k) O &&
+    allIn 0 (fullSize k) fun i => decide (fullRoot k ≤ O.pts[i]!)
+
+@[expose] def fullOK (k : Nat) : Bool := fullOKOf k (fullOrb k)
 
 end Native
 

@@ -56,11 +56,66 @@ open CFSG.RankThree.Native (hs100Arr)
 @[expose] def commT (s t : Array Nat) : Bool :=
   (List.range 100).all fun q => img s (img t q) == img t (img s q)
 
+@[expose] def invSeeds : List (Array Nat) := sElems.toList.filter (isInvT 100)
+
+@[expose] def closeInv (seeds : List (Array Nat)) (cap : Nat) : Array (Array Nat) := Id.run do
+  let mut seen : Std.HashSet (Array Nat) := ∅
+  let mut lst : Array (Array Nat) := #[]
+  for s in seeds do
+    if !seen.contains s then
+      seen := seen.insert s
+      lst := lst.push s
+  let mut i := 0
+  for _ in [0:cap] do
+    if i < lst.size then
+      let t := lst[i]!
+      for l in [0:2] do
+        let t2 := conjT (AB.getD l #[]) (AB.getD (l + 2) #[]) t
+        if !seen.contains t2 then
+          seen := seen.insert t2
+          lst := lst.push t2
+      i := i + 1
+  return lst
+
+@[expose] def invList : List (Array Nat) := (closeInv invSeeds 30000).toList
+
+@[expose] def invSet : Std.HashSet (Array Nat) := Std.HashSet.ofList invList
+
+@[expose] def invOK : Bool :=
+  let ia := invT ta
+  let ib := invT tb
+  invSeeds.all (fun t => invSet.contains t) &&
+    invList.all fun t =>
+      invSet.contains (conjT ta ia t) && invSet.contains (conjT tb ib t) &&
+        invSet.contains (conjT ia ta t) && invSet.contains (conjT ib tb t)
+
+@[expose] def degOK : Bool :=
+  s5Elems.toList.all fun y =>
+    y == idT 100 ||
+      (let Iy := invList.filter (commT y)
+       Iy.all fun e => (Iy.filter fun e' => e' != e && commT e' e).length ≤ 13)
+
+@[expose] def conj5 (y yi e : Array Nat) : List (Array Nat) :=
+  let c1 := conjT y yi e
+  let c2 := conjT y yi c1
+  let c3 := conjT y yi c2
+  let c4 := conjT y yi c3
+  [e, c1, c2, c3, c4]
 
 @[expose] def pwDistinct : List (Array Nat) → Bool
   | [] => true
   | x :: l => l.all (fun y => x != y) && pwDistinct l
 
+@[expose] def pwComm : List (Array Nat) → Bool
+  | [] => true
+  | x :: l => l.all (fun y => commT x y) && pwComm l
+
+@[expose] def subsetProds : List (Array Nat) → List (Array Nat)
+  | [] => [idT 100]
+  | t :: l => let r := subsetProds l; r ++ r.map (compT t)
+
+@[expose] def fixPts (es : List (Array Nat)) : List Nat :=
+  (List.range 100).filter fun x => es.all fun t => img t x == x
 
 @[expose] def F0 : List Nat := [0, 1, 5, 21, 39, 50, 53, 61]
 
@@ -92,10 +147,24 @@ open CFSG.RankThree.Native (hs100Arr)
 
 @[expose] def orbF : List (List Bool) := orbRows 3850 (F0.map (ptsArr AB treeF.1 treeF.2 3850))
 
+@[expose] def orbSet : Std.HashSet (List Bool) := Std.HashSet.ofList orbF
 
 @[expose] def treeOK : Bool :=
   enumOK 3850 AB treeF.1 treeF.2 && decide orbF.Nodup
 
+@[expose] def quickOK (y yi e : Array Nat) : Bool :=
+  (List.range 100).any (fun q => img y (img e (img yi q)) != img e q) &&
+    (List.range 100).all fun q =>
+      img e (img y (img e (img yi q))) == img y (img e (img yi (img e q)))
+
+@[expose] def loopOK : Bool :=
+  s5Elems.toList.all fun y =>
+    y == idT 100 ||
+      (let yi := invT y
+       invList.all fun e =>
+         !(quickOK y yi e) ||
+           (let es := conj5 y yi e
+            !(pwComm es) || (pwDistinct (subsetProds (es.take 4)) && orbSet.contains (maskOf (fixPts es)))))
 
 @[expose] def mPres : Bool :=
   mTabs.all fun t =>

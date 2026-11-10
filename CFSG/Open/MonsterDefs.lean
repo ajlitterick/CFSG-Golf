@@ -66,6 +66,9 @@ abbrev MonsterCo1 : Type := monsterCo0 ⧸ Subgroup.center monsterCo0
 
 abbrev MonsterU62 : Type := monsterSU62 ⧸ Subgroup.center monsterSU62
 
+@[expose] def MonsterIsExtraspecial (P : Type*) [Group P] : Prop :=
+  Nat.card (Subgroup.center P) = 2 ∧ commutator P = Subgroup.center P ∧
+    ∀ x : P, x ^ 2 ∈ Subgroup.center P
 
 @[expose] def MonsterHasShape {G : Type*} [Group G] (H : Subgroup G) (k n : ℕ) : Prop :=
   ∃ (N : Subgroup H) (_ : N.Normal), Nat.card N = 2 ^ k ∧ IsSimpleGroup (H ⧸ N) ∧
@@ -74,6 +77,22 @@ abbrev MonsterU62 : Type := monsterSU62 ⧸ Subgroup.center monsterSU62
 @[expose] def MonsterHasLongTriangleShape {G : Type*} [Group G] (H : Subgroup G) : Prop :=
   ∃ (N : Subgroup H) (_ : N.Normal), Nat.card N = 2 ^ 23 ∧ Nonempty (H ⧸ N ≃* MonsterU62)
 
+@[expose] def MonsterIsDoubleBabyCentralizer {G : Type*} [Group G] (a : G) : Prop :=
+  commutator (Subgroup.centralizer ({a} : Set G)) = ⊤ ∧
+    (Subgroup.center (Subgroup.centralizer ({a} : Set G))).map
+      (Subgroup.centralizer ({a} : Set G)).subtype = Subgroup.zpowers a ∧
+    IsSimpleGroup (Subgroup.centralizer ({a} : Set G) ⧸
+      Subgroup.center (Subgroup.centralizer ({a} : Set G))) ∧
+    Nat.card (Subgroup.centralizer ({a} : Set G) ⧸
+      Subgroup.center (Subgroup.centralizer ({a} : Set G))) = monsterBabyOrder
+
+@[expose] def MonsterIsLeechCentralizerType (H : Type*) [Group H] : Prop :=
+  ∃ (Q : Subgroup H) (_ : Q.Normal), Nat.card Q = 2 ^ 25 ∧ MonsterIsExtraspecial Q ∧
+    Subgroup.centralizer (Q : Set H) ≤ Q ∧ Nonempty (H ⧸ Q ≃* MonsterCo1)
+
+@[expose] def MonsterIsF1Type {G : Type*} [Group G] (a z : G) : Prop :=
+  orderOf a = 2 ∧ orderOf z = 2 ∧ MonsterIsDoubleBabyCentralizer a ∧
+    MonsterIsLeechCentralizerType (Subgroup.centralizer ({z} : Set G))
 
 @[expose] def monsterCent2 {G : Type*} [Group G] (α β : G) : Subgroup G :=
   Subgroup.centralizer ({α} : Set G) ⊓ Subgroup.centralizer ({β} : Set G)

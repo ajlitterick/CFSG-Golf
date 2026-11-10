@@ -55,6 +55,7 @@ open CertificateChecks.KernelA45 CFSG.RankThree.GF2n.Parrott
 
 @[expose] def meetR : List ℕ := [0 + 64 * 45, 20 + 64 * 46, 7 + 64 * 47, 0 + 64 * 48]
 
+@[expose] def eG : List (List ℕ) := [[6, 21, 31, 41], [25, 21, 38, 41], [11, 6, 41, 21], [12, 14, 41, 21]]
 
 end CertificateChecks.Parrott946
 

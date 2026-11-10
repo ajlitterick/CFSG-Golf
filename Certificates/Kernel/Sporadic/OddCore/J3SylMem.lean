@@ -88,6 +88,7 @@ theorem s_cent23 : j3W [4, 3, 2, 1, 2, 2, 5, 4, 3, 5] (J3CentP 23) = true := by 
 theorem s_cent24 : j3W [3, 1, 2, 4, 1, 2, 1, 2, 4, 5, 3, 1, 3, 1, 4] (J3CentP 24) = true := by
   quickRfl
 
+theorem s_neg : (!j3W [4] (J3HypP 2)) = true := by quickRfl
 
 theorem c_t0 : bAnd(allN 14 (fun k => cm (J3CentP (Nat.add k 1)) (J3CentP 9)),
     allN 4 (fun k => cm (J3HypP k) (J3CentP 9))) = true := by
@@ -97,6 +98,7 @@ theorem c_t1 : bAnd(allN 4 (fun k => cm (J3CentP (Nat.add k 21)) (J3CentP 21)),
     allN 4 (fun k => cm (J3HypP (Nat.add k 4)) (J3CentP 21))) = true := by
   quickRfl
 
+theorem c_neg : (!cm (J3CentP 0) (J3HypP 2)) = true := by quickRfl
 
 theorem o_z0 : outJ3 [] (J3HypP 0) = true := by quickRfl
 theorem o_t1 : outJ3 [-2, -1, -2, -4, -2, -4, -3, -3, -2] (J3CentP 21) = true := by quickRfl
@@ -110,10 +112,14 @@ theorem o_t1 : outJ3 [-2, -1, -2, -4, -2, -4, -3, -3, -2] (J3CentP 21) = true :=
 
 theorem e8_ok : e8K (J3HypP 8) (J3HypP 9) (J3HypP 10) = true := by quickRfl
 
+theorem e8_neg : (!e8K (J3HypP 8) (J3HypP 9) (J3HypP 11)) = true := by quickRfl
 
 theorem four_ok : invo (pc (pc (pc (J3HypP 11) (J3CentP 21)) (J3HypI 11)) (J3CentI 21)) = true := by
   quickRfl
 
+theorem four_neg :
+    (!invo (pc (pc (pc (J3CentP 21) (J3CentP 21)) (J3CentI 21)) (J3CentI 21))) = true := by
+  quickRfl
 
 end CertificateChecks.KernelSpor.J3SylMem
 

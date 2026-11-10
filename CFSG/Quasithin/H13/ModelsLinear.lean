@@ -10,6 +10,10 @@ namespace CFSG.Quasithin.H13
 open Matrix CFSG.Assembly.LowTwoRank CFSG.Adapters.RankTwoModelTransports
 open scoped MatrixGroups
 
+theorem lieModel_psl_zmod {n p : ℕ} [Fact p.Prime] (hadm : StatedLieAdmissible .PSL n p 1) :
+    CFSG.Blueprint.LieModel PSL(n, ZMod p) .PSL n p 1 :=
+  Or.inl ⟨by decide, hadm, ZMod p, inferInstance, inferInstance,
+    by rw [Nat.card_zmod, pow_one], ⟨projectiveSpecialLinearGroupEquivStatedProj n (ZMod p)⟩⟩
 
 theorem lieModel_of_mulEquiv_psl_zmod {X : Type} [Group X] {n p : ℕ} [Fact p.Prime]
     (hadm : StatedLieAdmissible .PSL n p 1) (e : X ≃* PSL(n, ZMod p)) :
@@ -18,6 +22,8 @@ theorem lieModel_of_mulEquiv_psl_zmod {X : Type} [Group X] {n p : ℕ} [Fact p.P
     by rw [Nat.card_zmod, pow_one],
     ⟨e.trans (projectiveSpecialLinearGroupEquivStatedProj n (ZMod p))⟩⟩
 
+theorem lieModel_psl_four_three : CFSG.Blueprint.LieModel PSL(4, ZMod 3) .PSL 4 3 1 :=
+  lieModel_psl_zmod ⟨Nat.prime_three, le_rfl, by norm_num, by decide, by decide⟩
 
 theorem card_sl_four_three : Nat.card SL(4, ZMod 3) = 12130560 := by
   rw [Matrix.card_SL_field, ZMod.card, Fin.prod_univ_four]

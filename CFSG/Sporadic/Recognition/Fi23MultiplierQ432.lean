@@ -68,5 +68,9 @@ noncomputable def r432EquivRange :
   (QuotientGroup.quotientMulEquivOfEq normalClosure_F432Alt).trans
     (QuotientGroup.quotientKerEquivRange rho432F)
 
+theorem card_R432 :
+    Nat.card R432 = 4089470473293004800 := by
+  rw [Nat.card_congr r432EquivRange.toEquiv]
+  exact card_range_rho432F
 
 end CFSG.Sporadic.Recognition.Fi23Multiplier

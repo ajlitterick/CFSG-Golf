@@ -51,6 +51,9 @@ theorem kRel : Nat.beq (pcomp 4060 12 (mask 12) (pcomp 4060 12 (mask 12) J I)
     (pinvS 4060 12 (mask 12) J)) (pinvS 4060 12 (mask 12) I) = true := by
   quickRfl
 
+theorem negRel : (!Nat.beq (pcomp 4060 12 (mask 12) (pcomp 4060 12 (mask 12) I I)
+    (pinvS 4060 12 (mask 12) I)) (pinvS 4060 12 (mask 12) I)) = true := by
+  quickRfl
 
 end CertificateChecks.KernelMisc.RuFive
 

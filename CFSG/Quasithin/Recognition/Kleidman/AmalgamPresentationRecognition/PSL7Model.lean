@@ -232,5 +232,7 @@ instance : DecidablePred (· ∈ Z7) := fun x => decidable_of_iff _ (mem_Z7 x).s
 
 end SL7
 
+abbrev PSL7 : Type := SL7 ⧸ SL7.Z7
+
 
 end CFSG.Quasithin.Recognition.Kleidman.AmalgamPresentationRecognition

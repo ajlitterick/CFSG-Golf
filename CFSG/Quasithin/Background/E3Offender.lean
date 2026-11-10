@@ -59,6 +59,11 @@ theorem conj_le_centralizer_of_le_normalizer (hV : IsElemAbelian 2 V) (hT : HypE
   rw [conjSubgroup_conjSubgroup, inv_mul_cancel_right, conjSubgroup_centralizer, hnV] at h3
   exact h3
 
+theorem e3_25_normalizer_iff (hV : IsElemAbelian 2 V) (hT : HypE322 T V) (hw : 0 < wParam T V)
+    (g : G) :
+    conjSubgroup V g ≤ Subgroup.normalizer (V : Set G) ↔
+      conjSubgroup V g ≤ Subgroup.centralizer (V : Set G) :=
+  ⟨conj_le_centralizer_of_le_normalizer hV hT hw, fun h => h.trans (Subgroup.centralizer_le_normalizer _)⟩
 
 omit [Finite G] in
 theorem e3_25_centralizer_iff (g : G) :
@@ -78,6 +83,15 @@ theorem e3_25_centralizer_iff_normalizer (hV : IsElemAbelian 2 V) (hT : HypE322 
   have h2 := conjSubgroup_mono_left g h1
   rwa [conjSubgroup_inv_conj, conjSubgroup_centralizer] at h2
 
+theorem e3_25 (hV : IsElemAbelian 2 V) (hT : HypE322 T V) (hw : 0 < wParam T V) (g : G) :
+    (conjSubgroup V g ≤ Subgroup.normalizer (V : Set G) ↔
+        conjSubgroup V g ≤ Subgroup.centralizer (V : Set G)) ∧
+      (conjSubgroup V g ≤ Subgroup.centralizer (V : Set G) ↔
+        V ≤ Subgroup.centralizer (conjSubgroup V g : Set G)) ∧
+      (V ≤ Subgroup.centralizer (conjSubgroup V g : Set G) ↔
+        V ≤ Subgroup.normalizer (conjSubgroup V g : Set G)) :=
+  ⟨e3_25_normalizer_iff hV hT hw g, e3_25_centralizer_iff g,
+    e3_25_centralizer_iff_normalizer hV hT hw g⟩
 
 theorem e3_26 (hV : IsElemAbelian 2 V) (hT : HypE322 T V) (h24 : HypE324 T V hV) {g : G}
     (hg : conjSubgroup V g ≤ Subgroup.normalizer (V : Set G))

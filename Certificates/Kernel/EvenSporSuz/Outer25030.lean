@@ -73,6 +73,9 @@ theorem ch25030M_neg : (evalR (L1M B2) (L1I B2) (B2.neg.map zCode) == negR) = tr
     (evalR (L1M B3) (L1I B3) (B3.neg.map zCode) == negR) = true := by
   decide +kernel
 
+theorem ch25030Neg_m :
+    (evalR (L2M B2) (L2I B2) (B2.neg.map zCode) == negR) = false := by
+  decide +kernel
 
 end CertificateChecks.KernelSuz
 
@@ -92,6 +95,9 @@ theorem ch25030P_c3 :
     B3.gens.all (fun w => Nat.beq (pc (W3 w) (SuzTP 3)) (pc (SuzTP 3) (W3 w))) = true := by
   quickRfl
 
+theorem ch25030Neg_c :
+    B2.gens.all (fun w => Nat.beq (pc (W3 w) (SuzTP 3)) (pc (SuzTP 3) (W3 w))) = false := by
+  decide +kernel
 
 end CertificateChecks.KernelSpor.S26990
 

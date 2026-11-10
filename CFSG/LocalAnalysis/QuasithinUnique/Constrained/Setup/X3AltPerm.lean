@@ -189,10 +189,58 @@ end Case6
 
 section Case7
 
+theorem sup7 : relStab blkX7 ⊔ relStab blkY7 = ⊤ := by
+  refine top_of_adjacent_swaps (m := 6) fun i => ?_
+  have h01 : swap (0 : Fin 7) 1 ∈ relStab blkX7 ⊔ relStab blkY7 :=
+    Subgroup.mem_sup_left (by decide +kernel)
+  have h12 : swap (1 : Fin 7) 2 ∈ relStab blkX7 ⊔ relStab blkY7 :=
+    Subgroup.mem_sup_left (by decide +kernel)
+  have h23 : swap (2 : Fin 7) 3 ∈ relStab blkX7 ⊔ relStab blkY7 :=
+    Subgroup.mem_sup_left (by decide +kernel)
+  have h34 : swap (3 : Fin 7) 4 ∈ relStab blkX7 ⊔ relStab blkY7 :=
+    Subgroup.mem_sup_left (by decide +kernel)
+  have h45 : swap (4 : Fin 7) 5 ∈ relStab blkX7 ⊔ relStab blkY7 :=
+    Subgroup.mem_sup_left (by decide +kernel)
+  have h56 : swap (5 : Fin 7) 6 ∈ relStab blkX7 ⊔ relStab blkY7 :=
+    Subgroup.mem_sup_right (by decide +kernel)
+  fin_cases i
+  exacts [h01, h12, h23, h34, h45, h56]
+
 
 end Case7
 
 section Case8
+
+theorem sup8 : relStab blkX8 ⊔ relStab blkY8 = ⊤ := by
+  refine top_of_adjacent_swaps (m := 7) fun i => ?_
+  have h01 : swap (0 : Fin 8) 1 ∈ relStab blkX8 ⊔ relStab blkY8 :=
+    Subgroup.mem_sup_left (by decide +kernel)
+  have h12 : swap (1 : Fin 8) 2 ∈ relStab blkX8 ⊔ relStab blkY8 :=
+    Subgroup.mem_sup_left (by decide +kernel)
+  have h23 : swap (2 : Fin 8) 3 ∈ relStab blkX8 ⊔ relStab blkY8 :=
+    Subgroup.mem_sup_left (by decide +kernel)
+  have h45 : swap (4 : Fin 8) 5 ∈ relStab blkX8 ⊔ relStab blkY8 :=
+    Subgroup.mem_sup_left (by decide +kernel)
+  have h56 : swap (5 : Fin 8) 6 ∈ relStab blkX8 ⊔ relStab blkY8 :=
+    Subgroup.mem_sup_left (by decide +kernel)
+  have h67 : swap (6 : Fin 8) 7 ∈ relStab blkX8 ⊔ relStab blkY8 :=
+    Subgroup.mem_sup_left (by decide +kernel)
+  have h13 : swap (1 : Fin 8) 3 ∈ relStab blkX8 ⊔ relStab blkY8 :=
+    Subgroup.mem_sup_left (by decide +kernel)
+  have hy : (swap (2 : Fin 8) 4 * swap 3 5 : Perm (Fin 8)) ∈ relStab blkX8 ⊔ relStab blkY8 :=
+    Subgroup.mem_sup_right (by decide +kernel)
+  have h14 : swap (1 : Fin 8) 4 ∈ relStab blkX8 ⊔ relStab blkY8 := by
+    have h := swap_apply_mem_of_mem hy h12
+    have e1 : (swap (2 : Fin 8) 4 * swap 3 5 : Perm (Fin 8)) 1 = 1 := by decide
+    have e2 : (swap (2 : Fin 8) 4 * swap 3 5 : Perm (Fin 8)) 2 = 4 := by decide
+    rwa [e1, e2] at h
+  have h34 : swap (3 : Fin 8) 4 ∈ relStab blkX8 ⊔ relStab blkY8 := by
+    have h := swap_apply_mem_of_mem h13 h14
+    have e1 : (swap (1 : Fin 8) 3 : Perm (Fin 8)) 1 = 3 := by decide
+    have e2 : (swap (1 : Fin 8) 3 : Perm (Fin 8)) 4 = 4 := by decide
+    rwa [e1, e2] at h
+  fin_cases i
+  exacts [h01, h12, h23, h34, h45, h56, h67]
 
 
 end Case8

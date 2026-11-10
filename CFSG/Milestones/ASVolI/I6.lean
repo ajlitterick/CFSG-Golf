@@ -30,6 +30,8 @@ variable {G : Type} [Group G]
 @[expose] def IsTISubgroup (X : Subgroup G) : Prop :=
   ∀ g : G, g ∉ Subgroup.normalizer (X : Set G) → X ⊓ CFSG.conjugate X g = ⊥
 
+@[expose] def ControlsFusionOfElements (M X : Subgroup G) : Prop :=
+  ∀ x ∈ X, ∀ g : G, g⁻¹ * x * g ∈ X → ∃ m ∈ M, m⁻¹ * x * m = g⁻¹ * x * g
 
 @[expose] def IsDirectProductOf (A B X : Subgroup G) : Prop :=
   (∀ a ∈ A, ∀ b ∈ B, a * b = b * a) ∧ A ⊓ B = ⊥ ∧ A ⊔ B = X
@@ -93,6 +95,13 @@ namespace CFSG.ASVolI
 open CFSG.Open CFSG.Blueprint CFSG.ASVolI.ChIJK
 open scoped MatrixGroups
 
+@[expose] def I_6_1 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (X : Subgroup G), IsPGroup 2 X →
+    (((∀ x ∈ X, x ≠ 1 → Subgroup.centralizer ({x} : Set G) ≤ Subgroup.normalizer (X : Set G)) ∧
+        ControlsFusionOfElements (Subgroup.normalizer (X : Set G)) X) → IsTISubgroup X) ∧
+    ((∃ L : Subgroup G, L ≤ Subgroup.centralizer (X : Set G) ∧
+        CFSG.maximalTwoLocalsContaining (L : Set G) = {Subgroup.normalizer (X : Set G)}) →
+      IsTISubgroup X)
 
 section BurnsideIc6
 

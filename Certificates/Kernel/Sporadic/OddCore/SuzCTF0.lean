@@ -201,6 +201,13 @@ theorem invsK0 : invsOK 42 (kGens 0) (kInvs 0) = true := by
   refine ⟨unpack_size _ _ _, ?_⟩
   rw [comp42 hci hc, idTab42, Nat.eq_of_beq_eq_true hpi]
 
+theorem cover' {L N : Nat} {P : Nat → Prop} (hL : 0 < L)
+    (h : ∀ s < N, ∀ i, L * s ≤ i → i < L * s + L → P i) : ∀ i < L * N, P i := by
+  intro i hi
+  refine h (i / L) (Nat.div_lt_of_lt_mul hi) i (Nat.mul_div_le i L) ?_
+  have := Nat.lt_mul_div_succ i hL
+  rw [Nat.mul_add, Nat.mul_one] at this
+  exact this
 
 theorem part_of {f : Nat → Bool} {b k : Nat} (h : ∀ s < k, f (Nat.add b s) = true) {s : Nat}
     (h1 : b ≤ s) (h2 : s < b + k) : f s = true := by

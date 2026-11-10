@@ -178,6 +178,8 @@ theorem isElemAbelian_F0 (hf : F0Facts n) :
   rw [F0_eq_range hf]
   exact isElemAbelian_range _
 
+theorem isPGroup_F0 (hf : F0Facts n) : IsPGroup 3 (F0 n) :=
+  IsPGroup.of_card (n := 2) (by rw [card_F0 hf]; norm_num)
 
 end F0
 

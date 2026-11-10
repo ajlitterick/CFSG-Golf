@@ -473,6 +473,7 @@ theorem wedgeR_toList_proved{n m : ℕ} (G : Fin m → Array ℕ) {GP : List ℕ
       simp only [Fin.mk.injEq, Bool.decide_and, Bool.decide_or]
     · simp [hc]
 
+open CFSG.EvenSmallLie.UnitarySix.YamadaD (wedgeR)
 
 end CFSG.KC.U6F2
 

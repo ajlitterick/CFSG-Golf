@@ -13,6 +13,10 @@ open CFSG.KC.Y333
 
 @[expose] noncomputable def ON : Nat := nat_lit 412896
 
+@[expose] noncomputable def netOf (MS : Nat → Nat) (c : Nat) : Nat :=
+  Nat.rec (motive := fun _ => Nat) (nat_lit 0)
+    (fun i acc => Nat.lor acc (Nat.shiftLeft (MS (Nat.add (Nat.mul (nat_lit 37) c) i)) (Nat.mul i OW)))
+    (nat_lit 37)
 
 @[expose] noncomputable def netApp19 (MS : Nat → Nat) (c x : Nat) : Nat :=
   Nat.rec (motive := fun _ => Nat) x
@@ -73,6 +77,10 @@ open CFSG.KC.Y333
   andB (Nat.beq (omStep MS omAll) omAll)
     (Nat.beq (Nat.rec (motive := fun _ => Nat) (nat_lit 1) (fun _ X => sN (omStep MS X) (fun Y => Y)) R) omAll)
 
+@[expose] noncomputable def appW19 (MS : Nat → Nat) (w E : Nat) : Nat :=
+  sN (wLen w) (fun n =>
+    Nat.rec (motive := fun _ => Nat) E
+      (fun j acc => sN acc (fun a => netApp19 MS (wAt w (Nat.sub (Nat.sub n (nat_lit 1)) j)) a)) n)
 
 @[expose] noncomputable def appSeg19 (MS : Nat → Nat) (w a n X : Nat) : Nat :=
   sN (wLen w) (fun len =>

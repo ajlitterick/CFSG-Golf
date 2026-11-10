@@ -15,6 +15,13 @@ namespace C1Pack12
 
 variable {G : Type} [Group G] [Finite G]
 
+structure Core15212 (T Mc M H : Subgroup G) : Prop where
+  cases : conjClosure (oTwoUpper H) Mc = oTwoUpper H ∨
+    Case15212ii T Mc (conjClosure (oTwoUpper H) Mc) ∨
+    Case15212iii T Mc (conjClosure (oTwoUpper H) Mc) ∨
+    Case15212He T Mc (conjClosure (oTwoUpper H) Mc)
+  eq_oThreePrime : conjClosure (oTwoUpper H) Mc = oPrimeResidualOf 3 Mc
+
 
 theorem le_centralizer_of_cases {T Mc M H : Subgroup G} (hs : Setting152 T Mc M)
     (h1416 : StageLemma1416) (c19 : Lemma1519Concl T Mc M) (hH : IsHStar T M H)

@@ -366,5 +366,35 @@ theorem le_qCoreOf_of_le_fittingSubgroupOf {H E : Subgroup G} {q : ℕ} (hq : q.
   exact ⟨x', mem_pCore_of_mem_normal_nilpotent hq CFSG.fittingSubgroup_normal
     CFSG.fittingSubgroup_nilpotent hx'F hk', rfl⟩
 
+theorem bender1970_4_2
+    (hG : BenderCounterexample G) {t : G} (ht : orderOf t = 2)
+    {H : Subgroup G} (hH : H ∈ benderM t) : rank (oddCoreOf (CFSG.fittingSubgroupOf H)) ≤ 2 := by
+  set F := CFSG.fittingSubgroupOf H with hFdef
+  have hOF : oddCoreOf F ≤ F := Subgroup.map_subtype_le _
+  have hodd : Odd (Nat.card (oddCoreOf F)) := odd_card_oddCoreOf F
+  refine rank_le fun q hq => ?_
+  by_cases hq2 : q = 2
+  · subst hq2
+    refine (CFSG.SectionRank.pRank_le hq.one_lt fun E hEX hE => ?_).trans (Nat.zero_le 2)
+    rw [pow_zero]
+    have hEp : IsPGroup 2 E := fun x => ⟨1, by rw [pow_one]; exact Subtype.ext (hE.2 x x.2)⟩
+    have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
+    obtain ⟨k, hk⟩ := hEp.exists_card_eq
+    have hdvd : 2 ^ k ∣ Nat.card (oddCoreOf F) := hk ▸ Subgroup.card_dvd_of_le hEX
+    rcases k with _ | k
+    · rw [hk, pow_zero]
+    · exfalso
+      exact (Nat.not_even_iff_odd.mpr hodd)
+        (even_iff_two_dvd.mpr ((dvd_pow_self 2 (Nat.succ_ne_zero k)).trans hdvd))
+  · have : Fact q.Prime := ⟨hq⟩
+    refine le_trans ?_ ((pRank_le_rank hq _).trans
+      (Bender42.rank_qCoreOf_le_two hG ht hH hq hq2))
+    refine CFSG.SectionRank.pRank_le hq.one_lt fun E hEX hE => ?_
+    have hEp : IsPGroup q E := fun x => ⟨1, by rw [pow_one]; exact Subtype.ext (hE.2 x x.2)⟩
+    obtain ⟨k, hk⟩ := hEp.exists_card_eq
+    rw [hk]
+    exact Nat.pow_le_pow_right hq.pos
+      (CFSG.SectionRank.le_pRank hq.one_lt (le_qCoreOf_of_le_fittingSubgroupOf hq
+        (hEX.trans hOF) hEp) hE hk)
 
 end CFSG.Walter

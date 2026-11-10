@@ -11,6 +11,12 @@ namespace CFSG.LargeExtraspecial.S14
 
 open Subgroup CFSG.Open
 
+@[expose] def SmithE32 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (S : Setting G), S.width = 10 →
+    Nonempty (Mbar0 S ≃* timmesfeldPSU 6) →
+      ∀ g : G, g * S.z * g⁻¹ ∈ S.M → g * S.z * g⁻¹ ∉ S.QG →
+        ∃ y : G, y ≠ 1 ∧ y ∈ (⁅zpowers (g * S.z * g⁻¹), S.QG⁆ : Subgroup G) ∧
+          Commute (g * S.z * g⁻¹) y ∧ y ∈ S.Qa g
 
 @[expose] def SmithE33Conj : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (S : Setting G), S.width = 10 →

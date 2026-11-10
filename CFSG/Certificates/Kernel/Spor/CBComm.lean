@@ -120,6 +120,14 @@ theorem trK_lt (hm : ∀ k < m, PAR k < m ∧ LAB k < r) (hs : ∀ j < r, ∀ x 
     | succ k =>
       exact hs _ (hm _ hk).2 _ (trK_lt hm hs fuel (PAR (k + 1)) p (hm _ hk).1 hp)
 
+theorem trInvK_lt (hm : ∀ k < m, PAR k < m ∧ LAB k < r) (hs : ∀ j < r, ∀ x < n, INV j x < n) :
+    ∀ (fuel k p : Nat), k < m → p < n → trInvK PAR LAB INV fuel k p < n
+  | 0, _, _, _, hp => hp
+  | fuel + 1, k, p, hk, hp => by
+    cases k with
+    | zero => exact hp
+    | succ k =>
+      exact trInvK_lt hm hs fuel (PAR (k + 1)) _ (hm _ hk).1 (hs _ (hm _ hk).2 p hp)
 
 theorem trK_fix {b : Nat} (hm : ∀ k < m, PAR k < m ∧ LAB k < r) (hb : ∀ j < r, STEP j b = b) :
     ∀ (fuel k : Nat), k < m → trK STEP PAR LAB fuel k b = b

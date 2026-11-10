@@ -27,12 +27,23 @@ namespace Cover
 
 @[inline, expose] def rd8 (b : ByteArray) (i : Nat) : Nat := (b.get! i).toNat
 
+@[inline, expose] def wr8 (b : ByteArray) (i x : Nat) : ByteArray := b.set! i (UInt8.ofNat x)
 
 @[inline, expose] def rd32 (b : ByteArray) (i : Nat) : Nat :=
   let o := 4 * i
   (b.get! o).toNat ||| ((b.get! (o + 1)).toNat <<< 8) ||| ((b.get! (o + 2)).toNat <<< 16) |||
     ((b.get! (o + 3)).toNat <<< 24)
 
+@[inline, expose] def wr32 (b : ByteArray) (i x : Nat) : ByteArray :=
+  let o := 4 * i
+  ((((b.set! o (UInt8.ofNat x)).set! (o + 1) (UInt8.ofNat (x >>> 8))).set! (o + 2)
+    (UInt8.ofNat (x >>> 16))).set! (o + 3) (UInt8.ofNat (x >>> 24)))
+
+@[expose] def zeros (n : Nat) : ByteArray := Id.run do
+  let mut b := ByteArray.emptyWithCapacity n
+  for _ in [0:n] do
+    b := b.push 0
+  return b
 
 @[expose] def actGo (rows : Array Nat) (v : Nat) : Nat → Nat → Nat
   | 0, acc => acc
@@ -40,9 +51,19 @@ namespace Cover
 
 @[expose] def actRows (rows : Array Nat) (v : Nat) : Nat := actGo rows v 24 0
 
+@[expose] def fastTables (rows : Array Nat) : Array Nat := Id.run do
+  let mut t : Array Nat := Array.mkEmpty 768
+  for b in [0:3] do
+    for x in [0:256] do
+      t := t.push (actRows rows (x <<< (8 * b)))
+  return t
+
+@[inline, expose] def fastAct (t : Array Nat) (v : Nat) : Nat :=
+  t[v &&& 255]! ^^^ t[256 + ((v >>> 8) &&& 255)]! ^^^ t[512 + ((v >>> 16) &&& 255)]!
 
 @[expose] def deltaCount (_ : Unit := ()) : Nat := 8292375
 
+@[expose] def seedF (_ : Unit := ()) : Nat := 63
 
 @[expose] def jListC : List Nat := [0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 16]
 
@@ -115,6 +136,36 @@ structure CoverTables where
   gen : ByteArray
   par : ByteArray
 
+@[expose] def coverSearch (tabs : Array (Array Nat)) (seeds : Array Nat) : CoverTables := Id.run do
+  let n := 1 <<< 24
+  let mut lab := zeros n
+  let mut lev := zeros n
+  let mut gen := zeros n
+  let mut par := zeros (4 * n)
+  let mut q : Array Nat := Array.mkEmpty deltaCount
+  let mut qh := 0
+  for r in [0:seeds.size] do
+    let s := seeds[r]!
+    if s < n && rd8 lab s == 0 then
+      lab := wr8 lab s (r + 1)
+      lev := wr8 lev s 1
+      q := q.push s
+      for _ in [0:n] do
+        if qh < q.size then
+          let x := q[qh]!
+          qh := qh + 1
+          let lx := rd8 lev x
+          for g in [0:tabs.size] do
+            let y := fastAct tabs[g]! x
+            if rd8 lab y == 0 then
+              lab := wr8 lab y (r + 1)
+              lev := wr8 lev y (lx + 1)
+              gen := wr8 gen y g
+              par := wr32 par y x
+              q := q.push y
+        else
+          break
+  return ⟨lab, lev, gen, par⟩
 
 @[inline, expose] def cvImg (rows : Array (Array Nat)) (g v : Nat) : Nat := actRows rows[g]! v
 
@@ -141,6 +192,14 @@ structure CoverTables where
     (fun r => countBelow (fun v => rd8 T.lab v == r + 1) (2 ^ 24) == sizes[r]!) &&
   allFrom (fun r => seeds[r]! < 2 ^ 24 && rd8 T.lab seeds[r]! == r + 1) 0 seeds.size
 
+@[expose, noinline] def orbitCheck (cA cB : List Gen) (hs : List (List Gen))
+    (lams sizes : List Nat) : Bool :=
+  let rows : Array (Array Nat) := #[wordRows cA, wordRows cB]
+  let seeds := lams.toArray
+  cA.all Gen.isVis && cB.all Gen.isVis && hs.all (fun w => w.all Gen.isVis) &&
+  hs.length == lams.length && lams.length == sizes.length &&
+  (hs.zip lams).all (fun x => l2Word x.1 x.2 == seedF) &&
+  coverCheck (coverSearch (rows.map fastTables) seeds) rows seeds sizes.toArray 3
 
 end Cover
 

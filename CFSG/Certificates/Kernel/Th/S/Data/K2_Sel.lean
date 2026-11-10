@@ -19,6 +19,9 @@ public section
 
 namespace CFSG.KD.ThK2
 
+@[expose] noncomputable def selRT (r : Nat) : Nat := CFSG.KC.Th.TcS.relK (nat_lit 20) r
+
+@[expose] noncomputable def selST (j : Nat) : Nat := CFSG.KC.Th.TcS.subK (nat_lit 5) j
 
 end CFSG.KD.ThK2
 

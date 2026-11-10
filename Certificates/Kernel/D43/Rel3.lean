@@ -40,6 +40,11 @@ namespace CertificateChecks.KernelD43
 
 open CFSG.KC.D43
 
+theorem dist3 : distinctAll K3K 52 = true := by decide +kernel
+
+theorem negRel3 : (!relChk GX.F TW B3X 1 &&
+    !distinctAll (fun i => K3K (Nat.add i (Nat.beq i 0).toNat)) 52) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelD43
 

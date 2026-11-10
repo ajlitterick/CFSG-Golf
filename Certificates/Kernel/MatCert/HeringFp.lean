@@ -27,6 +27,10 @@ theorem fourHe_K : forceB (payHe HeS1.chars) (fun A => forceB (payHe HeS2.chars)
     true := by
   quickRfl
 
+theorem fourHe_neg : (forceB (payHe HeS1.chars) fun A => forceB (payHe HeS2.chars) fun B =>
+    !mcertN O7 A B { CFSG.RankThree.PartTwo.Sec21.Hering214.FourHe.cert with
+      facts := [.eq [(0, 1)] [(1, 1)]] }) = true := by
+  quickRfl
 
 @[expose] noncomputable def j2L : Nat := rep1 12 196
 
@@ -56,6 +60,14 @@ theorem fourJ2_K : forceB (payJ2 J2S1.chars) (fun A => forceB (payJ2 J2S2.chars)
     true := by
   quickRfl
 
+theorem fourJ2_neg : (forceB (payJ2 J2S1.chars) fun A => forceB (payJ2 J2S2.chars) fun B =>
+    !mcertN O5 A B { CFSG.RankThree.PartTwo.Sec21.Hering214.FourJ2.cert with
+      facts := [.ord 0 3] }) = true := by
+  quickRfl
+
+theorem fourJ2_neg_swap : (forceB (payJ2 J2S1.chars) fun A => forceB (payJ2 J2S2.chars) fun B =>
+    !mcertN O5 B A CFSG.RankThree.PartTwo.Sec21.Hering214.FourJ2.cert) = true := by
+  quickRfl
 
 end CertificateChecks.KernelMC
 

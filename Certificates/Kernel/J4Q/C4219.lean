@@ -84,6 +84,11 @@ theorem ch4219a : CFSG.KC.Enum.allN 2048 (fun c => andB (Nat.blt (CFSG.KC.Enum.p
 theorem ch4219c : CFSG.KC.Enum.allN 6 (fun k => notB (Nat.beq (cntK (Nat.succ k)) (cntsK (Nat.succ k)))) =
     true := by quickRfl
 
+theorem ch4219neg1 : notB (Nat.beq (powJ c rm one L2 7) one) = true := by quickRfl
+
+theorem ch4219neg2 : notB (allK (fun y => andB (fixK S7R y) (memK y [])) SFK) = true := by quickRfl
+
+theorem ch4219neg3 : notB (allK (fun y => fixK (rowsOfJ rm L2) y) SFK) = true := by quickRfl
 
 end CertificateChecks.KernelJ4Q.C4219
 

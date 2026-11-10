@@ -59,6 +59,9 @@ end Generation
 section Torus
 
 
+abbrev L34 : Type := LinearFlag.projectiveSL 3 F4
+
+
 theorem weylS2_mul_unipU (a c : F4) :
     weylS2 * unipU F4 a 0 c = unipU F4 c 0 a * weylS2 := by
   ext i j

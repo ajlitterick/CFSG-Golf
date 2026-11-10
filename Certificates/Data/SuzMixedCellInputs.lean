@@ -124,6 +124,7 @@ namespace CFSG.Sporadic.SuzRecog.MixedCellData
 @[expose] def xW : List Nat :=
   [1, 2, 1, 2, 2, 0, 2, 0]
 
+@[expose] def xIndex : Nat := 382
 
 @[expose] def singleChecks : List (Nat × Nat × Nat) :=
   [(0, 2, 12000), (0, 3, 12000), (0, 4, 12000), (0, 5, 12000), (0, 6, 12000), (0, 7, 12000), (0,
@@ -135,6 +136,8 @@ namespace CFSG.Sporadic.SuzRecog.MixedCellData
   [(0, 1, 12000), (0, 7, 12000), (0, 8, 12000), (1, 0, 12000), (1, 7, 12000), (1, 8, 12000), (8,
    0, 12000), (8, 1, 12000), (8, 7, 12000), (15, 0, 12000), (15, 1, 12000), (15, 8, 12000)]
 
+@[expose] def goodPairs : List (Nat × Nat × Nat) :=
+  [(0, 0, 486), (1, 1, 486)]
 
 @[expose] def badPairs : List (Nat × Nat × Nat) :=
   [(15, 7, 0), (8, 8, 1)]

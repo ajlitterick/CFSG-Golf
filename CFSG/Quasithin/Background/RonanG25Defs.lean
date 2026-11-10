@@ -50,6 +50,16 @@ section Defs
 
 variable {G : Type} [Group G]
 
+structure IsOpCompSeries (X P : Subgroup G) (k : ℕ) (Ps : ℕ → Subgroup G) : Prop where
+  zero : Ps 0 = ⊥
+  top : Ps k = P
+  mono : ∀ i < k, Ps i ≤ Ps (i + 1)
+  strict : ∀ i < k, Ps i < Ps (i + 1)
+  inv : ∀ i ≤ k, ∀ x ∈ X, ∀ y ∈ Ps i, x * y * x⁻¹ ∈ Ps i
+  normal : ∀ i < k, ∀ y ∈ Ps (i + 1), ∀ z ∈ Ps i, y * z * y⁻¹ ∈ Ps i
+  simple : ∀ i < k, ∀ Q : Subgroup G, Ps i ≤ Q → Q ≤ Ps (i + 1) →
+    (∀ x ∈ X, ∀ y ∈ Q, x * y * x⁻¹ ∈ Q) → (∀ y ∈ Ps (i + 1), ∀ z ∈ Q, y * z * y⁻¹ ∈ Q) →
+      Q = Ps i ∨ Q = Ps (i + 1)
 
 @[expose] def FactorCentral (X A B : Subgroup G) : Prop :=
   ∀ x ∈ X, ∀ y ∈ B, x * y * x⁻¹ * y⁻¹ ∈ A
@@ -66,10 +76,36 @@ variable {G : Type} [Group G]
       ((β x : Matrix.GeneralLinearGroup (Fin 2) F) : Matrix (Fin 2) (Fin 2) F) =
         (M : Matrix (Fin 2) (Fin 2) F))
 
+open Classical in
+@[expose] def HasChiefCounts (F : Type) [Field F] (X P : Subgroup G) (a b : ℕ) : Prop :=
+  ∃ (k : ℕ) (Ps : ℕ → Subgroup G), IsOpCompSeries X P k Ps ∧
+    (Finset.univ.filter (fun i : Fin k => FactorNatural F X (Ps (i : ℕ)) (Ps ((i : ℕ) + 1)))).card = a ∧
+    (Finset.univ.filter (fun i : Fin k =>
+      ¬ FactorCentral X (Ps (i : ℕ)) (Ps ((i : ℕ) + 1)) ∧
+        ¬ FactorNatural F X (Ps (i : ℕ)) (Ps ((i : ℕ) + 1)))).card = b ∧
+    ∀ i : Fin k, ¬ FactorCentral X (Ps (i : ℕ)) (Ps ((i : ℕ) + 1)) →
+      ¬ FactorNatural F X (Ps (i : ℕ)) (Ps ((i : ℕ) + 1)) →
+        Nat.card ↥(Ps ((i : ℕ) + 1)) = Nat.card F * Nat.card ↥(Ps (i : ℕ))
 
 @[expose] def FactorTwo (A B : Subgroup G) : Prop :=
   ∃ dimension : ℕ, 0 < dimension ∧ Nat.card ↥B = 2 ^ dimension * Nat.card ↥A
 
+open Classical in
+@[expose] def HasOrdinaryTwoChiefCounts (F : Type) [Field F] (X : Subgroup G)
+    (naturalCount additionalCount : ℕ) : Prop :=
+  ∃ (length : ℕ) (terms : ℕ → Subgroup G), IsOpCompSeries X X length terms ∧
+    (Finset.univ.filter (fun index : Fin length =>
+      FactorTwo (terms (index : ℕ)) (terms ((index : ℕ) + 1)) ∧
+        FactorNatural F X (terms (index : ℕ)) (terms ((index : ℕ) + 1)))).card = naturalCount ∧
+    (Finset.univ.filter (fun index : Fin length =>
+      FactorTwo (terms (index : ℕ)) (terms ((index : ℕ) + 1)) ∧
+        ¬ FactorCentral X (terms (index : ℕ)) (terms ((index : ℕ) + 1)) ∧
+        ¬ FactorNatural F X (terms (index : ℕ)) (terms ((index : ℕ) + 1)))).card = additionalCount ∧
+    ∀ index : Fin length,
+      FactorTwo (terms (index : ℕ)) (terms ((index : ℕ) + 1)) →
+      ¬ FactorCentral X (terms (index : ℕ)) (terms ((index : ℕ) + 1)) →
+      ¬ FactorNatural F X (terms (index : ℕ)) (terms ((index : ℕ) + 1)) →
+        Nat.card ↥(terms ((index : ℕ) + 1)) = Nat.card F * Nat.card ↥(terms (index : ℕ))
 
 end Defs
 

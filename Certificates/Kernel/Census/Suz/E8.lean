@@ -16,6 +16,10 @@ namespace CertificateChecks.KernelCensus.Suz
 
 set_option maxRecDepth 1000000
 
+theorem kE32 : ebF 32 = true := by quickRfl
+theorem kE33 : ebF 33 = true := by quickRfl
+theorem kE34 : ebF 34 = true := by quickRfl
+theorem kE35 : ebF 35 = true := by quickRfl
 
 end CertificateChecks.KernelCensus.Suz
 

@@ -54,8 +54,67 @@ theorem normalClosureIn_le_of_le_normalizer {U X : Subgroup G} (hUX : U ≤ X)
   rw [Subgroup.subgroupOf_map_subtype] at h
   exact h.trans inf_le_left
 
+theorem goldschmidtOddCore_eq_bot_of_isPGroup {M : Subgroup G} (hM : IsPGroup 2 M) :
+    goldschmidtOddCore M = ⊥ := by
+  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
+  obtain ⟨k, hk⟩ := hM.exists_card_eq
+  have hdvd : Nat.card (goldschmidtOddCore M) ∣ 2 ^ k := by
+    rw [← hk]
+    exact Subgroup.card_subgroup_dvd_card _
+  obtain ⟨j, -, hj⟩ := (Nat.dvd_prime_pow Nat.prime_two).mp hdvd
+  have hodd : Odd (Nat.card (goldschmidtOddCore M)) :=
+    CFSG.ComponentClassification.OddCore.odd_card M
+  rcases j with _ | j
+  · rw [pow_zero] at hj
+    exact Subgroup.card_eq_one.mp hj
+  · rw [hj] at hodd
+    exact absurd (Nat.even_pow.mpr ⟨even_two, Nat.succ_ne_zero j⟩)
+      (Nat.not_even_iff_odd.mpr hodd)
+
+theorem goldschmidtLayer_eq_bot_of_comm {Q : Type*} [Group Q] (h : ∀ a b : Q, a * b = b * a) :
+    goldschmidtLayer Q = ⊥ := by
+  refine sSup_eq_bot.mpr fun K hK => ?_
+  obtain ⟨-, -, -, hs⟩ := hK
+  obtain ⟨x, hx⟩ := exists_ne (1 : K ⧸ Subgroup.center K)
+  obtain ⟨g, rfl⟩ := QuotientGroup.mk_surjective x
+  exact absurd ((QuotientGroup.eq_one_iff g).mpr (Subgroup.mem_center_iff.mpr fun y =>
+    Subtype.ext (h y g))) hx
 
 end TICrit
 
+open TICrit in
+theorem N32 :
+    ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) →
+      IH (Nat.card G) → ∀ (S : Sylow 2 G) (U : Subgroup G), U ≤ S → IsMulCommutative U →
+      fusionStronglyClosed (U : Set G) (S : Subgroup G) →
+      (fusionIsTI U ↔ ∀ u ∈ U, u ≠ 1 →
+        let M := normalClosureIn (Subgroup.centralizer ({u} : Set G)) U
+        goldschmidtLayer (M ⧸ goldschmidtOddCore M) = ⊥ ∧ ⁅oddCoreOf M, U⁆ = ⊥) := by
+  intro G _ _ _ hnab hIH S U hUS hUab hcl
+  have hU2 : IsPGroup 2 U := S.isPGroup'.to_le hUS
+  rw [isTI_iff_centralizer_le_normalizer S hUS hcl hUab]
+  refine forall₂_congr fun u hu => imp_congr_right fun hu1 => ?_
+  dsimp only
+  set X := Subgroup.centralizer ({u} : Set G) with hXdef
+  set M := normalClosureIn X U with hMdef
+  have hUX : U ≤ X := fun v hv => Subgroup.mem_centralizer_singleton_iff.mpr
+    (congrArg Subtype.val (hUab.is_comm.comm ⟨v, hv⟩ ⟨u, hu⟩))
+  obtain ⟨T, hUT, hTX⟩ := exists_fusionIsSylowIn hU2 hUX
+  obtain ⟨-, -, -, -, hC4⟩ := N16_of N1 (Nat.card G) hIH G S U X T hUS hUab hcl hUT hTX
+    (card_centralizer_lt hnab hu1)
+  constructor
+  · intro hXN
+    have hMU : M ≤ U := normalClosureIn_le_of_le_normalizer hUX hXN
+    have hO : goldschmidtOddCore M = ⊥ := goldschmidtOddCore_eq_bot_of_isPGroup (hU2.to_le hMU)
+    refine ⟨goldschmidtLayer_eq_bot_of_comm fun a b => ?_, ?_⟩
+    · obtain ⟨a, rfl⟩ := QuotientGroup.mk_surjective a
+      obtain ⟨b, rfl⟩ := QuotientGroup.mk_surjective b
+      rw [← QuotientGroup.mk_mul, ← QuotientGroup.mk_mul]
+      congr 1
+      have h := hUab.is_comm.comm (⟨a, hMU a.2⟩ : U) ⟨b, hMU b.2⟩
+      exact Subtype.ext (congrArg Subtype.val h : (a : G) * b = b * a)
+    · rw [oddCoreOf, hO, Subgroup.map_bot, Subgroup.commutator_bot_left]
+  · rintro ⟨hK1, hK2⟩
+    exact (hC4 hK1).2 hK2
 
 end CFSG.Goldschmidt

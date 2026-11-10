@@ -19,6 +19,11 @@ variable {α : RankTwoAmalgam.{u}} {Y : Type w} {Y' : Type w'} [Group Y] [Group 
     PathSet ι.graph (ι.Θ hι uh) ≃ PathSet β.graph (β.Θ hβ uh) :=
   GraphCovering.psi (ι.graphCovering hι) (β.graphCovering hβ) uh
 
+@[expose] noncomputable def stabComp (uh : α.Γhat) :
+    MulAction.stabilizer ↥(ι.φ1.range ⊔ ι.φ2.range) (ι.Θ hι uh) ≃*
+      MulAction.stabilizer ↥(β.φ1.range ⊔ β.φ2.range) (β.Θ hβ uh) :=
+  GraphCovering.StabIso.comp (ι.stabIso hι uh) (β.stabIso hβ uh)
+
 
 theorem lemma_F34_3 (uh : α.Γhat) (n : ℕ)
     (htrans : ∀ p₁ p₂ : GPath ι.graph n, p₁ ∈ GPath.nbPaths ι.graph (ι.Θ hι uh) n →

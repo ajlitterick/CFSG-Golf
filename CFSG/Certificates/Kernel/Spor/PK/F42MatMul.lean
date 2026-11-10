@@ -446,6 +446,11 @@ theorem pk52_of_mulS_eq_idS {X Y : Array V} (hX : Can52 X) (hY : Can52 Y)
   have h2 : mul 52 X Z = idM 52 := pk52_inj (can52_mul hX hZ) can52_idM hmul
   rw [inv_unique52 hX hY hZ h h2]
 
+theorem mulS_idS_not_wf : ∃ A B : ℕ, wfS A = true ∧ wfS B = false ∧ mulS A B = idS := by
+  refine ⟨(idS - 1 - 2 ^ 53 - 2 ^ 106) + (2 ^ 2 + 2 ^ 53 + 2 ^ 54 + 2 ^ 104 + 2 ^ 105) +
+      2 ^ (2704 + 106),
+    (idS - 1 - 2 ^ 53 - 2 ^ 106) + (1 + 2 ^ 2 + 2 ^ 53 + 2 ^ 104) + 2 ^ 2704 * (1 + 2 + 2 ^ 52),
+    ?_, ?_, ?_⟩ <;> decide +kernel
 
 end CFSG.KS.PK
 

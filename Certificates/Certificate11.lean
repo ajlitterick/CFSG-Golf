@@ -28,5 +28,14 @@ open Equiv.Perm
 
 namespace Certificates
 
+open CFSG.GorensteinWalter in
+open scoped Matrix MatrixGroups in
+open Equiv.Perm in
+theorem certificate11 : ∀ p : alternatingGroup (Fin 5),
+      CenterEq ((repPerm (p.1 * a5x.1))⁻¹ * (repPerm p.1 * repPerm a5x.1)) ∧
+      CenterEq ((repPerm (p.1 * a5y.1))⁻¹ * (repPerm p.1 * repPerm a5y.1)) ∧
+      CenterEq ((repPerm (p.1 * a5x.1⁻¹))⁻¹ * (repPerm p.1 * repPerm a5x.1⁻¹)) ∧
+      CenterEq ((repPerm (p.1 * a5y.1⁻¹))⁻¹ * (repPerm p.1 * repPerm a5y.1⁻¹)) := by
+  decide +kernel
 
 end Certificates

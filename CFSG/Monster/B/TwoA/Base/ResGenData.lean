@@ -41,6 +41,14 @@ open scoped Pointwise
   right_inv := (by decide : ∀ i x, qgenFun i (qgenInv i x) = x) i
 
 
+theorem qgen_01 : ∀ i : Fin 10, (qgen i 0 = 0 ∧ qgen i 1 = 1) ∨ (qgen i 0 = 1 ∧ qgen i 1 = 0) := by
+  decide
+
+theorem qgen_23 : ∀ i : Fin 10, i.val < 9 →
+    (qgen i 2 = 2 ∧ qgen i 3 = 3) ∨ (qgen i 2 = 3 ∧ qgen i 3 = 2) := by
+  decide
+
+
 @[expose] def pword (l : List (Fin 10)) : Equiv.Perm (Fin 24) := (l.map qgen).prod
 
 

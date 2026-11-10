@@ -89,6 +89,13 @@ theorem kQne : andB (notB (Nat.beq (Q7307.Lf 1) (Q7307.Lf 2808)))
 
 theorem kA0 : andB (Nat.beq (fl A0 0) 1) (Nat.beq (fl A0 1) 0) = true := by quickRfl
 
+theorem negR : andB (notB (allN 4060 (forestAtG 4060 4 Q7307.Mv Q7307.gR (fun t => Qf (Nat.succ t))
+      ORf FOf DPf PAf GLf)))
+    (andB (notB (Nat.beq (cntL 4060 (Q7307.Lf 1)) 1754))
+      (andB (notB (allN 4060 (fun x => orB (Nat.beq x 1)
+          (notB (Nat.beq (Q7307.Lf x) (Q7307.Lf 0))))))
+        (notB (Nat.beq (fl A0 0) 0)))) = true := by
+  quickRfl
 
 end CertificateChecks.KernelSporSch.R7046
 

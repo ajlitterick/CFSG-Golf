@@ -90,18 +90,108 @@ theorem cpA : cpACheck = true := by
 
 #lc_blocks RAB fRA 140 8
 
+theorem crA : crACheck = true := by
+  unfold crACheck
+  rw [Bool.and_eq_true]
+  refine ⟨chainCheck_of crA_binds (by norm_num) crA_chain ha hou (fun j hj => ?_) (by quickRfl)
+    (by quickRfl) (fun j hj => ?_) (fun j hj => ?_) (by quickRfl) (by quickRfl) (fun j hj => ?_), ?_⟩
+  · interval_cases j <;> quickRfl
+  · interval_cases j <;> quickRfl
+  · interval_cases j <;> quickRfl
+  · interval_cases j <;> quickRfl
+  have e0 := bind_txt (P := RA.E (lget RA.OFF 0)) (cs := C.crAReps.c0) rfl rfl (by quickRfl)
+    (by quickRfl)
+  have e1 := bind_txt (P := RA.E (lget RA.OFF 1)) (cs := C.crAReps.c1) rfl rfl (by quickRfl)
+    (by quickRfl)
+  have e2 := bind_txt (P := RA.E (lget RA.OFF 2)) (cs := C.crAReps.c2) rfl rfl (by quickRfl)
+    (by quickRfl)
+  have er : crAReps = [CFSG.Sporadic.Fi23.Native.natsOf (String.ofList C.crAReps.c0),
+      CFSG.Sporadic.Fi23.Native.natsOf (String.ofList C.crAReps.c1),
+      CFSG.Sporadic.Fi23.Native.natsOf (String.ofList C.crAReps.c2)] := by
+    rw [← C.crAReps.e0, ← C.crAReps.e1, ← C.crAReps.e2]
+    rfl
+  have hN : RA.N = 140 := rfl
+  refine classCheck_of (k := 3) (GP := RA.GP) (GIP := RA.GIP) (CI := RA.CI) (E := RA.E) (P := RA.P)
+    (L := RA.L) (K := RA.K) (Ss := RA.S) (SI := RA.SI) (CS := RA.CS) (OFF := RA.OFF) (N := RA.N)
+    crA_binds crA_perm CRA.hl (by norm_num) (fun l hl => ?_) (fun l hl => ?_) (fun l hl => ?_)
+    (by rw [er, e0, e1, e2]; rfl) (by quickRfl) (by quickRfl) (Nat.eq_of_beq_eq_true crA_cnt)
+    (fun j hj => CFSG.KC.Co3Bfs.cover_of_blocks (by norm_num) (by norm_num) RAB.all j
+      (by rw [hN] at hj; exact hj)) rfl (fun i hi => ?_)
+  · interval_cases l <;> exact ⟨Nat.eq_of_beq_eq_true (by quickRfl),
+      Nat.eq_of_beq_eq_true (by quickRfl)⟩
+  · interval_cases l <;> exact ⟨by quickRfl, by quickRfl⟩
+  · interval_cases l <;> exact Nat.eq_of_beq_eq_true (by quickRfl)
+  · change i < 3 at hi
+    interval_cases i <;>
+      exact ⟨by quickRfl, by quickRfl, by quickRfl, by quickRfl, by quickRfl⟩
 
 @[expose] noncomputable def fRPT (j : Nat) : Bool :=
   repK 315 9 RPT.GP RPT.GIP 2 RPT.CS RPT.OFF RPT.CI RPT.E RPT.P RPT.L RPT.K RPT.S RPT.SI RPT.N 4000 j
 
 #lc_blocks RPTB fRPT 140 8
 
+theorem cpT : cpTCheck = true := by
+  unfold cpTCheck
+  have e0 := bind_txt (P := RPT.E (lget RPT.OFF 0)) (cs := C.cpTReps.c0) rfl rfl (by quickRfl)
+    (by quickRfl)
+  have e1 := bind_txt (P := RPT.E (lget RPT.OFF 1)) (cs := C.cpTReps.c1) rfl rfl (by quickRfl)
+    (by quickRfl)
+  have er : cpTReps = [CFSG.Sporadic.Fi23.Native.natsOf (String.ofList C.cpTReps.c0),
+      CFSG.Sporadic.Fi23.Native.natsOf (String.ofList C.cpTReps.c1)] := by
+    rw [← C.cpTReps.e0, ← C.cpTReps.e1]
+    rfl
+  have hN : RPT.N = 140 := rfl
+  refine classCheck_of (k := 2) (GP := RPT.GP) (GIP := RPT.GIP) (CI := RPT.CI) (E := RPT.E)
+    (P := RPT.P) (L := RPT.L) (K := RPT.K) (Ss := RPT.S) (SI := RPT.SI) (CS := RPT.CS)
+    (OFF := RPT.OFF) (N := RPT.N)
+    c2A_binds c2A_perm C2A.hl (by norm_num) (fun l hl => ?_) (fun l hl => ?_) (fun l hl => ?_)
+    (by rw [er, e0, e1]; rfl) (by quickRfl) (by quickRfl) (Nat.eq_of_beq_eq_true cpT_cnt)
+    (fun j hj => CFSG.KC.Co3Bfs.cover_of_blocks (by norm_num) (by norm_num) RPTB.all j
+      (by rw [hN] at hj; exact hj)) rfl (fun i hi => ?_)
+  · interval_cases l <;> exact ⟨Nat.eq_of_beq_eq_true (by quickRfl),
+      Nat.eq_of_beq_eq_true (by quickRfl)⟩
+  · interval_cases l <;> exact ⟨by quickRfl, by quickRfl⟩
+  · interval_cases l <;> exact Nat.eq_of_beq_eq_true (by quickRfl)
+  · change i < 2 at hi
+    interval_cases i <;>
+      exact ⟨by quickRfl, by quickRfl, by quickRfl, by quickRfl, by quickRfl⟩
 
 @[expose] noncomputable def fRU (j : Nat) : Bool :=
   repK 315 9 RU.GP RU.GIP 3 RU.CS RU.OFF RU.CI RU.E RU.P RU.L RU.K RU.S RU.SI RU.N 4000 j
 
 #lc_blocks RUB fRU 84 8
 
+theorem crU : crUCheck = true := by
+  unfold crUCheck
+  rw [Bool.and_eq_true]
+  refine ⟨chainCheck_of crU_binds (by norm_num) crU_chain hou hou (fun j hj => ?_) (by quickRfl)
+    (by quickRfl) (fun j hj => ?_) (fun j hj => ?_) (by quickRfl) (by quickRfl) (fun j hj => ?_), ?_⟩
+  · interval_cases j <;> quickRfl
+  · interval_cases j <;> quickRfl
+  · interval_cases j <;> quickRfl
+  · interval_cases j <;> quickRfl
+  have e0 := bind_txt (P := RU.E (lget RU.OFF 0)) (cs := C.crUReps.c0) rfl rfl (by quickRfl)
+    (by quickRfl)
+  have e1 := bind_txt (P := RU.E (lget RU.OFF 1)) (cs := C.crUReps.c1) rfl rfl (by quickRfl)
+    (by quickRfl)
+  have er : crUReps = [CFSG.Sporadic.Fi23.Native.natsOf (String.ofList C.crUReps.c0),
+      CFSG.Sporadic.Fi23.Native.natsOf (String.ofList C.crUReps.c1)] := by
+    rw [← C.crUReps.e0, ← C.crUReps.e1]
+    rfl
+  have hN : RU.N = 84 := rfl
+  refine classCheck_of (k := 3) (GP := RU.GP) (GIP := RU.GIP) (CI := RU.CI) (E := RU.E) (P := RU.P)
+    (L := RU.L) (K := RU.K) (Ss := RU.S) (SI := RU.SI) (CS := RU.CS) (OFF := RU.OFF) (N := RU.N)
+    crU_binds crU_perm CRU.hl (by norm_num) (fun l hl => ?_) (fun l hl => ?_) (fun l hl => ?_)
+    (by rw [er, e0, e1]; rfl) (by quickRfl) (by quickRfl) (Nat.eq_of_beq_eq_true crU_cnt)
+    (fun j hj => CFSG.KC.Co3Bfs.cover_of_blocks (by norm_num) (by norm_num) RUB.all j
+      (by rw [hN] at hj; exact hj)) rfl (fun i hi => ?_)
+  · interval_cases l <;> exact ⟨Nat.eq_of_beq_eq_true (by quickRfl),
+      Nat.eq_of_beq_eq_true (by quickRfl)⟩
+  · interval_cases l <;> exact ⟨by quickRfl, by quickRfl⟩
+  · interval_cases l <;> exact Nat.eq_of_beq_eq_true (by quickRfl)
+  · change i < 2 at hi
+    interval_cases i <;>
+      exact ⟨by quickRfl, by quickRfl, by quickRfl, by quickRfl, by quickRfl⟩
 
 end CertificateChecks.KernelJ2Cover
 

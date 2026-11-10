@@ -72,6 +72,10 @@ theorem kBR : (Nat.beq SuzC1EB.R W0 && Nat.beq SuzC1EN.R W0) = true := by quickR
 
 theorem kSz : szOK 1782 11 = true := by quickRfl
 
+theorem negBind : Bool.not (allN 4 (fun j =>
+    Nat.beq (Nat.xor (SuzC1ET.G j) 2) (decK (t0Decs.getD j ([], 0))))) = true := by quickRfl
+
+theorem negInv : Bool.not (ie (SuzC1EB.G 4) (Nat.xor (SuzC1EB.GI 4) 1)) = true := by quickRfl
 
 theorem ofFn_get {α : Type} [Inhabited α] {n : Nat} (f : Nat → α) {i : Nat} (hi : i < n) :
     (Array.ofFn (n := n) fun j => f j.val)[i]! = f i := by

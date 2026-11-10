@@ -78,6 +78,7 @@ instance (d : RankTwoIndex) : Group (α.X d) := by
   map_comp {d e f} h₁ h₂ x := by
     cases d <;> cases e <;> cases f <;> first | rfl | exact h₁.elim | exact h₂.elim
 
+@[expose] def IsInjective : Prop := Function.Injective α.α1 ∧ Function.Injective α.α2
 
 section OfSubgroups
 

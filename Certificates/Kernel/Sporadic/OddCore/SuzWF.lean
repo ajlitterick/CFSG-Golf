@@ -32,6 +32,9 @@ theorem fp_of_get {a : Array Nat} {f : Nat → Nat} (h : ∀ x < 1782, a[x]! = f
     h 1234 (by norm_num), h 77 (by norm_num)]
   rfl
 
+theorem map_get {a : Array (Array Nat)} {f : Array Nat → Array Nat} {i : Nat} (hi : i < a.size) :
+    (a.map f)[i]! = f a[i]! := by
+  rw [getElem!_pos _ i (by simpa using hi), Array.getElem_map, getElem!_pos a i hi]
 
 theorem t1_eq : t1Arr = unpack 1782 11 (SuzInvT1.F 0) := SuzInv.run_eq1 (k := 0) (by norm_num)
 
@@ -43,6 +46,64 @@ theorem c_eq {k : Nat} (hk : k < 10) :
   simp only [invInnerGenArrs, Array.getElem_ofFn, his]
   exact SuzInv.run_eq1 (by omega)
 
+theorem gens_eq {s : Nat} (hs : s < 2) : gens[s]! = unpack 1782 11 (SuzXS.F s) := by
+  have h := CFSG.KC.Misc.HexFlat.hexTable_sound SuzXS.all s hs
+  rw [← SuzXS.eq] at h
+  interval_cases s
+  · simp only [gens, List.getElem!_toArray, List.getElem!_cons_zero]
+    unfold CFSG.Sporadic.SuzRecog.LevelTwoData.xStrong
+    exact h
+  · simp only [gens, List.getElem!_toArray, List.getElem!_cons_succ, List.getElem!_cons_zero]
+    unfold CFSG.Sporadic.SuzRecog.LevelTwoData.xStrong
+    exact h
+
+theorem gi_eq {s : Nat} (hs : s < 2) : gensInv[s]! = unpack 1782 11 (SuzWGI s) := by
+  have hg : gensInv[s]! = invCand 1782 gens[s]! := map_get (by simp [gens]; omega)
+  rw [hg, gens_eq hs]
+  interval_cases s
+  · exact (invEqK_sound gi0).1
+  · exact (invEqK_sound gi1).1
+
+theorem pt_of {lo len i : Nat}
+    (h : fpBfsPtSlK 1782 11 (mask 11) (1782 * 11) 2 343 SuzXS.F SuzWGI SuzWT SuzWV SuzWPL SuzWFP
+      lo len = true) (h1 : lo ≤ i) (h2 : i < lo + len) (h3 : i < 343) (h4 : 0 < i) :
+    fpBfsPtK 1782 11 (mask 11) (1782 * 11) 2 343 SuzXS.F SuzWGI SuzWT SuzWV SuzWPL SuzWFP i =
+      true := by
+  have h' := allN_spec h (i - lo) (by omega)
+  rw [strictB_eq] at h'
+  have e : Nat.add lo (i - lo) = i := by
+    change lo + (i - lo) = i
+    omega
+  rw [e] at h'
+  have hb : Nat.blt i 343 = true := Eq.mpr Nat.blt_eq h3
+  have hz : Nat.beq i 0 = false := by
+    obtain ⟨j, rfl⟩ : ∃ j, i = j + 1 := ⟨i - 1, by omega⟩
+    rfl
+  rw [hb, hz] at h'
+  exact h'
+
+theorem pts : ∀ i < 343, 0 < i →
+    fpBfsPtK 1782 11 (mask 11) (1782 * 11) 2 343 SuzXS.F SuzWGI SuzWT SuzWV SuzWPL SuzWFP i =
+      true := by
+  intro i hi h0
+  have hs : ∀ s < 11, ptK s = true := by
+    intro s hs
+    interval_cases s
+    exacts [pt0, pt1, pt2, pt3, pt4, pt5, pt6, pt7, pt8, pt9, pt10]
+  have h := hs (i / 32) (by omega)
+  unfold ptK at h
+  exact pt_of h (by change 32 * (i / 32) ≤ i; omega) (by change i < 32 * (i / 32) + 32; omega) hi h0
+
+theorem steps : ∀ e < 353, fpBfsStK 11 (mask 11) 2 343 SuzXS.F SuzWGI SuzWT SuzWPL SuzWPOS SuzWFP e =
+    true := by
+  intro e he
+  have h' := allN_spec st e he
+  rw [strictB_eq] at h'
+  have e' : Nat.add 0 e = e := Nat.zero_add e
+  rw [e'] at h'
+  have hb : Nat.blt e 353 = true := Eq.mpr Nat.blt_eq he
+  rw [hb] at h'
+  exact h'
 
 theorem kWT : allN 343 (fun i => Nat.beq (L2A i) (SuzWT i)) = true := by quickRfl
 

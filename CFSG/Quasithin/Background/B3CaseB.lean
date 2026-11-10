@@ -12,6 +12,7 @@ variable {n : ℕ}
 
 @[expose] def Dc (n : ℕ) : List Tab := AmL n (n / 2)
 
+@[expose] def DLc (n : ℕ) : List Tab := (Dc n).filter isEvenT
 
 @[expose] def regB (n : ℕ) (K : List Tab) : Bool :=
   (List.range n).all (fun j => K.any (fun t => t.getD 0 0 == j))
@@ -19,6 +20,13 @@ variable {n : ℕ}
 
 @[expose] def isE8T (n : ℕ) (K : List Tab) : Bool :=
   n == 8 && K.length == 8 && K.all isEvenT && regB n K
+
+
+@[expose] def chkNamed (n : ℕ) : Bool :=
+  (List.range (n / 2)).all (fun i => chkGen n (gensAm n (i + 1)) && memD (Dl n) (AmL n (i + 1))) &&
+  chkGen n (gensAm n (n / 2)) && chkGen n (gensA0 n) && memD (Dl n) (A0L n) &&
+  subOK n (DLc n) && memD (Dl n) (DLc n) && memD (Dl n) (Dc n) &&
+  (Dc n).all (fun t => (Tl n).contains t)
 
 
 @[expose] def Hset (n : ℕ) : Set (Subgroup (Gp n)) :=
@@ -29,6 +37,24 @@ variable {n : ℕ}
   {A | A ≤ alternatingGroup (Fin n) ∧ (∀ a ∈ A, ∀ b ∈ A, a * b = b * a) ∧ (∀ a ∈ A, a * a = 1) ∧
     Nat.card A = 8 ∧ ∀ i j : Fin n, ∃! a : Gp n, a ∈ A ∧ a i = j}
 
+theorem chkNamed_spec (h : chkNamed n = true) :
+    (∀ i < n / 2, chkGen n (gensAm n (i + 1)) = true ∧ memD (Dl n) (AmL n (i + 1)) = true) ∧
+    chkGen n (gensAm n (n / 2)) = true ∧ chkGen n (gensA0 n) = true ∧
+    memD (Dl n) (A0L n) = true ∧ subOK n (DLc n) = true ∧ memD (Dl n) (DLc n) = true ∧
+    memD (Dl n) (Dc n) = true ∧ (∀ t ∈ Dc n, t ∈ Tl n) := by
+  simp only [chkNamed, Bool.and_eq_true, List.all_eq_true, List.mem_range,
+    List.contains_iff_mem] at h
+  obtain ⟨⟨⟨⟨⟨⟨⟨h1, h2⟩, h3⟩, h4⟩, h5⟩, h6⟩, h7⟩, h8⟩ := h
+  refine ⟨fun i hi => by simpa using h1 i hi, h2, h3, h4, h5, h6, h7, h8⟩
+
+
+theorem Dsub_eq (hg : chkGen n (gensAm n (n / 2)) = true) : Dsub n = subOf n (Dc n) := by
+  unfold Dsub Dc
+  exact closure_eq_of_chkGen hg
+
+theorem subOK_Dc (hg : chkGen n (gensAm n (n / 2)) = true) : subOK n (Dc n) = true := by
+  simp only [chkGen, Bool.and_eq_true] at hg
+  exact hg.1.1
 
 theorem subOf_eq_of_iff {L L' : List Tab} (hL : subOK n L = true) (hL' : subOK n L' = true)
     (h : ∀ t, t ∈ L ↔ t ∈ L') : subOf n L = subOf n L' := by

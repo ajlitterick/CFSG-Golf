@@ -174,5 +174,25 @@ theorem isElemAbelian_zpowers_two {x : X} (hx : orderOf x = 2) :
 
 end Sec165
 
+theorem ZDSetup.prop165
+    (S : ZDSetup X Z M) (h121 : Thm121Stmt Z M) (h161 : Lemma161Stmt Z M)
+    (h162 : Lemma162Stmt Z M) (h163 : Lemma163Stmt Z M) (h164 : Lemma164Stmt Z M)
+    (hgap : Prop165TuvStmt Z M) : Prop165Stmt Z M := by
+  intro c
+  refine le_antisymm ?_ ?_
+  · by_contra hge
+    push Not at hge
+    obtain ⟨a, b, haD, hbD, ha2, hb2, hab, hcomm⟩ :=
+      exists_commuting_involutions_of_two_le_pRank (Nat.succ_le_of_lt hge)
+    have haa : a * a = 1 := by rw [← sq, ← ha2, pow_orderOf_eq_one]
+    have hbb : b * b = 1 := by rw [← sq, ← hb2, pow_orderOf_eq_one]
+    have ha1 : a ≠ 1 := fun h => by rw [h, orderOf_one] at ha2; omega
+    have hb1 : b ≠ 1 := fun h => by rw [h, orderOf_one] at hb2; omega
+    exact Sec165.false_of_four S h121 h161 h162 h163 h164 hgap c
+      ⟨fourSub a b haa hbb hcomm, fourSub_le haD hbD, card_fourSub ha1 hb1 hab,
+        mul_self_of_mem_fourSub⟩
+  · exact CFSG.SectionRank.le_pRank (p := 2) (by norm_num) (E := zpowers c.u)
+      (zpowers_le.mpr c.hu) (Sec165.isElemAbelian_zpowers_two c.hu2) (k := 1)
+      (by rw [Nat.card_zpowers, c.hu2, pow_one])
 
 end CFSG.GH74.Uniqueness

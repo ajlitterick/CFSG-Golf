@@ -1025,6 +1025,11 @@ theorem allIn_iff {n : Nat} {p : Nat → Bool} :
     · intro h
       exact ⟨fun k hk => h k (by omega), h n (by omega)⟩
 
+theorem allIn_congr {n : Nat} {p q : Nat → Bool} (h : ∀ k < n, p k = q k) :
+    CFSG.Sporadic.Th.Native.allIn 0 n p = CFSG.Sporadic.Th.Native.allIn 0 n q := by
+  apply Bool.eq_iff_iff.2
+  rw [allIn_iff, allIn_iff]
+  exact ⟨fun h1 k hk => (h k hk) ▸ h1 k hk, fun h1 k hk => (h k hk).symm ▸ h1 k hk⟩
 
 theorem sum3 (f : Nat → ZMod 5) : ∀ n, ∑ j ∈ Finset.range (3 * n), f j =
     ∑ g ∈ Finset.range n, (f (3 * g) + f (3 * g + 1) + f (3 * g + 2)) := by

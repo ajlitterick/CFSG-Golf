@@ -48,6 +48,18 @@ theorem kWord1 :
     Nat.beq (wordK 1782 11 (mask 11) (pidn 1782 11) SC SIC suzCtrlWordB1) Suz2306.B1 = true := by
   decide +kernel
 
+theorem kNegPerm : (!permB 1782 11 (Suz786001T.F 0 + 1)) = true := by decide +kernel
+
+theorem kNegSwap :
+    (!Nat.beq (wordK 1782 11 (mask 11) (pidn 1782 11) SC SIC suzCtrlWordB0) Suz2306.B1) = true := by
+  decide +kernel
+
+theorem kNegWord :
+    (!Nat.beq (wordK 1782 11 (mask 11) (pidn 1782 11) SC SIC (suzCtrlWordB0.drop 1))
+      Suz2306.B0) = true := by
+  decide +kernel
+
+theorem kNegLetters : (!lettersOK 4 (5 :: suzCtrlWordB0)) = true := by decide +kernel
 
 end CertificateChecks.KernelSpor.Suz786001
 

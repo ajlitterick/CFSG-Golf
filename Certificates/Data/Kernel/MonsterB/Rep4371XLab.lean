@@ -42,6 +42,7 @@ open CFSG.KC CFSG.KC.KDense CFSG.KC.Loop CFSG.KC.Rep4371Row CFSG.KC.BM.B64
       (Nat.add (nIf(Nat.ble (nat_lit 1024) t, nat_lit 2048, nat_lit 0))
         (Nat.div (oddT (Nat.mod t (nat_lit 1024))) (nat_lit 2)))
 
+@[expose] noncomputable def textN (CH : List (Nat × Nat)) : Nat := (CFSG.KC.BM.Pkt.joinP CH (nat_lit 0) (nat_lit 151)).1
 
 @[expose] noncomputable def labText (TH : Nat) (T : Nat × Nat) : Bool :=
   bAnd(Nat.beq T.2 (nat_lit 38346), bAnd(ascChk T.1 (nat_lit 38346) (nat_lit 600),

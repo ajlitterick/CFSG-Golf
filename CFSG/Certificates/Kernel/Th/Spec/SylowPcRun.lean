@@ -45,6 +45,10 @@ private theorem pc_beq_false {a b : ℕ} (h : a ≠ b) : Nat.beq a b = false := 
 private theorem pc_blt_true {a b : ℕ} (h : a < b) : Nat.blt a b = true := by
   simpa using h
 
+private theorem pc_blt_false {a b : ℕ} (h : ¬ a < b) : Nat.blt a b = false := by
+  cases hb : Nat.blt a b with
+  | false => rfl
+  | true => exact (h (by simpa using hb)).elim
 
 private noncomputable def pcGuard (RB PW : ℕ → ℕ) (c rm ONE PR n p pb : ℕ) (S x : ℕ) : Bool :=
   andB (Nat.blt 0 S) (andB (Nat.blt (Nat.land (S - 1) 255) n)
@@ -139,6 +143,18 @@ private theorem pcRaw_v1 {RB PW : ℕ → ℕ} {c rm ONE PR n p pb S x : ℕ} (h
   unfold pcRaw
   rw [hg, hbe]
 
+private theorem pcRaw_v2 {RB PW : ℕ → ℕ} {c rm ONE PR n p pb S x : ℕ} (h0 : 0 < S)
+    (ha : (S - 1) % 256 < n) (hb : (S - 1) / 256 < n)
+    (hr : pcRelOK RB PW c rm ONE PR n p pb ((S - 1) % 256) ((S - 1) / 256) x = true)
+    (hbn : (S - 1) / 256 + 1 = n) (hab : ¬ (S - 1) % 256 + 1 < n) :
+    pcRaw RB PW c rm ONE PR n p pb S x = 1 + n := by
+  have hg := (pcGuard_iff RB PW c rm ONE PR n p pb S x).2 ⟨h0, ha, hb, hr⟩
+  have hbe : Nat.beq (Nat.succ (Nat.shiftRight (S - 1) 8)) n = true :=
+    pc_beq_true (by rw [pc_shr]; omega)
+  have hlt : Nat.blt (Nat.succ (Nat.land (S - 1) 255)) n = false :=
+    pc_blt_false (by rw [pc_land]; omega)
+  unfold pcRaw
+  rw [hg, hbe, hlt]
 
 private theorem pcRaw_v3 {RB PW : ℕ → ℕ} {c rm ONE PR n p pb S x : ℕ} (h0 : 0 < S)
     (ha : (S - 1) % 256 < n) (hb : (S - 1) / 256 < n)

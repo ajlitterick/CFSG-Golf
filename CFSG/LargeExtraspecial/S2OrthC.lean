@@ -188,6 +188,28 @@ theorem mul_self_of_mem_radFix (hq : q.polarBilin.Nondegenerate) {F : Submodule 
   obtain ⟨u, hau, rfl⟩ := (mem_pointRadical_iff hq ha0 ha).mp ht.1
   exact eichler_mul_self hau
 
+theorem timmesfeld_2_1_c0 (hq : q.polarBilin.Nondegenerate) {F : Submodule (ZMod 2) V}
+    (hF : F ⊓ perp q F = ⊥) (h3 : 3 ≤ finrank (ZMod 2) (perp q F)) {p p₁ : V}
+    (hpF : p ∈ perp q F) (hp₁F : p₁ ∈ perp q F) (hp0 : p ≠ 0) (hp : q p = 0) (hp₁ : q p₁ = 0)
+    (hpp₁ : polar q p p₁ = 1) :
+    ∃ y ∈ radFix q F p, ∃ z ∈ radFix q F p₁, IsTypeC q y 2 ∧ IsTypeC q z 2 ∧
+      orderOf (y * z) = 3 ∧ (y * z) p = p₁ := by
+  have hp₁0 : p₁ ≠ 0 := by
+    rintro rfl
+    rw [polar_zero_right] at hpp₁
+    exact zero_ne_one hpp₁
+  have hp₁p : polar q p₁ p = 1 := by rw [polar_comm, hpp₁]
+  obtain ⟨c, hcK, hc, -, -, -⟩ := exists_mem_radFix_not_isTypeA hq hF h3 hpF hp₁F hp0 hp hpp₁
+  obtain ⟨hcF, hpc, hp₁c⟩ := mem_perp_sup_span_pair.mp hcK
+  have hpow := eichler_mul_eichler_pow_three hp hp₁ hc hpp₁ hpc hp₁c
+  refine ⟨eichler q p c, (mem_radFix_iff hq hp0 hp hpF).mpr ⟨c, hcF, hpc, rfl⟩,
+    eichler q p₁ c, (mem_radFix_iff hq hp₁0 hp₁ hp₁F).mpr ⟨c, hcF, hp₁c, rfl⟩,
+    (eichler_isTypeC hq hp0 hp hpc hc).1, (eichler_isTypeC hq hp₁0 hp₁ hp₁c hc).1, ?_, hpow.1⟩
+  refine orderOf_eq_prime hpow.2 fun h => ?_
+  have := hpow.1
+  rw [h, LinearEquiv.coe_one, id] at this
+  rw [this, polar_self_eq_zero] at hpp₁
+  exact zero_ne_one hpp₁
 
 variable {M : Type*} [AddCommGroup M] [Module (ZMod 2) M] [FiniteDimensional (ZMod 2) M]
 variable {hq : q.polarBilin.Nondegenerate} (ρ : omegaGroup q hq →* (M ≃ₗ[ZMod 2] M))

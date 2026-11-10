@@ -21,6 +21,13 @@ theorem inv_list : invLK 8 255 BP 16384 24 T IL KB INV 0 0 = true := by quickRfl
 
 theorem zp : bAnd(Nat.blt ZP 687, Nat.beq (IL ZP) GT4) = true := by quickRfl
 
+theorem neg_cens : Bool.not (censK 8 255 BP T (Nat.lor (maskL INV) 1) 0) = true := by quickRfl
+theorem neg_cens2 : Bool.not (strictB (maskL INV.tail) fun IM =>
+    censK 8 255 BP T IM (INV.getD 0 0)) = true := by quickRfl
+theorem neg_invl : Bool.not (invLK 8 255 BP 16384 24 T (fun a => IL (Nat.succ a)) KB INV 0 0) =
+    true := by quickRfl
+theorem neg_kb : Bool.not (invLK 8 255 BP 16384 24 T IL (Nat.shiftRight KB 24) INV 0 0) = true := by
+  quickRfl
 
 end CertificateChecks.KernelSporSch.HNT0
 

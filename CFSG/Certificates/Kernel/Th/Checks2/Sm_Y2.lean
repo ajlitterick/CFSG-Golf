@@ -460,5 +460,83 @@ end CFSG.KD.ThS.Rows_Sm_Y2
 #kc_rows_unfold CFSG.KD.ThS.Rows_Sm_Y2.f39 1 as CFSG.KD.ThS.bs2_11_ names
   CFSG.KD.ThS.Rows_Sm_Y2.f39I eval CFSG.KD.ThS.Rows_Sm_Y2.f39P CFSG.KD.ThS.Rows_Sm_Y2.f39l0
 
+theorem CFSG.KD.ThS.sd2 : CFSG.KC.Th.andB (Nat.beq (CFSG.KD.ThS.RBp2 (nat_lit 1)) (CFSG.KD.ThS.RBf
+    (nat_lit 1))) (Nat.beq (CFSG.KD.ThS.RBp2 (nat_lit 2)) (CFSG.KD.ThS.RBf (nat_lit 2))) = true :=
+    by
+  quickRfl
+
+theorem CFSG.KD.ThS.rg2 : CFSG.KC.Th.andB (CFSG.KC.Th.BigS.regsIn CFSG.KD.ThS.PR2 CFSG.KD.ThS.n2
+    (nat_lit 137)) (CFSG.KC.Th.BigS.regsIn CFSG.KD.ThS.GL2 (nat_lit 11) (nat_lit 137)) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.fl2 : CFSG.KC.Th.andB (Nat.beq (CFSG.KC.Th.mulB CFSG.KD.ThS.c CFSG.KD.ThS.rm
+    CFSG.KD.ThS.Cm2 CFSG.KD.ThS.Ci2) CFSG.KD.ThS.ONE) (CFSG.KC.Th.BigS.uniOK CFSG.KD.ThS.RBp2
+    CFSG.KD.ThS.c CFSG.KD.ThS.rm CFSG.KD.ThS.up CFSG.KD.ThS.dg CFSG.KD.ThS.Cm2 CFSG.KD.ThS.Ci2
+    CFSG.KD.ThS.GL2 (nat_lit 11)) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bf2_0 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp2 CFSG.KD.ThS.rm
+    CFSG.KD.ThS.PR2 (CFSG.KD.ThS.PT2_0 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL2 (nat_lit
+    5) (nat_lit 5)) (nat_lit 15) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bf2_1 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp2 CFSG.KD.ThS.rm
+    CFSG.KD.ThS.PR2 (CFSG.KD.ThS.PT2_1 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL2 (nat_lit
+    15) (nat_lit 5)) (nat_lit 15) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bf2_2 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp2 CFSG.KD.ThS.rm
+    CFSG.KD.ThS.PR2 (CFSG.KD.ThS.PT2_2 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL2 (nat_lit
+    25) (nat_lit 5)) (nat_lit 15) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bf2_3 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp2 CFSG.KD.ThS.rm
+    CFSG.KD.ThS.PR2 (CFSG.KD.ThS.PT2_3 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL2 (nat_lit
+    35) (nat_lit 5)) (nat_lit 15) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bf2_4 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp2 CFSG.KD.ThS.rm
+    CFSG.KD.ThS.PR2 (CFSG.KD.ThS.PT2_4 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL2 (nat_lit
+    45) (nat_lit 5)) (nat_lit 15) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bf2_5 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp2 CFSG.KD.ThS.rm
+    CFSG.KD.ThS.PR2 (CFSG.KD.ThS.PT2_5 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL2 (nat_lit
+    55) (nat_lit 5)) (nat_lit 15) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bf2_6 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp2 CFSG.KD.ThS.rm
+    CFSG.KD.ThS.PR2 (CFSG.KD.ThS.PT2_6 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL2 (nat_lit
+    65) (nat_lit 5)) (nat_lit 15) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bf2_7 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp2 CFSG.KD.ThS.rm
+    CFSG.KD.ThS.PR2 (CFSG.KD.ThS.PT2_7 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL2 (nat_lit
+    75) (nat_lit 5)) (nat_lit 15) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bf2_8 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp2 CFSG.KD.ThS.rm
+    CFSG.KD.ThS.PR2 (CFSG.KD.ThS.PT2_8 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL2 (nat_lit
+    85) (nat_lit 5)) (nat_lit 15) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bf2_9 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp2 CFSG.KD.ThS.rm
+    CFSG.KD.ThS.PR2 (CFSG.KD.ThS.PT2_9 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL2 (nat_lit
+    95) (nat_lit 5)) (nat_lit 15) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bf2_10 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp2 CFSG.KD.ThS.rm
+    CFSG.KD.ThS.PR2 (CFSG.KD.ThS.PT2_10 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL2 (nat_lit
+    105) (nat_lit 5)) (nat_lit 15) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bf2_11 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp2 CFSG.KD.ThS.rm
+    CFSG.KD.ThS.PR2 (CFSG.KD.ThS.PT2_11 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL2 (nat_lit
+    115) (nat_lit 5)) (nat_lit 15) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bl2 : CFSG.KC.Th.BigS.blocksOK CFSG.KD.ThS.BL2 CFSG.KD.ThS.nb2 CFSG.KD.ThS.n2 =
+    true := by
+  quickRfl
 
 end

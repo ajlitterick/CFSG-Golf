@@ -67,6 +67,14 @@ deriving DecidableEq
   if A.all st.2.contains then some ⟨st.1, sortSet st.2⟩ else none
 
 
+@[expose] def bGens (T : KTab) : List Nat :=
+  ((List.range T.nb).foldl (fun (st : List Nat × HashSet Nat) i =>
+    if st.2.contains (i * 64) then st else (st.1 ++ [i * 64], mulCl T (st.1 ++ [i * 64])))
+    ([], mulCl T [])).1
+
+@[expose] def kgensOf (T : KTab) : List Nat :=
+  [1, 2, 4, 8, 16, 32].map (fun c => T.idB * 64 + c) ++ bGens T
+
 @[expose] def twoElems (T : KTab) : List Nat := (klist T).filter (isTwoN T)
 
 @[expose] def cheapBad (T : KTab) (kgens : List Nat) (x : Nat) : Bool :=
@@ -75,6 +83,10 @@ deriving DecidableEq
 @[expose] def poolElems (T : KTab) (kgens : List Nat) : List Nat :=
   (twoElems T).filter fun x => !cheapBad T kgens x
 
+
+@[expose] def distinctNodes (l : List Node) : List Node :=
+  (l.foldl (fun (st : List Node × HashSet (List Nat)) N =>
+    if st.2.contains N.elems then st else (N :: st.1, st.2.insert N.elems)) ([], ∅)).1.reverse
 
 @[expose] def subsetL (a b : List Nat) : Bool :=
   let S : HashSet Nat := b.foldl (fun s x => s.insert x) ∅

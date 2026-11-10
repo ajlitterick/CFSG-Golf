@@ -190,5 +190,27 @@ theorem ZDSetup.theorem4_of_prop71 (S : ZDSetup X Z M) (h57 : Cor57Stmt Z M)
     (h71 : Prop71Stmt Z M) : Theorem4Stmt Z M :=
   S.theorem4_of_noCand h57 (not_t4Cand_of_prop71 S.invariant h71)
 
+@[expose] def Cor3Stmt (Z : Set X) (M : Subgroup X) : Prop :=
+  ¬ DoublyTransitive M → ∃ t ∈ Z, t ∉ M ∧ ∀ z ∈ Z, z ∈ M → lSubgroup M z t = ⊤
+
+theorem ZDSetup.cor3 (S : ZDSetup X Z M) (h57 : Cor57Stmt Z M) (h63 : Prop63Stmt Z M) :
+    Cor3Stmt Z M := by
+  intro hnd
+  have hZ := S.invariant
+  have h := S.prodDisc
+  obtain ⟨z₀, p, W, hW⟩ := S.exists_t4Cand_of_not_doublyTransitive h57 hnd
+  obtain ⟨β, hβ, hβM⟩ := hW.exists_ne_base
+  have hβΩ : β ∈ omega M := (h.mem_omegaFix_iff.mp hβ).1
+  obtain ⟨t, ht, hMt⟩ := h.exists_swap hZ (self_mem_omega M) hβΩ
+  have htM : t ∉ M := fun htM =>
+    hβM (by rw [← hMt]; exact (h.conjugate_eq_iff_mem (self_mem_omega M)).mpr htM)
+  have h1 : lSubgroup M z₀ t = ⊤ := h63 z₀ p W hW t ht htM (hMt ▸ hβ)
+  refine ⟨t, ht, htM, fun z hz hzM => ?_⟩
+  have hz₀L : z₀ ∈ lSubgroup M z t :=
+    h.inter_le_lSubgroup hZ ht htM hz hzM ⟨hW.mem_Z, hW.mem_M⟩
+  have htL : t ∈ lSubgroup M z t :=
+    Subgroup.mem_sup_left (Subgroup.mem_sup_right (Subgroup.mem_zpowers t))
+  rw [eq_top_iff, ← h1]
+  exact sup_le (sup_le ((Subgroup.zpowers_le).mpr hz₀L) ((Subgroup.zpowers_le).mpr htL)) le_sup_right
 
 end CFSG.GH74.Uniqueness

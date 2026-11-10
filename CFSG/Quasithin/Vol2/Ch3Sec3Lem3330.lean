@@ -21,6 +21,16 @@ open CFSG.QuasithinUnique.Vol2Native (A38ForSQTKCat A39ForSQTKCat)
   ∀ (G : Type) [Group G] [Finite G] (T M L D : Subgroup G), Hyp331 G T M L D →
     IsG2Block L → tC L T = ⊥
 
+@[expose] def Insp3_3_30 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T M L : Subgroup G), Setup331 G T M L →
+    IsG2Block L → T ≤ Subgroup.normalizer (L : Set G) → tC L T = ⊥ → qL L T = vPlus L T →
+    (∀ B : Subgroup G, B ≤ T → IsElemAbelian 2 B → Nat.card ↥B ≤ Nat.card ↥(vPlus L T)) ∧
+    (∀ B : Subgroup G, IsMaxElemAbelian T B → T ≤ Subgroup.normalizer (B : Set G) →
+      ¬ B ≤ vPlus L T → ∃ b ∈ B, vPlus L T ⊓ Subgroup.centralizer (B : Set G) =
+        vPlus L T ⊓ Subgroup.centralizer ({b} : Set G)) ∧
+    ∀ B B' : Subgroup G, IsMaxElemAbelian T B → IsMaxElemAbelian T B' →
+      T ≤ Subgroup.normalizer (B : Set G) → T ≤ Subgroup.normalizer (B' : Set G) →
+      ¬ B ≤ vPlus L T → ¬ B' ≤ vPlus L T → B ⊔ vPlus L T = B' ⊔ vPlus L T
 
 variable {G : Type} [Group G] [Finite G] {T M L D : Subgroup G}
 

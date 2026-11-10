@@ -246,6 +246,16 @@ theorem isSpTypeA_spSiegel_zero [FiniteDimensional (ZMod 2) V] (hf : f.IsAlt)
   have := ((spSiegel_eq_one_iff hf hnd hp0 hpu 0).mp h).1
   exact not_mem_span_singleton_of_pair hli this
 
+theorem isSpTypeC_spSiegel_one [FiniteDimensional (ZMod 2) V] (hf : f.IsAlt)
+    (hnd : f.Nondegenerate) {p u : V}
+    (hpu : f p u = 0) (hli : LinearIndependent (ZMod 2) ![p, u]) :
+    IsSpTypeC f (spSiegel f hf p u 1) 2 := by
+  have hp0 : p ≠ 0 := (linearIndependent_pair_iff.mp hli).1
+  refine ⟨TauCeti.BilinForm.mem_isometryGroup_iff.mp (spSiegel_mem_isometryGroup hf hpu 1),
+    fun h => ?_, spSiegel_mul_self hf hpu 1, by rw [commSpace_spSiegel hf hnd hpu hli,
+      finrank_span_pair hli], even_two, exists_apply_spSiegel_one_ne_zero hf hnd hp0 hpu⟩
+  have := ((spSiegel_eq_one_iff hf hnd hp0 hpu 1).mp h).2
+  exact one_ne_zero this
 
 end S2
 

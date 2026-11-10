@@ -59,6 +59,9 @@ open CFSG.LocalAnalysis.ComponentInitial.LinearFlag
 variable {F : Type} [Field F] [CharP F 2] [Finite F]
 
 
+private abbrev PSL4 (F : Type) [Field F] := projectiveSL 4 F
+
+
 end CFSG.StandardType
 
 namespace CFSG.StandardType
@@ -66,6 +69,8 @@ open Matrix CFSG.RankThree.PartOne.K159
 open CFSG.ClassicalGroups.SpecialLinear
 open CFSG.LocalAnalysis.ComponentInitial.LinearFlag
 variable {F : Type} [Field F] [CharP F 2] [Finite F]
+
+private abbrev PSL6 (F : Type) [Field F] := projectiveSL 6 F
 
 
 end CFSG.StandardType

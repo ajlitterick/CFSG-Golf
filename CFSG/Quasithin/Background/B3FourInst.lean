@@ -18,5 +18,25 @@ public section
 
 namespace CFSG.Quasithin.B3
 
+theorem chkL6_u0 : chkL6 Mod.u0 = true :=
+  Certificates.certificate8061.1
+theorem chkL6_ut0 : chkL6 Mod.ut0 = true :=
+  Certificates.certificate8061.2.1
+theorem chkG6_u0 : chkG6 Mod.u0 = true :=
+  Certificates.certificate8061.2.2.1
+theorem chkG6_ut0 : chkG6 Mod.ut0 = true :=
+  Certificates.certificate8061.2.2.2
+
+theorem chkL6_of_mem
+    {k : Mod} (hk : k = Mod.u0 ∨ k = Mod.ut0) : chkL6 k = true := by
+  rcases hk with rfl | rfl
+  · exact chkL6_u0
+  · exact chkL6_ut0
+
+theorem chkG6_of_mem
+    {k : Mod} (hk : k = Mod.u0 ∨ k = Mod.ut0) : chkG6 k = true := by
+  rcases hk with rfl | rfl
+  · exact chkG6_u0
+  · exact chkG6_ut0
 
 end CFSG.Quasithin.B3

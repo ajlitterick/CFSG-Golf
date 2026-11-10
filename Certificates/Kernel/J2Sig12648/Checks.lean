@@ -48,5 +48,9 @@ theorem ch12648cj : ∀ k < 3, Nat.beq (m9 (cjG k) (m9 X (cjGI k)))
     (m9 (nIf(Nat.beq k (nat_lit 0), I, nIf(Nat.beq k (nat_lit 1), Z, m9 Z Z))) X) = true ∧
     Nat.beq (m9 (cjG k) (cjGI k)) I = true := by decide +kernel
 
+theorem ch12648neg : zK X X2 X2 X I VV 0 7 (CertificateChecks.KernelMisc.J2C3.CzP.F 7) = false ∧
+    allR 0 36 (fun i => wK I I I VV 3 (CFSG.KS.lget
+      CertificateChecks.KernelMisc.J2En.CaP i)) = false := by
+  constructor <;> decide +kernel
 
 end CertificateChecks.KernelJ2Sig

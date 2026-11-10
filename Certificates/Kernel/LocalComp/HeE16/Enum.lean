@@ -58,6 +58,46 @@ namespace CertificateChecks.KernelLC.HeE16
 
 open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.PEnum CertificateChecks.KernelSpor
 
+@[expose] noncomputable def normK (UG T : Nat → Nat) (cnt : Nat) (N1 N2 : Nat → Nat) : Bool :=
+  allN 9 (fun j => allN 3 (fun i =>
+    bAnd(strictB (N1 (Nat.add (Nat.mul 3 j) i)) (fun q => bAnd(Nat.blt q cnt,
+      Nat.beq (T q) (pcomp 42 6 (mask 6) (pcomp 42 6 (mask 6) (HXE.G j) (UG i)) (HXI j)))),
+    strictB (N2 (Nat.add (Nat.mul 3 j) i)) (fun q => bAnd(Nat.blt q cnt,
+      Nat.beq (T q) (pcomp 42 6 (mask 6) (pcomp 42 6 (mask 6) (HXI j) (UG i)) (HXE.G j)))))))
+
+@[expose] noncomputable def centK (UG : Nat → Nat) : Nat :=
+  cntK (fun t => allN 3 (fun g => Nat.beq (pcomp 42 6 (mask 6) (HXE.T t) (UG g))
+    (pcomp 42 6 (mask 6) (UG g) (HXE.T t)))) 168
+
+theorem kGens : bAnd(Nat.beq HU1E.k 3, bAnd(Nat.beq HU2E.k 3,
+    allN 3 (fun j => bAnd(Nat.beq (HU1E.G j) (HRE.G j),
+      Nat.beq (HU2E.G j) (HRE.G (Nat.add j 3)))))) = true := by
+  quickRfl
+
+theorem kHd : bAnd(penumHdK (pidn 42 6) HU1E.cnt 8 HU1E.T HU1E.PL,
+    bAnd(penumHdK (pidn 42 6) HU2E.cnt 8 HU2E.T HU2E.PL,
+      bAnd(Nat.beq HU1E.cnt 8, Nat.beq HU2E.cnt 8))) = true := by
+  quickRfl
+
+theorem kSl1 : penumSlK 42 6 (mask 6) (42 * 6) false HU1E.G HU1E.GI HU1E.k HU1E.cnt HU1E.T HU1E.PL
+    HU1E.POS HU1E.SRT HU1E.SRI 0 8 = true := by
+  quickRfl
+
+theorem kSl2 : penumSlK 42 6 (mask 6) (42 * 6) false HU2E.G HU2E.GI HU2E.k HU2E.cnt HU2E.T HU2E.PL
+    HU2E.POS HU2E.SRT HU2E.SRI 0 8 = true := by
+  quickRfl
+
+theorem kNorm1 : normK HU1E.G HU1E.T HU1E.cnt NP11 NP12 = true := by
+  quickRfl
+
+theorem kNorm2 : normK HU2E.G HU2E.T HU2E.cnt NP21 NP22 = true := by
+  quickRfl
+
+theorem kCent1 : Nat.beq (centK HU1E.G) 64 = true := by
+  quickRfl
+
+theorem kCent2 : Nat.beq (centK HU2E.G) 64 = true := by
+  quickRfl
 
 end CertificateChecks.KernelLC.HeE16
 

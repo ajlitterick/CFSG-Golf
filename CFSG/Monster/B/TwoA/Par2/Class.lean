@@ -31,6 +31,29 @@ theorem conjClass_eq :
     obtain ⟨r, hr, rfl⟩ := blk_two_orbit hd₀
     exact ⟨(n : Dfull) * r, Ntwo.mul_mem n.2 (R2_le_Ntwo hr), by group⟩
 
+@[expose] def blkMap (x : Rest × Vhat) : Dfull := dhat 0 x.1 * x.2
+
+theorem blkMap_injective :
+    Function.Injective blkMap := by
+  rintro ⟨j, v⟩ ⟨k, v'⟩ h
+  obtain ⟨hjk, hvv⟩ := dhat0_mul_inj v.2 v'.2 h
+  subst hjk
+  exact Prod.ext rfl (Subtype.ext hvv)
+
+theorem Xs_eq_range : Xs = Set.range blkMap := by
+  ext d
+  constructor
+  · rintro ⟨j, v, hv, rfl⟩
+    exact ⟨(j, ⟨v, hv⟩), rfl⟩
+  · rintro ⟨⟨j, v⟩, rfl⟩
+    exact ⟨j, v, v.2, rfl⟩
+
+theorem natCard_rest' : Nat.card Rest = 22 := natCard_rest
+
+theorem ncard_conjClass :
+    conjClass.ncard = 88 := by
+  rw [conjClass_eq, Xs_eq_range, Set.ncard_range_of_injective blkMap_injective, Nat.card_prod,
+    natCard_rest', isKleinFour_Vhat.card_four]
 
 theorem cQ_ne_one :
     cQ ≠ 1 := by
@@ -72,6 +95,44 @@ theorem conj_mem_Xs
 
 attribute [local instance] xsAction
 
+theorem cQ_mem_Xs : cQ ∈ Xs := ⟨rest2, cQ_mem_blk⟩
+
+theorem xsAction_pretransitive :
+    MulAction.IsPretransitive Ntwo Xs := by
+  refine ⟨fun x y => ?_⟩
+  have hx : (x : Dfull) ∈ conjClass := by rw [conjClass_eq]; exact x.2
+  have hy : (y : Dfull) ∈ conjClass := by rw [conjClass_eq]; exact y.2
+  obtain ⟨a, ha, hax⟩ := hx
+  obtain ⟨b, hb, hby⟩ := hy
+  refine ⟨⟨b, hb⟩ * ⟨a, ha⟩⁻¹, Subtype.ext ?_⟩
+  change b * a⁻¹ * x * (b * a⁻¹)⁻¹ = y
+  rw [← hax, ← hby]
+  group
+
+theorem stabilizer_cQ :
+    MulAction.stabilizer Ntwo (⟨cQ, cQ_mem_Xs⟩ : Xs) = H2.subgroupOf Ntwo := by
+  ext n
+  rw [MulAction.mem_stabilizer_iff, Subgroup.mem_subgroupOf, H2, Subgroup.mem_inf,
+    Subgroup.mem_centralizer_singleton_iff, ← Subtype.coe_inj]
+  change (n : Dfull) * cQ * (n : Dfull)⁻¹ = cQ ↔ _
+  rw [mul_inv_eq_iff_eq_mul]
+  exact ⟨fun h => ⟨n.2, h⟩, fun h => h.2⟩
+
+theorem natCard_Xs :
+    Nat.card Xs = 88 := by
+  rw [← conjClass_eq, Nat.card_coe_set_eq, ncard_conjClass]
+
+theorem index_H2 :
+    (H2.subgroupOf Ntwo).index = 88 := by
+  have := xsAction_pretransitive
+  rw [← stabilizer_cQ, MulAction.index_stabilizer_of_transitive, natCard_Xs]
+
+theorem natCard_H2 :
+    Nat.card H2 = 259759622062080 := by
+  have h := (H2.subgroupOf Ntwo).card_mul_index
+  rw [index_H2, Nat.card_congr (Subgroup.subgroupOfEquivOfLe H2_le_Ntwo).toEquiv,
+    natCard_Ntwo] at h
+  omega
 
 @[expose, instance_reducible] def seedAction :
     MulAction R2 (blk rest2) where

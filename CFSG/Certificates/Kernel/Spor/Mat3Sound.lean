@@ -29,6 +29,7 @@ theorem andB_true3 {a b : Bool} (h : andB a b = true) : a = true ∧ b = true :=
 
 theorem land_eq3 (a b : Nat) : Nat.land a b = a &&& b := rfl
 theorem lor_eq3 (a b : Nat) : Nat.lor a b = a ||| b := rfl
+theorem xor_eq3 (a b : Nat) : Nat.xor a b = a ^^^ b := rfl
 theorem shr_eq3 (a b : Nat) : Nat.shiftRight a b = a >>> b := rfl
 theorem shl_eq3 (a b : Nat) : Nat.shiftLeft a b = a <<< b := rfl
 theorem add_eq3 (a b : Nat) : Nat.add a b = a + b := rfl

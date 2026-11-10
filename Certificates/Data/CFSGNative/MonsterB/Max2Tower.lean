@@ -56,6 +56,7 @@ open CFSG.Monster.VisCert.Native (actGo)
 @[expose] def eq22 (A B : Array Nat) : Bool :=
   A.size == 22 && B.size == 22 && (List.range 22).all fun i => A[i]! == B[i]!
 
+@[expose] def wf22 (A : Array Nat) : Bool := A.size == 22 && A.all (· < 2 ^ 22)
 
 @[expose] def nodeOK (D : Array (Int × Nat)) (N : Array (Array Nat)) (j : Nat) : Bool :=
   let e := D[j]!

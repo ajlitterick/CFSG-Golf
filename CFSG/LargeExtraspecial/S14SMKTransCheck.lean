@@ -50,6 +50,8 @@ set_option compiler.extract_closed false
 @[expose] def sArrT (W0 s : Array Nat) : Array Nat :=
   Array.ofFn (n := 21) fun k => uaPos W0 s[W0[k.val]!]!
 
+@[expose] def key21 (s : Array Nat) : Nat := s.foldl (fun acc x => acc * 32 + x) 0
+
 
 @[expose] def xorSel : List Nat → Nat → Nat
   | [], _ => 0

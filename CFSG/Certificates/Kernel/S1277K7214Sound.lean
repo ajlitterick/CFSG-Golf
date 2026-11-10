@@ -118,6 +118,7 @@ theorem appK_eq (B : B6) (v : ℕ) : appK B v = B.app v := by
     ← bit_mul, ← bit_mul, ← bit_mul]
   rfl
 
+theorem appK_fun (B : B6) : (fun v => appK B v) = B.app := funext (appK_eq B)
 
 theorem compK_eq (B C : B6) : compK B C = B.comp C := by
   simp only [compK, B6.comp, appK_eq]

@@ -42,6 +42,7 @@ theorem ch318002p_zero : profW V (nat_lit 0) = true := by quickRfl
 
 #kc_each ch318002p 0 27
 
+theorem ch318002n_prof : notB (profW (fun _ => one (nat_lit 24)) (nat_lit 7506)) = true := by quickRfl
 
 end CertificateChecks.KernelEaLat318002
 

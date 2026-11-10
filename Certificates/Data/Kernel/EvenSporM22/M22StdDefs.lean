@@ -65,6 +65,25 @@ open CFSG.KC.Ord CFSG.KC.LQT.P CFSG.KC.LQT.S CFSG.KC.LQT.Syl CFSG.KC.LQT.Cov
     letB (mul 22 (getK (eltsOf cA cB D) 79 0) (getK (eltsOf cA cB D) 79 0)) fun z =>
       twD (gensOf cA cB D) (eltsOf cA cB D) H D z) (parseCov cs)
 
+@[expose] noncomputable def cjK (u g v : Nat) : Nat := mul 22 (mul 22 u g) v
+
+@[expose] noncomputable def coreK (E : List Nat) (h hi g : Nat) : Bool :=
+  allBs [memL g E, memL (cjK hi g h) E, memL (cjK h g hi) E]
+
+@[expose] noncomputable def i22D (X E : List Nat) (n h hi a z : Nat) : Bool :=
+  allBs [Nat.beq n 128, Nat.beq (mul 22 h z) (mul 22 z h), Nat.beq (mul 22 (mul 22 h h) h) (one 22),
+    notB (Nat.beq h (one 22)),
+    allL aVK (fun v => Nat.beq (mul 22 (getK E v 0) (getK E v 0)) z),
+    allL rootsK (fun v => orB (notB (memL (cjK hi (getK E v 0) h) E)) (memL v aVK)),
+    coreK E h hi a,
+    anyL aVK (fun w => Nat.beq (cjK (mul 22 a h) (inv 22 a) hi) (getK E w 0)),
+    allLtK n (fun v => letB (getK E v 0) fun e => orB (notB (coreK E h hi e))
+      (allLtK 3 fun i => coreK E h hi (cjK (getK X i (one 22)) e (inv 22 (getK X i (one 22))))))]
+
+@[expose] noncomputable def i22K (cA cB : Nat) (cs : List Char) (hw : List Nat) : Bool :=
+  Option.rec (motive := fun _ => Bool) false (fun D =>
+    letB (wP 22 cA cB hw) fun h => letB (getK (eltsOf cA cB D) 79 0) fun a =>
+      i22D (gensOf cA cB D) (eltsOf cA cB D) D.nV h (inv 22 h) a (mul 22 a a)) (parseCov cs)
 
 end CFSG.KC.M22S
 

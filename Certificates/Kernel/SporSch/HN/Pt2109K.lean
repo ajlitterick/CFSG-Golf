@@ -66,6 +66,9 @@ theorem tr_3 : treeImg TC3_0 P3 J3_0 = true ∧ treeImg TC3_1 P3 J3_1 = true ∧
     treeImg TC3_5 P3 J3_5 = true ∧ treeImg TC3_6 P3 J3_6 = true := by
   decide +kernel
 
+theorem neg_fx : Bool.not (ptsFn TX MS CM3 M TS1 (lget FX0) (lget FX0) 645) = true := by quickRfl
+theorem neg_tr : Bool.not (treeImg TC1_1 P1 J1_0) = true := by quickRfl
+theorem neg_cm : Bool.not (Nat.beq (mm C1_2 S1) (mm S1 C1_2)) = true := by quickRfl
 
 end CertificateChecks.KernelSporSch.HNPt2109
 

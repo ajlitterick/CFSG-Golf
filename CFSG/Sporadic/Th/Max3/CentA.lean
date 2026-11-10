@@ -28,8 +28,17 @@ variable {G : Type*} [Group G] {n : ℕ} [MulAction G (Fin n)]
 termination_by k
 
 
+@[expose] noncomputable def hElt2 (t₀ t₁ : Array (ℕ × ℕ)) (r₀ r₁ g₁ g₂ : G) (k : ℕ) : G :=
+  if k < t₀.size then hElt t₀ r₀ g₁ g₂ k else hElt t₁ r₁ g₁ g₂ (k - t₀.size)
+
+
 end HElt
 
+
+@[expose] noncomputable def hRoot0 : J := wordElt xJ yJ hRootWord0
+
+@[expose] noncomputable def hRoot1 :
+    J := wordElt xJ yJ hRootWord1 ^ 9
 
 section Facts
 

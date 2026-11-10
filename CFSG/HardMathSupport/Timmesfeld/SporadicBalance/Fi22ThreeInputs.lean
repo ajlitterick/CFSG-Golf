@@ -1549,4 +1549,7 @@ decreasing_by exact _h.2
 @[expose] def fixCount (Y : Table) : Nat := (List.range 3510).countP fun w => ap Y w == w
 
 
+@[expose] def natOf (X : Table) : Array Nat := X.map fun u => u.toNat
+
+
 end CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi22Native

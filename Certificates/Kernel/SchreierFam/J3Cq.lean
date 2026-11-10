@@ -159,6 +159,9 @@ theorem s3_eq :
 
 theorem rc0 : Nat.beq (rcnt (SY.LR 0)) 128 = true := by quickRfl
 
+theorem cqNeg1 : cqSl [[0]] 3 = false := by decide +kernel
+
+theorem cqNeg0 : cqSl [] 3 = false := by decide +kernel
 
 end CertificateChecks.KernelSchreierFam.J3Cq
 

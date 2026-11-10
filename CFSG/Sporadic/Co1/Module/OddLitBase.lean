@@ -14,6 +14,8 @@ namespace CFSG.Sporadic.Co1.Module.Odd
 open CFSG.Blueprint CFSG.Sporadic.SmallF2 CFSG.Sporadic.SmallF2.Native Matrix
   CFSG.KC.InvFam CFSG.KC.Co1F2 CFSG.KC.M1F2 CFSG.KLie.CT CFSG.KC.SortTree CFSG.KC.Odd73
 
+theorem strictN73 (y : Nat) (k : Nat → Nat) : CFSG.KC.Loop.strictN y k = k y := by
+  cases y <;> rfl
 
 theorem orN_congr73 {f g : Nat → Nat} : ∀ n, (∀ i < n, f i = g i) →
     CFSG.KLie.CT.orN n f = CFSG.KLie.CT.orN n g

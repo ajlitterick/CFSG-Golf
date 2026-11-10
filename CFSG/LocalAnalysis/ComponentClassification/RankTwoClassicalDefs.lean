@@ -189,6 +189,13 @@ end Stages
     (g : G), AS76b.Hyp31 A → RankTwoClassicalEvenType (rankTwoQuot A) → Choice74 D R T g →
       ∃ Y W L : Subgroup G, Levi75 D T Y W L
 
+@[expose] def Step76 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (D : ClassicalModel A)
+    (R T Y W L : Subgroup G) (g : G), RankTwoHyp G A → AS76b.Hyp31 A →
+    RankTwoClassicalEvenType (rankTwoQuot A) → Choice74 D R T g → Levi75 D T Y W L →
+    (∀ (G' : Type) [Group G'] [Finite G'] (A' : Subgroup G'), Nat.card G' < Nat.card G →
+      RankTwoHyp G' A' → standardComponentOddCore G' = ⊥ →
+        ¬ RankTwoClassicalEvenType (rankTwoQuot A')) → False
 
 @[expose] def ClassicalHypII : Prop :=
   ∀ (A : Type) [Group A] [Finite A], commutator A = ⊤ →

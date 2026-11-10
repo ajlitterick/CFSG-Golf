@@ -27,6 +27,10 @@ theorem kGI2005 : allN 6 (fun k => andB (canonK 42 6 (mask 6) (42 * 6) (GI k))
 
 theorem kCov2005 : covC = true := by quickRfl
 
+theorem kNeg2005 : andB (notB (notInK 20160 sT (pcomp 42 6 (mask 6)
+    (pinvS 42 6 (mask 6) (RQ 0)) (RQ 0))))
+    (notB (allN 120 fun j => Nat.beq (OT 1 j) (L34O.T 1 j))) = true := by
+  quickRfl
 
 end CertificateChecks.KernelLC.L34Cos
 

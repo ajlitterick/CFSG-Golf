@@ -171,6 +171,7 @@ theorem conj_cp {p : Nat} (hp : p < 31671) (h0 : labP p = 0) :
     wK (pathK p) (XK 0 (wK (invWord (pathK p)) x))
   rw [XK_eq (by norm_num) hlt]
 
+theorem cp_lt (p : Nat) {q : Nat} (hq : q < 31671) : (cp p ⟨q, hq⟩).val < 31671 := Fin.isLt _
 
 theorem cp_gen_pt {k m q : Nat} (hk : k < 10) (hm : m < 31671) (hq : q < 31671) :
     (cp (tb G k m) ⟨q, hq⟩).val = tb G k (cp m ⟨tb G k q, rng k (by omega) q hq⟩).val := by

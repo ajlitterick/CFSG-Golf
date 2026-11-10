@@ -34,6 +34,9 @@ theorem abelE : abelPtsK 22 5 EE.N EE.T = true := by quickRfl
 
 theorem commU : commPtsK 22 5 EU.N EU.T EE.N EE.T = true := by quickRfl
 
+theorem abelU_neg : CFSG.KLie.CT.notB (abelPtsK 22 5 EU.N EU.T) = true := by quickRfl
+
+theorem commU_neg : CFSG.KLie.CT.notB (commPtsK 22 5 EU.N EU.T 4 EE.T) = true := by quickRfl
 
 end CertificateChecks.KernelSmallSpor.M22
 

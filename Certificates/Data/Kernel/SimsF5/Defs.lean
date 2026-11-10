@@ -18,6 +18,12 @@ open CFSG.KC.Ord
 
 @[expose] noncomputable def l6RM : Nat := 68719476735
 
+@[expose] noncomputable def l6ONE : Nat :=
+  1645504557321580186574125978775002378553869913044102104863473665
+
+@[expose] noncomputable def l6LV : Nat := 1090785345
+
+@[expose] noncomputable def l6HV : Nat := 34905131040
 
 @[expose] noncomputable def m6 (A B : Nat) : Nat := mulR 3 6 36 6 3 l6L l6H l6CM l6RM A B
 

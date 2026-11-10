@@ -169,6 +169,13 @@ private theorem natrec_xor (f : ℕ → ℕ) (v n : ℕ) :
     by_cases h : v.testBit n <;> simp [h]
 
 
+private theorem xorBits_congr_v {f : ℕ → ℕ} (n : ℕ) {x y : ℕ}
+    (h : ∀ j < n, x.testBit j = y.testBit j) : xorBits n f x = xorBits n f y := by
+  induction n with
+  | zero => rfl
+  | succ n ih =>
+    rw [xorBits_succ, xorBits_succ, ih (fun j hj => h j (by omega)), h n (by omega)]
+
 private theorem evV_eq (P v : ℕ) : evV P v = evalV (unpack6 P) v := by
   have h : evV P v = xorBits 6 (fun j => fld6 P j) v := natrec_xor _ v 6
   rw [h]
@@ -207,6 +214,10 @@ private theorem evalV_basis (l : List ℕ) {i : ℕ} (hi : i < 6) : evalV l (2 ^
 private theorem evalE_basis (l : List ℕ) {i : ℕ} (hi : i < 9) : evalE l (2 ^ i) = l.getD i 0 :=
   xorBits_basis _ hi
 
+private theorem evalV_mod (l : List ℕ) (v : ℕ) : evalV l (v % 64) = evalV l v :=
+  xorBits_congr_v 6 (fun j hj => by
+    have : v % 64 = v % 2 ^ 6 := rfl
+    rw [this, Nat.testBit_mod_two_pow]; simp [hj])
 
 private theorem evalV_lin (g : ℕ → ℕ) (hadd : ∀ x y, g (x ^^^ y) = g x ^^^ g y) (l : List ℕ)
     (hl : ∀ j < 6, l.getD j 0 = g (2 ^ j)) (v : ℕ) : evalV l v = g (v % 64) := by

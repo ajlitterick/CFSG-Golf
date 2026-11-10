@@ -20,6 +20,9 @@ open CFSG.KC.Ord CFSG.KC.LQT.P
     letB (Nat.land r (nat_lit 16777215)) fun a => letB (Nat.shiftRight r (nat_lit 24)) fun e =>
       andB (Nat.blt a nR) (andB (Nat.blt e nT) (Nat.beq (EU i) (M (RC a) (ET e))))
 
+@[expose] noncomputable def notInAt (M : Nat → Nat → Nat) (ET : Nat → Nat) (nT : Nat)
+    (EU : Nat → Nat) (x a : Nat) : Bool :=
+  allN nT fun k => notB (Nat.beq (M (ET k) (EU a)) x)
 
 @[expose] noncomputable def wordG (M : Nat → Nat → Nat) (one : Nat) (A : Nat → Nat)
     (w : List Nat) : Nat :=

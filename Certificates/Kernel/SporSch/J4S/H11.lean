@@ -47,6 +47,19 @@ theorem ord3 : allN 2048 ord3K = true := by quickRfl
 theorem q3fix : allN 27 (fun k => bIf(Nat.beq k 0, true, Nat.ble 4 (fixCntK (J4Q3C k)))) = true := by
   quickRfl
 
+theorem neg_b1 : Bool.not (Nat.beq (polyK 2) J4HB) = true := by quickRfl
+
+theorem neg_binv : Bool.not (Nat.beq (compK J4HB J4HB) pidK) = true := by quickRfl
+
+theorem neg_p512 : Bool.not (allN 2048 fun w => strictB (xK w) fun X => Nat.beq (powKF 11 X 512) X) =
+    true := by quickRfl
+
+theorem neg_ord3 : Bool.not (allN 2048 fun w => strictB (xK w) fun X =>
+    bIf(Nat.beq (powKF 2 X 3) pidK, bIf(Nat.beq X pidK, true, Nat.blt (fixCntK X) 2), true)) =
+    true := by quickRfl
+
+theorem neg_q3fix : Bool.not (allN 27 (fun k => bIf(Nat.beq k 0, true, Nat.ble 9 (fixCntK (J4Q3C k))))) =
+    true := by quickRfl
 
 end CertificateChecks.KernelSporSch.J4H11
 

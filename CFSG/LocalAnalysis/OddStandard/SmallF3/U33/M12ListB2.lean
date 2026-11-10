@@ -14,6 +14,7 @@ private instance instDecEqM12 : DecidableEq M12Mod := fun a b =>
   if h : M12Mod.equivProd a = M12Mod.equivProd b then isTrue (M12Mod.equivProd.injective h)
   else isFalse (fun hab => h (by rw [hab]))
 
+private def m1 : M12Mod := M12Mod.mx₁ * M12Mod.mx₂
 
 private def projI : M12Mod →* Multiplicative (Fin 2) where
   toFun m := Multiplicative.ofAdd m.i

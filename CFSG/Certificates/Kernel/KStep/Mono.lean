@@ -543,6 +543,12 @@ theorem holds_thetaPl {S X p x : ℕ} (hp : p < S) (hX : Holds 12 S X p x) :
     ← CFSG.Monster.B.Rep4371.native_dualN, ← CFSG.Monster.B.Rep4371.native_bmaskN]
   cases x.testBit m <;> cases decide (m < n) <;> simp
 
+theorem thetaPl_lt (S X : ℕ) : thetaPl S X < 2 ^ (12 * S) := by
+  unfold thetaPl
+  refine xorLoop_lt (fun n => Nat.land (repP S 12 (plane S n X))
+    (Nat.xor (constP S (packBetaT n) (ones S)) (thetaInner S X n))) (fun n => ?_) 12
+  exact Nat.lt_of_le_of_lt Nat.and_le_left (planeLoop_lt (n := 12) (fun _ => plane S n X)
+    (fun k => Nat.mul k S) (fun _ => rfl) (fun _ _ => plane_lt' S n X))
 
 @[expose] noncomputable def quadInner (S BT X i : ℕ) : ℕ :=
   Nat.rec (motive := fun _ => ℕ) 0 (fun j acc2 => Nat.xor acc2
@@ -566,6 +572,10 @@ theorem testBit_quadPl {S BT X p x : ℕ} (hp : p < S) (hX : Holds 12 S X p x) :
   change _ = (decide (i < j) && x.testBit i && x.testBit j && BT.testBit (12 * i + j))
   cases decide (i < j) <;> cases x.testBit i <;> cases x.testBit j <;> simp
 
+theorem quadPl_lt (S BT X : ℕ) : quadPl S BT X < 2 ^ S := by
+  unfold quadPl
+  refine xorLoop_lt (fun i => Nat.land (plane S i X) (quadInner S BT X i)) (fun i => ?_) 12
+  exact Nat.lt_of_le_of_lt Nat.and_le_left (plane_lt' S i X)
 
 theorem testBit_mux {S m x y p : ℕ} (hp : p < S) :
     (mux S m x y).testBit p = if m.testBit p then x.testBit p else y.testBit p := by
@@ -587,6 +597,11 @@ theorem testBit_muxLoop {S n m : ℕ} (hm : m < 2 ^ S) (sel idp : ℕ → ℕ) {
   rw [testBit_planeLoop (fun b => mux S m (sel b) (idp b)) (fun b => Nat.mul b S) (fun _ => rfl)
     (fun _ _ => mux_lt hm) hb hp, testBit_mux hp]
 
+theorem muxLoop_lt {S n m : ℕ} (hm : m < 2 ^ S) (sel idp : ℕ → ℕ) :
+    Nat.rec (motive := fun _ => ℕ) 0 (fun b acc => Nat.lor acc (Nat.shiftLeft (mux S m (sel b) (idp b))
+      (Nat.mul b S))) n < 2 ^ (n * S) :=
+  planeLoop_lt (fun b => mux S m (sel b) (idp b)) (fun b => Nat.mul b S) (fun _ => rfl)
+    (fun _ _ => mux_lt hm)
 
 theorem testBit_eq5 {K o v p : ℕ} (hoK : o + 5 ≤ K) (hv : v < 32) (hp : p < 2 ^ K) :
     (eq5 (2 ^ K) o v).testBit p = decide ((p >>> o) % 32 = v) := by
@@ -1103,6 +1118,7 @@ theorem Gat.union {S T : ℕ} {f g : ℕ → ℕ → ℕ} {π1 π2 : ℕ → ℕ
     rcases hd x hx with h | h <;> cases h1 : Z1 x <;> cases h2 : Z2 x <;> simp_all
   bd np X hX := Nat.or_lt_two_pow (hf.bd np X hX) (hg.bd np X hX)
 
+theorem PG.gat {S : ℕ} {f : ℕ → ℕ → ℕ} {π : ℕ → ℕ} (h : PG S f π) : Gat S S f π (fun _ => false) := h.g
 
 theorem PG.comp {S : ℕ} {f g : ℕ → ℕ → ℕ} {π1 π2 : ℕ → ℕ} (hg : PG S g π1) (hf : PG S f π2) :
     PG S (fun np X => f np (g np X)) (fun x => π1 (π2 x)) where
@@ -1476,6 +1492,13 @@ theorem gat_clearPB :
     cases pairBlocks.testBit x <;> cases X.testBit (b * SX + x) <;> rfl
   bd np X hX := Nat.lt_of_le_of_lt Nat.and_le_left hX
 
+theorem pg_cn5 {S K : ℕ} (hS : S = 2 ^ K) (hK : 5 ≤ K) {E : MonoE} (hE : monoNetsOK E = true) (R : ℕ) :
+    ∃ π, PG S (fun np X => netRepN S np 5 (repLow S 5) R E.cn X) π := by
+  unfold monoNetsOK at hE
+  obtain ⟨h1, -⟩ := Benes.andB_true hE
+  obtain ⟨h1, -⟩ := Benes.andB_true h1
+  obtain ⟨h1, -⟩ := Benes.andB_true h1
+  exact pg_netRepN hS hK h1 R
 
 theorem nets_ok {E : MonoE} (hE : monoNetsOK E = true) :
     netOK 5 E.cn = true ∧ netOK 11 E.on = true ∧ netOK 10 E.qn = true ∧ netOK 12 E.wn = true ∧

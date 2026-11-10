@@ -181,6 +181,11 @@ theorem fld_lnT4 {KK : List (List ℕ)} {U : ℕ → ℕ} (hK : KKOK KK 4) {i : 
       Nat.mul_add_div (by decide), Nat.div_eq_of_lt ht, Nat.add_zero]
   · simp [hr]
 
+theorem lnT4_lt {KK : List (List ℕ)} {U : ℕ → ℕ} (hK : KKOK KK 4) {i : ℕ}
+    (hU : ∀ t < 16, U (i + t) < 2 ^ (16 * 8192)) : lnT KK U 4 i < 2 ^ (16 * (16 * 8192)) := by
+  have := (testBit_lnT 4 hK i hU).1
+  rw [show 8192 * (16 * 2 ^ 4) = 16 * (16 * 8192) by norm_num] at this
+  exact this
 
 end CFSG.KC.BM.Ln
 

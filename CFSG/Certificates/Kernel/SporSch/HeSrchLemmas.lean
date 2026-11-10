@@ -341,6 +341,9 @@ theorem stab0_spec {b0 : Nat} {bs : List Nat} (hA : ChainArrays Q O S base W)
     exact hne (levPts_inj hA hF (by omega) (Finset.mem_range.1 ha)
       (hA.levelFacts hF (by omega)).pos h1)
 
+theorem ite_sum {C : Prop} [Decidable C] (s : Finset Nat) (f : Nat → Nat) :
+    (if C then ∑ i ∈ s, f i else 0) = ∑ i ∈ s, if C then f i else 0 := by
+  split_ifs <;> simp
 
 theorem srchAAt_eq_sum {b0 b1 b2 : Nat} {bs : List Nat} (hA : ChainArrays Q O S base W)
     (hc : rawChainOK n O S base W chunks = true) (hch : 0 < chunks)

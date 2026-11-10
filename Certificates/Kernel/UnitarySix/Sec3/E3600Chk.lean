@@ -60,6 +60,8 @@ theorem perm_words : ∀ w ∈ [wu₁, wu₂, ww₀, wj₀, wab, wba, waba, wbcb
   siftK 693 10 (mask 10) (693 * 10) (pidn 693 10) CK1.LR CK1.TRI CK1.BP 3 0 G
 @[expose] noncomputable def sfK2 (G : ℕ) : Bool :=
   siftK 693 10 (mask 10) (693 * 10) (pidn 693 10) CK2.LR CK2.TRI CK2.BP 3 0 G
+@[expose] noncomputable def sfK1A1 (G : ℕ) : Bool :=
+  siftK 693 10 (mask 10) (693 * 10) (pidn 693 10) CK1A1.LR CK1A1.TRI CK1A1.BP 4 0 G
 @[expose] noncomputable def sfK2A2 (G : ℕ) : Bool :=
   siftK 693 10 (mask 10) (693 * 10) (pidn 693 10) CK2A2.LR CK2A2.TRI CK2A2.BP 3 0 G
 @[expose] noncomputable def sfSJ (G : ℕ) : Bool :=

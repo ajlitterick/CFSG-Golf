@@ -47,6 +47,10 @@ theorem z_mem_Uv : S.z ∈ S.Uv := le_conjClosure _ _ (Subgroup.mem_zpowers _)
 
 end Setting
 
+@[expose] def Exists1367 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T L V : Subgroup G) (S : Setting G T L V), S.Hyp1367 →
+    ∃ K : Subgroup G, S.InYz K
+
 
 @[expose] def List1367 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T L V : Subgroup G) (S : Setting G T L V), S.Hyp1367 →

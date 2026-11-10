@@ -82,6 +82,13 @@ theorem HypE61.normalizer_Q_le (h : HypE61 T M V) :
 theorem HypE61.centralizer_le (h : HypE61 T M V) : Subgroup.centralizer (V : Set G) ≤ M :=
   (Subgroup.centralizer_le_normalizer _).trans h.normalizer_le
 
+theorem e6_2 (h : HypE61 T M V) {L : Subgroup G} (hL : ¬ L ≤ M) : ⁅V, L⁆ ≠ ⊥ := by
+  intro hc
+  apply hL
+  have h1 : L ≤ Subgroup.centralizer (V : Set G) := by
+    rw [Subgroup.commutator_comm] at hc
+    exact Subgroup.commutator_eq_bot_iff_le_centralizer.1 hc
+  exact h1.trans h.centralizer_le
 
 omit [Finite G] in
 theorem isSylowIn_of_le {P K K' : Subgroup G} (hP : IsSylowIn 2 P K) (hPK' : P ≤ K')

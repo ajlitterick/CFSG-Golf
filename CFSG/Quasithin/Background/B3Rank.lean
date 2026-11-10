@@ -76,6 +76,9 @@ theorem rank_data (hn : 5 ≤ n) (k : Mod) {L : List Tab} (hL : subOK n L = true
   unfold rAV
   rw [hrkIdx, hrk']
 
+theorem rk_cj (g : Gp n) (K : Subgroup (Gp n)) : rk (cj g K) = rk K := by
+  unfold rk cj
+  rw [Subgroup.card_map_of_injective (MulAut.conj g).injective]
 
 theorem rkIdx_fixV_map_cj (k : Mod) (g : Gp n) (K : Subgroup (Gp n)) :
     rkIdx (fixV ((cj g K).map (Mod.act n k))) = rkIdx (fixV (K.map (Mod.act n k))) := by

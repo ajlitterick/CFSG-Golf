@@ -62,6 +62,12 @@ theorem tBase : bAnd(szOK 820 10, bAnd(cK (pidn 820 10), bAnd(CFSG.KS.Prim.idK 8
     bAnd(Nat.beq TS.cnt 1024, penumHdK (pidn 820 10) TS.cnt 1024 TS.T TS.PL))))) = true := by
   quickRfl
 
+theorem tBind : bindListK 820 10 (TS.GI 0) sylGen0.toList = true ∧
+    bindListK 820 10 (TS.GI 1) sylGen1.toList = true ∧
+    bindListK 820 10 (TS.GI 2) sylGen2.toList = true ∧
+    bindListK 820 10 (TS.GI 3) sylGen3.toList = true ∧
+    bindListK 820 10 (TS.GI 4) sylGen4.toList = true := by
+  refine ⟨?_, ?_, ?_, ?_, ?_⟩ <;> quickRfl
 
 theorem tIn : bAnd(allN 5 (fun j => inPK (TS.GI j)), bAnd(inPK (pc (TS.GI 5) (CU43TI 0)),
     inPK (pc (TS.GI 6) (CU43TI 1)))) = true := by

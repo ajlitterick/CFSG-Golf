@@ -11,6 +11,7 @@ namespace CFSG.Quasithin.G11.M12NC
 
 open Equiv Matrix
 
+abbrev V10 : Type := Fin 10 → ZMod 2
 
 abbrev BV : Type := Array Bool
 
@@ -53,6 +54,7 @@ instance (A : BM) : Decidable (WF A) := by unfold WF; infer_instance
   List.formPerm [0, 7, 8] * List.formPerm [1, 2, 3] * List.formPerm [4, 11, 10] *
     List.formPerm [5, 9, 6]
 
+@[expose] def crd (u : Fin 12 → ZMod 2) : V10 := fun i => u (Fin.castLE (by omega) i) + u 11
 
 @[expose] def pm (k : Fin 12) : ℕ :=
   if k.val < 10 then 2 ^ k.val else if k.val = 10 then 1023 else 0

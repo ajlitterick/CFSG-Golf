@@ -30,6 +30,7 @@ theorem strictN_id (y : Nat) (k : Nat → Nat) : strictN y k = k y := by
 theorem strictB_id (y : Nat) (k : Nat → Bool) : strictB y k = k y := by
   cases y <;> rfl
 
+theorem nPts_eq : nPts = 245520 := rfl
 
 theorem words_dec : decW (ONWW.WC 0) (ONWW.WL 0) = onThreeY[0]! ∧
     decW (ONWW.WC 1) (ONWW.WL 1) = onThreeY[1]! := by
@@ -89,6 +90,9 @@ theorem PT_lt {x : Nat} (hx : x < 245520) : PT x < 245520 := by
   rw [(pt_facts hx).1]
   exact (y_get (k := 0) (by norm_num) (y_get (k := 1) (by norm_num) hx).2).2
 
+theorem UT_lt {x : Nat} (hx : x < 245520) : UT x < 245520 := by
+  rw [(pt_facts hx).2.1]
+  exact PT_lt (PT_lt (PT_lt hx))
 
 theorem hN {x : Nat} (hx : x < 245520) : x < nPts := hx
 

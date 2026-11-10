@@ -66,6 +66,7 @@ theorem bindA23 : BindA 100 7 hs100FiveA23Gens 3 (fun j => F (77 + j)) :=
 
 theorem hps : ∀ p ∈ hs100RBaseArr.toList, p < 100 := by decide
 
+theorem keys_eq : hs100RBaseArr.toList = hs100FiveKeys := rfl
 
 theorem hpk : ∀ p ∈ hs100FiveKeys, p < 100 := by decide
 

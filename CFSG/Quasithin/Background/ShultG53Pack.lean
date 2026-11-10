@@ -19,4 +19,9 @@ open CFSG.Permutation.FinPack CFSG.CharacterTheory.SteinbergBY.AlternatingSix Eq
     (Nat.xor (hd c 3) (hd c 4)) x
 
 
+@[expose] def l5 : List ℕ := [0, 1, 2, 3, 4]
+
+@[expose] def l6 : List ℕ := [0, 1, 2, 3, 4, 5]
+
+
 end CFSG.Quasithin.ShultG53.Pack

@@ -137,8 +137,70 @@ end CFSG.Sporadic.Th.Native
 
 namespace CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThLocal
 
+structure ThLocalData where
+  reps : List Nat
+  steps : String
+  fus : List (Nat × Nat × List (Nat × Nat))
+  tgts : List (Nat × Nat × Nat)
+  invW : List (Nat × Nat)
+  invPos : Nat × Nat
 
 abbrev qN : Nat := 59049
 
+@[expose] def parseSteps (s : String) : List (Nat × Nat × Nat) :=
+  (s.splitOn ";").filterMap fun t =>
+    match (t.splitOn ",").map String.toNat? with
+    | [some i, some p, some k] => some (i, p, k)
+    | _ => none
+
+@[expose] def initRep (reps : List Nat) : Array Nat :=
+  reps.foldl (fun a r => a.set! r r) (Array.replicate qN qN)
+
+@[expose] def stepFold (edges : Array (Array Nat)) (mul : Nat → Nat → Nat) :
+    Bool × Array Nat → Nat × Nat × Nat → Bool × Array Nat
+  | (b, arr), (i, p, k) =>
+    let v := arr[p]!
+    (b && decide (i < qN) && decide (p < qN) && decide (k < 10) && decide (v < qN) &&
+      ((edges[p]!)[k]! == mul i ((edges[0]!)[k]!)), arr.set! i v)
+
+@[expose] def classTable (edges : Array (Array Nat)) (mul : Nat → Nat → Nat) (X : ThLocalData) :
+    Bool × Array Nat :=
+  (parseSteps X.steps).foldl (stepFold edges mul) (true, initRep X.reps)
+
+@[expose] def powIdx (mul : Nat → Nat → Nat) (i : Nat) : Nat → Nat
+  | 0 => 0
+  | e + 1 => mul i (powIdx mul i e)
+
+@[expose] def isR86 (X : ThLocalData) (r : Nat) : Bool :=
+  r == 10 || r == 94 || X.fus.any fun f => f.1 == r && (f.2.1 == 10 || f.2.1 == 94)
+
+@[expose] def e9Idx (mul : Nat → Nat → Nat) (e₁ e₂ a : Nat) : Nat :=
+  mul (powIdx mul e₁ (a / 3)) (powIdx mul e₂ (a % 3))
+
+@[expose] def tgtOK (mul : Nat → Nat → Nat) (crep : Array Nat) (X : ThLocalData)
+    (y : Nat × Nat × Nat) : Bool :=
+  decide (y.1 < qN) && decide (y.2.1 < qN) && decide (y.2.2 < qN) &&
+    decide (2187 ≤ (List.range qN).countP fun j => mul y.1 j == mul j y.1) &&
+    (mul y.1 y.2.1 == mul y.2.1 y.1) && (mul y.1 y.2.2 == mul y.2.2 y.1) &&
+    (mul y.2.1 y.2.2 == mul y.2.2 y.2.1) &&
+    (powIdx mul y.2.1 3 == 0) && (powIdx mul y.2.2 3 == 0) &&
+    (List.range 9).all (fun a => (List.range 9).all fun b =>
+      a == b || e9Idx mul y.2.1 y.2.2 a != e9Idx mul y.2.1 y.2.2 b) &&
+    (List.range 9).all fun a => a == 0 ||
+      (decide (crep[e9Idx mul y.2.1 y.2.2 a]! < qN) && isR86 X crep[e9Idx mul y.2.1 y.2.2 a]!)
+
+@[expose] def mulIdxN (edges : Array (Array Nat)) (par lab : Array Nat) : Nat → Nat → Nat → Nat
+  | 0, _, j => j
+  | f + 1, i, j => if i = 0 then j else (edges[mulIdxN edges par lab f par[i]! j]!)[lab[i]!]!
+
+@[expose] def localTableChecks (edges : Array (Array Nat)) (par lab : Array Nat)
+    (X : ThLocalData) : Bool :=
+  let mul := mulIdxN edges par lab qN
+  let ct := classTable edges mul X
+  ((edges[0]!)[9]! == 10) && (mul 10 10 == 94) && (powIdx mul 10 3 == 0) &&
+    (List.range 10).all (fun k => (edges[10]!)[k]! == mul 10 ((edges[0]!)[k]!)) &&
+    X.reps.all (fun r => decide (r < qN)) && ct.1 &&
+    (List.range qN).all (fun i => i == 0 || powIdx mul i 3 != 0 || decide (ct.2[i]! < qN)) &&
+    X.tgts.all (tgtOK mul ct.2 X)
 
 end CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThLocal

@@ -96,10 +96,58 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.SporSch CFSG.Sporadic.Th.Native CFSG.Sporadic.
 open CFSG.Sporadic.Th CFSG.Sporadic.Th.FormBase
 open CertificateChecks.KernelSporSch
 
+theorem bSF : Nat.beq (thBindK true Th2318SF ThSF.chars) (2 * 248) = true := by quickRfl
+theorem bSR : Nat.beq (thBindK true Th2318SR ThSR.chars) (2 * 248) = true := by quickRfl
+theorem bST : Nat.beq (thBindK false Th2318ST Th2318STc.chars) (2 * 248) = true := by quickRfl
+
+@[expose] noncomputable def tab (k i : Nat) : Nat :=
+  nIf(Nat.beq k 0, Th2318SF i, nIf(Nat.beq k 1, Th2318SR i, nIf(Nat.beq k 2, Th2318FI i,
+  nIf(Nat.beq k 3, Th2318CI i, nIf(Nat.beq k 4, Th2318AF i, nIf(Nat.beq k 5, Th2318AT i,
+  nIf(Nat.beq k 6, Th2318BF i, nIf(Nat.beq k 7, Th2318BT i, nIf(Nat.beq k 8, Th2318CF i,
+  nIf(Nat.beq k 9, Th2318CT i, Th2318G i))))))))))
+
+theorem lts : allN 11 (fun k => allN 248 fun i => Nat.blt (tab k i) (Nat.shiftLeft 1 248)) = true := by
+  quickRfl
+
+theorem ltST : allN 248 (fun t => Nat.blt (Th2318ST t) 124) = true := by quickRfl
+
+theorem diag : allN 248 (fun i => Nat.beq (sepBit (Th2318SF i) i) 0) = true := by quickRfl
+
+theorem words : sepWordsK ThA ThBB ThPlane.KA ThPlane.KB Th2318SR
+    (decodeWords 124 ((List.range 1110).map ThPlane.SWN)) 0 = true := by quickRfl
+
+theorem form : formBaseCheck 124 (sepCodeK Th2318G) = true := by quickRfl
 
 theorem symm : ((List.range 124).all fun i => (List.range 124).all fun j =>
     invCode (sepCodeK Th2318G i j) == invCode (sepCodeK Th2318G j i)) = true := by quickRfl
 
+theorem deg : Nat.beq (sepCntN 124 fun v => sepCntN 124 fun j =>
+    nIf(bAnd(!(Nat.beq j v), invCode (sepCodeK Th2318G v j)), 1, 0)) 3022 = true := by
+  quickRfl
+
+theorem tree0 : Nat.beq (sepTV Th2318ST 0) 0 = true := by quickRfl
+
+theorem tree1 : ((List.range 123).all fun k => decide (sepTP Th2318ST (k + 1) < k + 1) &&
+    decide (sepTV Th2318ST (k + 1) < 124) &&
+    (sepTV Th2318ST (sepTP Th2318ST (k + 1)) != sepTV Th2318ST (k + 1)) &&
+    invCode (sepCodeK Th2318G (sepTV Th2318ST (sepTP Th2318ST (k + 1))) (sepTV Th2318ST (k + 1)))) =
+      true := by quickRfl
+
+theorem tree2 : ((List.range 124).all fun v => (List.range 124).any fun k => sepTV Th2318ST k == v) =
+    true := by quickRfl
+
+theorem fFI_neg : !(Nat.beq (vmT Th2318FI (Nat.xor (Th2318SF 0) 1)) (Nat.shiftLeft 1 0)) =
+    true := by quickRfl
+
+theorem tC_neg : !(sepTrK Th2318SR (fun j => nIf(Nat.beq j 0, Nat.xor (Th2318CT 0) 1,
+    Th2318CT j)) 0) = true := by quickRfl
+
+theorem key_neg : !(sepKeyK ThA ThBB ThPlane.KA ThPlane.KB [1, 2]
+    (Th2318SR 0) (Th2318SR 1)) = true := by quickRfl
+
+theorem deg_neg : !(Nat.beq (sepCntN 124 fun v => sepCntN 124 fun j =>
+    nIf(bAnd(!(Nat.beq j v), invCode (sepCodeK Th2318G v j)), 1, 0)) 3021) = true := by
+  quickRfl
 
 end CertificateChecks.KernelSporSch.Th2318
 

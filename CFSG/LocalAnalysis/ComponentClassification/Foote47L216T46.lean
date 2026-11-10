@@ -13,5 +13,9 @@ namespace CFSG.ComponentClassification.Foote47L216
 
 open CFSG Subgroup CFSG.ComponentClassification.UnbalancedLayer
 
+variable {G : Type} [Group G] [Finite G]
+
+private abbrev PSL216 : Type :=
+  Matrix.ProjectiveSpecialLinearGroup (Fin 2) (GaloisField 2 4)
 
 end CFSG.ComponentClassification.Foote47L216

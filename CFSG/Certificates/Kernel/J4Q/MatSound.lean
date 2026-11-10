@@ -447,6 +447,7 @@ private theorem canonJ_of_canB (hK : Consts c rm one pad t0 t1 t2 t3 t4 t5 t6) {
   unfold canonJ andB
   simp only [h1, h2]
 
+private theorem andB_split {a b : Bool} (h : andB a b = true) : a = true ∧ b = true := andB_true h
 
 private theorem eqRows_enc {X Y : Array V2} (hX : WfA X) (hY : WfA Y) {b : Bool}
     (h : Nat.beq (encR X) (encR Y) = b) : eqRows X Y = b := by

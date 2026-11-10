@@ -116,16 +116,48 @@ open CFSG.CosetTable CFSG.Quasithin
     AbqqBq ABaqab ABaqaB ABABqA ABABQa ABAQAb ABAQAB ABqbab ABqBAA ABqBqq ABqqbQ Aqbaba \
     AqBABA AqBABq AQBqBQ babAqa babAQA baqaba bAQAbQ bqbAbq bqqbqq bQbaba bQbabQ BAqbaB \
     BqqBqq qaBqBQ qbabab qBAABq QbaabQ"
+@[expose] def burnsideF48s_sp43KS : List String :=
+  ["", "aaa"]
+@[expose] def burnsideF48s_sp43TS : List String :=
+  ["", "a", "A", "aa", "AA", "aaa", "baaab", "bABAb", "BaaaB", "BabaB", "abABAb", "aBaaaB",
+    "Abaaab", "ABabaB", "baabAB", "baBAAB", "aabABAb", "abaBAAB"]
 @[expose] def burnsideF48s_sp43US : List String :=
   ["p", "p", "p", "p", "aaap", "aaap", "aaap", "aaap"]
 @[expose] def burnsideF48s_sp43VS : List String :=
   ["q", "q", "Q", "Q", "q", "q", "Q", "Q"]
 @[expose] def burnsideF48s_sp43WS : List String :=
   ["", "aaa", "", "aaa", "", "aaa", "", "aaa"]
+@[expose] def burnsideF48s_sp43LS : List (List ℕ) :=
+  [[43, 1, 36, 3, 29, 20, 34, 18, 8, 26, 11, 23, 13, 16, 33, 17, 30, 21, 4, 12, 6, 15, 22, 28,
+      10, 35, 39, 41, 40, 0, 38, 42, 37, 44, 2, 32, 5, 31, 19, 9, 24, 27, 25, 7, 14],
+    [41, 2, 36, 6, 27, 20, 34, 22, 5, 21, 26, 14, 31, 10, 16, 28, 11, 25, 4, 17, 8, 33, 29, 12,
+      24, 19, 13, 18, 32, 7, 30, 23, 15, 9, 3, 35, 1, 39, 44, 40, 37, 43, 38, 0, 42],
+    [2, 1, 0, 8, 6, 7, 4, 5, 3, 14, 12, 13, 10, 11, 9, 15, 23, 17, 20, 24, 18, 21, 22, 16, 19, 25,
+      33, 27, 30, 34, 28, 31, 32, 26, 29, 35, 43, 37, 40, 44, 38, 41, 42, 36, 39],
+    [43, 21, 12, 33, 0, 31, 23, 41, 9, 8, 19, 42, 20, 25, 44, 17, 10, 15, 4, 28, 30, 1, 22, 36, 6,
+      38, 39, 7, 16, 27, 2, 34, 11, 3, 35, 5, 24, 13, 37, 26, 32, 29, 40, 18, 14]]
+@[expose] def burnsideF48s_sp43LSi : List (List ℕ) :=
+  [[29, 1, 34, 3, 18, 36, 20, 43, 8, 39, 24, 10, 19, 12, 44, 21, 13, 15, 7, 38, 5, 17, 22, 11,
+      40, 42, 9, 41, 23, 4, 16, 37, 35, 14, 6, 25, 2, 32, 30, 26, 28, 27, 31, 0, 33],
+    [43, 36, 1, 34, 18, 8, 3, 29, 20, 33, 13, 16, 23, 26, 11, 32, 14, 19, 27, 25, 5, 9, 7, 31, 24,
+      17, 10, 4, 15, 22, 30, 12, 28, 21, 6, 35, 2, 40, 42, 37, 39, 0, 44, 41, 38],
+    [2, 1, 0, 8, 6, 7, 4, 5, 3, 14, 12, 13, 10, 11, 9, 15, 23, 17, 20, 24, 18, 21, 22, 16, 19, 25,
+      33, 27, 30, 34, 28, 31, 32, 26, 29, 35, 43, 37, 40, 44, 38, 41, 42, 36, 39],
+    [4, 21, 30, 33, 18, 35, 24, 27, 9, 8, 16, 32, 2, 37, 44, 17, 28, 15, 43, 10, 12, 1, 22, 6, 36,
+      13, 39, 29, 19, 41, 20, 5, 40, 3, 31, 34, 23, 38, 25, 26, 42, 7, 11, 0, 14]]
 @[expose] def burnsideF48s_sp43R1 : List (List (Fin 4 × Bool)) := burnsideF48s_sp43Words burnsideF48s_sp43R1S
 
 @[expose] def burnsideF48s_sp43R2 : List (List (Fin 4 × Bool)) := burnsideF48s_sp43Words burnsideF48s_sp43R2S
 
+@[expose] def burnsideF48s_sp43P1W : List (List (Fin 4 × Bool)) :=
+  burnsideF48s_sp43Words (burnsideF48s_sp43P1Str.splitOn " ")
+
+@[expose] def burnsideF48s_sp43P2W : List (List (Fin 4 × Bool)) :=
+  burnsideF48s_sp43Words (burnsideF48s_sp43P2Str.splitOn " ")
+
+@[expose] def burnsideF48s_sp43KW : List (List (Fin 4 × Bool)) := burnsideF48s_sp43Words burnsideF48s_sp43KS
+
+@[expose] def burnsideF48s_sp43TW : List (List (Fin 4 × Bool)) := burnsideF48s_sp43Words burnsideF48s_sp43TS
 
 @[expose] def burnsideF48s_sp43U : List (List (Fin 4 × Bool)) := burnsideF48s_sp43Words burnsideF48s_sp43US
 
@@ -140,5 +172,48 @@ abbrev burnsideF48s_sp43Ws (k : ℕ) : List (List (Fin 4 × Bool)) :=
 abbrev burnsideF48s_sp43WsB (k : ℕ) : List (List (Fin (subsetOf 4 [0, 1, 2]).length × Bool)) :=
   restrictWords (subsetOf 4 [0, 1, 2]) (burnsideF48s_sp43Ws k)
 
+abbrev burnsideF48s_sp43EvL (w : List (Fin 4 × Bool)) : List ℕ :=
+  burnsideF48s_eEvL 45 burnsideF48s_sp43LS burnsideF48s_sp43LSi w
+
+@[expose] def burnsideF48s_sp43CheckGens (_ : Unit := ()) : Bool :=
+  decide (burnsideF48s_sp43LS = burnsideF48s_sp43XY.map U42F431.evalW) &&
+    decide (burnsideF48s_sp43LSi = burnsideF48s_sp43XY.map fun w => U42F431.evalW (U42F431.invW w))
+
+@[expose] def burnsideF48s_sp43CheckRels (_ : Unit := ()) : Bool :=
+  ((burnsideF48s_sp43R1 ++ burnsideF48s_sp43R2).all fun w =>
+    decide (burnsideF48s_sp43EvL w = List.range 45)) &&
+  ([0, 2, 4, 6].all fun k => decide (burnsideF48s_sp43EvL
+    (burnsideF48s_eCandRel 4 (burnsideF48s_sp43U.getD k []) (burnsideF48s_sp43V.getD k [])
+      (burnsideF48s_sp43W.getD k [])) = List.range 45)) &&
+  decide (burnsideF48s_sp43EvL (burnsideF48s_sp43Word "aaaaaa") = List.range 45) &&
+  !decide (burnsideF48s_sp43EvL (burnsideF48s_sp43Word "aaa") = List.range 45) &&
+  decide (burnsideF48s_sp43EvL (burnsideF48s_sp43Word "pbpBp") = U42F431.xL) &&
+  decide (burnsideF48s_sp43EvL (burnsideF48s_sp43Word "aQABpBp") = U42F431.yL)
+
+@[expose] def burnsideF48s_sp43CheckLetters (_ : Unit := ()) : Bool :=
+  ((burnsideF48s_sp43P1W ++ burnsideF48s_sp43R1 ++ burnsideF48s_sp43U).all fun w =>
+    w.all fun l => decide (l.1 ≠ 3)) &&
+  ((burnsideF48s_sp43P2W ++ burnsideF48s_sp43R2 ++ burnsideF48s_sp43V).all fun w =>
+    w.all fun l => decide (l.1 ≠ 2)) &&
+  ((burnsideF48s_sp43KW ++ burnsideF48s_sp43TW ++ burnsideF48s_sp43W).all fun w =>
+    w.all fun l => decide (l.1 ≠ 2 ∧ l.1 ≠ 3))
+
+@[expose] def burnsideF48s_sp43CheckClosed (_ : Unit := ()) : Bool :=
+  let P1L := burnsideF48s_sp43P1W.map burnsideF48s_sp43EvL
+  let P2L := burnsideF48s_sp43P2W.map burnsideF48s_sp43EvL
+  decide (burnsideF48s_sp43P1W.length = 648) && decide (burnsideF48s_sp43P2W.length = 648) &&
+  decide (burnsideF48s_sp43P1W.getD 0 [(0, true)] = []) &&
+  decide (burnsideF48s_sp43P2W.getD 0 [(0, true)] = []) &&
+  decide (burnsideF48s_sp43KW = [[], burnsideF48s_sp43Word "aaa"]) &&
+  decide (burnsideF48s_sp43U.length = 8) && decide (burnsideF48s_sp43V.length = 8) &&
+  decide (burnsideF48s_sp43W.length = 8) &&
+  burnsideF48s_eClosed P1L burnsideF48s_sp43LS [0, 1, 2] &&
+  burnsideF48s_eClosed P2L burnsideF48s_sp43LS [0, 1, 3]
+
+@[expose] def burnsideF48s_sp43CheckCand (_ : Unit := ()) : Bool :=
+  burnsideF48s_eCandOK (burnsideF48s_sp43P1W.map burnsideF48s_sp43EvL)
+    (burnsideF48s_sp43P2W.map burnsideF48s_sp43EvL) (burnsideF48s_sp43KW.map burnsideF48s_sp43EvL)
+    (burnsideF48s_sp43TW.map burnsideF48s_sp43EvL) (burnsideF48s_sp43U.map burnsideF48s_sp43EvL)
+    (burnsideF48s_sp43V.map burnsideF48s_sp43EvL) (burnsideF48s_sp43W.map burnsideF48s_sp43EvL)
 
 end CFSG.ASVolI

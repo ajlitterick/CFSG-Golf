@@ -131,6 +131,12 @@ def cP : List Nat → Nat → Nat
   | [], _ => 0
   | f :: F, m => (if parB f m 20 = true then 1 else 0) + 2 * cP F m
 
+theorem codeL_lt (Ls : List Nat) (m : Nat) : codeL Ls m < 2 ^ Ls.length := by
+  induction Ls with
+  | nil => simp [codeL]
+  | cons L Ls ih =>
+    simp only [codeL, List.length_cons, pow_succ]
+    split_ifs <;> omega
 
 theorem cP_lt (F : List Nat) (m : Nat) : cP F m < 2 ^ F.length := by
   induction F with

@@ -107,6 +107,15 @@ theorem kImg2 : allN 4 (fun d => imgK PLP MATP FRB ISO NP (8 + d)) = true := by 
 
 theorem kImg3 : allN 5 (fun d => imgK PLP MATP FRB ISO NP (12 + d)) = true := by quickRfl
 
+theorem neg_rref : notB (rrefK (Nat.xor PLP (pw2 (nat_lit 40)))) = true := by quickRfl
+
+theorem neg_xr : notB (xrK PLP (Nat.xor XR00 (pw2 (nat_lit 5))) 693 0 0) = true := by quickRfl
+
+theorem neg_dist : notB (distK PLP XR10 XR11 XR11 198 693) = true := by quickRfl
+
+theorem neg_mat : notB (matOK (Nat.xor MATP (pw2 (nat_lit 14)))) = true := by quickRfl
+
+theorem neg_img : notB (imgK PLP MATP (Nat.xor FRB 1) ISO NP 0) = true := by quickRfl
 
 theorem planeRow_eq {p : ℕ} (hp : p < 891) (a : Fin 3) : planeRow ⟨p, hp⟩ a = vec6 (rowP PLP p a) := by
   unfold planeRow rowP
@@ -194,6 +203,9 @@ theorem distinct_check :
   · obtain ⟨l, rfl⟩ : ∃ l, j = 693 + l := ⟨j - 693, by omega⟩
     exact dist_of kDist1 x10 x11 x12 hi (by omega) hj hij'
 
+theorem matK_row (k r : ℕ) : fget (matK MATP k) r 12 = permTab 6 12 MATP r k := by
+  unfold matK permTab
+  rfl
 
 theorem decM_matK (k : Fin 17) : decM (matK MATP k) = b6Mat k := by
   rw [b6Mat_eq]

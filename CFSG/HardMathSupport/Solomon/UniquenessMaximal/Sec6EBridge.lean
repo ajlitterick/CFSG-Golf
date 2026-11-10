@@ -71,6 +71,23 @@ theorem gmap_eq_bot {H : Subgroup (MulAut ↥B)} : gmap e H = ⊥ ↔ H = ⊥ :=
 theorem card_gmap (H : Subgroup (MulAut ↥B)) : Nat.card (gmap e H) = Nat.card H :=
   Subgroup.card_map_of_injective (glHom_injective e)
 
+theorem transfer64 (h : Setup W Q A F) (hD : (h.datum e).Lemma64Concl)
+    (X : Subgroup (MulAut ↥B)) (hXW : X ≤ W) (hodd : Odd (Nat.card X))
+    (hQX : ∀ q ∈ Q, ∀ x ∈ X, q * x * q⁻¹ ∈ X) : ∀ q ∈ Q, ∀ x ∈ X, q * x = x * q := by
+  intro q hq x hx
+  have hXD : gmap e X ∈ (h.datum e).NWQ2 := by
+    refine ⟨gmap_mono e hXW, by rwa [card_gmap], ?_⟩
+    intro q' hq' x' hx'
+    obtain ⟨q0, hq0, rfl⟩ := gmap_elim e hq'
+    obtain ⟨x0, hx0, rfl⟩ := gmap_elim e hx'
+    rw [← map_mul, ← map_inv, ← map_mul, glHom_mem_gmap]
+    exact hQX q0 hq0 x0 hx0
+  have hq' : glHom e q ∈ (h.datum e).Q := (glHom_mem_gmap e).2 hq
+  have := Subgroup.mem_centralizer_iff.1 (hD hq') (glHom e x)
+    (le_sSup hXD ((glHom_mem_gmap e).2 hx))
+  rw [← map_mul, ← map_mul] at this
+  exact ((glHom_injective e) this).symm
+
 
 @[expose] def Concl65 (W Q : Subgroup (MulAut ↥B)) (A F : Subgroup ↥B) : Prop :=
   (W ≤ Subgroup.normalizer (Q : Set (MulAut ↥B))) ∨

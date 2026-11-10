@@ -50,6 +50,9 @@ theorem kGamI : allN 16 (fun r => allN 64 fun k =>
     Nat.beq (((List.range 64).find? fun x => gamK r x == k).getD 0) (g7 (SuzGlGI r) k)) = true := by
   quickRfl
 
+theorem negMul : Bool.not (allN 64 fun a => allN 64 fun b =>
+    Nat.beq (fpT (pgk (T a) (pgk (T b) 0)))
+      (if a = 3 ∧ b = 5 then 0 else g7 (SuzGlM a) b)) = true := by quickRfl
 
 theorem blt_t {a b : Nat} (h : a < b) : Nat.blt a b = true := Eq.mpr Nat.blt_eq h
 

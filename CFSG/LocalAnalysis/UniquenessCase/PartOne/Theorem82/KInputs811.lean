@@ -181,6 +181,10 @@ inductive LieFam811 where
     ∀ A : Subgroup Y, IsElemAbelian 3 A → Nat.card A = 27 →
       (fam = .l4 → ∃ c, IsSumZeroCoords A c) ∧ (fam ≠ .l4 → ∃ c, IsSignedCoords A c)
 
+@[expose] def K6d : Prop :=
+  ∀ (Y : Type) [Group Y] [Finite Y], ∀ (fam : LieFam811) (r f : ℕ), IsLie811 Y fam r f →
+    ∀ A : Subgroup Y, IsElemAbelian 3 A → Nat.card A = 27 →
+      IsMulCommutative ↥(centralizer (A : Set Y))
 
 @[expose] def K6dL4 : Prop :=
   ∀ (Y : Type) [Group Y] [Finite Y] (r : ℕ), IsLie811 Y .l4 r 1 → 5 ≤ r →
@@ -231,6 +235,8 @@ inductive LieFam811 where
     ¬ r ∣ Nat.card (center Y)
 
 
+@[expose] def K6 : Prop := K6a ∧ K6b ∧ K6c ∧ K6d ∧ K6r ∧ K6L4
+
 @[expose] def K7 : Prop :=
   ∀ (Y : Type) [Group Y] [Finite Y], ∀ (fam : LieFam811) (r f : ℕ), IsLie811 Y fam r f →
     ∀ p : ℕ, p.Prime → 5 ≤ p → p ≠ r →
@@ -251,5 +257,8 @@ inductive LieFam811 where
                 u ∉ zpowers y)) ∧
       (¬ p ∣ r ^ f * (r ^ (2 * f) - 1) → pRank p (⊤ : Subgroup Y) ≤ 2)
 
+@[expose] def K8 : Prop := CFSG.LocalAnalysis.UniquenessCase.UCK.K35
+
+@[expose] def K9 : Prop := CFSG.LocalAnalysis.UniquenessCase.UCK.K332
 
 end CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82

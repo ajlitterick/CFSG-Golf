@@ -213,6 +213,11 @@ instance : DecidablePred (fun σ : Equiv.Perm (Fin 5) => σ ∈ alternatingGroup
   | 2, 3, 0, 1 => repMat59
   | _, _, _, _ => 1
 
+@[expose] def a5x : alternatingGroup (Fin 5) := ⟨sigma1, by decide⟩
+@[expose] def a5y : alternatingGroup (Fin 5) := ⟨sigma2, by decide⟩
+
+@[expose] def a5E : A5SL2 := ⟨!![1, 1; 0, 1], by decide⟩
+@[expose] def a5F : A5SL2 := ⟨!![1, 0; 1, 1], by decide⟩
 
 @[expose] abbrev CenterEq (M : A5SL2) : Prop := M = 1 ∨ M = -1
 

@@ -133,6 +133,10 @@ theorem rho4Mat_isometry (g : SpecialLinearGroup (Fin 2) K) :
   map_mul' g g' := Subtype.ext (Units.ext (by
     rw [Matrix.GeneralLinearGroup.val_mkOfDetNeZero, rho4Mat_mul]; rfl))
 
+theorem coe_rho4 (g : SpecialLinearGroup (Fin 2) K) :
+    ((rho4 h g : GL (Fin 2 ⊕ Fin 2) K) : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K) =
+      rho4Mat h g :=
+  rfl
 
 @[expose] noncomputable def rhoU {i j : Fin r} (hij : i ≠ j) :
     SpecialLinearGroup (Fin 2) K →* hypSU h r ε :=

@@ -56,8 +56,10 @@ namespace CFSG.KJ4
     (andB (Nat.blt (pv P (nat_lit 1)) (pv P (nat_lit 2))) (andB (Nat.blt P (nat_lit 68719476736))
       (Nat.beq (Nat.xor (pv P (nat_lit 0)) (pv P (nat_lit 1))) (pv P (nat_lit 2))))))
 
+@[expose] noncomputable def chkMul (C A B : Nat) : Bool := Nat.beq C (mul12 A B)
 @[expose] noncomputable def chkInv (A B : Nat) : Bool := Nat.beq (mul12 A B) ident12
 @[expose] noncomputable def chkEq (a b : Nat) : Bool := Nat.beq a b
+@[expose] noncomputable def chkLt (a b : Nat) : Bool := Nat.blt a b
 @[expose] noncomputable def chkTrans (A : Nat) : Bool := Nat.beq (Nat.land A linMask) ident12
 @[expose] noncomputable def chkLin (A : Nat) : Bool := Nat.beq (Nat.land A colMask) (nat_lit 0)
 

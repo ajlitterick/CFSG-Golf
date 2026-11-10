@@ -313,6 +313,11 @@ theorem conj_Rs (hσ : σ.IsValid) : conjSub z (Rs Δ 1) = R Δ 2 ∧ conjSub z 
   hz.conjSub_family hσ hδq (conjSub_Rs Δ) (conjSub_R Δ) (C_le_normalizer_R Δ)
     (hz.conj_Rs_zero hδq hσ)
 
+include hδq in
+theorem conj_Q12 (hσ : σ.IsValid) :
+    conjSub z (Δ.Q 1) = Δ.Qs 2 ∧ conjSub z (Δ.Q 2) = Δ.Qs 1 :=
+  hz.conjSub_family hσ hδq (fun i => (Δ.Q_conj i).1) (fun i => (Δ.Q_conj i).2)
+    (C_le_normalizer_Qs Δ) hz.conj_Q
 
 include hδq in
 theorem conj_Qs12 (hσ : σ.IsValid) :

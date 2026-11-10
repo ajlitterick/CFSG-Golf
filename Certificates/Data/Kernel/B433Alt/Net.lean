@@ -22,6 +22,18 @@ namespace CFSG.KC.Y333
   Nat.rec (motive := fun _ => Nat) (nat_lit 1)
     (fun i r => Nat.lor r (Nat.shiftLeft r (Nat.mul P (Nat.shiftLeft (nat_lit 1) i)))) m
 
+@[expose] noncomputable def unStep (x j : Nat) : Nat :=
+  (fun M => (fun y => Nat.lor (Nat.xor x y) (Nat.shiftRight y (Nat.mul (nat_lit 1216) (Nat.shiftLeft (nat_lit 1) j))))
+      (Nat.land x M))
+    (Nat.mul (rep2 (Nat.mul (nat_lit 1280) (Nat.shiftLeft (nat_lit 2) j)) (Nat.sub (nat_lit 13) j))
+      (Nat.shiftLeft (Nat.sub (Nat.shiftLeft (nat_lit 1) (Nat.shiftLeft (nat_lit 64) j)) (nat_lit 1))
+        (Nat.mul (nat_lit 1280) (Nat.shiftLeft (nat_lit 1) j))))
+
+@[expose] noncomputable def unspread (C k : Nat) : Nat :=
+  Nat.rec (motive := fun _ => Nat)
+    (Nat.land (Nat.shiftRight C (Nat.mul (nat_lit 64) k))
+      (Nat.mul (rep2 (nat_lit 1280) (nat_lit 14)) (nat_lit 18446744073709551615)))
+    (fun j x => unStep x j) (nat_lit 14)
 
 @[expose] noncomputable def idx (k : Nat) : Nat :=
   (fun b => Nat.mul (rep2 (Nat.shiftLeft b (nat_lit 1)) (Nat.sub (nat_lit 19) k))
@@ -33,11 +45,20 @@ namespace CFSG.KC.Y333
 @[expose] noncomputable def pget (P i : Nat) : Nat :=
   Nat.land (Nat.shiftRight P (Nat.mul (nat_lit 15) i)) (nat_lit 32767)
 
+@[expose] noncomputable def invStep (P q p : Nat) : Nat :=
+  Bool.rec (nat_lit 1048576) q (Nat.beq (pget P q) p)
 
 @[expose] noncomputable def colOff (x : Nat) : Nat :=
   Nat.add (Nat.mul (nat_lit 1280) (Nat.land (Nat.shiftRight x (nat_lit 6)) (nat_lit 63)))
     (Nat.land x (nat_lit 63))
 
+@[expose] noncomputable def lkF (R K v : Nat) : Bool :=
+  Bool.rec false (Nat.beq (Nat.land (Nat.shiftRight R (nat_lit 28)) (nat_lit 1048575)) v)
+    (Nat.beq (Nat.land R (nat_lit 268435455)) K)
+
+@[expose] noncomputable def lkB (R K v : Nat) : Bool :=
+  Bool.rec false (Nat.beq (Nat.land R (nat_lit 1048575)) v)
+    (Nat.beq (Nat.shiftRight R (nat_lit 28)) K)
 
 end CFSG.KC.Y333
 

@@ -36,5 +36,15 @@ variable {G : Type} [Group G]
         A = Subgroup.zpowers a ⊔ Subgroup.zpowers c ⊔ Subgroup.zpowers d ∧
         Subgroup.zpowers d = A ⊓ J ∧ InducesFieldAut p a J
 
+@[expose] def KF128 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (J E : Subgroup G) (a d : G),
+    p.Prime → 5 ≤ p → CFSG.IsQuasisimple J → EvenLieType (J ⧸ Subgroup.center J) →
+    evenRank ↥J ≤ 3 → ¬ p ∣ Nat.card (Subgroup.center J) → IsElementaryAbelian p E →
+    E ≤ Subgroup.normalizer (J : Set G) → a ∈ E → d ∈ E → d ∈ J → d ≠ 1 →
+    InducesFieldAut p a J →
+    (∃ S : Subgroup G, S ≤ J ∧ S ≠ ⊥ ∧ IsPGroup 2 S ∧
+      a ∈ Subgroup.normalizer (S : Set G) ∧ d ∈ Subgroup.normalizer (S : Set G)) →
+    ∃ y ∈ J, (∃ k : ℕ, orderOf y = p ^ k) ∧ y * d * y⁻¹ = d ∧ y * a * y⁻¹ ≠ a ∧
+      ∀ e ∈ E, y * e * y⁻¹ * e⁻¹ ∈ Subgroup.zpowers d
 
 end CFSG.RankThree.PartOne

@@ -226,5 +226,22 @@ set_option compiler.extract_closed false
   31D0C50ACFCA2943CF043C0F1230BCACF92587834E38E89363693A45C6456A918419C7341BD6B37CC4D611205B4BB43A6DA1\
   4AB552C1A065A2B0D2D3D33332141B1E08BE93065244F1B0BF3B384A648F"
 
+@[expose] def pairGens3 (_ : Unit := ()) : Array (Array Nat) :=
+  Array.ofFn (n := 2) fun i => hexTable3 3510 (3510 * i.val) pairHex
+
+@[expose] def pairEqCheck (L : Array Level) (x : Array Nat) (gs : Array (Array Nat)) (fuel N : Nat) :
+    Bool :=
+  let c := enumBfs 3510 gs fi22FiveKeyPts fuel
+  gs.size == 2 &&
+  allLt 2 (fun i => validA 3510 gs[i]! && siftA 3510 L fi22BaseArr 0 gs[i]! &&
+    commA 3510 gs[i]! x && eqA 3510 (powA 3510 gs[i]! 5) (idA 3510) &&
+    !(eqA 3510 gs[i]! (idA 3510))) &&
+  enumOK 3510 gs fi22FiveKeyPts c && c.pts.size == N
+
+@[expose] def fi22PairOK (O : COrbit) : Bool :=
+  let σ := sigmaArr ()
+  let X := classImages O σ
+  let L := rawLevels 3510 fi22StrongArrs fi22BaseArr
+  pairEqCheck L X[3]! (pairGens3 ()) 3000 405
 
 end CFSG.HardMathSupport.Solomon.Coordinator.Fi22Pump

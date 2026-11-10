@@ -12,8 +12,6 @@ open scoped MatrixGroups Matrix
 
 section Global
 
-variable {𝕎 : Type} [CommGroup 𝕎] [Finite 𝕎]
-
 
 end Global
 

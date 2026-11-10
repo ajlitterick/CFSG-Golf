@@ -58,6 +58,7 @@ theorem kEI : allN 10 (fun i => Nat.beq (ED.M i) (EI i)) = true := by quickRfl
 theorem kD : dagIK ED.M ED.MI 10 ED.N Data.genDerivs = true := by quickRfl
 theorem kN : Nat.beq ED.N 93 = true := by quickRfl
 
+theorem tbNeg : bIf(tabOK (ED.M 0) (Nat.xor (TW.B 0) 1), false, true) = true := by quickRfl
 
 theorem fq0 : fixQK ED.M (Data.towerGens.getD 0 []) Data.towerQuot Data.towerBase 0 = true := by
   quickRfl

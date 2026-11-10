@@ -31,6 +31,9 @@ variable (p f : ℕ) [Fact p.Prime]
     exact h.symm
 
 
+@[expose] def LFiveType {G : Type} [Group G] (Ω : Set (Subgroup G)) : Prop :=
+  if piSign p f then HasLieType p f Ω .PSU 5 else HasLieType p f Ω .PSL 5
+
 structure Std8 {G : Type} [Group G] [Finite G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
     (S : Sylow 2 G) (R T W : Subgroup G) (z t : G) : Prop where
   stand : AscStand p f Ω K
@@ -57,12 +60,32 @@ structure Std8 {G : Type} [Group G] [Finite G] (Ω : Set (Subgroup G)) (K J : Su
     (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
       ¬ DConnected Ω → ¬ MuIsoWylD4 Ω W
 
+@[expose] def C26_6 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
+    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
+      MuIsoE4 Ω W → ¬ LFiveType p f Ω →
+        (⨆ M ∈ KPerp Ω K, M) ⊔ (⨆ M ∈ KPerp Ω J, M) = ⊤
+
+@[expose] def C26_7 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
+    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
+      MuIsoE4 Ω W → ¬ LFiveType p f Ω → DConnected Ω
+
+
+@[expose] def CF26 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
+    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
+      ¬ DConnected Ω → ¬ MuIsoE4 Ω W
 
 variable {p f}
 
 
 variable (p f)
 
+@[expose] def C27_1 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
+    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
+      ¬ DConnected Ω → ¬ (MuIsoE4 Ω W ∨ MuIsoS4 Ω W ∨ MuIsoWylD4 Ω W)
 
 @[expose] def C27_2 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
@@ -76,6 +99,17 @@ variable (p f)
         sigmaNorm Ω K ⊔ (⨆ M ∈ omegaNbr Ω K, ⨆ (s : G) (_ : IsUniqueInvolution M s),
           Subgroup.centralizer ({z * s} : Set G)) = ⊤
 
+@[expose] def C27_6 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
+    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
+      ¬ DConnected Ω →
+        rLayer Ω (z * t) ≤ oddCoreOf (rLayer Ω (z * t)) ⊔ (rLayer Ω (z * t) ⊓ sigmaNorm Ω K) ∧
+          ∀ x ∈ muGroup Ω W, ∀ y ∈ muGroup Ω W, x * y = y * x
+
+@[expose] def C27_7 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
+    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
+      ¬ DConnected Ω → alphaOf (Subgroup.closure {t, z}) = ⊥
 
 @[expose] def C27_8 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)

@@ -74,6 +74,25 @@ theorem thmEWithSylow3_of_minCexFalse (h : MinCexFalse3) : ThmEWithSylow3 := by
   intro G _ _ Ω K S R W H hst hH
   exact key (Nat.card G + 1) G (Nat.lt_succ_self _) Ω K S R W H hst hH
 
+@[expose] def E18_6_3 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)) (K : Subgroup G) (S : Sylow 2 G)
+    (R W H : Subgroup G), MinCex3 Ω K S R W H →
+      classicalInvolutionOddCore G = ⊥ ∧
+        ∃ F : Subgroup G, F.Normal ∧ IsSimpleGroup ↥F ∧ (∃ x ∈ F, ∃ y ∈ F, x * y ≠ y * x) ∧
+          Subgroup.centralizer (F : Set G) = ⊥
+
+@[expose] def E18_8z_3 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)) (K : Subgroup G) (S : Sylow 2 G)
+    (R W H : Subgroup G), MinCex3 Ω K S R W H →
+      ∀ z : G, IsUniqueInvolution K z → FixesUniqueCoset z H
+
+@[expose] def E18_9_3 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)) (K : Subgroup G) (S : Sylow 2 G)
+    (R W H : Subgroup G), MinCex3 Ω K S R W H →
+      ∀ z : G, IsUniqueInvolution K z → ∀ h : G, h⁻¹ * z * h ∈ (S : Subgroup G) →
+        h⁻¹ * z * h ≠ z → z * (h⁻¹ * z * h) = (h⁻¹ * z * h) * z →
+          FixesUniqueCoset (z * (h⁻¹ * z * h)) H
+
 
 end Stmt
 

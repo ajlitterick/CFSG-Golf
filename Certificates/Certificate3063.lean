@@ -23,6 +23,7 @@ open CertificateChecks.Orb14 CertificateChecks.Batch3124
 
 theorem k3063 : ok3063 X2 PLP = true := by quickRfl
 
+theorem neg3063 : notB (ok3063 (pw2 (nat_lit 2773)) PLP) = true := by quickRfl
 
 theorem andB_eq (a b : Bool) : andB a b = (a && b) := by cases a <;> rfl
 theorem orB_eq (a b : Bool) : orB a b = (a || b) := by cases a <;> rfl

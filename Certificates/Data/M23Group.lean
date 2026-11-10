@@ -31,6 +31,7 @@ namespace M23.M23Group
     left_inv := by decide
     right_inv := by decide }
 
+lemma a_apply (x : Fin 23) : a x = aFun x := rfl
 lemma b_apply (x : Fin 23) : b x = bFun x := rfl
 
 @[expose] def baseGen : Fin 2 → Perm23 := ![a, b]
@@ -471,6 +472,31 @@ lemma g19_fix01234 : g19 0 = 0 ∧ g19 1 = 1 ∧ g19 2 = 2 ∧ g19 3 = 3 ∧ g19
     [(3, false), (2, false), (1, false)], [(0, false)]
   ]
 
+lemma T0_eval (x : Fin 23) : word baseGen (T0 x) 0 = x := by
+  fin_cases x <;> decide
+
+lemma T1_eval (x : Fin 23) (hx : x ≠ 0) : word h1Gen (T1 x) 1 = x := by
+  fin_cases x <;> simp_all <;> decide
+
+lemma T2_eval (x : Fin 23) (hx0 : x ≠ 0) (hx1 : x ≠ 1) :
+    word h2Gen (T2 x) 2 = x := by
+  fin_cases x <;> simp_all <;> decide
+
+lemma T3_eval (x : Fin 23) (hx0 : x ≠ 0) (hx1 : x ≠ 1) (hx2 : x ≠ 2) :
+    word h3Gen (T3 x) 3 = x := by
+  fin_cases x <;> simp_all <;> decide
+
+lemma T4_eval (x : Fin 23) (hx : x = 4 ∨ x = 10 ∨ x = 16) :
+    word h4Gen (T4 x) 4 = x := by
+  rcases hx with rfl | rfl | rfl <;> decide
+
+lemma T5_eval (x : Fin 23)
+    (hx : x = 5 ∨ x = 6 ∨ x = 7 ∨ x = 8 ∨ x = 9 ∨ x = 11 ∨ x = 12 ∨
+      x = 13 ∨ x = 14 ∨ x = 15 ∨ x = 17 ∨ x = 18 ∨ x = 19 ∨ x = 20 ∨
+      x = 21 ∨ x = 22) :
+    word h5Gen (T5 x) 5 = x := by
+  rcases hx with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl |
+    rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;> decide
 
 @[expose] def E0 : Fin 23 → Fin 2 → List (Fin 4 × Bool) := ![
   ![[], []],

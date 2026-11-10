@@ -95,6 +95,8 @@ open CFSG.KC CFSG.KC.Loop CFSG.KC.LceS CFSG.KC.Fi22B.Cov
   Nat.rec (motive := fun _ => Bool) true (fun k ih => andB ih
     (Bool.rec (motive := fun _ => Bool) true (Nat.blt (hint Hs k) K) (Nat.beq (wKind (WT k)) (nat_lit 3)))) m
 
+@[expose] noncomputable def litOK (RT ref : Nat → Nat) (R : Nat) : Bool :=
+  Nat.rec (motive := fun _ => Bool) true (fun r ih => andB ih (Nat.beq (RT r) (ref r))) R
 
 @[expose] noncomputable def cycWalk (blk : Nat → Nat) (nf : Nat) (k : Nat) : Nat → Nat → Nat :=
   Nat.rec (motive := fun _ => Nat → Nat → Nat) (fun _ st => st)

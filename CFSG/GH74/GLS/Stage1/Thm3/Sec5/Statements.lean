@@ -25,6 +25,27 @@ open scoped commutatorElement
     Ctr5 G z S K₁ K₂ a x → L53 z S K₁ K₂ a
 
 
+@[expose] def Lemma5_4 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (z : G) (S K₁ K₂ : Subgroup G) (a x : G),
+    Ctr5 G z S K₁ K₂ a x → L53 z S K₁ K₂ a → L54 z S K₁ K₂ a
+
+@[expose] def Lemma5_5 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (z : G) (S K₁ K₂ : Subgroup G) (a x : G),
+    Ctr5 G z S K₁ K₂ a x → L53 z S K₁ K₂ a → L54 z S K₁ K₂ a → L55 z a
+
+@[expose] def Lemma5_6 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (z : G) (S K₁ K₂ : Subgroup G) (a x : G) (Y A : Subgroup G),
+    Ctr5 G z S K₁ K₂ a x → L53Data z S K₁ K₂ a Y A → L54 z S K₁ K₂ a → L56 z S a Y
+
+@[expose] def Lemma5_7 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (z : G) (S K₁ K₂ : Subgroup G) (a x : G) (Y A : Subgroup G),
+    Ctr5 G z S K₁ K₂ a x → L53Data z S K₁ K₂ a Y A → L54 z S K₁ K₂ a → L55 z a → L56 z S a Y →
+      L57 z a x
+
+@[expose] def Lemma5_8 : Prop :=
+  Prop4_1 → ∀ (G : Type) [Group G] [Finite G] (z : G) (S K₁ K₂ : Subgroup G) (a x : G),
+    Ctr5 G z S K₁ K₂ a x → L53 z S K₁ K₂ a → L54 z S K₁ K₂ a → L57 z a x → L58 z K₁ K₂ a
+
 @[expose] def Prop5_9 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (z : G) (S K₁ K₂ : Subgroup G), Std4 G z S K₁ K₂ →
     ∀ K ∈ ({K₁, K₂} : Set (Subgroup G)), 2 ≤ pRank 2 ↥(Qof S K) →

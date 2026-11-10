@@ -15,6 +15,11 @@ namespace CertificateChecks.KernelD43
 
 open CFSG.KC.D43 CFSG.KS.ON
 
+theorem rows0 : rowsOK (RL.getD 0 []) 0 = true := by decide +kernel
+
+theorem rows1 : rowsOK (RL.getD 1 []) 1 = true := by decide +kernel
+
+theorem rows8 : rowsOK (RL.getD 8 []) 8 = true := by decide +kernel
 
 end CertificateChecks.KernelD43
 

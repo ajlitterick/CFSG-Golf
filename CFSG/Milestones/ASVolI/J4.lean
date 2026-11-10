@@ -30,6 +30,12 @@ variable {G : Type} [Group G]
 
 @[expose] def R2Ru (L V2 T : Subgroup G) : Subgroup G := pCoreOf 2 (L2Ru L V2 ⊔ T)
 
+@[expose] def Q0Ru (V T : Subgroup G) : Subgroup G :=
+  Subgroup.closure {h | h ∈ HRu T ∧ ∀ x ∈ HRu T, h⁻¹ * x⁻¹ * h * x ∈ URu V T}
+
+@[expose] def W0Ru (L V V2 T : Subgroup G) : Subgroup G := conjClosure (URu V T) (L2Ru L V2)
+
+@[expose] def WRu (L V V2 T : Subgroup G) : Subgroup G := W0Ru L V V2 T ⊔ Q0Ru V T
 
 @[expose] def Q5Ru (T B5 : Subgroup G) : Subgroup G := ⁅QRu T, B5⁆
 
@@ -54,12 +60,20 @@ variable {G : Type} [Group G]
 @[expose] def FRu (L V V2 T : Subgroup G) (a : G) (B5 X : Subgroup G) : Subgroup G :=
   F1Ru L V V2 T a B5 ⊔ F2Ru L V V2 T a B5 X
 
+@[expose] def starImg (T X : Subgroup G) : Subgroup (↥(HRu T) ⧸ CFSG.pCore 2 ↥(HRu T)) :=
+  (X.subgroupOf (HRu T)).map (QuotientGroup.mk' (CFSG.pCore 2 ↥(HRu T)))
+
+@[expose] def IsElemAbelianSection (P N : Subgroup G) (k : ℕ) : Prop :=
+  N ≤ P ∧ (∀ x ∈ P, x ^ 2 ∈ N) ∧ (∀ x ∈ P, ∀ y ∈ P, x * y * x⁻¹ * y⁻¹ ∈ N) ∧
+    N.relIndex P = 2 ^ k
 
 @[expose] def InvertsGroup (v : G) (B : Subgroup G) : Prop :=
   v ∈ Subgroup.normalizer (B : Set G) ∧ ∀ b ∈ B, v⁻¹ * b * v = b⁻¹
 
 end J4
 
+@[expose] def IsTwoF4TwoGroup (Y : Type) [Group Y] : Prop :=
+  ∃ (Y0 : Type) (_ : Group Y0), ReeTitsModel Y0 .Tits 2 1 ∧ Nonempty (Y ≃* MulAut Y0)
 
 open CFSG.Open CFSG.Blueprint
 open scoped MatrixGroups
@@ -68,6 +82,81 @@ section J4b
 
 variable {G : Type} [Group G]
 
+structure RuFSetup (G : Type) [Group G] [Finite G] (L V T V2 B5 X : Subgroup G) (g v a : G) : Prop where
+  ru : RuType G L V T
+  v2 : IsV2 V T V2
+  g_mem : g ∈ L2Ru L V2 ∧ g ∉ HRu T
+  v_mem : v ∈ CFSG.conjugate (URu V T) g ∧ v ∉ CFSG.conjugate (URu V T) g ⊓ QRu T
+  b5 : IsSylowIn 5 B5 (HRu T) ∧ InvertsGroup v B5
+  x3 : IsSylowIn 3 X (G2Ru L V2 T)
+  a_choice : IsAChoice L V T V2 B5 a
+  a_norm : ARu L V V2 T a ≤ Subgroup.normalizer ((B5 ⊔ Q5Ru T B5 : Subgroup G) : Set G)
+  q5_norm : Q5Ru T B5 ≤ Subgroup.normalizer ((X ⊔ ARu L V V2 T a : Subgroup G) : Set G)
+
+structure RuUSetup (G : Type) [Group G] [Finite G] (L V T V2 B5 X : Subgroup G) (g v a z u : G)
+    (I : Subgroup G) : Prop where
+  setup : RuFSetup G L V T V2 B5 X g v a
+  z_gen : Subgroup.zpowers z = ZRu T
+  u_x4 : ∃ h : ↥(FRu L V V2 T a B5 X),
+    CFSG.Quasithin.CosetGeom.dist
+        (CFSG.Quasithin.CosetGeom.γ₀ (FRu L V V2 T a B5 X) (F1Ru L V V2 T a B5) (F2Ru L V V2 T a B5 X))
+        (Sum.inl (h : ↥(FRu L V V2 T a B5 X) ⧸ (F1Ru L V V2 T a B5).subgroupOf (FRu L V V2 T a B5 X))) = 4 ∧
+      u = (h : G) * z * (h : G)⁻¹
+  u_TF : u ∈ TFRu L V V2 T a B5
+  u_inv : InvertsGroup u B5
+  I_syl : IsSylowIn 2 I (F1Ru L V V2 T a B5 ⊓ Subgroup.normalizer (B5 : Set G)) ∧ u ∈ I
+
+@[expose] def PFstar (B5 : Subgroup G) : Subgroup G :=
+  (CFSG.generalizedFitting ↥(Subgroup.normalizer (B5 : Set G))).map
+    (Subgroup.normalizer (B5 : Set G)).subtype
+
+@[expose] def O5N (B : Subgroup G) : Subgroup G := pCoreOf 5 (Subgroup.normalizer (B : Set G))
+
+@[expose] def BvRu (B5 : Subgroup G) (v : G) : Subgroup G :=
+  PFstar B5 ⊓ Subgroup.centralizer ({v} : Set G)
+
+@[expose] def BuzPRu (B5 : Subgroup G) (z u : G) : Subgroup G :=
+  O5N (BvRu B5 u) ⊓ Subgroup.centralizer ({u * z} : Set G)
+
+@[expose] def BuPRu (B5 : Subgroup G) (z u : G) : Subgroup G :=
+  Subgroup.centralizer ({u} : Set G) ⊓ O5N (BvRu B5 (u * z))
+
+@[expose] def BzPRu (B5 : Subgroup G) (z u : G) : Subgroup G :=
+  O5N (BuPRu B5 z u) ⊓ Subgroup.centralizer ({z} : Set G)
+
+@[expose] def BsetRu (B5 : Subgroup G) (z u : G) : Set (Subgroup G) :=
+  {B5, BvRu B5 u, BvRu B5 (u * z), BzPRu B5 z u, BuPRu B5 z u, BuzPRu B5 z u}
+
+@[expose] def commGraphOn (S : Set (Subgroup G)) : SimpleGraph ↥S :=
+  SimpleGraph.fromRel (fun B1 B2 => ⁅(B1 : Subgroup G), (B2 : Subgroup G)⁆ = ⊥)
+
+@[expose] def WBI (Bs : Set (Subgroup G)) (I : Subgroup G) : Subgroup G :=
+  Subgroup.closure
+    ({w | ∃ B1 ∈ Bs, w ∈ Subgroup.normalizer (I : Set G) ∧ w ∈ Subgroup.normalizer (B1 : Set G)} ∪
+      {w | ∃ B1 ∈ Bs, ∃ B2 ∈ Bs, ⁅B1, B2⁆ = ⊥ ∧ w ∈ Subgroup.normalizer (I : Set G) ∧
+        w ∈ Subgroup.normalizer ((B1 ⊔ B2 : Subgroup G) : Set G)})
+
+@[expose] def FsetRu (F1 : Subgroup G) (z v : G) : Set (Subgroup G) :=
+  {E | ∃ k : G, k⁻¹ * z * k = v ∧ E = CFSG.conjugate F1 k}
+
+@[expose] def EvRu (F1 : Subgroup G) (z u v : G) : Set (Subgroup G) :=
+  {E | E ∈ FsetRu F1 z v ∧ Subgroup.zpowers u ⊔ Subgroup.zpowers z ≤ E}
+
+@[expose] def EInv5Ru (z u : G) : Set (Subgroup G) :=
+  {X | Nat.card X = 5 ∧ Subgroup.zpowers u ⊔ Subgroup.zpowers z ≤ Subgroup.normalizer (X : Set G)}
+
+@[expose] def CgonRu (B5 : Subgroup G) (z u : G) : Set (Subgroup G) :=
+  {X | ∃ (hB : B5 ∈ EInv5Ru z u) (hX : X ∈ EInv5Ru z u),
+    (commGraphOn (EInv5Ru z u)).Reachable ⟨B5, hB⟩ ⟨X, hX⟩}
+
+@[expose] def EsetRu (F1 : Subgroup G) (z u : G) : Set (Subgroup G) :=
+  EvRu F1 z u z ∪ EvRu F1 z u u ∪ EvRu F1 z u (u * z)
+
+@[expose] def EgonGraph (Es : Set (Subgroup G)) (z u : G) : SimpleGraph ↥Es :=
+  SimpleGraph.fromRel (fun E1 E2 => ∃ B1 B2 : Subgroup G,
+    B1 ≤ (E1 : Subgroup G) ∧ B2 ≤ (E2 : Subgroup G) ∧ Nat.card ↥B1 = 5 ∧ Nat.card ↥B2 = 5 ∧
+    Subgroup.zpowers u ⊔ Subgroup.zpowers z ≤ Subgroup.normalizer (B1 : Set G) ∧
+    Subgroup.zpowers u ⊔ Subgroup.zpowers z ≤ Subgroup.normalizer (B2 : Set G) ∧ ⁅B1, B2⁆ = ⊥)
 
 end J4b
 
@@ -1838,6 +1927,35 @@ theorem RuChoice.F {G : Type} [Group G] [Finite G]
 
 end RuChoiceSec
 
+@[expose] def J_4_1 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (L V T : Subgroup G), RuType G L V T →
+    ∀ V2 : Subgroup G, IsV2 V T V2 →
+    ∀ g ∈ L2Ru L V2, g ∉ HRu T →
+    ∀ v : ↥(HRu T), (v : G) ∈ CFSG.conjugate (URu V T) g →
+      (v : G) ∉ CFSG.conjugate (URu V T) g ⊓ QRu T →
+      (starImg T (Subgroup.zpowers (v : G)) = starImg T (CFSG.conjugate (URu V T) g) ∧
+        starImg T (CFSG.conjugate (URu V T) g) =
+          (Subgroup.center ↥(starImg T T)).map (starImg T T).subtype ∧
+        Nat.card ↥(starImg T (CFSG.conjugate (URu V T) g)) = 2) ∧
+      ((∃ B5 : Subgroup G, IsSylowIn 5 B5 (HRu T) ∧ InvertsGroup (v : G) B5) ∧
+        Set.ncard {P : Sylow 5 (↥(HRu T) ⧸ CFSG.pCore 2 ↥(HRu T)) |
+          ∀ x ∈ (P : Subgroup (↥(HRu T) ⧸ CFSG.pCore 2 ↥(HRu T))),
+            ((v : ↥(HRu T)) : ↥(HRu T) ⧸ CFSG.pCore 2 ↥(HRu T))⁻¹ * x *
+              ((v : ↥(HRu T)) : ↥(HRu T) ⧸ CFSG.pCore 2 ↥(HRu T)) = x⁻¹} = 2) ∧
+      (∀ B5 : Subgroup G, IsSylowIn 5 B5 (HRu T) → InvertsGroup (v : G) B5 →
+        (URu V T ≤ Q5Ru T B5 ∧ IsElemAbelianSection (Q5Ru T B5) (URu V T) 4 ∧
+          Nonempty (↥(QRu T ⊓ Subgroup.centralizer (B5 : Set G)) ≃* QuaternionGroup 2) ∧
+          QRu T = (QRu T ⊓ Subgroup.centralizer (B5 : Set G)) ⊔ Q5Ru T B5 ∧
+          ((QRu T ⊓ Subgroup.centralizer (B5 : Set G)) ⊔ URu V T) ⊓ Q5Ru T B5 = URu V T) ∧
+        (CFSG.conjugate (URu V T) g ⊓ QRu T ⊔ URu V T =
+            ⁅QRu T ⊓ Subgroup.centralizer (V2 : Set G), CFSG.conjugate (URu V T) g⁆ ⊔ URu V T ∧
+          ⁅QRu T ⊓ Subgroup.centralizer (V2 : Set G), CFSG.conjugate (URu V T) g⁆ ⊔ URu V T ≤
+            Q5Ru T B5 ∧
+          (URu V T).relIndex (CFSG.conjugate (URu V T) g ⊓ QRu T ⊔ URu V T) = 2) ∧
+        ⁅QRu T, CFSG.conjugate (URu V T) g⁆ ≤ Q5Ru T B5) ∧
+      (∃ (_ : ((URu V T).subgroupOf (HRu T)).Normal),
+        Nat.card (Subgroup.center (↥(HRu T) ⧸ (URu V T).subgroupOf (HRu T))) = 2) ∧
+      V = CFSG.conjugate (URu V T) g ⊓ HCRu V T
 
 section BurnsideJ7_fold
 
@@ -1858,12 +1976,52 @@ section
 
 end
 
+@[expose] def J_4_2 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (L V T : Subgroup G), RuType G L V T →
+    ∀ V2 : Subgroup G, IsV2 V T V2 →
+    ∀ g ∈ L2Ru L V2, g ∉ HRu T →
+    ∀ v : G, v ∈ CFSG.conjugate (URu V T) g → v ∉ CFSG.conjugate (URu V T) g ⊓ QRu T →
+    ∀ B5 : Subgroup G, IsSylowIn 5 B5 (HRu T) → InvertsGroup v B5 →
+      T = R2Ru L V2 T ⊔ QRu T ∧
+      (IsElemAbelianSection (WRu L V V2 T) (URu V T) 4 ∧ Nat.card ↥(WRu L V V2 T) = 2 ^ 9) ∧
+      IsElemAbelianSection (Q5Ru T B5) (Q5Ru T B5 ⊓ WRu L V V2 T) 2
 
 section
 
 
 end
 
+@[expose] def J_4_3 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (L V T : Subgroup G), RuType G L V T →
+    ∀ V2 : Subgroup G, IsV2 V T V2 →
+      IsElemAbelianSection (S2Ru L V V2 T) V 6 ∧ S2Ru L V V2 T = WRu L V V2 T
+
+
+@[expose] def J_4_4 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (L V T : Subgroup G), RuType G L V T →
+    ∀ V2 : Subgroup G, IsV2 V T V2 →
+    ∀ g ∈ L2Ru L V2, g ∉ HRu T →
+    ∀ v : G, v ∈ CFSG.conjugate (URu V T) g → v ∉ CFSG.conjugate (URu V T) g ⊓ QRu T →
+    ∀ B5 : Subgroup G, IsSylowIn 5 B5 (HRu T) → InvertsGroup v B5 →
+    ∀ X : Subgroup G, IsSylowIn 3 X (G2Ru L V2 T) →
+      ∃ a : G,
+        (IsElemAbelianSection (Q5Ru T B5 ⊔ S2Ru L V V2 T) (S2Ru L V V2 T) 2 ∧
+          IsAChoice L V T V2 B5 a) ∧
+        (IsElemAbelianSection (ARu L V V2 T a) (S2Ru L V V2 T) 2 ∧
+          ARu L V V2 T a ⊓ SRu L = S2Ru L V V2 T ∧ ARu L V V2 T a ⊔ SRu L = R2Ru L V2 T ∧
+          ∀ B : Subgroup G, ARu L V V2 T a ≤ B → B ≤ R2Ru L V2 T →
+            X ≤ Subgroup.normalizer (B : Set G) → B = ARu L V V2 T a ∨ B = R2Ru L V2 T) ∧
+        (ARu L V V2 T a ≤ Subgroup.normalizer ((B5 ⊔ Q5Ru T B5 : Subgroup G) : Set G) ∧
+          ARu L V V2 T a ≤ Subgroup.normalizer ((Q5Ru T B5 : Subgroup G) : Set G) ∧
+          Nonempty (↥(ARu L V V2 T a ⊔ B5 ⊔ Q5Ru T B5) ⧸
+            CFSG.pCore 2 ↥(ARu L V V2 T a ⊔ B5 ⊔ Q5Ru T B5) ≃* Sz 0)) ∧
+        ARu L V V2 T a ⊔ Q5Ru T B5 ⊔ SRu L = T ∧
+        (∃ X' : Subgroup G, IsSylowIn 3 X' (G2Ru L V2 T) ∧
+          Q5Ru T B5 ≤ Subgroup.normalizer ((X' ⊔ ARu L V V2 T a : Subgroup G) : Set G) ∧
+          ∃ (_ : ((ARu L V V2 T a).subgroupOf (Q5Ru T B5 ⊔ X' ⊔ ARu L V V2 T a)).Normal),
+            Nonempty (↥(Q5Ru T B5 ⊔ X' ⊔ ARu L V V2 T a) ⧸
+              (ARu L V V2 T a).subgroupOf (Q5Ru T B5 ⊔ X' ⊔ ARu L V V2 T a) ≃*
+              Matrix.SpecialLinearGroup (Fin 2) (ZMod 2)))
 
 section BurnsideJ8b
 
@@ -1905,18 +2063,67 @@ section
 
 end
 
+@[expose] def J_4_5 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (L V T : Subgroup G), RuType G L V T →
+    ∀ V2 : Subgroup G, IsV2 V T V2 →
+    ∀ g ∈ L2Ru L V2, g ∉ HRu T →
+    ∀ v : G, v ∈ CFSG.conjugate (URu V T) g → v ∉ CFSG.conjugate (URu V T) g ⊓ QRu T →
+    ∀ B5 : Subgroup G, IsSylowIn 5 B5 (HRu T) → InvertsGroup v B5 →
+    ∀ X : Subgroup G, IsSylowIn 3 X (G2Ru L V2 T) →
+    ∀ a : G, IsAChoice L V T V2 B5 a →
+      ARu L V V2 T a ≤ Subgroup.normalizer ((B5 ⊔ Q5Ru T B5 : Subgroup G) : Set G) →
+      Q5Ru T B5 ≤ Subgroup.normalizer ((X ⊔ ARu L V V2 T a : Subgroup G) : Set G) →
+      pCoreOf 2 (FRu L V V2 T a B5 X) = ⊥ ∧
+      (F1Ru L V V2 T a B5 ⊓ F2Ru L V V2 T a B5 X = TFRu L V V2 T a B5 ∧
+        (∃ (Y : Type) (_ : Group Y) (_ : Finite Y) (T' : Subgroup Y), IsTwoF4TwoGroup Y ∧
+          CFSG.Quasithin.IsYAmalgam
+            (CFSG.Quasithin.RankTwoAmalgam.ofSubgroups (F1Ru L V V2 T a B5)
+              (F2Ru L V V2 T a B5 X)) T') ∧
+        (CFSG.Quasithin.RankTwoAmalgam.inclusionCompletion (F1Ru L V V2 T a B5)
+          (F2Ru L V V2 T a B5 X) (FRu L V V2 T a B5 X) rfl).IsFaithful) ∧
+      (pCoreOf 2 (F1Ru L V V2 T a B5) = Q5Ru T B5 ⊔ Q0Ru V T ∧
+        Q5Ru T B5 ⊔ Q0Ru V T = F1Ru L V V2 T a B5 ⊓ QRu T) ∧
+      (G2Ru L V2 T = F2Ru L V V2 T a B5 X ⊔ SRu L ∧
+        pCoreOf 2 (F2Ru L V V2 T a B5 X) = ARu L V V2 T a ∧
+        F2Ru L V V2 T a B5 X ⊓ SRu L = WRu L V V2 T ∧
+        WRu L V V2 T = S2Ru L V V2 T ∧
+        ∀ B : Subgroup G, ARu L V V2 T a ≤ B → B ≤ R2Ru L V2 T →
+          F2Ru L V V2 T a B5 X ≤ Subgroup.normalizer (B : Set G) →
+          B = ARu L V V2 T a ∨ B = R2Ru L V2 T)
 
 section
 
 
 end
 
+@[expose] def J_4_6 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (L V T : Subgroup G), RuType G L V T →
+    ∀ V2 : Subgroup G, IsV2 V T V2 →
+    ∀ g ∈ L2Ru L V2, g ∉ HRu T →
+    ∀ v : G, v ∈ CFSG.conjugate (URu V T) g → v ∉ CFSG.conjugate (URu V T) g ⊓ QRu T →
+    ∀ B5 : Subgroup G, IsSylowIn 5 B5 (HRu T) → InvertsGroup v B5 →
+    ∀ X : Subgroup G, IsSylowIn 3 X (G2Ru L V2 T) →
+    ∀ a : G, IsAChoice L V T V2 B5 a →
+      ARu L V V2 T a ≤ Subgroup.normalizer ((B5 ⊔ Q5Ru T B5 : Subgroup G) : Set G) →
+      Q5Ru T B5 ≤ Subgroup.normalizer ((X ⊔ ARu L V V2 T a : Subgroup G) : Set G) →
+        centerOf (TFRu L V V2 T a B5) = ZRu T ∧ centerOf (F1Ru L V V2 T a B5) = ZRu T
 
 section
 
 
 end
 
+@[expose] def J_4_7 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (L V T : Subgroup G), RuType G L V T →
+    ∀ V2 : Subgroup G, IsV2 V T V2 →
+    ∀ g ∈ L2Ru L V2, g ∉ HRu T →
+    ∀ v : G, v ∈ CFSG.conjugate (URu V T) g → v ∉ CFSG.conjugate (URu V T) g ⊓ QRu T →
+    ∀ B5 : Subgroup G, IsSylowIn 5 B5 (HRu T) → InvertsGroup v B5 →
+    ∀ X : Subgroup G, IsSylowIn 3 X (G2Ru L V2 T) →
+    ∀ a : G, IsAChoice L V T V2 B5 a →
+      ARu L V V2 T a ≤ Subgroup.normalizer ((B5 ⊔ Q5Ru T B5 : Subgroup G) : Set G) →
+      Q5Ru T B5 ≤ Subgroup.normalizer ((X ⊔ ARu L V V2 T a : Subgroup G) : Set G) →
+        IsTwoF4TwoGroup ↥(FRu L V V2 T a B5 X)
 
 section BurnsideJ9b
 
@@ -1936,10 +2143,15 @@ end
 open CFSG.Open CFSG.Blueprint CFSG.ASVolI.ChIJK
 open scoped MatrixGroups
 
+@[expose] def J_4_8 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (L V T V2 B5 X : Subgroup G) (g v a z u : G) (I : Subgroup G),
+    RuUSetup G L V T V2 B5 X g v a z u I → (BsetRu B5 z u).ncard = 6
 
 section BurnsideJ48
 
 section BurnsideJ48Basic
+
+variable {G : Type} [Group G]
 
 
 end BurnsideJ48Basic
@@ -1961,5 +2173,28 @@ section
 
 end
 
+@[expose] def J_4_9 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (L V T V2 B5 X : Subgroup G) (g v a z u : G) (I : Subgroup G),
+    RuUSetup G L V T V2 B5 X g v a z u I →
+      (BzPRu B5 z u ≠ O5N (BuzPRu B5 z u) ⊓ Subgroup.centralizer ({z} : Set G) ∧
+        BsetRu B5 z u ⊆ CgonRu B5 z u ∧
+        Nonempty (commGraphOn (CgonRu B5 z u) ≃g SimpleGraph.cycleGraph 12) ∧
+        ∀ B1 B2 : ↥(CgonRu B5 z u),
+          ((commGraphOn (CgonRu B5 z u)).dist B1 B2 = 2 →
+            IsPOnePlusTwoGroup 5 ↥((B1 : Subgroup G) ⊔ (B2 : Subgroup G))) ∧
+          ((commGraphOn (CgonRu B5 z u)).dist B1 B2 = 3 →
+            CFSG.Quasithin.IsSL2 5 ↥((B1 : Subgroup G) ⊔ (B2 : Subgroup G)))) ∧
+      ((∀ w ∈ WBI (CgonRu B5 z u) I, ∀ B ∈ CgonRu B5 z u,
+          CFSG.conjugate B w ∈ CgonRu B5 z u) ∧
+        {w | w ∈ WBI (CgonRu B5 z u) I ∧ ∀ B ∈ CgonRu B5 z u, CFSG.conjugate B w = B} =
+          (I : Set G) ∧
+        ∀ σ : commGraphOn (CgonRu B5 z u) ≃g commGraphOn (CgonRu B5 z u),
+          ∃ w ∈ WBI (CgonRu B5 z u) I,
+            ∀ B : ↥(CgonRu B5 z u), (σ B : Subgroup G) = CFSG.conjugate (B : Subgroup G) w)
+
+@[expose] def J_4_10 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (L V T V2 B5 X : Subgroup G) (g v a z u : G) (I : Subgroup G),
+    RuUSetup G L V T V2 B5 X g v a z u I →
+      Nonempty (EgonGraph (EsetRu (F1Ru L V V2 T a B5) z u) z u ≃g SimpleGraph.cycleGraph 6)
 
 end CFSG.ASVolI

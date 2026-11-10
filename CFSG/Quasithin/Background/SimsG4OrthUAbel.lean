@@ -216,6 +216,107 @@ theorem isImprimitiveOnV_or_injective_of_commute [FiniteDimensional K W] [Perfec
     exact hle (Subalgebra.mem_map.mpr ⟨a, ha, rfl⟩)
   exact @isImprimitiveOnV_or_injective K _ W _ _ _ G E hEinst hred hEG
 
+variable [CharP K 2]
+
+theorem isSemisimple_of_odd_orderOf {c : W ≃ₗ[K] W} (hc : Odd (orderOf c)) :
+    Module.End.IsSemisimple (c : Module.End K W) := by
+  refine isSemisimple_of_natCast_orderOf_ne_zero ?_
+  rw [Ne, CharP.cast_eq_zero_iff K 2]
+  exact fun h => (Nat.not_even_iff_odd.mpr hc) (even_iff_two_dvd.mpr h)
+
+variable [PerfectField K]
+
+theorem false_of_abelian_odd_normal (hdim : 2 < Module.finrank K W)
+    {G : Subgroup (W ≃ₗ[K] W)} (hprim : ¬ IsImprimitiveOnV G) {d : W ≃ₗ[K] W} (hd : d ∈ G)
+    (hdt : IsTransv d) {C : Subgroup (W ≃ₗ[K] W)} (hC : C ≠ ⊥)
+    (hCcomm : ∀ a ∈ C, ∀ b ∈ C, a * b = b * a) (hCodd : ∀ c ∈ C, Odd (orderOf c))
+    (hCG : ∀ g ∈ G, ∀ c ∈ C, g * c * g⁻¹ ∈ C)
+    (hCsc : ∀ c ∈ C, ∀ a : K, (∀ x, c x = a • x) → c = 1) : False := by
+  classical
+  have hfd : FiniteDimensional K W := Module.finite_of_finrank_pos (by omega)
+  set E : Subalgebra K (Module.End K W) := Algebra.adjoin K
+    ((fun c : W ≃ₗ[K] W => (c : Module.End K W)) '' (C : Set (W ≃ₗ[K] W))) with hE
+  have hCss : ∀ c ∈ C, Module.End.IsSemisimple (c : Module.End K W) :=
+    fun c hc => isSemisimple_of_odd_orderOf (hCodd c hc)
+  rcases @isImprimitiveOnV_or_injective_of_commute K _ W _ _ hfd _ G C hCcomm hCss hCG
+    with himp | hinj
+  · exact hprim himp
+  obtain ⟨⟨c, hcC⟩, hc1⟩ := Subgroup.ne_bot_iff_exists_ne_one.mp hC
+  have hc1' : c ≠ 1 := fun h => hc1 (Subtype.ext h)
+  have hcE : (c : Module.End K W) ∈ E := Algebra.subset_adjoin ⟨c, hcC, rfl⟩
+  by_cases hdc : d * c = c * d
+  ·
+    obtain ⟨v, hv0, hv⟩ := finrank_eq_one_iff'.mp hdt.1
+    obtain ⟨y, hy⟩ := v.2
+    have hcv : (c : Module.End K W) v ∈
+        LinearMap.range ((d : Module.End K W) - LinearMap.id) := by
+      refine ⟨c y, ?_⟩
+      rw [← hy]
+      have hdcy : d (c y) = c (d y) := LinearEquiv.congr_fun hdc y
+      simp only [LinearMap.sub_apply, LinearEquiv.coe_coe, LinearMap.id_apply, map_sub, hdcy]
+    obtain ⟨μ, hμ⟩ := hv ⟨_, hcv⟩
+    have hμ' : c v = μ • (v : W) := by
+      have := congrArg Subtype.val hμ
+      simpa using this.symm
+    have hθ : (c : Module.End K W) - algebraMap K (Module.End K W) μ ∈ E :=
+      sub_mem hcE (Subalgebra.algebraMap_mem E μ)
+    by_cases hθ0 : (c : Module.End K W) - algebraMap K (Module.End K W) μ = 0
+    · apply hc1'
+      refine hCsc c hcC μ fun x => ?_
+      have := LinearMap.congr_fun hθ0 x
+      simpa [sub_eq_zero, Module.algebraMap_end_apply] using this
+    · have hθv : ((c : Module.End K W) - algebraMap K (Module.End K W) μ) (v : W) =
+          ((c : Module.End K W) - algebraMap K (Module.End K W) μ) 0 := by
+        simp [hμ', Module.algebraMap_end_apply]
+      exact hv0 (Subtype.ext (hinj _ hθ hθ0 hθv))
+  ·
+    set c' := d * c * d⁻¹ with hc'
+    have hc'C : c' ∈ C := hCG d hd c hcC
+    have hc'E : (c' : Module.End K W) ∈ E := Algebra.subset_adjoin ⟨c', hc'C, rfl⟩
+    have hθE : (c : Module.End K W) - c' ∈ E := sub_mem hcE hc'E
+    have hθ0 : (c : Module.End K W) - c' ≠ 0 := by
+      intro h
+      apply hdc
+      have hcc' : c = c' := LinearEquiv.ext fun x => by
+        have := LinearMap.congr_fun h x
+        simpa [sub_eq_zero] using this
+      calc d * c = d * c * d⁻¹ * d := by group
+        _ = c * d := by rw [← hc', ← hcc']
+    have hinjθ := hinj _ hθE hθ0
+    have hX : Module.finrank K (LinearMap.ker ((d : W →ₗ[K] W) - LinearMap.id)) + 1 =
+        Module.finrank K W := by
+      have := LinearMap.finrank_range_add_finrank_ker ((d : W →ₗ[K] W) - LinearMap.id)
+      rw [hdt.1] at this
+      omega
+    set X := LinearMap.ker ((d : W →ₗ[K] W) - LinearMap.id)
+    set Y := X.map (c : Module.End K W)
+    have hY : Module.finrank K Y = Module.finrank K X := LinearEquiv.finrank_map_eq c X
+    have hXY : X ⊓ Y = ⊥ := by
+      rw [eq_bot_iff]
+      intro w hw
+      obtain ⟨hwX, hwY⟩ := Submodule.mem_inf.mp hw
+      obtain ⟨y, hyX, rfl⟩ := Submodule.mem_map.mp hwY
+      rw [Submodule.mem_bot]
+      have hdw : d (c y) = c y := by
+        have := LinearMap.mem_ker.mp hwX
+        simpa [sub_eq_zero] using this
+      have hdy : d y = y := by
+        have := LinearMap.mem_ker.mp hyX
+        simpa [sub_eq_zero] using this
+      have hdy' : d⁻¹ y = y := by
+        conv_lhs => rw [← hdy]
+        exact d.symm_apply_apply y
+      have hcy : c' y = c y := by
+        rw [hc', LinearEquiv.mul_apply, LinearEquiv.mul_apply, hdy']
+        exact hdw
+      have hθy : ((c : Module.End K W) - c') y = ((c : Module.End K W) - c') 0 := by
+        simp [hcy]
+      have hy0 : y = 0 := hinjθ hθy
+      simp [hy0]
+    have hsum := Submodule.finrank_sup_add_finrank_inf_eq X Y
+    rw [hXY, finrank_bot, add_zero, hY] at hsum
+    have hle := Submodule.finrank_le (X ⊔ Y)
+    omega
 
 end Abel
 

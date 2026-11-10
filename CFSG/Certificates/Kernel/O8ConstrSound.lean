@@ -68,6 +68,7 @@ private theorem nsub (a b : ℕ) : Nat.sub a b = a - b := rfl
 private theorem ndiv (a b : ℕ) : Nat.div a b = a / b := rfl
 private theorem nmod (a b : ℕ) : Nat.mod a b = a % b := rfl
 private theorem nshl (a b : ℕ) : Nat.shiftLeft a b = a <<< b := rfl
+private theorem nsucc (a : ℕ) : Nat.succ a = a + 1 := rfl
 
 private theorem ctAndB_eq (a b : Bool) : CFSG.KLie.CT.andB a b = (a && b) := by cases a <;> rfl
 

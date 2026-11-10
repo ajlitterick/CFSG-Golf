@@ -118,6 +118,8 @@ variable {G : Type*} [Group G] (gen : ℕ → G) (H : Subgroup G)
   st / 1048576 = 0 ∨ ∃ cur < 1048576, st = cur + 1048576 * (W / 256 ^ p) ∧
     (rep s * bv gen W p * (rep cur)⁻¹ ∈ H ↔ (p ≤ ft ∨ a ∈ H))
 
+theorem WI_zero (rep : ℕ → G) (s W ft : ℕ) (a : G) (p : ℕ) : WI gen H rep s W ft a p 0 :=
+  Or.inl rfl
 
 theorem WI_move {rep : ℕ → G} {s W ft : ℕ} {a : G} {p cur cur' : ℕ}
     (hX : rep s * bv gen W p * (rep cur)⁻¹ ∈ H ↔ (p ≤ ft ∨ a ∈ H))

@@ -58,6 +58,17 @@ theorem kKerT : allN 2160 (kerAtT MT) = true := by quickRfl
 
 theorem kM0 : eqOnL bs11 (gM 0) (fun y => y) = true := by quickRfl
 
+theorem kTabTNeg :
+    (!allN 2160 (tabAtK (fun k => gM (Nat.sub 2 k)) rd4 MT C0.P C0.L bs11)) = true := by
+  quickRfl
+
+theorem kEdgeTNeg :
+    (!allN 2160 (edgeTK (fun k => gM (Nat.sub 2 k)) rd4 MT CE 2160 3 bs11)) = true := by
+  quickRfl
+
+theorem kKerTNeg : (!allN 2160 (kerAtT fun _ => pidn 11 4)) = true := by quickRfl
+
+theorem kM0Neg : (!eqOnL bs11 (gM 1) (fun y => y)) = true := by quickRfl
 
 end CertificateChecks.KernelRuThree
 

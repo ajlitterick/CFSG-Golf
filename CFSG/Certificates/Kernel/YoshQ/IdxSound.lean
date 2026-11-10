@@ -68,6 +68,7 @@ theorem shr12 (x i : Nat) (hi : i < 4096) : (x * 4096 + i) >>> 12 = x := by
   rw [this]
   omega
 
+theorem mod4096 (x i : Nat) (hi : i < 4096) : (x * 4096 + i) % 4096 = i := by omega
 
 @[expose] def Distinct (n w cnt EP : Nat) : Prop :=
   ∀ a < cnt, ∀ b < cnt, fldN EP (n * w) a = fldN EP (n * w) b → a = b

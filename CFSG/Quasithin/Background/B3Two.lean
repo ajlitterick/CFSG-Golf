@@ -64,6 +64,17 @@ theorem B3_2_1
     · rw [h2]
       simp [hh.2]
 
+theorem B3_2_2 (hn : SQTKn n) (k : Mod) (hB : CaseB n k) :
+    rk (A0 n) = n / 2 ∧ rkIdx (fixV ((A0 n).map (Mod.act n k))) = n / 2 := by
+  rcases three_cases hn k with ⟨hA, -⟩ | ⟨-, -, -, -, h, -⟩ | ⟨-, -, -, -, h, -⟩
+  · exact absurd hA (not_caseA_of_caseB hB)
+  · exact h
+  · exact h
+
+theorem B3_2_3 {A : Subgroup (Gp 8)} (hA : A ∈ Rset 8) :
+    rkIdx (fixV (A.map (Mod.act 8 Mod.ut0))) = 3 := by
+  obtain ⟨-, -, -, hR, -⟩ := propB32B6_eight
+  exact hR A hA
 
 theorem Am_zero : Am n 0 = ⊥ := by
   unfold Am
@@ -103,6 +114,24 @@ theorem B3_2_4 (hn : SQTKn n) (k : Mod) (hA : CaseA n k) :
   · exact absurd hA (not_caseA_of_caseB hB)
   · exact absurd hA (not_caseA_of_caseB ⟨by omega, Or.inr hk⟩)
 
+theorem B3_2_5
+    (hn : SQTKn n) (k : Mod) (hB : CaseB n k) (hexc : ¬ (n = 8 ∧ k = Mod.ut0)) :
+    (∀ A : Subgroup (Gp n), IsOffG n k A ↔
+      A ∈ conjClass (Dsub n ⊓ alternatingGroup (Fin n)) ∨ A ∈ conjClass (A0 n) ∨
+        (∃ m, 1 ≤ m ∧ m ≤ n / 2 ∧ A ∈ conjClass (Am n m)) ∨ A ∈ Hset n) ∧
+    (∃ T : Sylow 2 (Gp n), (∀ m, m ≤ n / 2 → Am n m ≤ T) ∧ A0 n ≤ T ∧
+      ffJ ((T : Subgroup (Gp n)).map (Mod.act n k)) =
+        (Dsub n ⊔ Subgroup.closure
+          {x : Gp n | x ∈ (T : Subgroup (Gp n)) ∧ IsConj (ti n 0 * ti n 1) x}).map
+            (Mod.act n k)) ∧
+    qOf ((⊤ : Subgroup (Gp n)).map (Mod.act n k)) = ((((n : ℚ) - 2) / n : ℚ) : WithTop ℚ) := by
+  rcases three_cases hn k with ⟨hA, -⟩ | ⟨-, -, h⟩ | ⟨hn8, hk, -⟩
+  · exact absurd hA (not_caseA_of_caseB hB)
+  · obtain ⟨hoff, -, -, ⟨T, hTm, hTA0, hJ, -⟩, hq⟩ := h
+    exact ⟨fun A => (hoff A).trans (or_congr Iff.rfl (or_congr Iff.rfl (or_congr
+      (exists_lt_iff (n := n) (P := fun m => A ∈ conjClass (Am n m))) Iff.rfl))),
+      ⟨T, forall_Am_le hTm, hTA0, hJ⟩, hq⟩
+  · exact absurd ⟨hn8, hk⟩ hexc
 
 theorem B3_2_6 :
     (∀ A : Subgroup (Gp 8), IsOffG 8 Mod.ut0 A ↔

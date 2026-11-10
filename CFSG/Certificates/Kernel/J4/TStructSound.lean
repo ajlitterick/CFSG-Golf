@@ -493,6 +493,15 @@ theorem testBit_oBase (O i : ℕ) : (oBase O).testBit i = (O.testBit i && decide
 
 theorem mask144_eq : mask144 = 2 ^ 144 - 1 := by decide +kernel
 
+theorem oJ_oBase (O : ℕ) : oJ (oBase O) = oJ O := by
+  change oBase O &&& (2 ^ 16 - 1) = O &&& (2 ^ 16 - 1)
+  apply Nat.eq_of_testBit_eq
+  intro i
+  simp only [Nat.testBit_and, testBit_oBase, Nat.testBit_two_pow_sub_one]
+  by_cases hi : i < 16
+  · have : i < 340 := by omega
+    simp [hi, this]
+  · simp [hi]
 
 theorem oP_oBase (O : ℕ) : oP (oBase O) = oP O := by
   change (oBase O >>> 16) &&& (2 ^ 36 - 1) = (O >>> 16) &&& (2 ^ 36 - 1)
@@ -796,6 +805,10 @@ theorem lam_inj {k : KD} (o : Ok k) {e e' : ℕ} (he : e < 512) (he' : e' < 512)
 @[expose] def Orb (k : KD) : Prop :=
   ∀ j < k.NOM, ∃ g ∈ Khat k.LET, actS.act (thV k) g = ptVecs (k.PT j)
 
+theorem orb_of_om {k : KD} (o : Ok k) {j : ℕ} (hj : j < k.NOM) (hO : k.OT j ≠ 0) :
+    ∃ g ∈ Khat k.LET, actS.act (thV k) g = ptVecs (k.PT j) := by
+  obtain ⟨-, -, g, -, -, hg⟩ := om_spec o hj hO
+  exact ⟨g, g.2, hg⟩
 
 theorem pt_lt {k : KD} (o : Ok k) : ∀ j < k.NOM, ∀ i < j, k.PT i < k.PT j := by
   have hP := (kPts_parts o.hP).1
@@ -1040,6 +1053,10 @@ theorem T0_comm {k : KD} (o : Ok k) {G : Type*} [Group G] {φ : Khat k.LET →* 
   intro g hg
   exact key g hg g.2
 
+theorem stabN_comm {k : KD} (o : Ok k) (hO : Orb k) {G : Type*} [Group G] {φ : Khat k.LET →* G}
+    {x y t z : G} (gh : GHyp k φ x y t z) {g : Khat k.LET} (hgN : (g : GLm) ∈ Nhat k.LET)
+    (hs : (g : GLm) ∈ Stab (thV k)) : Commute t (φ g) :=
+  T0_comm o gh g (stabN_le o hO hgN hs)
 
 theorem conj_t {G : Type*} [Group G] {t a c d : G} (ht : t * t = 1) (hc : Commute t c) :
     t * (a * (c⁻¹ * d * c)) * t = (t * a * t) * (c⁻¹ * (t * d * t) * c) := by

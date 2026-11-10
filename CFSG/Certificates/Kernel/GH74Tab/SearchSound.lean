@@ -65,6 +65,12 @@ theorem bit_ge {x k : Nat} (hx : x < 2 ^ 64) (hk : 64 ≤ k) : bit x k = false :
   rw [bit_eq]
   exact Nat.testBit_lt_two_pow (lt_of_lt_of_le hx (Nat.pow_le_pow_right (by decide) hk))
 
+theorem bit_lt {x k : Nat} (hx : ∀ j, bit x j = true → j < 64) (hk : bit x k = true) : k < 64 :=
+  hx k hk
+
+theorem shl1_lt {j : Nat} (hj : j < 64) : 1 <<< j < 2 ^ 64 := by
+  rw [Nat.one_shiftLeft]
+  exact Nat.pow_lt_pow_right (by decide) hj
 
 theorem gk_lt (k : Nat) : gk k < 64 := by
   unfold gk
@@ -428,6 +434,8 @@ theorem reach_tblOf (A : Nat) (s i : Fin 64) :
     ((mkTab n).reach (tblOf A) s).get i = bit (reachK D A 12 (1 <<< s.val)) i.val :=
   (agree_reach ht hd A s).2 i
 
+theorem reachK_lo (A : Nat) (s : Fin 64) : lo (reachK D A 12 (1 <<< s.val)) :=
+  (agree_reach ht hd A s).1
 
 end Reach
 

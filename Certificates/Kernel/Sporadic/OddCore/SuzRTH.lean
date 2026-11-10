@@ -34,6 +34,7 @@ open CertificateChecks.KernelSpor CertificateChecks.KernelSpor.L2K
 
 theorem kHol : holK = true := by quickRfl
 
+theorem neg_hol : Bool.not (Nat.beq (cP1 0 22) 2890) = true := by quickRfl
 
 theorem volt_get {x k : Nat} (hx : x < 2835) (hk : k < 36) : volt[36 * x + k]! = voltK x k := by
   unfold volt

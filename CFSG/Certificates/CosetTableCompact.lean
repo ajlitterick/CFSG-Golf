@@ -80,6 +80,8 @@ theorem getWord_setWord (b : ByteArray) (i v j : Nat) :
 theorem size_wordsToArray (b : ByteArray) : (wordsToArray b).size = b.size / 4 := by
   simp [wordsToArray]
 
+theorem size_linksToArray (b : ByteArray) : (linksToArray b).size = b.size / 4 := by
+  simp [linksToArray]
 
 theorem getD_wordsToArray (b : ByteArray) (i : Nat) :
     (wordsToArray b).getD i 0 = getWord b i := by
@@ -441,6 +443,17 @@ theorem fillRow_fits {L cap : Nat} (P : Params) (fuel c : Nat) :
       · exact ih (processDed_fits P fuel (define_fits h P _ _))
       · exact ih h
 
+theorem felsch_fits {L cap : Nat} (P : Params) (fuel : Nat) :
+    ∀ (n c : Nat) {st : St}, Fits L cap st → Fits L cap (felsch P fuel n c st) := by
+  intro n
+  induction n with
+  | zero => intro c st h; exact h
+  | succ n ih =>
+    intro c st h
+    unfold felsch
+    split
+    · exact ih _ (fillRow_fits P fuel c _ h)
+    · exact h
 
 theorem hltWord_fits {L cap : Nat} (P : Params) (c : Nat) (w w' : List Nat) :
     ∀ (fuel : Nat) {st : St}, Fits L cap st → Fits L cap (hltWord P c w w' fuel st) := by

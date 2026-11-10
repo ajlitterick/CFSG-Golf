@@ -24,5 +24,11 @@ public section
 
 namespace Certificates
 
+theorem certificate44 : ∀ (a s : Equiv.Perm (Fin 4)),
+        (a ≠ 1 ∧ a ^ 3 = 1) → (s ≠ 1 ∧ s ^ 2 = 1) →
+        (∀ c : Equiv.Perm (Fin 4), c * s = s * c →
+          c * a * c⁻¹ = a ∨ c * a * c⁻¹ = a ^ 2) →
+        a * s = s * a := by
+  decide +kernel
 
 end Certificates

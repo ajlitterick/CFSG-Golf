@@ -36,6 +36,17 @@ open Subgroup Equiv Perm CFSG.GH74.GLS.C3.Layer2 CFSG.GH74.GLS.C3.Layer2.Model C
 set_option maxRecDepth 100000
 set_option maxHeartbeats 0
 
+private theorem ord3Check_true_0 : ord3Check = true := by
+  decide +kernel
+
+private theorem centerCheck_true_1 : centerCheck = true := by
+  decide +kernel
+
+private theorem ccL_T1_T1_2 : ccL T1 T1 = 576 := by
+  decide +kernel
+
+private theorem B0invCheck_true_3 : B0invCheck = true := by
+  decide +kernel
 
 end CertificateChecks.Batch5081
 

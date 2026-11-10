@@ -47,6 +47,12 @@ theorem tree : treeK D.MUK D.LK D.PLK D.MTK D.FMK = true := by quickRfl
 
 theorem nonab : nonabK D.MTK = true := by quickRfl
 
+open CFSG.KLie.CT (notB) in
+theorem neg : bAnd(notB (rowsK 3510 12 5 T.A.F (fun k => D.AK (Nat.succ k))),
+    bAnd(notB (powK 3510 12 D.AK (fun i => D.PW (Nat.succ i))),
+    bAnd(notB (pbRunK D.MUK (fun k => nIf(Nat.beq k (nat_lit 5), D.LK 6, D.LK k)) D.EK D.PLK D.SL),
+      notB (mtC D.LK (fun k => Nat.add (D.MTK k) (nat_lit 1)) (nat_lit 0))))) = true := by
+  quickRfl
 
 end CertificateChecks.KernelFi22Rk.K
 

@@ -163,5 +163,49 @@ theorem card_subOf {n : ℕ} {S : List Tab} (h : subOK n S = true) :
       (x == idt || gens.any (fun g => done.any (fun y => mulT g y == x))) &&
         chainOK gens idt (x :: done) rest
 
+theorem chain_sound {n : ℕ} (gensP : List (Gp n)) :
+    ∀ (S done : List Tab), chainOK (gensP.map tab) (idT n) done S = true →
+      (∀ y ∈ done, ∃ σ ∈ Subgroup.closure {g | g ∈ gensP}, tab σ = y) →
+      ∀ x ∈ S, ∃ σ ∈ Subgroup.closure {g | g ∈ gensP}, tab σ = x := by
+  intro S
+  induction S with
+  | nil => intro done _ _ x hx; simp at hx
+  | cons a rest ih =>
+    intro done hch hdone x hx
+    simp only [chainOK, Bool.and_eq_true] at hch
+    obtain ⟨ha, hrest⟩ := hch
+    have hA : ∃ σ ∈ Subgroup.closure {g | g ∈ gensP}, tab σ = a := by
+      simp only [Bool.or_eq_true, beq_iff_eq, List.any_eq_true] at ha
+      rcases ha with ha | ⟨g, hg, y, hy, hgy⟩
+      · exact ⟨1, Subgroup.one_mem _, by rw [tab_one, ha]⟩
+      · obtain ⟨g0, hg0, rfl⟩ := List.mem_map.1 hg
+        obtain ⟨τ, hτ, rfl⟩ := hdone y hy
+        refine ⟨g0 * τ, Subgroup.mul_mem _ (Subgroup.subset_closure hg0) hτ, ?_⟩
+        rw [tab_mul]
+        simpa using hgy
+    have hdone' : ∀ y ∈ a :: done, ∃ σ ∈ Subgroup.closure {g | g ∈ gensP}, tab σ = y := by
+      intro y hy
+      rcases List.mem_cons.1 hy with rfl | hy
+      · exact hA
+      · exact hdone y hy
+    rcases List.mem_cons.1 hx with rfl | hx
+    · exact hA
+    · exact ih (a :: done) hrest hdone' x hx
+
+theorem closure_eq_subOf {n : ℕ} (gensP : List (Gp n)) (S : List Tab) (hS : subOK n S = true)
+    (hg : gensP.all (fun g => S.contains (tab g)) = true)
+    (hc : chainOK (gensP.map tab) (idT n) [] S = true) :
+    Subgroup.closure {g | g ∈ gensP} = subOf n S := by
+  apply le_antisymm
+  · rw [Subgroup.closure_le]
+    intro g hg'
+    rw [SetLike.mem_coe, mem_subOf hS]
+    simp only [List.all_eq_true, List.contains_iff_mem] at hg
+    exact hg g hg'
+  · intro x hx
+    rw [mem_subOf hS] at hx
+    obtain ⟨σ, hσ, hσx⟩ := chain_sound gensP S [] hc (by simp) _ hx
+    rwa [← tab_injective hσx]
+
 
 end CFSG.Quasithin.B3

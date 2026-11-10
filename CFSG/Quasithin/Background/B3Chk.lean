@@ -29,4 +29,9 @@ namespace CFSG.Quasithin.B3
 @[expose] def t12 (n : ℕ) : Tab := tab (ti n 0 * ti n 1)
 
 
+@[expose] def chkGenTabs (n : ℕ) (gens : List Tab) : Bool :=
+  let S := closeT n gens
+  subOK n S && gens.all (fun g => S.contains g) && chainOK gens (idT n) [] S
+
+
 end CFSG.Quasithin.B3

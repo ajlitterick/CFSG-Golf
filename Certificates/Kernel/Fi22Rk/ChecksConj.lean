@@ -17,6 +17,10 @@ open CFSG.KC.Enum CFSG.KC.Fi22Rk CertificateChecks.KernelFi22Rk
 
 @[expose] noncomputable def conj1 (c : Nat) : Bool := conjC 3510 12 D.GK D.MUK D.IK 1 c
 
+open CFSG.KLie.CT (notB) in
+theorem negConj : notB (conjAt 3510 12 D.GK (fun l => Nat.add (D.MUK l) (nat_lit 1)) D.IK 0 0) =
+    true := by
+  quickRfl
 
 end CertificateChecks.KernelFi22Rk.K
 

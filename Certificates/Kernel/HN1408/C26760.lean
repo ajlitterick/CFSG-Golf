@@ -39,6 +39,11 @@ theorem block26760 : bAnd(allN 6 (fun j => halvesK (H8.F j)),
       Nat.beq (pc V8 V8) idK)) = true := by
   quickRfl
 
+theorem neg26760 : bAnd((commP (X8 0) (X8 1)).not,
+    bAnd((Nat.beq (EV8 (hsCommWord 0)) (X8 1)).not,
+    bAnd((Nat.beq (pc (pc V8 (X8 0)) V8) (WK (sigWords.getD 1 []))).not,
+    bAnd((halvesK V8).not, (allN 1408 (fun p => (Nat.beq (pt (X8 0) p) p).not)).not)))) = true := by
+  quickRfl
 
 end CFSG.KD.HN1408
 

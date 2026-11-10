@@ -148,12 +148,38 @@ def chunks_of(text: str):
 
 
 _NAMES: dict[str, int] = {}
+# Macros refer to indexed families through the base name: `forall_lt_consts X 26` uses X0 ... X25
+# (`mkConst (X.appendAfter s!"{k}")`), and `"mulW4_sound"` plus an index names `mulW4_sound3`.
+# So a token X also mentions every declaration X<digits>, X_<digits>, X<digits>_<digits>, ...
+_BASE: dict[str, list[int]] = {}
+IDX_TAIL_RE = re.compile(r"_?\d+$")
+# short indexed names (`b12`, `e3_5`) that macros reach through the namespace only
+SHORT_IDX_RE = re.compile(r"[^\W\d]{1,8}\d+(?:_\d+)*$")
+
+
+KEYWORD_BASES = {"lemma", "theorem", "def", "abbrev", "instance", "example", "structure",
+                 "class", "inductive", "by", "fun", "have", "show", "from", "at", "with", "in"}
+
+
+def bases_of(name: str) -> list[str]:
+    out = []
+    while True:
+        m = IDX_TAIL_RE.search(name)
+        if not m or m.start() == 0:
+            return out
+        name = name[:m.start()]
+        if name not in KEYWORD_BASES:
+            out.append(name)
 
 
 def _init(names_path: str) -> None:
-    global _NAMES
+    global _NAMES, _BASE
     with open(names_path, encoding="utf-8") as f:
         _NAMES = {n: i for i, n in enumerate(f.read().split("\n")) if n}
+    _BASE = {}
+    for n, i in _NAMES.items():
+        for b in bases_of(n):
+            _BASE.setdefault(b, []).append(i)
 
 
 def pass1(path: str):
@@ -176,7 +202,11 @@ def pass2(path: str):
         if kind == KIND_OTHER and INERT_RE.match(body.lstrip()):
             ids = set()   # imports, namespace/section brackets and plain `open` use nothing
         else:
-            ids = {_NAMES[t] for t in set(TOKEN_RE.findall(body)) if t in _NAMES}
+            tokens = set(TOKEN_RE.findall(body))
+            ids = {_NAMES[t] for t in tokens if t in _NAMES}
+            for t in tokens:
+                if t in _BASE:
+                    ids.update(_BASE[t])
         nid = _NAMES.get(name, -1) if name else -1
         if kind == KIND_DECL:
             ids.discard(nid)
@@ -269,6 +299,15 @@ def main() -> None:
         rf = {i for i, p in enumerate(paths) if p in set(a.root_files)}
         if rf:
             root0 = root0 | np.isin(c_file_a, np.array(sorted(rf)))
+        # short indexed declarations in the certificate trees are kept: macros build their
+        # names from a namespace and an index (`P ++ Name.mkSimple s!"b{j}"`)
+        cert_file = np.array(["Certificates/" in p for p in paths], dtype=bool)
+        short_name = np.array([bool(SHORT_IDX_RE.fullmatch(x)) for x in names_list], dtype=bool)
+        is_decl = c_kind_a == KIND_DECL
+        keep = np.zeros(n, dtype=bool)
+        keep[is_decl] = short_name[c_name_a[is_decl]] & cert_file[c_file_a[is_decl]]
+        print(f"short indexed certificate declarations kept as roots: {int(keep.sum())}", flush=True)
+        root0 = root0 | keep
         for nm, arr in (("indptr.i64", indptr), ("toks.u32", toks),
                         ("kind.i8", c_kind_a), ("name.i64", c_name_a),
                         ("bytes.i64", c_bytes_a), ("file.i64", c_file_a),

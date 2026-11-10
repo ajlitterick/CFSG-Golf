@@ -11,6 +11,54 @@ open CFSG.TwoNodeSmall
 
 set_option compiler.extract_closed false
 
+@[expose] def rootsOf (P : Pt) (fuel : Nat) : List Root :=
+  let n := P.gens.length
+  let init : List Root := (List.range n).flatMap fun k =>
+    match P.gens[k]? with
+    | some g => [⟨g, [k]⟩, ⟨negR P g, [k]⟩]
+    | none => []
+  let rec go : Nat → List Root → Nat → List Root
+    | 0, seen, _ => seen
+    | fuel + 1, seen, k =>
+      match seen[k]? with
+      | none => seen
+      | some cur =>
+        let new := (List.range n).foldl (fun acc i =>
+          let r' := conjR P i cur.r
+          if acc.any (fun s => reqb s.r r') then acc else acc ++ [⟨r', i :: (cur.w ++ [i])⟩]) seen
+        go fuel new (k + 1)
+  go fuel init 0
+
+@[expose] def orbitOf (P : Pt) (m fuel : Nat) (start : Refl) : List (Refl × Word) :=
+  let rec go : Nat → List (Refl × Word) → Nat → List (Refl × Word)
+    | 0, seen, _ => seen
+    | fuel + 1, seen, k =>
+      match seen[k]? with
+      | none => seen
+      | some cur =>
+        let new := (List.range m).foldl (fun acc i =>
+          let r' := conjR P i cur.1
+          if acc.any (fun s => reqb s.1 r') then acc else acc ++ [(r', cur.2 ++ [i])]) seen
+        go fuel new (k + 1)
+  let orb := go fuel [(start, [])] 0
+  orb.foldl (fun acc s =>
+    let n := negR P s.1
+    if acc.any (fun t => reqb t.1 n) then acc else acc ++ [(n, s.2)]) orb
+
+@[expose] def orbitTable (P : Pt) (m fuel : Nat) (cs : List Refl) : List Refl × List OEnt :=
+  cs.foldl (fun (st : List Refl × List OEnt) c =>
+    if st.2.any (fun e => reqb e.e c) then st
+    else
+      let j := st.1.length
+      let orb := orbitOf P m fuel c
+      (st.1 ++ [c], st.2 ++ orb.map fun s => ⟨s.1, s.2, j⟩)) ([], [])
+
+@[expose] def orderWit (P : Pt) : Option OWit :=
+  (List.range 9).findSome? fun k =>
+    match findOCap { P with x := P.x ++ List.replicate k 1 } P.bound 1000000000 40 with
+    | some o => if verifyO P o P.bound then some o else none
+    | none => none
+
 
 @[expose] def Rep.isGoodMax (rp : Rep) : Bool :=
   match rp.kind with

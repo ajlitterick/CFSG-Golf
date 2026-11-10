@@ -119,6 +119,14 @@ theorem eq_of_toVec_eq {x y : ℕ} (hx : x < 2 ^ 24) (hy : y < 2 ^ 24) (h : toVe
   · rw [Nat.testBit_lt_two_pow (Nat.lt_of_lt_of_le hx (Nat.pow_le_pow_right (by omega) (by omega))),
       Nat.testBit_lt_two_pow (Nat.lt_of_lt_of_le hy (Nat.pow_le_pow_right (by omega) (by omega)))]
 
+theorem mul24_assoc (A B C : ℕ) : mul24 (mul24 A B) C = mul24 A (mul24 B C) :=
+  eq_of_toMat_eq (mul24_lt _ _) (mul24_lt _ _) (by simp only [toMat_mul24, Matrix.mul_assoc])
+
+theorem ident24_mul24 {A : ℕ} (hA : A < 2 ^ 576) : mul24 ident24 A = A :=
+  eq_of_toMat_eq (mul24_lt _ _) hA (by rw [toMat_mul24, toMat_ident24, Matrix.one_mul])
+
+theorem mul24_ident24 {A : ℕ} (hA : A < 2 ^ 576) : mul24 A ident24 = A :=
+  eq_of_toMat_eq (mul24_lt _ _) hA (by rw [toMat_mul24, toMat_ident24, Matrix.mul_one])
 
 theorem spG_or (a b s x y : ℕ) :
     Nat.lor (Nat.land (x ||| y) a) (Nat.shiftLeft (Nat.land (x ||| y) b) s) =
@@ -402,6 +410,17 @@ theorem toVec_rowOf_mulRows (n X B : ℕ) {i : ℕ} (hi : i < n) :
   have hk : decide ((k : ℕ) < 24) = true := decide_eq_true k.2
   rw [hk, Bool.true_and]
 
+theorem mulRows_zero_right (n X : ℕ) :
+    mulRows (KLie.CT.orN n fun i => 1 <<< (24 * i)) X 0 = 0 := by
+  apply Nat.eq_of_testBit_eq
+  intro p
+  rw [testBit_mulRows, Nat.zero_testBit]
+  have : Nat.rec (motive := fun _ => Bool) false
+      (fun k b => (X.testBit (24 * (p / 24) + k) && (0 : ℕ).testBit (24 * k + p % 24)) ^^ b) 24
+        = false := by
+    simp only [Nat.zero_testBit, Bool.and_false, Bool.false_xor]
+    exact F2W.rec_xor_false 24
+  rw [this]; simp
 
 @[expose] def tauIdx (tau i : ℕ) : ℕ := Nat.land (Nat.shiftRight tau (Nat.mul 7 i)) 127
 
@@ -444,6 +463,12 @@ theorem rowOf_permRows (X tau n : ℕ) {i : ℕ} (hi : i < n) :
     simp [hj, hq, hr, hn]
   · simp [hj]
 
+theorem permRows_lt (X tau n : ℕ) : permRows X tau n < 2 ^ (24 * n) := by
+  apply Nat.lt_pow_two_of_testBit
+  intro p hp
+  rw [testBit_permRows]
+  have : ¬ p < 24 * n := by omega
+  simp [this]
 
 theorem mulRows_lt (n X B : ℕ) :
     mulRows (KLie.CT.orN n fun i => 1 <<< (24 * i)) X B < 2 ^ (24 * n) := by
@@ -661,6 +686,34 @@ theorem ptS_inj {n P Q : ℕ} (hP : P < 2 ^ (24 * n)) (hQ : Q < 2 ^ (24 * n))
   have hf := (hfP.range_inj hfQ).1 hr
   exact eq_of_rows_eq hP hQ fun i hi => congrFun hf ⟨i, hi⟩
 
+theorem permRows_zero (tau n : ℕ) : permRows 0 tau n = 0 := by
+  apply Nat.eq_of_testBit_eq
+  intro p
+  rw [testBit_permRows, Nat.zero_testBit]
+  simp
+
+theorem actOK_zero {n sel P Q tau : ℕ} (hsel : DceS.selOK n sel = true)
+    (hQ : rowsOK n Q = true) (h : DceS.actOK n sel P 0 Q tau = true) : False := by
+  have hpos := (rowsOK_spec hQ).1
+  unfold DceS.actOK at h
+  cases hn : Nat.beq n 1
+  · rw [hn] at h
+    have h' : chkAct sel n P 0 Q tau = true := h
+    have hselE : sel = KLie.CT.orN n fun i => 1 <<< (24 * i) := by
+      have := Nat.eq_of_beq_eq_true hsel
+      rw [this, sel_eq]
+    subst hselE
+    have hQeq := Nat.eq_of_beq_eq_true h'
+    rw [mulRows_zero_right, permRows_zero] at hQeq
+    rw [← hQeq] at hpos
+    simp [rowOf] at hpos
+  · rw [hn] at h
+    have hQe : Q = vecmul P 0 := Nat.eq_of_beq_eq_true h
+    have hv0 : vecmul P 0 = 0 := by
+      unfold vecmul
+      simp [fold1, fold2, fold3, fold45, Nat.and_zero, Nat.zero_xor, Nat.zero_shiftRight]
+    rw [hQe, hv0] at hpos
+    simp [rowOf] at hpos
 
 end CFSG.KC.Th.Spec.Dce
 

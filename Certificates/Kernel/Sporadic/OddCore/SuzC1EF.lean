@@ -60,6 +60,11 @@ theorem kNorm : allN 11 (fun j => allN 4 fun i =>
     memT (pc (pc (SuzC1EN.G j) (SuzC1ET.G i)) (SuzC1EN.GI j)) &&
     memT (pc (pc (SuzC1EN.GI j) (SuzC1ET.G i)) (SuzC1EN.G j))) = true := by quickRfl
 
+theorem negSlT : Bool.not (penumSlK 1782 11 (mask 11) (1782 * 11) false SuzC1ET.G SuzC1ET.GI 4
+    SuzC1ET.cnt (fun i => if i = 5 then Nat.xor (SuzC1ET.T i) 2 else SuzC1ET.T i) SuzC1ET.PL
+    SuzC1ET.POS SuzC1ET.SRT SuzC1ET.SRI 0 64) = true := by quickRfl
+
+theorem negMem : Bool.not (memT W0) = true := by quickRfl
 
 theorem ptT : ∀ i < SuzC1ET.cnt, penumPtK 1782 11 (mask 11) (1782 * 11) false SuzC1ET.G SuzC1ET.GI
     4 SuzC1ET.cnt SuzC1ET.T SuzC1ET.PL SuzC1ET.POS SuzC1ET.SRT SuzC1ET.SRI i = true :=

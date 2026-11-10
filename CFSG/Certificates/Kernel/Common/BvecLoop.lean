@@ -40,5 +40,17 @@ theorem forall_bvec {n : ℕ} {P : (Fin n → ZMod 2) → Prop} :
   obtain ⟨x, hx, rfl⟩ := exists_bvec n v
   exact h x hx
 
+theorem card_filter_bvec {n : ℕ} (P : (Fin n → ZMod 2) → Prop) [DecidablePred P] :
+    (Finset.univ.filter P).card = Nat.count (fun x => P (bvec n x)) (2 ^ n) := by
+  rw [Nat.count_eq_card_filter_range]
+  symm
+  refine Finset.card_bij (fun x _ => bvec n x) (fun x hx => ?_) (fun x hx y hy e => ?_)
+    (fun v hv => ?_)
+  · simp only [Finset.mem_filter, Finset.mem_range] at hx
+    simpa using hx.2
+  · simp only [Finset.mem_filter, Finset.mem_range] at hx hy
+    exact bvec_inj hx.1 hy.1 e
+  · obtain ⟨x, hx, rfl⟩ := exists_bvec n v
+    exact ⟨x, by simpa [hx] using hv, rfl⟩
 
 end CFSG.KC.BvecLoop

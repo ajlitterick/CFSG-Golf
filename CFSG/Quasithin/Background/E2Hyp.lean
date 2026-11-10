@@ -44,11 +44,25 @@ theorem inf_normalizer_le (h : Hyp28 H T M V) : H ⊓ Subgroup.normalizer (V : S
   h.minParabolic.le_of_lt (le_inf h.minParabolic.isSylow.1 h.normal_T)
     (lt_of_le_of_ne inf_le_left fun heq => h.not_le_normalizer (heq ▸ inf_le_right))
 
+theorem e2_13_two (h : Hyp28 H T M V) (hsolv : Group.IsSolvable H) (hchar : CharTwo H) :
+    ∃ g ∈ H, ∃ A : Subgroup G, A ≤ T ∧ A ≤ cjSub g V ∧ IsElemAbelian 2 A ∧
+      ⁅⁅⁅V, A⁆, A⁆, A⁆ = ⊥ ∧ ¬ A ≤ Subgroup.centralizer (V : Set G) ∧
+      A ⊓ Subgroup.centralizer (V : Set G) = V ⊓ cjSub g V ∧
+      (V ⊓ Subgroup.centralizer (A : Set G)).relIndex V ≤
+        ((A ⊓ Subgroup.centralizer (V : Set G)).relIndex A) ^ 2 :=
+  E2_13_two_of_isSolvable h.minParabolic hsolv hchar h.le_T h.normal_T h.elem h.not_le_kerIn
+
+
+theorem e2_15 (h : Hyp28 H T M V) (hsolv : Group.IsSolvable H) (hchar : CharTwo H) :
+    qhatOf (autI h.elem H) < ((2 : ℚ) : WithTop ℚ) :=
+  E2_15_of_isSolvable h.elem h.minParabolic hsolv hchar h.le_T h.normal_T h.not_le_kerIn
 
 end Hyp28
 
 @[expose] noncomputable def dParam (q : ℕ) : ℕ := orderOf (2 : ZMod q)
 
+@[expose] noncomputable def dParamPrime (q : ℕ) : ℕ :=
+  if Even (dParam q) then dParam q / 2 else dParam q
 
 end E2
 

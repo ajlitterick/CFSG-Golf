@@ -63,6 +63,9 @@ namespace CFSG.Certificates.KB
           (Nat.ble (nat_lit 1) k))
         (List.rec (motive := fun _ => Bool) true (fun _ _ _ => false) tl)) ws
 
+@[expose] noncomputable def relIn (amap : Nat) (w : List (Nat × Bool))
+    (rels : List (List (Nat × Bool))) : Bool :=
+  Prod.rec (motive := fun _ => Bool) (fun e ok => Bool.rec false (hasRel amap e rels) ok) (sEnc amap w)
 
 end CFSG.Certificates.KB
 

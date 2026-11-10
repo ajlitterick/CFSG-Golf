@@ -50,6 +50,8 @@ theorem xor1_mod (l : ℕ) : (l ^^^ 1) % 2 = 1 - l % 2 := by
   rcases Nat.mod_two_eq_zero_or_one l with h | h <;>
     rcases Nat.mod_two_eq_zero_or_one (l ^^^ 1) with h' | h' <;> simp_all
 
+theorem xor1_xor1 (l : ℕ) : l ^^^ 1 ^^^ 1 = l := by
+  rw [Nat.xor_assoc, Nat.xor_self, Nat.xor_zero]
 
 theorem xor1_lt {l k : ℕ} (hk : k % 2 = 0) (hl : l < k) : l ^^^ 1 < k := by
   have e1 := Nat.div_add_mod (l ^^^ 1) 2
@@ -161,6 +163,8 @@ theorem wl_ok (w n : ℕ) : Ok16 (wl w n) := by
 theorem wl_succ (w n : ℕ) : wl w (n + 1) = wl w n ++ [lt w n] := by
   simp [wl, List.range_succ]
 
+theorem getD_wl {w n i : ℕ} (hi : i < n) : (wl w n).getD i 0 = lt w i := by
+  simp [wl, List.getD_eq_getElem?_getD, hi]
 
 theorem wl_congr {w w' n : ℕ} (h : ∀ i < n, lt w i = lt w' i) : wl w n = wl w' n := by
   unfold wl
@@ -176,6 +180,36 @@ theorem wl_enc {L : List ℕ} (h : Ok16 L) : wl (enc L) L.length = L := by
     rw [lt_enc h]
     simp [List.getD_eq_getElem?_getD, h2]
 
+theorem wl_enc' {L : List ℕ} (h : Ok16 L) {n : ℕ} (hn : n ≤ L.length) :
+    wl (enc L) n = L.take n := by
+  apply List.ext_getElem
+  · simp [hn]
+  · intro i h1 h2
+    simp only [wl, List.getElem_map, List.getElem_range, List.getElem_take]
+    rw [lt_enc h]
+    simp only [wl_length] at h1
+    simp [List.getD_eq_getElem?_getD, show i < L.length by omega]
+
+theorem enc_wl {w n : ℕ} (hw : w < 2 ^ (16 * n)) : enc (wl w n) = w := by
+  induction n generalizing w with
+  | zero =>
+    simp only [Nat.mul_zero, pow_zero, Nat.lt_one_iff] at hw
+    subst hw
+    simp [wl, enc]
+  | succ n ih =>
+    have e : wl w (n + 1) = lt w 0 :: wl (w / 2 ^ 16) n := by
+      simp only [wl, List.range_succ_eq_map, List.map_cons, List.map_map]
+      congr 1
+      apply List.map_congr_left
+      intro i _
+      rw [Function.comp_apply, lt_eq, lt_eq, Nat.div_div_eq_div_mul, ← Nat.pow_add,
+        show 16 * (i + 1) = 16 + 16 * i by ring]
+    rw [e, enc, ih]
+    · rw [lt_eq, Nat.mul_zero, pow_zero, Nat.div_one]
+      exact Nat.mod_add_div w _
+    · rw [Nat.div_lt_iff_lt_mul (by norm_num), ← Nat.pow_add]
+      rw [Nat.mul_succ] at hw
+      simpa [Nat.add_comm] using hw
 
 theorem lor_eq (a b : ℕ) : Nat.lor a b = a ||| b := rfl
 
@@ -480,6 +514,7 @@ theorem lv_cyL (gen : ℕ → G) {L : List ℕ} (h : lv gen L = 1) : lv gen (cyL
     rw [Function.iterate_succ_apply]
     exact ih (lv_cyStep gen h)
 
+theorem ok16_cyL {L : List ℕ} (h : Ok16 L) : Ok16 (cyL L) := fun c hc => h c (mem_cyL hc)
 
 @[expose] noncomputable def cyBody (acc : ℕ × ℕ) : ℕ × ℕ :=
   Prod.rec (motive := fun _ => ℕ × ℕ) (fun w n =>
@@ -521,6 +556,7 @@ theorem cyIter_eq {L : List ℕ} (h : Ok16 L) (k : ℕ) :
     rw [Function.iterate_succ_apply, Function.iterate_succ_apply, cyBody_eq h]
     exact ih (ok16_cyStep h)
 
+theorem pk_eq_pk (a m : ℕ) : Prod.rec (motive := fun _ => ℕ) pk (a, m) = pk a m := rfl
 
 theorem cycRed_eq {L : List ℕ} (h : Ok16 L) :
     cycRed (enc L, L.length) = pk (enc (cyL L)) (cyL L).length := by
@@ -560,6 +596,8 @@ theorem lv_redL (gen : ℕ → G) {L : List ℕ} (h : lv gen L = 1) : lv gen (re
 theorem invL_concat (L : List ℕ) (c : ℕ) : invL (L ++ [c]) = (c ^^^ 1) :: invL L := by
   simp [invL]
 
+theorem invL_append (A B : List ℕ) : invL (A ++ B) = invL B ++ invL A := by
+  simp [invL]
 
 theorem mem_invL {L : List ℕ} {d : ℕ} (h : d ∈ invL L) : ∃ c ∈ L, d = c ^^^ 1 := by
   simp only [invL, List.mem_reverse, List.mem_map] at h
@@ -576,6 +614,8 @@ theorem lv_invL (gen : ℕ → G) (L : List ℕ) : lv gen (invL L) = (lv gen L)�
   | nil => simp [invL]
   | append_singleton L c ih => rw [invL_concat, lv_cons, ih, ltv_xor, lv_append, lv_singleton, mul_inv_rev]
 
+theorem natRec_succ {α : Sort*} (x : α) (f : ℕ → α → α) (k : ℕ) :
+    Nat.rec (motive := fun _ => α) x f (k + 1) = f k (Nat.rec (motive := fun _ => α) x f k) := rfl
 
 @[expose] noncomputable def wiRec (w n k : ℕ) : ℕ :=
   Nat.rec (motive := fun _ => Nat) (nat_lit 0)
@@ -947,6 +987,10 @@ theorem testBit_sub_pow {G g : ℕ} (h : G.testBit g = true) (j : ℕ) :
       congr 1
       omega
 
+theorem t8_eq (T i : ℕ) : t8 T i = T / 2 ^ (8 * i) % 256 := by
+  change (T >>> (8 * i)) &&& 255 = _
+  rw [show (255 : ℕ) = 2 ^ 8 - 1 by norm_num, Nat.and_two_pow_sub_one_eq_mod,
+    Nat.shiftRight_eq_div_pow]
 
 theorem natRec_and_iff {f : ℕ → Bool} : ∀ k, Nat.rec (motive := fun _ => Bool) true
     (fun i acc => mAnd acc (f i)) k = true ↔ ∀ i < k, f i = true := by

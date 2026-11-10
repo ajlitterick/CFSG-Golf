@@ -94,6 +94,14 @@ theorem rel5556 :
 theorem c6055 :
     wordLin (fiRelW rels[55]!) = 1 ∧ wordLin (fiRelW rels[56]!) = 1 := rel5556
 
+theorem c6056 :
+    wordLin (fiRelW rels[55]!) = 1 ∧ wordLin (fiRelW rels[56]!) = 1 := rel5556
+
+theorem c6057 :
+    wordLin (fiRelW rels[55]!) = 1 ∧ wordLin (fiRelW rels[56]!) = 1 := rel5556
+
+theorem c6058 :
+    wordLin (fiRelW rels[55]!) = 1 ∧ wordLin (fiRelW rels[56]!) = 1 := rel5556
 
 theorem c6059 :
     ∀ i ∈ [0, 1, 2, 3, 4, 5, 6, 7, 9],
@@ -123,6 +131,12 @@ theorem c6092 :
   simp only [List.forall_mem_cons, List.not_mem_nil, IsEmpty.forall_iff, implies_true, and_true] at h
   exact h
 
+theorem c6093 :
+    wordLin (fiRhoT ++ fiCT2) = wordLin (fiCT2 ++ fiWT2) ∧
+      wordLin (gxXWord ++ fiCT2Alpha) = wordLin (fiCT2Alpha ++ (fiWT2 ++ fiWAlpha)) := by
+  have h := (kd_tp3% CFSG.KD.TP.c6093).1
+  simp only [List.forall_mem_cons, List.not_mem_nil, IsEmpty.forall_iff, implies_true, and_true] at h
+  exact h
 
 end CertificateChecks.KernelKDenseP.TwoPoint
 

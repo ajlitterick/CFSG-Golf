@@ -95,6 +95,21 @@ theorem line_all {ρ l : Nat} (hρ : ρ < 11) (hl : l < nget recL ρ) : linePt �
   · exact blk_get l9 (Nat.zero_le _) hl
   · exact blk_get l10 (Nat.zero_le _) hl
 
+theorem lgetA_eq {α : Type} (d : α) (L : List α) (i : Nat) : lgetA d L i = L.getD i d := by
+  induction L generalizing i with
+  | nil => rfl
+  | cons x xs ih =>
+    cases i with
+    | zero => rfl
+    | succ i => exact ih i
+
+theorem nget_eq' (l : List Nat) (i : Nat) : nget l i = l.getD i 0 := by
+  induction l generalizing i with
+  | nil => rfl
+  | cons x xs ih =>
+    cases i with
+    | zero => rfl
+    | succ i => exact ih i
 
 theorem rec_shape {ρ : Nat} (hρ : ρ < 11) :
     oddShape (nget recEnt ρ) (nget recR ρ) =

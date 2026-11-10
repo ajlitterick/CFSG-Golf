@@ -97,6 +97,7 @@ theorem mem_y5K {w : AutA6} {Y : P10} (hY : Y ∈ A6Models.psl29) (h5 : ord5T (e
     exact absurd h2 Bool.false_ne_true
   · rfl
 
+theorem c144 : Nat.beq (cntL ord5T pslK) 144 = true := by decide +kernel
 
 theorem inv5B : allK (fun y => Nat.beq (cntL (commLaneK 10 y) autK) 40) y5K = true := by
   decide +kernel

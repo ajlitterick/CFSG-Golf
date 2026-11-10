@@ -351,6 +351,26 @@ variable {E : EnvB}
 
 end RSt
 
+@[expose] def replay (E : EnvB) (prog : Array Ins) : RSt E :=
+  prog.foldl RSt.step { ps := #[], ws := #[], vs := #[], err := 0 }
+
+@[expose] def u32get (b : ByteArray) (x : Nat) : Nat :=
+  (b.get! (4 * x)).toNat + 256 * (b.get! (4 * x + 1)).toNat +
+    65536 * (b.get! (4 * x + 2)).toNat + 16777216 * (b.get! (4 * x + 3)).toNat
+
+@[expose] def u32chunk (f : Nat → Nat) (lo hi : Nat) : ByteArray := Id.run do
+  let mut b : ByteArray := ByteArray.emptyWithCapacity (4 * (hi - lo))
+  for x in [lo:hi] do
+    let v := f x
+    b := (((b.push (UInt8.ofNat (v % 256))).push (UInt8.ofNat ((v / 256) % 256))).push
+      (UInt8.ofNat ((v / 65536) % 256))).push (UInt8.ofNat ((v / 16777216) % 256))
+  return b
+
+@[expose] def u32ofFn (N T : Nat) (f : Nat → Nat) : ByteArray :=
+  let sz := N / T + 1
+  let parts := (List.range T).map fun t =>
+    Task.spawn fun _ => u32chunk f (min N (t * sz)) (min N ((t + 1) * sz))
+  parts.foldl (fun acc t => acc ++ t.get) ByteArray.empty
 
 structure NodeFin where
   fgens : Array Nat
@@ -358,6 +378,44 @@ structure NodeFin where
   chain : Array (Nat × Array Nat)
 deriving Inhabited
 
+@[expose] def forestOf (N : Nat) (gO : Array ByteArray) :
+    Array Nat × Array Nat × Array Nat × Array Nat × Array Nat := Id.run do
+  let mut orb : Array Nat := Array.replicate N N
+  let mut spar : Array Nat := Array.replicate N N
+  let mut sgen : Array Nat := Array.replicate N 0
+  let mut dep : Array Nat := Array.replicate N 0
+  let mut roots : Array Nat := #[]
+  let mut queue : Array Nat := Array.mkEmpty N
+  for s in [0:N] do
+    if orb[s]! == N then
+      let k := roots.size
+      roots := roots.push s
+      orb := orb.set! s k
+      let mut h := queue.size
+      queue := queue.push s
+      for _ in [0:N] do
+        if h < queue.size then
+          let x := queue[h]!
+          h := h + 1
+          for gi in [0:gO.size] do
+            let y := u32get gO[gi]! x
+            if y < N && orb[y]! == N then
+              orb := orb.set! y k
+              spar := spar.set! y x
+              sgen := sgen.set! y gi
+              dep := dep.set! y (dep[x]! + 1)
+              queue := queue.push y
+        else
+          break
+  return (orb, spar, sgen, dep, roots)
+
+@[expose] def coverWitness (nroots : Nat) (orb : Array Nat) (pts : Array Nat) : Array Nat :=
+  Id.run do
+  let mut w : Array Nat := Array.replicate nroots pts.size
+  for t in [0:pts.size] do
+    let o := orb[pts[t]!]!
+    if o < nroots && w[o]! == pts.size then w := w.set! o t
+  return w
 
 @[expose] def orbitRec (n β : Nat) (sg : Array ByteArray) :
     Array Nat × Array Nat × Array Nat × Array Nat := Id.run do
@@ -383,6 +441,69 @@ deriving Inhabited
 
 namespace EnvB
 
+variable (E : EnvB)
+
+@[expose] def fgensOf (st : RSt E) (fin : NodeFin) : Array (WEltB E) :=
+  fin.fgens.filterMap fun w => RSt.get st.ws w
+
+@[expose] def coverOf (st : RSt E) (fin : NodeFin) : Array (VEltB E) :=
+  fin.cover.filterMap fun v => RSt.get st.vs v
+
+@[expose] def omegaPerms (st : RSt E) (fin : NodeFin) : Array ByteArray :=
+  (E.fgensOf st fin).map fun w => E.C.actAll w.1.2
+
+@[expose] def nodeCovered (st : RSt E) (live : Array Nat) (j : Nat) (fin : NodeFin) : Bool :=
+  let N := E.C.N
+  let gens := E.fgensOf st fin
+  let facts := E.coverOf st fin
+  let gO := E.omegaPerms st fin
+  let (orb, spar, sgen, dep, roots) := forestOf N gO
+  let fpts := facts.map (·.1.p)
+  let wit := coverWitness roots.size orb fpts
+  gens.size == fin.fgens.size && facts.size == fin.cover.size &&
+    gens.all (fun w => w.1.1 == j) &&
+    facts.all (fun f => f.1.i == j && live.contains f.1.k && decide (f.1.p < N)) &&
+    parLt N 8 (fun x =>
+      let px := spar[x]!
+      if px == N then decide (orb[x]! < roots.size) && roots[orb[x]!]! == x
+      else decide (px < N) && decide (dep[px]! < dep[x]!) && decide (sgen[x]! < gO.size) &&
+        u32get gO[sgen[x]!]! px == x && orb[px]! == orb[x]!) &&
+    allLt roots.size (fun k => decide (roots[k]! < N) && orb[roots[k]!]! == k &&
+      spar[roots[k]!]! == N && decide (wit[k]! < facts.size) &&
+      orb[fpts[wit[k]!]!]! == k)
+
+@[expose] def levelOKB (st : RSt E) (j : Nat) (chain : Array (Nat × Array Nat)) (l : Nat) :
+    Bool :=
+  let n := E.C.n
+  let (β, sl) := chain[l]!
+  let sg := sl.filterMap fun w => RSt.get st.ws w
+  let sgA := sg.map (·.1.2)
+  let (pts, pos, tp, tl) := orbitRec n β sgA
+  sg.size == sl.size && decide (β < n) && pos.size == n && pts.size != 0 && pts[0]! == β &&
+    sg.all (fun s => s.1.1 == j && allLt l fun m => bget s.1.2 chain[m]!.1 == chain[m]!.1) &&
+    allLt pts.size fun t =>
+      let x := pts[t]!
+      decide (x < n) && pos[x]! == t &&
+        (t == 0 || (decide (tl[x]! < sg.size) && decide (tp[x]! < n) &&
+          decide (pos[tp[x]!]! < t) && pts[pos[tp[x]!]!]! == tp[x]! &&
+          bget sgA[tl[x]!]! tp[x]! == x))
+
+@[expose] def levelLen (st : RSt E) (chain : Array (Nat × Array Nat)) (l : Nat) : Nat :=
+  let (β, sl) := chain[l]!
+  let sg := sl.filterMap fun w => RSt.get st.ws w
+  (orbitRec E.C.n β (sg.map (·.1.2))).1.size
+
+@[expose] def chainBound (st : RSt E) (fin : NodeFin) : Nat :=
+  (List.range fin.chain.size).foldl (fun a l => a * E.levelLen st fin.chain l) 1
+
+@[expose] def finalOK (prog : Array Ins) (fins : Array (Nat × NodeFin)) (ord bound : Nat) : Bool :=
+  let st := replay E prog
+  let live := fins.map (·.1)
+  st.err == 0 && decide (E.C.N < 2 ^ 32) && decide (0 < fins.size) && fins[0]!.1 == 0 &&
+    allLt fins.size (fun l => E.nodeCovered st live fins[l]!.1 fins[l]!.2 &&
+      allLt fins[l]!.2.chain.size fun m => E.levelOKB st fins[l]!.1 fins[l]!.2.chain m) &&
+    decide ((List.range fins.size).foldl (fun a l => a + ord / E.chainBound st fins[l]!.2) 0 ≤
+      bound)
 
 end EnvB
 

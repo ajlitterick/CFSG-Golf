@@ -40,6 +40,18 @@ theorem evalSigned_mem {G : Type*} [Group G] {H : Subgroup G} {gens : List G}
     · exact hget _
     · exact H.inv_mem (hget _)
 
+theorem map_evalSigned {G H : Type*} [Group G] [Group H] (f : G →* H) (gens : List G)
+    (w : List ℤ) : f (evalSigned gens w) = evalSigned (gens.map f) w := by
+  induction w with
+  | nil => simp [evalSigned]
+  | cons l w ih =>
+    rw [evalSigned_cons, evalSigned_cons, map_mul, ih]
+    have hk : ∀ k, f (gens.getD k 1) = (gens.map f).getD k 1 := fun k => by
+      rw [List.getD_eq_getElem?_getD, List.getD_eq_getElem?_getD, List.getElem?_map]
+      cases gens[k]? <;> simp
+    split
+    · rw [hk]
+    · rw [map_inv, hk]
 
 theorem rep_wordA_evalSigned {n k : ℕ} {S Sinv : Array (Array ℕ)} {gens : List (Equiv.Perm (Fin n))}
     (hS : ∀ h < k, Rep n S[h]! (gens.getD h 1))

@@ -134,6 +134,11 @@ namespace CertificateChecks.KernelSpor.SuzEnd
 
 open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.SporSch
 
+theorem negE0 : bIf(bor (anyN 1782 fun p => ne (fv E0 (fv E0 p)) p)
+    (bor (allN 1782 fun p => Nat.beq (fv E0 p) p) (ne (fc E0) 42)), false, true) = true := by
+  quickRfl
+
+theorem negSift : bIf(Suz2306.sift SWP, false, true) = true := by quickRfl
 
 end CertificateChecks.KernelSpor.SuzEnd
 

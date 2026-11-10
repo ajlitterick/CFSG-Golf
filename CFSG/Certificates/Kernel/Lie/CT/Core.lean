@@ -41,10 +41,31 @@ namespace CFSG.KLie.CT
 @[expose] noncomputable def popc (w X : Nat) : Nat :=
   sumN w fun i => Nat.land (Nat.shiftRight X i) (nat_lit 1)
 
+@[expose] noncomputable def dvdB (n m : Nat) : Bool :=
+  andB (Nat.blt (nat_lit 0) n) (Nat.beq (Nat.mod m n) (nat_lit 0))
 
 @[expose] noncomputable def sl (n : Nat) : Nat :=
   Nat.mul (pw2 n) (Nat.sub (pw2 (Nat.add n n)) (nat_lit 1))
 
+@[expose] noncomputable def v2is (N e : Nat) : Bool :=
+  andB (Nat.beq (Nat.land N (maskN e)) (nat_lit 0)) (bit N e)
+
+@[expose] noncomputable def v2s (d : Nat) : Nat :=
+  (fun l => Nat.add (Nat.land (Nat.shiftRight l (nat_lit 1)) (nat_lit 1))
+      (Nat.add (Nat.mul (nat_lit 2) (Nat.land (Nat.shiftRight l (nat_lit 2)) (nat_lit 1)))
+        (Nat.mul (nat_lit 3) (Nat.land (Nat.shiftRight l (nat_lit 3)) (nat_lit 1)))))
+    (Nat.sub d (Nat.land d (Nat.sub d (nat_lit 1))))
+
+@[expose] noncomputable def hitMask (eps X N : Nat) : Nat :=
+  orN (Nat.succ N) fun n =>
+    Bool.rec (motive := fun _ => Nat) (nat_lit 0)
+      (orN (Nat.succ n) fun d =>
+        Bool.rec (motive := fun _ => Nat) (nat_lit 0) (pw2 (Nat.add (Nat.mul (nat_lit 16) n) d))
+          (andB (dvdB d n) (Nat.beq (Nat.mul (Nat.mul eps (sl n)) d) X)))
+      (Nat.ble (nat_lit 2) n)
+
+@[expose] noncomputable def lorL (L : List Nat) : Nat :=
+  List.rec (motive := fun _ => Nat) (nat_lit 0) (fun a _ ih => Nat.lor a ih) L
 
 @[expose] noncomputable def bitsOf (L : List Nat) : Nat :=
   List.rec (motive := fun _ => Nat) (nat_lit 0) (fun a _ ih => Nat.lor (pw2 a) ih) L

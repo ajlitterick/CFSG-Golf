@@ -42,6 +42,10 @@ theorem k66_tr : andB (allN 2 fun l => Nat.beq (trK 24 (getL 0 G366 l)) (getL 0 
 theorem k66_fix : andB (allN 2 fun l => Nat.beq (vmF 24 (getL 0 GT366 l) 14717452) 14717452)
     (allN 2 fun l => Nat.beq (vmF 24 (getL 0 GT466 l) 10075731) 10075731) = true := by quickRfl
 
+theorem k66_neg : (notB (Nat.beq (wK [R0v66, R1v66] W3b66) (getL 0 G366 0)) &&
+    notB (Nat.beq (vmF 24 (getL 0 GT366 0) 10075731) 10075731) &&
+    notB (covK T366 Sz366 (fun i => Nat.xor (recT p3L66 6 20 i) 8)
+      (lk CertificateChecks.KernelVec.Co1.Pt 32) 98280 100 1)) = true := by quickRfl
 
 end CertificateChecks.KernelCo1M
 

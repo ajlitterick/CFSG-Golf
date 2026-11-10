@@ -46,6 +46,16 @@ section Building
   ∀ (X : Type u) [Group X] (n : ℕ) (D : RankTwoSystem X n), D.Xplus.Normal
 
 
+@[expose] def Eq30_5 : Prop :=
+  ∀ (X : Type u) [Group X] (n : ℕ) (D : RankTwoSystem X n) (i : ℕ), i ≤ n →
+    (∀ m : D.N, (m : D.Weyl) = altWord D.w₁ D.w₂ i →
+      D.UwMinus m = chainProd D.root (intList 1 i) ∧
+        D.UwPlus m = chainProd D.root (intList (i + 1) n)) ∧
+    (∀ m : D.N, (m : D.Weyl) = altWord D.w₂ D.w₁ i →
+      D.UwMinus m = chainProd D.root (intList (n - i + 1) n).reverse ∧
+        D.UwPlus m = chainProd D.root (intList 1 (n - i)).reverse)
+
+
 @[expose] def Lemma30_8 : Prop :=
   ∀ (X : Type u) [Group X] (n : ℕ) (D : RankTwoSystem X n), ∀ j : ℕ, j ≤ n →
     ∀ l l' : List D.Vertex, IsGLSPath D.graph l → IsGLSPath D.graph l' → l.length = j + 1 →

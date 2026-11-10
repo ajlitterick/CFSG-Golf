@@ -103,6 +103,10 @@ theorem keyP_word (hsym : ∀ s, codePr64 (symP s) = symQ s) (h1 : codePr64 oneP
   unfold keyP
   rw [codePr64_word hsym h1 w]
 
+theorem snd_wordP_lt (w : List ℕ) : (wordP w).2 < 3 := by
+  cases w with
+  | nil => exact Nat.zero_lt_succ _
+  | cons s w => exact snd_mulP_lt _ _
 
 variable {X : Type} [Group X] (R : Realization X)
 
@@ -544,6 +548,8 @@ theorem mem_Mt_cube {T : ℕ → ℕ} (hT : Hyp T) {t : ℕ} {x : X} (hx : x ∈
   change (MulAut.conj (el R hT (mg T t)) e) ^ 3 = 1
   rw [MulAut.conj_apply, conj_pow, this, mul_one, mul_inv_cancel]
 
+theorem psub_idx {T : ℕ → ℕ} (hT : Hyp T) {x : X} (hx : x ∈ Psub R hT) :
+    ∃ n < 243, el R hT n = x := hx
 
 theorem sylow_H4 {T : ℕ → ℕ} (hT : Hyp T) :
     ∀ t : Fin 10, ∀ w ∈ Psub R hT, w ^ 3 = 1 → (∀ m ∈ Mt R hT t, Commute w m) →

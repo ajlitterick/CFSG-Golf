@@ -119,6 +119,8 @@ theorem t2 : zprod gg 10 (fun d => τ2.getD d 0) = 1 :=
 theorem t3 : zprod gg 10 (fun d => τ3.getD d 0) = 1 :=
   zprod_target gg_comm 10 c3 rhos rhos_one _ (by decide)
 
+@[expose] def taus : List (List ℤ) :=
+  [τ0, τ1, τ2, τ3]
 
 theorem zprod_ten (g : ℕ → PG 2 hopfWs) (v : ℕ → ℤ) :
     zprod g 10 v = g 0 ^ v 0 * g 1 ^ v 1 * g 2 ^ v 2 * g 3 ^ v 3 * g 4 ^ v 4 * g 5 ^ v 5 *

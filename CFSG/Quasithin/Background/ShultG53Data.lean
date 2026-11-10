@@ -41,5 +41,16 @@ namespace CFSG.Quasithin.ShultG53
 
 open Equiv
 
+@[expose] def mkP (v w : Fin 6 → Fin 6) (h₁ : ∀ i, w (v i) = i := by decide)
+    (h₂ : ∀ i, v (w i) = i := by decide) : Perm (Fin 6) := ⟨v, w, h₁, h₂⟩
+
+
+@[expose] def T5_0 : Fin 2 → Perm (Fin 6) := ![
+  mkP ![0,2,1,3,5,4] ![0,2,1,3,5,4],
+  mkP ![0,3,1,2,4,5] ![0,2,3,1,4,5]]
+
+@[expose] def T5_1 : Fin 2 → Perm (Fin 6) := ![
+  mkP ![0,1,4,5,2,3] ![0,1,4,5,2,3],
+  mkP ![2,3,4,5,0,1] ![4,5,0,1,2,3]]
 
 end CFSG.Quasithin.ShultG53

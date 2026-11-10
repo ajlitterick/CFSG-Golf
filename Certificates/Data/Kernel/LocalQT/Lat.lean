@@ -157,6 +157,11 @@ structure SetK where
   allA (List.cons T lat) fun L => orB (Nat.beq (bfsK n L d).size ms)
     (anyA cts fun c => andB (eqL c.2.1 L) (ctK n c.1 c.2.1 c.2.2.1 c.2.2.2))
 
+@[expose] noncomputable def setEqK (a b : SetK) : Bool :=
+  andB (Nat.beq a.size b.size) (andB (allL a.elems (memT b.t)) (allL b.elems (memT a.t)))
+
+@[expose] noncomputable def isLatK (n d : Nat) (G : List Nat) (Ls : List (List Nat)) : Bool :=
+  andB (closedK n G (bfsK n G d)) (anyA Ls fun Z => setEqK (bfsK n G d) (bfsK n Z d))
 
 @[expose] noncomputable def bitK (m i : Nat) : Nat := Nat.land (Nat.shiftRight m i) 1
 
@@ -184,6 +189,8 @@ structure SetK where
 @[expose] noncomputable def rhoK (V : List Nat) (m : Nat) : Nat :=
   ofFn 7 fun i => idxK V (mvK m (CFSG.KC.LQT.S.getK V i))
 
+@[expose] noncomputable def rhoInK (V G : List Nat) (d : Nat) : Bool :=
+  allN 512 fun m => impB (Nat.beq (detK2 m) 1) (memT (bfsK 7 G d).t (rhoK V m))
 
 @[expose] noncomputable def pk (n1 a b : Nat) : Nat := Nat.add a (Nat.shiftLeft b (Nat.mul 5 n1))
 

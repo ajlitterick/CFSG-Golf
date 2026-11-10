@@ -32,5 +32,8 @@ theorem kSolv : solvC (elemsC QA) (elemsC QP) [4, 6] = true := by decide +kernel
 
 theorem kCount : pairCountC (elemsC QP) 2 3 ws = 120 := by decide +kernel
 
+theorem kNeg : orderIsC (cOf pb) 2 = false ∧ solvC (elemsC QA) (elemsC QP) [4] = false ∧
+    centTrivC (elemsC QA) 1 1 = false ∧ ((elemsC QA).all fun g => siftC QP g 0) = false := by
+  refine ⟨?_, ?_, ?_, ?_⟩ <;> decide +kernel
 
 end CFSG.Certificates.Kernel.PkCV.KGrp.K5107

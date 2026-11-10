@@ -30,6 +30,8 @@ theorem cr_3 : bAnd(qK G H [nat_lit 3, nat_lit 2, nat_lit 6617], domTc H (nat_li
 theorem cr_8 : bAnd(qK G H [nat_lit 8, nat_lit 2, nat_lit 8], domTc H (nat_lit 8)) = true := by
   quickRfl
 
+theorem dr_2 : bAnd(qK G H [nat_lit 5, nat_lit 2, nat_lit 2, nat_lit 5], domTc H (nat_lit 5)) =
+    true := by quickRfl
 theorem dr_3 : cntK G H [nat_lit 3, nat_lit 2, nat_lit 5] (nat_lit 324) = true := by quickRfl
 theorem dr_8 : bAnd(qK G H [nat_lit 9702, nat_lit 8, nat_lit 2, nat_lit 5], domTc H (nat_lit 9702)) =
     true := by quickRfl

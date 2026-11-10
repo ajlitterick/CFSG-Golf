@@ -11,6 +11,10 @@ namespace CFSG.EvenSmallLie.OmegaEight.Stage2
 
 @[expose] def tbarG : GL12 := glOf phiK phiK
 
+@[expose] def kron6 (a : ℕ) : ℕ :=
+  keyOf (Array.ofFn (n := 12) fun r =>
+    (List.range 6).foldl (fun acc j =>
+      if a.testBit (6 * ((r : ℕ) / 2) + j) then acc ||| 2 ^ (2 * j + (r : ℕ) % 2) else acc) 0)
 
 @[expose] def cGensPlus : Array (ℕ × ℕ) := #[
     (11154456153882712011041668598332104198070275, 11154456153882712011041668598332104198070275),

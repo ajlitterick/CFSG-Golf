@@ -21,6 +21,15 @@ open CFSG.KC.DecText CFSG.ComponentClassification.J2Cover.Models
 
 theorem kFR : digitsOK FR.chars = true := by quickRfl
 
+theorem fRows_eq : fRows = (natsK FR.chars).toArray := FR.eq.trans (natsOf_ofList kFR)
+
+open Certificates in
+open CFSG.ComponentClassification.J2Cover.Models in
+theorem cert10026 :
+    (bitAt fRows 2 16 && !bitAt fRows 16 2) = false ∧
+      (!bitAt fRows 2 16 && bitAt fRows 16 2) = true := by
+  rw [fRows_eq]
+  decide +kernel
 
 end CertificateChecks.KernelLC
 

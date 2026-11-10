@@ -19,6 +19,7 @@ theorem isRoot_root0122 : IsRoot .F4 root0122 := mem_rootFinset.1 (by decide +ke
 
 theorem isRoot_root0121 : IsRoot .F4 root0121 := mem_rootFinset.1 (by decide +kernel)
 
+theorem isRoot_root0110 : IsRoot .F4 root0110 := mem_rootFinset.1 (by decide +kernel)
 
 theorem iform_neg_left (γ δ : Fin (Tag.rank .F4) → ℤ) : iform (-γ) δ = -iform γ δ := by
   simp only [iform, Pi.neg_apply, neg_mul, Finset.sum_neg_distrib]

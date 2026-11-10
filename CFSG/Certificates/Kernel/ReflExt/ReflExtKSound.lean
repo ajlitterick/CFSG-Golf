@@ -177,6 +177,10 @@ theorem mem_allVecsP : ∀ D, ∀ v ∈ allVecsP 3 D, ∃ k < 3 ^ D, dig D k = v
     have e2 : (i + 3 * k) / 3 = k := by omega
     rw [e1, e2]
 
+theorem allVecsP_length : ∀ D, ∀ v ∈ allVecsP 3 D, v.length = D ∧ ∀ x ∈ v, x < 3 := by
+  intro D v hv
+  obtain ⟨k, -, rfl⟩ := mem_allVecsP D v hv
+  exact ⟨dig_length D k, dig_lt D k⟩
 
 theorem vec_map_ln {P : Pt} (hp : P.p = 3) (v : Vec) :
     P.vec ((List.range P.D).map (ln v)) = P.vec v := by

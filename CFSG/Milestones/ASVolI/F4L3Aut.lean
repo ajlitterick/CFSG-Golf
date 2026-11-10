@@ -179,6 +179,9 @@ open CFSG.Open CFSG.Quasithin CFSG.QuasithinUnique CFSG.Quasithin.H13.F431
   CFSG.LocalAnalysis.ComponentInitial CFSG.LocalAnalysis.ComponentInitial.LinearFlag
   CFSG.ASVolI.ChF CFSG.GH74.QTGen4.DSGen4.L34
 
+variable {F : Type} [Field F] [Finite F] [CharP F 2] {E : Type} [Group E] [Finite E]
+  {f : ℕ} {Φ : projectiveSL 3 F →* E} {ρ : E →* MulAut (projectiveSL 3 F)} {Gp : Subgroup E}
+
 
 end Clause3b
 
@@ -197,6 +200,9 @@ open CFSG.Open CFSG.Quasithin CFSG.Quasithin.H13.F431 CFSG.Quasithin.H13.F431.L3
   CFSG.Quasithin.RankTwoAmalgam CFSG.Quasithin.RankTwoAmalgam.Completion CFSG.ASVolI.ChF
 
 
+variable {E : Type} [Group E] {M₁ M₂ : Subgroup E} {Y : Type} [Group Y] {M : Type} [Group M]
+
+
 end Transport2
 
 section Levi
@@ -204,6 +210,8 @@ section Levi
 open CFSG.Open CFSG.QuasithinUnique.Fin257.L3 CFSG.Quasithin.H13.F431.L3.P3
   CFSG.LocalAnalysis.ComponentInitial CFSG.LocalAnalysis.ComponentInitial.LinearFlag
   CFSG.LocalAnalysis.ComponentInitial.LinearFieldFour
+
+variable {F : Type} [Field F]
 
 
 end Levi
@@ -214,6 +222,12 @@ open CFSG.Open CFSG.Quasithin CFSG.Quasithin.H13.F431 CFSG.QuasithinUnique.Fin25
   CFSG.LocalAnalysis.ComponentInitial CFSG.LocalAnalysis.ComponentInitial.LinearFlag
   CFSG.ASVolI.ChF
 
+variable {E : Type} [Group E] [Finite E]
+
+
+variable {F : Type} [Field F] [Finite F] [CharP F 2] {f : ℕ} {Φ : projectiveSL 3 F →* E}
+  {ρ : E →* MulAut (projectiveSL 3 F)} {Gp : Subgroup E}
+
 
 end YbarMem
 
@@ -222,6 +236,9 @@ section YbarBot
 open CFSG.Open CFSG.Quasithin CFSG.QuasithinUnique CFSG.Quasithin.H13.F431
   CFSG.QuasithinUnique.Fin257.L3 CFSG.LocalAnalysis.ComponentInitial
   CFSG.LocalAnalysis.ComponentInitial.LinearFlag CFSG.Quasithin.H13.F431.L3.P3 CFSG.ASVolI.ChF
+
+variable {F : Type} [Field F] [Finite F] [CharP F 2] {E : Type} [Group E] [Finite E] {f : ℕ}
+  {Φ : projectiveSL 3 F →* E} {ρ : E →* MulAut (projectiveSL 3 F)} {Gp : Subgroup E}
 
 
 end YbarBot
@@ -250,6 +267,8 @@ section Sl2
 
 open CFSG.Open
 
+variable {F : Type} [Field F]
+
 
 end Sl2
 
@@ -259,6 +278,8 @@ open CFSG.Open CFSG.QuasithinUnique.Fin257.L3 CFSG.LocalAnalysis.ComponentInitia
   CFSG.LocalAnalysis.ComponentInitial.LinearFlag CFSG.LocalAnalysis.ComponentInitial.LinearFieldFour
   CFSG.Quasithin.H13.F431.L3.P3
 
+variable {F : Type} [Field F]
+
 
 end Blk
 
@@ -267,6 +288,8 @@ section Lam
 open CFSG.Open CFSG.QuasithinUnique.Fin257.L3 CFSG.LocalAnalysis.ComponentInitial
   CFSG.LocalAnalysis.ComponentInitial.LinearFlag CFSG.LocalAnalysis.ComponentInitial.LinearFieldFour
   CFSG.Quasithin.H13.F431.L3.P3
+
+variable {F : Type} [Field F]
 
 
 end Lam
@@ -288,6 +311,9 @@ open CFSG.Open CFSG.Quasithin CFSG.QuasithinUnique CFSG.Quasithin.H13.F431
   CFSG.LocalAnalysis.ComponentInitial.LinearFlag CFSG.LocalAnalysis.ComponentInitial.LinearFieldFour
   CFSG.Quasithin.H13.F431.L3.P3 CFSG.ASVolI.ChF CFSG.GH74.QTGen4.DSGen4.L34
 
+variable {F : Type} [Field F] [Finite F] [CharP F 2] {E : Type} [Group E] [Finite E] {f : ℕ}
+  {Φ : projectiveSL 3 F →* E} {ρ : E →* MulAut (projectiveSL 3 F)} {Gp : Subgroup E}
+
 
 end YChar2
 
@@ -298,6 +324,9 @@ open CFSG.Open CFSG.Quasithin CFSG.QuasithinUnique CFSG.Quasithin.H13.F431
   CFSG.LocalAnalysis.ComponentInitial.LinearFlag CFSG.LocalAnalysis.ComponentInitial.LinearFieldFour
   CFSG.LocalAnalysis.ComponentInitial.LinearCover
   CFSG.Quasithin.H13.F431.L3.P3 CFSG.ASVolI.ChF CFSG.GH74.QTGen4.DSGen4.L34
+
+variable {F : Type} [Field F] [Finite F] [CharP F 2] {E : Type} [Group E] [Finite E] {f : ℕ}
+  {Φ : projectiveSL 3 F →* E} {ρ : E →* MulAut (projectiveSL 3 F)} {Gp : Subgroup E}
 
 
 end DiagLemmas
@@ -316,6 +345,9 @@ open CFSG.Open CFSG.Quasithin CFSG.QuasithinUnique CFSG.Quasithin.H13.F431
   CFSG.LocalAnalysis.ComponentInitial.LinearFlag CFSG.LocalAnalysis.ComponentInitial.LinearFieldFour
   CFSG.LocalAnalysis.ComponentInitial.LinearCover
   CFSG.Quasithin.H13.F431.L3.P3 CFSG.ASVolI.ChF CFSG.GH74.QTGen4.DSGen4.L34
+
+variable {F : Type} [Field F] [Finite F] [CharP F 2] {E : Type} [Group E] [Finite E] {f : ℕ}
+  {Φ : projectiveSL 3 F →* E} {ρ : E →* MulAut (projectiveSL 3 F)} {Gp : Subgroup E}
 
 
 end PkgE
@@ -336,6 +368,15 @@ open CFSG.Open CFSG.Quasithin CFSG.QuasithinUnique CFSG.Quasithin.H13.F431
   CFSG.LocalAnalysis.ComponentInitial.LinearFlag CFSG.LocalAnalysis.ComponentInitial.LinearFieldFour
   CFSG.LocalAnalysis.ComponentInitial.LinearCover
   CFSG.Quasithin.H13.F431.L3.P3 CFSG.ASVolI.ChF CFSG.GH74.QTGen4.DSGen4.L34
+
+variable {F : Type} [Field F] [Finite F] [CharP F 2] {E : Type} [Group E] [Finite E] {f : ℕ}
+  {Φ : projectiveSL 3 F →* E} {ρ : E →* MulAut (projectiveSL 3 F)} {Gp : Subgroup E}
+
+
+theorem burnsideF447_Ctx.hq4 (C : burnsideF447_Ctx f Φ ρ Gp) : 4 ≤ Nat.card F := by
+  rw [C.hF]
+  calc 4 = 2 ^ 2 := by norm_num
+    _ ≤ 2 ^ f := Nat.pow_le_pow_right (by norm_num) C.hf
 
 
 end PkgE2

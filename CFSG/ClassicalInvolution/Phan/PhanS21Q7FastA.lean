@@ -176,4 +176,7 @@ theorem vert_iff_vtxF {c b : N7} (hc : Lt49 c) (hc3 : c.x3 = 1) {n1 n2 n4 n5 n6 
   rw [e, and_assoc]
 
 
+theorem one_lt_49 : (1 : Nat) < 49 := by norm_num
+
+
 end CFSG.ClassicalInvolution.PhanB3.S.Std.Q7

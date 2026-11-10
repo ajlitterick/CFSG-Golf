@@ -165,6 +165,15 @@ theorem mat_frobAut_pow_12 (k : ℕ) {y : antiSp F} (hy : y ∈ antiUnipotent F)
   rw [eq_uElt_coords hy, frobAut_pow_uElt]
   rfl
 
+theorem mat_frobAut_pow_02 (k : ℕ) {y : antiSp F} (hy : y ∈ antiUnipotent F) :
+    mat ((frobAut F ^ k) y) 0 2 = mat y 0 2 ^ 2 ^ k := by
+  rw [eq_uElt_coords hy, frobAut_pow_uElt]
+  rfl
+
+theorem mat_frobAut_pow_03 (k : ℕ) {y : antiSp F} (hy : y ∈ antiUnipotent F) :
+    mat ((frobAut F ^ k) y) 0 3 = mat y 0 3 ^ 2 ^ k := by
+  rw [eq_uElt_coords hy, frobAut_pow_uElt]
+  rfl
 
 theorem card_le_of_ker_range {G M X Y : Type*} [Group G] [Group M] [Finite G] [Finite X]
     [Finite Y] (φ : G →* M) (f : φ.ker → X) (hf : Function.Injective f) (g : φ.range → Y)

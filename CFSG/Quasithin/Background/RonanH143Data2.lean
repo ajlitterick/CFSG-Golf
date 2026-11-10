@@ -22,6 +22,10 @@ theorem e_ok : InvPairOK 24 eArr eArr = true ∧ autArrOK eArr eArr = true ∧
 
 theorem hasArr_ePerm : HasArr ePerm eArr := hasArr_permOfArr e_ok.1
 
+theorem ePerm_mem_mog22plus : ePerm ∈ mog22plus := by
+  refine ⟨mem_AutPerm_of_arr e_ok.1 e_ok.2.1, Or.inr ⟨?_, ?_⟩⟩
+  · exact hasArr_ePerm.apply_eq 0 e_ok.2.2.1
+  · exact hasArr_ePerm.apply_eq 1 e_ok.2.2.2
 
 theorem ePerm_sq : ePerm * ePerm = 1 := by decide +kernel
 
@@ -45,6 +49,46 @@ theorem ePerm_conj_mem_PO {y : P24} (hy : y ∈ PO) : ePerm * y * ePerm⁻¹ ∈
   obtain ⟨t, j, rfl⟩ := hy
   rw [ePerm_conj_PO']
   exact PO.mul_mem (koPerm_mem_PO _) (dPerm_mem_PO _)
+
+@[expose] def nq2Perm (u : Fin 32) : P24 :=
+  if (u : ℕ) < 16 then nqPerm ⟨u % 16, by omega⟩ else nqPerm ⟨u % 16, by omega⟩ * ePerm
+
+@[expose] def xor32 (s t : Fin 32) : Fin 32 := ⟨((s : ℕ) ^^^ t) % 32, Nat.mod_lt _ (by norm_num)⟩
+
+theorem nq2Perm_mul : ∀ s t : Fin 32, nq2Perm s * nq2Perm t = nq2Perm (xor32 s t) := by
+  decide +kernel
+
+theorem nq2Perm_zero : nq2Perm 0 = 1 := by decide +kernel
+
+theorem nq2Perm_sq : ∀ t : Fin 32, nq2Perm t * nq2Perm t = 1 := by decide +kernel
+
+theorem nq2Perm_injective : Function.Injective nq2Perm := by
+  have : ∀ s t : Fin 32, nq2Perm s = nq2Perm t → s = t := by decide +kernel
+  exact fun s t h => this s t h
+
+@[expose] def NQ2 : Subgroup P24 where
+  carrier := {g | ∃ u, g = nq2Perm u}
+  mul_mem' := by
+    rintro _ _ ⟨s, rfl⟩ ⟨t, rfl⟩
+    exact ⟨xor32 s t, nq2Perm_mul s t⟩
+  one_mem' := ⟨0, nq2Perm_zero.symm⟩
+  inv_mem' := by
+    rintro _ ⟨t, rfl⟩
+    exact ⟨t, inv_eq_of_mul_eq_one_right (nq2Perm_sq t)⟩
+
+theorem mem_NQ2_iff {g : P24} : g ∈ NQ2 ↔ ∃ u, g = nq2Perm u := Iff.rfl
+
+theorem card_NQ2 : Nat.card NQ2 = 32 := by
+  have h : (NQ2 : Set P24) = Set.range nq2Perm := by
+    ext g
+    simp only [SetLike.mem_coe, mem_NQ2_iff, Set.mem_range]
+    exact ⟨fun ⟨t, ht⟩ => ⟨t, ht.symm⟩, fun ⟨t, ht⟩ => ⟨t, ht.symm⟩⟩
+  rw [← SetLike.coe_sort_coe, h, Nat.card_range_of_injective nq2Perm_injective,
+    Nat.card_eq_fintype_card, Fintype.card_fin]
+
+
+theorem nq2_smul_Zq : ∀ (u : Fin 32) (i : Fin 5), nq2Perm u • Zq i = Zq i := by
+  decide +kernel
 
 
 @[expose] def P2 : Subgroup P24 where

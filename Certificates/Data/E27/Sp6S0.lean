@@ -33,6 +33,7 @@ open CFSG.HardMathSupport.Foote.E27
   bsStr := "1 1 1"
   g3 := (1, 3, 10)
 
+@[expose] def check (_ : Unit := ()) : Bool := data.baseOK && data.gen3OK
 
 end CFSG.HardMathSupport.Foote.E27.Sp6S0
 

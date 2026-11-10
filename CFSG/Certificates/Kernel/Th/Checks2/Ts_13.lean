@@ -125,6 +125,32 @@ end CFSG.KD.ThTs.Rows_Ts_13
 #kc_unfold CFSG.KD.ThTs.kx CFSG.KD.ThTs.Rows_Ts_13.f19 0 eval CFSG.KD.ThTs.Rows_Ts_13.f19P
 #kc_unfold CFSG.KD.ThTs.ky CFSG.KD.ThTs.Rows_Ts_13.f20 0 eval CFSG.KD.ThTs.Rows_Ts_13.f20P
 
+theorem CFSG.KD.ThTs.pLrows : CFSG.KC.Th.TsS.natsRun CFSG.KD.ThTs.ROWS (nat_lit 2457) true
+    CFSG.KD.ThTs.Lrows = true := by
+  quickRfl
+
+theorem CFSG.KD.ThTs.pLpx : CFSG.KC.Th.TsS.natsRun CFSG.KD.ThTs.PX (nat_lit 2457) false
+    CFSG.KD.ThTs.Lpx = true := by
+  quickRfl
+
+theorem CFSG.KD.ThTs.pLpy : CFSG.KC.Th.TsS.natsRun CFSG.KD.ThTs.PY (nat_lit 2457) false
+    CFSG.KD.ThTs.Lpy = true := by
+  quickRfl
+
+theorem CFSG.KD.ThTs.pLtp : CFSG.KC.Th.TsS.natsRun CFSG.KD.ThTs.TP (nat_lit 2457) false
+    CFSG.KD.ThTs.Ltp = true := by
+  quickRfl
+
+theorem CFSG.KD.ThTs.pLtpa : CFSG.KC.Th.TsS.natsRun CFSG.KD.ThTs.TPA (nat_lit 2457) false
+    CFSG.KD.ThTs.Ltpa = true := by
+  quickRfl
+
+theorem CFSG.KD.ThTs.pLtla : CFSG.KC.Th.TsS.natsRun CFSG.KD.ThTs.TLA (nat_lit 2457) false
+    CFSG.KD.ThTs.Ltla = true := by
+  quickRfl
+
+theorem CFSG.KD.ThTs.tp0 : Nat.beq (CFSG.KD.ThTs.TP (nat_lit 0)) (nat_lit 0) = true := by
+  quickRfl
 
 theorem CFSG.KD.ThTs.xx : Nat.beq (CFSG.KC.Th.mulB CFSG.KD.ThS.c CFSG.KD.ThS.rm (CFSG.KD.ThTs.RB
     (nat_lit 1)) (CFSG.KD.ThTs.RB (nat_lit 1))) CFSG.KD.ThS.ONE = true := by
@@ -134,10 +160,30 @@ theorem CFSG.KD.ThTs.x1 : CFSG.KC.Th.BigS.notB (Nat.beq (CFSG.KD.ThTs.RB (nat_li
     CFSG.KD.ThS.ONE) = true := by
   quickRfl
 
+theorem CFSG.KD.ThTs.yyy : Nat.beq (CFSG.KC.Th.mulB CFSG.KD.ThS.c CFSG.KD.ThS.rm (CFSG.KC.Th.mulB
+    CFSG.KD.ThS.c CFSG.KD.ThS.rm (CFSG.KD.ThTs.RB (nat_lit 2)) (CFSG.KD.ThTs.RB (nat_lit 2)))
+    (CFSG.KD.ThTs.RB (nat_lit 2))) CFSG.KD.ThS.ONE = true := by
+  quickRfl
 
 theorem CFSG.KD.ThTs.y1 : CFSG.KC.Th.BigS.notB (Nat.beq (CFSG.KD.ThTs.RB (nat_lit 2))
     CFSG.KD.ThS.ONE) = true := by
   quickRfl
 
+theorem CFSG.KD.ThTs.xy21 : Nat.beq (CFSG.KC.Th.BigS.powB CFSG.KD.ThS.c CFSG.KD.ThS.rm
+    CFSG.KD.ThS.ONE (CFSG.KC.Th.mulB CFSG.KD.ThS.c CFSG.KD.ThS.rm (CFSG.KD.ThTs.RB (nat_lit 1))
+    (CFSG.KD.ThTs.RB (nat_lit 2))) (nat_lit 21) (nat_lit 5)) CFSG.KD.ThS.ONE = true := by
+  quickRfl
+
+theorem CFSG.KD.ThTs.xy3 : CFSG.KC.Th.BigS.notB (Nat.beq (CFSG.KC.Th.BigS.powB CFSG.KD.ThS.c
+    CFSG.KD.ThS.rm CFSG.KD.ThS.ONE (CFSG.KC.Th.mulB CFSG.KD.ThS.c CFSG.KD.ThS.rm (CFSG.KD.ThTs.RB
+    (nat_lit 1)) (CFSG.KD.ThTs.RB (nat_lit 2))) (nat_lit 3) (nat_lit 2)) CFSG.KD.ThS.ONE) = true :=
+    by
+  quickRfl
+
+theorem CFSG.KD.ThTs.xy7 : CFSG.KC.Th.BigS.notB (Nat.beq (CFSG.KC.Th.BigS.powB CFSG.KD.ThS.c
+    CFSG.KD.ThS.rm CFSG.KD.ThS.ONE (CFSG.KC.Th.mulB CFSG.KD.ThS.c CFSG.KD.ThS.rm (CFSG.KD.ThTs.RB
+    (nat_lit 1)) (CFSG.KD.ThTs.RB (nat_lit 2))) (nat_lit 7) (nat_lit 3)) CFSG.KD.ThS.ONE) = true :=
+    by
+  quickRfl
 
 end

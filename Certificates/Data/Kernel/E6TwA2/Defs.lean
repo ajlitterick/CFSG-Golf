@@ -8,6 +8,7 @@ namespace Certificates.E6TwA2K
 
 @[expose] noncomputable def orB (a b : Bool) : Bool := Bool.rec (motive := fun _ => Bool) b true a
 
+@[expose] noncomputable def notB (b : Bool) : Bool := Bool.rec (motive := fun _ => Bool) true false b
 
 @[expose] noncomputable def bitB (x n : Nat) : Bool :=
   Nat.blt (nat_lit 0) (Nat.land x (Nat.shiftLeft (nat_lit 1) n))
@@ -32,6 +33,8 @@ namespace Certificates.E6TwA2K
 @[expose] noncomputable def anyL (l : List Nat) (f : Nat → Bool) : Bool :=
   List.rec (motive := fun _ => Bool) false (fun x _ ih => orB (f x) ih) l
 
+@[expose] noncomputable def lenL (l : List (List Nat)) : Nat :=
+  List.rec (motive := fun _ => Nat) (nat_lit 0) (fun _ _ ih => Nat.succ ih) l
 
 @[expose] noncomputable def fld (x w i : Nat) : Nat :=
   Nat.land (Nat.shiftRight x (Nat.mul w i)) (Nat.sub (Nat.shiftLeft (nat_lit 1) w) (nat_lit 1))

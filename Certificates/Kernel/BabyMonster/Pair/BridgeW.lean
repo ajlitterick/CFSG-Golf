@@ -172,6 +172,41 @@ theorem wordCD_v (hc : cK = stripMat Max2.r11) (hd : dK = stripMat Max2.r4) :
   rw [br_foldl] at h
   rw [← h, bridgeV_eq, wordCD_flatten, hL, hv, List.prod_cons]
 
+theorem br_prodK_eq (l : List MatB) : prodK l = l.prod := by
+  induction l with
+  | nil => rfl
+  | cons a l ih => rw [prodK, ih, List.prod_cons]
+
+theorem br_prodK_ite (p : ℕ → Bool) (E : ℕ → MatB) (l : List ℕ) :
+    prodK (l.map fun j => if p j then E j else 1) = prodK ((l.filter p).map E) := by
+  induction l with
+  | nil => rfl
+  | cons j l ih =>
+    by_cases h : p j
+    · rw [List.map_cons, List.filter_cons_of_pos h, List.map_cons, prodK, prodK, ih]
+      simp only [h, ite_true]
+    · rw [List.map_cons, List.filter_cons_of_neg h, prodK, ih]
+      simp only [h, Bool.false_eq_true, ite_false, one_mul]
+
+theorem bridgeZ_bits :
+    (List.range 22).filter (fun j => CFSG.Monster.B.Bin.bridgeZ.testBit j) =
+      [4, 7, 9, 10, 11, 15, 16, 17, 20] := by
+  decide
+
+theorem bridgeZ_E : List.map EK [4, 7, 9, 10, 11, 15, 16, 17, 20] = zL.map stripMat := rfl
+
+theorem qK_bridge : qK CFSG.Monster.B.Bin.bridgeZ = stripMat Max2Br.Zq := by
+  have hwf : ∀ W ∈ zL, wfMat W = true := by
+    simp only [zL, List.forall_mem_cons, List.not_mem_nil, false_implies, implies_true,
+      Max2.wf_E4, Max2.wf_E7, Max2.wf_E9, Max2.wf_E10, Max2.wf_E11, Max2.wf_E15, Max2.wf_E16,
+      Max2.wf_E17, Max2.wf_E20, and_self]
+  have h := stripMat_wchain zchain hwf Max2.wf_Xb
+  have h22 : CFSG.Monster.B.Bin.bridgeZ.testBit 22 = true := by decide
+  rw [br_foldl] at h
+  rw [← h, qK, br_prodK_ite (fun j => CFSG.Monster.B.Bin.bridgeZ.testBit j), bridgeZ_bits,
+    br_prodK_eq, bridgeZ_E]
+  simp only [h22, ite_true]
+  rfl
 
 theorem bridgeZE_map : bridgeZE.map EK = zL.map stripMat := rfl
 

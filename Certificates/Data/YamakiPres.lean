@@ -122,5 +122,24 @@ open Matrix
 @[expose] def spCoverCheck (_ : Unit := ()) : Bool :=
   decide (∀ v : Fin 3 ⊕ Fin 3 → ZMod 2, v = 0 ∨ v = vecOf 9 ∨ ∃ e ∈ yamakiOrbit, vecOf e.1 = v)
 
+@[expose] def gl32Rels (_ : Unit := ()) : List (List (Fin 4 × Bool)) :=
+  [posW [0, 0], posW [1, 1], posW [2, 2], posW [3, 3], posW [0, 2, 0, 2, 0, 2],
+    posW [1, 3, 1, 3, 1, 3], posW [0, 1, 0, 1, 0, 1], relW (posW [0, 3, 0]) (posW [2, 3, 2, 3]),
+    relW (posW [1, 2, 1]) (posW [2, 3, 2, 3])]
+
+@[expose] def gl32Mat : Fin 4 → Matrix (Fin 3) (Fin 3) (ZMod 2) :=
+  ![!![0, 1, 0; 1, 0, 0; 0, 0, 1], !![1, 0, 0; 0, 0, 1; 0, 1, 0], !![1, 1, 0; 0, 1, 0; 0, 0, 1],
+    !![1, 0, 0; 0, 1, 1; 0, 0, 1]]
+
+@[expose] def gl32TransvWord : Fin 3 → Fin 3 → List (Fin 4) :=
+  ![![[], [2], [0, 3, 0]], ![[0, 2, 0], [], [3]], ![[0, 1, 3, 1, 0], [1, 3, 1], []]]
+
+@[expose] def glInvolCheck (_ : Unit := ()) : Bool :=
+  (List.finRange 4).all fun i => decide (gl32Mat i * gl32Mat i = 1)
+
+@[expose] def glRelCheck (_ : Unit := ()) : Bool := (gl32Rels ()).all (halfOK gl32Mat)
+
+@[expose] def glTransvCheck (_ : Unit := ()) : Bool :=
+  decide (∀ i j : Fin 3, i ≠ j → ((gl32TransvWord i j).map gl32Mat).prod = 1 + Matrix.single i j 1)
 
 end CFSG.ClassicalInvolution.Solomon73.Yamaki

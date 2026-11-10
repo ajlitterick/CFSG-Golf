@@ -75,6 +75,12 @@ open scoped MatrixGroups
       JT.IsInternalDirectProduct (fr.V T₂) T₁g fr.S
 
 
+@[expose] def S_cor_4_4 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (s : Std G), s.p = 3 → ∀ {T₂ : G}, T₂ ∈ s.fr.T →
+    orderOf T₂ = 2 → RFacts →
+    Nat.Coprime (Nat.card (s.A T₂)) (s.A T₂).index ∧
+    (s.A₀ T₂ ≠ ⊥ → CFSG.IsTISubset (s.D₂ T₂) (Subgroup.normalizer (s.V T₂ : Set G)))
+
 @[expose] def S_lemma_5_4 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (s : Std G), s.p = 3 → ∀ (f5 : Frame5 s) (P : Subgroup G),
     IsElementaryAbelian 3 P → P ≠ ⊥ →

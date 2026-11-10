@@ -19,6 +19,20 @@ open CFSG.Sporadic.Schreier.Tits CFSG.Sporadic.RuSchreier
 
 open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Certificates CFSG.Certificates.Native
 
+@[expose] def ruInD (x : ℕ) : Bool := ruQLab[x]! == ruQLab[1]!
+
+@[expose] def ruConjArr (g x : Array ℕ) : Array ℕ := compA 4060 (compA 4060 g x) (invCand 4060 g)
+
+@[expose] def ruCommonCnt (ta tb : Array ℕ) : ℕ :=
+  (List.range 4060).countP fun w => ruInD w && ruRowA ta w && ruRowA tb w
+
+@[expose] def titsStepL (L : List ℕ) : List ℕ :=
+  L ++ L.flatMap fun x => (titsNbr[x]!).toList
+
+@[expose] def titsBallL3 : List ℕ := titsStepL (titsStepL (titsStepL [0]))
+
+@[expose] def titsBallArr : Array Bool :=
+  Array.ofFn (n := 1755) fun j => titsBallL3.contains j.val
 
 @[expose] def ruFrobText : String :=
   "0006A0002CE67FAEF0C361D41981E0E2E3C6F526AAF71AD81FC881FB98149FE9C49609961CBE613C923E527BD3\
@@ -293,5 +307,6 @@ open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Certificates CFSG.Certifi
     C109C9D37B1A37CA8D905EB3C9B6A1AD9F45A5089D2FF3703127D9C9D1A97CAEBE2FD1E92F0D2ED72C8DE4F7E6\
     2B4E66ACA254B460623D1F7DD2829743B160182348191266057FD985B354"
 
+@[expose] def ruFrobArr (i : ℕ) : Array ℕ := hexTable 3 4060 (4060 * i) ruFrobText
 
 end CFSG.Quasithin.RuRank3

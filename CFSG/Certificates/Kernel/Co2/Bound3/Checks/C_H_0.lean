@@ -13,6 +13,14 @@ theorem sH0 : CFSG.KC.LceS.wordsOK selWT selRT selST INV INV8 (nat_lit 2048) HS 
 theorem sH1 : CFSG.KC.LceS.invOK INV INV8 (nat_lit 4) = true := by
   quickRfl
 
+theorem sH3 : Nat.beq nC (nat_lit 660) = true := by
+  quickRfl
+
+theorem sH4 : CFSG.KC.Co2K.litOK litRT CFSG.KC.Co2B.rel (nat_lit 10) = true := by
+  quickRfl
+
+theorem sH5 : CFSG.KC.Co2K.litOK litST CFSG.KC.Co2K.subH (nat_lit 4) = true := by
+  quickRfl
 
 theorem sH6 : CFSG.KC.Co2K.hintsLt selWT (nat_lit 2048) (nat_lit 4) HS = true := by
   quickRfl

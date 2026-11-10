@@ -89,6 +89,8 @@ theorem sd_mem_Y (hd : Sec19Data p f K z S W) : z ∈ sec19Y K z := by
   rw [commutatorElement_def, hc, mul_inv_cancel_right, mul_inv_cancel]
   exact (oddCoreOf K).one_mem
 
+theorem sd_mem_Q (hd : Sec19Data p f K z S W) : z ∈ (S : Subgroup G) ⊓ sec19Y K z :=
+  ⟨sd_mem_S hd, sd_mem_Y hd⟩
 
 theorem sd_isUniqueInvolution_R (hd : Sec19Data p f K z S W) :
     IsUniqueInvolution ((S : Subgroup G) ⊓ K) z := by
@@ -118,5 +120,32 @@ theorem IsQuaternionSub.noncomm {P : Subgroup G} (hP : IsQuaternionSub P) :
   have := Nat.le_of_dvd (by norm_num) (orderOf_dvd_of_pow_eq_one h2)
   omega
 
+theorem sd_isUniqueInvolution_Q (hd : Sec19Data p f K z S W)
+    (hQ : IsQuaternionSub ((S : Subgroup G) ⊓ sec19Y K z)) :
+    IsUniqueInvolution ((S : Subgroup G) ⊓ sec19Y K z) z := by
+  have hzK := isUniqueInvolution_of_tight hd.tight.toTightBranch
+  refine ⟨sd_mem_Q hd, hzK.ne_one, hzK.sq, fun y hy hy2 => ?_⟩
+  by_cases hy1 : y = 1
+  · exact Or.inl hy1
+  · exact Or.inr (IsQuaternionSub.eq_of_mul_self_eq_one hQ hy (sd_mem_Q hd) hy2 hzK.sq hy1
+      hzK.ne_one)
+
+theorem sd_yPrimeData (hd : Sec19Data p f K z S W)
+    (hQ : IsQuaternionSub ((S : Subgroup G) ⊓ sec19Y K z))
+    (hcard : Nat.card ↥((S : Subgroup G) ⊓ sec19Y K z) = Nat.card ↥((S : Subgroup G) ⊓ K)) :
+    YPrimeData K z (conjClosure (Subgroup.centralizer ({z} : Set G))
+      ((S : Subgroup G) ⊓ sec19Y K z)) ((S : Subgroup G) ⊓ sec19Y K z) := by
+  set C := Subgroup.centralizer ({z} : Set G) with hC
+  set Q := (S : Subgroup G) ⊓ sec19Y K z with hQdef
+  have hQY : Q ≤ sec19Y K z := inf_le_right
+  have hY'Y : conjClosure C Q ≤ sec19Y K z := conjClosure_le_of_normalizes hQY fun c hc =>
+    mem_normalizer_iff_conjSub_eq.mp (sd_centralizer_le_normalizer_Y hd hc)
+  have hQ2 : IsPGroup 2 Q := S.isPGroup'.to_le inf_le_left
+  refine ⟨fun c hc => mem_normalizer_iff_conjSub_eq.mpr (conjSub_conjClosure hc),
+    hY'Y.trans (sd_le_centralizer_Y hd),
+    IsSylow2In.of_le (sd_isSylow2In_Q hd) (le_conjClosure C Q) hY'Y, sd_isUniqueInvolution_Q hd hQ,
+    IsQuaternionSub.noncomm hQ, fun R' hR' => ?_, closure_twoElements_eq_conjClosure hQ2,
+    fun y hy k hk => (hY'Y hy).2.2.2 k hk⟩
+  rw [hR'.natCard_eq (sd_isSylow2In_R hd), hcard]
 
 end CFSG.ClassicalInvolution.Disconnected.AschTight.S1916

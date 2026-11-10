@@ -23,10 +23,15 @@ section Vocabulary
 
 variable {G : Type} [Group G]
 
+@[expose] def oTwoFrattini (X : Subgroup G) : Subgroup G :=
+  ((frattini (↥X ⧸ CFSG.pCore 2 ↥X)).comap (QuotientGroup.mk' (CFSG.pCore 2 ↥X))).map X.subtype
 
 @[expose] def oTwoP (p : ℕ) (X : Subgroup G) : Subgroup G :=
   ((CFSG.pCore p (↥X ⧸ CFSG.pCore 2 ↥X)).comap (QuotientGroup.mk' (CFSG.pCore 2 ↥X))).map
     X.subtype
+
+@[expose] def IsIrrSecIn (X C J : Subgroup G) : Prop :=
+  C < J ∧ ∀ K : Subgroup G, C ≤ K → K ≤ J → X ≤ Subgroup.normalizer (K : Set G) → K = C ∨ K = J
 
 
 @[expose] def IsTISetUnder (V M : Subgroup G) : Prop :=
@@ -77,6 +82,20 @@ variable {G : Type} [Group G]
 
 end Blocks
 
+structure Hyp3_2_2 (G : Type) [Group G] [Finite G] (T M Mp V₀ : Subgroup G) : Prop where
+  simple : IsSimpleGroup G
+  nonabelian : ∃ a b : G, a * b ≠ b * a
+  qtke : QuasithinUnique.quasithinIsQTKECat G
+  sylow : quasithinIsSylowTwo T
+  maxTwoLocal : quasithinIsMaxTwoLocal M
+  T_le : T ≤ M
+  Mp_le : Mp ≤ M
+  Mp_normal : M ≤ Subgroup.normalizer (Mp : Set G)
+  Mp_residual : oTwoUpper Mp = Mp
+  cases_i_ii : (∃ L : Subgroup G, quasithinIsFaithfulLocal T L ∧
+      CFSG.IsQuasisimple (↥L ⧸ CFSG.pCore 2 ↥L) ∧ Mp = conjClosure L T) ∨
+    ∃ p : ℕ, p.Prime ∧ p ≠ 2 ∧ Mp = oTwoP p Mp ∧ IsIrrSecIn T (oTwoFrattini Mp) Mp
+  irrPlus : IsIrrPlusIn Mp (reducedAggregate (Mp ⊔ T)) T V₀
 
 @[expose] def Case3_2_6_iii {G : Type} [Group G] (T L V₀ : Subgroup G) : Prop :=
   ∃ _ : IsMulCommutative ↥(conjClosure (conjClosure V₀ T)

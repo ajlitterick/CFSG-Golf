@@ -40,6 +40,7 @@ theorem octA_sum : ∑ o ∈ range 759, ∑ m ∈ range 64,
   interval_cases k
   exacts [octA_0, octA_1, octA_2, octA_3, octA_4, octA_5, octA_6, octA_7, octA_8, octA_9, octA_10]
 
+theorem octBad_1 : octScanT PBad (betaTabT PBad) 69 69 ≠ 20 := by decide +kernel
 
 end Certificates.Kernel.Trace6091
 

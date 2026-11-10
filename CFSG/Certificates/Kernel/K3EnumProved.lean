@@ -351,6 +351,8 @@ theorem pr_eq {P Q : Nat} {g : Equiv.Perm (Fin K.n)} (hP : Cn K P) (hQ : Cn K Q)
     CFSG.KS.Raw.Orb.unpack_get hi]
   exact (h1 ⟨i, hi⟩).trans (h2 ⟨i, hi⟩).symm
 
+theorem pr_uniq {P : Nat} {g h : Equiv.Perm (Fin K.n)} (h1 : PR K P g) (h2 : PR K P h) : g = h :=
+  Equiv.ext fun x => Fin.ext ((h1 x).symm.trans (h2 x))
 
 theorem class_le (hF : HF K) (he : ∀ k < K.ord, K.eK k = true) (hc : ∀ p < K.NC, K.cK p = true)
     {c : Nat} (hcl : c < K.CS.length) :

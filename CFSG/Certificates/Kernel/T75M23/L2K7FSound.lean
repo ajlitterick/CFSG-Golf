@@ -211,6 +211,9 @@ theorem memL_of {gs : List N7} {Ps : List Nat} (h : List.Forall₂ (Rp h1 h2) gs
 
 theorem dRels7_eq : dRels7 = [0, 1, 0, 1, 0, 1] :: relsT7 := rfl
 
+theorem mem_take_or_drop {l : List Nat} {c : Nat} (h : c ∈ l) (n : Nat) :
+    c ∈ l.take n ∨ c ∈ l.drop n :=
+  List.mem_append.1 (by rw [List.take_append_drop]; exact h)
 
 theorem zipAll_spec {β : Type} {d : β} {g : Nat → β → Bool} :
     ∀ {l : List Nat} {rs : List β}, zipAll d g l rs = true → ∀ c ∈ l, ∃ r, g c r = true

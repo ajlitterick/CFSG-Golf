@@ -17,6 +17,13 @@ namespace CertificateChecks.KernelCensus.M2217
 
 set_option maxRecDepth 1000000
 
+theorem kL210 : blkL 210 30 = true := by quickRfl
+theorem kL240 : blkL 240 30 = true := by quickRfl
+theorem kL270 : blkL 270 30 = true := by quickRfl
+theorem kL300 : blkL 300 30 = true := by quickRfl
+theorem kL330 : blkL 330 30 = true := by quickRfl
+theorem kL360 : blkL 360 30 = true := by quickRfl
+theorem kL390 : blkL 390 30 = true := by quickRfl
 theorem kLt : blkL 420 1 = true := by quickRfl
 
 end CertificateChecks.KernelCensus.M2217

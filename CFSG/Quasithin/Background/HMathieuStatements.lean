@@ -59,6 +59,9 @@ abbrev cocode22 (x y : Fin 24) : FFModel :=
 abbrev code24 : FFModel :=
   FFModel.golaySec CFSG.Monster.Code.AutPerm golayC (Subgroup.zpowers (G6.allOnes 24))
 
+abbrev code23 (x : Fin 24) : FFModel :=
+  FFModel.golaySec (CFSG.Monster.Code.AutPerm ⊓ stab x) golayC
+    (Subgroup.zpowers (G6.allOnes 24))
 
 abbrev code22 (x y : Fin 24) : FFModel :=
   FFModel.golaySec (CFSG.Monster.Code.AutPerm ⊓ stab x ⊓ stab y) (golayC ⊓ pairKer x y)

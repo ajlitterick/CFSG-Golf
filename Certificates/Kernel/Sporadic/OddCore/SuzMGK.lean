@@ -41,6 +41,8 @@ theorem kPerm : allN 11 (fun j => permOK 1782 11 (mask 11) (1782 * 11) (SuzMGK.S
 theorem kOrb : (List.range 7).map (fun i => rcnt (SuzMGK.LR i)) = [54, 20, 16, 12, 4, 2, 2] := by
   decide +kernel
 
+theorem negS : Bool.not (allN 11 (fun j => Nat.beq (Nat.xor (SuzMGK.S j) 1) (SuzMGC1S.F j))) =
+    true := by quickRfl
 
 theorem binds : Binds 1782 11 SuzMGK.S 11 7 SuzMGK.BP c1StrongArrs c1Base.toArray :=
   ⟨by norm_num, by norm_num, by norm_num, by simp [c1StrongArrs],

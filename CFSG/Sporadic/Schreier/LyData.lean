@@ -72,6 +72,9 @@ theorem sylowList_def [LySeed] :
 @[expose] def restr7 [LySeed] (g : J) : Matrix (Fin 7) (Fin 7) (ZMod 5) :=
   Matrix.of fun r c => (mat g * lyU) ⟨r.val, by omega⟩ c
 
+@[expose] def hGen7 [LySeed]
+    (j : ℕ) : Matrix (Fin 7) (Fin 7) (ZMod 5) := restr7 (aStar (j + 2))
+
 
 @[expose] def lyt [LySeed] : J := lyv⁻¹ * lyz * lyv
 

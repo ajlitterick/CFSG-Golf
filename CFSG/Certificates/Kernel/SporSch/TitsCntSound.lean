@@ -249,6 +249,22 @@ theorem surv5K_subT {kS BP M1 M2 : Nat} {PS PSI LR TR TRI : Nat → Nat} {S : Ar
   rw [hf] at hmem
   exact (List.mem_filter.1 hmem).2
 
+theorem ktK_eq {kS BP t0 t1 t2 t3 t4 : Nat} {PS PSI LR TR TRI : Nat → Nat}
+    {S : Array (Array Nat)} {base : Array Nat}
+    (hb : Binds 1755 11 PS kS 5 BP S base)
+    (hp : allN kS (fun j => permOK 1755 11 (mask 11) (1755 * 11) (PS j) (PSI j)) = true)
+    (hl : LevelsOK 1755 11 PS PSI LR TR TRI kS 5 BP)
+    (h0 : canonK 1755 11 (mask 11) (1755 * 11) t0 = true)
+    (h1 : canonK 1755 11 (mask 11) (1755 * 11) t1 = true)
+    (h2 : canonK 1755 11 (mask 11) (1755 * 11) t2 = true)
+    (h3 : canonK 1755 11 (mask 11) (1755 * 11) t3 = true)
+    (h4 : canonK 1755 11 (mask 11) (1755 * 11) t4 = true) :
+    ktK LR TRI BP t0 t1 t2 t3 t4 =
+      siftA 1755 (rawLevels 1755 S base) base 0
+        (unpack 1755 11 (prod5K 1755 11 (mask 11) t0 t1 t2 t3 t4)) := by
+  obtain ⟨-, hg⟩ := gpt_facts h0 h1 h2 h3 h4
+  exact (siftPf_eq hb hp hl 5 0 rfl _ _ fun i hi =>
+    ⟨by rw [(hg i hi).1, gptR_eq], by rw [gptR_eq]; exact (hg i hi).2⟩).symm
 
 section Group
 

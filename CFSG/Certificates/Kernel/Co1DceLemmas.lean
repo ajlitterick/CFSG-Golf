@@ -1040,6 +1040,11 @@ theorem wRel_sound (f : ℕ → G) (hf : f 255 = 1) {INV INV8 NL W n r m : ℕ}
     rw [two_pow_eight_mul] at hr
     exact bvF_rot f hr hs h1
 
+theorem lettersD_spec {LT : ℕ → ℕ} {NL TL W n : ℕ} (h : lettersD LT NL TL W n = true) :
+    ∀ q < n, wLet W q = 255 ∨ wLet W q = TL ∨ (wLet W q < NL ∧ ltN (LT (wLet W q)) = true) := by
+  intro q hq
+  have := (allRec_iff _ n).1 h q hq
+  simpa [orB_iff, andB_iff] using this
 
 theorem wordsOK_sound {WT RT LT : ℕ → ℕ} {INV INV8 NL TL NR m Hs : ℕ}
     (hinv : invSelfOK INV INV8 NL = true) (h : wordsOK WT RT LT INV INV8 NL TL NR m Hs = true)

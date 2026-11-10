@@ -16,6 +16,10 @@ theorem toMat_xor' (A B : ℕ) : toMat (A ^^^ B) = toMat A + toMat B := by
   simp only [toMat, Matrix.of_apply, Matrix.add_apply, Nat.testBit_xor]
   exact cast_xor _ _
 
+theorem toVec_xor' (x y : ℕ) : toVec (x ^^^ y) = toVec x + toVec y := by
+  funext j
+  simp only [toVec, Pi.add_apply, Nat.testBit_xor]
+  exact cast_xor _ _
 
 theorem toVec_zero' : toVec 0 = 0 := by
   funext j
@@ -405,6 +409,17 @@ theorem hint_mem {w j : ℕ} (h : hintH SV N w j = true) :
 
 end Hint
 
+theorem getN_eq (l : List ℕ) : ∀ p, p < l.length → getN l p = l.getD p 0 := by
+  induction l with
+  | nil => intro p hp; simp at hp
+  | cons a l ih =>
+    intro p hp
+    cases p with
+    | zero => rfl
+    | succ p =>
+      change getN l p = _
+      rw [ih p (by simpa using hp)]
+      rfl
 
 @[expose] noncomputable def codeFM (FL : List (Matrix (Fin 24) (Fin 24) (ZMod 2)))
     (u : Fin 24 → ZMod 2) : ℕ :=

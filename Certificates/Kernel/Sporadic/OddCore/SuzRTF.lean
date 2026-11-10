@@ -25,6 +25,8 @@ local notation "cn" => canonK 1782 11 (mask 11) (1782 * 11)
 local notation "ie" => invEqK 1782 11 (mask 11) (1782 * 11)
 local notation "Idn" => pidn 1782 11
 
+theorem and_parts {a b : Bool} (h : (a && b) = true) : a = true ∧ b = true := by
+  simpa [Bool.and_eq_true] using h
 
 theorem hb : baseK = true := kBase
 

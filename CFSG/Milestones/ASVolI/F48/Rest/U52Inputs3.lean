@@ -63,5 +63,12 @@ set_option compiler.extract_closed false
     #[43, 70, 91, 135, 139], #[43, 72, 87, 126, 152], #[43, 77, 82, 130, 148], #[44, 57, 100, 117, 159], #[44, 59, 97, 115, 162], #[44, 64, 95, 132, 144], #[44, 68, 92, 135, 140], #[44, 73, 85, 127, 152],
     #[44, 75, 83, 130, 149]]
 
+@[expose] def burnsideF48t_u52Pt (_ : Unit := ()) : Array (Array ℕ) :=
+  let b := burnsideF48t_u52PtStr.toUTF8
+  (Array.range 165).map fun k => (Array.range 5).map fun j => b[5 * k + j]!.toNat - 48
+
+@[expose] def burnsideF48t_u52Scale (l : ℕ) (v : Array ℕ) : Array ℕ :=
+  Array.ofFn (n := 5) fun i => burnsideF48t_gf4Mul l v[i.val]!
+
 
 end CFSG.ASVolI

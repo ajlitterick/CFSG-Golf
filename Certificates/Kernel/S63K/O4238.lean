@@ -275,6 +275,7 @@ theorem pw_get : ∀ w : List ℕ, (∀ k ∈ w, k < 8) → ∀ x < 819,
     rw [e, compA_get' hx, h1, perm_get hk h2, e2]
     exact ⟨rfl, (pa_get hk h2).2⟩
 
+theorem im_lt {k x : ℕ} (hk : k < 8) (hx : x < 819) : im k x < 819 := (pa_get hk hx).2
 
 theorem zt_get {x : ℕ} (hx : x < 819) : (ptWordArr [3, 2, 4, 2])[x]! = OK.zt x ∧ OK.zt x < 819 :=
   pw_get _ (by decide) x hx

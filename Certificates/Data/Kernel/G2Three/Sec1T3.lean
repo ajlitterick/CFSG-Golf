@@ -77,6 +77,19 @@ open CFSG.KC.Loop
 @[expose] noncomputable def idxAll (LO : List Nat) : Nat :=
   List.rec (motive := fun _ => Nat) 0 (fun lo _ acc => Nat.lor (idxU lo) acc) LO
 
+@[expose] noncomputable def cenK (P C G gs : Nat) : Nat :=
+  Nat.rec (motive := fun _ => Nat) 0 (fun i acc => nIf(bAnd(hasB G i, (fun r =>
+      Nat.rec (motive := fun _ => Bool) true (fun t ih => (fun g =>
+        bAnd(Nat.beq (atR r g) (atR (rowT C i) g), ih)) (fld(gs, Nat.mul 7 t, 127))) 5)
+      (rowT P i)),
+    Nat.lor acc (Nat.shiftLeft 1 i), acc)) 128
+
+@[expose] noncomputable def z2K (P C V G Z gs : Nat) : Nat :=
+  Nat.rec (motive := fun _ => Nat) 0 (fun i acc => nIf(bAnd(hasB G i, (fun rx cv =>
+      Nat.rec (motive := fun _ => Bool) true (fun t ih => (fun g =>
+        bAnd(hasB Z (atR (rowT C (atR V g)) (conjR rx cv g)), ih)) (fld(gs, Nat.mul 7 t, 127))) 5)
+      (rowT P i) (rowT C (atR V i))),
+    Nat.lor acc (Nat.shiftLeft 1 i), acc)) 128
 
 @[expose] noncomputable def pop (m : Nat) : Nat :=
   Nat.rec (motive := fun _ => Nat) 0 (fun i acc => nIf(hasB m i, Nat.succ acc, acc)) 128

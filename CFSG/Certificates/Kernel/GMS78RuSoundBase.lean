@@ -311,6 +311,8 @@ theorem fget_xor (X Y i w : Nat) : fget (X ^^^ Y) i w = fget X i w ^^^ fget Y i 
 theorem fget_zero (i w : Nat) : fget 0 i w = 0 := by
   simp [fget_eq]
 
+theorem fget_of_lt {X w : Nat} (h : X < 2 ^ w) : fget X 0 w = X := by
+  rw [fget_eq]; simp [Nat.mod_eq_of_lt h]
 
 theorem bit_eq (X i : Nat) : bit X i = X.testBit i := by
   simp only [bit, nat_land_eq, nat_shiftRight_eq, nat_beq_eq, Nat.and_one_is_mod,
@@ -333,6 +335,7 @@ theorem fin8_xor_val (a b : Fin 8) : (a ^^^ b).val = a.val ^^^ b.val := by
   change (a.val ^^^ b.val) % 8 = _
   exact Nat.mod_eq_of_lt (Nat.xor_lt_two_pow (n := 3) a.isLt b.isLt)
 
+theorem fin8_eq_iff (a b : Fin 8) : a = b ↔ a.val = b.val := Fin.ext_iff
 
 theorem xor_lt8 {a b : Nat} (ha : a < 8) (hb : b < 8) : a ^^^ b < 8 :=
   Nat.xor_lt_two_pow (n := 3) ha hb
@@ -361,6 +364,8 @@ theorem zero_right {a : Nat} (ha : a < 8) : m8 a 0 = 0 := by
   rw [Nat.xor_self, Nat.xor_self] at h
   exact h
 
+theorem zero_left {b : Nat} (hb : b < 8) : m8 0 b = 0 := by
+  rw [L.comm 0 b (by omega) hb, L.zero_right hb]
 
 theorem dist_left {a b c : Nat} (ha : a < 8) (hb : b < 8) (hc : c < 8) :
     m8 (a ^^^ b) c = m8 a c ^^^ m8 b c := by
@@ -982,6 +987,8 @@ theorem canonK_eq (p q : Nat) :
 theorem canon_eq (p q : Fin 8) : canon p q = canonK p.val q.val := by
   rw [canonK_eq, canon, fin8_xor_val]
 
+theorem pairP_lt (k : Nat) : pairP k < 8 := fget3_lt _ _
+theorem pairQ_lt (k : Nat) : pairQ k < 8 := fget3_lt _ _
 
 theorem pairsOK_spec (h : pairsOK = true) {p q : Nat} (hp : p < 8) (hq : q < 8)
     (hc : canonK p q = true) : ∃ k < 7, pairP k = p ∧ pairQ k = q := by

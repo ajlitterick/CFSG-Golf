@@ -46,6 +46,7 @@ theorem ky_eq (κ : Nat) : ky κ = κ / 16384 := by
   change κ >>> 14 = _
   rw [Nat.shiftRight_eq_div_pow]
 
+theorem sk_eq (s κ : Nat) : sk s κ = s + 2 * κ := rfl
 
 theorem strictL_eq (y : Nat) (k : Nat → Terms) : strictL y k = k y := by
   cases y <;> rfl

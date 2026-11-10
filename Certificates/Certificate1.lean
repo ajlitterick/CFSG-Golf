@@ -24,5 +24,9 @@ public section
 
 namespace Certificates
 
+theorem certificate1 :
+      ∀ a v : alternatingGroup (Fin 4),
+        a ≠ 1 → a * a ≠ 1 → v * v = 1 → v * a = a * v → v = 1 := by
+  decide +kernel
 
 end Certificates

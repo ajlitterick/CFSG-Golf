@@ -23,6 +23,7 @@ theorem kY127 : strictB (ycK saCodes yIdxT) (fun YP => allN (nat_lit 38) fun k =
 
 theorem kLook127 : r127Look 1 = true := by quickRfl
 
+theorem neg127Look : Bool.not (r127Look 2) = true := by quickRfl
 
 end CertificateChecks.KernelO8
 

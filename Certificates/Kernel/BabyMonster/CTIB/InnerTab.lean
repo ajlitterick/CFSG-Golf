@@ -167,6 +167,8 @@ theorem rec_mem {k : ℕ} (hk : k < 5) : censusRecs.getD k (0, 0) ∈ censusRecs
 
 theorem rootOf_eq : ∀ k < 5, rootOf k = [1, 3, 7, 17, 19].getD k 0 := by decide
 
+theorem sizeOf_eq : ∀ k < 5, sizeOf k = [2300, 46575, 2049300, 1619200, 476928].getD k 0 := by
+  decide
 
 theorem census_orbit (hC : CensusLists) {k : ℕ} (hk : k < 5) :
     ∃ S : Finset ℕ, (∀ x, Reach censusAct 2 (rootOf k) x ↔ x ∈ S) ∧ S.card = sizeOf k ∧
@@ -296,6 +298,10 @@ theorem innerTab_facts (hC : CensusLists) :
   obtain ⟨i, -, hi⟩ := Finset.mem_biUnion.1 hp
   exact ⟨i, i.2, ((hS i).1 p).2 hi⟩
 
+theorem innerTab_zero (hC : CensusLists) : innerTab[0]! = 0 :=
+  (innerTab_facts hC).2.2.1 0 fun k hk h => by
+    obtain ⟨S, hS, -, hv, -⟩ := census_orbit hC hk
+    exact absurd (cvalid_pos (hv 0 ((hS 0).1 h)).1) (Nat.lt_irrefl 0)
 
 @[expose] noncomputable def pB (b : Bool) : ℕ := Bool.rec (motive := fun _ => ℕ) pR1 pR2 b
 

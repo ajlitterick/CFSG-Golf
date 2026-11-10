@@ -20,6 +20,28 @@ open CFSG.HardMathSupport.Solomon.LocalBalance (barAut autBar barOf innerAut loc
       (∀ K : Subgroup G, GLAPComponent p X K → ¬ ⁅K, localDeltaTwoIn X D⁆ ≤ GLAPPrimeCoreOf p X →
         D ≤ Subgroup.normalizer (K : Set G) ∧ centBar p D K = ⊥ ∧ ¬ IsCompLocallyOTwoBalanced p k D K)
 
+@[expose] def Alt19_16a (p k : ℕ) (K : Type) [Group K] [Finite K] (B : Subgroup (MulAut K)) (m r : ℕ) : Prop :=
+  (r = 2 ∨ r = 4) ∧ 0 < m ∧
+    ∃ (n : ℕ), n = m * p ^ k + r ∧ ∃ (e : K ≃* alternatingGroup (Fin n))
+      (σ : MulAut K →* Equiv.Perm (Fin n)),
+      (∀ (φ : MulAut K) (x : K), (e (φ x) : Equiv.Perm (Fin n)) = σ φ * e x * (σ φ)⁻¹) ∧
+      ∃ D : Subgroup (MulAut K), IsEkIn p 2 B D ∧
+        (∃ F : Finset (Fin n), F.card = r ∧ (∀ i ∈ F, ∀ φ ∈ D, σ φ i = i) ∧
+          (∀ i ∉ F, ∀ φ ∈ D, φ ≠ 1 → σ φ i ≠ i)) ∧
+        Nat.card (localDeltaIn p (⊤ : Subgroup (MulAut K)) D) = r
+
+@[expose] def Alt19_16b (p k : ℕ) (K : Type) [Group K] [Finite K] : Prop :=
+  p = 5 ∧ k = 2 ∧ IsSporType .Fi22 K
+
+@[expose] def Alt19_16c (p k : ℕ) (K : Type) [Group K] [Finite K] (B : Subgroup (MulAut K)) : Prop :=
+  ∃ q₀ q : ℕ, ((∃ n : ℕ, (2 ^ n - 1).Prime ∧ q₀ = 2 ^ n - 1) ∨
+      (∃ n : ℕ, (2 ^ (2 ^ n) + 1).Prime ∧ q₀ = 2 ^ (2 ^ n) + 1) ∨ q₀ = 2 ∨ q₀ = 9) ∧
+    q = q₀ ^ 2 ∧ p ∣ q - 1 ∧ k = 2 ∧ IsLpType p q (K ⧸ Subgroup.center K) ∧
+    B ≤ innerAut K
+
+@[expose] def Alt19_16 (p k : ℕ) (K : Type) [Group K] [Finite K] (B : Subgroup (MulAut K)) : Prop :=
+  (∃ (m r : ℕ), Alt19_16a p k K B m r) ∨ Alt19_16b p k K ∨ Alt19_16c p k K B
+
 
 section Transport
 

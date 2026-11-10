@@ -73,6 +73,17 @@ end Local
     quasithinOrdHe, quasithinOrdJ4}
 
 
+abbrev quasithinHopfRelations (X : Type) [Group X] : Subgroup (FreeGroup X) :=
+  (FreeGroup.lift (id : X → X)).ker
+
+abbrev quasithinHopfMultiplier (X : Type) [Group X] : Type :=
+  ↥(quasithinHopfRelations X ⊓ commutator (FreeGroup X)) ⧸
+    (⁅(⊤ : Subgroup (FreeGroup X)), quasithinHopfRelations X⁆).subgroupOf
+      (quasithinHopfRelations X ⊓ commutator (FreeGroup X))
+
+@[expose] def quasithinMultiplierCyclic (X : Type) [Group X] (d : ℕ) : Prop :=
+  Nonempty (quasithinHopfMultiplier X ≃* Multiplicative (ZMod d))
+
 @[expose] def quasithinAntidiag (n : ℕ) (K : Type*) [Zero K] [One K] : Matrix (Fin n) (Fin n) K :=
   Matrix.of fun i j => if i.val + j.val + 1 = n then 1 else 0
 
@@ -86,6 +97,8 @@ end Local
       quasithinAntidiag n (GaloisField p (2 * k)) ∧
     Matrix.GeneralLinearGroup.det A = 1}).map Matrix.ProjGenLinGroup.mk
 
+abbrev quasithinPSp (n : ℕ) (R : Type) [CommRing R] : Type :=
+  Matrix.symplecticGroup (Fin n) R ⧸ Subgroup.center (Matrix.symplecticGroup (Fin n) R)
 
 abbrev quasithinZorn (K : Type*) : Type _ := K × (Fin 3 → K) × (Fin 3 → K) × K
 
@@ -682,6 +695,17 @@ abbrev quasithinJ3 : Type :=
   quasithinSeedUnits 2 80 (quasithinDecodeMatrix 2 80 quasithinJ3Data1)
     (quasithinDecodeMatrix 2 80 quasithinJ3Data2)
 
+abbrev quasithinHS : Type :=
+  quasithinSeedUnits 2 20 (quasithinDecodeMatrix 2 20 quasithinHSData1)
+    (quasithinDecodeMatrix 2 20 quasithinHSData2)
+
+abbrev quasithinRu : Type :=
+  quasithinSeedUnits 2 28 (quasithinDecodeMatrix 2 28 quasithinRuData1)
+    (quasithinDecodeMatrix 2 28 quasithinRuData2)
+
+abbrev quasithinMcL : Type :=
+  quasithinSeedUnits 3 21 (quasithinDecodeMatrix 3 21 quasithinMcLData1)
+    (quasithinDecodeMatrix 3 21 quasithinMcLData2)
 
 abbrev quasithinTits : Type :=
   quasithinPermSeedUnits 1755 (quasithinDecodePerm 1755 (by norm_num) quasithinTitsData1)

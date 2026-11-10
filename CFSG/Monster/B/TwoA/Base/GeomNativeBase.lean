@@ -37,4 +37,7 @@ theorem Vhat_eq_EU :
   norm_num
 
 
+abbrev Res1 : Set ParGeom := parRes {stdObj 1 le_rfl (by norm_num)}
+
+
 end CFSG.Monster.B.TwoA

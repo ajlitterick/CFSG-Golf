@@ -81,6 +81,9 @@ set_option compiler.extract_closed false
       -2, -1, 2, 2]]
 
 
+@[expose] def gens9 (T Ti : Array Table) (c : ℤ) : Table :=
+  if 0 < c then T[(c - 1).toNat]! else Ti[(-c - 1).toNat]!
+
 @[expose] def nfCodes (k : ℕ) : List ℤ :=
   (List.range 9).filterMap fun i => if k.testBit i then some ((i : ℤ) + 1) else none
 

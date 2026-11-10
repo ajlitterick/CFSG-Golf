@@ -55,5 +55,39 @@ structure Ctx4443 (G : Type) [Group G] [Finite G] (A M H : Subgroup G) (s : G) :
   mem_scriptH₀ : H ∈ Late.scriptH₀ A M
   concl4442 : Concl4442 A M H s
 
+structure Choice450 {G : Type} [Group G] [Finite G] (M H : Subgroup G) (s : G) (L : Subgroup G) :
+    Prop where
+  mem : L ∈ thetaComponents 3 G
+  mem_normalizer : s ∈ Subgroup.normalizer (L : Set G)
+  commutator_eq : ⁅L, Subgroup.zpowers s⁆ = L
+  not_le : ¬ L ≤ M
+  commutator_eq_perfectResidual : ⁅L, inSubgroup perfectResidual H⁆ = L
+
+@[expose] def Concl451 {G : Type} [Group G] [Finite G] (A Q L : Subgroup G) : Prop :=
+  IsZ3L34OrHeisSL34 ((A ⊔ L).map (starQuot G)) ∧
+    (Subgroup.centralizer (L.map (starQuot G) : Set (G ⧸ CFSG.pPrimeCore 3 G))).relIndex
+      (Q.map (starQuot G)) = 2 ∧
+    ∀ q ∈ Q.map (starQuot G),
+      q ∉ Subgroup.centralizer (L.map (starQuot G) : Set (G ⧸ CFSG.pPrimeCore 3 G)) →
+      InducesStdKind (L.map (starQuot G)) q .graphField
+
+
+@[expose] def Item4_50_3 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (A M H : Subgroup G) (s : G), Ctx4443 G A M H s →
+    ∃ L : Subgroup G, Choice450 M H s L
+
+structure Ctx461 (G : Type) [Group G] [Finite G] (A M H : Subgroup G) (s : G) (L : Subgroup G) :
+    Prop where
+  ctx4443 : Ctx4443 G A M H s
+  choice450 : Choice450 M H s L
+  not_concl4443 : ¬ Concl4443 M H
+  layer_eq : layer (G ⧸ CFSG.pPrimeCore 3 G) =
+    ⁅layer (G ⧸ CFSG.pPrimeCore 3 G), (inSubgroup perfectResidual H).map (starQuot G)⁆
+
+structure Ctx457 (G : Type) [Group G] [Finite G] (A M H : Subgroup G) (s : G) (L J : Subgroup G) :
+    Prop extends Ctx461 G A M H s L where
+  mem : J ∈ thetaComponents 3 G
+  not_le : ¬ J.map (starQuot G) ≤ L.map (starQuot G)
+
 
 end CFSG.RankThree.PartTwo.Sec4

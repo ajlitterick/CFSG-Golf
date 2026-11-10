@@ -45,6 +45,13 @@ termination_by t => n - t
     let r := elimGo 255 rows pexp dim 0 w (zeroBytes dim)
     if allZero dim r.1 then some r.2 else none
 
+@[expose] def reduceOK (g chunks : Nat) : Bool :=
+  let rows := basisRows
+  let pexp := diagExp
+  let M := genRows g
+  M.size == dim && parLt dim chunks fun i => (reduceRow 3 rows pexp M i).isSome
+
+@[expose] def reduceAllOK (chunks : Nat) : Bool := allLt 26 fun g => reduceOK g chunks
 
 @[expose] def packBits : List Bool → Nat
   | [] => 0

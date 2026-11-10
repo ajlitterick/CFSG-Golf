@@ -24,6 +24,8 @@ namespace Bits2
 
 end Bits2
 
+@[expose] def prod2 (L : List Bits2) : Bits2 :=
+  L.foldr Bits2.mul Bits2.one
 
 variable (K : Type) [Field K]
 

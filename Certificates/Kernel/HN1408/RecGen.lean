@@ -44,6 +44,8 @@ meta def clOfN (n : Nat) (gs : Array (Array Nat)) : Array (Array Nat) :=
 meta def g7 : Array (Array Nat) := h1408Gens.toArray.map natArr
 meta def g7I : Array (Array Nat) := g7.map invM
 
+meta def clsOf (x : Array Nat) : Array (Array Nat) :=
+  (bfs (fun j t => conjTab 1408 g7[j]! g7I[j]! t) 7 x 1000000).tabs
 
 meta def posIn (L : Array (Array Nat)) : Std.HashMap (Array Nat) Nat := Id.run do
   let mut m : Std.HashMap (Array Nat) Nat := {}

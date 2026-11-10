@@ -218,6 +218,8 @@ theorem B_le_G0 : h.B ≤ h.G0 := by
     have hbT : b ∈ h.T := B5a.B_le_T h hb
     exact (mem_inf.mp (mem_inf.mp ((h.conj_x0_mem hBP hbT.1.1).2.1 hbT)).1).2
 
+theorem a_mem_S0 : h.a ∈ h.S0 :=
+  mem_inf.mpr ⟨B5a.a_mem_S h, h.a_mem_G0⟩
 
 end Hyp52
 

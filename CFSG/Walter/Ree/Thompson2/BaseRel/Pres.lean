@@ -30,9 +30,11 @@ open CFSG.Walter.J1Recog Word
 
 @[expose] def kt3 : Word 4 := pow (wk ++ wt) 3
 
+@[expose] def rels3024 : List (Word 4) := nRels ++ kRels ++ [relA]
 
 @[expose] def rels1512 : List (Word 4) := nRels ++ kRels ++ [relA, kt3]
 
+abbrev Pres3024 := PresentedGroup (relSet rels3024)
 
 abbrev Pres1512 := PresentedGroup (relSet rels1512)
 

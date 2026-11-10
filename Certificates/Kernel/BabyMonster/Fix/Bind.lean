@@ -38,6 +38,32 @@ theorem lens_of {C : List (List Nat)} (h : blkLens C 0 = true) :
   refine ⟨by omega, fun s hs => ?_⟩
   rw [h2 s (by omega), Nat.zero_add]
 
+theorem lensC0 : blkLens FixedLine.C0.rows 0 = true := by quickRfl
+theorem lensC1 : blkLens FixedLine.C1.rows 0 = true := by quickRfl
+theorem lensC2 : blkLens FixedLine.C2.rows 0 = true := by quickRfl
+theorem lensC3 : blkLens FixedLine.C3.rows 0 = true := by quickRfl
+theorem lensC4 : blkLens FixedLine.C4.rows 0 = true := by quickRfl
+theorem lensC5 : blkLens FixedLine.C5.rows 0 = true := by quickRfl
+theorem lensC6 : blkLens FixedLine.C6.rows 0 = true := by quickRfl
+theorem lensC7 : blkLens FixedLine.C7.rows 0 = true := by quickRfl
+theorem lensC8 : blkLens FixedLine.C8.rows 0 = true := by quickRfl
+theorem lensC9 : blkLens FixedLine.C9.rows 0 = true := by quickRfl
+theorem lensC10 : blkLens FixedLine.C10.rows 0 = true := by quickRfl
+theorem lensC11 : blkLens FixedLine.C11.rows 0 = true := by quickRfl
+theorem lensC12 : blkLens FixedLine.C12.rows 0 = true := by quickRfl
+theorem lensC13 : blkLens FixedLine.C13.rows 0 = true := by quickRfl
+theorem lensC14 : blkLens FixedLine.C14.rows 0 = true := by quickRfl
+theorem lensC15 : blkLens FixedLine.C15.rows 0 = true := by quickRfl
+theorem lensC16 : blkLens FixedLine.C16.rows 0 = true := by quickRfl
+theorem lensC17 : blkLens FixedLine.C17.rows 0 = true := by quickRfl
+theorem lensC18 : blkLens FixedLine.C18.rows 0 = true := by quickRfl
+theorem lensC19 : blkLens FixedLine.C19.rows 0 = true := by quickRfl
+theorem lensC20 : blkLens FixedLine.C20.rows 0 = true := by quickRfl
+theorem lensC21 : blkLens FixedLine.C21.rows 0 = true := by quickRfl
+theorem lensC22 : blkLens FixedLine.C22.rows 0 = true := by quickRfl
+theorem lensC23 : blkLens FixedLine.C23.rows 0 = true := by quickRfl
+theorem lensC24 : blkLens FixedLine.C24.rows 0 = true := by quickRfl
+theorem lensC25 : blkLens FixedLine.C25.rows 0 = true := by quickRfl
 
 theorem lensAll : ∀ g < 26, blkLens (Dy.Ck.getD g []) 0 = true := by
   forall_lt_consts CertificateChecks.KernelBM.Fix.lensC 26

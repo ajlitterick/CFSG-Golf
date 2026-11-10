@@ -76,6 +76,10 @@ theorem comp42 {p q : Nat} (hp : canonK 42 6 (mask 6) (42 * 6) p = true)
     comp 42 (unpack 42 6 p) (unpack 42 6 q) = unpack 42 6 (pcomp 42 6 (mask 6) p q) :=
   compA_unpack hp hq
 
+theorem rec_get {cnt i : Nat} {T PL : Nat → Nat} (hi : i < cnt) :
+    (penumRec 42 6 cnt T PL).tabs[i]! = unpack 42 6 (T i) := by
+  rw [getElem!_pos _ i (by simp [penumRec, hi])]
+  simp [penumRec]
 
 theorem normal : normalOK 42 (penumRec 42 6 HRE.cnt HRE.T HRE.PL).tabs heXTabs heXInvs heRGens =
     true := by

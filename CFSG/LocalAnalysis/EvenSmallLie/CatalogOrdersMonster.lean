@@ -15,6 +15,31 @@ namespace CFSG.EvenSmallLie.CatalogOrders
 open CFSG.YGroups CFSG.Certificates.CosetEnumeration
 
 
+theorem y210 :
+    Finite (YGroup 2 1 0) ∧ Nat.card (YGroup 2 1 0) ≤ 120 :=
+  Certificates.certificate3174.1
+
+
+theorem y220 :
+    Finite (YGroup 2 2 0) ∧ Nat.card (YGroup 2 2 0) ≤ 720 :=
+  Certificates.certificate3174.2.1
+
+
+theorem y320 :
+    Finite (YGroup 3 2 0) ∧ Nat.card (YGroup 3 2 0) ≤ 5040 :=
+  Certificates.certificate3174.2.2.1
+
+
+theorem y330 :
+    Finite (YGroup 3 3 0) ∧ Nat.card (YGroup 3 3 0) ≤ 40320 :=
+  Certificates.certificate3174.2.2.2.1
+
+
+theorem y430 :
+    Finite (YGroup 4 3 0) ∧ Nat.card (YGroup 4 3 0) ≤ 362880 :=
+  Certificates.certificate3174.2.2.2.2.1
+
+
 theorem y440 :
     Finite (YGroup 4 4 0) ∧ Nat.card (YGroup 4 4 0) ≤ 3628800 :=
   Certificates.certificate3174.2.2.2.2.2

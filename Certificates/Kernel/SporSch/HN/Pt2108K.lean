@@ -29,6 +29,11 @@ theorem key : allN 729 (fun i => Nat.beq (f42 KY i)
     (Nat.add (f21 OM (f14 (VRf i) 0)) (Nat.mul 2097152 (f21 OM (f14 (VRf i) 1))))) = true := by
   quickRfl
 
+theorem neg_v : Bool.not (rowK SGf VRf PARf (fun _ => 0) 22 8) = true := by quickRfl
+theorem neg_l : Bool.not (imgK SGf VRf 22 0 (Lf 1 5) 5) = true := by quickRfl
+theorem neg_c : Bool.not (blockK SGf VRf WRf 22 0 (Cf 0 9) 10) = true := by quickRfl
+theorem neg_d : Bool.not (Nat.beq (f42 KY 3) (Nat.add (f21 OM (f14 (VRf 4) 0))
+    (Nat.mul 2097152 (f21 OM (f14 (VRf 4) 1))))) = true := by quickRfl
 
 end CertificateChecks.KernelSporSch.HNPt2108
 

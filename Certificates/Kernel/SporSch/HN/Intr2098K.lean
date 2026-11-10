@@ -140,6 +140,10 @@ theorem prod_spec : HNC.OP 133 = 0 ∧ HNC.L 133 = 45 ∧ HNC.R 133 = 111 ∧ HN
 theorem eqXY0 : allN 133 (fun i => Nat.beq (sc 133 i) (sc 134 i)) = true := by quickRfl
 theorem eqXY1 : allN 133 (fun i => Nat.beq (sc 135 i) (sc 136 i)) = true := by quickRfl
 
+theorem neg_XY : Bool.not (allN 133 (fun i => Nat.beq (sc 133 i) (sc 136 i))) = true := by
+  quickRfl
+theorem neg_S : Bool.not (allN 133 (fun i => Nat.beq (sc 0 i) (HNStrong.ss 14 i))) = true := by
+  quickRfl
 
 end CertificateChecks.KernelSporSch.HNIntr
 

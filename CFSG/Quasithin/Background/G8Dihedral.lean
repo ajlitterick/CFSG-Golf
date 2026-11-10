@@ -362,6 +362,70 @@ theorem g8_7_aux {X A Y : Subgroup G} {m k : ℕ} (hXn : Group.IsNilpotent X)
     obtain ⟨h, hhZ, hmem, hord⟩ := hodd₁ i
     exact ⟨h, hhZ, hmem, hord⟩
 
+theorem g8_8_aux {X A : Subgroup G} {p n : ℕ} [Fact p.Prime] (hXn : Group.IsNilpotent X)
+    (hXodd : Odd (Nat.card X)) (hA : IsElemAbelian 2 A)
+    (hAX : A ≤ Subgroup.normalizer (X : Set G)) (hfaith : A ⊓ Subgroup.centralizer (X : Set G) = ⊥)
+    (hcard : Nat.card A = 2 ^ (n + 1)) (hnt : ¬ A ≤ Subgroup.centralizer (pCoreOf p X : Set G)) :
+    ∃ (ι : Type) (_ : Fintype ι) (Hs : ι → Subgroup G) (q : ι → ℕ),
+      Fintype.card ι = n + 1 ∧ DFam Hs q ∧ A ≤ ⨆ i, Hs i ∧ (∀ i, Hs i ≤ X ⊔ A) ∧ ∃ i, q i = p := by
+  set Y := pCoreOf p X with hY
+  have hYX : Y ≤ X := pCoreOf_le p X
+  have hYp : IsPGroup p Y := pCoreOf_isPGroup p X
+  have hYA : A ≤ Subgroup.normalizer (Y : Set G) :=
+    fun a ha => normalizer_le_normalizer_pCoreOf p X (hAX ha)
+  have hYn : Group.IsNilpotent Y := by
+    have := hXn
+    exact (Group.isNilpotent_congr (Subgroup.subgroupOfEquivOfLe hYX)).mp inferInstance
+  have hYodd : Odd (Nat.card Y) := hXodd.of_dvd_nat (Subgroup.card_dvd_of_le hYX)
+  have hAcomm : ∀ a ∈ A, ∀ a' ∈ A, a * a' = a' * a := fun a ha a' ha' =>
+    commute_of_isElemAbelian hA ha ha'
+  set B := A ⊓ Subgroup.centralizer (Y : Set G) with hB
+  have hBA : B ≤ A := inf_le_left
+  have hBne : B ≠ A := by
+    intro h
+    apply hnt
+    rw [← h]
+    exact inf_le_right
+  obtain ⟨m, hm⟩ := ((isPGroup_of_isElemAbelian hA).to_le hBA).exists_card_eq
+  have hmn : m < n + 1 := by
+    by_contra hge
+    push Not at hge
+    have : Nat.card A ≤ Nat.card B := by
+      rw [hcard, hm]; exact Nat.pow_le_pow_right (by norm_num) hge
+    exact hBne (Subgroup.eq_of_le_of_card_ge hBA this)
+  rcases Nat.eq_zero_or_pos m with hm0 | hmpos
+  ·
+    have hBbot : B = ⊥ := Subgroup.card_eq_one.mp (by rw [hm, hm0]; rfl)
+    obtain ⟨ι, hι, Hs, q, hcardι, hDF, hAle, hle, hodd⟩ :=
+      g8_6_aux n Y A hYn hYodd hA hYA hBbot hcard
+    have hι' : Nonempty ι := by
+      rw [← Fintype.card_pos_iff, hcardι]; exact Nat.succ_pos n
+    obtain ⟨i₀⟩ := hι'
+    refine ⟨ι, hι, Hs, q, hcardι, hDF, hAle, fun i => (hle i).trans (sup_le_sup hYX le_rfl), i₀, ?_⟩
+    obtain ⟨h, hhY, -, hord⟩ := hodd i₀
+    exact prime_orderOf_eq_of_mem_pGroup hYp hhY hord (hDF.prime i₀)
+  ·
+    obtain ⟨m', rfl⟩ := Nat.exists_eq_succ_of_ne_zero hmpos.ne'
+    obtain ⟨k', hk'⟩ : ∃ k', n = m' + 1 + k' := ⟨n - (m' + 1), by omega⟩
+    have hcardA' : Nat.card A = 2 ^ (m' + 1 + (k' + 1)) := by
+      rw [hcard]; congr 1; omega
+    obtain ⟨D, hDc, ι₁, ι₂, hι₁, hι₂, H₁, H₂, p₁, p₂, hc₁, hc₂, hDF, hBle, hle₁, hodd₁, hDle,
+      hle₂, hodd₂⟩ := g8_7_aux hXn hXodd hA hAX hfaith hYX hYA hcardA' hm
+    obtain ⟨-, hDA, hBD, hsup⟩ := hDc
+    have hι₂' : Nonempty ι₂ := by
+      rw [← Fintype.card_pos_iff, hc₂]; exact Nat.succ_pos k'
+    obtain ⟨j₀⟩ := hι₂'
+    refine ⟨ι₁ ⊕ ι₂, inferInstance, Sum.elim H₁ H₂, Sum.elim p₁ p₂, ?_, hDF, ?_, ?_,
+      Sum.inr j₀, ?_⟩
+    · rw [Fintype.card_sum, hc₁, hc₂]; omega
+    · rw [iSup_sum, ← hsup]
+      exact sup_le_sup hBle hDle
+    · rintro (i | j)
+      · exact (hle₁ i).trans (sup_le (hBA.trans le_sup_right)
+          (inf_le_left.trans le_sup_left))
+      · exact (hle₂ j).trans (sup_le (hYX.trans le_sup_left) (hDA.trans le_sup_right))
+    · obtain ⟨h, hhY, -, hord⟩ := hodd₂ j₀
+      exact prime_orderOf_eq_of_mem_pGroup hYp hhY hord (hDF.prime (Sum.inr j₀))
 
 end Finite
 
@@ -435,6 +499,31 @@ theorem g8_7 {X P A Y : Subgroup G} (h : G81 X P A) {m k : ℕ} (hm : 0 < m) (hk
     · show orderOf x = (Sum.elim p₁ p₂) (E (Fin.natAdd (m' + 1) j))
       rw [hE₂]; exact hord
 
+theorem g8_8 {X P A : Subgroup G} (h : G81 X P A) {p n : ℕ} (hp : p.Prime)
+    (hcard : Nat.card A = 2 ^ n) (hfaith : A ⊓ Subgroup.centralizer (X : Set G) = ⊥)
+    (hnt : ¬ A ≤ Subgroup.centralizer (pCoreOf p X : Set G)) :
+    ∃ (Hs : Fin n → Subgroup G) (q : Fin n → ℕ), IsDihedralFamily Hs q ∧ A ≤ ⨆ i, Hs i ∧
+      (⨆ i, Hs i) ≤ X ⊔ A ∧ ∀ i : Fin n, i.val = 0 → q i = p := by
+  have : Fact p.Prime := ⟨hp⟩
+  have hn : n ≠ 0 := by
+    rintro rfl
+    apply hnt
+    have : A = ⊥ := Subgroup.card_eq_one.mp (by simpa using hcard)
+    rw [this]; exact bot_le
+  obtain ⟨n', rfl⟩ := Nat.exists_eq_add_one_of_ne_zero hn
+  obtain ⟨ι, hι, Hs, q, hcardι, hDF, hAle, hle, i₀, hi₀⟩ := G8.g8_8_aux h.nilpotent h.odd
+    h.elemAbelian (h.le_pGroup.trans h.le_normalizer) hfaith hcard hnt
+  let e₀ : Fin (n' + 1) ≃ ι := (Fintype.equivFinOfCardEq hcardι).symm
+  let e : Fin (n' + 1) ≃ ι := (Equiv.swap (0 : Fin (n' + 1)) (e₀.symm i₀)).trans e₀
+  have he0 : e 0 = i₀ := by simp [e]
+  refine ⟨Hs ∘ e, q ∘ e, (hDF.comp_equiv e).toIsDihedralFamily, ?_, ?_, ?_⟩
+  · have : (⨆ i, (Hs ∘ e) i) = ⨆ i, Hs i := Equiv.iSup_comp (g := Hs) e
+    rw [this]; exact hAle
+  · exact iSup_le fun i => hle (e i)
+  · intro i hi
+    have : i = 0 := Fin.ext hi
+    subst this
+    simp [he0, hi₀]
 
 end Finite
 

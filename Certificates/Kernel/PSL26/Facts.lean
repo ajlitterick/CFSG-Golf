@@ -33,6 +33,7 @@ theorem c7044G : bindArrK psl26X 26 5 (P26.S 0) = true ∧ bindArrK psl26S 26 5 
 theorem c7044D : (Nat.beq psl26D.size 26 && allN 26 fun k => bindArrK psl26D[k]! 26 5 (PD k)) =
     true := by quickRfl
 
+theorem c7044N5 : bindArrK psl26D[1]! 26 5 (PD 2) = false := by decide +kernel
 
 theorem bindsP : Binds 26 5 P26.S 9 3 P26.BP psl26Strong (ruBaseArr 26 [0, 1, 2]) :=
   ⟨by norm_num, by norm_num, by norm_num, (binds_of_check c7044B).1, (binds_of_check c7044B).2,

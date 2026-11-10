@@ -13,6 +13,20 @@ open CFSG.ComponentClassification.UnbalancedCatalog
 variable {F : Type} [Field F] {V : Type*} [AddCommGroup V] [Module F V]
 
 
+theorem linearIndependent_of_antidiag (B : BilinForm F V) {e : Fin 4 → V}
+    (hb : ∀ i j, B (e i) (e j) = if i.val + j.val = 3 then 1 else 0) :
+    LinearIndependent F e := by
+  rw [Fintype.linearIndependent_iff]
+  intro g hg i
+  have key : ∀ j, ∑ i, g i * B (e i) (e j) = 0 := fun j => by
+    simpa [map_sum, map_smul] using congrArg (fun x => B x (e j)) hg
+  fin_cases i
+  · simpa [Fin.sum_univ_four, hb] using key 3
+  · simpa [Fin.sum_univ_four, hb] using key 2
+  · simpa [Fin.sum_univ_four, hb] using key 1
+  · simpa [Fin.sum_univ_four, hb] using key 0
+
+
 theorem toMatrix_eq_minorJ (B : BilinForm F V) (b : Module.Basis (Fin 4) F V)
     (hb : ∀ i j, B (b i) (b j) = if i.val + j.val = 3 then 1 else 0) :
     BilinForm.toMatrix b B = SpChain.minorJ F := by

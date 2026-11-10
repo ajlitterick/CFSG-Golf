@@ -275,6 +275,15 @@ abbrev miyamotoN2G : Subgroup G := miyamotoPull h L η (miyamotoN2 h)
 @[expose] def miyamotoD1 : Subgroup G :=
   CFSG.ABGTheoremB.pCoreIn 2 (normalizer (miyamotoB1 h L η t : Set G))
 
+@[expose] def miyamotoF1 : Subgroup G :=
+  let X := miyamotoD1 h L η t ⊔ miyamotoI1G h L η
+  ⁅X, X⁆
+
+@[expose] def miyamotoQ1 : Subgroup G := miyamotoF1 h L η t ⊔ Q
+
+@[expose] def miyamotoS1 : Subgroup G :=
+  CFSG.ABGTheoremB.pCoreIn 2 (normalizer (miyamotoQ1 h L η t Q : Set G))
+
 
 @[expose] def MiyamotoSetup : Prop :=
   2 ≤ f ∧ CFSG.Assembly.ComponentType.IsStandardSubgroup L ∧ ¬L.Normal ∧

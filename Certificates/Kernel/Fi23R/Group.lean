@@ -120,6 +120,10 @@ theorem ok_brayW {wR wG : List ℕ} (hR : ∀ c ∈ wR, okL c) (hG : ∀ c ∈ w
   · exact hp
   · exact ok_append hp hG
 
+theorem ok_commW {wX wY : List ℕ} (hX : ∀ c ∈ wX, okL c) (hY : ∀ c ∈ wY, okL c) :
+    ∀ c ∈ commW wX wY, okL c := by
+  unfold commW
+  exact ok_append (ok_append (ok_append (ok_invW hY) (ok_invW hX)) hY) hX
 
 section
 

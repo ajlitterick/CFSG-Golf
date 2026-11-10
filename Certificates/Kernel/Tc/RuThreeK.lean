@@ -26,6 +26,7 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.SporSch CFSG.KC.HeLoc CFSG.KC.TcF
 @[expose] noncomputable def ty (i x : Nat) : Nat := trV gy TY.P TY.L 27 i x
 @[expose] noncomputable def ky (i : Nat) : Nat := keyV 4060 ruKeys (ty i)
 
+theorem kNY : Nat.beq TY.N 27 = true := by quickRfl
 
 theorem kTreeY : allN 27 (fun i => bIf(Nat.beq i 0, true, treeAtK 2 TY.P TY.L i)) = true := by
   quickRfl
@@ -77,6 +78,12 @@ theorem kTwo : allN 10 (fun a => allN 10 fun b => bIf(Nat.beq a b, true,
     anyF 720 fun k => bAnd(Nat.beq (pg 4 (mask 4) (ET.T k) 0) a,
       Nat.beq (pg 4 (mask 4) (ET.T k) 1) b))) = true := by quickRfl
 
+theorem kFixNeg : (!allN 4060 (fun i => bIf(Nat.beq (t3 0 i) i, (ruF.erase 622).contains i,
+    !(ruF.erase 622).contains i))) = true := by quickRfl
+
+theorem kSylNeg : (!allN 27 (fun k => bIf(eqOnL bs (ty k) (fun y => y), true,
+    anyF 1 fun j => eqOnL bs (fun y => t3 (Nat.add 5 j) (ty k (i3 (Nat.add 5 j) y))) (t3 0)))) =
+    true := by quickRfl
 
 end CertificateChecks.KernelTc.Ru
 

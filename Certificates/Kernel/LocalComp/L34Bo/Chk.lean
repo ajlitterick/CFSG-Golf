@@ -41,6 +41,8 @@ theorem k_fix : allN 6 (fun j => allN 64 (fun q =>
       (Nat.beq (pg 6 (mask 6) (syT j q) (fb j)) (fb j)))) = true := by
   quickRfl
 
+theorem kNegBo : notB (inSY 0 (UE0.G 0)) = true := by
+  quickRfl
 
 @[expose] noncomputable def nrm0 (s : Nat) : Bool := nrm 0 s
 @[expose] noncomputable def nrm1 (s : Nat) : Bool := nrm 1 s

@@ -47,6 +47,9 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.SporSch CFSG.KC.HeLoc
 
 theorem kQC : CFSG.KC.Enum.allN 600 qcAt = true := by quickRfl
 
+theorem qcNeg0 : (!qcAtW 0 0) = true := by quickRfl
+
+theorem qcNeg1 : (!qcAtW (QN.getD 0 0) 8330) = true := by quickRfl
 
 end CertificateChecks.KernelHeLoc.Five
 

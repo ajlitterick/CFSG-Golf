@@ -47,6 +47,13 @@ theorem kIdx : pslpIdxOK (2 * j1GP.size) j1Prog = true := by quickRfl
 
 theorem kGs : (Nat.beq j1RegsP[0]! j1GP[0]! && Nat.beq j1RegsP[1]! j1GP[1]!) = true := by quickRfl
 
+theorem kT0 : (List.range' 0 60).all stepF = true := by quickRfl
+theorem kT60 : (List.range' 60 60).all stepF = true := by quickRfl
+theorem kT120 : (List.range' 120 60).all stepF = true := by quickRfl
+theorem kT180 : (List.range' 180 60).all stepF = true := by quickRfl
+theorem kT240 : (List.range' 240 60).all stepF = true := by quickRfl
+theorem kT300 : (List.range' 300 60).all stepF = true := by quickRfl
+theorem kT360 : (List.range' 360 60).all stepF = true := by quickRfl
 theorem kTt : (List.range' 420 39).all stepF = true := by quickRfl
 
 end CertificateChecks.KernelCensus.J1

@@ -630,6 +630,167 @@ private lemma frattini_sup_eq_top {p : ℕ} [Fact p.Prime] {G : Type*} [Group G]
 
 /-! ## Lemma 3.7 (tex L699–L733) -/
 
+/-- Lemma 3.7 ([6], §3, Lemma 3.7, p. 1110; `refs/glauberman-p-stable.tex` L699–L733):
+let `S` be a Sylow `p`-subgroup of a finite group `G` and let `H` be a subgroup of
+`Z(J(S))`.  Then
+`N(H) = C(H)(N(J(S)) ∩ N(H))`.
+
+Proof of the paper: `C(H)` is normal in `N(H)`; let `T` be a Sylow `p`-subgroup of
+`C(H)` containing `J(S)` (possible since `H ≤ Z(J(S)) ⊆ C(J(S))`, so `J(S) ≤ C(H)`).
+The Frattini argument gives `N(H) = C(H)(N(T) ∩ N(H))`; by Lemma 3.5(b), `J(S) = J(T)`,
+and `J(S)` is characteristic in `T`, so `N(T) ⊆ N(J(S))`.  The statement is given in the
+equivalent sup form (the product is a subgroup because `C(H) ⊴ N(H)`). -/
+public lemma lemma3_7 {p : ℕ} [Fact p.Prime] {G : Type*} [Group G] [Finite G]
+    (S : Sylow p G) {H : Subgroup G} (hH : H ≤ ZJ (G := G) (S : Subgroup G)) :
+    Subgroup.normalizer (H : Set G) =
+      Subgroup.centralizer (H : Set G) ⊔
+        (Subgroup.normalizer ((thompsonSubgroup (G := G) (S : Subgroup G) : Subgroup G) : Set G) ⊓
+          Subgroup.normalizer (H : Set G)) := by
+  classical
+  let C : Subgroup G := Subgroup.centralizer (H : Set G)
+  -- `J(S) ≤ C(H)`: `H ⊆ Z(J(S)) ⊆ C(J(S))`
+  have hJS_le_C : thompsonSubgroup (G := G) (S : Subgroup G) ≤ C := by
+    intro j hj
+    rw [Subgroup.mem_centralizer_iff]
+    intro h hh
+    have hz : h ∈ ZJ (G := G) (S : Subgroup G) := hH hh
+    exact (Subgroup.mem_centralizer_iff.mp hz.2 j hj).symm
+  -- a Sylow `p`-subgroup `T₀` of `C(H)` containing `J(S)`
+  have hJSsub_p : IsPGroup p ((thompsonSubgroup (G := G) (S : Subgroup G)).subgroupOf C) := by
+    have hJS_p : IsPGroup p (thompsonSubgroup (G := G) (S : Subgroup G)) :=
+      IsPGroup.to_le S.isPGroup' (thompsonSubgroup_le (G := G) (S : Subgroup G))
+    exact hJS_p.of_equiv (Subgroup.subgroupOfEquivOfLe hJS_le_C).symm
+  obtain ⟨T0, hJT0⟩ := IsPGroup.exists_le_sylow hJSsub_p
+  -- `T = T₀` viewed in `G`
+  let T : Subgroup G := (T0 : Subgroup (↥C)).map C.subtype
+  have hJS_le_T : thompsonSubgroup (G := G) (S : Subgroup G) ≤ T := by
+    intro j hj
+    have hjC : j ∈ C := hJS_le_C hj
+    have hjT0 : (⟨j, hjC⟩ : ↥C) ∈ (T0 : Subgroup (↥C)) := by
+      exact hJT0 (Subgroup.mem_subgroupOf.mpr hj)
+    exact Subgroup.mem_map.mpr ⟨⟨j, hjC⟩, hjT0, rfl⟩
+  -- `N_G(T) ≤ N_G(J(S))`: `J(T) = J(S)` (Lemma 3.5(b)) and `J(T)` characteristic in `T`
+  have hJT_eq_JS : thompsonSubgroup (G := G) T = thompsonSubgroup (G := G) (S : Subgroup G) := by
+    have hT_p : IsPGroup p T := IsPGroup.map T0.isPGroup' C.subtype
+    exact ((lemma3_5 S).2.2 hT_p hJS_le_T).symm
+  have hNT_le_NJ : Subgroup.normalizer (T : Set G) ≤
+      Subgroup.normalizer ((thompsonSubgroup (G := G) (S : Subgroup G) : Subgroup G) : Set G) := by
+    calc
+      Subgroup.normalizer (T : Set G)
+          ≤ Subgroup.normalizer ((thompsonSubgroup (G := G) T : Subgroup G) : Set G) :=
+            normalizer_le_normalizer_of_thompsonSubgroup T
+      _ = Subgroup.normalizer ((thompsonSubgroup (G := G) (S : Subgroup G) : Subgroup G) : Set G) := by
+            rw [hJT_eq_JS]
+  -- `N(H) ≤ N(C(H))` (for the Sylow transport below)
+  have hN_le_NC : Subgroup.normalizer (H : Set G) ≤ Subgroup.normalizer (C : Set G) := by
+    intro n hn
+    rw [Subgroup.mem_normalizer_iff_map_conj_eq]
+    calc
+      C.map (MulAut.conj n).toMonoidHom
+          = Subgroup.centralizer ((H : Subgroup G).map (MulAut.conj n).toMonoidHom : Set G) := by
+            exact map_centralizer_eq_of_equiv (e := MulAut.conj n) (P := H)
+      _ = C := by
+        have hH' : (H : Subgroup G).map (MulAut.conj n).toMonoidHom = H :=
+          (Subgroup.mem_normalizer_iff_map_conj_eq.mp hn)
+        rw [hH']
+  refine le_antisymm ?_ ?_
+  · -- `N(H) ⊆ C(H) ⊔ (N(J(S)) ∩ N(H))`
+    intro n hn
+    -- the automorphism of `C(H)` induced by `n`
+    let e : ↥C ≃* ↥C :=
+      { toFun := fun c => ⟨n * (c : G) * n⁻¹, (Subgroup.mem_normalizer_iff.mp (hN_le_NC hn) (c : G)).1 c.2⟩
+        invFun := fun c => ⟨n⁻¹ * (c : G) * n, (Subgroup.mem_normalizer_iff''.mp (hN_le_NC hn) (c : G)).1 c.2⟩
+        left_inv := by
+          intro c
+          apply Subtype.ext
+          group
+        right_inv := by
+          intro c
+          apply Subtype.ext
+          group
+        map_mul' := by
+          intro c d
+          apply Subtype.ext
+          simp [mul_assoc] }
+    -- `T' = n•T` as a Sylow `p`-subgroup of `C(H)`
+    let T' : Sylow p (↥C) := T0.mapSurjective (f := e.toMonoidHom) e.surjective
+    have hT'_map : (T' : Subgroup (↥C)).map C.subtype = T.map (MulAut.conj n).toMonoidHom := by
+      -- `T' = T₀·e`, and `subtype ∘ e = (conj n) ∘ subtype`
+      have hT' : (T' : Subgroup (↥C)) = (T0 : Subgroup (↥C)).map e.toMonoidHom := rfl
+      have hsub_comp : C.subtype.comp e.toMonoidHom = (MulAut.conj n).toMonoidHom.comp C.subtype := by
+        ext x
+        simp [e, MulAut.conj_apply, mul_assoc]
+      calc
+        (T' : Subgroup (↥C)).map C.subtype
+            = ((T0 : Subgroup (↥C)).map e.toMonoidHom).map C.subtype := by rw [hT']
+        _ = (T0 : Subgroup (↥C)).map (C.subtype.comp e.toMonoidHom) := by rw [Subgroup.map_map]
+        _ = (T0 : Subgroup (↥C)).map ((MulAut.conj n).toMonoidHom.comp C.subtype) := by rw [hsub_comp]
+        _ = ((T0 : Subgroup (↥C)).map C.subtype).map (MulAut.conj n).toMonoidHom := by rw [Subgroup.map_map]
+        _ = T.map (MulAut.conj n).toMonoidHom := rfl
+    -- Sylow conjugacy in `C(H)`: `∃ c ∈ C(H)`, `c • T' = T₀`
+    obtain ⟨c, hcT'⟩ : ∃ c : ↥C, c • T' = T0 := MulAction.exists_smul_eq (↥C) T' T0
+    -- `c•(n•T) = T` in `G`
+    have hcT : (T.map (MulAut.conj n).toMonoidHom).map (MulAut.conj (c : G)).toMonoidHom = T := by
+      have hmap_smul : ((c • T' : Sylow p (↥C)) : Subgroup (↥C)).map C.subtype = T := by
+        rw [hcT']
+      have hcomp : ((c • T' : Sylow p (↥C)) : Subgroup (↥C)).map C.subtype =
+          ((T' : Subgroup (↥C)).map C.subtype).map (MulAut.conj (c : G)).toMonoidHom := by
+        rw [sylow_smul_subgroup_eq_map_conj c T']
+        ext x
+        constructor
+        · intro hx
+          rcases Subgroup.mem_map.mp hx with ⟨y, hy, rfl⟩
+          rcases Subgroup.mem_map.mp hy with ⟨z, hz, rfl⟩
+          refine Subgroup.mem_map.mpr ⟨C.subtype z, Subgroup.mem_map.mpr ⟨z, hz, rfl⟩, ?_⟩
+          simp [MulAut.conj_apply, mul_assoc]
+        · intro hx
+          rcases Subgroup.mem_map.mp hx with ⟨y, hy, rfl⟩
+          rcases Subgroup.mem_map.mp hy with ⟨z, hz, rfl⟩
+          refine Subgroup.mem_map.mpr ⟨(MulAut.conj (c : ↥C)).toMonoidHom z,
+            Subgroup.mem_map.mpr ⟨z, hz, rfl⟩, ?_⟩
+          simp [MulAut.conj_apply, mul_assoc]
+      have h1 : ((T' : Subgroup (↥C)).map C.subtype).map (MulAut.conj (c : G)).toMonoidHom = T := by
+        rw [← hcomp]
+        exact hmap_smul
+      rw [← hT'_map]
+      exact h1
+    -- `c·n ∈ N(T)`
+    have hcn_mem : (c : G) * n ∈ Subgroup.normalizer (T : Set G) := by
+      rw [Subgroup.mem_normalizer_iff_map_conj_eq]
+      calc
+        T.map (MulAut.conj ((c : G) * n)).toMonoidHom
+            = (T.map (MulAut.conj n).toMonoidHom).map (MulAut.conj (c : G)).toMonoidHom := by
+              ext x
+              constructor
+              · intro hx
+                rcases Subgroup.mem_map.mp hx with ⟨y, hy, rfl⟩
+                refine Subgroup.mem_map.mpr ⟨(MulAut.conj n).toMonoidHom y,
+                  Subgroup.mem_map.mpr ⟨y, hy, rfl⟩, ?_⟩
+                simp [MulAut.conj_apply, mul_assoc]
+              · intro hx
+                rcases Subgroup.mem_map.mp hx with ⟨y, hy, rfl⟩
+                rcases Subgroup.mem_map.mp hy with ⟨z, hz, rfl⟩
+                refine Subgroup.mem_map.mpr ⟨z, hz, ?_⟩
+                simp [MulAut.conj_apply, mul_assoc]
+        _ = T := hcT
+    -- `n = c⁻¹·(c·n) ∈ C(H)·(N(J(S)) ∩ N(H))`
+    have hc_inv_mem : (c : G)⁻¹ ∈ C := C.inv_mem c.2
+    have hcn_NH : (c : G) * n ∈ Subgroup.normalizer (H : Set G) :=
+      (Subgroup.normalizer (H : Set G)).mul_mem (centralizer_le_normalizer H c.2) hn
+    have hcn_NJ : (c : G) * n ∈ Subgroup.normalizer ((thompsonSubgroup (G := G) (S : Subgroup G) : Subgroup G) : Set G) :=
+      hNT_le_NJ hcn_mem
+    let K : Subgroup G :=
+      Subgroup.normalizer ((thompsonSubgroup (G := G) (S : Subgroup G) : Subgroup G) : Set G) ⊓
+        Subgroup.normalizer (H : Set G)
+    have hc_inv_mem' : (c : G)⁻¹ ∈ C ⊔ K := (le_sup_left : C ≤ C ⊔ K) hc_inv_mem
+    have hcn_mem' : (c : G) * n ∈ C ⊔ K := (le_sup_right : K ≤ C ⊔ K) ⟨hcn_NJ, hcn_NH⟩
+    rw [show n = (c : G)⁻¹ * ((c : G) * n) by group]
+    exact (C ⊔ K).mul_mem hc_inv_mem' hcn_mem'
+  · -- `C(H) ⊔ (N(J(S)) ∩ N(H)) ≤ N(H)`
+    refine sup_le ?_ ?_
+    · exact centralizer_le_normalizer H
+    · intro x hx
+      exact hx.2
 
 /-! ## Corollaries 3.4 and 3.5 (tex L697–L745) -/
 

@@ -423,6 +423,8 @@ namespace CFSG.ASVolI
 @[expose] def burnsideF48t_u52BaseX : List (Fin 462) :=
   [0, 1, 3, 9, 45]
 
+@[expose] def burnsideF48t_u52SizesX : List ℕ :=
+  [165, 128, 36, 6, 3]
 
 @[expose] def burnsideF48t_u52WP1 : Array (List ℤ) :=
   #[[],
@@ -437,6 +439,8 @@ namespace CFSG.ASVolI
 @[expose] def burnsideF48t_u52BaseP1 : List (Fin 462) :=
   [0, 1, 3, 9, 45]
 
+@[expose] def burnsideF48t_u52SizesP1 : List ℕ :=
+  [1, 128, 36, 6, 3]
 
 @[expose] def burnsideF48t_u52WP2 : Array (List ℤ) :=
   #[[],
@@ -450,6 +454,8 @@ namespace CFSG.ASVolI
 @[expose] def burnsideF48t_u52BaseP2 : List (Fin 462) :=
   [165, 1, 0, 45, 3]
 
+@[expose] def burnsideF48t_u52SizesP2 : List ℕ :=
+  [1, 160, 4, 12, 6]
 
 @[expose] def burnsideF48t_u52WB : Array (List ℤ) :=
   #[[],
@@ -460,6 +466,8 @@ namespace CFSG.ASVolI
 @[expose] def burnsideF48t_u52BaseB : List (Fin 462) :=
   [0, 1, 3, 45]
 
+@[expose] def burnsideF48t_u52SizesB : List ℕ :=
+  [1, 128, 24, 3]
 
 @[expose] def burnsideF48t_u52WS0 : Array (List ℤ) :=
   #[[],
@@ -472,6 +480,8 @@ namespace CFSG.ASVolI
 @[expose] def burnsideF48t_u52BaseS0 : List (Fin 462) :=
   [0, 3, 1]
 
+@[expose] def burnsideF48t_u52SizesS0 : List ℕ :=
+  [1, 128, 8]
 
 @[expose] def burnsideF48t_u52WK : Array (List ℤ) :=
   #[[],
@@ -480,6 +490,8 @@ namespace CFSG.ASVolI
 @[expose] def burnsideF48t_u52BaseK : List (Fin 462) :=
   [0, 45]
 
+@[expose] def burnsideF48t_u52SizesK : List ℕ :=
+  [1, 9]
 
 @[expose] def burnsideF48t_u52HA : List (List (Fin 6 × Bool)) :=
   [[(0, true), (1, true)], [(3, true), (0, true), (2, true)]]

@@ -118,6 +118,39 @@ theorem eq_one_of_cent_cartan_82 {T M I V X : Subgroup G} {k : ℕ} (hk : 2 ≤ 
   rw [hXK, Subgroup.mem_bot] at this
   exact this
 
+theorem generalizedFitting_eq_top_82 {Y : Type} [Group Y] [Finite Y] [IsSimpleGroup Y] :
+    CFSG.generalizedFitting Y = ⊤ := by
+  have hN : (CFSG.generalizedFitting Y).Normal :=
+    (CFSG.LocalCores.generalized_fitting_characteristic (G := Y)).2
+  rcases hN.eq_bot_or_eq_top with h | h
+  · exfalso
+    obtain ⟨y, hy⟩ := exists_ne (1 : Y)
+    have h1 := CFSG.centralizer_generalizedFitting_le Y
+    rw [h] at h1
+    have hyc : y ∈ Subgroup.centralizer ((⊥ : Subgroup Y) : Set Y) := by
+      rw [Subgroup.mem_centralizer_iff]
+      intro m hm
+      rw [Subgroup.coe_bot, Set.mem_singleton_iff] at hm
+      rw [hm, one_mul, mul_one]
+    exact hy (Subgroup.mem_bot.mp (h1 hyc))
+  · exact h
+
+theorem nParam_eq_of_isPSL_82 {Y : Type} [Group Y] [Finite Y] {k : ℕ} (hY : IsPSL 2 2 k Y)
+    {S : Subgroup Y} (hS : QuasithinUnique.IsSylowTwoOf S ⊤) :
+    E1.nParam (⊤ : Subgroup Y) = k := by
+  have hs : IsSimpleGroup Y := (CFSG.LieType.Simplicity.fam_PSL_simplicity Y 2 2 k hY).2
+  have hF : CFSG.generalizedFitting Y = ⊤ := generalizedFitting_eq_top_82
+  have hL : IsPSL 2 2 k ↥(CFSG.generalizedFitting Y) := by
+    rw [hF]
+    exact CFSG.SectionRank.statedClassicalModel_of_mulEquiv Subgroup.topEquiv hY
+  have hFs : IsSimpleGroup ↥(CFSG.generalizedFitting Y) := by
+    rw [hF]
+    exact Subgroup.topEquiv.isSimpleGroup
+  have hT : quasithinIsSylowTwo S := by
+    refine ⟨hS.2.1, ?_⟩
+    have h2 := hS.2.2
+    rwa [show (S.subgroupOf ⊤).index = S.index from Subgroup.relIndex_top_right S] at h2
+  exact Vol2.Ch11.SecE3.nParam_eq_of_isPSL22 hL hFs hT (by rw [hF]; exact top_sup_eq _)
 
 theorem card_of_binaryNineTensor_82 {W : Type} [CommGroup W] {L : Subgroup (MulAut W)} {n : ℕ}
     (hn : 1 ≤ n) (hL : BinaryNineTensor L ⊤ ⊥ n) : Nat.card W = 2 ^ (9 * n) := by

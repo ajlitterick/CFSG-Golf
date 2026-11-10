@@ -97,6 +97,7 @@ theorem sig_rfl (d f g m : ℕ) : sigWord d f g m = sigWordX instDecidableEqF4 d
 theorem sig_eq (d f g m : ℕ) : sigWord d f g m = sigWordX decF4 d f g m := by
   rw [sig_rfl, decF4_eq]
 
+theorem szOK7 : szOK 120 7 = true := by quickRfl
 theorem idk : idK 120 7 (mask 7) = true := by quickRfl
 theorem cI : canonK 120 7 (mask 7) (120 * 7) (pidn 120 7) = true := by quickRfl
 

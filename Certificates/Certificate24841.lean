@@ -17,6 +17,8 @@ open CFSG.KC.Ord CFSG.KC.Sxt CFSG.KD.LQT.C4137 CFSG.QuasithinUnique.Setup.X1
 private theorem ch24841 : sxtK GC m24RGens m24E1Bw [wordSxtN1, wordSxtN2] wordSxtR
     [wordSxtQ1, wordSxtQ2, wordSxtQ3] wordsSxtQ sxtW1 sxtW2 = true := by quickRfl
 
+private theorem ch24841n : notB (sxtK GC m24RGens m24E1Bw [wordSxtN1, wordSxtN2] wordSxtR
+    [wordSxtQ1, wordSxtQ2, wordSxtQ3] wordsSxtQ sxtW1 sxtW1) = true := by quickRfl
 
 private theorem sxtData_0 : CFSG.EvenSporadicStandard.M24Std.SxtData :=
   sxtData_of hG ch24841

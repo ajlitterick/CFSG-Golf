@@ -71,6 +71,11 @@ theorem recC_lt {CM3 M : Nat} (hcm : cmOK CM3 M = true) (C r : Nat) : recC M C r
   rw [cm_M hcm]
   exact Nat.and_lt_two_pow _ (Nat.sub_lt (Nat.two_pow_pos _) Nat.one_pos)
 
+theorem recC_eq {CM3 M : Nat} (hcm : cmOK CM3 M = true) (C r : Nat) :
+    recC M C r = C / 2 ^ (400 * r) % 2 ^ 399 := by
+  rw [cm_M hcm]
+  change (C >>> (400 * r)) &&& (2 ^ 399 - 1) = _
+  rw [Nat.and_two_pow_sub_one_eq_mod, Nat.shiftRight_eq_div_pow]
 
 theorem recX_eq (XC : Nat → Nat) (M c r : Nat) (hr : r < 133) :
     recX XC M (133 * c + r) = recC M (XC c) r := by
@@ -267,6 +272,15 @@ theorem mulVec_cvec (G y : Nat) (l : Fin 133) :
   congr 4
   ring
 
+theorem mulC_vec {L H CM RM ONE LV HV CM3 M A G n : Nat} {a : Nat → Nat}
+    (hc : constsOK 5 13 1729 133 9 L H CM RM ONE LV HV = true) (hcm : cmOK CM3 M = true)
+    (hA : A = ∑ r ∈ range n, a r * 2 ^ (1729 * r)) (ha : ∀ r < n, a r < 2 ^ 399)
+    (hG : Canon 5 133 13 G) {r : Nat} (hr : r < 133) (hrn : r < n) :
+    (fun l : Fin 133 => ((lane 13 (mulC L H CM3 RM A G) (133 * r + l.val) : Nat) : ZMod 5)) =
+      (OM G)ᵀ *ᵥ cvec (a r) := by
+  funext l
+  rw [mulC_lane hc hcm hA ha hG hr l.isLt, mulVec_cvec]
+  simp only [hrn, if_true]
 
 theorem rowL_eq {L H CM RM ONE LV HV Y r : Nat}
     (hc : constsOK 5 13 1729 133 9 L H CM RM ONE LV HV = true) (hY : Canon 5 133 13 Y)

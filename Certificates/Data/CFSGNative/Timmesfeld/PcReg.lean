@@ -180,5 +180,9 @@ structure PcLab where
   pcLabels p n (parTree p n) (leftTables p n pw cwR)
     (genInvIdx n (leftTables p n pw cwR) (p ^ n))
 
+@[expose] def pcFullOK (p n : Nat) (pw cw cwR : Array (Array Nat)) : Bool :=
+  pcRegOK p n pw cw cwR && centerOK p n (parTree p n) (leftTables p n pw cwR) &&
+    pcClassOK p n (parTree p n) (leftTables p n pw cwR) (pcLab p n pw cwR).lab
+      (pcLab p n pw cwR).wit (pcLab p n pw cwR).rep
 
 end Timmesfeld.PcReg

@@ -20,6 +20,9 @@ variable {G : Type*} [Group G]
 
 variable {B : Subgroup G}
 
+@[expose] def NWQ2 (B : Subgroup G) (Q : Subgroup (MulAut ↥B)) :
+    Set (Subgroup (MulAut ↥B)) :=
+  {X | X ≤ autIn B ⊤ ∧ Odd (Nat.card X) ∧ ∀ q ∈ Q, ∀ x ∈ X, q * x * q⁻¹ ∈ X}
 
 @[expose] def centerSub (Q : Subgroup (MulAut ↥B)) : Subgroup (MulAut ↥B) :=
   (Subgroup.center ↥Q).map Q.subtype

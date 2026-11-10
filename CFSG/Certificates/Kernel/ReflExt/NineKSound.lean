@@ -133,6 +133,13 @@ theorem bltF {a b : Nat} (h : ¬ a < b) : Nat.blt a b = false :=
 
 variable {P : Pt}
 
+theorem ptX_eq (P : Pt) (ex : List (Nat × Nat)) (b : Nat) :
+    ptX P ex b = withBound (withExtra P (ex.map (decR P.D))) b := by
+  have e : (fun r : Nat × Nat => (⟨(upk P.D r.2).reverse, upk P.D r.1⟩ : Refl)) = decR P.D := by
+    funext r
+    rfl
+  unfold ptX
+  rw [e]
 
 theorem negV_negV (D : Nat) (v : Vec) {i : Nat} (hi : i < D) :
     ln (negV D (negV D v)) i = ln v i := by
@@ -154,6 +161,9 @@ theorem packR_negneg (hp : P.p = 3) (z : Refl) :
     intro i hi
     exact negV_negV P.D _ (List.mem_range.mp (List.mem_reverse.mp hi))
 
+theorem negP_negP (hp : P.p = 3) (z : Refl) :
+    negP (fdB 3 P.D) P.D (negP (fdB 3 P.D) P.D (packR P z)) = packR P z := by
+  rw [Snd.negP_packR hp, Snd.negP_packR hp, packR_negneg hp]
 
 theorem eqP_refl (a : Nat × Nat) : eqP a a = true := by
   unfold eqP

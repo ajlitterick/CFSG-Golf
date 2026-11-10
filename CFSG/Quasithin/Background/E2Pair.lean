@@ -329,6 +329,28 @@ theorem le_kerIn_of_isTwoQuotient (h : Pair X T M V g) {D : Subgroup G} (hDX : D
     exact sup_le kerIn_le (fun t ht => h.normalizer_le ⟨h.sylow.1 ht.1, h.normal_T ht.1⟩)
   exact le_kerIn_of_le_normalizer hDM hXD
 
+omit [Finite G] in
+theorem mem_inf_conj_of_comm (h : Pair X T M V g) {a : G} (ha : a ∈ conjSub g (kerIn M X ⊓ V))
+    (hav : ∀ v ∈ V, a * v = v * a) : a ∈ V ⊓ conjSub g V := by
+  have haV : a ∈ conjSub g V := (conjSub g).monotone inf_le_right ha
+  have hcent : X ≤ Subgroup.centralizer ({a} : Set G) := by
+    rw [h.gen]
+    refine sup_le (fun v hv => ?_) (fun w hw => ?_)
+    · rw [Subgroup.mem_centralizer_iff]
+      intro y hy
+      rw [Set.mem_singleton_iff] at hy
+      subst hy
+      exact hav v hv
+    · rw [Subgroup.mem_centralizer_iff]
+      intro y hy
+      rw [Set.mem_singleton_iff] at hy
+      subst hy
+      exact h.comm_conj haV hw
+  have hga : g * a = a * g := (Subgroup.mem_centralizer_iff.mp (hcent h.mem) a rfl).symm
+  have hB : g⁻¹ * a * g ∈ kerIn M X ⊓ V := mem_conjSub.mp ha
+  have e : g⁻¹ * a * g = a := by rw [mul_assoc, ← hga]; group
+  rw [e] at hB
+  exact ⟨hB.2, haV⟩
 
 theorem B_inf_A (h : Pair X T M V g) :
     (kerIn M X ⊓ V) ⊓ conjSub g (kerIn M X ⊓ V) = V ⊓ conjSub g V :=

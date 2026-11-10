@@ -127,6 +127,11 @@ theorem mp_split {x : ℕ} (hx : x < 891) : MP1.testBit x = !MP0.testBit x := by
   simp only [testBit_nland, testBit_nlor, testBit_maskN, Nat.zero_testBit, decide_eq_true hx] at h1 h2
   cases a : MP0.testBit x <;> cases b : MP1.testBit x <;> simp_all
 
+theorem mo0_lt {x : ℕ} (h : MO0.testBit x = true) : x < 693 := by
+  by_contra hc
+  have h2 := congrArg (fun z : ℕ => z.testBit x) part_spec.2.1
+  simp only [testBit_nlor, testBit_maskN, decide_eq_false hc, h, Bool.true_or] at h2
+  exact absurd h2 (by decide)
 
 theorem mn0_spec (j : ℕ) : MN0.testBit j = (decide (j < 891) && MP0.testBit (fget ISO j 10)) := by
   rw [← beq_true_iff.1 kMN0, testBit_maskB, bit_eq]

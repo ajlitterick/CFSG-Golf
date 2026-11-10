@@ -42,6 +42,7 @@ variable {D : Data G} {Ch : Choice2011 G} (c : Ctx2311 D Ch)
 
 @[expose] def CMETilde : Subgroup G := CFSG.Quasithin.centralizerMod D.Z D.M c.E
 
+abbrev MBarTilde : Type := ↥D.M ⧸ (c.CMETilde.subgroupOf D.M).normalCore
 
 end Ctx2311
 
@@ -61,6 +62,11 @@ end Ctx2311
 @[expose] def S23_15_1 (D : Data G) (Ch : Choice2011 G) : Prop :=
   H1930 D → ∀ c : Ctx2311 D Ch, (frattini ↥c.E).map c.E.subtype = D.Z
 
+@[expose] def S23_15_2 (D : Data G) (Ch : Choice2011 G) : Prop :=
+  H1930 D → ∀ c : Ctx2311 D Ch, CFSG.pCore 2 c.MBarTilde = ⊥
+
+@[expose] def S23_16_2 (D : Data G) (Ch : Choice2011 G) : Prop :=
+  H1930 D → ∀ c : Ctx2311 D Ch, c.E ≤ c.K ∧ c.I = c.L
 
 @[expose] def S23_19 (D : Data G) (Ch : Choice2011 G) : Prop :=
   H1930 D → ∀ c : Ctx2311 D Ch,
@@ -69,6 +75,11 @@ end Ctx2311
 @[expose] def S23_20_1 (D : Data G) (Ch : Choice2011 G) : Prop :=
   H1930 D → ∀ c : Ctx2311 D Ch, D.sig ∩ piSet c.CMETilde = ∅
 
+@[expose] def S23_20_2 (D : Data G) (Ch : Choice2011 G) : Prop :=
+  H1930 D → ∀ c : Ctx2311 D Ch, ∀ q : ℕ, q.Prime → q ≠ 2 →
+    (1 < CFSG.Open.pRank q (⊤ : Subgroup (Bar2 D.M)) ∨
+      1 < CFSG.Open.pRank q (barPreimage D.M (CFSG.pCore q (Bar2 D.M)))) →
+    q ∉ piSet c.CMETilde
 
 @[expose] def S23_21_1 (D : Data G) (Ch : Choice2011 G) : Prop :=
   H1930 D → ∀ _ : Ctx2311 D Ch,

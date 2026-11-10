@@ -188,6 +188,10 @@ theorem p_facts [LySeed] :
   obtain ⟨a1, b1⟩ := p_of cP1 cPI1 cG1 hG1 CFSG.KD.LyOm.p1 CFSG.KD.LyOm.pi1
   exact ⟨cP0, cP1, cPI0, cPI1, a0, b0, a1, b1⟩
 
+theorem lyLet_eq [LySeed] {l : ℕ} (hl : l < 4) :
+    lyLet l = [aStar 2, aStar 3, (aStar 2)⁻¹, (aStar 3)⁻¹][l]'(by simpa using hl) := by
+  unfold lyLet
+  rw [List.getD_eq_getElem]
 
 theorem gp_facts [LySeed] {l : ℕ}
     (hl : l < 4) : LCanon 12 111 111 (CFSG.KD.LyOm.GP2 l) ∧
@@ -317,6 +321,7 @@ theorem mul_E7_apply {m : Type*} (M : Matrix m (Fin 7) (ZMod 5)) (r : m) (c : Fi
     simp [E7, this]
   · simp
 
+theorem fldW_eq'' (r o w : ℕ) : CFSG.KC.LL.fldW r o w = r / 2 ^ o % 2 ^ w := fldW_eq r o w
 
 theorem fld_eq (r o : ℕ) {m w : ℕ} (hm : m = 2 ^ w - 1) :
     Nat.land (Nat.shiftRight r o) m = r / 2 ^ o % 2 ^ w := by

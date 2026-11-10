@@ -177,6 +177,10 @@ theorem sqFix_of_sq {T0 T1 x : Nat} (hx : x < 4060)
     rw [e2]
     exact Nat.beq_refl x
 
+theorem sqFix_of_inv {T0 T1 x : Nat} (hx : x < 4060)
+    (h : invP (pcomp 4060 12 (mask 12) T0 T1) = true) : sqFix T0 T1 x = true := by
+  unfold invP at h
+  exact sqFix_of_sq hx ((bAnd_iff _ _).1 h).1
 
 theorem sqAll_of_sq {T0 T1 : Nat}
     (h : Nat.beq (pcomp 4060 12 (mask 12) (pcomp 4060 12 (mask 12) T0 T1)

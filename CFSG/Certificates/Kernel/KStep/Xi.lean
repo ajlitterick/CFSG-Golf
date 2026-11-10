@@ -1327,6 +1327,10 @@ theorem testBit_mpin (q : ℕ) : mpin.testBit q = (decide (q < SX) && par58b q &
   · have hq' : ¬ q < 131072 := hq
     simp [hq, hq']
 
+theorem mpin_lt : mpin < 2 ^ SX := lt_of_tb fun i hi => by
+  rw [testBit_mpin] at hi
+  simp only [Bool.and_eq_true, decide_eq_true_eq] at hi
+  exact hi.1.1
 
 theorem mpin_valid : Benes.ValidIn SX 512 mpin := by
   intro p hp

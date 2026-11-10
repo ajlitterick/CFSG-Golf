@@ -20,8 +20,6 @@ end Simple
 
 section Module
 
-variable {𝕎 : Type} [CommGroup 𝕎] [Finite 𝕎]
-
 
 end Module
 

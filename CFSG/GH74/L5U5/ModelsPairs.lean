@@ -80,6 +80,9 @@ section Middle
 variable {F : Type} [Field F]
 
 
+@[expose] def elem12 : SL(2, F) := ⟨!![1, 1; 0, 1], by simp [Matrix.det_fin_two]⟩
+
+
 end Middle
 
 section SystemLin

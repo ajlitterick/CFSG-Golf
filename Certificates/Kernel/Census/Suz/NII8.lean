@@ -24,6 +24,10 @@ namespace CertificateChecks.KernelCensus.Suz
 
 set_option maxRecDepth 1000000
 
+theorem kNII112 : (List.range' 112 7).all (nodeQ true conjII #[]) = true := by
+  quickRfl
+theorem kNII119 : (List.range' 119 7).all (nodeQ true conjII #[]) = true := by
+  quickRfl
 
 end CertificateChecks.KernelCensus.Suz
 

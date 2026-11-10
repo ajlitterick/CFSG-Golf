@@ -28,6 +28,21 @@ open CFSG.EvenSmallLie.UnitarySix.YamadaHAut (dTab sTab d2Tab dsTab d2sTab)
 @[expose] def lvX3A3 : Array Level := chX3A3.levels
 
 
+@[expose] def labStep (gs : Array (Array ℕ)) (lab : Array ℕ) : Array ℕ :=
+  gs.foldl (fun lab g => (List.range 693).foldl (fun lab p =>
+    let a := lab[p]!
+    let b := lab[g[p]!]!
+    if b < a then lab.set! p b else if a < b then lab.set! g[p]! a else lab) lab) lab
+
+@[expose] def labFix (gs : Array (Array ℕ)) : ℕ → Array ℕ → Array ℕ
+  | 0, lab => lab
+  | n + 1, lab =>
+    let lab' := labStep gs lab
+    if lab' == lab then lab else labFix gs n lab'
+
+@[expose] def lab1 : Array ℕ := labFix chA1.O 700 (Array.range 693)
+
+
 @[expose] def c10Wit (k d : Array ℕ) : Bool :=
   chA1.O.any fun g => !(allLt 693 fun p =>
     let r := g[k[d[p]!]!]!

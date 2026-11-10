@@ -227,6 +227,9 @@ variable {D : Type} [Group D]
     IsF618CaseEight H₁ H₂ ∨ IsF618CaseNine H₁ H₂ ∨ IsF618CaseTen H₁ H₂ ∨
     IsF618CaseEleven H₁ H₂ ∨ IsF618CaseTwelve H₁ H₂ ∨ IsF618CaseThirteen H₁ H₂
 
+@[expose] def F618Conclusion (H₁ H₂ : Subgroup D) : Prop :=
+  IsF618CaseOriented H₁ H₂ ∨ IsF618CaseOriented H₂ H₁
+
 
 end Cases
 
@@ -299,6 +302,17 @@ theorem IsF618CaseThirteen.card_inf [Finite D] (h : IsF618CaseThirteen H₁ H₂
 
 end Orders
 
+@[expose] def TheoremF618 : Prop :=
+  ∀ (D : Type) [Group D] [Finite D] (G₁ G₂ : Subgroup D), IsGoldschmidtTriple G₁ G₂ →
+    (∃ (X : Type) (_ : Group X) (_ : Finite X), SQTKTauCeti.StronglyQuasithin X ∧
+      CFSG.SectionRank.IsKGroupCat X ∧ Nonempty (D ≃* X ⧸ CFSG.pPrimeCore 3 X)) →
+    F618Conclusion G₁ G₂
+
+theorem f6_18 (hF : TheoremF618) {X : Type} [Group X] [Finite X]
+    (hsq : SQTKTauCeti.StronglyQuasithin X) (hK : CFSG.SectionRank.IsKGroupCat X)
+    {G₁ G₂ : Subgroup (X ⧸ CFSG.pPrimeCore 3 X)} (h : IsGoldschmidtTriple G₁ G₂) :
+    F618Conclusion G₁ G₂ :=
+  hF _ G₁ G₂ h ⟨X, inferInstance, inferInstance, hsq, hK, ⟨MulEquiv.refl _⟩⟩
 
 section In
 
@@ -311,6 +325,28 @@ theorem map_pCoreOf_subgroupOf {H : Subgroup G} (hHI : H ≤ I) :
   unfold pCoreOf
   rw [Subgroup.map_map, ← map_pCore_mulEquiv 2 ψ, Subgroup.map_map]
   congr 1
+
+theorem IsGoldschmidtTripleIn.f6_18 (hF : TheoremF618) (h : IsGoldschmidtTripleIn I G₁ G₂)
+    (hsq : SQTKTauCeti.StronglyQuasithin ↥I) (hK : CFSG.SectionRank.IsKGroupCat ↥I) :
+    ((G₁.subgroupOf I).map (QuotientGroup.mk' (CFSG.pPrimeCore 3 ↥I)) ⊓
+          (G₂.subgroupOf I).map (QuotientGroup.mk' (CFSG.pPrimeCore 3 ↥I)) =
+        (G₁.subgroupOf I ⊓ G₂.subgroupOf I).map (QuotientGroup.mk' (CFSG.pPrimeCore 3 ↥I)) ∧
+      IsGoldschmidtAmalgam ((G₁.subgroupOf I).map (QuotientGroup.mk' (CFSG.pPrimeCore 3 ↥I)))
+        ((G₂.subgroupOf I).map (QuotientGroup.mk' (CFSG.pPrimeCore 3 ↥I))) ∧
+      IsAmalgamIso ((G₁.subgroupOf I).map (QuotientGroup.mk' (Open.pCore 2 ↥I)))
+        ((G₂.subgroupOf I).map (QuotientGroup.mk' (Open.pCore 2 ↥I)))
+        ((G₁.subgroupOf I).map (QuotientGroup.mk' (CFSG.pPrimeCore 3 ↥I)))
+        ((G₂.subgroupOf I).map (QuotientGroup.mk' (CFSG.pPrimeCore 3 ↥I))) ∧
+      F618Conclusion ((G₁.subgroupOf I).map (QuotientGroup.mk' (CFSG.pPrimeCore 3 ↥I)))
+        ((G₂.subgroupOf I).map (QuotientGroup.mk' (CFSG.pPrimeCore 3 ↥I)))) ∨
+    (pCoreOf 2 (G₁.subgroupOf I) = Open.pCore 2 ↥I ∧
+      pCoreOf 2 (G₂.subgroupOf I) = Open.pCore 2 ↥I ∧
+      Nonempty (↥I ⧸ CFSG.pPrimeCore 3 ↥I ≃* Equiv.Perm (Fin 3)) ∧
+      G₁.subgroupOf I ⊔ CFSG.pPrimeCore 3 ↥I = ⊤ ∧
+      ¬ IsCyclic ↥((CFSG.pPrimeCore 3 ↥I).map (QuotientGroup.mk' (Open.pCore 2 ↥I)))) := by
+  rcases h.goldschmidt_mod_pPrimeCore with ⟨h₁, h₂, h₃⟩ | h'
+  · exact Or.inl ⟨h₁, h₂, h₃, F6.f6_18 hF hsq hK h₂.toIsGoldschmidtTriple⟩
+  · exact Or.inr h'
 
 
 end In

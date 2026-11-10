@@ -72,6 +72,12 @@ open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Monster.B.Fischer CFSG.Ra
 @[expose] def lvX1Z : Array Level := chX1Z.levels
 @[expose] def lvP2 : Array Level := chP2.levels
 
+@[expose] def eA3 : ArrCert := enumBfs 693 chA3.O chA3.base 5000
+
+@[expose] def eA4 : ArrCert := enumBfs 693 chA4.O chA4.base 100
+
+
+@[expose] def eX1 : ArrCert := enumBfs 693 chX1.O chX1.base 100
 
 @[expose] def ae : Array ℕ := wA [4, 17]
 

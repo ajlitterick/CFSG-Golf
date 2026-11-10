@@ -157,6 +157,11 @@ theorem comm_of {lx : List (Perm (Fin 6))} (hX : lx.map enc = LX) (hL : l.map en
   exact this
 
 
+theorem memL4 (hL : l.map enc = L4) {κ : Perm (Fin 6)} (h : κ ∈ l) : enc κ ∈ L4 := by
+  rw [← hL]
+  exact List.mem_map_of_mem h
+
+
 @[expose] noncomputable def qCent (c : ℕ) : Bool :=
   !d6K c || !memK (mulK 6 (mulK 6 (mulK 6 c 5517345) (invPK 6 c)) 5517570) L4 || memK c LX
 

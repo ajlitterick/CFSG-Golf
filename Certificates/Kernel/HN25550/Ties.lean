@@ -55,6 +55,14 @@ theorem ties_ok : tiesK RW REL SP HJ C6J C6 U HC G6C M2 M2R1 E61 G6S G6 PW PR = 
 theorem gcan : allN 4 (fun j => canonK 1100 11 (mask 11) (1100 * 11) (EP.G j)) = true := by
   quickRfl
 
+theorem neg_ties : Bool.not (tiesK RW REL SP HJ C6J C6 U HC G6C M2 M2R1 E61 G6S
+    [C6.getD 1 0, C6.getD 0 0, C6.getD 2 0, E61] PW PR) = true := by
+  decide +kernel
+
+theorem neg_ties_hj : Bool.not (tiesK RW REL SP
+    (HJ.set 2 (HJ.getD 3 0) |>.set 3 (HJ.getD 2 0)) C6J C6 U HC G6C M2 M2R1 E61 G6S G6 PW PR) =
+    true := by
+  decide +kernel
 
 end CFSG.KD.HN25550
 

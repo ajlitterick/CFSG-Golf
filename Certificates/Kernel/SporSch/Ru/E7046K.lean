@@ -76,6 +76,12 @@ theorem kN : strictB Q7305.TG (fun T => allN 4060 (fun x => bAnd(Nat.blt (fl T x
     eqB (bt 12 (Q7305.ELf x)) (Nat.beq (Q7307.Lf (fl T x)) (Q7307.Lf 1))))) = true := by
   quickRfl
 
+theorem negE : andB (notB (allN 4060 (forestAtG 4060 2 Q7305.EMv Q7305.gE (fun t => Qf (Nat.succ t))
+      ORf FOf DPf PAf GLf)))
+    (andB (notB (sOK (Q7305E.F 0) 1))
+      (notB (strictB Q7305.TG (fun T => allN 4060 (fun x => bAnd(Nat.blt (fl T x) 4060,
+        eqB (bt 10 (Q7305.ELf x)) (Nat.beq (Q7307.Lf (fl T x)) (Q7307.Lf 1)))))))) = true := by
+  quickRfl
 
 end CertificateChecks.KernelSporSch.E7046
 

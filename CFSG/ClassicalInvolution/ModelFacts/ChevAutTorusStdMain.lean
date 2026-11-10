@@ -46,7 +46,9 @@ end Chain
 
 section Highest
 
+@[expose] def θE6 : Fin 6 → ℤ := ![1, 2, 2, 3, 2, 1]
 @[expose] def θE7 : Fin 7 → ℤ := ![2, 2, 3, 4, 3, 2, 1]
+@[expose] def θE8 : Fin 8 → ℤ := ![2, 3, 4, 6, 5, 4, 3, 2]
 
 
 theorem θE7_pair : ∀ j : Fin 7, pair (Tag.cartan .E7) θE7 j = if j = 0 then 1 else 0 := by

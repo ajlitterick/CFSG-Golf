@@ -67,6 +67,18 @@ theorem fixCount24_of (hL : ∀ l < 26, ∀ x < 306936, ap L[l]! x = σ l x)
   rw [fixCount24_eq (T := wordTable L w) (g := w.foldr σ) fun x hx => (ap_foldr hL hlt w hw x hx).1]
   exact fixOK_spec (fun l hl => hσ l (hw l hl)) (fun l hl => hA l (hw l hl)) h
 
+theorem fixCnt_of {O : Enum} (hL : ∀ l < 26, ∀ x < 306936, ap (chainLetters O)[l]! x = σ l x)
+    (hlt : ∀ l < 26, ∀ x < 306936, σ l x < 306936)
+    (hσ : ∀ l < 26, ∀ q < 524288, σ l q < 524288)
+    (hA : ∀ l < 26, ∀ v q, q < 524288 → (A l v).testBit q = v.testBit (σ l q))
+    {w : List Nat} (hw : ∀ l ∈ w, l < 26) {c : Nat} (h : fixOK A w c = true) :
+    fixCnt (wordTab (mkCtx O) w) = c := by
+  have e1 : fixCnt (wordTab (mkCtx O) w) = fixCount24 (wordTable (chainLetters O) w) := by
+    unfold fixCnt fixCount24
+    rw [List.countP_eq_length_filter]
+    rfl
+  rw [e1]
+  exact fixCount24_of hL hlt hσ hA hw h
 
 theorem fi24RepFixOK_of {O : Enum}
     (hL : ∀ l < 26, ∀ x < 306936, ap (chainLetters O)[l]! x = σ l x)

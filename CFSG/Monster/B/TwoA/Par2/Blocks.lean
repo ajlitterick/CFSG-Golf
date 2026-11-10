@@ -87,6 +87,12 @@ theorem eq_of_mem_blk
   rcases hψ with h1 | h1 <;> rcases hψ' with h2 | h2 <;>
     exact ((pW_eq_iff j k _ _).1 (h1.symm.trans h2)).1
 
+theorem dhat0_mul_inj
+    {j k : Rest} {v v' : Dfull} (hv : v ∈ Vhat) (hv' : v' ∈ Vhat)
+    (h : dhat 0 j * v = dhat 0 k * v') : j = k ∧ v = v' := by
+  have hjk : j = k := eq_of_mem_blk ⟨v, hv, rfl⟩ ⟨v', hv', h.symm⟩
+  subst hjk
+  exact ⟨rfl, mul_left_cancel h⟩
 
 theorem jhatToKv0_Ctwo
     {g : Dfull} (hg : g ∈ Ctwo) : ∃ a : C,

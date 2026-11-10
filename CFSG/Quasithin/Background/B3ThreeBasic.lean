@@ -150,6 +150,7 @@ theorem IsModIso.zeroClass {V' : Type*} [CommGroup V'] {ρ : Γ →* MulAut V}
   mul_mem' := fun {a b} ha hb g => by rw [map_mul, ha g, hb g]
   inv_mem' := fun {a} ha g => by rw [map_inv, ha g]
 
+theorem mem_fixG {ρ : Γ →* MulAut V} {v : V} : v ∈ fixG ρ ↔ ∀ g, ρ g v = v := Iff.rfl
 
 @[expose] def commOn (ρ : Γ →* MulAut V) (M : Subgroup V) : Subgroup V :=
   Subgroup.closure {w | ∃ g, ∃ m ∈ M, w = ρ g m * m⁻¹}

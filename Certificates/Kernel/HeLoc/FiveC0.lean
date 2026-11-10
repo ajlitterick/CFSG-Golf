@@ -63,6 +63,7 @@ theorem kB7 : bindB 7 = true := by quickRfl
 theorem kB8 : bindB 8 = true := by quickRfl
 theorem kB9 : bindB 9 = true := by quickRfl
 
+theorem kN : Nat.beq C0.N 600 = true := by quickRfl
 
 theorem kTree : CFSG.KC.Enum.allN 600 (fun i => bIf(Nat.beq i 0, true, treeAtK 3 C0.P C0.L i)) = true := by
   quickRfl

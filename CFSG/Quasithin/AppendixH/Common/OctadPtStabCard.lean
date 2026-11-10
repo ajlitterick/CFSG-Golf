@@ -44,5 +44,28 @@ theorem octFix_octad0 : octFix octad0 = CFSG.Quasithin.H.Mathieu.H16Pf.fixO := b
   · rintro ⟨hg, hfix⟩
     exact ⟨hg, fun i hi => hfix i (by simpa [octad0] using hi)⟩
 
+private theorem card_fixO_eq : Nat.card CFSG.Quasithin.H.Mathieu.H16Pf.fixO = 16 := by
+  have hinj : Function.Injective koPerm := by
+    intro s t h
+    have hs := koPerm_eight s
+    rw [h, koPerm_eight t] at hs
+    exact Fin.ext (by omega)
+  have h : (CFSG.Quasithin.H.Mathieu.H16Pf.fixO : Set S24) = Set.range koPerm := by
+    ext σ
+    simp only [SetLike.mem_coe, mem_fixO_iff, Set.mem_range]
+    exact ⟨fun ⟨t, ht⟩ => ⟨t, ht.symm⟩, fun ⟨t, ht⟩ => ⟨t, ht.symm⟩⟩
+  rw [← SetLike.coe_sort_coe, h, Nat.card_range_of_injective hinj,
+    Nat.card_eq_fintype_card, Fintype.card_fin]
+
+private theorem card_octFix0 : Nat.card (octFix octad0) = 16 := by
+  rw [octFix_octad0, card_fixO_eq]
+
+theorem card_octFix {O : Finset (Fin 24)} (hO : IsOctad O) :
+    Nat.card (octFix O) = 16 := by
+  obtain ⟨σ, hσ, hσO⟩ := exists_smul_octad_eq isOctad_octad0 hO
+  rw [← hσO, octFix_smul hσ]
+  rw [Subgroup.card_map_of_injective (MulAut.conj σ).injective]
+  exact card_octFix0
+
 
 end CFSG.ASVolI.AppH

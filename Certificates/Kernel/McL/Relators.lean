@@ -52,6 +52,7 @@ theorem nr1_eq {r : ℕ} (hr : r < 78) : McL.Rels.NR1 r = McL.Rels.QR r := by
   unfold McL.Rels.NR1
   rw [h]
 
+theorem nr1_78 : McL.Rels.NR1 78 = McL.Rels.K1W := rfl
 
 theorem nr1_letters : ∀ r < 79, ∀ i < LceS.wLen (McL.Rels.NR1 r),
     wLet (LceS.wWord (McL.Rels.NR1 r)) i < 6 :=

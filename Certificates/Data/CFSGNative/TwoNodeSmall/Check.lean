@@ -8,6 +8,10 @@ namespace CFSG.TwoNodeSmall
 
 set_option compiler.extract_closed false
 
+@[expose] def check1 (P : Pt) : Bool :=
+  match find P with
+  | some w => verify P w
+  | none => false
 
 @[expose] def cl (i j : Nat) : Nat := if i = j then 2 else if i + 1 = j ∨ j + 1 = i then 2 else 0
 
@@ -78,5 +82,7 @@ set_option compiler.extract_closed false
       (addPairs8 e o).map fun fa_ha =>
         { p := 3, D := 9, nFrame := 8, gens := fr ++ [⟨fa_ha.1 ++ [0], fa_ha.2 ++ [0]⟩], x := [0, 0, 0, 0, 0, 0, 0, 1, 0], bound := bound9 }
 
+@[expose] def nineDepCheck (_ : Unit := ()) : Bool :=
+  (pts8 () ++ pts9 () ++ pts9m ()).all check1
 
 end CFSG.TwoNodeSmall

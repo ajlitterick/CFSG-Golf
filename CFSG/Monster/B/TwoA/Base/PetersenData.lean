@@ -83,6 +83,29 @@ open scoped Pointwise
   ![0, 1, 2, 3, 8, 10, 11, 9, 12, 15, 13, 14, 16, 17, 18, 19, 20, 22, 23, 21, 4, 7, 5, 6],
   ![0, 1, 2, 3, 8, 11, 9, 10, 20, 21, 22, 23, 12, 14, 15, 13, 16, 19, 17, 18, 4, 6, 7, 5]]
 
+@[expose] def perm5Fun : Fin 10 → Fin 24 → Fin 24 := ![
+  ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+  ![0, 1, 2, 3, 4, 5, 6, 7, 16, 17, 18, 19, 20, 21, 22, 23, 8, 9, 10, 11, 12, 13, 14, 15],
+  ![0, 1, 2, 3, 4, 6, 7, 5, 8, 11, 9, 10, 16, 19, 17, 18, 20, 23, 21, 22, 12, 15, 13, 14],
+  ![0, 1, 2, 3, 4, 6, 7, 5, 20, 23, 21, 22, 12, 15, 13, 14, 8, 11, 9, 10, 16, 19, 17, 18],
+  ![0, 1, 2, 3, 4, 7, 5, 6, 8, 10, 11, 9, 20, 22, 23, 21, 12, 14, 15, 13, 16, 18, 19, 17],
+  ![0, 1, 2, 3, 4, 7, 5, 6, 12, 14, 15, 13, 16, 18, 19, 17, 8, 10, 11, 9, 20, 22, 23, 21],
+  ![0, 1, 2, 3, 8, 9, 10, 11, 20, 23, 21, 22, 16, 18, 19, 17, 4, 5, 6, 7, 12, 13, 14, 15],
+  ![0, 1, 2, 3, 8, 10, 11, 9, 16, 17, 18, 19, 12, 15, 13, 14, 4, 7, 5, 6, 20, 22, 23, 21],
+  ![0, 1, 2, 3, 8, 11, 9, 10, 12, 14, 15, 13, 20, 21, 22, 23, 4, 6, 7, 5, 16, 19, 17, 18],
+  ![0, 1, 2, 3, 12, 13, 14, 15, 16, 19, 17, 18, 20, 22, 23, 21, 4, 5, 6, 7, 8, 9, 10, 11]]
+
+@[expose] def perm5Inv : Fin 10 → Fin 24 → Fin 24 := ![
+  ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+  ![0, 1, 2, 3, 4, 5, 6, 7, 16, 17, 18, 19, 20, 21, 22, 23, 8, 9, 10, 11, 12, 13, 14, 15],
+  ![0, 1, 2, 3, 4, 7, 5, 6, 8, 10, 11, 9, 20, 22, 23, 21, 12, 14, 15, 13, 16, 18, 19, 17],
+  ![0, 1, 2, 3, 4, 7, 5, 6, 16, 18, 19, 17, 12, 14, 15, 13, 20, 22, 23, 21, 8, 10, 11, 9],
+  ![0, 1, 2, 3, 4, 6, 7, 5, 8, 11, 9, 10, 16, 19, 17, 18, 20, 23, 21, 22, 12, 15, 13, 14],
+  ![0, 1, 2, 3, 4, 6, 7, 5, 16, 19, 17, 18, 8, 11, 9, 10, 12, 15, 13, 14, 20, 23, 21, 22],
+  ![0, 1, 2, 3, 16, 17, 18, 19, 4, 5, 6, 7, 20, 21, 22, 23, 12, 15, 13, 14, 8, 10, 11, 9],
+  ![0, 1, 2, 3, 16, 18, 19, 17, 4, 7, 5, 6, 12, 14, 15, 13, 8, 9, 10, 11, 20, 23, 21, 22],
+  ![0, 1, 2, 3, 16, 19, 17, 18, 4, 6, 7, 5, 8, 11, 9, 10, 20, 22, 23, 21, 12, 13, 14, 15],
+  ![0, 1, 2, 3, 16, 17, 18, 19, 20, 21, 22, 23, 4, 5, 6, 7, 8, 10, 11, 9, 12, 15, 13, 14]]
 
 @[expose] def perm4 (c : Fin 15) : Equiv.Perm (Fin 24) where
   toFun := perm4Fun c
@@ -90,12 +113,39 @@ open scoped Pointwise
   left_inv := (by decide : ∀ c x, perm4Inv c (perm4Fun c x) = x) c
   right_inv := (by decide : ∀ c x, perm4Fun c (perm4Inv c x) = x) c
 
+@[expose] def perm5 (d : Fin 10) : Equiv.Perm (Fin 24) where
+  toFun := perm5Fun d
+  invFun := perm5Inv d
+  left_inv := (by decide : ∀ d x, perm5Inv d (perm5Fun d x) = x) d
+  right_inv := (by decide : ∀ d x, perm5Fun d (perm5Inv d x) = x) d
 
 theorem perm4_mem (c : Fin 15) : perm4 c ∈ AutPerm := by
   fin_cases c <;> exact mem_AutPerm_of_basis (by decide +kernel) (by decide +kernel)
 
+theorem perm5_mem (d : Fin 10) : perm5 d ∈ AutPerm := by
+  fin_cases d <;> exact mem_AutPerm_of_basis (by decide +kernel) (by decide +kernel)
 
 theorem perm4_fix : ∀ c : Fin 15, ∀ x : Fin 24, x.val < 4 → perm4 c x = x := by decide
+
+theorem perm5_fix : ∀ d : Fin 10, ∀ x : Fin 24, x.val < 4 → perm5 d x = x := by decide
+
+theorem perm4_smul_A2 : ∀ c : Fin 15, perm4 c • A2 = R4 c := by decide +kernel
+
+theorem perm5_smul_A3 : ∀ d : Fin 10, perm5 d • A3 = R5 d := by decide +kernel
+
+theorem R4_injective : Function.Injective R4 := by
+  intro c c' h
+  revert c c'
+  decide +kernel
+
+theorem R5_injective : Function.Injective R5 := by
+  intro d d' h
+  revert d d'
+  decide +kernel
+
+
+@[expose] def ev4 : Fin 15 → Fin 2 → Fin 10 := ![![0, 1], ![2, 3], ![4, 5], ![0, 6], ![4, 7],
+    ![2, 8], ![0, 9], ![5, 8], ![3, 7], ![1, 7], ![5, 6], ![2, 9], ![1, 8], ![4, 9], ![3, 6]]
 
 
 end CFSG.Monster.B.TwoA

@@ -80,6 +80,14 @@ end
 
 @[expose] noncomputable def orbCount (S : Nat) : Nat := Nat.land S (nat_lit 4294967295)
 
+@[expose] noncomputable def sumOK (MJ : Nat → Nat) (LIVE ORD SUM : Nat) : Bool :=
+  (fun r => andB (Nat.blt (nat_lit 0) r) (Nat.beq (Nat.sub r (nat_lit 1)) SUM))
+    (Nat.rec (motive := fun _ => Nat) (nat_lit 1)
+      (fun j acc => sN (MJ j) (fun m => Bool.rec (motive := fun _ => Nat) acc
+        (Bool.rec (motive := fun _ => Nat) (nat_lit 0) (Nat.add acc (Nat.div ORD m))
+          (andB (Nat.blt (nat_lit 0) acc) (andB (Nat.blt (nat_lit 0) m) (Nat.beq (Nat.mod ORD m) (nat_lit 0)))))
+        (Nat.blt (nat_lit 0) (Nat.land LIVE (Nat.shiftLeft (nat_lit 1) j)))))
+      (nat_lit 64))
 
 end CFSG.KC.B4A
 

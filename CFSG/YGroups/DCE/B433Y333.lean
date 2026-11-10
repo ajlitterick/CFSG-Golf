@@ -19,6 +19,8 @@ open scoped Pointwise
 
 @[expose] def Pt432 : Type := Fin 31671
 
+@[expose] def toPt (x : Fin 31671) : Pt432 := x
+
 
 noncomputable instance :
     MulAction (YGroup 4 3 2) Pt432 :=
@@ -27,6 +29,9 @@ noncomputable instance :
 instance : Fintype Pt432 := inferInstanceAs (Fintype (Fin 31671))
 
 instance : Finite Pt432 := inferInstanceAs (Finite (Fin 31671))
+
+
+@[expose] def pt0 : Pt432 := toPt 0
 
 
 @[expose] noncomputable def P333 : Subgroup B433 :=

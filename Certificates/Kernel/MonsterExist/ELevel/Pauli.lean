@@ -84,6 +84,11 @@ theorem unpackY_packY (y : Model.Pauli) : unpackY (packY y) = red y := by
   unfold unpackY red
   rw [packY_bit, packY_mod, packY_div]
 
+theorem packY_lt (y : Model.Pauli) : packY y < 2 ^ 25 := by
+  unfold packY
+  have ha := Nat.mod_lt y.2.1 (show 0 < 4096 by norm_num)
+  have hd := Nat.mod_lt y.2.2 (show 0 < 4096 by norm_num)
+  split_ifs <;> omega
 
 theorem mod4096_lt (a : ℕ) : a % 4096 < 2 ^ 12 := by
   have := Nat.mod_lt a (show 0 < 4096 by norm_num)

@@ -146,6 +146,8 @@ theorem itabs_range (a k : Nat) (hk : a + k ≤ 42) :
       (((List.range k).map fun j => j2CentTbl (a + j)).toArray.map (invT 315)) :=
   TabsOK_inv (tabs_range a k hk) (invs_range a k hk)
 
+theorem eq_of {G G' : Nat → Nat} {k : Nat} (h : allN k (fun j => Nat.beq (G' j) (G j)) = true) :
+    ∀ j < k, G' j = G j := fun j hj => Nat.eq_of_beq_eq_true (allN_spec h j hj)
 
 theorem bindO : (allN 2 (fun j => bAnd(Nat.beq (J2R1.G j) (J2P.S j), Nat.beq (J2R1.GI j) (J2P.SI
     j))) =
@@ -566,6 +568,7 @@ theorem orB {a b : Bool} (h : bIf(a, true, b) = true) : (a || b) = true := by
   · simpa using h
   · rfl
 
+theorem succ_eq (a j : Nat) : Nat.add a j = a + j := rfl
 
 theorem sy_tabs' : TabsOK 315 9 8 (fun j => F (Nat.succ j)) (cgL 1 8).toArray :=
   TabsOK_congr (fun j _ => by

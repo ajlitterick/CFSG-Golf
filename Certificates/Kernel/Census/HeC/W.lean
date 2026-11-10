@@ -23,6 +23,11 @@ set_option maxRecDepth 1000000
 @[expose] noncomputable def witF (is : List Nat) : Bool :=
   wits8330OK nv CertificateChecks.KernelSporSch.HeTc.nfp uP bsH d is
 
+theorem kW0 : witF (List.range' 0 26) = true := by quickRfl
+theorem kW26 : witF (List.range' 26 26) = true := by quickRfl
+theorem kW52 : witF (List.range' 52 26) = true := by quickRfl
+theorem kW78 : witF (List.range' 78 26) = true := by quickRfl
+theorem kW104 : witF (List.range' 104 26) = true := by quickRfl
 
 end CertificateChecks.KernelCensus.HeCj
 

@@ -30,6 +30,7 @@ theorem natMul_eq (a b : ℕ) : Nat.mul a b = a * b := rfl
 
 theorem natShiftLeft_eq (a b : ℕ) : Nat.shiftLeft a b = a <<< b := rfl
 
+theorem natAdd_eq (a b : ℕ) : Nat.add a b = a + b := rfl
 
 theorem ind_testBit_xorN (n : ℕ) (f : ℕ → ℕ) (k : ℕ) :
     ind ((xorN n f).testBit k) = ∑ q ∈ Finset.range n, ind ((f q).testBit k) := by

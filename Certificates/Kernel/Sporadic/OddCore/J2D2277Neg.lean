@@ -13,6 +13,8 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.SporSch
 open CFSG.KLie.CT (notB)
 open CertificateChecks.KernelSpor.J2DCnt
 
+theorem sum11 : notB (Nat.beq (sumN (rcnt (KernelSporSch.PJ2.LR 0)) J2DC.CS) 11) = true := by
+  quickRfl
 
 theorem canon : notB (canonL 315 9 [Nat.shiftLeft 1 (315 * 9)]) = true := by quickRfl
 

@@ -13,6 +13,9 @@ theorem natCard_J :
     Nat.card J = 90745943887872000 :=
   Kernel.card_J_eq th_kernel_facts
 
+theorem natCard_J_9013 :
+    Nat.card J = 90745943887872000 :=
+  Certificates.certificate9013
 
 theorem all_involutions_conjugate :
     ∀ u : J, orderOf u = 2 → IsConj a u :=

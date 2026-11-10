@@ -32,6 +32,9 @@ theorem base_facts : eqB G [43, 43] [] = true ∧ witB wX cw1 = true ∧ witB wX
 
 theorem ok_wX : ∀ c ∈ wX, okL c := by decide
 theorem ok_wXC : ∀ c ∈ wXC, okL c := by decide
+theorem ok_W0 : ∀ c ∈ W0n, okL c := by decide
+theorem ok_W1 : ∀ c ∈ W1n, okL c := by decide
+theorem ok_W2 : ∀ c ∈ W2n, okL c := by decide
 theorem ok_WW : ∀ c ∈ WWn, okL c := by decide
 theorem ok_u2 : ∀ c ∈ u2W, okL c := by decide
 

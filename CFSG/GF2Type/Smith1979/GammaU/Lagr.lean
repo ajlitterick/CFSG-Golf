@@ -38,8 +38,6 @@ theorem eq_false_of_ite {b : Bool} (h : (if b then 1 else 0 : ZMod 2) = 0) : b =
 
 section Complete
 
-include hsing hdim
-
 
 end Complete
 

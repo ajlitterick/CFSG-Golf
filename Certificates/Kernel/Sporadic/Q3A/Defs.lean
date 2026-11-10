@@ -108,6 +108,9 @@ local notation "T64" => nat_lit 18446744073709551616
 @[expose] noncomputable def countK (n : Nat) (p : Nat → Bool) : Nat :=
   foldN n (fun i c => nIf(p i, Nat.succ c, c)) (nat_lit 0)
 
+@[expose] noncomputable def isRoot (i : Nat) : Bool :=
+  bIf(Nat.beq i 0, true, bIf(Nat.beq i 1, true, bIf(Nat.beq i 2, true,
+    bIf(Nat.beq i 10, true, Nat.beq i 202))))
 
 @[expose] noncomputable def rootsOK : Bool :=
   bAnd(Nat.beq (countK (nat_lit 22880) fun i => Nat.beq (frootK i) i) (nat_lit 5),

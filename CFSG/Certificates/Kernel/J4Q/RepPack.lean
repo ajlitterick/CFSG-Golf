@@ -28,6 +28,8 @@ namespace CFSG.KC.J4Q
 
 open CFSG.Sporadic.J4.QT
 
+private theorem nrec_succ {α : Type} (z : α) (f : Nat → α → α) (n : Nat) :
+    Nat.rec (motive := fun _ => α) z f (n + 1) = f n (Nat.rec (motive := fun _ => α) z f n) := rfl
 
 private theorem recX_congr {f g : Nat → Nat} : ∀ n, (∀ k < n, f k = g k) →
     Nat.rec (motive := fun _ => Nat) 0 (fun k acc => acc ^^^ f k) n =

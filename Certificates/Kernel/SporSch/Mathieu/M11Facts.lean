@@ -56,6 +56,15 @@ theorem disjOK : clsDisj 11 4 M11CL = true := by quickRfl
 theorem neOK : allC (fun d => Nat.blt 0 (CFSG.KS.Mathieu.lenN d.2.2.2.2.2.2)) M11CL = true := by
   quickRfl
 
+theorem emptyCls : allC (clsOneR 11 4 tA tB 2 400)
+      [(0, 0, (M11CL.getD 0 (0, 0, 0, [], [], [], [])).2.2.1,
+        [(M11CL.getD 0 (0, 0, 0, [], [], [], [])).2.2.1], [], [], [])] = true ∧
+    clsDisj 11 4 [(0, 0, (M11CL.getD 0 (0, 0, 0, [], [], [], [])).2.2.1,
+        [(M11CL.getD 0 (0, 0, 0, [], [], [], [])).2.2.1], [], [], [])] = true ∧
+    (allC (fun d => Nat.blt 0 (CFSG.KS.Mathieu.lenN d.2.2.2.2.2.2))
+      [(0, 0, (M11CL.getD 0 (0, 0, 0, [], [], [], [])).2.2.1,
+        [(M11CL.getD 0 (0, 0, 0, [], [], [], [])).2.2.1], [], [], [])]).not = true := by
+  refine ⟨by quickRfl, by quickRfl, by quickRfl⟩
 
 theorem szOK' : szOK 11 4 = true := by quickRfl
 

@@ -243,6 +243,12 @@ theorem class_reach (hreach : reachK nx lo N = true) {y : G} (hy : PRep 4060 12 
   · obtain ⟨-, h⟩ := class_step h0 h1 hi0 hi1 hconj hcls hloN hi hz 1 (by norm_num)
     exact ⟨_, cl_conj 1 hzc, h⟩
 
+theorem class_cover {y : G} (hy : PRep 4060 12 (E lo) y) (hN : 0 < N) :
+    cl x0 x1 y ⊆ {z | ∃ b < N, PRep 4060 12 (E (lo + b)) z} := by
+  refine cl_sub (self_mem_cl x0 x1 y) ⟨0, hN, by simpa using hy⟩ ?_
+  rintro l hl z ⟨b, hb, hz⟩
+  obtain ⟨h1', h2'⟩ := class_step h0 h1 hi0 hi1 hconj hcls hloN hb hz l hl
+  exact ⟨_, h1', h2'⟩
 
 end Class
 

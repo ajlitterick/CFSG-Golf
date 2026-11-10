@@ -27,6 +27,10 @@ theorem lp2b : allBlk 231 (imgB 22 LocalData.lperm2) 231 = true := by quickRfl
 theorem dist0 : allBlk 0 distB 231 = true := by quickRfl
 theorem dist1 : allBlk 231 distB 231 = true := by quickRfl
 
+theorem neg_lp1 : Bool.not (imgB 21 LocalData.lperm2 0) = true := by quickRfl
+theorem neg_lp2 : Bool.not (imgB 22 LocalData.lperm1 0) = true := by quickRfl
+theorem neg_dist : Bool.not (allN 2 (fun j => Bool.not (Nat.beq (sx 58 0) (sx 58 j)))) = true := by
+  quickRfl
 
 end CertificateChecks.KernelSporSch.HNLocal
 

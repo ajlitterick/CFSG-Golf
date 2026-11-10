@@ -29,6 +29,7 @@ theorem oA : ordIs 275 9 (mask 9) (pidn 275 9) (PMcL.S 0) 1 = true := by quickRf
 
 theorem cZ : canonK 275 9 (mask 9) (275 * 9) Z = true := by quickRfl
 
+theorem cZi : canonK 275 9 (mask 9) (275 * 9) Zi = true := by quickRfl
 
 theorem cG : canonK 275 9 (mask 9) (275 * 9) G = true := by quickRfl
 

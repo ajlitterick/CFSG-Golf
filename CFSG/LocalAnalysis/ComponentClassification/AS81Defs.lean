@@ -93,6 +93,21 @@ structure Frame (G : Type) [Group G] [Finite G] (A A₁ R : Subgroup G) (g : G)
     ∀ R : Subgroup G, IsSylowOf 2 R (centralizer (A : Set G)) →
       ∃ (g : G) (E F : Subgroup G), Frame G A A R g E F
 
+@[expose] def Step15 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (A A₁ R : Subgroup G) (g : G) (E F : Subgroup G),
+    Frame G A A₁ R g E F → Odd (Nat.card (center A₁)) →
+      (∀ e ∈ E, e ∉ A₁ → ∃ Q ∈ pointsIn R E, e ∈ Q) ∧
+      (∀ Q₁ ∈ pointsIn R E, ∀ Q₂ ∈ pointsIn R E, Q₁ ≠ Q₂ → Q₁ ⊓ Q₂ = ⊥) ∧
+      Nat.card (pointsIn R E) = 16 ∧
+      ∃ P₀ P : Subgroup G, P₀ ≤ normalizer (E : Set G) ∧
+        normalizer (E : Set G) ≤ normalizer (P₀ : Set G) ∧
+        normalizer (E : Set G) = P₀ ⊔ (normalizer (E : Set G) ⊓ normalizer (R : Set G)) ∧
+        (∀ p ∈ P₀, ∀ q ∈ P₀, p * p ∈ centralizer (E : Set G) ∧
+          p * q * p⁻¹ * q⁻¹ ∈ centralizer (E : Set G)) ∧
+        (P₀ ⊓ centralizer (E : Set G)).relIndex P₀ = 16 ∧
+        (∀ Q ∈ pointsIn R E, ∃ p ∈ P₀, rightConjugate R p = Q) ∧
+        IsPGroup 2 P ∧ P ≤ P₀ ∧ P₀ = AS76b.oddCoreIn (centralizer (E : Set G)) ⊔ P ∧
+        AS76b.oddCoreIn (centralizer (E : Set G)) ≤ centralizer (P : Set G)
 
 @[expose] def Step16 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A R : Subgroup G) (g : G) (E F : Subgroup G),

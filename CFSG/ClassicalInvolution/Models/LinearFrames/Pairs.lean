@@ -63,6 +63,11 @@ end Commuting
 
 section A2
 
+variable {K : Type} [Field K] {n : ℕ}
+
+@[expose] def chart3 (hn : 3 ≤ n) (g : SL(n, K)) : SL(3, K) →* SL(n, K) :=
+  (MulAut.conj g).toMonoidHom.comp (blockSL K n 3 0 (by omega))
+
 
 end A2
 

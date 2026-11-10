@@ -26,6 +26,10 @@ namespace CFSG.KD.RX708604
 
 open CFSG.TwoNodeSmall CFSG.TwoNodeSmall.WitK CFSG.ReflExt CFSG.ReflExt.RXK CFSG.KC
 
+theorem nCan708604 : notB (canK (e6Frame 7 1) (let f := nthK fd0 e6 1
+    (f.1, f.2.1, f.2.2.1, f.2.2.2.1, match f.2.2.2.2 with
+      | [] => []
+      | rp :: rs => (((rp.1.1 + 3, rp.1.2), rp.2) : RXK.Rep) :: rs))) = true := by quickRfl
 
 end CFSG.KD.RX708604
 

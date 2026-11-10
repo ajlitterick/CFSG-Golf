@@ -94,6 +94,19 @@ theorem kNs2 : (Nat.beq KF.CNs2.length 6 && allN 6 fun i => memK XB (base2.getD 
     true := by
   quickRfl
 
+theorem negSmall : notB (eqK XK (mulWK (mulWK Q2K Q1K) (mulWK Q1I Q2I))) = true := by quickRfl
+
+theorem negQ : notB (gtPinK QM 4 300 (QT.N - 1) QT.P QT.PAR QT.LAB QT.W QT.S) = true := by
+  quickRfl
+
+theorem negFix : notB (fixImpTabK (trK 24 oneK) [trK 24 Q1K]
+    (fun j => CertificateChecks.KernelCo1B.CV.F j) 117) = true := by quickRfl
+
+theorem negBF : notB (Nat.beq (vmF 24 XT (base.getD 7 0)) (base.getD 7 0)) = true := by quickRfl
+
+theorem negT2 : notB (eqK (getL 0 KF.T2 1) (trK 24 (QT.P 2))) = true := by quickRfl
+
+theorem negNs2 : notB (Nat.ble (KF.CNs2.getD 0 []).sum (cnts2.getD 0 0 - 1)) = true := by quickRfl
 
 end CertificateChecks.KernelCo1B.Bound17329
 

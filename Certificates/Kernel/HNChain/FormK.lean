@@ -56,7 +56,9 @@ theorem id5 : allN 133 (fun i => Nat.beq (sf 5 i) (idRow5 i)) = true := by quick
 theorem invA : allN 133 (fun i => Nat.beq (sf 8 i) (sf 2 i)) = true := by quickRfl
 theorem invB : allN 133 (fun i => Nat.beq (sf 11 i) (sf 2 i)) = true := by quickRfl
 
+theorem neg_sym : Bool.not (allN 133 (fun i => Nat.beq (sf 6 i) (sf 0 i))) = true := by quickRfl
 theorem neg_inv : Bool.not (allN 133 (fun i => Nat.beq (sf 7 i) (sf 2 i))) = true := by quickRfl
+theorem neg_pay : Bool.not (pay5K (sf 3 ∘ Nat.succ) HNForm.chars) = true := by quickRfl
 
 end CertificateChecks.KernelHNChain.Form
 

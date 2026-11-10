@@ -56,6 +56,9 @@ open CFSG.KC.Enum
     (fun i => bIf(Nat.blt i n,
       bAnd(valid8 F W B (KW i), Nat.beq (key8 F W B (KW i)) (KK i)), true)) (nat_lit 13)
 
+@[expose] noncomputable def distinctAll (KK : Nat → Nat) (n : Nat) : Bool :=
+  allBlk (nat_lit 0) (fun i => strictB (KK i) fun a => allBlk (Nat.add i (nat_lit 1))
+    (fun j => bIf(Nat.blt j n, bIf(Nat.beq a (KK j), false, true), true)) n) n
 
 @[expose] noncomputable def neqChunk (F W : Nat → Nat) (B : Nat) (X Y : Nat → Nat) (n c : Nat) :
     Bool :=

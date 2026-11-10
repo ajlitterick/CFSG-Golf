@@ -10,6 +10,14 @@ namespace CFSG.ASVolI.AppH
 open CFSG.Quasithin.H.Mathieu
 
 
+structure KData where
+  n : ℕ
+  cols : List (List ℕ)
+  lu : ℕ
+  dU : ℕ
+  xm : ℕ
+  xb : List (ℕ × ℕ)
+
 namespace KData
 
 

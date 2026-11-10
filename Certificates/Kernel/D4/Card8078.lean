@@ -30,6 +30,9 @@ theorem witChk8078 :
     ∀ t : Fin 15, evalK8078 (witWords8078.getD t []) = some (pk8078 (faithDigits.getD t [])) := by
   decide +kernel
 
+theorem witChk8078_neg : evalK8078 [18] = none ∧
+    evalK8078 [9, 1] ≠ some (pk8078 (faithDigits.getD 1 [])) := by
+  decide +kernel
 
 theorem vget_pk8078 : ∀ t : Fin 15, ∀ j : Fin 8,
     GF8.ofNat' (vget (pk8078 (faithDigits.getD t [])) j) = wv t j := by

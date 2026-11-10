@@ -55,6 +55,7 @@ theorem kFix : bAnd(fixBK 8330 14 bsL [S 0] 7, bIf(fixBK 8330 14 bsL [S 0] 1, fa
 theorem kNorm : bAnd(normsWK 8330 14 bsL QL (S 0) (SI 0), normsWK 8330 14 bsL QL (CC 0) (CC 1)) =
     true := by quickRfl
 
+theorem kNeg : fixBK 8330 14 bsL [S 0] 3 = false := by decide +kernel
 
 end CertificateChecks.KernelSchreierFam.He725
 

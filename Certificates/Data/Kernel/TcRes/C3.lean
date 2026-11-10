@@ -143,6 +143,19 @@ namespace CFSG.TcRes.TK
         (Nat.lor (Nat.shiftLeft (nat_lit 1) (fld NEG (nat_lit 8) b))
           (Nat.shiftLeft (nat_lit 1) (fld NEG (nat_lit 8) c))))))
 
+@[expose] noncomputable def sMaskP (RTs : Nat → Nat) (NEG PW a b : Nat) : Nat :=
+  strictN (fld (RTs b) (nat_lit 8) a) fun c =>
+    Nat.lor (Nat.shiftLeft (nat_lit 1) (fld PW (nat_lit 8) a))
+      (Nat.lor (Nat.shiftLeft (nat_lit 1) (fld PW (nat_lit 8) b))
+      (Nat.lor (Nat.shiftLeft (nat_lit 1) (fld PW (nat_lit 8) c))
+      (Nat.lor (Nat.shiftLeft (nat_lit 1) (fld PW (nat_lit 8) (fld NEG (nat_lit 8) a)))
+        (Nat.lor (Nat.shiftLeft (nat_lit 1) (fld PW (nat_lit 8) (fld NEG (nat_lit 8) b)))
+          (Nat.shiftLeft (nat_lit 1) (fld PW (nat_lit 8) (fld NEG (nat_lit 8) c)))))))
+
+@[expose] noncomputable def sigOK (RTs : Nat → Nat) (NEG PW COLS SG : Nat) : Bool :=
+  strictB (fld COLS (nat_lit 8) (nat_lit 0)) fun a =>
+  strictB (fld COLS (nat_lit 8) (nat_lit 2)) fun b =>
+    Nat.beq SG (Nat.lor (sMask RTs NEG a b) (sMaskP RTs NEG PW a b))
 
 @[expose] noncomputable def lorLt (c : Nat) (f : Nat → Nat) : Nat :=
   Nat.rec (motive := fun _ => Nat) (nat_lit 0) (fun i ih => strictN ih fun a => Nat.lor a (f i)) c

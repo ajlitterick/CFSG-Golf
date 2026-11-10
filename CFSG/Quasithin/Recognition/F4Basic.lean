@@ -125,6 +125,8 @@ abbrev stv (c : α.Completion Y) (u : c.Γ) : Subgroup c.G0 := MulAction.stabili
 @[expose] def geods (c : α.Completion Y) (m : ℕ) (a b : c.Γ) : Set (GPath c.graph m) :=
   {t | t 0 = a ∧ t m = b ∧ t.IsGeodesic}
 
+@[expose] def IsApartment (c : α.Completion Y) (m : ℕ) (S : Set c.Γ) : Prop :=
+  IsPolygon c.graph S (2 * m)
 
 end RankTwoAmalgam.Completion
 

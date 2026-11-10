@@ -96,6 +96,10 @@ private theorem cntB_le (c : ℕ → Bool) : ∀ r, cntB c r ≤ r
     have := cntB_le c r
     split_ifs <;> omega
 
+private theorem cntB_mono (c : ℕ → Bool) {r1 r2 : ℕ} (h : r1 ≤ r2) : cntB c r1 ≤ cntB c r2 := by
+  induction h with
+  | refl => exact le_rfl
+  | step _ ih => rw [cntB_succ]; omega
 
 private theorem cnt_exists (c : ℕ → Bool) : ∀ N t, t < cntB c N →
     ∃ r, r < N ∧ c r = true ∧ cntB c r = t

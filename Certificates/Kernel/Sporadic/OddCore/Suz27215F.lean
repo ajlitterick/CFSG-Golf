@@ -33,6 +33,7 @@ open CFSG.PSL3Four.Native CFSG.EvenSporadicStandard.SuzOuter CertificateChecks.K
 
 theorem hsz : szOK 1782 11 = true := by decide
 
+theorem cn_iff (p : Nat) : cn p = canonK 1782 11 (mask 11) (1782 * 11) p := rfl
 
 theorem gen_parts : SOA.k = 5 ∧ ∀ j < 5, SOA.G j = SuzInvT3.F (20 + j) ∧ cn (SOA.G j) = true ∧
     cn (SOA.GI j) = true ∧ pc (SOA.G j) (SOA.GI j) = e := by

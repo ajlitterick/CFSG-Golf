@@ -343,5 +343,11 @@ set_option compiler.extract_closed false
 
 @[expose] def fi22FixCount (t : Array Nat) : Nat := (List.range 3510).countP fun w => t[w]! == w
 
+@[expose] def sigmaConj (σ : Array Nat) (T : Table) : Array Nat := conjA 3510 σ (natOf T)
+
+@[expose] def classImages (O : COrbit) (σ : Array Nat) : Array (Array Nat) :=
+  let G := genT O
+  Array.ofFn (n := 4) fun k => sigmaConj σ (eltT par G globRep[k.val]!)
+
 
 end CFSG.HardMathSupport.Solomon.Coordinator.Fi22Pump

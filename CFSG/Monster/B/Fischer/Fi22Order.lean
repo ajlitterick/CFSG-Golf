@@ -127,6 +127,9 @@ instance fact_prime_eleven : Fact (Nat.Prime 11) := ⟨by norm_num⟩
 
 instance fact_prime_thirteen : Fact (Nat.Prime 13) := ⟨by norm_num⟩
 
+theorem rep_fi22Gen01 :
+    Rep 3510 (compA 3510 (fi22ChainGen 0) (fi22ChainGen 1)) (fi22GenPerm 0 * fi22GenPerm 1) :=
+  rep_compA (rep_fi22Gen (by norm_num)) (rep_fi22Gen (by norm_num))
 
 theorem orderOf_a0 :
     orderOf (fi22GenPerm 0) = 2 :=

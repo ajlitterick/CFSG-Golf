@@ -264,6 +264,12 @@ end ChainData
 @[expose] def lvSJ : Array Level := chSJ.levels
 
 
+@[expose] def eA1 : ArrCert := enumBfs 693 chA1.O chA1.base 1000
+
+@[expose] def eA2 : ArrCert := enumBfs 693 chA2.O chA2.base 1000
+
+@[expose] def eK1 : ArrCert := enumBfs 693 chK1.O chK1.base 30000
+
 @[expose] def validCheck : Bool :=
   validA 693 au₁ && validA 693 au₂ && validA 693 aw₀ && validA 693 aj₀ && validA 693 aab &&
     validA 693 aba && validA 693 aaba && validA 693 abcb && chK1.O.all (validA 693) &&

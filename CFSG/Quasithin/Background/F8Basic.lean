@@ -437,10 +437,20 @@ theorem sq_mem_conjClosure (h : HypF81 T V L V₁ H) : ∀ u ∈ conjClosure V H
     rw [inv_pow]
     exact V₁.inv_mem ih
 
+theorem F82_1 (h : HypF81 T V L V₁ H) :
+    conjClosure V H ≤ pCoreOf 2 H ∧
+      (∀ u ∈ conjClosure V H, ∀ q ∈ pCoreOf 2 H, u * q * u⁻¹ * q⁻¹ ∈ V₁) ∧
+      ∀ u ∈ conjClosure V H, u ^ 2 ∈ V₁ :=
+  ⟨h.conjClosure_V_le_pCoreOf, h.commutator_conjClosure_le, h.sq_mem_conjClosure⟩
 
 theorem isPGroup_conjClosure (h : HypF81 T V L V₁ H) : IsPGroup 2 (conjClosure V H) :=
   (pCoreOf_isPGroup 2 H).to_le h.conjClosure_V_le_pCoreOf
 
+theorem F82_2 (h : HypF81 T V L V₁ H) :
+    (frattini (conjClosure V H)).map (conjClosure V H).subtype ≤ V₁ :=
+  frattini_map_le_of_forall h.isPGroup_conjClosure
+    (fun x hx y hy => h.commutator_conjClosure_le x hx y (h.conjClosure_V_le_pCoreOf hy))
+    h.sq_mem_conjClosure
 
 theorem F82_3 (h : HypF81 T V L V₁ H) : pCoreOf 2 H = centralizerMod V₁ H (conjClosure V H) := by
   apply le_antisymm

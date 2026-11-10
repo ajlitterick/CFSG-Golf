@@ -583,6 +583,10 @@ theorem isLift_one {J : Type} [Group J] {θ : ↥(unitarySU p f F 3) →* J} :
     have : a⁻¹ = a := inv_eq_of_mul_eq_one_right (hsq a)
     rw [this]; exact ha
 
+omit [Fact p.Prime] [Finite F] [CharP F p] in
+theorem mem_A0 {h : UnitaryFieldData p f F} {J : Type} [Group J] {θ : ↥(unitarySU p f F 3) →* J}
+    {A : Type} [Group A] {α : A →* MulAut J} {hsq : ∀ a : A, a * a = 1} {a : A} :
+    a ∈ A0 h θ α hsq ↔ ∃ Δ : GL (Fin 3) F, IsLift θ Δ 1 (α a) ∧ DU h Δ := Iff.rfl
 
 omit [Fact p.Prime] [Finite F] [CharP F p] in
 theorem isLift_mul_bar (h : UnitaryFieldData p f F) {J : Type} [Group J] {θ : ↥(unitarySU p f F 3) →* J}

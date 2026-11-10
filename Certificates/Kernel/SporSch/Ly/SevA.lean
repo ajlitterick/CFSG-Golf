@@ -38,6 +38,7 @@ open CFSG.KC.Enum CFSG.KS CFSG.KC.Ord CFSG.KS.SporSch.LyM CFSG.KD.OrdLy CFSG.KS.
 open CFSG.Sporadic.LySchreier.Native
 open CertificateChecks.KernelSporSch.LyBS
 
+theorem nas : Nat.beq nAS 7 = true := by quickRfl
 theorem bb : Nat.beq (mul B B4) ONE = true := by quickRfl
 theorem vAF : allN 7 (fun i => bAnd(vld (AF i), vld (AI i))) = true := by quickRfl
 theorem iAF : allN 7 (fun i => Nat.beq (mul (AF i) (AI i)) ONE) = true := by quickRfl

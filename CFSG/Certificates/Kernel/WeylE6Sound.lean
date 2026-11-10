@@ -41,6 +41,12 @@ theorem allR_iff (lo n : Nat) (f : Nat → Bool) :
   · intro h i hi
     exact h _ (Nat.le_add_right lo i) (by rw [Nat.add_eq]; omega)
 
+theorem all_of_allR {f : Nat → Bool} {lo n : Nat} (h1 : ∀ i < lo, f i = true)
+    (h2 : allR lo n f = true) : ∀ i < lo + n, f i = true := by
+  intro i hi
+  by_cases h : i < lo
+  · exact h1 i h
+  · exact (allR_iff lo n f).1 h2 i (by omega) hi
 
 theorem all_of_chunks {f : Nat → Bool} {c K : Nat} (h : ∀ k < K, allR (c * k) c f = true) :
     ∀ i < c * K, f i = true := by
@@ -144,6 +150,11 @@ theorem valid_of_validK {v : Nat} (h : validK v = true) : Valid v := by
   intro r hr
   interval_cases r <;> omega
 
+theorem valid_mulT {T : Nat} (hT : TabOK T) (t : Fin 6) {v : Nat} (hv : Valid v) :
+    Valid (mulT T t.val v) := by
+  intro r hr
+  rw [f8_mulT T t.val v hr, rowT_eq hT t (hv r hr)]
+  exact encV_lt _
 
 theorem rowsOf_mulT {T : Nat} (hT : TabOK T) (t : Fin 6) {v : Nat} (hv : Valid v) :
     rowsOf (mulT T t.val v) = rowsOf v * refl t := by

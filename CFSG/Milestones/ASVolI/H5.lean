@@ -19,6 +19,7 @@ open CFSG.Quasithin CFSG.Open
 
 abbrev V3 : Type := Fin 3 → ZMod 2
 
+abbrev PermV : Type := Multiplicative (V3 → ZMod 2)
 
 theorem inv_mulVec_mulVec (g : GL (Fin 3) (ZMod 2)) (v : V3) :
     ((g⁻¹ : GL (Fin 3) (ZMod 2)) : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec
@@ -26,8 +27,63 @@ theorem inv_mulVec_mulVec (g : GL (Fin 3) (ZMod 2)) (v : V3) :
   rw [Matrix.mulVec_mulVec, ← Units.val_mul, inv_mul_cancel, Units.val_one, Matrix.one_mulVec]
 
 
+@[expose] def gl3Act : GL (Fin 3) (ZMod 2) →* MulAut PermV where
+  toFun g :=
+    { toFun := fun f => Multiplicative.ofAdd fun v =>
+        Multiplicative.toAdd f (((g⁻¹ : GL (Fin 3) (ZMod 2)) : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec v)
+      invFun := fun f => Multiplicative.ofAdd fun v =>
+        Multiplicative.toAdd f ((g : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec v)
+      left_inv := fun f => by
+        apply Multiplicative.toAdd.injective
+        funext v
+        simp
+      right_inv := fun f => by
+        apply Multiplicative.toAdd.injective
+        funext v
+        simp
+      map_mul' := fun f f' => by
+        apply Multiplicative.toAdd.injective
+        funext v
+        simp }
+  map_one' := by
+    ext f v
+    simp
+  map_mul' g h := by
+    ext f v
+    simp [mul_inv_rev, Matrix.mulVec_mulVec]
+
+@[expose] def U0sub : Subgroup PermV :=
+  AddSubgroup.toSubgroup (AddMonoidHom.ker (Pi.evalAddMonoidHom (fun _ : V3 => ZMod 2) 0))
+
+@[expose] def Ucore : Subgroup PermV :=
+  U0sub ⊓ AddSubgroup.toSubgroup (AddMonoidHom.ker (∑ v : V3, Pi.evalAddMonoidHom (fun _ : V3 => ZMod 2) v))
+
+open scoped Classical in
+@[expose] noncomputable def omegaVec : PermV :=
+  Multiplicative.ofAdd fun v => if v = 0 then 0 else 1
+
+open scoped Classical in
+@[expose] noncomputable def uOf (S : Set V3) : PermV :=
+  Multiplicative.ofAdd fun v => if v ≠ 0 ∧ v ∉ S then 1 else 0
+
 @[expose] def IsLine (r : Submodule (ZMod 2) V3) : Prop := Module.finrank (ZMod 2) r = 2
 
+@[expose] def O1set : Set PermV := {x | ∃ q : V3, q ≠ 0 ∧ x = uOf {q}}
+
+@[expose] def O2set : Set PermV :=
+  {x | ∃ r : Submodule (ZMod 2) V3, IsLine r ∧ x = uOf (r : Set V3)}
+
+@[expose] def O3set : Set PermV :=
+  {x | x ∈ U0sub ∧ Nat.card {v : V3 // Multiplicative.toAdd x v ≠ 0} = 2}
+
+@[expose] def O4set : Set PermV :=
+  {x | ∃ v₁ v₂ v₃ : V3, LinearIndependent (ZMod 2) ![v₁, v₂, v₃] ∧ x = uOf {v₁, v₂, v₃}}
+
+@[expose] def Oset : Fin 4 → Set PermV
+  | 0 => O1set
+  | 1 => O2set
+  | 2 => O3set
+  | 3 => O4set
 
 @[expose] def Lpt (p : V3) : Subgroup (GL (Fin 3) (ZMod 2)) := glFix {p}
 
@@ -48,6 +104,11 @@ structure HypH5 (T : Subgroup (GL (Fin 3) (ZMod 2))) (p : V3) (l : Submodule (ZM
 
 @[expose] def modTriv : GL (Fin 3) (ZMod 2) →* MulAut (Multiplicative (ZMod 2)) := 1
 
+@[expose] def IsoSec {G : Type*} [Group G] {X : Type*} [CommGroup X] (ρ : G →* MulAut X)
+    (U Z : Subgroup X) (A : Type*) [CommGroup A] (act : G →* MulAut A) : Prop :=
+  Z ≤ U ∧ (∀ g, ∀ u ∈ U, ρ g u ∈ U) ∧ (∀ g, ∀ z ∈ Z, ρ g z ∈ Z) ∧
+  ∃ β : ↥U →* A, Function.Surjective β ∧ (∀ u : ↥U, β u = 1 ↔ (u : X) ∈ Z) ∧
+    ∀ (g : G) (u u' : ↥U), (u' : X) = ρ g u → β u' = act g (β u)
 
 end CFSG.ASVolI.ChH
 
@@ -55,6 +116,69 @@ namespace CFSG.ASVolI
 
 open CFSG.Quasithin CFSG.ASVolI.ChH
 
+@[expose] def H_5_1 : Prop :=
+  Ucore ⊔ Subgroup.zpowers omegaVec = U0sub ∧ Ucore ⊓ Subgroup.zpowers omegaVec = ⊥ ∧
+  (∀ g : GL (Fin 3) (ZMod 2), ∀ u ∈ U0sub, gl3Act g u ∈ U0sub) ∧
+  (∀ g : GL (Fin 3) (ZMod 2), ∀ u ∈ Ucore, gl3Act g u ∈ Ucore) ∧
+  (∀ g : GL (Fin 3) (ZMod 2), gl3Act g omegaVec = omegaVec)
+
+
+@[expose] def H_5_2 : Prop :=
+  (∀ r s t : Submodule (ZMod 2) V3, IsLine r → IsLine s → IsLine t → r ≠ s → t ≠ r → t ≠ s →
+    ∀ q : V3, q ≠ 0 → q ∈ r → q ∈ s → q ∈ t →
+      uOf (r : Set V3) * uOf (s : Set V3) = uOf (t : Set V3)) ∧
+  ∀ (T : Subgroup (GL (Fin 3) (ZMod 2))) (p : V3) (l : Submodule (ZMod 2) V3), HypH5 T p l →
+    (Ucore ⊓ fixV (T.map gl3Act) = Subgroup.closure {uOf {p}, uOf (l : Set V3)} ∧
+      rk ↥(Ucore ⊓ fixV (T.map gl3Act)) = 2) ∧
+    (rk ↥(Ucore ⊓ fixV ((CFSG.Open.pCoreOf 2 (Lpt p)).map gl3Act)) = 3 ∧
+      rk ↥(Ucore ⊓ fixV ((CFSG.Open.pCoreOf 2 (Lln l)).map gl3Act)) = 3) ∧
+    (rk ↥(commOn Ucore ((CFSG.Open.pCoreOf 2 (Lpt p)).map gl3Act)) = 3 ∧
+      rk ↥(commOn Ucore ((CFSG.Open.pCoreOf 2 (Lln l)).map gl3Act)) = 3) ∧
+    (Ucore ⊓ fixV ((Lpt p).map gl3Act) = Subgroup.zpowers (uOf {p}) ∧
+      Ucore ⊓ fixV ((Lln l).map gl3Act) = Subgroup.zpowers (uOf (l : Set V3))) ∧
+    (∃ β : PermV → PermV → ZMod 2,
+      (∀ u ∈ Ucore, ∀ u' ∈ Ucore, ∀ w ∈ Ucore, β (u * u') w = β u w + β u' w) ∧
+      (∀ u ∈ Ucore, ∀ w ∈ Ucore, ∀ w' ∈ Ucore, β u (w * w') = β u w + β u w') ∧
+      (∀ g : GL (Fin 3) (ZMod 2), ∀ u ∈ Ucore, ∀ w ∈ Ucore, β (gl3Act g u) (gl3Act g w) = β u w) ∧
+      (∀ u ∈ Ucore, u ≠ 1 → ∃ w ∈ Ucore, β u w ≠ 0)) ∧
+    (∀ (Y : Subgroup (GL (Fin 3) (ZMod 2))) (q : V3), IsSylowIn 3 Y (Lln l) → q ≠ 0 →
+      (∀ y ∈ Y, (y : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec q = q) →
+      (∀ v : V3, (∀ y ∈ Y, (y : Matrix (Fin 3) (Fin 3) (ZMod 2)).mulVec v = v) → v = 0 ∨ v = q) →
+      Ucore ⊓ fixV (Y.map gl3Act) = Subgroup.closure {uOf (l : Set V3), uOf {q}})
+
+@[expose] def H_5_3 : Prop :=
+  ∃ Wg : Subgroup PermV, (Wg : Set PermV) = {1} ∪ O2set ∧
+    (Wg ≤ Ucore ∧ (∀ g : GL (Fin 3) (ZMod 2), ∀ w ∈ Wg, gl3Act g w ∈ Wg) ∧
+      IsoSec gl3Act Wg ⊥ (Multiplicative V3) modDual) ∧
+    IsoSec gl3Act Ucore Wg (Multiplicative V3) modNat ∧
+    ((∀ i : Fin 4, ∀ x ∈ Oset i, ∀ g : GL (Fin 3) (ZMod 2), gl3Act g x ∈ Oset i) ∧
+      (∀ i : Fin 4, ∀ x ∈ Oset i, ∀ y ∈ Oset i, ∃ g : GL (Fin 3) (ZMod 2), gl3Act g x = y) ∧
+      (∀ i : Fin 4, ∀ x ∈ Oset i, x ∈ Ucore ∧ x ≠ 1) ∧
+      (∀ x ∈ Ucore, x ≠ 1 → ∃ i : Fin 4, x ∈ Oset i) ∧
+      (∀ i j : Fin 4, i ≠ j → Disjoint (Oset i) (Oset j))) ∧
+    (Set.ncard O1set = 7 ∧ Set.ncard O2set = 7 ∧ Set.ncard O3set = 21 ∧ Set.ncard O4set = 28) ∧
+    ((∀ A B : Subgroup PermV, A ≤ Ucore → B ≤ Ucore → (∀ g : GL (Fin 3) (ZMod 2), ∀ a ∈ A, gl3Act g a ∈ A) →
+        (∀ g : GL (Fin 3) (ZMod 2), ∀ b ∈ B, gl3Act g b ∈ B) → A ⊔ B = Ucore → A ⊓ B = ⊥ →
+        A = ⊥ ∨ B = ⊥) ∧
+      Wg = ⨆ (N : Subgroup PermV) (_ : N ≤ Ucore)
+        (_ : ∀ g : GL (Fin 3) (ZMod 2), ∀ n ∈ N, gl3Act g n ∈ N)
+        (_ : IsIrredOn gl3Act.range N), N)
+
+@[expose] def H_5_4 : Prop :=
+  (∀ (T : Subgroup (GL (Fin 3) (ZMod 2))) (p : V3) (l : Submodule (ZMod 2) V3), HypH5 T p l →
+    ¬ (Ucore ⊓ fixV ((Lpt p).map gl3Act) ≤
+        commOn (Ucore ⊓ fixV (T.map gl3Act)) ((Lln l).map gl3Act)) ∧
+    (Ucore ⊓ fixV ((Lln l).map gl3Act) ≤ commOn (Ucore ⊓ fixV (T.map gl3Act)) ((Lpt p).map gl3Act))) ∧
+  (∀ a ∈ O1set, ∀ b ∈ O1set, ∀ c ∈ O1set, a ≠ b → a ≠ c → b ≠ c → a * b * c ≠ 1)
+
+@[expose] def H_5_5 : Prop :=
+  ∀ (T : Subgroup (GL (Fin 3) (ZMod 2))) (p : V3) (l : Submodule (ZMod 2) V3), HypH5 T p l →
+  ∀ (A : Type) [CommGroup A] [Finite A], (∀ a : A, a ^ 2 = 1) →
+  ∀ act : GL (Fin 3) (ZMod 2) →* MulAut A, ∀ x : A, x ≠ 1 →
+    (∀ g ∈ Lpt p, act g x = x) →
+    Subgroup.closure (Set.range fun g : GL (Fin 3) (ZMod 2) => act g x) = ⊤ →
+    rk ↥(Subgroup.closure ((fun g : GL (Fin 3) (ZMod 2) => act g x) '' (Lln l : Set _))) = 2 →
+      ∃ e : A ≃* Multiplicative V3, ∀ (g : GL (Fin 3) (ZMod 2)) (a : A), e (act g a) = modNat g (e a)
 
 section HBridge55
 open CFSG.Quasithin.MS93 Matrix
@@ -312,6 +436,16 @@ section H5Lin
 
 set_option synthInstance.maxSize 4096
 set_option synthInstance.maxHeartbeats 800000
+
+
+private def D3 (a b c : V3) : ZMod 2 :=
+  a 0 * b 1 * c 2 - a 0 * c 1 * b 2 - b 0 * a 1 * c 2 + b 0 * c 1 * a 2 +
+    c 0 * a 1 * b 2 - c 0 * b 1 * a 2
+
+
+private def F4 : Finset (Finset V3) :=
+  ((Finset.univ.erase (0 : V3)).powersetCard 3).filter (fun s =>
+    ∀ x ∈ s, ∀ y ∈ s, ∀ z ∈ s, x ≠ y → x ≠ z → y ≠ z → D3 x y z ≠ 0)
 
 
 end H5Lin

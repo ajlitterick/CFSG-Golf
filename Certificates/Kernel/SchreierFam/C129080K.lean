@@ -73,5 +73,8 @@ theorem d1_s2 : stageK d1Stage2 SP2 = true := by decide +kernel
 
 theorem d1_s3 : stageK d1Stage3 SP3 = true := by decide +kernel
 
+theorem d1_neg : stageK { d1Stage1 with w0 := d1Stage1.w1, w1 := d1Stage1.w0 } SP1 = false ∧
+    stageK d1Stage1 SP2 = false := by
+  constructor <;> decide +kernel
 
 end CertificateChecks.KernelSchreierFam.Co2Slp

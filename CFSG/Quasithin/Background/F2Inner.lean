@@ -36,6 +36,7 @@ variable {D : Type u} [Preorder D] {Y : Type w} [Group Y] (S : XYSetting D Y)
 
 abbrev alpha : Amalgam.{u, w} D := ofSubgroups S.Xd S.mono_X
 
+abbrev gamma : Amalgam.{u, w} D := ofSubgroups S.Yd S.mono_Y
 
 theorem conj_mem {d : D} {y : Y} (hy : y ∈ S.Yd d) {x : Y} (hx : x ∈ S.Xd d) :
     y * x * y⁻¹ ∈ S.Xd d := by
@@ -100,6 +101,13 @@ variable {S}
 namespace Hyp211
 
 variable {μ : Completion S.alpha G} (h : S.Hyp211 μ)
+
+noncomputable def piC : S.Yd S.least →* MulAut G :=
+  (piMinus μ).comp (S.c.codRestrict (stabilizer μ) h.stab)
+
+
+@[expose] noncomputable def G0 : Subgroup (MulAut G) :=
+  (MulAut.conj : G →* MulAut G).range ⊔ h.piC.range
 
 
 end Hyp211

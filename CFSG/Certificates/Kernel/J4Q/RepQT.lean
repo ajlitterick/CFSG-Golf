@@ -758,6 +758,57 @@ theorem enc_etaRows {c rm pad t0 t1 t2 t3 t4 t5 t6 : Nat}
   rw [List.range_eq_range']
   exact h
 
+private theorem lt64' (x : UInt64) : x.toNat < 2 ^ 64 := x.toNat_lt
+
+private theorem v2N_testBit' (v : V2) (k : Nat) :
+    (v2N v).testBit k = if k < 64 then v.lo.toNat.testBit k else v.hi.toNat.testBit (k - 64) := by
+  change (v.lo.toNat ||| (v.hi.toNat <<< 64)).testBit k = _
+  rw [Nat.testBit_or, Nat.testBit_shiftLeft]
+  by_cases hk : k < 64
+  · have h1 : ¬ k ≥ 64 := by omega
+    simp [hk, h1]
+  · have h1 : k ≥ 64 := by omega
+    have h2 : v.lo.toNat.testBit k = false :=
+      Nat.testBit_lt_two_pow (Nat.lt_of_lt_of_le (lt64' v.lo) (Nat.pow_le_pow_right (by omega) h1))
+    simp [hk, h1, h2]
+
+private theorem testBit_V2' (a : V2) {j : Nat} (hj : j < 128) :
+    a.testBit j = (v2N a).testBit j := by
+  have hm : (UInt64.ofNat (j % 64)).toNat = j % 64 := by
+    rw [UInt64.toNat_ofNat']
+    exact Nat.mod_eq_of_lt (by omega)
+  have key : ∀ w : UInt64,
+      (((w >>> UInt64.ofNat (j % 64)) &&& 1) == 1) = w.toNat.testBit (j % 64) := by
+    intro w
+    have e : ((w >>> UInt64.ofNat (j % 64)) &&& 1).toNat = w.toNat / 2 ^ (j % 64) % 2 := by
+      rw [UInt64.toNat_and, UInt64.toNat_shiftRight, hm, Nat.mod_eq_of_lt (by omega : j % 64 < 64),
+        UInt64.toNat_one, Nat.and_one_is_mod, Nat.shiftRight_eq_div_pow]
+    apply Bool.eq_iff_iff.mpr
+    rw [beq_iff_eq, ← UInt64.toNat_inj, e, Nat.testBit_eq_decide_div_mod_eq, decide_eq_true_iff,
+      UInt64.toNat_one]
+  unfold V2.testBit V2.word
+  rw [v2N_testBit']
+  by_cases h : j < 64
+  · have h0 : j / 64 = 0 := Nat.div_eq_of_lt h
+    rw [ite_eq_left h0, ite_eq_left h, key, Nat.mod_eq_of_lt h]
+  · have h0 : ¬ j / 64 = 0 := by omega
+    have hj' : j % 64 = j - 64 := by omega
+    rw [ite_eq_right h0, ite_eq_right h, key, hj']
+
+private theorem wf_bit' {v : V2} (hv : v.wf = true) {k : Nat} (hk : 112 ≤ k) :
+    (v2N v).testBit k = false := by
+  have hhi : v.hi.toNat < 2 ^ 48 := by
+    unfold V2.wf at hv
+    rw [beq_iff_eq, ← UInt64.toNat_inj, UInt64.toNat_shiftRight, UInt64.toNat_zero] at hv
+    have e : (48 : UInt64).toNat % 64 = 48 := rfl
+    rw [e, Nat.shiftRight_eq_div_pow, Nat.div_eq_zero_iff] at hv
+    rcases hv with hv | hv
+    · exact absurd hv (Nat.pos_iff_ne_zero.mp (Nat.two_pow_pos 48))
+    · exact hv
+  rw [v2N_testBit']
+  have h1 : ¬ k < 64 := by omega
+  rw [ite_eq_right h1]
+  exact Nat.testBit_lt_two_pow (Nat.lt_of_lt_of_le hhi (Nat.pow_le_pow_right (by omega) (by omega)))
 
 theorem differs_eq {a b : V2} (_ha : a.wf = true) (_hb : b.wf = true) :
     differs a b = neN (v2N a) (v2N b) := by

@@ -63,6 +63,9 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Prim CFSG.KS.PEnum CFSG.KS.HSAutN CFSG.KD.LQT.
     bAnd(sqAt (FT.F 0) (lc1 0) (lc1 1) x, bAnd(sqAt (FT.F 0) oc0K oc1K x,
       Bool.beq (bAnd(cmK x (ET0.G 0), bAnd(cmK x (ET0.G 1), cmK x (ET0.G 2)))) (t0Idx.elem i))))
 
+@[expose] noncomputable def ckF (s : Nat) : Bool :=
+  allN 32 (fun d => strictB (Nat.add (Nat.mul s (nat_lit 32)) d) (fun i =>
+    bIf(Nat.blt i (nat_lit 7680), ptF i, true)))
 
 @[expose] noncomputable def ckT0 (s : Nat) : Bool :=
   penumSlK 3850 12 (mask 12) (3850 * 12) false ET0.G ET0.GI 3 ET0.cnt ET0.T ET0.PL ET0.POS ET0.SRT

@@ -199,6 +199,9 @@ theorem ev_eq {c : Nat} (hc : c < 16384) (x : Fin 4060) : evK LR TR c x = (gC c 
     (ChainArrays.levT 4060 (ruField4060 4) (ruBaseArr 4060 ruS4060ChainBase) 1 (c % 8) x)
   rw [h0, gC, Equiv.Perm.mul_apply]
 
+theorem ev_lt {c : Nat} (hc : c < 16384) (x : Fin 4060) : evK LR TR c x < 4060 := by
+  rw [ev_eq hc]
+  exact (gC c x).2
 
 theorem ev1 {c : Nat} (hc : c < 16384) : evK LR TR c 1 = (gC c 1 : ℕ) := ev_eq hc 1
 

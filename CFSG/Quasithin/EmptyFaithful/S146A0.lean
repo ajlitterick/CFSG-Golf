@@ -71,6 +71,30 @@ structure IsDec12 (T M H : Subgroup G) (p : ℕ) (H₀ H₁ H₂ : Subgroup G) (
 
 end Defs
 
+@[expose] def Stage14612 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T M : Subgroup G), Setting146 G T M →
+    ∀ (H PQ : Subgroup G) (p : ℕ), IsRedCE T M H PQ p →
+      (p = 3 ∨ p = 5) ∧ (∃ H₀ H₁ H₂ : Subgroup G, ∃ t : G, IsDec12 T M H p H₀ H₁ H₂ t) ∧
+        ∀ (H₀ H₁ H₂ : Subgroup G) (t : G), IsDec12 T M H p H₀ H₁ H₂ t →
+          quasithinOmegaOneCenter T ≤ ⁅conjClosure (VZ T M) H, oTwoUpper H₁⁆ ∧
+            quasithinOmegaOneCenter T ≤ ⁅conjClosure (VZ T M) H, oTwoUpper H₂⁆
+
+@[expose] def Stage14613 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T M : Subgroup G), Setting146 G T M →
+    ∀ (H PQ : Subgroup G) (p : ℕ), IsRedCE T M H PQ p →
+      ∃ (H₀ H₁ H₂ : Subgroup G) (t : G), IsDec12 T M H p H₀ H₁ H₂ t ∧
+        ((p = 3 ∧ IsOFourPlusOn T M H ∧ ∃ g : G, g ∉ mcOf T ∧
+            ¬ ⁅uHi T M H H₁, conjSub g⁻¹ (conjClosure (VZ T M) H)⁆ ≤ quasithinOmegaOneCenter T ∧
+            conjSub g⁻¹ (conjClosure (VZ T M) H) ≤ H ⊓ Subgroup.normalizer (uHi T M H H₁ : Set G) ∧
+            conjClosure (VZ T M) H ≤ conjSub g⁻¹ H) ∨
+          ((p = 3 ∨ p = 5) ∧ mIdx (uK T M H ⊔ quasithinOmegaOneCenter T) (quasithinOmegaOneCenter T) = 8 ∧
+            ∃ (γ γ' : F8.Geom T (yOfL22 T M) H) (g : ↥(((yOfL22 T M) ⊔ T) ⊔ H)),
+              F8Setup T (VZ T M) (yOfL22 T M) H γ γ' g ∧
+              F8.Dγ (VZ T M) (quasithinOmegaOneCenter T) H (g : G) <
+                F8.Uγ (VZ T M) H (g : G) ∧
+              F8.Uγ (VZ T M) H (g : G) ≤ H₁ ∧
+              F8.A₁ (quasithinOmegaOneCenter T) (g : G) ≤ uHi T M H H₁ ∧
+              quasithinOmegaOneCenter T ≤ conjSub (g : G) (uHi T M H H₁)))
 
 @[expose] def Stage14614 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T M : Subgroup G), Setting146 G T M →

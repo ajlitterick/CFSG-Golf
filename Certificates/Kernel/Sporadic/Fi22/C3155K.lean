@@ -140,6 +140,9 @@ theorem merge0 : mergeK 0 1 = true := by quickRfl
 
 theorem merge1 : mergeK 1 11 = true := by quickRfl
 
+theorem neg : bAnd(bIf(orbK (fun t => nIf(Nat.beq t 0, 0, nIf(Nat.beq t 1, 1, 12))), false, true),
+    bAnd(bIf(mergeK 0 2, false, true), bIf(mergeK 1 12, false, true))) = true := by
+  quickRfl
 
 end CertificateChecks.KernelSpor.F3155
 

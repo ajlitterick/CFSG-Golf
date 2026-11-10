@@ -28,6 +28,44 @@ namespace burnsideA315y_Model
 variable {F : Type} [Field F] {X : Type} [Group X] (M : burnsideA315y_Model F X)
 
 
+theorem C₁_comm {g : ↥M.Γ} (hg : g ∈ M.C₁) :
+    (g : GL (Fin 3) F) * negDiag3 F = negDiag3 F * g := by
+  have h1 : ((g * M.zh : ↥M.Γ) : GL (Fin 3) F) = ((M.zh * g : ↥M.Γ) : GL (Fin 3) F) :=
+    congrArg Subtype.val hg.2
+  rwa [Subgroup.coe_mul, Subgroup.coe_mul, M.zh_val] at h1
+
+theorem C₁_block {g : ↥M.Γ} (hg : g ∈ M.C₁) :
+    ((g : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) 0 2 = 0 ∧
+    ((g : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) 1 2 = 0 ∧
+    ((g : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) 2 0 = 0 ∧
+    ((g : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) 2 1 = 0 := by
+  have hm : ((g : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) * diagonal ![-1, -1, 1] =
+      diagonal ![-1, -1, 1] * ((g : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) := by
+    rw [← coe_negDiag3, ← Units.val_mul, M.C₁_comm hg, Units.val_mul]
+  exact block_eq_zero_of_commute_negDiag M.two_ne hm
+
+theorem C₁_22_ne {g : ↥M.Γ} (hg : g ∈ M.C₁) :
+    ((g : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) 2 2 ≠ 0 := by
+  intro h0
+  obtain ⟨h02, h12, h20, h21⟩ := M.C₁_block hg
+  have hd := hg.1
+  rw [Matrix.det_fin_three, h02, h12, h20, h21, h0] at hd
+  simp at hd
+
+@[expose] noncomputable def e22 : ↥M.C₁ →* Fˣ where
+  toFun g := Units.mk0 ((((g : ↥M.Γ) : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) 2 2)
+    (M.C₁_22_ne g.2)
+  map_one' := by
+    apply Units.ext
+    simp
+  map_mul' a b := by
+    apply Units.ext
+    obtain ⟨-, -, a20, a21⟩ := M.C₁_block a.2
+    obtain ⟨b02, b12, -, -⟩ := M.C₁_block b.2
+    simp only [Subgroup.coe_mul, Units.val_mul, Units.val_mk0, Matrix.mul_apply, Fin.sum_univ_three,
+      a20, a21, b02, b12, zero_mul, mul_zero, zero_add]
+
+
 theorem c_K₀_ker {k : ↥M.Γ} (hk : k ∈ M.K₀) (h1 : M.c k = 1) : k = 1 := by
   obtain ⟨μ, hμ⟩ := M.exists_scalar_of_c_eq_one h1
   have h22 : ((k : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) 2 2 = 1 := hk.2.2.2.2.2

@@ -120,11 +120,45 @@ structure Input where
 @[expose] def stage1 (inp : Input) : NatCert :=
   natBfs (actOf (colsInvArr inp.sigma)) 8 (encode (wordArr inp.base)) inp.size
 
+@[expose] def okSigma (inp : Input) : Bool := inp.sigma.length == 8 && inp.sigma.all (· < 8)
+
+@[expose] def okInvol (inp : Input) : Bool := mmul (wordArr inp.base) (wordArr inp.base) == idArr
+
+@[expose] def okStage1 (inp : Input) (c₁ : NatCert) : Bool :=
+  natCertOK (actOf (colsInvArr inp.sigma)) 8 (fun _ => true) (encode (wordArr inp.base)) c₁ &&
+    decide (c₁.pts.size = inp.size)
+
+@[expose] def okNontriv (inp : Input) : Bool :=
+  (List.range 8).any fun k =>
+    conjSparse rowsArr[k]! (colsInvArr inp.sigma)[k]! (wordArr inp.base) != wordArr inp.base
+
+@[expose] def okStab (inp : Input) (c₁ : NatCert) : Bool :=
+  inp.stab.all fun w => w.all (· < 8) && applyW c₁ w 0 == 0
+
+@[expose] def hpOf (inp : Input) (c₁ : NatCert) : Array (Array ℕ) :=
+  (inp.stab.map (permArr c₁)).toArray
 
 @[expose] def okOrbs (hp : Array (Array ℕ)) (N : ℕ) (orbs : List (ℕ × NatCert)) : Bool :=
   orbs.all (fun t => natCertOK (hAct hp) hp.size (fun u => decide (u < N)) t.1 t.2) &&
     (orbs.flatMap fun t => t.2.pts.toList).mergeSort (fun a b => decide (a ≤ b)) == List.range N
 
+@[expose] def checkRep (c₁ : NatCert) (hp : Array (Array ℕ)) (N r : ℕ) : Bool :=
+  let w := pathWord c₁ N r
+  let rp := permArr c₁ w
+  let c₃ := natBfs (repAct hp rp) (hp.size + 1) 0 N
+  w.all (· < 8) && applyW c₁ w 0 == r &&
+    natCertOK (repAct hp rp) (hp.size + 1) (fun u => decide (u < N)) 0 c₃ &&
+    c₃.pts.toList.mergeSort (fun a b => decide (a ≤ b)) == List.range N
+
+@[expose] def okTrans (c₁ : NatCert) (hp : Array (Array ℕ)) (N : ℕ) (orbs : List (ℕ × NatCert)) : Bool :=
+  orbs.all fun t => t.1 == 0 || checkRep c₁ hp N t.1
+
+@[expose] def primCheck (inp : Input) : Bool :=
+  let c₁ := stage1 inp
+  let hp := hpOf inp c₁
+  let orbs := orbitSearch (hAct hp) hp.size c₁.pts.size
+  okSigma inp && okInvol inp && okStage1 inp c₁ && okNontriv inp && okStab inp c₁ &&
+    okOrbs hp c₁.pts.size orbs && okTrans c₁ hp c₁.pts.size orbs
 
 @[expose] def innerInput : Input where
   sigma := [0, 1, 2, 3, 4, 5, 6, 7]

@@ -53,6 +53,17 @@ theorem sup_aux2 {V T A E C : Subgroup G} (h1 : V ⊔ (T ⊔ A ⊔ E) = C) :
   exact ⟨le_sup_of_le_right (le_sup_of_le_left le_sup_left),
     sup_le (le_sup_of_le_right (le_sup_of_le_left le_sup_right)) (le_sup_of_le_right le_sup_right)⟩
 
+omit [Finite G] in
+theorem sup_aux3 {V T A E C : Subgroup G} (h1 : V ⊔ (T ⊔ A ⊔ E) = C) :
+    C = V ⊔ A ⊔ E ⊔ T := by
+  subst h1
+  apply le_antisymm
+  · exact sup_le (le_sup_of_le_left (le_sup_of_le_left le_sup_left))
+      (sup_le (sup_le le_sup_right (le_sup_of_le_left (le_sup_of_le_left le_sup_right)))
+        (le_sup_of_le_left le_sup_right))
+  · exact sup_le (sup_le (sup_le le_sup_left
+      (le_sup_of_le_right (le_sup_of_le_left le_sup_right))) (le_sup_of_le_right le_sup_right))
+      (le_sup_of_le_right (le_sup_of_le_left le_sup_left))
 
 theorem mem_normalizer_of_normal_sylow {p : ℕ} [Fact p.Prime] {C V : Subgroup G} (hVC : V ≤ C)
     (hV : (V.subgroupOf C).Normal) (hVp : IsPGroup p V)

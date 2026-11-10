@@ -40,6 +40,11 @@ local macro "u52ed" : tactic => `(tactic|
     | apply rng_getD
     | apply canon_getD)) <;> done))
 
+theorem klOK : burnsideF48t_u52eKLOK () = true := by
+  unfold burnsideF48t_u52eKLOK
+  simp (disch := u52ed) only [burnsideF48t_u52KL, burnsideF48t_u52eKL, ev_eq, evF_eq, pidE,
+    getD_map_unpack, pcE, peqE, List.all_map, Function.comp_def, allBelowN_eq_allN]
+  decide +kernel
 
 end CertificateChecks.Batch7778
 
@@ -49,6 +54,9 @@ namespace Certificates
 
 open CertificateChecks
 
+open CFSG CFSG.ASVolI in
+theorem certificate7778 : burnsideF48t_u52eKLOK () = true :=
+  CertificateChecks.Batch7778.klOK
 
 end Certificates
 

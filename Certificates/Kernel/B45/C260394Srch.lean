@@ -97,6 +97,21 @@ theorem wit_mem (hcard : Nat.card B = 2 ^ 5) :
 end Search
 
 
+theorem tabSpec : ∃ X : ℕ → Equiv.Perm (Fin 4060), (∀ i, X i ∈ ruS) ∧
+    (∀ i < 495, X i * X i = 1 ∧ X i ≠ 1) ∧ TabSpec 495 (cK CM) (pK PR) X ∧
+    ∀ x ∈ ruS, x * x = 1 → (fixFinset x).card = 92 → ∃ i < 495, x = X i := by
+  obtain ⟨X, hmem, hone, hinv, hinj, hcomm, hprod, hcov⟩ := ru2A_table
+  exact ⟨X, hmem, hinv, ⟨hone, hinj, hcomm, hprod⟩, hcov⟩
+
+theorem ru2A_search : ∃ X : ℕ → Equiv.Perm (Fin 4060), (∀ i, X i ∈ ruS) ∧
+    (∀ i < 495, X i * X i = 1 ∧ X i ≠ 1) ∧ TabSpec 495 (cK CM) (pK PR) X ∧
+    ∀ B : Subgroup (Equiv.Perm (Fin 4060)), B ≤ ruS → (∀ x ∈ B, ∀ y ∈ B, x * y = y * x) →
+      (∀ x ∈ B, x * x = 1) → (∀ x ∈ B, x ≠ 1 → (fixFinset x).card = 92) →
+      Nat.card B ≤ 2 ^ 6 ∧ (Nat.card B = 2 ^ 5 → ∃ k < WN 0, ∀ t < 4, X (quadC WQ k t) ∈ B) := by
+  obtain ⟨X, hmem, hinv, hT, hcov⟩ := tabSpec
+  exact ⟨X, hmem, hinv, hT, fun B hBS hcomm hsq h2A =>
+    ⟨card_le hT hcov hBS hcomm hsq h2A, wit_mem hT hcov hBS hcomm hsq h2A⟩⟩
+
 end CertificateChecks.KernelB45.C260394
 
 end

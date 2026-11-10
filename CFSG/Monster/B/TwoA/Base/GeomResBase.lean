@@ -14,6 +14,9 @@ open CFSG.Monster CFSG.Monster.B.Short CFSG.Monster.B Module
 
 attribute [local instance] parAction
 
+@[expose] def parRes (F : Set ParGeom) : Set ParGeom :=
+  {x | parType x ∉ parType '' F ∧ ∀ y ∈ F, parInc x y}
+
 
 @[expose] def stdSub (J : Set ℕ) : Set ParGeom := {x | x ∈ stdParFlag ∧ parType x ∈ J}
 

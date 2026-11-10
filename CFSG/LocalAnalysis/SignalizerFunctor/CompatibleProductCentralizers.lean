@@ -12,7 +12,5 @@ universe groupUniverse
 
 namespace CFSG.SignalizerFunctor.Helpers
 
-variable {GroupType : Type groupUniverse} [Group GroupType] [Finite GroupType]
-
 
 end CFSG.SignalizerFunctor.Helpers

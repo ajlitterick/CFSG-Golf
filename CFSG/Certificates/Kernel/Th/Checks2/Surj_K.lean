@@ -28,6 +28,22 @@ theorem std0 : Nat.beq (wordV CFSG.KD.ThSj.RB c rm CFSG.KD.ThSj.S0 ONE) CFSG.KD.
 theorem std1 : Nat.beq (wordV CFSG.KD.ThSj.RB c rm CFSG.KD.ThSj.S1 ONE) CFSG.KD.ThSeed.SB = true := by
   quickRfl
 
+theorem text_neg : BigS.notB (textOK (fun k => Nat.xor (CFSG.KD.ThSj.RB k) 1) rm CFSG.KD.ThSj.LI) = true := by
+  quickRfl
+
+theorem regs_neg : BigS.notB (regsOK (fun k => Bool.rec (motive := fun _ => Nat) (CFSG.KD.ThSj.RB k)
+    (CFSG.KD.ThSj.RB 2) (Nat.beq k 9)) c rm ONE) = true := by
+  quickRfl
+
+theorem rels_neg : BigS.notB (BigS.relsOK (fun k => Bool.rec (motive := fun _ => Nat) (CFSG.KD.ThSj.RB k)
+    (CFSG.KD.ThSj.RB 2) (Nat.beq k 1)) c rm ONE GR IR) = true := by
+  quickRfl
+
+theorem words_neg : BigS.notB (wordsOK CFSG.KD.ThSj.LS [CFSG.KD.ThSj.S1, CFSG.KD.ThSj.S0]) = true := by
+  quickRfl
+
+theorem std_neg : BigS.notB (Nat.beq (wordV CFSG.KD.ThSj.RB c rm CFSG.KD.ThSj.S0 ONE) CFSG.KD.ThSeed.SB) = true := by
+  quickRfl
 
 end CFSG.KC.Th.SurjK
 

@@ -34,6 +34,10 @@ theorem ok129020 :
     bAnd(heisK (MHeis.F 0) (MHeis.F 1) (S 0), heisK (MHeis.F 2) (MHeis.F 3) (F 17)) = true := by
   quickRfl
 
+theorem ok129020_neg : bAnd(bIf(Nat.beq (pc (pc (S 0) (MHeis.F 2)) (S 0))
+    (pinvS 275 9 (mask 9) (MHeis.F 2)), false, true),
+    bIf(commK (MHeis.F 0) (MHeis.F 1), false, true)) = true := by
+  quickRfl
 
 end CertificateChecks.KernelSpor.OddCore
 

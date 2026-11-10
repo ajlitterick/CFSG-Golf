@@ -28,6 +28,15 @@ open CFSG.KC.Enum
 
 @[expose] noncomputable def bAt (B u : Nat) : Nat := fld(B, Nat.mul (nat_lit 15) u, nat_lit 32767)
 
+@[expose] noncomputable def fixesB (F W : Nat → Nat) (B i j : Nat) : Bool :=
+  allBlk (nat_lit 0) (fun u => strictB (bAt B u) fun b => Nat.beq (lAp F W j b) b) i
+
+@[expose] noncomputable def fixChk (F W : Nat → Nat) (B i lo M j : Nat) : Bool :=
+  strictB (Nat.land (Nat.shiftRight M j) (nat_lit 1)) fun m =>
+    bIf(bAnd(Nat.ble lo j, fixesB F W B i j), Nat.beq m (nat_lit 1), Nat.beq m (nat_lit 0))
+
+@[expose] noncomputable def fixAll (F W : Nat → Nat) (B i lo M : Nat) : Bool :=
+  allBlk (nat_lit 0) (fixChk F W B i lo M) (nat_lit 17)
 
 @[expose] noncomputable def recAt (R : Nat → Nat) (o t : Nat) : Nat :=
   rget R (nat_lit 4) (nat_lit 15) (nat_lit 36) (nat_lit 68719476735) (Nat.add o t)

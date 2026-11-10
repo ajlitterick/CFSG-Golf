@@ -66,6 +66,13 @@ theorem pl_checkP : ∀ k < 4,
       true := by
   decide +kernel
 
+theorem pl_set_neg : (!(PL0.set 0 18781).contains (f20 (PB.getD 0 0) 0)) = true := by decide +kernel
+
+theorem pl_checkP_neg : (!checkPK K1c 409405 81126 79003 79503 PL0.tail (tpL E40)) = true := by
+  decide +kernel
+
+theorem pl_checkP_neg2 : (!checkPK K1c 409405 81126 79003 79127 PL0 (tpL E40)) = true := by
+  decide +kernel
 
 end CertificateChecks.FiveStd
 

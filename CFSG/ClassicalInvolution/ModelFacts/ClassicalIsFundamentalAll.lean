@@ -20,6 +20,8 @@ theorem classicalMembersFundamentalExc2 : ClassicalMembersFundamentalExc2 p f :=
   · exact classicalMembersFundamental_trialityD4 hp hp2 hq hadm
       (hef.elim Or.inl fun h' => Or.inr h'.2)
 
+theorem classicalMembersFundamentalExc3 : ClassicalMembersFundamentalExc3 p f :=
+  classicalMembersFundamentalExc3_of_exc2 classicalMembersFundamentalExc2
 
 theorem classicalMembersFundamentalExc : ClassicalMembersFundamentalExc p f :=
   classicalMembersFundamentalExc_of_exc2 classicalMembersFundamentalExc2

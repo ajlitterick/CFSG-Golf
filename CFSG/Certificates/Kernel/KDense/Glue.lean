@@ -210,6 +210,10 @@ theorem rep_reduce {v : Native.DVec} {s : St} (h : Rep v s) : Rep v.reduce s := 
   rw [e]
   exact h
 
+theorem evalWordC_nil (c : Native.Ctx) (v : Native.DVec) : Native.evalWordC c [] v = v := rfl
+
+theorem evalWordC_cons (c : Native.Ctx) (g : Native.Gen) (w : List Native.Gen) (v : Native.DVec) :
+    Native.evalWordC c (g :: w) v = Native.evalWordC c w (Native.applyGen c g v).reduce := rfl
 
 theorem evalWordC_append (c : Native.Ctx) (w w' : List Native.Gen) (v : Native.DVec) :
     Native.evalWordC c (w ++ w') v = Native.evalWordC c w' (Native.evalWordC c w v) :=
@@ -246,6 +250,8 @@ theorem run_pos {F : Fix} {T : Tab} (g : Native.Gen) (w : List Native.Gen) {i : 
     (n : ℕ) (s : St) : run F T (g :: w) i n s = run F T w (i - 1) n s := by
   rw [run_cons, (Nat.blt_eq.mpr hi : Nat.blt 0 i = true)]
 
+theorem run_zero_zero {F : Fix} {T : Tab} (g : Native.Gen) (w : List Native.Gen) (s : St) :
+    run F T (g :: w) 0 0 s = s := rfl
 
 theorem run_zero_succ {F : Fix} {T : Tab} (g : Native.Gen) (w : List Native.Gen) (n : ℕ) (s : St) :
     run F T (g :: w) 0 (n + 1) s = run F T w 0 n (step F T g s) := by

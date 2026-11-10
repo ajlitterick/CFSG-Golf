@@ -13,6 +13,9 @@ open CFSG.KC.Enum
     bIf(Nat.beq q (nat_lit 479), true, bIf(Nat.beq q (nat_lit 26571), true,
       bIf(Nat.beq q (nat_lit 15916), true, Nat.beq q (nat_lit 186))))))
 
+@[expose] noncomputable def lineB (q : Nat) : Bool :=
+  bIf(Nat.beq q (nat_lit 0), true, bIf(Nat.beq q (nat_lit 1), true,
+    bIf(Nat.beq q (nat_lit 2), true, Nat.beq q (nat_lit 6))))
 
 @[expose] noncomputable def movesB (F W : Nat → Nat) (j p : Nat) : Bool :=
   strictB (lAp F W j p) fun q => bAnd(Nat.blt q (nat_lit 26572), bIf(Nat.beq q p, false, true))
@@ -24,5 +27,11 @@ open CFSG.KC.Enum
   allBlk (Nat.mul (nat_lit 256) c)
     (fun p => bIf(Nat.blt p (nat_lit 26572), ptChk F W p, true)) (nat_lit 256)
 
+@[expose] noncomputable def lineChk (F W : Nat → Nat) (j p : Nat) : Bool :=
+  strictB (lAp F W j p) fun q => bAnd(Nat.blt q (nat_lit 26572), lineB q)
+
+@[expose] noncomputable def lineAll (F W : Nat → Nat) : Bool :=
+  allBlk (nat_lit 1) (fun j => bAnd(lineChk F W j (nat_lit 0), bAnd(lineChk F W j (nat_lit 1),
+    bAnd(lineChk F W j (nat_lit 2), lineChk F W j (nat_lit 6))))) (nat_lit 16)
 
 end CFSG.KC.D43

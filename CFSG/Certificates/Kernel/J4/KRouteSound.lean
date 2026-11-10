@@ -154,6 +154,7 @@ theorem fIdx_lt (F : ℕ) : fIdx F < 2 ^ 20 := Nat.and_lt_two_pow _ (by decide)
 
 theorem cIdx_lt (x : ℕ) : cIdx x < 2 ^ 32 := Nat.and_lt_two_pow _ (by decide)
 theorem cNd_lt (x : ℕ) : cNd x < 2 ^ 32 := Nat.and_lt_two_pow _ (by decide)
+theorem dK_lt (d : ℕ) : dK d < 2 ^ 32 := Nat.and_lt_two_pow _ (by decide)
 theorem dNd_lt (d : ℕ) : dNd d < 2 ^ 32 := Nat.and_lt_two_pow _ (by decide)
 
 theorem letAt_eq (c : ℕ) : letAt c = c / 2 % 256 := by

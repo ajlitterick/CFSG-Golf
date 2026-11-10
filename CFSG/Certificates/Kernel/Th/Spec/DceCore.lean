@@ -201,6 +201,7 @@ open scoped Classical in
     ⟨toMat (let24 LT c), toMat (let24 LT (byte LI c)), h.2, mul_eq_one_comm.1 h.2⟩
   else 1
 
+@[expose] def Nset (TL VL NL : ℕ) : Set ℕ := {c | c < NL ∧ isN TL VL NL c = true}
 
 @[expose] def InM (M : Subgroup Mat24ˣ) (A : ℕ) : Prop :=
   A < 2 ^ 576 ∧ ∃ y ∈ M, ((y : Mat24ˣ) : Mat24) = toMat A

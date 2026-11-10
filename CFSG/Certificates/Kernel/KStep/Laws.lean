@@ -1159,6 +1159,10 @@ theorem ops15_law : PLaw 4 ops15 :=
     (funext fun S => funext fun k => funext fun N => funext fun x => net4_netN S k N x)
     (funext fun S => funext fun b => funext fun x => xsw_xswN S b x) rfl rfl
 
+theorem bfly_needs_closure :
+    resPN 4 2 (bfly 2 0 1 1) 1 ≠ resPN 4 2 1 1 ∧ resPN 4 2 (bflyN 2 4 2 0 1 1) 1 ≠ resPN 4 2 1 1 ∧
+      ¬ (∀ q < 2, (1 : ℕ).testBit q = true → q.testBit 0 = false → (1 : ℕ).testBit (q + 2 ^ 0) = true) := by
+  decide +kernel
 
 end CFSG.KC.KStep
 

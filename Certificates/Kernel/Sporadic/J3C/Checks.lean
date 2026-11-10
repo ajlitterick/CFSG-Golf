@@ -34,9 +34,11 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.PEnum CFSG.KS.TBfs CFSG.KS.PC CFSG.KS.CentReg
 
 theorem kl0 : Nat.beq K0 (pmk 20520 15 (KLr 0)) = true := by quickRfl
 
+theorem kl1 : Nat.beq KI0 (pmk 20520 15 (KLr 1)) = true := by quickRfl
 
 theorem kl2 : Nat.beq K1 (pmk 20520 15 (KLr 2)) = true := by quickRfl
 
+theorem kl3 : Nat.beq KI1 (pmk 20520 15 (KLr 3)) = true := by quickRfl
 
 theorem comm0 :
     Nat.beq (pcomp 20520 15 (mask 15) K0 A) (pcomp 20520 15 (mask 15) A K0) = true := by

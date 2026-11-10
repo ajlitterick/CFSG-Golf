@@ -310,6 +310,9 @@ open CFSG.TwoRankLowerBound.Helpers CFSG.BlockSectionOrthogonality.Helpers
 open scoped Classical
 
 
+@[expose] def section2 {X : Type} [Group X] (J : X) : Set X :=
+  {x | ∃ y : X, x = J * y ∧ y * J = J * y ∧ Odd (orderOf y)}
+
 end CT
 
 structure HypI (G : Type) [Group G] [Finite G] extends Hyp G where
@@ -376,6 +379,11 @@ structure AlphaData (hI : HypI G) where
   J_ker : χα ⟨hI.J, Subgroup.mem_centralizer_singleton_iff.mpr rfl⟩ = (hI.q : ℂ) - 1 ∧
     χεα ⟨hI.J, Subgroup.mem_centralizer_singleton_iff.mpr rfl⟩ = (hI.q : ℂ) - 1
   inv : ∀ t : hI.H, (t : G) ∈ hI.K → orderOf t = 2 → χα t = -2 ∧ χεα t = 2
+
+
+@[expose] noncomputable def eta4 (hI : HypI G) (χ : Fin 4 → (hI.H → ℂ)) (α : AlphaData hI)
+    (l : hI.H → ℂ) : hI.H → ℂ :=
+  l * hI.δ * χ 0 - l * hI.δ * χ 3 + l * hI.δ * α.χα
 
 
 end CT7

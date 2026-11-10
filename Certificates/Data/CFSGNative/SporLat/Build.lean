@@ -211,5 +211,8 @@ structure MemState (Lab : Type) [BEq Lab] [Hashable Lab] where
   return { O := O, F := F, sTabs := sTabs, mw := st.mw, mt := st.mt, Om := st.Om, atoms := atoms,
            joins := joins.reverse }
 
+@[expose] def buildO2 (act : Array Nat → Lab → Lab) (D : LatData Lab) :
+    Array (OmegaData (List Lab)) :=
+  D.Om.map fun o => (buildOmega (tupAct act) D.sTabs.toArray o.lbl.toList (1 <<< 60)).1
 
 end CFSG.QuasithinUnique.Ch1.SporLat

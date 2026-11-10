@@ -110,6 +110,21 @@ open CFSG.KC.Ord CFSG.KC.LQT.P
     (iffB (Nat.beq (img B i) (img B pos)) (Nat.beq (img B (img acc i)) (img B v)))
     (iffB (Nat.beq (img C i) (img C pos)) (Nat.beq (img C (img acc i)) (img C v)))
 
+@[expose] noncomputable def cntSt (n B C : Nat) : Nat :=
+  Nat.rec (motive := fun _ => Nat → Nat → Nat → Nat) (fun _ _ _ => 1)
+    (fun _ ih pos mask acc =>
+      Nat.rec (motive := fun _ => Nat) 0
+        (fun v rest => Nat.add
+          (Bool.rec (motive := fun _ => Nat)
+            (Bool.rec (motive := fun _ => Nat) 0
+              (ih (Nat.succ pos) (Nat.lor mask (Nat.shiftLeft 1 v))
+                (Nat.add acc (Nat.shiftLeft v (Nat.mul 5 pos))))
+              (stOK B C acc pos v))
+            0 (Nat.blt 0 (Nat.land mask (Nat.shiftLeft 1 v))))
+          rest) n) n 0 0 0
+
+@[expose] noncomputable def c4138 (X7 Y7 X8 Y8 : Nat) : Bool :=
+  andB (Nat.beq (cntSt 7 X7 Y7) 48) (Nat.beq (cntSt 8 X8 Y8) 128)
 
 @[expose] noncomputable def syl (X Y Z : Nat) : List Nat :=
   [one 7, X, Y, mul 7 X Y, Z, mul 7 X Z, mul 7 Y Z, mul 7 (mul 7 X Y) Z]

@@ -23,6 +23,8 @@ open CFSG.KLie.CT (notB)
 theorem kCanon4 : allN 72 (fun c => canonK 42 6 (mask 6) (42 * 6) (L34C4.P c)) = true := by
   quickRfl
 
+theorem kNegKu : notB (kuK 42 6 (pidn 42 6) 0 L34C4.P (pidn 42 6) (L34R.G 0)) = true := by
+  quickRfl
 
 end CertificateChecks.KernelLC.L34Scan
 

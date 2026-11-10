@@ -24,6 +24,7 @@ theorem vlens : (Nat.beq CFSG.KD.P0VisR0.rows.length 1200 &&
     Nat.beq CFSG.KD.P0VisR1.rows.length 1200 && Nat.beq CFSG.KD.P0VisR2.rows.length 1200 &&
     Nat.beq CFSG.KD.P0VisR3.rows.length 1287) = true := by decide +kernel
 
+theorem glenNeg : glenOK [([], [(List.range 17, [])])] = false := by decide +kernel
 
 end CFSG.KD.P0Vis
 

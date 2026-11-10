@@ -26,6 +26,19 @@ namespace CertificateChecks.KernelD43
 
 open CFSG.KC.D43
 
+theorem line3 : lineAll GX.F TW = true := by decide +kernel
+
+theorem aptImg3 : (Nat.beq (lAp GX.F TW 0 0) 0 && Nat.beq (lAp GX.F TW 0 6) 186 &&
+    Nat.beq (lAp GX.F TW 0 479) 15916 && Nat.beq (lAp GX.F TW 0 26571) 26571 &&
+    Nat.beq (lAp GX.F TW 0 15916) 479 && Nat.beq (lAp GX.F TW 0 186) 6 &&
+    Nat.beq (lAp GX.F TW 1 0) 6 && Nat.beq (lAp GX.F TW 1 6) 0 &&
+    Nat.beq (lAp GX.F TW 1 479) 186 && Nat.beq (lAp GX.F TW 1 26571) 15916 &&
+    Nat.beq (lAp GX.F TW 1 15916) 26571 && Nat.beq (lAp GX.F TW 1 186) 479) = true := by
+  decide +kernel
+
+theorem negPt3 : (!(lineChk GX.F TW 0 1 && lineChk GX.F TW 0 2 && lineChk GX.F TW 0 6) &&
+    !movesB GX.F TW 2 0 && !movesB GX.F TW 3 0) = true := by
+  decide +kernel
 
 end CertificateChecks.KernelD43
 

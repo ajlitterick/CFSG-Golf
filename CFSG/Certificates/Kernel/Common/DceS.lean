@@ -19,6 +19,8 @@ open CFSG.KC CFSG.KC.Loop
 @[expose] noncomputable def m20 : Nat := nat_lit 1048575
 @[expose] noncomputable def m112 : Nat := nat_lit 5192296858534827628530496329220095
 
+@[expose] noncomputable def patch (f : Nat → Nat) (k v : Nat) : Nat → Nat :=
+  fun i => Bool.rec (motive := fun _ => Nat) (f i) v (Nat.beq i k)
 
 @[expose] noncomputable def fct (blk : Nat → Nat) (h : Nat) : Nat :=
   strictN (Nat.shiftRight h (nat_lit 8)) (fun k =>

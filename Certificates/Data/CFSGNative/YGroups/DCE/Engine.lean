@@ -90,6 +90,8 @@ instance : Inhabited (WElt E) := ⟨E.wid 0⟩
 @[inline, expose] def pmul (x y : PElt E) : PElt E :=
   ⟨pcomp x.1 y.1, E.rules.mul _ _ x.2 y.2⟩
 
+@[expose] def pinv (x : PElt E) : PElt E :=
+  if h : isInvA E.C.n x.1 (invCand E.C.n x.1) = true then ⟨_, E.rules.inv _ x.2 h⟩ else x
 
 @[inline, expose] def wmul (x y : WElt E) : WElt E :=
   if h : x.1.1 = y.1.1 then
@@ -314,6 +316,7 @@ variable (E : Env)
   if l == B.lv.size && isIdA E.C.n r.1.2 then (B, rng)
   else E.close j (E.addStrong B l r) rng 40 200000
 
+@[expose] def bsOrder (B : Bsgs E) : Nat := B.lv.foldl (fun a L => a * L.pts.size) 1
 
 end Env
 
@@ -799,6 +802,50 @@ variable (E : Env)
     | some (i, o) => st := E.newNode st i o
   return E.finish st
 
+@[expose] def levelOK (j l : Nat) (lv : Array (Lv E)) : Bool :=
+  let n := E.C.n
+  let L := lv[l]!
+  decide (L.β < n) && L.pos.size == n && L.pts.size != 0 && L.pts[0]! == L.β &&
+    L.sg.all (fun s => s.1.1 == j && allLt l fun m => s.1.2[lv[m]!.β]! == lv[m]!.β) &&
+    allLt L.pts.size fun t =>
+      let x := L.pts[t]!
+      decide (x < n) && L.pos[x]! == t &&
+        (t == 0 || (decide (L.tl[x]! < L.sg.size) && decide (L.tp[x]! < n) &&
+          decide (L.pos[L.tp[x]!]! < t) && L.pts[L.pos[L.tp[x]!]!]! == L.tp[x]! &&
+            (L.sg[L.tl[x]!]!).1.2[L.tp[x]!]! == x))
+
+@[expose] def chainBound (st : St E) (j : Nat) : Nat :=
+  st.bs[j]!.lv.foldl (fun a L => a * L.pts.size) 1
+
+@[expose] def nodeClosed (st : St E) (j : Nat) : Bool :=
+  let N := E.C.D.N
+  let nn := st.nodes.size
+  let gens := st.gens[j]!
+  let spar := st.spar[j]!
+  let sgen := st.sgen[j]!
+  let dep := st.dep[j]!
+  gens.all (fun w => w.1.1 == j) &&
+    allLt N fun x =>
+      let px := spar[x]!
+      if px == N then
+        match st.tab[j]![st.orb[j]![x]!]! with
+        | some f => f.1.i == j && f.1.p == x && decide (f.1.k < nn)
+        | none => false
+      else
+        decide (px < N) && decide (dep[px]! < dep[x]!) && decide (sgen[x]! < gens.size) &&
+          act E.C.D (gens[sgen[x]!]!).1.2 px == x
+
+@[expose] def countIndex (st : St E) (ord : Nat) : Nat :=
+  (List.range st.nodes.size).foldl (fun a j => a + ord / E.chainBound st j) 0
+
+@[expose] def outOK (st : St E) (ord bound : Nat) : Bool :=
+  let nn := st.nodes.size
+  st.err == 0 && decide (0 < nn) && st.gens.size == nn && st.spar.size == nn &&
+    st.sgen.size == nn && st.dep.size == nn && st.orb.size == nn && st.tab.size == nn &&
+    st.bs.size == nn &&
+    allLt nn (fun j => E.nodeClosed st j &&
+      allLt st.bs[j]!.lv.size fun l => E.levelOK j l st.bs[j]!.lv) &&
+    decide (E.countIndex st ord ≤ bound)
 
 end Env
 

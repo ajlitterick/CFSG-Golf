@@ -184,6 +184,13 @@ theorem decRun3_range (hlb : 0 < lb) : ∀ (m St : Nat),
 
 end Run
 
+theorem decRun3_join {F : Nat → Nat} {lb len d N RM M : Nat} {l1 l2 : List Nat} {x y z : Nat}
+    (h1 : Nat.beq (decRun3 F lb len d N RM M l1 x) y = true)
+    (h2 : Nat.beq (decRun3 F lb len d N RM M l2 y) z = true) :
+    Nat.beq (decRun3 F lb len d N RM M (List.append l1 l2) x) z = true := by
+  rw [Nat.beq_eq] at h1 h2 ⊢
+  change decRun3 F lb len d N RM M (l1 ++ l2) x = z
+  rw [decRun3_append, h1, h2]
 
 @[expose] noncomputable def enc3 (k R : Nat) : Nat :=
   Nat.add (nat_lit 3) (Nat.add (Nat.shiftLeft k (nat_lit 2)) (Nat.shiftLeft R (nat_lit 26)))

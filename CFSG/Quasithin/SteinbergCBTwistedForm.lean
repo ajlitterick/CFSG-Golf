@@ -59,6 +59,8 @@ variable (σ)
   map_add' X Y := by rw [Matrix.mul_add, Matrix.add_mul]
   map_smul' c X := by rw [Matrix.mul_smul, Matrix.smul_mul]; rfl
 
+theorem twistLin_apply (g X : Matrix (Fin 2) (Fin 2) F) : twistLin σ g X = g * X * (g.map σ)ᵀ :=
+  rfl
 
 variable {σ}
 

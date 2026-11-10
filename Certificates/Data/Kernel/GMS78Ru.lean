@@ -168,6 +168,8 @@ open CFSG.KLie.CT CFSG.KC.Loop
 @[expose] noncomputable def xwK (MA w : Nat) : Nat :=
   xorN (nat_lit 8) fun a => nIf(bit w a, fget MA a (nat_lit 768), nat_lit 0)
 
+@[expose] noncomputable def cmK (c e p q : Nat) : Nat :=
+  orN (nat_lit 256) fun i => Nat.shiftLeft (nat_lit 1) (Nat.add (Nat.mul (nat_lit 256) (sqK c e (wK p q i))) i)
 
 @[expose] noncomputable def ttK (c p q : Nat) : Nat :=
   orN (nat_lit 64) fun jk => Nat.shiftLeft

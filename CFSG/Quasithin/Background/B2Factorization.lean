@@ -412,6 +412,13 @@ theorem B2_9_1 (hVH : V ≤ H) (hHN : H ≤ Subgroup.normalizer (V : Set G)) {A 
   obtain ⟨D, hD, rfl⟩ := offenderImages_ffLe hV hVH hHN hA hff
   exact ⟨D, hD, rfl⟩
 
+theorem B2_9_2 (hVH : V ≤ H) (hHN : H ≤ Subgroup.normalizer (V : Set G)) {A : Subgroup G}
+    (hA : IsFFOffender H V A) (hnot : ¬ IsStrongFFOffender hV H A)
+    {B : Subgroup (MulAut (IntMod V hV))} (hB1 : B ≠ ⊥) (hBA : B ≤ autI hV A)
+    (hr : rAV B ≤ 1) : ∃ D : Subgroup G, IsFFOffender H V D ∧ autI hV D = B := by
+  have hff := B2_8_ffLe hV hVH hHN hA hnot hB1 hBA hr
+  obtain ⟨D, hD, rfl⟩ := offenderImages_ffLe hV hVH hHN hA hff
+  exact ⟨D, hD, rfl⟩
 
 end Dichotomy
 

@@ -19,6 +19,17 @@ structure KeyFns (V : Type) where
   key v := v % 2 ^ d
   base := 2 ^ d
 
+@[expose] def ofDigitsP (p : Nat) : List Nat → Nat
+  | [] => 0
+  | a :: l => a + p * ofDigitsP p l
+
+@[expose] def kfP (p d : Nat) : KeyFns (Array Nat) where
+  key v := ofDigitsP p ((List.range d).map fun j => v[j]! % p)
+  base := p ^ d
+
+@[expose] def kf3 (d : Nat) : KeyFns CFSG.F3.Native.V where
+  key v := v.p % 2 ^ d + 2 ^ d * (v.m % 2 ^ d)
+  base := 2 ^ d * 2 ^ d
 
 structure Cover3Data (V : Type) where
   seedA : String

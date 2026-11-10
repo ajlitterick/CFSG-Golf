@@ -18,6 +18,9 @@ instance hns_fact_prime_five : Fact (Nat.Prime 5) := ⟨by norm_num⟩
   matB * matA * matB * matA + (3 : ZMod 5) • (matB * matA) + (2 : ZMod 5) • matB +
     (4 : ZMod 5) • (matA * matB * matB * matA) + matB * matB
 
+theorem toMat_apply_133 (X : Array (Array ℕ)) (i j : Fin 133) :
+    ((X[i.val]!)[j.val]! : ZMod 5) = toMat 5 133 X i j := rfl
+
 
 theorem toMat_colsMat_eq_transpose (X : Array (Array ℕ)) :
     toMat 5 133 (colsMat 133 X) = (toMat 5 133 X)ᵀ := by

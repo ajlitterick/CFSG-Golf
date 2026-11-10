@@ -20,8 +20,21 @@ theorem hd : fpBfsHdK 1782 11 (mask 11) (1782 * 11) 2 2835 343 353 (SuzInvT1.F 0
     SuzWT SuzWPL SuzWFP = true := by
   quickRfl
 
+theorem pt0 : ptK 0 = true := by quickRfl
 theorem pt1 : ptK 1 = true := by quickRfl
+theorem pt2 : ptK 2 = true := by quickRfl
+theorem pt3 : ptK 3 = true := by quickRfl
+theorem pt4 : ptK 4 = true := by quickRfl
+theorem pt5 : ptK 5 = true := by quickRfl
+theorem pt6 : ptK 6 = true := by quickRfl
+theorem pt7 : ptK 7 = true := by quickRfl
+theorem pt8 : ptK 8 = true := by quickRfl
+theorem pt9 : ptK 9 = true := by quickRfl
+theorem pt10 : ptK 10 = true := by quickRfl
 
+theorem st : fpBfsStSlK 11 (mask 11) 2 343 353 SuzXS.F SuzWGI SuzWT SuzWPL SuzWPOS SuzWFP 0 353 =
+    true := by
+  quickRfl
 
 theorem fpT : allN 343 (fun i => Nat.beq (SuzWFP i) (fpK 11 (mask 11) (SuzWT i))) = true := by
   quickRfl
@@ -46,6 +59,8 @@ theorem p1K : bAnd(allN 342 (fun i => bIf(Nat.beq i 0, true,
     bAnd(Nat.blt (SuzWJ 0) 128, Nat.beq (SuzWFP 342) (SuzWQF (SuzWJ 0)))) = true := by
   quickRfl
 
+theorem gi0 : invEqK 1782 11 (mask 11) (1782 * 11) (SuzXS.F 0) (SuzWGI 0) = true := by quickRfl
+theorem gi1 : invEqK 1782 11 (mask 11) (1782 * 11) (SuzXS.F 1) (SuzWGI 1) = true := by quickRfl
 theorem ci0 : invEqK 1782 11 (mask 11) (1782 * 11) (SuzInvT1.F 21) (SuzWCI 0) = true := by quickRfl
 theorem ci1 : invEqK 1782 11 (mask 11) (1782 * 11) (SuzInvT1.F 24) (SuzWCI 1) = true := by quickRfl
 
@@ -64,6 +79,26 @@ theorem w4 : compEqK 1782 11 (mask 11) (1782 * 11) (SuzInvT1.F 21) (SuzWC 3) (Su
   quickRfl
 theorem wE : Nat.beq (SuzWC 0) (SuzWC 4) = true := by quickRfl
 
+theorem negPos : Bool.not (fpBfsStSlK 11 (mask 11) 2 343 353 SuzXS.F SuzWGI SuzWT SuzWPL
+    (fun e => nIf(Nat.beq e 3, 342, SuzWPOS e)) SuzWFP 0 353) = true := by
+  quickRfl
+
+theorem negSwap : Bool.not (fpBfsPtK 1782 11 (mask 11) (1782 * 11) 2 343 SuzXS.F SuzWGI
+    (fun i => nIf(Nat.beq i 5, SuzWT 6, nIf(Nat.beq i 6, SuzWT 5, SuzWT i))) SuzWV SuzWPL SuzWFP 5) =
+    true := by
+  quickRfl
+
+theorem negDist : Bool.not (fpBfsHdK 1782 11 (mask 11) (1782 * 11) 2 2835 343 353 (SuzInvT1.F 0)
+    SuzXS.F SuzWGI SuzWT SuzWPL (fun i => nIf(Nat.beq i 7, SuzWFP 3, SuzWFP i))) = true := by
+  quickRfl
+
+theorem negRounds : Bool.not (fpBfsHdK 1782 11 (mask 11) (1782 * 11) 2 176 343 353 (SuzInvT1.F 0)
+    SuzXS.F SuzWGI SuzWT SuzWPL SuzWFP) = true := by
+  quickRfl
+
+theorem negP1 : Bool.not (allN 343 (fun i => bIf(Nat.beq i 0, true,
+    allN 128 (fun j => bIf(Nat.beq (SuzWFP i) (SuzWQF j), false, true))))) = true := by
+  quickRfl
 
 end CertificateChecks.KernelSpor.SuzWK
 

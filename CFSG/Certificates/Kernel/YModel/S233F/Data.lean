@@ -24,6 +24,7 @@ open CFSG.KC.YModel
 @[expose] noncomputable def U5 : Nat := N5
 @[expose] noncomputable def U6 : Nat := N6
 @[expose] noncomputable def U7 : Nat := N7
+@[expose] noncomputable def U8 : Nat := N8
 #kc_select CFSG.KD.YMS233F U U 36
 #kc_select CFSG.KD.YMS233F GP GP 36
 #kc_select CFSG.KD.YMS233F GL GL 36

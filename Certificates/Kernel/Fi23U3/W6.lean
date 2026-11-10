@@ -19,5 +19,17 @@ open CFSG.SectionRank.Native
 theorem check : CFSG.KC.InvWords.invCheck rels0 cert [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2] = true := by
   decide +kernel
 
+theorem check_neg_drop :
+    (!CFSG.KC.InvWords.invCheck rels0 cert.tail [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2]) = true := by
+  decide +kernel
+
+theorem check_neg_target :
+    (!CFSG.KC.InvWords.invCheck rels0 cert [1, 2, 1, 2, 1, 2, 1, 2, 1, 2]) = true := by
+  decide +kernel
+
+theorem check_neg_extra :
+    (!CFSG.KC.InvWords.invCheck rels0 ([0, 1] :: cert) [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2]) =
+      true := by
+  decide +kernel
 
 end CFSG.KD.Fi23W6

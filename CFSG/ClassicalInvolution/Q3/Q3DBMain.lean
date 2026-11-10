@@ -24,6 +24,17 @@ theorem deltaConnected_of_oddCentralizerFree {G : Type} [Group G] [Finite G] [Is
     ((citBelowT_three_iff (p := 3) (f := 1) (by norm_num) _).mp hBelow) hD
 
 
+@[expose] def BootNoTripleD3 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
+    ∀ (K : Subgroup G) (z : G), IsClassicalMemberU (.sl2 3 1) K z →
+      CITBelowT (.sl2 3 1) (Nat.card G) → 3 ≤ CFSG.Open.twoRank G →
+      ¬ TwoSubgroupsFourGenerated G →
+      DConnected (CoreAssembly.conjClass (satU (.sl2 3 1) K z)) →
+      BootData3 (conjClass3 (satU (.sl2 3 1) K z)) →
+      ¬ IndepTriple3 (conjClass3 (satU (.sl2 3 1) K z)) →
+      Balance.oddCoreIn (Subgroup.centralizer ({z} : Set G)) = ⊥
+
+
 theorem oddCentralizerFree_of_exact_sat {G : Type} [Group G] [Finite G] {K : Subgroup G} {z : G}
     (hz : IsClassicalMemberU (.sl2 3 1) K z)
     (hex : ExactMembers3 (conjClass3 (satU (.sl2 3 1) K z))) :

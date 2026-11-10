@@ -97,15 +97,113 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.ON CFSG.KS.TW CFSG.KS.Words CFSG.KS.FLGen
 @[expose] noncomputable def trF (s : Nat) : Bool :=
   allBlk (Nat.mul s (nat_lit 240)) trAtF (nat_lit 240)
 
+theorem FL2_eq : ONB.FL2 = (decW (ONV.WC 2) (ONV.WL 2)).map (GZ TB UB) := by kernelRfl
+theorem FL3_eq : ONB.FL3 = (decW (ONV.WC 3) (ONV.WL 3)).map (GZ TB UB) := by kernelRfl
+theorem FL4_eq : ONB.FL4 = (decW (ONV.WC 4) (ONV.WL 4)).map (GZ TB UB) := by kernelRfl
+theorem FL5_eq : ONB.FL5 = (decW (ONV.WC 5) (ONV.WL 5)).map (GZ TB UB) := by kernelRfl
+theorem FL6_eq : ONB.FL6 = (decW (ONV.WC 6) (ONV.WL 6)).map (GZ TB UB) := by kernelRfl
+
+theorem FL_eq : ∀ j, 2 ≤ j → j < 7 → FL j = (decW (ONV.WC j) (ONV.WL j)).map (GZ TB UB) := by
+  intro j h2 h7
+  obtain rfl | rfl | rfl | rfl | rfl : j = 2 ∨ j = 3 ∨ j = 4 ∨ j = 5 ∨ j = 6 := by omega
+  · exact FL2_eq
+  · exact FL3_eq
+  · exact FL4_eq
+  · exact FL5_eq
+  · exact FL6_eq
+
+theorem NE_eq : ∀ j, 2 ≤ j → j < 7 → ∀ x, NE j x = traceR (FL j) x := by
+  intro j h2 h7 x
+  obtain rfl | rfl | rfl | rfl | rfl : j = 2 ∨ j = 3 ∨ j = 4 ∨ j = 5 ∨ j = 6 := by omega
+  all_goals kernelRfl
 
 theorem strictB_eq (y : Nat) (k : Nat → Bool) : strictB y k = k y := by
   cases y <;> rfl
 
 section
 
+variable (hx : ∀ x < 245520, trAtF x = true)
+
+include hx in
+theorem agree_lt : ∀ h < 7, ∀ v < 245520, TB h v = TT h v ∧ UB h v = UU h v ∧
+    TT h v < 245520 ∧ UU h v < 245520 := by
+  intro h hh v hv
+  have e := hx v hv
+  unfold trAtF at e
+  obtain ⟨hp, hr⟩ := bAnd_iff.1 e
+  obtain ⟨ha, -⟩ := bAnd_iff.1 hr
+  have h1 := allBlk_spec hp h hh
+  have h2 := allBlk_spec ha h hh
+  rw [Nat.add_eq, Nat.zero_add] at h1 h2
+  rw [strictB_eq] at h1
+  obtain ⟨a1, h4⟩ := bAnd_iff.1 h1
+  obtain ⟨a2, -⟩ := bAnd_iff.1 h4
+  obtain ⟨b1, b2⟩ := bAnd_iff.1 h2
+  exact ⟨Nat.eq_of_beq_eq_true b1, Nat.eq_of_beq_eq_true b2, Nat.blt_eq.mp a1, Nat.blt_eq.mp a2⟩
+
+include hx in
+theorem agree_all : ∀ h, ∀ v < 245520, TB h v = TT h v ∧ UB h v = UU h v ∧
+    TT h v < 245520 ∧ UU h v < 245520 := by
+  intro h v hv
+  rcases Nat.lt_or_ge h 7 with hh | hh
+  · exact agree_lt hx h hh v hv
+  · obtain ⟨k, rfl⟩ : ∃ k, h = k + 7 := ⟨h - 7, by omega⟩
+    exact agree_lt hx 6 (by omega) v hv
+
+include hx in
+theorem foldr_agree : ∀ (L : List Int), ∀ v < 245520,
+    L.foldr (GZ TB UB) v = L.foldr (GZ TT UU) v ∧ L.foldr (GZ TT UU) v < 245520
+  | [], v, hv => ⟨rfl, hv⟩
+  | z :: L, v, hv => by
+    obtain ⟨e, hw⟩ := foldr_agree L v hv
+    simp only [List.foldr_cons]
+    rw [e]
+    obtain ⟨a1, a2, a3, a4⟩ := agree_all hx (if 0 < z then z.toNat - 1 else (-z).toNat - 1) _ hw
+    unfold GZ
+    by_cases hz : 0 < z
+    · simp only [hz, ite_true] at a1 a3 ⊢
+      exact ⟨a1, a3⟩
+    · simp only [hz, ite_false] at a2 a4 ⊢
+      exact ⟨a2, a4⟩
+
+include hx in
+theorem word_eq : ∀ j, 2 ≤ j → j < 7 → ∀ v < 245520,
+    TT j v = trace TT UU (ONV.WC j) (ONV.WL j) v := by
+  intro j h2 h7 v hv
+  have e := hx v hv
+  unfold trAtF at e
+  obtain ⟨-, hr⟩ := bAnd_iff.1 e
+  obtain ⟨-, hw⟩ := bAnd_iff.1 hr
+  have h1 := allBlk_spec hw (j - 2) (by change j - 2 < 5; omega)
+  rw [Nat.add_eq, show 2 + (j - 2) = j by omega] at h1
+  rw [Nat.eq_of_beq_eq_true h1, NE_eq j h2 h7, FL_eq j h2 h7, traceR_map, trace_eq]
+  exact (foldr_agree hx _ v hv).1
 
 end
 
+theorem trS_of_trF (hF : ∀ s < 1023, trF s = true) : ∀ s < 1023, trS s = true := by
+  have hx : ∀ x < 245520, trAtF x = true := by
+    intro x hx
+    have := allBlk_spec (hF (x / 240) (by omega)) (x % 240) (Nat.mod_lt _ (by omega))
+    have e : Nat.add (Nat.mul (x / 240) 240) (x % 240) = x := by
+      simp only [Nat.add_eq, Nat.mul_eq]
+      omega
+    rwa [e] at this
+  intro s hs
+  unfold trS trRange
+  refine allBlk_of fun l hl => ?_
+  have hl' : l < 240 := hl
+  have hxl : Nat.add (Nat.mul s 240) l < 245520 := by
+    simp only [Nat.add_eq, Nat.mul_eq]
+    omega
+  have e := hx _ hxl
+  unfold trAtF at e
+  obtain ⟨hp, -⟩ := bAnd_iff.1 e
+  unfold trAt
+  refine bAnd_iff.2 ⟨hp, allBlk_of fun k hk => ?_⟩
+  have hk' : k < 5 := hk
+  rw [word_eq hx (Nat.add 2 k) (by change 2 ≤ 2 + k; omega) (by change 2 + k < 7; omega) _ hxl]
+  exact Nat.beq_refl _
 
 end CertificateChecks.KernelSpor.ON
 

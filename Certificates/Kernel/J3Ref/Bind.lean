@@ -144,6 +144,14 @@ open CertificateChecks.KernelSpor
 theorem cls_join : joinK 12 (13 * 513) ClsT.F J3ClsP 10 = true := by
   quickRfl
 
+@[expose] noncomputable def clsPerm (k : Nat) : Bool :=
+  invEqK 6156 13 (mask 13) (6156 * 13) (J3ClsP k) (J3ClsI k)
+
+theorem cls_perms0 : allBlk 0 clsPerm 5 = true := by
+  quickRfl
+
+theorem cls_perms1 : allBlk 5 clsPerm 5 = true := by
+  quickRfl
 
 @[expose] noncomputable def tbP (i : Nat) : Nat :=
   nIf(Nat.beq i (nat_lit 0), J3CentP (nat_lit 9),
@@ -166,6 +174,9 @@ theorem words2 : allBlk 8 wordOK 4 = true := by
 theorem words3 : allBlk 12 wordOK 4 = true := by
   quickRfl
 
+theorem word_neg : wordEqK 6156 13 (mask 13) (pidn 6156 13) PJ3.S PJ3.SI 5 (W.getD 1 []) (tbP 2) =
+    false := by
+  decide +kernel
 
 end CertificateChecks.KernelJ3Ref
 

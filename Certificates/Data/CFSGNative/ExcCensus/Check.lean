@@ -40,6 +40,32 @@ structure CSearch where
         | some (W, B, B') => ambientOK T m cv (combN d cv cy a b) ℓ (T.zm[combN d cv cy a b]!) W B B'
         | none => false
 
+@[expose] def censusOK (m : Fin 6) (T : Tabs) (X : CSearch) : Bool :=
+  tabsOK m T && scanN T m true false X.S (bodyCC T m X)
+
+structure LSearch where
+  S : Search
+  leaf : Nat → Nat → Option CommonW
+  d6 : Nat → Nat → Option (LinW × List (Nat × Nat) × List (Nat × Nat))
+  e6 : Nat → Option (LinW × List (Nat × Nat))
+  deriving Inhabited
+
+@[expose] def bodyIL (T : Tabs) (m : Fin 6) (X : LSearch) (cv cy : Nat) : Bool :=
+  let d := dim m
+  let j := T.zm[cv]! &&& T.zm[cy]!
+  candScanN T m X.S cv cy fun a b =>
+    (match X.leaf cv (combN d cv cy a b) with
+      | some W => leafModelOK T m cv (combN d cv cy a b) (T.zm[cv]!) (T.zm[combN d cv cy a b]!) W
+      | none => false) ||
+    (match X.d6 j (T.zm[combN d cv cy a b]!) with
+      | some (w, L, L') => selD6OK T m j (T.zm[combN d cv cy a b]!) w L L'
+      | none => false) ||
+    (match X.e6 (T.zm[combN d cv cy a b]!) with
+      | some (w, L) => selE6OK T m (T.zm[combN d cv cy a b]!) w L
+      | none => false)
+
+@[expose] def inLSelOK (m : Fin 6) (T : Tabs) (X : LSearch) : Bool :=
+  tabsOK m T && scanN T m false true X.S (bodyIL T m X)
 
 def rtSearch (T : Tabs) (d r u t : Nat) : Nat :=
   ((List.range r).find? fun t' => rtEq T d t' u t 1 || rtEq T d t' u t (-1)).getD 0
@@ -283,6 +309,16 @@ def lineB (T : Tabs) (d : Nat) (rows : List Nat) (cz : Nat) : Array (Array Int) 
   let Φ := (Array.range d).map fun i => (Array.range d).map fun j => phiN T d p rows i j
   (inv3 Φ d).getD #[]
 
+def lineS' (T : Tabs) (d r k cz : Nat) : List Nat × Array (Array Int) := Id.run do
+  let mut rows : Array Nat := #[]
+  let mut F : Array (Array Nat) := #[]
+  for t in bitsS r k do
+    if rows.size + 1 < d then
+      let F' := F.push ((T.f[t]!).map m3)
+      if (rref3 F' d).2.size == F'.size then
+        rows := rows.push t
+        F := F'
+  return (rows.toList, lineB T d rows.toList cz)
 
 def modelS (T : Tabs) (m : Fin 6) (ix : HashMap (Array Int) Nat) (leaf : Bool) (cv cz : Nat) :
     Option CommonW :=
@@ -309,6 +345,115 @@ def modelS (T : Tabs) (m : Fin 6) (ix : HashMap (Array Int) Nat) (leaf : Bool) (
       if (if leaf then leafModelOK T m cv cz ℓ k W else commonOK T m cv cz ℓ k W) then some W
       else none
 
+def ambS (T : Tabs) (m : Fin 6) (ix : HashMap (Array Int) Nat) (j cv cz : Nat) :
+    Option (AmbW × Array (Array Int) × Array (Array Int)) :=
+  let d := dim m
+  let r := nroots m
+  let ℓ := T.zm[cv]!
+  let k := T.zm[cz]!
+  let (psi, Lpsi) := closureS T r (bitsS r (trunc r ℓ ||| trunc r k)).toList
+  let ss := simpleS m ix r j
+  if ss.length + 2 != d then none else
+  (extsS T r ss j ℓ).findSome? fun b' =>
+    (bitsS r (psi ^^^ (psi &&& ℓ))).toList.findSome? fun i =>
+      [false, true].findSome? fun sg =>
+        let V : Array (Nat × Bool) := (ss.map fun i => (i, false)).toArray ++ #[b', (i, sg)]
+        match identifyS (cartanS T V) with
+        | none => none
+        | some (tc, n, π) =>
+          let w := linS V tc n π (V.size - 1) (V.size - 2)
+          let rk := rkN tc n
+          let offA := nodeList w fun i => i != w.a
+          let Hm := (Array.range rk).map fun i => T.h[nodeN w i]!
+          let Cm := (Array.range rk).map fun i => (Array.range rk).map fun j => cartanN tc n i j
+          let Cm' := (Array.range (rk - 1)).map fun p => (Array.range (rk - 1)).map fun q =>
+            cartanN tc n (offN w.a p) (offN w.a q)
+          let W : AmbW :=
+            { w, Lk := (closureS T r offA).2, La := Lpsi, Bk := lineB T d offA cv,
+              Bb := (inv3 Hm rk).getD #[] }
+          let B := (inv3 Cm rk).getD #[]
+          let B' := (inv3 Cm' (rk - 1)).getD #[]
+          if ambientOK T m cv cz ℓ k W B B' then some (W, B, B') else none
+
+def twoNodeS (T : Tabs) (m : Fin 6) (cv cy : Nat) :
+    Option (Nat × Nat × List Nat × Array (Array Int) × Nat) :=
+  let d := dim m
+  let r := nroots m
+  let j := T.zm[cv]! &&& T.zm[cy]!
+  [(0, 1), (1, 1), (2, 1), (0, 2), (1, 2), (2, 2)].findSome? fun (a, b) =>
+    let cz := combN d cv cy a b
+    let k := T.zm[cz]!
+    if !twoNodeN (labelOf T m k) (labelOf T m j) then none else
+    match outsS T d r k cz with
+    | none => none
+    | some φ =>
+      let (rows, B) := lineS' T d r k cz
+      if candOK T m cv cz rows B then some (a, b, rows, B, φ) else none
+
+def commonS (T : Tabs) (m : Fin 6) (ix : HashMap (Array Int) Nat) (cv cy : Nat) :
+    Option (Nat × Nat × List Nat × Array (Array Int) × CommonW) :=
+  let d := dim m
+  let r := nroots m
+  [(0, 1), (1, 1), (2, 1), (0, 2), (1, 2), (2, 2)].findSome? fun (a, b) =>
+    let cz := combN d cv cy a b
+    let (rows, B) := lineS' T d r (T.zm[cz]!) cz
+    if !candOK T m cv cz rows B then none else
+    (modelS T m ix false cv cz).map fun W => (a, b, rows, B, W)
+
+def e6S (T : Tabs) (m : Fin 6) (ix : HashMap (Array Int) Nat) (k : Nat) :
+    Option (LinW × List (Nat × Nat)) :=
+  let r := nroots m
+  let ss := simpleS m ix r k
+  let V : Array (Nat × Bool) := (ss.map fun i => (i, false)).toArray
+  match identifyS (cartanS T V) with
+  | some (4, n, π) =>
+    let w := linS V 4 n π 0 1
+    let L := (closureS T r w.nodes).2
+    if selE6OK T m k w L then some (w, L) else none
+  | _ => none
+
+def d6S (T : Tabs) (m : Fin 6) (ix : HashMap (Array Int) Nat) (j k : Nat) :
+    Option (LinW × List (Nat × Nat) × List (Nat × Nat)) :=
+  let r := nroots m
+  let ss := simpleS m ix r j
+  (extsS T r ss j k).findSome? fun (i, ng) =>
+    let V : Array (Nat × Bool) := ((ss.map fun t => (t, false)).toArray).push (i, ng)
+    match identifyS (cartanS T V) with
+    | some (3, 6, π) =>
+      let b := posS π (V.size - 1)
+      let w : LinW := { linS V 3 6 π 0 0 with b }
+      let L := (closureS T r w.nodes).2
+      let L' := (closureS T r (nodeList w fun t => t != b)).2
+      if selD6OK T m j k w L L' then some (w, L, L') else none
+    | _ => none
+
+def cSearchOf (m : Fin 6) (T : Tabs) : CSearch :=
+  let ix := rootIdx m
+  { S := searchS T m true false
+    twoNode := twoNodeS T m
+    common := commonS T m ix
+    amb := fun cv cz =>
+      ambS T m ix (T.zm[cv]! &&& T.zm[cz]!) cv cz }
+
+def lSearchOf (m : Fin 6) (T : Tabs) : LSearch :=
+  let ix := rootIdx m
+  { S := searchS T m false true
+    leaf := modelS T m ix true
+    d6 := d6S T m ix
+    e6 := e6S T m ix }
+
+@[expose] def censusCheck (m : Fin 6) : Bool :=
+  let T := tabsOf m
+  censusOK m T (cSearchOf m T)
+
+@[expose] def censusRangeCheck (m : Fin 6) (lo n : Nat) : Bool :=
+  let T := tabsOf m
+  let X := cSearchOf m T
+  tabsOK m T && scanRangeN T m true false X.S (bodyCC T m X) lo n
+
+@[expose] def inLSelCheck (m : Fin 6) : Bool :=
+  let T := tabsOf m
+  inLSelOK m T (lSearchOf m T)
 
 end CFSG.StandardType.GGQ2Frame.ExcRaw.Chk
 

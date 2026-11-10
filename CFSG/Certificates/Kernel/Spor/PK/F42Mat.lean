@@ -177,6 +177,8 @@ private theorem can52_p_lt {X : Array V} (hX : Can52 X) {i : ℕ} (hi : i < 52) 
 private theorem can52_m_lt {X : Array V} (hX : Can52 X) {i : ℕ} (hi : i < 52) :
     X[i]!.m < 2 ^ 52 := ((can52_iff.1 hX).2 i hi).2.1
 
+private theorem can52_and {X : Array V} (hX : Can52 X) {i : ℕ} (hi : i < 52) :
+    X[i]!.p &&& X[i]!.m = 0 := ((can52_iff.1 hX).2 i hi).2.2
 
 private theorem enc_p_lt {X : Array V} (hX : Can52 X) :
     enc 52 (fun i => X[i]!.p) 52 < 2 ^ 2704 :=
@@ -275,6 +277,20 @@ private theorem wfS_iff {N : ℕ} :
   rw [letB_eq, andB_eq, Bool.and_eq_true, Nat.blt_eq, Nat.beq_eq, e1, land_planeMask, e3]
   exact Iff.rfl
 
+theorem wfS_pk52 {X : Array V} (hX : Can52 X) : wfS (pk52 X) = true := by
+  rw [wfS_iff, pk52_mod hX, pk52_div hX]
+  refine ⟨pk52_lt hX, ?_⟩
+  apply Nat.eq_of_testBit_eq
+  intro n
+  rw [Nat.testBit_and, Nat.zero_testBit]
+  by_cases hn : n < 2704
+  · obtain ⟨i, j, hi, hj, rfl⟩ : ∃ i j, i < 52 ∧ j < 52 ∧ n = 52 * i + j :=
+      ⟨n / 52, n % 52, by omega, by omega, by omega⟩
+    rw [testBit_enc (fun _ hi => can52_p_lt hX hi) hi hj,
+      testBit_enc (fun _ hi => can52_m_lt hX hi) hi hj, ← Nat.testBit_and, can52_and hX hi,
+      Nat.zero_testBit]
+  · rw [Nat.testBit_lt_two_pow (lt_of_lt_of_le (enc_p_lt hX)
+      (Nat.pow_le_pow_right (by norm_num) (by omega))), Bool.false_and]
 
 theorem exists_pk52 {N : ℕ} (h : wfS N = true) : ∃ X : Array V, Can52 X ∧ pk52 X = N := by
   obtain ⟨hlt, hand⟩ := wfS_iff.1 h

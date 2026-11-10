@@ -87,6 +87,13 @@ open CFSG.KC.Loop CFSG.KC.LL
         Nat.blt (fldW (getRec T RB a) (nat_lit 0) (nat_lit 399)) (fldW (getRec T RB b) (nat_lit 0) (nat_lit 399)))))
       (fldW SG (Nat.mul (nat_lit 21) k) (nat_lit 21)) (fldW SG (Nat.mul (nat_lit 21) (Nat.succ k)) (nat_lit 21)), ih)) c
 
+@[expose] noncomputable def auxLeaf (T U : Nat → Nat) (RB n MS CM3 M G b c : Nat) : Bool :=
+  letB (T b) (fun L => letB (U b) (fun V =>
+    letB (mulC CM3 (leafA L RB c M) G) (fun Y =>
+    Nat.rec (motive := fun _ => Bool) true
+      (fun r ih => bAnd((fun t => bAnd(Nat.blt t n,
+          Nat.beq (fldW Y (Nat.mul (nat_lit 1729) r) (nat_lit 1729)) (spread MS (fldW (getRec T RB t) (nat_lit 0) (nat_lit 399)))))
+        (fldW V (Nat.mul (nat_lit 21) r) (nat_lit 21)), ih)) c)))
 
 @[expose] noncomputable def zeroRows (Y c : Nat) : Nat :=
   Nat.rec (motive := fun _ => Nat) (nat_lit 0)
@@ -99,6 +106,8 @@ open CFSG.KC.Loop CFSG.KC.LL
       (fun G _ ih e => Nat.lor (Nat.shiftLeft (zeroRows (mulC CM3 A G) c) (Nat.mul (nat_lit 8) e)) (ih (Nat.succ e)))
       Gs (nat_lit 0))
 
+@[expose] noncomputable def fixAt (T : Nat → Nat) (RB CM3 M G i : Nat) : Bool :=
+  Nat.beq (mulC CM3 (Nat.land (getRec T RB i) M) G) (nat_lit 0)
 
 @[expose] noncomputable def trM (a : Nat) : Nat :=
   Nat.rec (motive := fun _ => Nat) (nat_lit 0)

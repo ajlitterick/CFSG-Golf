@@ -12,6 +12,12 @@ namespace GL83
 
 open CFSG.Open CFSG.LocalAnalysis.GLTheoremB
 
+@[expose] def I_33_2 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G], IsCharTwoType G → ∀ p : ℕ, p.Prime → p ≠ 2 →
+    ∀ D B : Subgroup G, D ≠ ⊥ → D ≤ B → IsElemAbelian p B →
+      (∃ T : Subgroup G, T ≠ ⊥ ∧ IsPGroup 2 T ∧ B ≤ Subgroup.normalizer (T : Set G)) →
+      ∃ A S : Subgroup G, A ≤ D ∧ (A.subgroupOf D).index = p ∧ S ≤ Subgroup.centralizer (A : Set G) ∧
+        IsPGroup 2 S ∧ S = ⁅S, D⁆ ∧ S = ⁅S, B⁆ ∧ S ≠ ⊥
 
 @[expose] def I_33_3 : Prop :=
   ∀ (G : Type) [Group G] [Finite G], IsCharTwoType G → ∀ p : ℕ, p.Prime → p ≠ 2 →

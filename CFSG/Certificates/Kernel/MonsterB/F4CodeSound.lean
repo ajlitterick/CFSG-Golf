@@ -90,6 +90,9 @@ theorem vec6_enc6 (v : V6) : vec6 (enc6 v) = v ∧ enc6 v < 4096 := by
     simp only
     fin_cases t <;> simp_all <;> omega
 
+theorem testBit_enc6 (v : V6) (t : Fin 6) {s : ℕ} (hs : s < 2) :
+    (enc6 v).testBit (2 * t + s) = fb (v t) s := by
+  rw [← fb_vec6 _ _ hs, (vec6_enc6 v).1]
 
 theorem finRange6 : List.finRange 6 = [0, 1, 2, 3, 4, 5] := by decide
 
@@ -130,6 +133,7 @@ theorem xorB_eq (a b : Bool) : xorB a b = (a ^^ b) := by cases a <;> cases b <;>
 
 theorem cb_eq (x t s : ℕ) : cb x t s = x.testBit (t + t + s) := bit_eq _ _
 
+theorem testBit_xorK_zero (f : ℕ → ℕ) (i : ℕ) : (xorK 0 f).testBit i = false := Nat.zero_testBit i
 
 theorem combTerm_bit {x y : F4} {A0 A1 i s : ℕ} (hs : s < 2) (h0 : A0.testBit i = fb x 0)
     (h1 : A1.testBit i = fb x 1) {b0 b1 : Bool} (e0 : b0 = fb y 0)

@@ -259,6 +259,8 @@ theorem map_B23 : (B23 K).map T.theta = T.frame12.swap.La.range := by
   exact T.theta_blockSL_one A
 
 
+@[expose] def frame02 : Frame Q := ⟨T.a, T.c, T.ac⟩
+
 @[expose] noncomputable def outerElt (A : SL(2, K)) : SL(3, K) :=
   ⟨!![(A : Matrix (Fin 2) (Fin 2) K) 0 0, 0, (A : Matrix (Fin 2) (Fin 2) K) 0 1;
       0, 1, 0; (A : Matrix (Fin 2) (Fin 2) K) 1 0, 0, (A : Matrix (Fin 2) (Fin 2) K) 1 1], by

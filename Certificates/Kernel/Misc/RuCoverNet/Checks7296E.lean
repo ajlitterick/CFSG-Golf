@@ -14,6 +14,11 @@ open CFSG.KC CFSG.KC.YModel CFSG.KC.Misc.RuCoverNet CFSG.EvenSporadicStandard.Tw
 
 #kc_each CFSG.KD.RuCoverNet7296 ch7296w (fun i => wordOK 14 6 2 V CP CL i) 0 20
 
+theorem ch7296b0 : eqW V 11 21 0 (zW ++ zW) [] = true := by quickRfl
+
+theorem ch7296b1 : eqW V 11 21 0 ([2] ++ zW) (zW ++ [2]) = true := by quickRfl
+
+theorem ch7296b2 : eqW V 11 21 0 (y5W ++ y5W ++ y5W ++ y5W ++ y5W) [] = true := by quickRfl
 
 #kc_each CFSG.KD.RuCoverNet7296 ch7296f (fun k => eqW V 11 21 0 (facW k) (jW k)) 0 6
 
@@ -28,6 +33,7 @@ open CFSG.KC CFSG.KC.YModel CFSG.KC.Misc.RuCoverNet CFSG.EvenSporadicStandard.Tw
 
 #kc_each CFSG.KD.RuCoverNet7296 ch7296x (fun i => eqW V 11 21 0 (y2W ++ fW i) (fW i ++ y2W)) 0 6
 
+theorem ch7296z0 : eqW V 11 21 0 (commW (jW 4) y2W) zW = true := by quickRfl
 
 end CFSG.KD.RuCoverNet7296
 

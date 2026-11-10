@@ -53,6 +53,12 @@ theorem bndK : Nat.beq (RuTD.BND 232) 593775 = true := by quickRfl
 theorem bndMono : rngK 0 232 (fun i => Nat.ble (RuTD.BND i) (RuTD.BND (Nat.succ i))) = true := by
   quickRfl
 
+theorem negChk : (!chkK RuTD.T RuTD.D 659760 118755 1 RuTD.F0) = true := by quickRfl
+
+theorem negArr : (!arrK RuTD.NW0 RuG.A1) = true := by quickRfl
+
+theorem negF0 : (!Nat.beq (Nat.shiftRight (Nat.lor RuTD.F0 (Nat.shiftLeft 1 (4096 + 4059))) 4096)
+    (mskK (fixL RuG.Z 4060))) = true := by quickRfl
 
 end CertificateChecks.KernelSporSch.Ru2259
 

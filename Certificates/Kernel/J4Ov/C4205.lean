@@ -56,6 +56,14 @@ theorem mv4205_ok : allR 4 (fun i => andB (Nat.blt (getN 0 mvJ4205 i) 11)
     (mv4205K (Nat.succ i) (getN 0 mvJ4205 i))) = true := by
   quickRfl
 
+theorem ch4205_neg_m : notB (eChk4205 1 0 (em4205 1) (ew4205.getD 0 [])) = true := by
+  quickRfl
+
+theorem ch4205_neg_l : notB (eChk4205 1 0 (em4205 3) (ew4205.getD 3 [])) = true := by
+  quickRfl
+
+theorem ch4205_neg_i : notB (eChk4205 1 1 (em4205 0) (ew4205.getD 0 [])) = true := by
+  quickRfl
 
 end CertificateChecks.KernelJ4Ov
 

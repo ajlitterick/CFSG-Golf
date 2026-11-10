@@ -157,5 +157,6 @@ structure FrameTables where
     allFrom (fun o => frameReps[o - 1]! < 2 ^ 24 && rd8 T.klev frameReps[o - 1]! != 0 &&
       rd8 T.olab frameReps[o - 1]! == o) 1 6
 
+@[expose] def frameCertOK (_ : Unit := ()) : Bool := frameCheck frameTables 8
 
 end CFSG.Monster.VisCert.Native

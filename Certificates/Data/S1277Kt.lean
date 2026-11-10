@@ -128,16 +128,82 @@ open CFSG.PSL3Four.Native
      16, 1, 8, 20, 12, 19, 6, 9, 2, 7, 10, 17, 4, 15, 14, 13, 0, 11, 18, 5, 3, 29, 31, 40, 24, 34,
       28, 27, 26, 21, 37, 22, 41, 33, 25, 39, 36, 30, 38, 35, 23, 32]
 
+@[expose] def ktEnumS (_ : Unit := ()) : Enum := enumBFS 42 gensS 20160
+
+@[expose] def ktTabsS (_ : Unit := ()) : Array Tab := (ktEnumS ()).tabs
 
 @[expose] def ktR1 (_ : Unit := ()) : Tab := r₁T ()
 
 @[expose] def ktId (_ : Unit := ()) : Tab := idTab 42
 
+@[expose] def ktComm (a b : Tab) : Bool := comp 42 a b == comp 42 b a
+
+@[expose] def ktInvol (t : Tab) : Bool := !(t == idTab 42) && comp 42 t t == idTab 42
+
+@[expose] def ktSub (A B : Array Tab) : Bool := A.all fun t => B.any fun s => s == t
+
+@[expose] def ktSetEq (A B : Array Tab) : Bool := A.size == B.size && ktSub A B
+
+@[expose] def ktInvC1 (_ : Unit := ()) : Array Tab :=
+  (centTabs 42 (ktTabsS ()) (ktR1 ())).filter ktInvol
 
 @[expose] def ktGenE1 : Array Tab := #[ktE1g0, ktE1g1, ktE1g2, ktE1g3]
 
 @[expose] def ktGenE2 : Array Tab := #[ktE2g0, ktE2g1, ktE2g2, ktE2g3]
 
+@[expose] def ktEnumE1 (_ : Unit := ()) : Array Tab := (enumBFS 42 ktGenE1 16).tabs
+
+@[expose] def ktEnumE2 (_ : Unit := ()) : Array Tab := (enumBFS 42 ktGenE2 16).tabs
+
+@[expose] def ktQuadOK (E1 E2 : Array Tab) (r v w t : Tab) : Bool :=
+  (enumBFS 42 #[r, v, w, t] 16).tabs.size == 16 &&
+    enumOK 42 #[r, v, w, t] (enumBFS 42 #[r, v, w, t] 16) &&
+    (ktSetEq (enumBFS 42 #[r, v, w, t] 16).tabs E1 || ktSetEq (enumBFS 42 #[r, v, w, t] 16).tabs E2)
+
+@[expose] def ktTripleOK (I E1 E2 : Array Tab) (r v w : Tab) : Bool :=
+  (enumBFS 42 #[r, v, w] 16).tabs.size == 8 && enumOK 42 #[r, v, w] (enumBFS 42 #[r, v, w] 16) &&
+    allBelow I.size fun k =>
+      !(ktComm r I[k]! && ktComm v I[k]! && ktComm w I[k]!) ||
+        (enumBFS 42 #[r, v, w] 16).tabs.any (fun s => s == I[k]!) ||
+        ktQuadOK E1 E2 r v w I[k]!
+
+@[expose] def ktPairOK (I E1 E2 : Array Tab) (r v : Tab) : Bool :=
+  (enumBFS 42 #[r, v] 16).tabs.size == 4 && enumOK 42 #[r, v] (enumBFS 42 #[r, v] 16) &&
+    allBelow I.size fun j =>
+      !(ktComm r I[j]! && ktComm v I[j]!) ||
+        (enumBFS 42 #[r, v] 16).tabs.any (fun s => s == I[j]!) ||
+        ktTripleOK I E1 E2 r v I[j]!
+
+@[expose] def ktClassOKAux (I E1 E2 : Array Tab) (r : Tab) : Bool :=
+  allBelow I.size fun i => I[i]! == r || !(ktComm r I[i]!) || ktPairOK I E1 E2 r I[i]!
+
+@[expose] def ktClassOK (_ : Unit := ()) : Bool :=
+  ktClassOKAux (ktInvC1 ()) (ktEnumE1 ()) (ktEnumE2 ()) (ktR1 ())
+
+@[expose] def ktInConj (LE : Array Tab) (x k : Tab) : Bool :=
+  LE.any fun a => comp 42 x k == comp 42 k a
+
+@[expose] def ktE16OK (EG BG KK : Array Tab) : Bool :=
+  enumOK 42 EG (enumBFS 42 EG 16) && enumOK 42 BG (enumBFS 42 BG 16) &&
+  (enumBFS 42 EG 16).tabs.size == 16 && (enumBFS 42 BG 16).tabs.size == 16 && KK.size == 5 &&
+  (KK[0]! == ktId ()) &&
+  BG.all (fun g => (ktTabsS ()).any fun s => s == g) &&
+  KK.all (fun g => (ktTabsS ()).any fun s => s == g) &&
+  (enumBFS 42 BG 16).tabs.all (fun a => (enumBFS 42 BG 16).tabs.all fun b => ktComm a b) &&
+  (enumBFS 42 BG 16).tabs.all (fun a => comp 42 a a == ktId ()) &&
+  ((enumBFS 42 BG 16).tabs.filter
+    (fun b => (enumBFS 42 EG 16).tabs.any fun e => e == b)).size == 4 &&
+  (enumBFS 42 BG 16).tabs.all (fun b => (enumBFS 42 EG 16).tabs.all fun e =>
+    (enumBFS 42 EG 16).tabs.any fun y => comp 42 b e == comp 42 y b) &&
+  (enumBFS 42 BG 16).tabs.all (fun b => (enumBFS 42 EG 16).tabs.all fun e =>
+    (enumBFS 42 EG 16).tabs.any fun y => comp 42 e b == comp 42 b y) &&
+  KK.all (fun k => (enumBFS 42 BG 16).tabs.all fun b =>
+    (enumBFS 42 BG 16).tabs.any fun y => comp 42 k b == comp 42 y k) &&
+  KK.all (fun k => (enumBFS 42 BG 16).tabs.all fun b =>
+    (enumBFS 42 BG 16).tabs.any fun y => comp 42 b k == comp 42 k y) &&
+  allBelow 5 fun i => allBelow 5 fun j =>
+    i == j || (enumBFS 42 BG 16).tabs.all fun x => x == ktId () ||
+      !(ktInConj (enumBFS 42 EG 16).tabs x KK[i]! && ktInConj (enumBFS 42 EG 16).tabs x KK[j]!)
 
 @[expose] def ktGenB1 : Array Tab := #[ktB1g0, ktB1g1, ktB1g2, ktB1g3]
 
@@ -147,6 +213,9 @@ open CFSG.PSL3Four.Native
 
 @[expose] def ktKs2 (_ : Unit := ()) : Array Tab := #[ktId (), ktK2_1, ktK2_2, ktK2_3, ktK2_4]
 
+@[expose] def ktE16OK1 (_ : Unit := ()) : Bool := ktE16OK ktGenE1 ktGenB1 (ktKs1 ())
+
+@[expose] def ktE16OK2 (_ : Unit := ()) : Bool := ktE16OK ktGenE2 ktGenB2 (ktKs2 ())
 
 @[expose] def ktOrbitS (_ : Unit := ()) : Enum :=
   orbitBFS 42 gensS (gensS.map (invTab 42)) (ktR1 ()) 315

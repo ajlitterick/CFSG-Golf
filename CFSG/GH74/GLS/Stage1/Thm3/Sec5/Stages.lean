@@ -71,6 +71,14 @@ structure L53Data (z : G) (S K₁ K₂ : Subgroup G) (a : G) (Y A : Subgroup G) 
   ∀ r : ℕ, z ∉ zStar (centralizer ({a} : Set G)) → JClassical4 a (r ^ 2) ∨ JG2 a (r ^ 2) →
     JG2 a (r ^ 2)
 
+@[expose] def L56 (z : G) (S : Subgroup G) (a : G) (Y : Subgroup G) : Prop :=
+  ∀ r : ℕ, JG2 a (r ^ 2) → Y = Pz S z
+
+@[expose] def L57 (z a x : G) : Prop :=
+  ¬ IsConj z x ∧ z ∈ zStar (centralizer ({a} : Set G))
+
+@[expose] def L58 (z : G) (K₁ K₂ : Subgroup G) (a : G) : Prop :=
+  ∃ t : G, IsConj z t ∧ Interchanges t K₁ K₂ ∧ ¬ IsConj z (t * z) ∧ t * a = a * t ∧ t * z = z * t
 
 end Stages
 

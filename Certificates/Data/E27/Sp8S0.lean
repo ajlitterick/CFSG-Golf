@@ -227,6 +227,7 @@ open CFSG.HardMathSupport.Foote.E27
 10 196 0 0 199 200 201 202 10 0 0 0 10 0 209 0 0 0 0 0 0 0 0 10 0 0 221 222 223 0 225 226 227 228
 229 10 231 10 233 0 0 236 237 238 239 240 241 242"
 
+@[expose] def check (_ : Unit := ()) : Bool := data.baseOK && data.fusAllOK
 
 end CFSG.HardMathSupport.Foote.E27.Sp8S0
 

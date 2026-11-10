@@ -361,6 +361,17 @@ theorem fixedA2V_smul_chainRoot :
   simp only [fixedA2V_smul]
   decide +kernel
 
+theorem fixedA2V_smul_chainRoot_01 : fixedA2V • chainRoot chain13 0 1 = gamma1 := by
+  rw [fixedA2V_smul]
+  decide +kernel
+
+theorem fixedA2V_smul_chainRoot_12 : fixedA2V • chainRoot chain13 1 2 = gamma2 := by
+  rw [fixedA2V_smul]
+  decide +kernel
+
+theorem fixedA2V_smul_chainRoot_02 : fixedA2V • chainRoot chain13 0 2 = gamma3 := by
+  rw [fixedA2V_smul]
+  decide +kernel
 
 @[expose] def fixedA2Rho (L : Type) [Field L] : SL(3, L) →* ModGL Tag.E6 L :=
   a2Std₁.rhoV L fixedA2V

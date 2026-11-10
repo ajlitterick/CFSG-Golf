@@ -125,6 +125,9 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.RankThree.Native
 @[expose] def dElts (_ : Unit := ()) : Array (Array Nat) :=
   Array.ofFn (n := 243) fun k => dProd (dGens ()) k.val
 
+@[expose] def dot3 (m k : Nat) : Nat :=
+  (digit3 m 0 * digit3 k 0 + digit3 m 1 * digit3 k 1 + digit3 m 2 * digit3 k 2 +
+    digit3 m 3 * digit3 k 3 + digit3 m 4 * digit3 k 4) % 3
 
 @[expose] def rebuild (L : Array Level) (beta : Array Nat) : Array Nat := Id.run do
   let mut acc := idA 1782

@@ -22,6 +22,14 @@ private theorem compl_testBit {I X y : Nat} (hy : y < 693) :
     decide_eq_true hy]
   cases I.testBit y <;> cases X.testBit y <;> rfl
 
+private theorem ne_zero_iff_testBit (n : Nat) : n ≠ 0 ↔ ∃ i, n.testBit i = true := by
+  constructor
+  · intro h
+    obtain ⟨i, hi⟩ := Nat.exists_testBit_of_ne_zero h
+    exact ⟨i, hi⟩
+  · rintro ⟨i, hi⟩ h
+    rw [h] at hi
+    simp at hi
 
 private theorem land_ne_zero_iff (a b : Nat) :
     a &&& b ≠ 0 ↔ ∃ i, a.testBit i = true ∧ b.testBit i = true := by
@@ -36,6 +44,8 @@ private theorem land_ne_zero_iff (a b : Nat) :
       rw [h0] at this
       simp at this
 
+private theorem not_beq_zero (n : Nat) : (!(Nat.beq n 0)) = decide (n ≠ 0) := by
+  cases n <;> rfl
 
 private theorem not_beq_zero_eq_true (n : Nat) : (!(Nat.beq n 0)) = true ↔ n ≠ 0 := by
   rw [show Nat.beq n 0 = decide (n = 0) from rfl, ← decide_not, decide_eq_true_eq]
@@ -253,6 +263,10 @@ private theorem or_shiftLeft_and_mask (A B : Nat) :
     (A ||| B <<< 693) &&& (2 ^ 693 - 1) = A &&& (2 ^ 693 - 1) := by
   rw [Nat.and_or_distrib_right, shiftLeft_and_mask_eq_zero, Nat.or_zero]
 
+private theorem or_shiftLeft_shiftRight {A B : Nat} (hA : A < 2 ^ 693) :
+    (A ||| B <<< 693) >>> 693 = B := by
+  rw [Nat.shiftRight_or_distrib, shiftRight_eq_zero_of_lt hA, shiftRight_shiftLeft,
+    Nat.zero_or]
 
 private theorem shiftRight_lt_mask {E : Nat} (hE : E < 2 ^ 1386) : E >>> 693 < 2 ^ 693 := by
   rw [Nat.shiftRight_eq_div_pow]

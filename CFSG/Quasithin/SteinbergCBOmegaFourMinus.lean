@@ -64,6 +64,11 @@ theorem twistRep_injective {F : Type*} [Field F] {σ : F →+* F} (h2 : (2 : F) 
   ext i j
   fin_cases i <;> fin_cases j <;> simp [hdet, hr, hs, ht]
 
+theorem exists_frob_ringHom {F : Type*} [Field F] [Finite F] {m : ℕ} (hm : 1 ≤ m)
+    (hF : Nat.card F = (2 ^ m) ^ 2) : ∃ σ : F →+* F, ∀ x, σ x = x ^ 2 ^ m := by
+  have : CharP F 2 := charP_two_of_card hm hF
+  have : ExpChar F 2 := ExpChar.prime Nat.prime_two
+  exact ⟨iterateFrobenius F 2 m, fun x => iterateFrobenius_def (p := 2) m x⟩
 
 theorem SL2_q0sq_Omega4minus_twisted_tensor {F : Type*} [Field F] [Finite F] (m : ℕ)
     (hm : 1 ≤ m) (hF : Nat.card F = (2 ^ m) ^ 2) (σ : F →+* F) (hσ : ∀ x, σ x = x ^ 2 ^ m) :

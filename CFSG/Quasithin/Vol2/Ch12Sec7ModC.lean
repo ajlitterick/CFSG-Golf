@@ -85,6 +85,15 @@ theorem Ind3.smul {x y z : Fin 3 → F4} (h : Ind3 x y z) {u v w : F4} (hu : u �
   exact ⟨(mul_eq_zero.mp h1).resolve_right hu, (mul_eq_zero.mp h2).resolve_right hv,
     (mul_eq_zero.mp h3).resolve_right hw⟩
 
+theorem Ind3.swap12 {x y z : Fin 3 → F4} (h : Ind3 x y z) : Ind3 y x z := by
+  intro a b c habc
+  obtain ⟨h1, h2, h3⟩ := h b a c (by rw [← habc]; abel)
+  exact ⟨h2, h1, h3⟩
+
+theorem Ind3.swap23 {x y z : Fin 3 → F4} (h : Ind3 x y z) : Ind3 x z y := by
+  intro a b c habc
+  obtain ⟨h1, h2, h3⟩ := h a c b (by rw [← habc]; abel)
+  exact ⟨h1, h3, h2⟩
 
 theorem Ind3.exists_comb {x y z : Fin 3 → F4} (h : Ind3 x y z) (w : Fin 3 → F4) :
     ∃ a b c : F4, w = a • x + b • y + c • z := by

@@ -18,6 +18,7 @@ open CFSG.Sporadic.Schreier.Tits CFSG.Monster.B.Co2.Native Certificates.TitsAsch
 
 @[expose] def fA (m : ℕ) : Array ℕ := (fArrs ()).getD m #[]
 
+@[expose] def inU11 (a : Array ℕ) : Bool := [0, 8, 16, 24].any fun m => eqA 1755 a (fA m)
 
 @[expose] def commInU11 (x y : Array ℕ) : Bool :=
   [0, 8, 16, 24].any fun m => eqA 1755 (compA 1755 x y) (compA 1755 (compA 1755 (fA m) y) x)

@@ -29,6 +29,14 @@ namespace CFSG.ASVolI.ChF
 
 open CFSG.Open CFSG.QuasithinUnique CFSG.Quasithin CFSG.Quasithin.CosetGeom CFSG.Quasithin.F7
 
+abbrev HypF_9_1 {G : Type} [Group G] (T V L V₁ Vp H : Subgroup G) : Prop := HypF91 T V L V₁ Vp H
+
+abbrev HypF_9_8 {G : Type} [Group G] (T V L V₁ Vp H : Subgroup G) : Prop := HypF98 T V L V₁ Vp H
+
+@[expose] def IsQ8CentralPow (k : ℕ) (P : Type*) [Group P] : Prop :=
+  Nat.card P = 2 ^ (2 * k + 1) ∧ ∃ Q : Fin k → Subgroup P,
+    (∀ i j, i ≠ j → Q i ≤ Subgroup.centralizer (Q j : Set P)) ∧ (⨆ i, Q i) = ⊤ ∧
+    ∀ i, Nonempty (↥(Q i) ≃* QuaternionGroup 2)
 
 end CFSG.ASVolI.ChF
 
@@ -37,6 +45,282 @@ namespace CFSG.ASVolI
 open CFSG.Open CFSG.QuasithinUnique CFSG.Quasithin CFSG.Quasithin.CosetGeom CFSG.Quasithin.F7
 open CFSG.ASVolI.ChF
 open scoped Pointwise
+
+
+@[expose] def F_9_2 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T V L V₁ Vp H : Subgroup G), HypF_9_1 T V L V₁ Vp H →
+    AlmostSpecialHyp Vp V₁ L T H ∧
+    ((conjClosure Vp H ≤ pCoreOf 2 H ∧
+        (∀ u ∈ conjClosure Vp H, ∀ q ∈ pCoreOf 2 H, u * q * u⁻¹ * q⁻¹ ∈ V₁) ∧
+        ∀ u ∈ conjClosure Vp H, u ^ 2 ∈ V₁) ∧
+      (∀ D : Subgroup G, D ≤ H → H ≤ Subgroup.normalizer (D : Set G) →
+        (∀ d ∈ D, ∃ k : ℕ, d ^ 2 ^ k ∈ centralizerMod V₁ H (conjClosure Vp H)) →
+          D ≤ centralizerMod V₁ H (conjClosure Vp H))) ∧
+    frattiniOf (conjClosure Vp H) ≤ V₁ ∧
+    (pCoreOf 2 H = centralizerMod V₁ H (conjClosure Vp H) ∧
+      centralizerMod V₁ H (conjClosure Vp H) ≤ centralizerMod V₁ H Vp ∧
+      centralizerMod V₁ H Vp ≤ H ⊓ Subgroup.normalizer (V : Set G)) ∧
+    (HypF_7_6 ((L ⊔ T) ⊔ H) (L ⊔ T) H T V ∧ (L ⊔ T) ⊓ H = L₁Of L V₁ ⊔ T)
+
+
+@[expose] def F_9_3 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T V L V₁ Vp H : Subgroup G), HypF_9_1 T V L V₁ Vp H →
+    List.TFAE [V ≤ pCoreOf 2 H, V ≤ H ⊓ Subgroup.centralizer (conjClosure Vp H : Set G),
+      V ≤ centralizerMod V₁ H (conjClosure Vp H)]
+
+
+@[expose] def F_9_4 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T V L V₁ Vp H : Subgroup G), HypF_9_1 T V L V₁ Vp H →
+    (V ≤ pCoreOf 2 H → IsElemAbelian 2 (conjClosure Vp H)) ∧
+    (⁅V, (H ⊓ Subgroup.centralizer (Vp : Set G)) ⊓ (H ⊓ Subgroup.normalizer (V : Set G))⁆ ≤ V₁ →
+      (∀ x ∈ conjClosure Vp H, ∀ y ∈ conjClosure Vp H, x * y = y * x) → V ≤ pCoreOf 2 H) ∧
+    ((H ⊓ Subgroup.centralizer (Vp : Set G)) ⊓ (H ⊓ Subgroup.normalizer (V : Set G)) =
+        H ⊓ Subgroup.centralizer (V : Set G) →
+      List.TFAE [V ≤ pCoreOf 2 H, IsElemAbelian 2 (conjClosure Vp H),
+        IsElemAbelian 2 (conjClosure V H)])
+
+
+@[expose] def F_9_5 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T V L V₁ Vp H : Subgroup G), HypF_9_1 T V L V₁ Vp H →
+    Vp.relIndex V = 2 → ¬ V ≤ centralizerMod V₁ H (conjClosure Vp H) →
+    (V ⊓ centralizerMod V₁ H (conjClosure Vp H)).relIndex V = 2 ∧
+    (tildeOf V₁ ⁅pCoreOf 2 H, V⁆ = tildeOf V₁ Vp ∧
+      tildeOf V₁ ⁅conjClosure Vp H, V⁆ = tildeOf V₁ Vp) ∧
+    (centralizerMod (pCoreOf 2 H) H V = H ⊓ Subgroup.normalizer (Vp : Set G) ∧
+      H ⊓ Subgroup.normalizer (Vp : Set G) = H ⊓ Subgroup.normalizer (V : Set G)) ∧
+    (∀ k ∈ H, conjSub k⁻¹ V ≤ centralizerMod V₁ H (conjClosure Vp H) ⊔ V → conjSub k⁻¹ V = V) ∧
+    ((∀ g ∈ H, V₁ < V ⊓ conjSub g⁻¹ V → IsPGroup 2 ↥(V ⊔ conjSub g⁻¹ V)) →
+      ∀ h ∈ H,
+        ¬ (∀ x ∈ V ⊔ conjSub h⁻¹ V,
+            ∃ n : ℕ, x ^ 2 ^ n ∈ centralizerMod V₁ H (conjClosure Vp H)) →
+        F95FiveConclusion V₁ Vp V H h ∧
+        (⁅V, H ⊓ Subgroup.centralizer (Vp : Set G)⁆ ≤ V₁ →
+          (Nat.card V = 2 ^ 4 →
+            IsQ8CentralPow 2 ↥(Vp ⊔ conjSub h⁻¹ Vp) ∧
+            Nonempty (↥(autOn (tildeOf V₁ (V ⊔ conjSub h⁻¹ V)) (tildeOf V₁ (conjClosure Vp H))) ≃*
+              DihedralGroup 3)) ∧
+          (Nat.card V = 2 ^ 6 →
+            H ⊓ Subgroup.centralizer (Vp : Set G) = H ⊓ Subgroup.centralizer (V : Set G) →
+            IsQ8CentralPow 4 ↥(Vp ⊔ conjSub h⁻¹ Vp) ∧
+            (Nonempty (↥(autOn (tildeOf V₁ (V ⊔ conjSub h⁻¹ V)) (tildeOf V₁ (conjClosure Vp H))) ≃*
+                DihedralGroup 3) ∨
+              Nonempty (↥(autOn (tildeOf V₁ (V ⊔ conjSub h⁻¹ V)) (tildeOf V₁ (conjClosure Vp H))) ≃*
+                DihedralGroup 5) ∨
+              Nonempty (↥(autOn (tildeOf V₁ (V ⊔ conjSub h⁻¹ V)) (tildeOf V₁ (conjClosure Vp H))) ≃*
+                DihedralGroup 6)))))
+
+
+@[expose] def F_9_6 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T V L V₁ Vp H : Subgroup G), HypF_9_1 T V L V₁ Vp H →
+    ∀ g ∈ L, conjSub g⁻¹ V₁ ≠ V₁ →
+      (∀ y ∈ L ⊔ T, conjSub g⁻¹ V₁ = conjSub y⁻¹ V₁ →
+        conjSub g⁻¹ H = conjSub y⁻¹ H ∧ conjSub g⁻¹ (pCoreOf 2 H) = conjSub y⁻¹ (pCoreOf 2 H) ∧
+        conjSub g⁻¹ (conjClosure Vp H) = conjSub y⁻¹ (conjClosure Vp H) ∧
+        conjSub g⁻¹ (conjClosure V H) = conjSub y⁻¹ (conjClosure V H)) ∧
+      (∀ g₀ ∈ L, conjSub g₀⁻¹ V₁ = conjSub g⁻¹ V₁ → g₀ * g₀ ∈ L₁Of L V₁ ⊔ T →
+        conjSub g₀⁻¹ (conjClosure Vp H ⊓ conjSub g⁻¹ (pCoreOf 2 H)) =
+          conjSub g⁻¹ (conjClosure Vp H) ⊓ pCoreOf 2 H ∧
+        conjSub g₀⁻¹ (conjClosure V H ⊓ conjSub g⁻¹ (pCoreOf 2 H)) =
+          conjSub g⁻¹ (conjClosure V H) ⊓ pCoreOf 2 H) ∧
+      (⁅conjClosure V H ⊓ conjSub g⁻¹ (pCoreOf 2 H), conjSub g⁻¹ (conjClosure Vp H)⁆ ≤
+          conjSub g⁻¹ V₁ ∧
+        ⁅conjClosure Vp H ⊓ conjSub g⁻¹ (pCoreOf 2 H),
+          conjSub g⁻¹ (conjClosure Vp H) ⊓ pCoreOf 2 H⁆ = ⊥)
+
+
+@[expose] def F_9_7 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T V L V₁ Vp H : Subgroup G), HypF_9_1 T V L V₁ Vp H →
+    IsElemAbelian 2 (conjClosure Vp H) →
+    ((∀ x ∈ pCoreOf 2 H, ∀ u ∈ conjClosure Vp H, x * u * x⁻¹ * u⁻¹ ∈ V₁) ∧
+      (∀ x ∈ pCoreOf 2 H, ∀ u ∈ conjClosure Vp H, ∀ u' ∈ conjClosure Vp H,
+        x * (u * u') * x⁻¹ * (u * u')⁻¹ = (x * u * x⁻¹ * u⁻¹) * (x * u' * x⁻¹ * u'⁻¹)) ∧
+      (∀ x ∈ pCoreOf 2 H, ∀ z ∈ conjClosure Vp H ⊓ Subgroup.centralizer (pCoreOf 2 H : Set G),
+        x * z * x⁻¹ * z⁻¹ = 1) ∧
+      (∀ x ∈ pCoreOf 2 H, ∀ y ∈ pCoreOf 2 H, ∀ u ∈ conjClosure Vp H,
+        (x * y) * u * (x * y)⁻¹ * u⁻¹ = (x * u * x⁻¹ * u⁻¹) * (y * u * y⁻¹ * u⁻¹))) ∧
+    (∀ x ∈ pCoreOf 2 H, (∀ u ∈ conjClosure Vp H, x * u * x⁻¹ * u⁻¹ = 1) ↔
+      x ∈ pCoreOf 2 H ⊓ Subgroup.centralizer (conjClosure Vp H : Set G)) ∧
+    (∀ f : ↥(conjClosure Vp H) →* ↥V₁,
+      (∀ z : ↥(conjClosure Vp H), (z : G) ∈ Subgroup.centralizer (pCoreOf 2 H : Set G) → f z = 1) →
+      ∃ x ∈ pCoreOf 2 H, ∀ u : ↥(conjClosure Vp H), (f u : G) = x * u * x⁻¹ * u⁻¹) ∧
+    (∀ h ∈ H, ∀ x ∈ pCoreOf 2 H, ∀ u ∈ conjClosure Vp H,
+      (h * x * h⁻¹) * u * (h * x * h⁻¹)⁻¹ * u⁻¹ = x * (h⁻¹ * u * h) * x⁻¹ * (h⁻¹ * u * h)⁻¹)
+
+
+@[expose] def F_9_9 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T V L V₁ H : Subgroup G),
+    (HypF_8_1 T V L V₁ H ∧ Nat.card V₁ = 2) ↔ HypF_9_8 T V L V₁ V H
+
+
+@[expose] def F_9_10 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T V L V₁ Vp H : Subgroup G), HypF_9_8 T V L V₁ Vp H →
+    conjClosure V H = Vv V (F8.γ₁ T L H) ∧
+    ∃ γ : F8.Geom T L H, IsCriticalVertex ((L ⊔ T) ⊔ H) (L ⊔ T) H V γ
+
+
+@[expose] def F_9_11 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T V L V₁ Vp H : Subgroup G), HypF_9_8 T V L V₁ Vp H →
+    (3 ≤ F8.b T V L H ∧ Odd (F8.b T V L H)) ∧
+    (∀ x ∈ conjClosure V H, ∀ y ∈ conjClosure V H, x * y = y * x) ∧
+    (∀ x ∈ conjClosure Vp H, ∀ y ∈ conjClosure Vp H, x * y = y * x)
+
+
+@[expose] def F_9_12 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T V L V₁ Vp H : Subgroup G) (γ γ' : F8.Geom T L H)
+    (g : ↥((L ⊔ T) ⊔ H)), HypF_9_8 T V L V₁ Vp H → F8Setup T V L H γ γ' g →
+      conjSub (g : G) (L₁Of L V₁) = oTwoRes (stab γ' ⊓ stab γ)
+
+
+@[expose] def F_9_13 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T V L V₁ Vp H : Subgroup G) (γ γ' : F8.Geom T L H)
+    (g : ↥((L ⊔ T) ⊔ H)), HypF_9_8 T V L V₁ Vp H → F8Setup T V L H γ γ' g →
+      stab (F8.γ₀ T L H) ⊓ stab (F8.γ₁ T L H) = L₁Of L V₁ ⊔ T ∧
+      (conjClosure V H ≤ pCoreOf 2 (stab γ' ⊓ stab γ) ∧
+        ∀ γ₂ ∈ nbrs (F8.γ₁ T L H), CosetGeom.dist γ γ₂ + 2 = F8.b T V L H →
+          F8.Uγ V H (g : G) ≤ pCoreOf 2 (stab (F8.γ₁ T L H) ⊓ stab γ₂)) ∧
+      (∀ X Y : Subgroup G, (X = Vp ∨ X = V) → (Y = Vp ∨ Y = V) →
+        ⁅conjClosure X H, F8.Uγ Y H (g : G)⁆ ≤ conjClosure X H ⊓ F8.Uγ Y H (g : G)) ∧
+      (F8.Uγ V H (g : G) ≤ Subgroup.normalizer (conjClosure V H : Set G) ∧
+        F8.Uγ V H (g : G) ≤ Subgroup.normalizer (conjClosure Vp H : Set G)) ∧
+      (¬ ⁅F8.Uγ Vp H (g : G), V⁆ ≤ F8.A₁ V₁ (g : G) ∧ V₁ ⊓ F8.A₁ V₁ (g : G) = ⊥) ∧
+      (⁅F8.Uγ Vp H (g : G), F9.EH V Vp V₁ H (g : G)⁆ ≤ F8.A₁ V₁ (g : G) ∧
+        ⁅conjClosure Vp H, F9.Eγ V Vp V₁ H (g : G)⁆ ≤ V₁) ∧
+      ⁅F8.DH Vp V₁ H (g : G), F8.Dγ Vp V₁ H (g : G)⁆ = ⊥
+
+
+@[expose] def F_9_14 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T V L V₁ Vp H : Subgroup G), HypF_9_8 T V L V₁ Vp H →
+    (3 < F8.b T V L H →
+      ∀ x ∈ conjClosure (conjClosure Vp H) L, ∀ y ∈ conjClosure (conjClosure Vp H) L,
+        x * y = y * x) ∧
+    (F8.b T V L H = 3 →
+      ∃ l ∈ L, ∃ v ∈ conjClosure V H, ∃ u ∈ conjSub l (conjClosure Vp H), v * u ≠ u * v) ∧
+    ((V ≤ conjClosure Vp H ∨
+        H ⊓ Subgroup.centralizer (Vp : Set G) ≤ Subgroup.centralizer (V : Set G) ∨
+        (∀ x ∈ H ⊓ Subgroup.centralizer (Vp : Set G), ⁅V, Subgroup.zpowers x⁆ ≠ ⊥ →
+          ∀ g : G, conjSub g⁻¹ V ≤ Subgroup.normalizer ((⁅V, Subgroup.zpowers x⁆ : Subgroup G) : Set G) →
+            conjSub g⁻¹ V ≤ Subgroup.centralizer (V : Set G))) →
+      ((∀ x ∈ conjClosure (conjClosure Vp H) L, ∀ y ∈ conjClosure (conjClosure Vp H) L,
+          x * y = y * x) ↔ 3 < F8.b T V L H)) ∧
+    ∀ (γ γ' : F8.Geom T L H) (g : ↥((L ⊔ T) ⊔ H)), F8Setup T V L H γ γ' g →
+      (F8.b T V L H = 3 → ∃ k ∈ H, F8.A₁ V₁ (g : G) ≤ conjSub k⁻¹ V) ∧
+      ((∀ v ∈ V, ∀ w ∈ V, v ≠ 1 → w ≠ 1 → ∃ l ∈ L, l * v * l⁻¹ = w) →
+        H = Subgroup.centralizer (V₁ : Set G) →
+        ∀ k ∈ H, conjSub k⁻¹ (F8.A₁ V₁ (g : G)) ≤ V →
+          F8.b T V L H = 3 ∧
+          ∃ l ∈ L, conjSub k⁻¹ (F8.Uγ Vp H (g : G)) = conjSub l (conjClosure Vp H))
+
+
+@[expose] def F_9_15 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T V L V₁ Vp H : Subgroup G) (γ γ' : F8.Geom T L H)
+    (g : ↥((L ⊔ T) ⊔ H)), HypF_9_8 T V L V₁ Vp H → F8Setup T V L H γ γ' g →
+      conjClosure V H ⊓ ballStab 1 γ = F9.EH V Vp V₁ H (g : G) ∧
+      F8.Uγ V H (g : G) ⊓ ballStab 1 (F8.γ₁ T L H) = F9.Eγ V Vp V₁ H (g : G)
+
+
+@[expose] def F_9_16 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T V L V₁ Vp H : Subgroup G) (hyp : HypF_9_8 T V L V₁ Vp H),
+    (∀ (γ γ' : F8.Geom T L H) (g : ↥((L ⊔ T) ⊔ H)), F8Setup T V L H γ γ' g →
+      F8.Uγ Vp H (g : G) = F8.Dγ Vp V₁ H (g : G) →
+        (F8.DH Vp V₁ H (g : G) < conjClosure Vp H ∧
+          IsTransvectionGroupOn (conjClosure Vp H) (F8.Uγ Vp H (g : G)) V₁) ∨
+        (F8.DH Vp V₁ H (g : G) = conjClosure Vp H ∧
+          ⁅conjClosure Vp H, F8.Uγ Vp H (g : G)⁆ = ⊥ ∧
+          IsTransvectionGroupOn V (F8.Uγ Vp H (g : G)) V₁)) ∧
+    (∀ (γ γ' : F8.Geom T L H) (g : ↥((L ⊔ T) ⊔ H)), F8Setup T V L H γ γ' g →
+      0 < mIdx (F8.Uγ Vp H (g : G)) (F8.Dγ Vp V₁ H (g : G)) →
+      mIdx (conjClosure Vp H) (F8.DH Vp V₁ H (g : G)) ≤
+        mIdx (F8.Uγ Vp H (g : G)) (F8.Dγ Vp V₁ H (g : G)) →
+        autOn (tildeOf V₁ (F8.Uγ Vp H (g : G))) (tildeOf V₁ (conjClosure Vp H)) ∈
+          @Qset ↥(tildeOf V₁ (conjClosure Vp H))
+            (commGroupOfElemAbelian hyp.toHypF91.isElemAbelian_tilde)
+            (autOn (tildeOf V₁ H) (tildeOf V₁ (conjClosure Vp H))) ∧
+        (2 * mIdx (F8.Uγ Vp H (g : G)) (F8.Dγ Vp V₁ H (g : G)) =
+            mIdx (conjClosure Vp H) (centralizerMod V₁ (conjClosure Vp H) (F8.Uγ Vp H (g : G))) →
+          mIdx (F8.Uγ Vp H (g : G)) (F8.Dγ Vp V₁ H (g : G)) =
+              mIdx (conjClosure Vp H) (F8.DH Vp V₁ H (g : G)) ∧
+            centralizerMod V₁ (F8.Uγ Vp H (g : G)) (F8.DH Vp V₁ H (g : G)) =
+              F8.Dγ Vp V₁ H (g : G) ∧
+            ⁅F8.Uγ Vp H (g : G), F8.DH Vp V₁ H (g : G)⁆ ≤ F8.A₁ V₁ (g : G) ∧
+            Nat.card (F8.A₁ V₁ (g : G)) = 2 ∧ F8.A₁ V₁ (g : G) ⊓ V₁ = ⊥ ∧
+            F8.Dγ Vp V₁ H (g : G) < F8.Uγ Vp H (g : G))) ∧
+    (qInt (tildeOf V₁ H) (tildeOf V₁ (conjClosure Vp H)) hyp.toHypF91.isElemAbelian_tilde ≤ 2 ∧
+      ∃ B : Subgroup G, B ≤ pCoreOf 2 (L₁Of L V₁ ⊔ T) ∧
+        autOn (tildeOf V₁ B) (tildeOf V₁ (conjClosure Vp H)) ∈
+          @Qset ↥(tildeOf V₁ (conjClosure Vp H))
+            (commGroupOfElemAbelian hyp.toHypF91.isElemAbelian_tilde)
+            (autOn (tildeOf V₁ H) (tildeOf V₁ (conjClosure Vp H)))) ∧
+    (∀ (γ γ' : F8.Geom T L H) (g : ↥((L ⊔ T) ⊔ H)), F8Setup T V L H γ γ' g →
+      F8.Dγ Vp V₁ H (g : G) < F8.Uγ Vp H (g : G) →
+        ∃ (δ δ' : F8.Geom T L H) (k : ↥((L ⊔ T) ⊔ H)), F8Setup T V L H δ δ' k ∧
+          0 < mIdx (F8.Uγ Vp H (k : G)) (F8.Dγ Vp V₁ H (k : G)) ∧
+          mIdx (conjClosure Vp H) (F8.DH Vp V₁ H (k : G)) ≤
+            mIdx (F8.Uγ Vp H (k : G)) (F8.Dγ Vp V₁ H (k : G)) ∧
+          autOn (tildeOf V₁ (F8.Uγ Vp H (k : G))) (tildeOf V₁ (conjClosure Vp H)) ∈
+            @Qset ↥(tildeOf V₁ (conjClosure Vp H))
+              (commGroupOfElemAbelian hyp.toHypF91.isElemAbelian_tilde)
+              (autOn (tildeOf V₁ H) (tildeOf V₁ (conjClosure Vp H))))
+
+
+@[expose] def F_9_17 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T V L V₁ Vp H : Subgroup G) (γ γ' : F8.Geom T L H)
+    (g : ↥((L ⊔ T) ⊔ H)), HypF_9_8 T V L V₁ Vp H → F8Setup T V L H γ γ' g →
+      0 < mIdx (F8.Uγ Vp H (g : G)) (F8.Dγ Vp V₁ H (g : G)) →
+        (¬ F8.Uγ V H (g : G) ≤ ballStab 1 (F8.γ₁ T L H) ∧
+          ∃ β ∈ nbrs γ, ¬ Vv V β ≤ ballStab 1 (F8.γ₁ T L H) ∧
+            CosetGeom.dist β (F8.γ₁ T L H) = F8.b T V L H) ∧
+        ∃ (β δ δ' : F8.Geom T L H) (k y : ↥((L ⊔ T) ⊔ H)),
+          β ∈ nbrs γ ∧ β ≠ γ' ∧
+          ¬ Vv V β ≤ ballStab 1 (F8.γ₁ T L H) ∧
+          CosetGeom.dist β (F8.γ₁ T L H) = F8.b T V L H ∧
+          F8Setup T V L H δ δ' k ∧
+          y • β = F8.γ₀ T L H ∧ y • γ = F8.γ₁ T L H ∧
+          y • F8.γ₁ T L H = δ ∧
+          conjSub (y : G) (conjClosure Vp H) = F8.Uγ Vp H (k : G) ∧
+          conjSub (y : G) (F8.Uγ Vp H (g : G)) = conjClosure Vp H ∧
+          conjSub (y : G) (conjClosure V H) = F8.Uγ V H (k : G) ∧
+          conjSub (y : G) (F8.Uγ V H (g : G)) = conjClosure V H ∧
+          conjSub (y : G) V₁ = F8.A₁ V₁ (k : G) ∧
+          conjSub (y : G) (F8.A₁ V₁ (g : G)) = V₁ ∧
+          conjSub (y : G) (F8.Dγ Vp V₁ H (g : G)) = F8.DH Vp V₁ H (k : G) ∧
+          conjSub (y : G) (F8.DH Vp V₁ H (g : G)) = F8.Dγ Vp V₁ H (k : G) ∧
+          mIdx (F8.Uγ Vp H (k : G)) (F8.Dγ Vp V₁ H (k : G)) =
+            mIdx (conjClosure Vp H) (F8.DH Vp V₁ H (g : G)) ∧
+          mIdx (conjClosure Vp H) (F8.DH Vp V₁ H (k : G)) =
+            mIdx (F8.Uγ Vp H (g : G)) (F8.Dγ Vp V₁ H (g : G)) ∧
+          (∃ (ε ε' : F8.Geom T L H) (a : ↥((L ⊔ T) ⊔ H)),
+            ((ε = γ ∧ ε' = γ' ∧ a = g) ∨ (ε = δ ∧ ε' = δ' ∧ a = k)) ∧
+            F8Setup T V L H ε ε' a ∧
+            0 < mIdx (F8.Uγ Vp H (a : G)) (F8.Dγ Vp V₁ H (a : G)) ∧
+            mIdx (conjClosure Vp H) (F8.DH Vp V₁ H (a : G)) ≤
+              mIdx (F8.Uγ Vp H (a : G)) (F8.Dγ Vp V₁ H (a : G))) ∧
+          (mIdx (F8.Uγ Vp H (g : G)) ⊥ =
+              mIdx (conjClosure Vp H) (F8.DH Vp V₁ H (g : G)) →
+            mIdx (F8.Uγ Vp H (g : G)) (F8.Dγ Vp V₁ H (g : G)) ≤
+              mIdx (conjClosure Vp H) (F8.DH Vp V₁ H (g : G))) ∧
+          ((mIdx (F8.Uγ Vp H (g : G)) (F8.Dγ Vp V₁ H (g : G)) =
+              mIdx (conjClosure Vp H) (F8.DH Vp V₁ H (g : G)) ∨
+            mIdx (F8.Uγ Vp H (g : G)) ⊥ =
+              mIdx (conjClosure Vp H) (F8.DH Vp V₁ H (g : G))) →
+            (∀ S : F8.Geom T L H → F8.Geom T L H → Prop,
+              (∀ (x : ↥((L ⊔ T) ⊔ H)) (α ζ : F8.Geom T L H),
+                S (x • α) (x • ζ) ↔ S α ζ) →
+              (∀ (ζ ζ' : F8.Geom T L H) (a : ↥((L ⊔ T) ⊔ H)),
+                F8Setup T V L H ζ ζ' a →
+                0 < mIdx (F8.Uγ Vp H (a : G)) (F8.Dγ Vp V₁ H (a : G)) →
+                mIdx (conjClosure Vp H) (F8.DH Vp V₁ H (a : G)) ≤
+                  mIdx (F8.Uγ Vp H (a : G)) (F8.Dγ Vp V₁ H (a : G)) →
+                S (F8.γ₁ T L H) ζ) → S γ (F8.γ₁ T L H)) ∧
+            (∀ S : F8.Geom T L H → F8.Geom T L H → F8.Geom T L H → Prop,
+              (∀ (x : ↥((L ⊔ T) ⊔ H)) (α ζ η : F8.Geom T L H),
+                S (x • α) (x • ζ) (x • η) ↔ S α ζ η) →
+              (∀ (ζ ζ' : F8.Geom T L H) (a : ↥((L ⊔ T) ⊔ H)),
+                F8Setup T V L H ζ ζ' a →
+                0 < mIdx (F8.Uγ Vp H (a : G)) (F8.Dγ Vp V₁ H (a : G)) →
+                mIdx (conjClosure Vp H) (F8.DH Vp V₁ H (a : G)) ≤
+                  mIdx (F8.Uγ Vp H (a : G)) (F8.Dγ Vp V₁ H (a : G)) →
+                S (F8.γ₀ T L H) (F8.γ₁ T L H) ζ) →
+              S β γ (F8.γ₁ T L H)))
 
 
 end CFSG.ASVolI

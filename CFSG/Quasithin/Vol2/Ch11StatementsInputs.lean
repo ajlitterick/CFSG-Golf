@@ -16,6 +16,10 @@ section Defs
 
 variable {G : Type} [Group G]
 
+@[expose] def IsIrrSection (X J C : Subgroup G) : Prop :=
+  C < J ∧ X ≤ Subgroup.normalizer (J : Set G) ∧ X ≤ Subgroup.normalizer (C : Set G) ∧
+    ∀ W : Subgroup G, C ≤ W → W ≤ J → X ≤ Subgroup.normalizer (W : Set G) → W = C ∨ W = J
+
 
 @[expose] def IsNotation4211 (T M L I : Subgroup G) : Prop :=
   I ≤ M ∧ (L : Set G) ⊆ (I : Set G) * (pCoreOf 2 (L ⊔ T) : Set G) ∧

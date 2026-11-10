@@ -60,6 +60,27 @@ theorem isPreprimitive_of_labels {G X : Type*} [Group G] [MulAction G X] [Fintyp
     rw [hS]
     exact Finset.mem_univ (lab p)
 
+theorem countLab_get (L : Labels) (k : ℕ) :
+    ∀ n, (countLab n k L).size = k ∧ ∀ i < k,
+      (countLab n k L)[i]! = ((Finset.range n).filter (fun p => L.labelOf p = i)).card := by
+  intro n
+  induction n with
+  | zero =>
+    refine ⟨by simp [countLab], fun i hi => ?_⟩
+    simp only [countLab, Nat.fold_zero, Finset.range_zero, Finset.filter_empty, Finset.card_empty]
+    rw [getElem!_pos _ i (by simpa using hi), Array.getElem_replicate]
+  | succ n ih =>
+    obtain ⟨hs, hg⟩ := ih
+    have e : countLab (n + 1) k L = (countLab n k L).modify (L.labelOf n) (· + 1) := by
+      simp only [countLab, Nat.fold_succ]
+    refine ⟨by rw [e, Array.size_modify, hs], fun i hi => ?_⟩
+    rw [e, getElem!_pos _ i (by rw [Array.size_modify, hs]; exact hi), Array.getElem_modify,
+      Finset.range_add_one, Finset.filter_insert]
+    have hn : n ∉ (Finset.range n).filter (fun p => L.labelOf p = i) := by simp
+    by_cases h : L.labelOf n = i
+    · rw [ite_eq_left h, ite_eq_left h, Finset.card_insert_of_notMem hn, ← hg i hi,
+        getElem!_pos _ i (by rw [hs]; exact hi)]
+    · rw [ite_eq_right h, ite_eq_right h, ← hg i hi, getElem!_pos _ i (by rw [hs]; exact hi)]
 
 @[expose] def subSizesF : Fin 7 → ℕ := ![1, 32643072, 82575360, 54405120, 3400320, 15180, 28336]
 
@@ -74,14 +95,53 @@ theorem subSizesF_blocks (S : Finset (Fin 7)) (h0 : (0 : Fin 7) ∈ S)
   · left
     exact Finset.eq_singleton_iff_unique_mem.2 ⟨h0, fun i hi => by fin_cases i <;> simp_all⟩
 
+@[expose] noncomputable def lab7 (p : Fin nPts) : Fin 7 := ⟨min (L0.labelOf p.val) 6, by omega⟩
 
 section Facts
 
 variable (hF : J4NativeFacts)
 include hF
 
+theorem label_parts : ∀ p < nPts, labelAt nPts (zT 0) (zT 1) (zT 2) L0 p = true :=
+  parAllS_eq_true hF.label
 
 theorem reps_eq : L0.reps = subReps := beq_iff_eq.mp hF.reps
+
+theorem labelOf_lt {p : ℕ} (hp : p < nPts) : L0.labelOf p < 7 := by
+  have h := label_parts hF p hp
+  unfold labelAt at h
+  rw [Bool.and_eq_true, decide_eq_true_eq, reps_eq hF] at h
+  exact h.1
+
+theorem lab7_val (p : Fin nPts) : (lab7 p).val = L0.labelOf p.val := by
+  have := labelOf_lt hF p.isLt
+  simp only [lab7]
+  omega
+
+
+theorem card_lab7 (i : Fin 7) :
+    (Finset.univ.filter (fun p : Fin nPts => lab7 p = i)).card = subSizesF i := by
+  have hc := (countLab_get L0 7 nPts).2 i.val i.isLt
+  have hcnt : (countLab nPts 7 L0).toList = subSizes := beq_iff_eq.mp hF.counts
+  have hsz := (countLab_get L0 7 nPts).1
+  have e1 : (countLab nPts 7 L0)[i.val]! = subSizesF i := by
+    have hi : i.val < (countLab nPts 7 L0).toList.length := by
+      rw [Array.length_toList, hsz]; exact i.isLt
+    rw [getElem!_pos _ _ (by rw [hsz]; exact i.isLt), ← Array.getElem_toList hi,
+      List.getElem_of_eq hcnt hi]
+    fin_cases i <;> rfl
+  rw [← e1, hc]
+  apply Finset.card_bij (fun p _ => p.val)
+  · intro p hp
+    rw [Finset.mem_filter] at hp ⊢
+    exact ⟨Finset.mem_range.2 p.isLt, by rw [← lab7_val hF, hp.2]⟩
+  · intro p _ q _ h
+    exact Fin.ext h
+  · intro b hb
+    rw [Finset.mem_filter, Finset.mem_range] at hb
+    refine ⟨⟨b, hb.1⟩, ?_, rfl⟩
+    rw [Finset.mem_filter]
+    exact ⟨Finset.mem_univ _, Fin.ext (by rw [lab7_val hF]; exact hb.2)⟩
 
 
 end Facts

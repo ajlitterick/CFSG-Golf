@@ -62,10 +62,23 @@ end Sylow
 
 section Escape
 
+variable {G : Type*} [Group G] [Finite G] {p : ℕ} {P : Sylow p G} {M H R T : Subgroup G}
+
 
 end Escape
 
 section PhaseThree
+
+variable {G : Type} [Group G] [Finite G] {p : ℕ} {P : Sylow p G} {M H R L : Subgroup G}
+
+
+structure D1Extremal2 (p : ℕ) (P : Sylow p G) (M H R : Subgroup G) : Prop
+    extends D1Extremal p P M H R where
+  extremal2 : ∀ H' : Subgroup G, IsTwoLocal H' → ¬ H' ≤ M → 3 ≤ Open.pRank p (H' ⊓ M) →
+    (∃ X : Subgroup G, X ≤ H' ⊓ M ∧ IsPGroup p X ∧ Nat.card X = Nat.card R ∧
+      Open.pRank p X = Open.pRank p R) →
+    ∀ T : Subgroup G, T ≤ H' ⊓ M → IsPGroup 2 T →
+      ∃ T₀ : Subgroup G, T₀ ≤ H ⊓ M ∧ IsPGroup 2 T₀ ∧ Nat.card T ≤ Nat.card T₀
 
 
 end PhaseThree

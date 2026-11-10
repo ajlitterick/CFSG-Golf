@@ -19,6 +19,11 @@ theorem sH2 : CFSG.KC.LceS.aliveOK LVs (nat_lit 7) (nat_lit 28102) nLive = true 
 theorem sH3 : Nat.beq nC (nat_lit 28102) = true := by
   quickRfl
 
+theorem sH4 : CFSG.KC.RuB.litOK litRT CFSG.KC.RuB.rel (nat_lit 12) = true := by
+  quickRfl
+
+theorem sH5 : CFSG.KC.RuB.litOK litST CFSG.KC.RuB.sub (nat_lit 2) = true := by
+  quickRfl
 
 end CFSG.KD.RuBP
 

@@ -706,6 +706,27 @@ theorem RegsOK.runG {prog : List Ins} {A B : List ℕ} {regs : List ℕ} {tgt : 
       not_or] at hr
     simp [CFSG.Monster.B.progInit, hr.1, hr.2]
 
+example : red [(0, 1, none), (1, 0, none)] [2, 0, 1, 3] = [2, 3] := by decide
+example : red [(0, 0, some 1)] [0, 0, 0] = [0, 1] := by decide
+example : ruleOK [(0, [1], none, [])] (1, 0, none) = true := by decide
+example : ruleOK [(0, [1], none, [])] (1, 0, some 2) = false := by decide
+example : ruleOK [(0, [1], some 2, [])] (1, 0, some 2) = false := by decide
+example : wfOK [0] [(0, [1], some 2, [])] = false := by decide
+example : wfOK [0, 1] [(0, [1], some 2, []), (2, [2], some 3, [])] = true := by decide
+example : wfOK [0] [(0, [0], some 1, [2])] = false := by decide
+example : flOK [] [[0], [0, 0]] [(0, [0], some 1, [])] [0] 2 = true := by decide
+example : flOK [] [[0], [0]] [(0, [0], some 1, [])] [0] 2 = false := by decide
+example : flOK [] [[0], [1]] [(1, [0], some 1, [])] [0] 2 = false := by decide
+example : runOK [] [[0], [1]] [] [.mu 1 2 3] [([0, 1], 0)] (init0 [(1, some 0), (2, some 1)] true)
+    = true := by decide
+example : runOK [] [[0], [1]] [] [.mu 1 2 3] [([1, 0], 0)] (init0 [(1, some 0), (2, some 1)] true)
+    = false := by decide
+example : runOK [] [[0], [1]] [] [.iv 1 3] [([1], 0)] (init0 [(1, some 0)] false) = false := by
+  decide
+example : runOK [(0, 1, none)] [[0], [1]] [] [.iv 1 3] [([1], 0)] (init0 [(1, some 0)] false)
+    = true := by decide
+example : runOK [] [[0], [1]] [] [.mu 1 2 3] [([0, 1], 0)] (init0 [(1, some 0)] false)
+    = false := by decide
 
 end CFSG.KC.BM.Reg
 

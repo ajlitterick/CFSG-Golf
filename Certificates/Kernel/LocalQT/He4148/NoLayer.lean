@@ -60,6 +60,7 @@ theorem e1 : nlE 42 6 (mask 6) (42 * 6) (pidn 42 6) X1Q.LR X1Q.TRI X1Q.BP 6 X1Q.
 
 theorem n1 : Nat.ble (ordK X1Q.LR 6) (11 * 1024) = true := by quickRfl
 
+theorem len_X1 : heInnerSigma1.length = 9 := rfl
 
 theorem chainX1 : ChainK 42 6 (heInnerSigma1.map (permOrId 42)) heInnerChainWords1
     (#v[0, 1, 7, 10, 3, 2] : Vector (Fin 42) 6) X1Q.S X1Q.SI X1Q.LR X1Q.TR X1Q.TRI 17 X1Q.BP 3

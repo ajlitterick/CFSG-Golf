@@ -452,6 +452,9 @@ theorem rel_u_rho (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hBC : B ≤ C
   linear_combination h7
 
 
+noncomputable abbrev Φuv0 (m : ℕ) : Torus (Type100.k m) →+ Torus (Type100.k m) :=
+  matAct (Type100.k m) Type100.uvM (Type100.compat_uv m)
+
 noncomputable abbrev Φt0 (m : ℕ) : Torus (Type100.k m) →+ Torus (Type100.k m) :=
   matAct (Type100.k m) Type100.tM (Type100.compat_t m)
 

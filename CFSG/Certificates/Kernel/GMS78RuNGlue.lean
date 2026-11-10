@@ -16,6 +16,8 @@ theorem notB_eq (a : Bool) : notB a = !a := by cases a <;> rfl
 theorem nIf_eq (c : Bool) (t e : Nat) :
     Bool.rec (motive := fun _ => Nat) e t c = if c = true then t else e := by cases c <;> rfl
 
+theorem bIf_eq (c t e : Bool) :
+    Bool.rec (motive := fun _ => Bool) e t c = if c = true then t else e := by cases c <;> rfl
 
 theorem strictN_eq (y : Nat) (k : Nat → Nat) : strictN y k = k y := by cases y <;> rfl
 theorem strictB_eq (y : Nat) (k : Nat → Bool) : strictB y k = k y := by cases y <;> rfl
@@ -64,6 +66,20 @@ theorem allN_iff (n : Nat) (f : Nat → Bool) : allN n f = true ↔ ∀ i < n, f
     · intro h
       exact ⟨h n (Nat.lt_succ_self n), fun i hi => h i (Nat.lt_succ_of_lt hi)⟩
 
+theorem anyN_iff (n : Nat) (f : Nat → Bool) : anyN n f = true ↔ ∃ i < n, f i = true := by
+  induction n with
+  | zero => exact ⟨fun h => (Bool.false_ne_true h).elim, fun ⟨i, hi, _⟩ => absurd hi (Nat.not_lt_zero i)⟩
+  | succ n ih =>
+    change orB (f n) (anyN n f) = true ↔ _
+    rw [orB_eq, Bool.or_eq_true, ih]
+    constructor
+    · rintro (h | ⟨i, hi, h⟩)
+      · exact ⟨n, Nat.lt_succ_self n, h⟩
+      · exact ⟨i, Nat.lt_succ_of_lt hi, h⟩
+    · rintro ⟨i, hi, h⟩
+      rcases Nat.lt_succ_iff_lt_or_eq.1 hi with h' | h'
+      · exact Or.inr ⟨i, h', h⟩
+      · exact Or.inl (h' ▸ h)
 
 theorem allN_of {n : Nat} {f : Nat → Bool} (h : allN n f = true) {i : Nat} (hi : i < n) :
     f i = true := (allN_iff n f).1 h i hi
@@ -197,6 +213,8 @@ theorem selN_three (c : Nat) (f : Nat → Nat) : selN 3 c f =
     (if c.testBit 2 then f 2 else 0) ^^^ ((if c.testBit 1 then f 1 else 0) ^^^
     ((if c.testBit 0 then f 0 else 0) ^^^ 0)) := rfl
 
+theorem selN_mod (n c : Nat) (f : Nat → Nat) : selN n (c % 2 ^ n) f = selN n c f :=
+  selN_congr_set f fun i hi => by rw [Nat.testBit_mod_two_pow]; simp [hi]
 
 theorem fxor_val (a b : Fin 8) : (a ^^^ b).val = a.val ^^^ b.val := Fin.xor_val_of_two_pow (w := 3) a b
 
@@ -324,6 +342,13 @@ theorem fget_orN (w n : Nat) (f : Nat → Nat) (hf : ∀ i < n, f i < 2 ^ w) (j 
     exact (Nat.testBit_lt_two_pow (Nat.lt_of_lt_of_le (hf j hj)
       (Nat.pow_le_pow_right (by decide) (by omega)))).symm
 
+theorem fget_orN' (w n : Nat) (f : Nat → Nat) (hf : ∀ i < n, f i < 2 ^ w) (j : Nat) (hj : j < n) :
+    fget (orN n fun i => Nat.shiftLeft (f i) (Nat.mul i w)) j w = f j := by
+  have : (fun i => Nat.shiftLeft (f i) (Nat.mul i w)) = fun i => Nat.shiftLeft (f i) (Nat.mul w i) := by
+    funext i
+    exact congrArg (Nat.shiftLeft (f i)) (Nat.mul_comm i w)
+  rw [this]
+  exact fget_orN w n f hf j hj
 
 theorem linCompK_fget (R S k : Nat) (hk : k < 3) : fget (linCompK R S) k 3 = linAppK R (fget S k 3) :=
   fget_orN 3 3 (fun k => linAppK R (fget S k 3)) (fun _ _ => linAppK_lt _ _) k hk
@@ -382,11 +407,15 @@ theorem bindList_getD {α : Type} {f : α → Nat} {L : List α} {T w n : Nat} (
   rw [getD_of_lt _ _ (by omega)]
   exact h2 i (by omega)
 
+theorem bindFin8_eq (L : List (Fin 8)) (T n : Nat) :
+    bindFin8 L T n = bindList (fun a => a.val) L T 3 n := rfl
 
 theorem bindFin8_getD {L : List (Fin 8)} {T n : Nat} (h : bindFin8 L T n = true) {i : Nat} (hi : i < n) :
     (L.getD i 0).val = fget T i 3 :=
   bindList_getD (f := fun a : Fin 8 => a.val) h 0 hi
 
+theorem bindFin8_length {L : List (Fin 8)} {T n : Nat} (h : bindFin8 L T n = true) : L.length = n :=
+  (bindList_get (f := fun a : Fin 8 => a.val) h).1
 
 theorem bindRows_go (T n k : Nat) : ∀ (L : List (List (Fin 8))) (j : Nat),
     List.rec (motive := fun _ => Nat → Bool) (fun i => Nat.beq i k)

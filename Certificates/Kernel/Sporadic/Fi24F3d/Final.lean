@@ -284,6 +284,9 @@ theorem chain_of_kn {g : GL (Fin 781) (ZMod 3)} {n : ℕ} (M : KnModel g n) (k :
     rw [Equiv.apply_symm_apply, Equiv.apply_symm_apply] at this
     exact this (chain_far (hlt i) (hlt j) hij)
 
+theorem sylow_five : eE ^ 5 = 1 ∧ eE ≠ 1 ∧ eF ^ 5 = 1 ∧ eE * eF = eF * eE ∧
+    ∀ k < 5, eF ≠ eE ^ k :=
+  ⟨eE_pow5, eE_ne, eF_pow5, eEF_comm, fun k _ => eF_ne_pow k⟩
 
 theorem fi24_five_graph : ∃ e ∈ seedGrp, ∃ f ∈ seedGrp, e ^ 5 = 1 ∧ e ≠ 1 ∧ f ^ 5 = 1 ∧
     e * f = f * e ∧ (∀ k < 5, f ≠ e ^ k) ∧ ∀ a < 5, ∀ b < 5, a + b ≠ 0 →

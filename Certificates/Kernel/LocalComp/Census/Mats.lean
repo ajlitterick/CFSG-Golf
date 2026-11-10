@@ -58,6 +58,9 @@ theorem pre_unpackM (P : Nat) :
 theorem isom_IM {i : Nat} (hi : i < 87) : isomOK (unpackM (IM i)) = true :=
   isomOK_of_isomK (pre_unpackM _) (CensusT.all i hi) qt_ok (CensusI.all i hi)
 
+theorem img_IM {i : Nat} (hi : i < 87) {v : Nat} (hv : v < 4096) :
+    img (ML i) (MH i) v = applyC (unpackM (IM i)) v :=
+  img_eq (CensusT.all i hi) hv
 
 theorem b_x0 : x0M = unpackM (IM 0) := by decide +kernel
 theorem b_tau : tauM = unpackM (IM 1) := by decide +kernel

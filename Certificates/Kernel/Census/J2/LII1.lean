@@ -20,6 +20,8 @@ namespace CertificateChecks.KernelCensus.J2K
 
 set_option maxRecDepth 1000000
 
+theorem kIIL116 : blkIIL 116 58 = true := by quickRfl
+theorem kIIL174 : blkIIL 174 58 = true := by quickRfl
 
 end CertificateChecks.KernelCensus.J2K
 

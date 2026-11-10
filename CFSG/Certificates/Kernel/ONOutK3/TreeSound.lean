@@ -138,6 +138,12 @@ theorem posMap3_mem {im : Array Pt3} {n : Nat} (hn : im.size = n)
     rw [(posMap3_spec hinj).1 k (by omega)]
     simp [hk]
 
+theorem posMap3_nmem {im : Array Pt3} {n : Nat} (hn : im.size = n)
+    (hinj : ∀ a < im.size, ∀ b < im.size, im[a]! = im[b]! → a = b) {t : Pt3}
+    (ht : ∀ k < n, im[k]! ≠ t) :
+    (decide ((posMap3 im).getD t n < n) && im[(posMap3 im).getD t n]! == t) = false := by
+  rw [(posMap3_spec hinj).2 t fun k hk => ht k (by omega)]
+  simp
 
 end CFSG.KS.ONK3
 

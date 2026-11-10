@@ -18,6 +18,11 @@ open CFSG.EvenSporadicStandard.HNRecog
     bAnd(Nat.beq cnt m, penumHdK idK cnt 1000000 T PL)))
 
 
+@[expose] noncomputable def peA (s : Nat) : Bool :=
+  penumSlK 1408 11 (mask 11) (1408 * 11) true MR1.G MR1.GI 2 MR1.cnt MR1.T MR1.PL MR1.POS MR1.SRT
+    MR1.SRI (Nat.mul 1980 s) 1980
+@[expose] noncomputable def hsA (s : Nat) : Bool :=
+  slK MR1.cnt (hsortPtK 1408 11 (mask 11) MR1.cnt MR1.T MR1.HS MR1.HSI) (Nat.mul 3960 s) 3960
 @[expose] noncomputable def clA (s : Nat) : Bool :=
   slK (Nat.mul MR1.cnt 4) (findPtK MR1.cnt MR1.T (prodQK 1408 11 (mask 11) 4 MR1.T
     (bothK 2 MR1.GI MR1I)) MR1Cl) (Nat.mul 1980 s) 1980

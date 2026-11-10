@@ -133,6 +133,77 @@ theorem IsProductDisconnected.sylow_or_exists_larger (h : IsProductDisconnected 
         exact hle2
     exact ⟨R, hPR, hRsyl, hΩR, h.isSylowOf_of_omegaFix_pair hp hp2 hβγ hRsyl hΩR⟩
 
+theorem IsProductDisconnected.lemma51 (hZ : IsInvariantInvolutionSet Z)
+    (h : IsProductDisconnected Z M) {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) {P : Subgroup X}
+    (hP : IsMaxFixingThree M p P) :
+    (∃ n ∈ normalizer (P : Set X), ∃ β ∈ omegaFix M (P : Set X), conjugate β n ≠ β) ∧
+      ∀ β ∈ omegaFix M (P : Set X), ∀ γ ∈ omegaFix M (P : Set X), β ≠ γ →
+        (∃ n ∈ normalizer (P : Set X), conjugate β n = γ) →
+          ∃ s ∈ normalizer (P : Set X), Even (orderOf s) ∧ conjugate β s = γ ∧
+            conjugate γ s = β := by
+  have : Fact p.Prime := ⟨hp⟩
+  have hthree : 3 ≤ (omegaFix M (P : Set X)).ncard := hP.1.2
+  have hb : ∀ β ∈ omegaFix M (P : Set X), ∀ γ ∈ omegaFix M (P : Set X), β ≠ γ →
+      (∃ n ∈ normalizer (P : Set X), conjugate β n = γ) →
+        ∃ s ∈ normalizer (P : Set X), Even (orderOf s) ∧ conjugate β s = γ ∧
+          conjugate γ s = β := by
+    intro β hβ γ hγ hβγ ⟨n, hn, hnβγ⟩
+    rcases h.sylow_or_exists_larger hp hp2 hP hβ hγ hβγ with hsyl | ⟨R, hPR, hRsyl, hΩR, hRN⟩
+    · obtain ⟨s, -, hsN, hs1, hs2⟩ := h.exists_swap_of_isSylowOf hZ hp hp2
+        (h.mem_omegaFix_iff.mp hβ).1 (h.mem_omegaFix_iff.mp hγ).1 hβγ hsyl
+      exact ⟨s, hsN, even_orderOf_of_swap hβγ hs1 hs2, hs1, hs2⟩
+    ·
+      set N := normalizer (P : Set X) with hN
+      have hRβ : R ≤ β := by
+        have : β ∈ omegaFix M (R : Set X) := by rw [hΩR]; exact Or.inl rfl
+        exact (h.mem_omegaFix_iff.mp this).2
+      have hRγ : R ≤ γ := by
+        have : γ ∈ omegaFix M (R : Set X) := by rw [hΩR]; exact Or.inr rfl
+        exact (h.mem_omegaFix_iff.mp this).2
+      have hRN' : R ≤ N := hRsyl.le.trans (inf_le_left.trans inf_le_left)
+      have hRNβ : ABGLocalTools.IsSylowOf p R (N ⊓ β) :=
+        hRN.of_le (le_inf hRN' hRβ) inf_le_left
+      have hRγ' : R ≤ conjugate (N ⊓ β) n := by
+        have : conjugate (N ⊓ β) n = N ⊓ γ := by
+          rw [conjugate_inf, ← hnβγ]
+          congr 1
+          exact conjugate_eq_iff_mem_normalizer.mpr (Subgroup.le_normalizer hn)
+        rw [this]
+        exact le_inf hRN' hRγ
+      obtain ⟨e, he, hen⟩ := exists_mul_mem_normalizer_of_isSylowOf hp hRNβ hRγ'
+      have heβ : e ∈ β := (Subgroup.mem_inf.mp he).2
+      have heN : e ∈ N := (Subgroup.mem_inf.mp he).1
+      have hβΩ : β ∈ omega M := (h.mem_omegaFix_iff.mp hβ).1
+      have hs1 : conjugate β (e * n) = γ := by
+        rw [← conjugate_conjugate, (h.conjugate_eq_iff_mem hβΩ).mpr heβ, hnβγ]
+      have hsΩ : conjugate γ (e * n) ∈ omegaFix M (R : Set X) := by
+        refine conjugate_mem_omegaFix_of_mem_normalizer hen ?_
+        rw [hΩR]; exact Or.inr rfl
+      rw [hΩR] at hsΩ
+      have hs2 : conjugate γ (e * n) = β := by
+        rcases hsΩ with hsΩ | hsΩ
+        · exact hsΩ
+        · exfalso
+          exact hβγ (conjugate_injective (e * n) (hs1.trans hsΩ.symm))
+      exact ⟨e * n, N.mul_mem heN hn, even_orderOf_of_swap hβγ hs1 hs2, hs1, hs2⟩
+  refine ⟨?_, hb⟩
+  have h1lt : 1 < (omegaFix M (P : Set X)).ncard := by omega
+  obtain ⟨β, γ, hβ, hγ, hβγ⟩ := (Set.one_lt_ncard_iff (Set.toFinite _)).mp h1lt
+  rcases h.sylow_or_exists_larger hp hp2 hP hβ hγ hβγ with hsyl | ⟨R, hPR, hRsyl, hΩR, hRN⟩
+  · obtain ⟨s, -, hsN, hs1, -⟩ := h.exists_swap_of_isSylowOf hZ hp hp2
+      (h.mem_omegaFix_iff.mp hβ).1 (h.mem_omegaFix_iff.mp hγ).1 hβγ hsyl
+    exact ⟨s, hsN, β, hβ, by rw [hs1]; exact fun heq => hβγ heq.symm⟩
+  ·
+    have hRN' : R ≤ normalizer (P : Set X) := hRsyl.le.trans (inf_le_left.trans inf_le_left)
+    have hcard : (omegaFix M (R : Set X)).ncard = 2 := by rw [hΩR, Set.ncard_pair hβγ]
+    have hsub : omegaFix M (R : Set X) ⊆ omegaFix M (P : Set X) :=
+      omegaFix_anti (fun x hx => hPR.le hx)
+    obtain ⟨δ, hδP, hδR⟩ := Set.exists_mem_notMem_of_ncard_lt_ncard (by omega : (omegaFix M
+      (R : Set X)).ncard < (omegaFix M (P : Set X)).ncard) (Set.toFinite _)
+    have hδΩ : δ ∈ omega M := hδP.1
+    have hnR : ¬ R ≤ δ := fun hle => hδR (h.mem_omegaFix_iff.mpr ⟨hδΩ, hle⟩)
+    obtain ⟨r, hrR, hrδ⟩ := IsConcreteLE.not_le_iff_exists.mp hnR
+    exact ⟨r, hRN' hrR, δ, hδP, fun heq => hrδ ((h.conjugate_eq_iff_mem hδΩ).mp heq)⟩
 
 end Lemma51
 

@@ -58,6 +58,8 @@ theorem prop_4_1_three :
     exact hr2 ((Nat.prime_dvd_prime_iff_eq hrp Nat.prime_two).mp h'')
   · exact s.false_of_even_torus hp hr hr3 h
 
+theorem cor_4_4 :
+    S_cor_4_4 := cor_4_4_of prop_4_1_three
 
 theorem prop_4_1 :
     S_prop_4_1 := by

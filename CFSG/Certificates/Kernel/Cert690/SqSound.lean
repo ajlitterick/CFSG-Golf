@@ -300,6 +300,8 @@ theorem qmulN_mk {a v b w : ℕ} (ha : a < 2) (hb : b < 2) :
   simp only [qmulN, mk_mod ha, mk_div ha, mk_mod hb, mk_div hb]
   rfl
 
+theorem bN_xor (p q : Bool) : bN (p ^^ q) = bN p ^^^ bN q := by
+  cases p <;> cases q <;> rfl
 
 theorem liftTab_mul {g : ℕ} (hq : isoQ false g = true) (f : ℕ) {x y : ℕ} (hx : x < 128)
     (hy : y < 128) :
@@ -477,6 +479,25 @@ theorem firstMapV_get? {β : Type} (key : ℕ → ℕ) (val : ℕ → β) : ∀ 
       · have hb : (key j == y) = false := by simpa using hk
         simp only [hb, Bool.false_eq_true, if_false]
 
+theorem firstMapV_contains {β : Type} (key : ℕ → ℕ) (val : ℕ → β) (l : List ℕ)
+    (m : Std.HashMap ℕ β) (y : ℕ) :
+    (l.foldl (fun m j => if m.contains (key j) then m else m.insert (key j) (val j)) m).contains y
+      = (m.contains y || l.any fun j => key j == y) := by
+  rw [Std.HashMap.contains_eq_isSome_getElem?, ← Std.HashMap.get?_eq_getElem?,
+    firstMapV_get?, Std.HashMap.contains_eq_isSome_getElem?, ← Std.HashMap.get?_eq_getElem?]
+  cases m.get? y with
+  | some v => rfl
+  | none =>
+    simp only [Option.none_or, Option.isSome_map, Option.isSome_none, Bool.false_or]
+    cases hf : l.find? (fun j => key j == y) with
+    | none =>
+      rw [List.find?_eq_none] at hf
+      rw [Option.isSome_none, eq_comm, List.any_eq_false]
+      intro j hj
+      simpa using hf j hj
+    | some j =>
+      rw [Option.isSome_some, eq_comm, List.any_eq_true]
+      exact ⟨j, List.mem_of_find?_eq_some hf, List.find?_some (p := fun j => key j == y) hf⟩
 
 @[expose] def firstConj (E invE : Array ℕ) (i r y : ℕ) : Option (ℕ × ℕ) :=
   ((List.range E.size).find? fun j => Code.mul (Code.mul (E[j]!) r) (invE[j]!) == y).map

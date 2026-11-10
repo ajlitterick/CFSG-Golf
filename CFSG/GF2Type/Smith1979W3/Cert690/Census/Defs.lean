@@ -145,6 +145,26 @@ structure GrpData where
 @[expose] def candidatesOf (minus : Bool) (Llist : Array (Array ℕ)) : Array ℕ :=
   ((List.range Llist.size).filter fun j => (Llist[j]!).size >= minCandSize minus).toArray
 
+structure KSub where
+  elems : Array ℕ
+  gens : Array ℕ
+  par : Array (ℕ × ℕ)
+  deriving Inhabited
+
+inductive KClass where
+  | normal (N : Array ℕ)
+  | reducible (v : ℕ)
+  | omega
+  | whole
+  | pgl (g : ℕ)
+  deriving Inhabited
+
+structure CloseWit where
+  rep : ℕ
+  k : ℕ
+  n : ℕ
+  words : Array (Array ℕ)
+  deriving Inhabited
 
 structure LData where
   Llist : Array (Array ℕ)
@@ -153,6 +173,13 @@ structure LData where
   l3wit : Array (ℕ × ℕ)
   deriving Inhabited
 
+structure CandData where
+  L : Array ℕ
+  flist : Array KSub
+  bits : Array String
+  closes : Array (Array CloseWit)
+  classif : Array KClass
+  deriving Inhabited
 
 @[expose] def catN (as : Array (Array ℕ)) : Array ℕ :=
   as.foldl (fun acc a => acc ++ a) #[]
@@ -174,6 +201,36 @@ structure LData where
     l2OK D minus b Ld.Llist a2 Ld.l2wit &&
     l3Complete D b Ld.Llist Ld.l3tasks &&
     l3OK D b Ld.Llist Ld.l3tasks Ld.l3wit))
+
+
+@[expose] def parseNat (s : String) : ℕ :=
+  s.toList.foldl (fun a c => if '0' ≤ c && c ≤ '9' then a * 10 + (c.toNat - 48) else a) 0
+
+@[expose] def parseNats (s : String) : Array ℕ :=
+  (s.splitOn " ").filter (fun x => !x.isEmpty) |>.map parseNat |>.toArray
+
+@[expose] def parsePairs (s : String) : Array (ℕ × ℕ) :=
+  (s.splitOn ";").filter (fun x => !x.isEmpty) |>.map (fun p =>
+    match p.splitOn "," with
+    | [a, b] => (parseNat a, parseNat b)
+    | _ => (0, 0)) |>.toArray
+
+@[expose] def parseWord (s : String) : Array ℕ :=
+  (s.splitOn " ").filter (fun x => !x.isEmpty) |>.map parseNat |>.toArray
+
+@[expose] def parseCloseWit (s : String) : CloseWit :=
+  match s.splitOn ":" with
+  | [h, ws] =>
+    match h.splitOn "," with
+    | [a, b, c] =>
+      { rep := parseNat a, k := parseNat b, n := parseNat c,
+        words := (ws.splitOn "|").map parseWord |>.toArray }
+    | _ => default
+  | _ => default
+
+@[expose] def parseCloseLine (s : String) : Array CloseWit :=
+  if s.isEmpty then #[] else
+    (s.splitOn ";").filter (fun x => !x.isEmpty) |>.map parseCloseWit |>.toArray
 
 
 end CFSG.GF2Type.Smith1979W3.Cert690

@@ -31,6 +31,19 @@ open CFSG.Assembly.RankThreeEven (projSL)
         U ≤ inSubgroup (aschbacherSolvableCore 3)
           (Subgroup.centralizer ((Subgroup.closure {a', d} : Subgroup G) : Set G))
 
+@[expose] def Cond1013 {G : Type} [Group G] [Finite G] (c a : G) (X : Subgroup G) : Prop :=
+  ((Nonempty (X ⧸ aschbacherSolvableCore 3 X ≃* alternatingGroup (Fin 7)) ∨
+        Nonempty (X ⧸ aschbacherSolvableCore 3 X ≃* CFSG.Blueprint.NativeSporadic.M12) ∨
+        Nonempty (X ⧸ aschbacherSolvableCore 3 X ≃* CFSG.Blueprint.NativeSporadic.J2) ∨
+        Nonempty (X ⧸ aschbacherSolvableCore 3 X ≃* CFSG.Blueprint.NativeSporadic.M22) ∨
+        ∃ (p e : ℕ) (_ : Fact p.Prime), 3 < p ∧ 1 ≤ e ∧ e ≤ 2 ∧
+          (Sec4.IsoLThreePi (X ⧸ aschbacherSolvableCore 3 X) p e ∨
+            Sec4.IsSLThreePiAt (X ⧸ aschbacherSolvableCore 3 X) (p ^ e))) ∧
+      a ∈ X ⊔ Sec4.thetaQuotCentralizer X ∨
+    Nonempty (X ⧸ aschbacherSolvableCore 3 X ≃* projSL 2 (GaloisField 3 3)) ∧
+      KFacts.InducesStdKind X a .field) ∧
+  ∃ U ∈ invariantPiSubgroups X (Subgroup.zpowers c) (piOf 2), U ≠ ⊥
+
 
 theorem exists_inf_eq_zpowers (h97 : Sec9.Item97) {G : Type} [Group G] [Finite G] {A : Subgroup G}
     {c : G} {L : Subgroup G} {a : G} {R : Subgroup G} (h : Sec9.Hyp91 G A c L a R) :

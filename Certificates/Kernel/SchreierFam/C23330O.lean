@@ -124,5 +124,6 @@ theorem kS : allN 9 (fun k => bAnd(invK (SG k) (pi (SG k)),
     (!Nat.beq (pg 14 (mask 14) (SG k) 0) 0 || FP.all fun x => stabK (SG k) x))) = true := by
   quickRfl
 
+theorem kNeg : (Nat.beq F1 CC || Nat.beq (pc CC CC) ID) = false := by decide +kernel
 
 end CertificateChecks.KernelSchreierFam.He23330

@@ -58,6 +58,19 @@ instance : DecidablePred (· ∈ subP ⊓ subQ) := fun g =>
   inferInstanceAs (Decidable (g ∈ subP ∧ g ∈ subQ))
 
 
+@[expose] def w12 : Γ := ⟨!![0, 0, 1; 1, 0, 0; 0, 1, 0], by decide⟩
+
+@[expose] def w21 : Γ := ⟨!![0, 1, 0; 0, 0, 1; 1, 0, 0], by decide⟩
+
+@[expose] def w0 : Γ := ⟨!![0, 0, 1; 0, 1, 0; 1, 0, 0], by decide⟩
+
+@[expose] def y12 : Γ := transvection (show (0 : Fin 3) ≠ 1 by decide) (1 : ZMod 2)
+
+@[expose] def y23 : Γ := transvection (show (1 : Fin 3) ≠ 2 by decide) (1 : ZMod 2)
+
+@[expose] def y31 : Γ := transvection (show (2 : Fin 3) ≠ 0 by decide) (1 : ZMod 2)
+
+
 @[expose] def x21 : Γ := transvection (show (1 : Fin 3) ≠ 0 by decide) (1 : ZMod 2)
 
 @[expose] def x32 : Γ := transvection (show (2 : Fin 3) ≠ 1 by decide) (1 : ZMod 2)

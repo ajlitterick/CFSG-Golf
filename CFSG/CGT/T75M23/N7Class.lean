@@ -50,5 +50,10 @@ theorem EquivData7.intertwine_y {X Y Q Qi : Cols} (h : EquivData7 X Y Q Qi) (v :
   ∀ X Y : Cols, (∀ i, X.col i < 16) → (∀ i, Y.col i < 16) → RelC7 X Y →
     EquivC7 X Y ∨ EquivC7 X (evalC X Y twistWord7)
 
+@[expose] def omega7 : Std.HashMap ℕ (Cols × Cols) :=
+  glList.foldl (fun m PPi =>
+    m.insert (packPair (compC (compC PPi.1 modelX7) PPi.2) (compC (compC PPi.1 modelY7) PPi.2)) PPi)
+    ∅
+
 
 end CFSG.CGT.T75M23

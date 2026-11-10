@@ -17,6 +17,17 @@ theorem dParam_dvd_of_dvd {q m : ℕ} (h : q ∣ 2 ^ m - 1) : E2.dParam q ∣ m 
   push_cast at h1
   exact sub_eq_zero.1 h1
 
+theorem two_mul_dParamPrime_le {q m : ℕ} (hd : E2.dParam q ∣ m) (h2 : 2 ∣ m) (hm : 0 < m) :
+    2 * E2.dParamPrime q ≤ m := by
+  unfold E2.dParamPrime
+  split_ifs with hev
+  · obtain ⟨k, hk⟩ := hev
+    have hle := Nat.le_of_dvd hm hd
+    rw [hk] at hle ⊢
+    omega
+  · have hcop : Nat.Coprime 2 (E2.dParam q) :=
+      Nat.coprime_two_left.2 (Nat.not_even_iff_odd.1 hev)
+    exact Nat.le_of_dvd hm (hcop.mul_dvd_of_dvd_of_dvd h2 hd)
 
 variable {N : Type*} [Group N]
 
@@ -156,6 +167,123 @@ theorem dvd_card_sub_one [Finite N] {p a : ℕ} (hp : p.Prime) (ha : 1 ≤ a) {�
   have h := Ch3E213M.card_dvd_card_sub_of_fixed_subset hC hfix
   rwa [Nat.card_zpowers, hγ, Nat.card_coe_set_eq, Set.ncard_singleton] at h
 
+theorem two_pow_le_card_of_free [Finite N] (hc : ∀ x y : N, x * y = y * x)
+    (hsq : ∀ x : N, x * x = 1) {p a : ℕ} (hp : p.Prime) (ha : 1 ≤ a) {γ τ : MulAut N}
+    (hγ : orderOf γ = p ^ a) (hτ : τ * τ = 1) (hτγ : τ * γ * τ⁻¹ = γ⁻¹) {U : Subgroup N}
+    (hU1 : U ≠ ⊥) (hγU : ∀ u ∈ U, γ u ∈ U) (hτU : ∀ u ∈ U, τ u ∈ U)
+    (hfree : U ⊓ fixSub (γ ^ p ^ (a - 1)) = ⊥) :
+    2 ^ (2 * E2.dParamPrime (p ^ a)) ≤ Nat.card U := by
+  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
+  have h2N : IsPGroup 2 N := fun x => ⟨1, by rw [pow_one, pow_two]; exact hsq x⟩
+  obtain ⟨m, hm⟩ := IsPGroup.iff_card.mp (h2N.to_subgroup U)
+  have hdvd := dvd_card_sub_one hp ha hγ hγU hfree
+  rw [hm] at hdvd
+  have hd : E2.dParam (p ^ a) ∣ m := dParam_dvd_of_dvd hdvd
+  have hτinv : τ⁻¹ = τ := inv_eq_of_mul_eq_one_right hτ
+  have hτγ2 : (τ * γ) * (τ * γ) = 1 := by
+    have e : (τ * γ) * (τ * γ) = (τ * γ * τ⁻¹) * γ := by
+      rw [hτinv]
+      simp only [mul_assoc]
+    rw [e, hτγ, inv_mul_cancel]
+  have hτγU : ∀ u ∈ U, (τ * γ) u ∈ U := fun u hu => by
+    rw [MulAut.mul_apply]
+    exact hτU _ (hγU u hu)
+  have h1 := card_le_sq_card_fixSub hc hsq hτ hτU
+  have h2 := card_le_sq_card_fixSub hc hsq hτγ2 hτγU
+  have hF : (U ⊓ fixSub τ) ⊓ (U ⊓ fixSub (τ * γ)) = ⊥ := by
+    rw [eq_bot_iff]
+    rintro x ⟨⟨hxU, hx1⟩, -, hx2⟩
+    replace hx1 : τ x = x := hx1
+    replace hx2 : τ (γ x) = x := hx2
+    have hγx : γ x = x := by
+      calc γ x = (τ * τ) (γ x) := by rw [hτ, MulAut.one_apply]
+        _ = τ (τ (γ x)) := by rw [MulAut.mul_apply]
+        _ = x := by rw [hx2, hx1]
+    have hx : x ∈ U ⊓ fixSub (γ ^ p ^ (a - 1)) := ⟨hxU, pow_apply_eq hγx _⟩
+    rwa [hfree] at hx
+  have h3 := card_mul_card_le (inf_le_left : U ⊓ fixSub τ ≤ U)
+    (inf_le_left : U ⊓ fixSub (τ * γ) ≤ U) hF
+  obtain ⟨f₁, hf₁⟩ := IsPGroup.iff_card.mp (h2N.to_subgroup (U ⊓ fixSub τ))
+  obtain ⟨f₂, hf₂⟩ := IsPGroup.iff_card.mp (h2N.to_subgroup (U ⊓ fixSub (τ * γ)))
+  rw [hm, hf₁, ← pow_mul] at h1
+  rw [hm, hf₂, ← pow_mul] at h2
+  rw [hm, hf₁, hf₂, ← pow_add] at h3
+  have e1 := (Nat.pow_le_pow_iff_right (by norm_num : 1 < 2)).1 h1
+  have e2 := (Nat.pow_le_pow_iff_right (by norm_num : 1 < 2)).1 h2
+  have e3 := (Nat.pow_le_pow_iff_right (by norm_num : 1 < 2)).1 h3
+  have hm2 : 2 ∣ m := ⟨f₁, by omega⟩
+  have hm0 : 0 < m := by
+    rcases Nat.eq_zero_or_pos m with h0 | h0
+    · exfalso
+      rw [h0, pow_zero] at hm
+      exact hU1 (Subgroup.card_eq_one.1 hm)
+    · exact h0
+  rw [hm]
+  exact Nat.pow_le_pow_right (by norm_num) (two_mul_dParamPrime_le hd hm2 hm0)
+
+theorem two_pow_le_card [Finite N] (hc : ∀ x y : N, x * y = y * x) (hsq : ∀ x : N, x * x = 1)
+    {p a : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (ha : 1 ≤ a) {γ τ : MulAut N}
+    (hγ : orderOf γ = p ^ a) (hτ : τ * τ = 1) (hτγ : τ * γ * τ⁻¹ = γ⁻¹) :
+    2 ^ (2 * E2.dParamPrime (p ^ a)) ≤ Nat.card N := by
+  set γ₀ := γ ^ p ^ (a - 1) with hγ₀
+  set U := (commHom hc γ₀).range with hUdef
+  have hγ₀p : γ₀ ^ p = 1 := by
+    rw [hγ₀, ← pow_mul, ← pow_succ, Nat.sub_add_cancel ha, ← hγ, pow_orderOf_eq_one]
+  have hγ₀1 : γ₀ ≠ 1 := by
+    refine pow_ne_one_of_lt_orderOf (pow_ne_zero _ hp.ne_zero) ?_
+    rw [hγ]
+    exact Nat.pow_lt_pow_right hp.one_lt (by omega)
+  have hU1 : U ≠ ⊥ := by
+    intro hU
+    apply hγ₀1
+    ext x
+    have hx : commHom hc γ₀ x ∈ U := MonoidHom.mem_range.2 ⟨x, rfl⟩
+    rw [hU, Subgroup.mem_bot, commHom_apply, inv_mul_eq_one] at hx
+    rw [MulAut.one_apply]
+    exact hx.symm
+  have hγU : ∀ u ∈ U, γ u ∈ U := by
+    intro u hu
+    obtain ⟨x, rfl⟩ := MonoidHom.mem_range.1 hu
+    refine MonoidHom.mem_range.2 ⟨γ x, ?_⟩
+    have hcomm : γ * γ₀ = γ₀ * γ := (Commute.self_pow γ _).eq
+    rw [commHom_apply, commHom_apply, map_mul, map_inv, ← MulAut.mul_apply, ← hcomm,
+      MulAut.mul_apply]
+  have hτγ₀ : τ * γ₀ * τ⁻¹ = γ₀⁻¹ := by
+    rw [hγ₀, ← conj_pow, hτγ, inv_pow]
+  have hτU : ∀ u ∈ U, τ u ∈ U := by
+    intro u hu
+    obtain ⟨x, rfl⟩ := MonoidHom.mem_range.1 hu
+    have e : τ (γ₀ x) = γ₀⁻¹ (τ x) := by
+      rw [← MulAut.mul_apply, ← MulAut.mul_apply, ← hτγ₀, inv_mul_cancel_right]
+    have key : τ (commHom hc γ₀ x) = (commHom hc γ₀ (γ₀⁻¹ (τ x)))⁻¹ := by
+      rw [commHom_apply, commHom_apply, map_mul, map_inv, e, MulAut.apply_inv_self, mul_inv_rev,
+        inv_inv]
+    rw [key]
+    exact U.inv_mem (MonoidHom.mem_range.2 ⟨_, rfl⟩)
+  have hfree : U ⊓ fixSub γ₀ = ⊥ := by
+    rw [eq_bot_iff]
+    rintro v ⟨hvU, hv⟩
+    replace hv : γ₀ v = v := hv
+    obtain ⟨x, rfl⟩ := MonoidHom.mem_range.1 hvU
+    rw [Subgroup.mem_bot]
+    set v := commHom hc γ₀ x with hvdef
+    have hxv : γ₀ x = x * v := by rw [hvdef, commHom_apply, mul_inv_cancel_left]
+    have hpow : ∀ n : ℕ, (γ₀ ^ n) x = x * v ^ n := by
+      intro n
+      induction n with
+      | zero => simp
+      | succ n ih => rw [pow_succ', MulAut.mul_apply, ih, map_mul, map_pow, hxv, hv, pow_succ',
+          mul_assoc]
+    have hvp : v ^ p = 1 := by
+      have := hpow p
+      rw [hγ₀p, MulAut.one_apply] at this
+      exact (mul_eq_left.1 this.symm)
+    obtain ⟨k, hk⟩ := hp.odd_of_ne_two hp2
+    have hv2 : v ^ 2 = 1 := by rw [pow_two]; exact hsq v
+    rw [hk, pow_succ, pow_mul, hv2, one_pow, one_mul] at hvp
+    exact hvp
+  exact (two_pow_le_card_of_free hc hsq hp ha hγ hτ hτγ hU1 hγU hτU hfree).trans
+    (Subgroup.card_le_card_group U)
 
 end Dih
 

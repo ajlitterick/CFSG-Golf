@@ -25,6 +25,7 @@ structure Hyp15310 (G : Type) [Group G] [Finite G] (T Mc M V₁ V₂ Yp : Subgro
   decomp : Decomp153 T M V₁ V₂ t
   cases : Cases15310 T Mc M V₁ Yp
 
+abbrev MI153 {G : Type} [Group G] (M I : Subgroup G) : Subgroup G := M ⊓ I
 
 abbrev UI153 {G : Type} [Group G] (T I : Subgroup G) : Subgroup G :=
   conjClosure (quasithinOmegaOneCenter T) I

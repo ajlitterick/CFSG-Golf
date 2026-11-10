@@ -25,6 +25,14 @@ open CFSG.KD.Sp62 (ONE)
 @[expose] noncomputable def ch550712C (q : Nat) : Bool :=
   autChunkT RH RT ta0 ta1 tb0 tb1 23040 512 q
 
+theorem ch550712nA : (!autChunkT RH RT ta1 ta0 tb0 tb1 23040 512 0) = true := by quickRfl
+
+theorem ch550712nB : (!autChunkT RH RT ta0 ta1 tb1 tb0 23040 512 3) = true := by quickRfl
+
+theorem ch550712nC :
+    (!autChunkT RH (fun t => RT (Nat.add t 1)) ta0 ta1 tb0 tb1 23040 512 7) = true := by quickRfl
+
+theorem ch550712nD : (!autChunkT RH RT ONE ta1 tb0 tb1 23040 512 0) = true := by quickRfl
 
 end CFSG.KD.YamakiAutM
 

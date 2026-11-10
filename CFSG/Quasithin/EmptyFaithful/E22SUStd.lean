@@ -13,6 +13,7 @@ open scoped Matrix
 
 variable {K : Type} [Field K] {p f : ℕ}
 
+abbrev PSU3 (p f : ℕ) (K : Type) [Field K] : Type := StatedProj (unitarySU p f K 3)
 
 @[expose] noncomputable def suMk (hU : UnitaryFieldData p f K) (M : Matrix (Fin 3) (Fin 3) K)
     (hdet : M.det = 1) (hu : (M.map hU.bar)ᵀ * M = 1) : ↥(unitarySU p f K 3) :=

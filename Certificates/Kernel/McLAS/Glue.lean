@@ -71,11 +71,15 @@ theorem NTIc {k : Nat} (hk : k < 22) : Cn (NTI k) :=
   ((bAnd_iff _ _).1 (allN_spec base.2.2.2.2.1 k hk)).2
 theorem TLc {k : Nat} (hk : k < 15) : Cn (TL.F k) :=
   ((bAnd_iff _ _).1 (allN_spec base.2.2.2.2.2.1 k hk)).1
+theorem TLIc {k : Nat} (hk : k < 15) : Cn (TLI k) :=
+  ((bAnd_iff _ _).1 (allN_spec base.2.2.2.2.2.1 k hk)).2
 
 theorem TTinv {k : Nat} (hk : k < 11) : invEqK 275 9 (mask 9) (275 * 9) (TT.F k) (TTI k) = true :=
   allN_spec perm_parts.1 k hk
 theorem NTinv {k : Nat} (hk : k < 22) : invEqK 275 9 (mask 9) (275 * 9) (NT.F k) (NTI k) = true :=
   allN_spec perm_parts.2.1 k hk
+theorem TLinv {k : Nat} (hk : k < 15) : invEqK 275 9 (mask 9) (275 * 9) (TL.F k) (TLI k) = true :=
+  allN_spec perm_parts.2.2.1 k hk
 
 theorem tabTT {k : Nat} (hk : k < 11) : threeTbl k = tabT (unpack 275 9 (TT.F k)) := by
   rw [← threeTbl_eq hk, tabT_natArr]

@@ -28,6 +28,8 @@ theorem hGens_permOfArrD_mem {a : Array ℕ} (ha : a ∈ hGens) : permOfArrD a �
   rw [hasArr_unique (hasArr_permOfArrD haut) hσarr]
   exact hσM
 
+noncomputable def c7 : ↥stdMH :=
+  ⟨permOfArrD hGens[0]!, hGens_permOfArrD_mem (by decide)⟩
 
 noncomputable def h3 : ↥stdMH :=
   ⟨permOfArrD hGens[1]!, hGens_permOfArrD_mem (by decide)⟩

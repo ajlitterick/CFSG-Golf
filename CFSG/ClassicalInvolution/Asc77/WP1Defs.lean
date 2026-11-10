@@ -40,6 +40,9 @@ noncomputable instance (K : Subgroup G) : Group (NQuot K) := by
 @[expose] def DComm (W R T : Subgroup G) : Prop :=
   ¬ (T ≤ R ⊔ W ⊔ OCW W) ∧ ∀ r ∈ R, ∀ t ∈ T, (r * t * r⁻¹ * t⁻¹) ∈ W ⊔ OCW W
 
+@[expose] def DOrder3 (W R S : Subgroup G) : Prop :=
+  ∃ r ∈ R, ∃ s ∈ S, r ∉ W ⊔ OCW W ∧ s ∉ W ⊔ OCW W ∧ (r * s) ^ 3 ∈ W ⊔ OCW W ∧
+    r * s ∉ W ⊔ OCW W
 
 @[expose] def IsSylow2In (V P : Subgroup G) : Prop :=
   V ≤ P ∧ IsPGroup 2 V ∧ ∀ V' : Subgroup G, V' ≤ P → IsPGroup 2 V' → V ≤ V' → V' = V

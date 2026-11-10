@@ -119,6 +119,8 @@ theorem e_sound : mulClosureH 276 co3TTbls 2000 = ER ∧
     mulTreeOK 276 co3TTbls ER.1 ER.2.1 ER.2.2 = true ∧ hkeysDistinct 276 ER.1.toList = true :=
   mulH_sound base.1 (fun _ hj => (gen_ok hj).2.1) e_tabs base.2.2.2.2.2.2.1 e_pe e_hs
 
+theorem ER_get {i : Nat} (hi : i < Co3E.cnt) : ER.1[i]! = tabT (unpack 276 9 (Co3E.T i)) :=
+  hRec_get hi
 
 theorem gens_ok : co3TTbls.all (fun g => permOK 276 g && invOK 276 g (invT 276 g)) = true := by
   rw [Array.all_eq_true]

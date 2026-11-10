@@ -245,6 +245,19 @@ theorem IVK_1_2a_of_parts (h1 : IVK_1_2a_exists) (h2 : IVK_1_2a_struct) : IVK_1_
         Nat.card F₀ ≤ Nat.card F ∧
         Nonempty (↥(Subgroup.closure ({y, g * y * g⁻¹} : Set K)) ≃* L2 F₀)
 
+@[expose] def IVK_1_9 : Prop :=
+  ∀ (F : Type) [Field F] [Finite F], L2Field F → ∀ (H : Type) [Group H] [Finite H]
+    (Khat : Subgroup H) [Khat.Normal], centralizer (Khat : Set H) ≤ Khat →
+      Nonempty (↥Khat ≃* SL2 F) →
+      IsCyclic (H ⧸ Khat) ∧
+      (Nonempty (↥(oPrimeResidual 2 (H ⧸ center H)) ≃* PGL2 F) ∨
+        ∃ Fb : Subgroup (H ⧸ center H),
+          Khat.map (QuotientGroup.mk' (center H)) ⊔ Fb = ⊤ ∧
+          ∀ x ∈ Fb, orderOf x = 2 →
+            IsFAutL2 (MulAut.conjNormal x : MulAut ↥(Khat.map (QuotientGroup.mk' (center H))))) ∧
+      (Nonempty (↥(oPrimeResidual 2 (H ⧸ center H)) ≃* PGL2 F) →
+        ∀ T : Sylow 2 H, (∃ n : ℕ, IsSemidihedralTwoGroup ↥T n) ∨ (∃ n : ℕ, IsQuaternionTwoGroup ↥T n))
+
 
 @[expose] def IVK_1_2_general : Prop :=
   ∀ (F : Type) [Field F] [Finite F], L2Field F → ∀ (H : Type) [Group H] [Finite H]

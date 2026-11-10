@@ -29,6 +29,16 @@ end Cl
 
 section Wiring
 
+@[expose] def Lemma115LieRest9 (X : Type) [Group X] : Prop :=
+  ∃ f : ℕ, (2 ≤ f ∧ CFSG.Assembly.LowTwoRank.StatedClassicalModel X .PSp 2 2 f) ∨
+      (2 ≤ f ∧ ChevalleyExceptionalModel X .G2 2 f)
+
+@[expose] def Input15343ElimLieRest9 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T Mc M V₁ V₂ Yp I L : Subgroup G) (t : G),
+    CtxComp1 T Mc M V₁ V₂ Yp I L t → Concl15343Open T M V₁ V₂ Yp I L →
+      (∀ K : Subgroup G, IsHPlus Yp (Sgp153 T V₁) M K → K ≤ I → K = I) →
+        I ≤ Subgroup.normalizer (L : Set G) → I = L ⊔ Sgp153 T V₁ → Yp ≤ L →
+          Lemma115LieRest9 (↥L ⧸ Subgroup.center ↥L) → False
 
 @[expose] def Lemma115LieHighRest8 (X : Type) [Group X] : Prop :=
   ∃ f : ℕ, (2 ≤ f ∧ CFSG.Assembly.LowTwoRank.StatedClassicalModel X .PSp 2 2 f) ∨

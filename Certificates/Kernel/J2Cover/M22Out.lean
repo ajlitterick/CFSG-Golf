@@ -124,6 +124,78 @@ theorem kO7 : allN 4725 (fun i => i == 0 || i == 17 || i == 20 || iK i 1 != i ||
 theorem kO8 : allN 3 (fun r => allN 128 fun k =>
     !(Nat.beq BB (pcomp 315 9 (mask 9) (ELT k) (RPT (nth 0 [0, 17, 20] r))))) = true := by quickRfl
 
+theorem outC : outerCheck = true := by
+  have p1 : isInvA 315 outerU outerU = true := by
+    rw [hOUM]
+    exact (invEqK_sound (n := 315) (w := 9) (p := OU) (r := OU) (by quickRfl)).2
+  have p2 : isInvA 315 (letterArr 1) bInvArr = true := by
+    have e : letterArr 1 = unpack 315 9 (PA.S 1) := letter_eq 1
+    unfold bInvArr
+    rw [e, (invEqK_sound (allN_spec perm 1 (by omega))).1]
+    exact (invEqK_sound (allN_spec perm 1 (by omega))).2
+  have p3 : eqA 315 (compA 315 bArr (compA 315 (letterArr 0) bArr)) repArrs[14]! = true := by
+    rw [bArr_eq, letter_eq, repArrs_eq 14 (by norm_num), compA_unpackN (letP_canon 0) cBB,
+      compA_unpackN cBB (canon_pcN (letP_canon 0) cBB),
+      eqA_unpackN (canon_pcN cBB (canon_pcN (letP_canon 0) cBB)) (repT_canon 14 (by norm_num))]
+    quickRfl
+  have p4 : eqA 315 (compA 315 bArr (compA 315 (letterArr 1) bArr)) repArrs[5]! = true := by
+    rw [bArr_eq, letter_eq, repArrs_eq 5 (by norm_num), compA_unpackN (letP_canon 1) cBB,
+      compA_unpackN cBB (canon_pcN (letP_canon 1) cBB),
+      eqA_unpackN (canon_pcN cBB (canon_pcN (letP_canon 1) cBB)) (repT_canon 5 (by norm_num))]
+    quickRfl
+  have p5 : allLt 128 (fun a => decide (betaIdx a < 128) &&
+      eqA 315 (compA 315 bArr (compA 315 eltArrs[a]! bArr)) eltArrs[betaIdx a]!) = true := by
+    refine allLt_iff.2 fun a ha => ?_
+    obtain ⟨h1, h2⟩ := (bAnd_iff _ _).1 (allN_spec kO5 a ha)
+    have hb : betaIdx a < 128 := Nat.le_of_ble_eq_true h1
+    rw [bArr_eq, eltArrs_eq a ha, eltArrs_eq _ hb, compA_unpackN (eltT_canon a ha) cBB,
+      compA_unpackN cBB (canon_pcN (eltT_canon a ha) cBB),
+      eqA_unpackN (canon_pcN cBB (canon_pcN (eltT_canon a ha) cBB)) (eltT_canon _ hb), h2]
+    simp [hb]
+  have p6 : allLt 4725 (fun i => decide (sigmaT[i]! < 4725) && decide (aCoefT[i]! < 128) &&
+      eqA 315 (compA 315 bArr (compA 315 repArrs[i]! bArr))
+        (compA 315 eltArrs[aCoefT[i]!]! repArrs[sigmaT[i]!]!)) = true := by
+    refine allLt_iff.2 fun i hi => ?_
+    have h := CFSG.KC.Co3Bfs.cover_of_blocks (by norm_num) (by norm_num) ORB.all i hi
+    unfold fOR at h
+    rw [strictB_eq', strictB_eq'] at h
+    obtain ⟨h1, h⟩ := (bAnd_iff _ _).1 h
+    obtain ⟨h2, h3⟩ := (bAnd_iff _ _).1 h
+    have hs : pg 13 (mask 13) SGP i < 4725 := Nat.le_of_ble_eq_true h1
+    have hc : pg 13 (mask 13) ACP i < 128 := Nat.le_of_ble_eq_true h2
+    rw [sigmaT_eq, aCoefT_eq, getElem!_unpack hi, getElem!_unpack hi, bArr_eq, repArrs_eq i hi,
+      eltArrs_eq _ hc, repArrs_eq _ hs, compA_unpackN (repT_canon i hi) cBB,
+      compA_unpackN cBB (canon_pcN (repT_canon i hi) cBB),
+      compA_unpackN (eltT_canon _ hc) (repT_canon _ hs),
+      eqA_unpackN (canon_pcN cBB (canon_pcN (repT_canon i hi) cBB))
+        (canon_pcN (eltT_canon _ hc) (repT_canon _ hs)), h3]
+    simp [hs, hc]
+  have p7 : allLt 4725 (fun i => i == 0 || i == 17 || i == 20 || iTab i 1 != i || iTab i 2 != i ||
+      iTab i 3 != i) = true := by
+    rw [iT_eq, allLt_eq_allN]
+    exact kO7
+  have p8 : [0, 17, 20].all (fun i => allLt 128 fun k =>
+      !(eqA 315 bArr (compA 315 eltArrs[k]! repArrs[i]!))) = true := by
+    have one : ∀ r < 3, allLt 128 (fun k =>
+        !(eqA 315 bArr (compA 315 eltArrs[k]! repArrs[nth 0 [0, 17, 20] r]!))) = true := by
+      intro r hr
+      have hi : nth 0 [0, 17, 20] r < 4725 := by
+        interval_cases r <;> decide
+      refine allLt_iff.2 fun k hk => ?_
+      rw [bArr_eq, eltArrs_eq k hk, repArrs_eq _ hi, compA_unpackN (eltT_canon k hk) (repT_canon _ hi),
+        eqA_unpackN cBB (canon_pcN (eltT_canon k hk) (repT_canon _ hi))]
+      exact allN_spec (allN_spec kO8 r hr) k hk
+    have e : [0, 17, 20].all (fun i => allLt 128 fun k =>
+        !(eqA 315 bArr (compA 315 eltArrs[k]! repArrs[i]!))) =
+        (allLt 128 (fun k => !(eqA 315 bArr (compA 315 eltArrs[k]! repArrs[nth 0 [0, 17, 20] 0]!))) &&
+        (allLt 128 (fun k => !(eqA 315 bArr (compA 315 eltArrs[k]! repArrs[nth 0 [0, 17, 20] 1]!))) &&
+        (allLt 128 (fun k => !(eqA 315 bArr (compA 315 eltArrs[k]! repArrs[nth 0 [0, 17, 20] 2]!))) &&
+          true))) := rfl
+    rw [e, one 0 (by omega), one 1 (by omega), one 2 (by omega)]
+    rfl
+  unfold outerCheck
+  rw [p1, p2, p3, p4, p5, p6, p7, p8]
+  rfl
 
 end CertificateChecks.KernelJ2Cover
 

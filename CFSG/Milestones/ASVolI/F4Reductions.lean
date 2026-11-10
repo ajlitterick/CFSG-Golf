@@ -69,6 +69,11 @@ include T
 theorem hval : ∀ v a b : c.Γ, ∃ w, c.graph.Adj v w ∧ w ≠ a ∧ w ≠ b :=
   CFSG.ASVolI.ChF.burnsideF4a_hval T.faithful T.thick1 T.thick2
 
+theorem f35 {a : c.Γ} {p : GPath c.graph (m + 1)} (hp : p ∈ GPath.nbPaths c.graph a (m + 1)) :
+    GPath.F35Conclusion c.graph c.G0 a m p :=
+  GPath.lemma_F35 T.hval (T.trans a) (CosetGeom.connected rfl)
+    (fun _ _ h => CosetGeom.vtype_ne_of_adj h) T.hm hp
+
 
 end burnsideF4b_TC
 

@@ -962,6 +962,31 @@ theorem burnsideA315y_mulVec_e3_apply (g : Matrix (Fin 3) (Fin 3) F) (i : Fin 3)
   simp [Matrix.mulVec, dotProduct, Fin.sum_univ_three]
 
 
+theorem burnsideA315y_conj_22' (h2 : (2 : F) ≠ 0) {g h : GL (Fin 3) F}
+    (hg : g * negDiag3 F = negDiag3 F * g) (hh : h * negDiag3 F = negDiag3 F * h) :
+    ((g * h * g⁻¹ : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) 2 2 =
+      (h : Matrix (Fin 3) (Fin 3) F) 2 2 := by
+  have hgi : g⁻¹ * negDiag3 F = negDiag3 F * g⁻¹ := Commute.inv_left hg
+  have h1 := burnsideA315y_mulVec_e3 h2 hg
+  have h2' := burnsideA315y_mulVec_e3 h2 hh
+  have h3 := burnsideA315y_mulVec_e3 h2 hgi
+  have hgg : (g : Matrix (Fin 3) (Fin 3) F) 2 2 * ((g⁻¹ : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) 2 2
+      = 1 := by
+    have : ((g * g⁻¹ : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) *ᵥ ![0, 0, 1] = ![0, 0, 1] := by
+      rw [mul_inv_cancel, Units.val_one, Matrix.one_mulVec]
+    rw [Units.val_mul, ← Matrix.mulVec_mulVec, h3, Matrix.mulVec_smul, h1, smul_smul] at this
+    have := congrFun this 2
+    simpa [mul_comm] using this
+  have hc : ((g * h * g⁻¹ : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) *ᵥ ![0, 0, 1] =
+      (h : Matrix (Fin 3) (Fin 3) F) 2 2 • ![0, 0, 1] := by
+    rw [Units.val_mul, Units.val_mul, ← Matrix.mulVec_mulVec, ← Matrix.mulVec_mulVec, h3,
+      Matrix.mulVec_smul, Matrix.mulVec_smul, h2', Matrix.mulVec_smul, h1, smul_smul, smul_smul]
+    congr 1
+    linear_combination (h : Matrix (Fin 3) (Fin 3) F) 2 2 * hgg
+  have := congrFun hc 2
+  rw [burnsideA315y_mulVec_e3_apply] at this
+  simpa using this
+
 theorem burnsideA315y_diag_comm_block {D N : Matrix (Fin 3) (Fin 3) F}
     (hD : D 0 1 = 0 ∧ D 1 0 = 0 ∧ D 1 1 = D 0 0 ∧ D 0 2 = 0 ∧ D 1 2 = 0 ∧ D 2 0 = 0 ∧ D 2 1 = 0)
     (hN : N 0 2 = 0 ∧ N 1 2 = 0 ∧ N 2 0 = 0 ∧ N 2 1 = 0) : D * N = N * D := by

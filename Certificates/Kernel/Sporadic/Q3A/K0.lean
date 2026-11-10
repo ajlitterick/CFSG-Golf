@@ -14,6 +14,7 @@ theorem kWt : allN 1782 (fun x => Nat.beq (wtK x) (mixK x)) = true := by quickRf
 
 theorem kcB0 : canonK 1782 11 (mask 11) (1782 * 11) Suz2306.B0 = true := by quickRfl
 theorem kcB1 : canonK 1782 11 (mask 11) (1782 * 11) Suz2306.B1 = true := by quickRfl
+theorem kcR : canonK 1782 11 (mask 11) (1782 * 11) RHO = true := by quickRfl
 theorem kcX0 : canonK 1782 11 (mask 11) (1782 * 11) (Q3AX.F 0) = true := by quickRfl
 theorem kcX1 : canonK 1782 11 (mask 11) (1782 * 11) (Q3AX.F 1) = true := by quickRfl
 theorem kcI : allN 13 (fun j => canonK 1782 11 (mask 11) (1782 * 11) (Q3AI j)) = true := by

@@ -831,6 +831,10 @@ theorem keysDistinctOK_eq (F : Fix) (NK : ℕ) : keysDistinctOK F NK =
       (kST F NK (nat_lit 24)))) :=
   rfl
 
+theorem prod_rec_bool (f : ℕ → ℕ → Bool) (s : ℕ × ℕ) :
+    Prod.rec (motive := fun _ => Bool) f s = f s.1 s.2 := by
+  cases s
+  rfl
 
 theorem keysDistinctOK_eq' (F : Fix) (NK : ℕ) : keysDistinctOK F NK =
     andB (netOK (nat_lit 17) NK) (andB (Nat.beq (netP SX (nat_lit 17) (nat_lit 1) NK validX)
@@ -844,6 +848,8 @@ theorem keysDistinctOK_eq' (F : Fix) (NK : ℕ) : keysDistinctOK F NK =
 theorem toNat_lt (a b : Bool) : decide (a.toNat < b.toNat) = (!a && b) := by
   cases a <;> cases b <;> rfl
 
+theorem toNat_eq (a b : Bool) : decide (a.toNat = b.toNat) = (true ^^ (a ^^ b)) := by
+  cases a <;> cases b <;> rfl
 
 theorem kStep_bits {F : Fix} {KT NK : ℕ} (h5 : keyPlanesOK F KT = true) (hN : netOK 17 NK = true)
     {j : ℕ} (hj : j < 24) (s : ℕ × ℕ) {r : ℕ} (hr : r < SX - 1) :

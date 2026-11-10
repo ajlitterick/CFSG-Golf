@@ -158,6 +158,11 @@ theorem pat42 : pat4 qRows (orbitOf 2 98280).pts (posTable 24 (orbitOf 2 98280).
   rw [pat4_eq]
   quickRfl
 
+theorem c10042_neg :
+    notB (chunkOK act42 3 (fun _ => true) 41 C42tab 498960 24 5 19 64 0) = true ∧
+    notB (chunkOK (fun l v => act42 (Nat.mod (Nat.add l 1) 3) v) 3 (fun _ => true) 40 C42tab
+      498960 24 5 19 64 100) = true :=
+  ⟨by quickRfl, by quickRfl⟩
 
 open CFSG.Sporadic.Co1.Module CFSG.Sporadic.Co1.Module.Pairs CFSG.Sporadic.SmallF2.Native
   CFSG.Sporadic.Co1.InvNative CFSG.Sporadic.Co1.S365Native CFSG.Sporadic.Co1.S365CentNative in

@@ -38,6 +38,7 @@ namespace CFSG.Monster.B.Fischer
 
 @[expose] def fi22OuterT256GenCount : Nat := 9
 
+@[expose] def fi22OuterT256Base : List Nat := [0, 1, 2, 3]
 
 @[expose] def fi22OuterT256Derivations : List (List Int) :=
   [[3, 8], [9, 7, 2], [3, -4, 5, 3], [12, 10, 12], [10, 12, 11, 12, 10, 11], [-6, 3, 6],

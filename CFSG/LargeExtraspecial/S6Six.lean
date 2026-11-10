@@ -18,6 +18,9 @@ variable (S) in
 @[expose] noncomputable def Q1 (t : S.O) : Subgroup G :=
   S.clPre (fixSpace (t : S.Qt ≃ₗ[ZMod 2] S.Qt))
 
+variable (S) in
+@[expose] noncomputable def ZQ1 (t : S.O) : Subgroup G :=
+  Q1 S t ⊓ centralizer (Q1 S t : Set G)
 
 theorem coe_mul_self {t : S.O} (htt : t * t = 1) :
     (t : S.Qt ≃ₗ[ZMod 2] S.Qt) * (t : S.Qt ≃ₗ[ZMod 2] S.Qt) = 1 :=

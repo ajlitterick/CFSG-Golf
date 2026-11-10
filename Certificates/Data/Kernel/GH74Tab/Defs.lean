@@ -151,6 +151,13 @@ variable (D : Dat)
 
 @[expose] def searchOK : Bool := search D == D.adm
 
+@[expose] def autOK (a : Nat) : Bool :=
+  g6 a D.one == D.one &&
+  (r64.all fun i => (List.range 4).all fun k =>
+    g6 a (mul D i (gk k)) == mul D (g6 a i) (g6 a (gk k))) &&
+  r64.all fun i => !(g6 a i == D.one) || i == D.one
+
+@[expose] def admAutOK : Bool := D.adm.all fun p => autOK D p.1
 
 end CFSG.KC.GH74Tab
 

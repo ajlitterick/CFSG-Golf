@@ -112,6 +112,9 @@ theorem rep_lt {w n : Nat} (hw : 0 < w) (hn : w * n = 3584) {v : Nat} (hv : v < 
   rw [rep_eq hw hn, ← hn]
   exact lanes_lt n fun _ _ => hv
 
+theorem testBit_rep {w n : Nat} (hw : 0 < w) (hn : w * n = 3584) {v : Nat} (hv : v < 2 ^ w)
+    {p : Nat} (hp : 3584 ≤ p) : (rep w v).testBit p = false :=
+  Nat.testBit_lt_two_pow (Nat.lt_of_lt_of_le (rep_lt hw hn hv) (Nat.pow_le_pow_right (by decide) hp))
 
 theorem nlor_eq (a b : Nat) : Nat.lor a b = a ||| b := rfl
 

@@ -45,6 +45,9 @@ theorem kSV : bAnd(canonK 1782 11 (mask 11) (1782 * 11) V0,
 theorem kD : allN 5 (fun j => Nat.beq (SuzDP j) (SuzD.D j)) = true := by
   quickRfl
 
+theorem kNeg : andB (notB (centIdK 42 6 5 SuzDP (SuzDP 0) (pidn 42 6)))
+    (notB (offK 42 6 5 SuzDP (pidn 42 6) (pidn 42 6))) = true := by
+  quickRfl
 
 theorem m0_eq : suzArrM0 = unpack 1782 11 M0 := by
   have hS : bTriple.size = 3 ∧ ∀ j < 3, bTriple[j]! = unpack 1782 11 (triS j) := by

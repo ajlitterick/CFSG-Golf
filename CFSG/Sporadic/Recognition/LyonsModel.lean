@@ -217,6 +217,7 @@ end Injective
 
 noncomputable abbrev K0 : Subgroup B0 := M0.subgroupOf B0
 
+theorem mem_K0 {g : B0} : g ∈ K0 ↔ (g : Perm (Fin deg)) ∈ M0 := Iff.rfl
 
 theorem closure_cB_dB : closure ({cB, dB} : Set B0) = ⊤ := by
   have h := Subgroup.closure_closure_coe_preimage (k := ({cG, dG} : Set (Perm (Fin deg))))

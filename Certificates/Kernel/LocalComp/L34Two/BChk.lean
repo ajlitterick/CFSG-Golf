@@ -29,6 +29,13 @@ theorem kB_S : andB (Nat.beq (L34S.T 499) (L34TwoB.G 0)) (Nat.beq (L34S.T 18821)
     true := by
   quickRfl
 
+theorem kNeg : notB (CFSG.KC.L34Two.sigK 42 6 (L34TwoB.G 0) (L34TwoB.G 1) L34TwoB.T L34TwoB.BTI 9
+    (pidn 42 6) (L34R.T 2) 0) = true := by
+  quickRfl
+
+theorem kNeg2 : notB (CFSG.KC.L34Two.sigK 42 6 (L34TwoB.G 0) (L34TwoB.G 1) L34TwoB.T L34TwoB.BTI 9
+    (pidn 42 6) (L34R.T 2) 1) = true := by
+  quickRfl
 
 end CertificateChecks.KernelLC.L34Two
 

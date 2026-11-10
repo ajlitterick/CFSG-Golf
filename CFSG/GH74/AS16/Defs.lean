@@ -47,5 +47,9 @@ structure Pair (T : Sylow 2 G) (z : G) (L : Subgroup G) : Prop where
   (∃ g : G, K' = K.map (MulAut.conj g).toMonoidHom) ∧ K' ≠ K ∧
     Even (Nat.card ↥(K' ⊓ normalizer (K : Set G)))
 
+@[expose] def InDelta0 (K L K' : Subgroup G) : Prop :=
+  InDelta K K' ∧ ∀ R : Subgroup G, QuasithinUnique.IsSylowTwoOf R (K' ⊓ normalizer (K : Set G)) →
+    omegaOne R ≤ K ⊔ L
+
 
 end CFSG.GH74.AS16

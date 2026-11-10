@@ -31,6 +31,7 @@ noncomputable abbrev V0 : Submodule (ZMod 3) (Fin 781 → ZMod 3) :=
   Prod.rec (motive := fun _ => ℕ) (fun g s => Bool.rec (motive := fun _ => ℕ) (Nat.add (Nat.succ 11) g)
     (Nat.succ g) s) l
 
+theorem regIdx_eq (l : ℕ × Bool) : RB (regIdx l) = letM RB 11 l := rfl
 
 theorem pv_regs : pv.map regIdx = CFSG.KD.Fi24Fix.W := by decide
 

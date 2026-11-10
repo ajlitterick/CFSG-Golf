@@ -156,6 +156,23 @@ structure FF84Sec4 [Finite G] (b : G) (L B K : Subgroup G) (b₁ b₂ : G) : Pro
       (∃ g ∈ Nor S, conjBy g (Subgroup.zpowers b) = Subgroup.zpowers b₂) ∧
       ⁅S, Subgroup.zpowers b⁆ ≤ CenS (Subgroup.closure {b₁, b₂})
 
+@[expose] def FF84K0Data (b : G) (S K₀ : Subgroup G) (s t : G) : Prop :=
+  K₀ ≤ Nor S ∧ IsLnq 2 2 2 K₀ ∧ b ∈ K₀ ∧
+    S ⊓ CenS K₀ = Subgroup.closure {s, t} ∧ s ∈ S ∧ t ∈ S ∧ s ≠ 1 ∧ t ≠ 1 ∧ s ≠ t ∧
+    S = Op 2 (Cen s) ∧ S ≠ Op 2 (Cen t) ∧ S ≠ Op 2 (Cen (s * t)) ∧
+    (∀ W : Subgroup G, Subgroup.closure {s, t} ≤ W → W ≤ S → K₀ ≤ Nor W →
+      W = Subgroup.closure {s, t} ∨ W = S) ∧
+    setMul (Op 2 (Nor S ⊓ Cen t)) K₀ = Nor S ⊓ Cen t ∧
+    S.relIndex (Op 2 (Nor S ⊓ Cen t)) = 16 ∧
+    setMul S K₀ = CenS (Subgroup.closure {s, t})
+
+@[expose] def FF84_4_10 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (b : G) (L B K : Subgroup G) (b₁ b₂ : G),
+    FF84Sec4 b L B K b₁ b₂ → ∀ U ∈ PiStar (Cen b) B 2,
+    let S := Op 2 (Nor U)
+    (∃ (Q : Type) (_ : Group Q) (φ : ↥(Nor S) →* Q), StatedClassicalModel Q .PSU 4 2 1 ∧
+      Function.Surjective φ ∧ φ.ker = S.subgroupOf (Nor S)) ∧
+    ∃ (K₀ : Subgroup G) (s t : G), FF84K0Data b S K₀ s t
 
 @[expose] def FF84MData (b : G) (S : Subgroup G) (s t : G) : Prop :=
   b ∈ Nor S ∧ s ∈ S ∧ t ∈ S ∧ s ≠ 1 ∧ t ≠ 1 ∧ s ≠ t ∧ b ∈ Cen s ∧ b ∈ Cen t ∧

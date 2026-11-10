@@ -30,6 +30,10 @@ variable {V : Type*} [AddCommGroup V] [Module (ZMod 2) V]
   (∀ u v, f (t u) (t v) = f u v) ∧ t ≠ 1 ∧ t * t = 1 ∧ finrank (ZMod 2) (commSpace t) = l ∧
     ∀ v, f v (t v) = 0
 
+@[expose] def IsSpTypeC (f : LinearMap.BilinForm (ZMod 2) V) (t : V ≃ₗ[ZMod 2] V) (l : ℕ) :
+    Prop :=
+  (∀ u v, f (t u) (t v) = f u v) ∧ t ≠ 1 ∧ t * t = 1 ∧ finrank (ZMod 2) (commSpace t) = l ∧
+    Even l ∧ ∃ v, f v (t v) ≠ 0
 
 namespace Setting
 

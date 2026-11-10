@@ -15,5 +15,18 @@ namespace CFSG.Quasithin.H13
 
 open CFSG.Open CFSG.Blueprint.NativeSporadic CFSG.Quasithin
 
+theorem hs_entries₁ : nativeModeOneEntries HSSeed1 = quasithinDigits quasithinHSData1 := by
+  decide +kernel
+
+theorem hs_entries₂ : nativeModeOneEntries HSSeed2 = quasithinDigits quasithinHSData2 := by
+  decide +kernel
+
+theorem ru_entries₁ :
+    nativeModeOneEntries RuSeed1 = quasithinDigits quasithinRuData1 :=
+  Certificates.certificate7033.1
+
+theorem ru_entries₂ :
+    nativeModeOneEntries RuSeed2 = quasithinDigits quasithinRuData2 :=
+  Certificates.certificate7033.2
 
 end CFSG.Quasithin.H13

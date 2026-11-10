@@ -182,6 +182,14 @@ theorem AmalgamNeighbour.torus_le_adjointGroup (N : AmalgamNeighbour) :
 end Adjoint
 
 
+@[expose] def root1342 : Fin (Tag.rank .F4) → ℤ := ![1, 3, 4, 2]
+
+theorem root1342_mem_rootFinset : root1342 ∈ rootFinset .F4 := by decide +kernel
+
+theorem isRoot_root1342 : IsRoot .F4 root1342 :=
+  mem_rootFinset.1 root1342_mem_rootFinset
+
+
 section Kill
 
 

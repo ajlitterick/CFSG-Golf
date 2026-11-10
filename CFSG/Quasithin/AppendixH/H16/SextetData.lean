@@ -43,4 +43,7 @@ theorem th_t_ok : ∀ m ∈ combos uSBasis, ∀ i : Fin 6,
   decide +kernel
 
 
+@[expose] def v10Basis : List ℕ := [1477, 1894, 671, 143, 568, 1562, 82, 1355, 1572, 948]
+
+
 end CFSG.ASVolI.H16

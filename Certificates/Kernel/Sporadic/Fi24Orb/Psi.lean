@@ -333,6 +333,12 @@ theorem ψ_B {r : ℕ} (hr : r < 306936) : ψ (vt7 CFSG.KD.Fi24Orb.VT r) = act u
   rw [vt7_walk hr, ψ_walk_E hw eB⁻¹ VW7_prod hr, map_inv, inv_inv]
   rfl
 
+theorem vt7_lt {r : ℕ} (hr : r < 306936) : vt7 CFSG.KD.Fi24Orb.VT r < 306936 := by
+  rw [vt7_walk hr]
+  exact walk_lt (by
+    intro g hg
+    simp only [List.mem_append, or_self] at hg
+    exact VW_lt g hg) hr
 
 theorem PW_lt : ∀ g ∈ CFSG.KD.Fi24Fix.PW, g < 12 := by decide
 

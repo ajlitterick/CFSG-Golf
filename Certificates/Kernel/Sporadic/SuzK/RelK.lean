@@ -27,6 +27,8 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.PEnum CFSG.KS.Row
 
 set_option Elab.async false
 
+theorem neg_rel : Bool.not (Nat.beq (r15 SuzRelT.F 0 (r32 AL 3)) (r15 SuzCertT.F 715 (r15 SuzRelT.F 0 3))) =
+    true := by quickRfl
 
 end CertificateChecks.KernelSpor.SuzK
 

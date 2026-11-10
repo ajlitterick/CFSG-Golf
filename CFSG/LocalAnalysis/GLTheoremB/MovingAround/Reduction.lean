@@ -140,16 +140,46 @@ section Sec11Statements
 variable {G : Type} [Group G] [Finite G] {m p : ℕ} {B M E A : Subgroup G}
 
 
+theorem prop117 (h : MovingAroundLeaves) (hs : Sec11 G m p B M E A) {a : G} (ha : a ∈ A) (ha1 : a ≠ 1) {K : Subgroup G}
+    (hK : GLAPComponent p (Cg a) K)
+    (ht : Type117a p E A K ∨ Type117b p K ∨ Type117c p A K) :
+    K ≤ M ∨ ∃ A1 : Subgroup G, inD p M A1 ∧ a ∈ A1 := by
+  by_contra hcon
+  rw [not_or] at hcon
+  by_cases hex : ∃ (E' A' : Subgroup G) (a' : G) (K' : Subgroup G),
+      Cex117Base G m p B M E' A' a' K' ∧ ¬ NormalizesCyc M A' a'
+  · obtain ⟨E', A', a', K', hb', hnn⟩ := hex
+    exact h.prop117_cex_false (⟨hb', fun _ => hnn⟩ : Cex117 G m p B M E' A' a' K')
+  · exact h.prop117_cex_false
+      (⟨⟨hs, ⟨ha, ha1⟩, hK, ht, hcon.1, hcon.2⟩, fun hex' => absurd hex' hex⟩ :
+        Cex117 G m p B M E A a K)
+
+
 end Sec11Statements
 
 section Sec12Statements
 variable {G : Type} [Group G] [Finite G] {m p : ℕ} {B M E A : Subgroup G}
+theorem prop121 (h : MovingAroundLeaves) (hs : Sec11 G m p B M E A) {a : G} (ha : a ∈ A) (ha1 : a ≠ 1) :
+    pCoreOf 2 (alphaOf p M ⊓ Cg a) ≤ pCoreOf 2 (Cg a) := by
+  by_contra hc
+  exact h.prop121_of_cex (⟨hs, ⟨ha, ha1⟩, hc⟩ : Cex121 G m p B M E A a)
+
+
+theorem prop127 (h : MovingAroundLeaves) (hs : Sec11 G m p B M E A) {N D : Subgroup G} (hN : IsTwoLocal N)
+    (hD : IsEkIn p 2 A D) (h1 : pCoreOf 2 M ≤ N) (h2 : Subgroup.normalizer (D : Set G) ≤ N) :
+    pCoreOf 2 M ≤ pCoreOf 2 N := by
+  by_contra hc
+  exact h.prop127_of_cex (⟨hs, hN, hD, h1, h2, hc⟩ : Cex127 G m p B M E A N D)
 
 
 end Sec12Statements
 
 section Sec13Statements
 variable {G : Type} [Group G] [Finite G] {m p : ℕ} {B M E A : Subgroup G}
+theorem prop134 (h : MovingAroundLeaves) {D T : Subgroup G} (hs : Sec13 G m p B M E A D T) {L : Subgroup G}
+    (hL : GLAPComponent p (Iof p M D) L) : Prop95Alpha p M D L ∨ Prop95Beta p M D L := by
+  by_contra hc
+  exact h.prop134_of_cex (⟨hs, hL, hc⟩ : Cex134 G m p B M E A D T L)
 
 
 end Sec13Statements

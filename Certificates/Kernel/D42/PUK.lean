@@ -121,6 +121,9 @@ theorem baseP1 : bAnd(Nat.beq P1.k 2, bAnd(Nat.beq P1.cnt 9,
   slK P1.cnt (fun i => bIf(Nat.beq i 0, true, rowOK U1.cnt U1.T (P1.T i) (P1C i)))
     (Nat.mul 10 s) 10
 
+theorem cmRow_neg : rowOK U0.cnt U0.T (P0.T 1) 0 = false := by decide +kernel
+
+theorem genP_neg : genP P0.G P0.GI P0I 1 = false := by decide +kernel
 
 end CFSG.KD.D42
 

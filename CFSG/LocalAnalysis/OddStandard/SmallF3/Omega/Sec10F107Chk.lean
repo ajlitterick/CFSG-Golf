@@ -21,6 +21,10 @@ namespace Mo107
 open Certificates.OmegaS107
 
 
+theorem mem_prod2 {cl : List P45} {x : P45} : x ∈ prod2 cl ↔ ∃ c ∈ cl, ∃ d ∈ cl, c * d = x := by
+  simp [prod2, List.mem_flatMap, List.mem_map]
+
+
 end Mo107
 
 end CFSG.OddStandard.SmallF3.Omega

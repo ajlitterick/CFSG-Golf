@@ -83,6 +83,7 @@ private def repMat2 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
 def sigma3 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (4 : Fin 5)
 private def repMat3 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![4, 0; 1, 4], by decide⟩
+def sigma4 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (1 : Fin 5)
 private def repMat4 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![4, 4; 0, 4], by decide⟩
 def sigma5 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (2 : Fin 5)
@@ -94,110 +95,160 @@ private def repMat6 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
 def sigma7 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (3 : Fin 5)
 private def repMat7 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![1, 4; 0, 1], by decide⟩
+def sigma8 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (2 : Fin 5)
 private def repMat8 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![0, 4; 1, 2], by decide⟩
+def sigma9 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (1 : Fin 5)
 private def repMat9 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![1, 0; 1, 1], by decide⟩
+def sigma10 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (3 : Fin 5)
 private def repMat10 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![1, 0; 3, 1], by decide⟩
+def sigma11 : Equiv.Perm (Fin 5) := Equiv.swap (1 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (3 : Fin 5)
 private def repMat11 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![0, 1; 4, 1], by decide⟩
+def sigma12 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (4 : Fin 5)
 private def repMat12 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![1, 2; 0, 1], by decide⟩
+def sigma13 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (3 : Fin 5) * Equiv.swap (1 : Fin 5) (4 : Fin 5)
 private def repMat13 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![1, 2; 4, 4], by decide⟩
+def sigma14 : Equiv.Perm (Fin 5) := Equiv.swap (1 : Fin 5) (2 : Fin 5) * Equiv.swap (3 : Fin 5) (4 : Fin 5)
 private def repMat14 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![1, 1; 3, 4], by decide⟩
+def sigma15 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (4 : Fin 5)
 private def repMat15 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![3, 1; 4, 0], by decide⟩
+def sigma16 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (2 : Fin 5)
 private def repMat16 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![3, 1; 1, 4], by decide⟩
+def sigma17 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (1 : Fin 5)
 private def repMat17 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![4, 1; 1, 3], by decide⟩
+def sigma18 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (3 : Fin 5)
 private def repMat18 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![0, 1; 4, 2], by decide⟩
+def sigma19 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (4 : Fin 5)
 private def repMat19 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![4, 4; 4, 3], by decide⟩
+def sigma20 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (2 : Fin 5)
 private def repMat20 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![3, 4; 4, 4], by decide⟩
+def sigma21 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (3 : Fin 5)
 private def repMat21 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![3, 4; 1, 0], by decide⟩
+def sigma22 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (2 : Fin 5)
 private def repMat22 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![4, 0; 3, 4], by decide⟩
 def sigma23 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (4 : Fin 5) * Equiv.swap (1 : Fin 5) (2 : Fin 5)
 private def repMat23 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![1, 4; 2, 4], by decide⟩
+def sigma24 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (3 : Fin 5) * Equiv.swap (2 : Fin 5) (4 : Fin 5)
 private def repMat24 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![1, 3; 1, 4], by decide⟩
+def sigma25 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (2 : Fin 5)
 private def repMat25 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![1, 3; 0, 1], by decide⟩
+def sigma26 : Equiv.Perm (Fin 5) := Equiv.swap (1 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (2 : Fin 5)
 private def repMat26 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![4, 2; 1, 2], by decide⟩
+def sigma27 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (1 : Fin 5)
 private def repMat27 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![4, 3; 2, 3], by decide⟩
+def sigma28 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (3 : Fin 5)
 private def repMat28 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![4, 4; 3, 2], by decide⟩
+def sigma29 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (1 : Fin 5)
 private def repMat29 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![3, 4; 3, 1], by decide⟩
+def sigma30 : Equiv.Perm (Fin 5) := Equiv.swap (1 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (2 : Fin 5)
 private def repMat30 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![2, 4; 2, 2], by decide⟩
+def sigma31 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (2 : Fin 5)
 private def repMat31 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![1, 4; 3, 3], by decide⟩
+def sigma32 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (2 : Fin 5)
 private def repMat32 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![1, 2; 1, 3], by decide⟩
+def sigma33 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (3 : Fin 5)
 private def repMat33 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![2, 3; 1, 2], by decide⟩
+def sigma34 : Equiv.Perm (Fin 5) := Equiv.swap (1 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (3 : Fin 5)
 private def repMat34 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![2, 3; 4, 4], by decide⟩
+def sigma35 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (4 : Fin 5)
 private def repMat35 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![3, 2; 3, 4], by decide⟩
+def sigma36 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (3 : Fin 5)
 private def repMat36 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![3, 1; 2, 1], by decide⟩
+def sigma37 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (2 : Fin 5)
 private def repMat37 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![2, 2; 3, 1], by decide⟩
+def sigma38 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (1 : Fin 5)
 private def repMat38 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![2, 2; 1, 4], by decide⟩
+def sigma39 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (4 : Fin 5)
 private def repMat39 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![3, 3; 1, 3], by decide⟩
+def sigma40 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (4 : Fin 5)
 private def repMat40 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![1, 3; 3, 0], by decide⟩
+def sigma41 : Equiv.Perm (Fin 5) := Equiv.swap (2 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (3 : Fin 5)
 private def repMat41 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![1, 2; 2, 0], by decide⟩
+def sigma42 : Equiv.Perm (Fin 5) := Equiv.swap (1 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (4 : Fin 5)
 private def repMat42 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![3, 4; 2, 3], by decide⟩
+def sigma43 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (4 : Fin 5) * Equiv.swap (2 : Fin 5) (3 : Fin 5)
 private def repMat43 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![2, 1; 0, 3], by decide⟩
+def sigma44 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (1 : Fin 5) * Equiv.swap (3 : Fin 5) (4 : Fin 5)
 private def repMat44 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![3, 1; 0, 2], by decide⟩
+def sigma45 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (1 : Fin 5)
 private def repMat45 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![1, 3; 2, 2], by decide⟩
+def sigma46 : Equiv.Perm (Fin 5) := Equiv.swap (1 : Fin 5) (4 : Fin 5) * Equiv.swap (2 : Fin 5) (3 : Fin 5)
 private def repMat46 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![3, 0; 4, 2], by decide⟩
+def sigma47 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (1 : Fin 5) * Equiv.swap (2 : Fin 5) (4 : Fin 5)
 private def repMat47 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![3, 0; 1, 2], by decide⟩
+def sigma48 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (2 : Fin 5) * Equiv.swap (3 : Fin 5) (4 : Fin 5)
 private def repMat48 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![2, 0; 2, 3], by decide⟩
+def sigma49 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (2 : Fin 5) * Equiv.swap (1 : Fin 5) (4 : Fin 5)
 private def repMat49 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![2, 3; 0, 3], by decide⟩
+def sigma50 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (1 : Fin 5)
 private def repMat50 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![0, 3; 3, 4], by decide⟩
+def sigma51 : Equiv.Perm (Fin 5) := Equiv.swap (2 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (4 : Fin 5)
 private def repMat51 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![0, 3; 3, 1], by decide⟩
+def sigma52 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (3 : Fin 5)
 private def repMat52 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![0, 2; 2, 2], by decide⟩
+def sigma53 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (3 : Fin 5)
 private def repMat53 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![2, 2; 2, 0], by decide⟩
 def sigma54 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (4 : Fin 5) * Equiv.swap (4 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (1 : Fin 5)
 private def repMat54 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![2, 3; 3, 0], by decide⟩
+def sigma55 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (3 : Fin 5) * Equiv.swap (3 : Fin 5) (2 : Fin 5) * Equiv.swap (2 : Fin 5) (1 : Fin 5) * Equiv.swap (1 : Fin 5) (4 : Fin 5)
 private def repMat55 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![0, 3; 3, 2], by decide⟩
+def sigma56 : Equiv.Perm (Fin 5) := Equiv.swap (1 : Fin 5) (3 : Fin 5) * Equiv.swap (2 : Fin 5) (4 : Fin 5)
 private def repMat56 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![2, 2; 0, 3], by decide⟩
+def sigma57 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (4 : Fin 5) * Equiv.swap (1 : Fin 5) (3 : Fin 5)
 private def repMat57 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![2, 0; 3, 3], by decide⟩
+def sigma58 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (3 : Fin 5) * Equiv.swap (1 : Fin 5) (2 : Fin 5)
 private def repMat58 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![3, 0; 0, 2], by decide⟩
+def sigma59 : Equiv.Perm (Fin 5) := Equiv.swap (0 : Fin 5) (2 : Fin 5) * Equiv.swap (1 : Fin 5) (3 : Fin 5)
 private def repMat59 : Matrix.SpecialLinearGroup (Fin 2) (ZMod 5) :=
     ⟨!![0, 3; 3, 0], by decide⟩
 

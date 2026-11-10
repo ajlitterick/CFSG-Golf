@@ -62,6 +62,9 @@ theorem facts2309 : centFixedIdx.length = 10200 ∧ centImageIdx.length = 120 �
   exact ⟨(scan0 sFix).1, (scan_of (f := 1) sImg (by omega)).1, (scan0 sImgR).1, (scan0 sImgR).2,
     (scan0 sPar).1, (scan0 sLab).1, (scan0 sEdg).1⟩
 
+theorem facts2312 : localRowNats.length = 2457 ∧ ∀ n ∈ localRowNats, n < 2 ^ 248 := by
+  rw [localRowNats, ThRows.eq]
+  exact scan0 sRows
 
 theorem facts2317 : 120754 ∈ centImageIdx := by
   rw [ThImg.eq]

@@ -27,6 +27,8 @@ theorem bnot_eq_true {a : Bool} : Bool.rec (motive := fun _ => Bool) true false 
 theorem beqB_eq_true {a b : Bool} : beqB a b = true ↔ (a = true ↔ b = true) := by
   cases a <;> cases b <;> simp [beqB]
 
+theorem b2n_eq (b : Bool) : b2n b = if b = true then 1 else 0 := by
+  cases b <;> rfl
 
 theorem allL_iff {p : ℕ → Bool} {L : List ℕ} : allL p L = true ↔ ∀ x ∈ L, p x = true := by
   induction L with
@@ -235,11 +237,16 @@ theorem codeL_fnL {c : ℕ} (hc : c < 2 ^ 36) : codeL (fnL c) = c := by
 theorem codeL_lt (f : Fin 64 → Fin 64) : codeL f < 2 ^ 36 :=
   enc6_lt (f 1).2 (f 2).2 (f 4).2 (f 8).2 (f 16).2 (f 32).2
 
+theorem fnL_inj {c d : ℕ} (hc : c < 2 ^ 36) (hd : d < 2 ^ 36) (h : fnL c = fnL d) : c = d := by
+  rw [← codeL_fnL hc, ← codeL_fnL hd, h]
 
 theorem compL_eq_enc6 (f g : ℕ) : compL f g = enc6 (apL f (fld g 0)) (apL f (fld g 6))
     (apL f (fld g 12)) (apL f (fld g 18)) (apL f (fld g 24)) (apL f (fld g 30)) :=
   lorTree_eq_enc6 (apL_lt _ _) (apL_lt _ _) (apL_lt _ _) (apL_lt _ _) (apL_lt _ _)
 
+theorem compL_lt (f g : ℕ) : compL f g < 2 ^ 36 := by
+  rw [compL_eq_enc6]
+  exact enc6_lt (apL_lt _ _) (apL_lt _ _) (apL_lt _ _) (apL_lt _ _) (apL_lt _ _) (apL_lt _ _)
 
 theorem compL_eq_codeL (f g : ℕ) : compL f g = codeL (fun v => fnL f (fnL g v)) := by
   obtain ⟨e0, e1, e2, e3, e4, e5⟩ := apL_pow g

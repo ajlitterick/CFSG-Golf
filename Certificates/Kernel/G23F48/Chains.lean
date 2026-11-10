@@ -56,6 +56,41 @@ namespace CFSG.KC.G23F48
 
 open CFSG.ASVolI CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KC.Misc.ArrEnum
 
+theorem l_bind : allN 4 (fun i => arrBind burnsideF48t_g23LArr[i]! 728 10 (LP i)) = true := by
+  decide +kernel
+
+theorem l_perm : allN 4 (fun i => permOK 728 10 (mask 10) (728 * 10) (LP i) (LPI i)) = true := by
+  quickRfl
+
+theorem s0_words : allN 3 (fun j => Nat.beq (evP 728 10 LP LPI (burnsideF48t_g23SW.getD j []))
+    (S0C.S j)) = true := by
+  decide +kernel
+
+theorem s0_base : allN 3 (fun t => Nat.beq (pg 10 (mask 10) S0C.BP t)
+    ((burnsideF48t_g23BaseS0.map Fin.val).toArray[t]!)) = true := by
+  decide +kernel
+
+theorem s0_perm : allN 6 (fun j => permOK 728 10 (mask 10) (728 * 10) (S0C.S j) (S0C.SI j)) =
+    true := by
+  quickRfl
+
+theorem s0_sizes : (List.range 3).map (fun i => rcnt (S0C.LR i)) = burnsideF48t_g23SizesS0 := by
+  decide +kernel
+
+theorem k_words : allN 2 (fun j => Nat.beq (evP 728 10 LP LPI (burnsideF48t_g23KW.getD j []))
+    (KCh.S j)) = true := by
+  decide +kernel
+
+theorem k_base : allN 3 (fun t => Nat.beq (pg 10 (mask 10) KCh.BP t)
+    ((burnsideF48t_g23BaseK.map Fin.val).toArray[t]!)) = true := by
+  decide +kernel
+
+theorem k_perm : allN 3 (fun j => permOK 728 10 (mask 10) (728 * 10) (KCh.S j) (KCh.SI j)) =
+    true := by
+  quickRfl
+
+theorem k_sizes : (List.range 3).map (fun i => rcnt (KCh.LR i)) = burnsideF48t_g23SizesK := by
+  decide +kernel
 
 end CFSG.KC.G23F48
 

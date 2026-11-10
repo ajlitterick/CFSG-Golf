@@ -59,6 +59,15 @@ open Equiv Equiv.Perm
 
 @[expose] def cj (κ t : Perm (Fin 6)) : Perm (Fin 6) := κ⁻¹ * t * κ
 
+@[expose] def stepFin (gens : List (Perm (Fin 6))) (S : Finset (Perm (Fin 6))) :
+    Finset (Perm (Fin 6)) :=
+  S ∪ S.biUnion fun x => (gens.map (x * ·)).toFinset
+
+@[expose] def closureFin (gens : List (Perm (Fin 6))) : ℕ → Finset (Perm (Fin 6))
+  | 0 => {1}
+  | n + 1 => stepFin gens (closureFin gens n)
+
+@[expose, irreducible] def cl360 : Finset (Perm (Fin 6)) := closureFin [sK1, sK2] 16
 
 @[expose] def cand1 (κ t : Perm (Fin 6)) : List (Perm (Fin 6)) :=
   [t * cj κ t, t * t * cj κ t, t * t * t * cj κ t]

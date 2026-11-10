@@ -51,6 +51,11 @@ theorem cp5_K : seedsP HNFive.cpNregs HNFive.cpProg HNFive.cpSpec.facts HNFive.c
     HNFive.cpSpec.rB = true := by
   quickRfl
 
+theorem eq_neg : (!seedsP 2 [] [.eq [(0, 1)] [(1, 1)]] 0 1) = true := by
+  quickRfl
+
+theorem seed_neg : (!seedsP 2 [] [] 1 0) = true := by
+  quickRfl
 
 end CertificateChecks.KernelTc.HN
 

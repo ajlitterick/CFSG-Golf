@@ -17,6 +17,14 @@ open CFSG.KD.Sp62 (MULF ONE)
 
 @[expose] noncomputable def ch919010 (q : Nat) : Bool := tiChunk RO ROO TIW 512 q
 
+@[expose] noncomputable def tiFirst : Nat := TIF 0
+
+theorem negTI1 : (Nat.blt 0 tiFirst && bIf(tiWitK RO (recX ROO 3 tiFirst) (TIW tiFirst + 1),
+    false, true)) = true := by quickRfl
+
+theorem negTI2 : bIf(tiWitK RO (recX ROO 3 tiFirst) 0, false, true) = true := by quickRfl
+
+theorem negTI3 : bIf(tiWitK RO ONE (TIW tiFirst), false, true) = true := by quickRfl
 
 end CFSG.KD.OmegaSix
 

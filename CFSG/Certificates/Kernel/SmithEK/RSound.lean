@@ -37,6 +37,8 @@ theorem atLeastK_eq : ∀ (k n : Nat), atLeastK k n = atLeast k n
 theorem dTailsK_succ (n : Nat) (P M : List Nat) :
     dTailsK (n + 1) P M = (dRowK (P.headD 0) (M.headD 0) P M && dTailsK n P.tail M.tail) := rfl
 
+theorem headD_drop (l : List Nat) (k : Nat) : (l.drop k).headD 0 = l.getD k 0 := by
+  rw [← getD_zero, getD_drop, Nat.add_zero]
 
 theorem dTailsK_sound : ∀ (n : Nat) (P M : List Nat), dTailsK n P M = true → ∀ k < n,
     dRowK (P.getD k 0) (M.getD k 0) (P.drop k) (M.drop k) = true

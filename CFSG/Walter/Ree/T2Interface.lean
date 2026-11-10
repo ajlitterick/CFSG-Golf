@@ -134,5 +134,16 @@ end Facts
       Nonempty (Subgroup.normalizer ((P : Subgroup G) : Set G) ≃* ThompsonN k σ)) →
     ∃ d : k, Nonempty (RType G k σ d)
 
+structure Thompson2 : Prop where
+  base : BaseExists
+  thompsonIdentity : ∀ (k : Type) [Field k] [Fintype k] [CharP k 3] (σ : k ≃+* k) (d : k)
+    (G : Type) [Group G] [Finite G] (R : RType G k σ d), ThompsonIdentity R
+  sExplicit : ∀ (k : Type) [Field k] [Fintype k] [CharP k 3] (σ : k ≃+* k),
+    (∀ x, σ (σ x) = x ^ 3) → ∀ d : k,
+      ∃ S : k → k × k × k, ∀ (G : Type) [Group G] [Finite G] (R : RType G k σ d), IsS R S
+  eq211 : ∀ (k : Type) [Field k] [Fintype k] [CharP k 3] (σ : k ≃+* k),
+    (∀ x, σ (σ x) = x ^ 3) → ∀ a : ℕ, Even a → (∀ x : k, (σ x * x) ^ a = x ^ 2) →
+      a < Fintype.card k - 1 → ∃ c : k → k → k → k,
+        ∀ (d : k) (G : Type) [Group G] [Finite G] (R : RType G k σ d), Eq211 R a c
 
 end CFSG.Walter.Ree.T2

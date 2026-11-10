@@ -50,5 +50,8 @@ open CFSG.Sporadic.Th.Native CFSG.Perm.Native CFSG.Sporadic.LevelChain.Native
     treeOK nPts Q[2]! T2 L (levelLv chainStarts 2) && T2.pts.size == 2880 &&
     decide (scanCount #[T[0]!, T[1]!, T2] L Y Q ≤ 174960)
 
+@[expose] def threeBCertificate (_ : Unit) : Bool :=
+  let O := orbitData ()
+  threeBCheck O.alpha O.beta
 
 end CFSG.Sporadic.Ly.ThreeB

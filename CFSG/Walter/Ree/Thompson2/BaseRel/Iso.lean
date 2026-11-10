@@ -90,5 +90,16 @@ theorem iso1512_symm_j : iso1512.symm PGammaL28.j = PresentedGroup.of 0 :=
 
 abbrev C2 := Multiplicative (ZMod 2)
 
+@[expose] def c2Gen : Fin 4 → C2 × Equiv.Perm (Fin 9) :=
+  ![(Multiplicative.ofAdd 1, pglJ), (Multiplicative.ofAdd 1, pglK), (1, pglT), (1, pglY)]
+
+theorem c2Gen_rels3024 : ∀ w ∈ rels3024, ev c2Gen w = 1 := by
+  intro w hw
+  rw [ev_eq_evList]
+  revert w
+  decide +kernel
+
+noncomputable def toC2 : Pres3024 →* C2 × Equiv.Perm (Fin 9) := lift rels3024 c2Gen c2Gen_rels3024
+
 
 end CFSG.Walter.Ree.T2.BaseRel

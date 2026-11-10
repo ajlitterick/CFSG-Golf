@@ -23,6 +23,7 @@ abbrev Cn (p : ℕ) : Prop := canonK 42 6 (mask 6) (42 * 6) p = true
 
 @[expose] def GensG (G : ℕ → ℕ) : Prop := ∀ j < 6, gTabs[j]! = unpack 42 6 (G j) ∧ Cn (G j)
 
+theorem pword_nil (G : ℕ → ℕ) (p : ℕ) : pword G [] p = p := rfl
 
 theorem pword_cons (G : ℕ → ℕ) (j : ℕ) (w : List ℕ) (p : ℕ) :
     pword G (j :: w) p = pword G w (pcomp 42 6 (mask 6) p (G j)) := by

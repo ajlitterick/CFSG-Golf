@@ -25,6 +25,12 @@ variable {G : Type} [Group G]
     Sec15Hyp G p A c L E → Sec12Facts G p A c L E → Outcome152 p E A (lieGenerated p E) →
     ∀ X ∈ thetaCompZeroE p E, X ≤ lieGenerated p E
 
+@[expose] def KF157 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (A : Subgroup G) (c : G) (L E : Subgroup G),
+    Sec15Hyp G p A c L E → Sec12Facts G p A c L E → Outcome152 p E A (lieGenerated p E) →
+    ∀ X ∈ thetaCompZeroE p E,
+      (∀ e ∈ E, ∃ x ∈ X, ∃ y ∈ Subgroup.centralizer (X : Set G), e = x * y) ∧
+        ¬ p ∣ Nat.card ↥(X ⊓ Subgroup.centralizer (X : Set G))
 
 @[expose] def KF158A : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (A : Subgroup G) (c : G) (L E : Subgroup G),

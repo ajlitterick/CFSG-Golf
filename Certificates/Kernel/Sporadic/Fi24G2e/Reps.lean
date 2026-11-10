@@ -200,6 +200,7 @@ theorem gw_lt : ∀ i < 7, ∀ g ∈ GWL i, g < 12 := by decide +kernel
 
 theorem gw_split : ∀ i < 7, GWL i = GCL i ++ CWL i ++ (GCL i).reverse := by decide +kernel
 
+theorem gc_lt : ∀ i < 7, ∀ g ∈ GCL i, g < 12 := by decide +kernel
 
 theorem YY_facts {i : ℕ} (hi : i < 7) :
     Cn (YY i) ∧ Mt (YY i) = (τ ((GWL i).map g0).prod : Matrix (Fin 781) (Fin 781) (ZMod 3)) := by

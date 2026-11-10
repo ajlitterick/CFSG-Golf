@@ -76,6 +76,23 @@ theorem dec_idx {L : Array Level} {x : Tri} (h : InR L x) : dec L (idx3 L x) = x
       Nat.div_eq_of_lt h1, Nat.add_zero]
   rw [ha, hq, hb, hc]
 
+theorem inR_dec {L : Array Level} {i : Nat} (h : i < sz L) : InR L (dec L i) := by
+  unfold sz at h
+  unfold dec InR
+  simp only
+  have h1 : 0 < L[1]!.pts.size := by
+    rcases Nat.eq_zero_or_pos L[1]!.pts.size with e | e
+    · rw [e] at h
+      simp at h
+    · exact e
+  have h2 : 0 < L[2]!.pts.size := by
+    rcases Nat.eq_zero_or_pos L[2]!.pts.size with e | e
+    · rw [e] at h
+      simp at h
+    · exact e
+  refine ⟨?_, Nat.mod_lt _ h1, Nat.mod_lt _ h2⟩
+  rw [Nat.div_lt_iff_lt_mul (Nat.mul_pos h1 h2), ← Nat.mul_assoc]
+  exact h
 
 theorem set_eq {α : Type} [Inhabited α] {a : Array α} {i : Nat} {v : α} (h : i < a.size) :
     (a.set! i v)[i]! = v := by

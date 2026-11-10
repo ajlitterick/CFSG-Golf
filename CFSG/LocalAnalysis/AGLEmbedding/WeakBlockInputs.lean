@@ -38,6 +38,37 @@ variable {G : Type} [Group G]
   ∀ (G : Type) [Group G] [Finite G], CFSG.AGLEmbeddingD2.AGLGlobal G → ∀ M Y : Subgroup G,
     GLBIsMaxTwoLocal M → Y ≤ M → IsSubnormal Y M → InClassXBlock Y → False
 
+@[expose] def IsSLSpG2Index : TauCeti.LieTypeIndex → Prop
+  | .A _ q | .B _ q | .G2 q => q.p = 2
+  | _ => False
+
+@[expose] def IsSLSpG2Two (Y : Type) [Group Y] : Prop :=
+  (∃ d : TauCeti.ValidLieTypeIndex, IsSLSpG2Index d.1 ∧
+      Nonempty (Y ≃* (TauCeti.CFSGIndex.lie d).Group)) ∨
+    (∃ n : ℕ, (n = 5 ∨ n = 6 ∨ n = 8) ∧ Nonempty (Y ≃* alternatingGroup (Fin n))) ∨
+    (∃ d : TauCeti.ValidLieTypeIndex, ((∃ q : TauCeti.PrimePower, q.card = 7 ∧ d.1 = .A 1 q) ∨
+        (∃ q : TauCeti.PrimePower, q.card = 3 ∧ d.1 = .twistedA 2 q)) ∧
+      Nonempty (Y ≃* (TauCeti.CFSGIndex.lie d).Group))
+
+structure TimmesfeldHypA (X Z Q₁ : Subgroup G) : Prop where
+  kGroup : Open.IsKGroup ↥X
+  charTwo : CharTwo X
+  center : ∃ T : Subgroup G, IsSylowTwoOf T X ∧ Z ≤ omegaOneCenterOf T
+  ne_bot : Z ≠ ⊥
+  le_normalizer : X ⊓ Subgroup.normalizer (Z : Set G) ≤ Subgroup.normalizer (Q₁ : Set G)
+  le_core : pCoreOf 2 X ≤ Q₁
+  core_le : Q₁ ≤ pCoreOf 2 (X ⊓ Subgroup.normalizer (Z : Set G))
+  cgs : cgsIn X Q₁ = X ⊓ Subgroup.normalizer (Z : Set G)
+  lt : X ⊓ Subgroup.normalizer (Z : Set G) < X
+
+@[expose] def Timmesfeld34 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (X Z Q₁ Kᵢ : Subgroup G), TimmesfeldHypA X Z Q₁ →
+    IsTwoPrimeComponent X Kᵢ → ¬ Kᵢ ≤ Subgroup.normalizer (Z : Set G) →
+      (Q₁ ≤ Subgroup.normalizer (Kᵢ : Set G) ∧ pCoreOf 2 (Kᵢ ⊔ Q₁) < Q₁) ∧
+      IsSLSpG2Two (↥(barM X Kᵢ) ⧸ Subgroup.center ↥(barM X Kᵢ)) ∧
+      Q₁ ≤ pCoreOf 2 ((Kᵢ ⊔ Q₁) ⊓ Subgroup.normalizer (Z : Set G)) ∧
+      IsParabolicTwo (barM X Kᵢ) (barM X (Kᵢ ⊓ Subgroup.normalizer (Z : Set G)))
+
 
 @[expose] def centralizerModTwoCore (J : Subgroup G) : Subgroup G :=
   Subgroup.closure {g : G | g ∈ Subgroup.normalizer (J : Set G) ∧

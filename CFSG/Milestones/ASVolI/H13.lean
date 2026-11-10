@@ -24,6 +24,21 @@ open scoped Classical in
 @[expose] def dot24 (u v : PM24) : ZMod 2 :=
   ∑ i, Multiplicative.toAdd u i * Multiplicative.toAdd v i
 
+@[expose] noncomputable def wt24 (v : PM24) : ℕ := Nat.card {i : Fin 24 // Multiplicative.toAdd v i ≠ 0}
+
+abbrev Cocode24 : Type := PM24 ⧸ golayC
+
+abbrev ComplementQuotient24 : Type := PM24 ⧸ Subgroup.zpowers (G6.allOnes 24)
+
+@[expose] noncomputable def cocodeWt24 (coset : Cocode24) : ℕ :=
+  sInf {weight : ℕ | ∃ representative : PM24,
+    (QuotientGroup.mk representative : Cocode24) = coset ∧ wt24 representative = weight}
+
+@[expose] def HasComplementWeight24 (coset : ComplementQuotient24) (weight : ℕ) : Prop :=
+  ∃ representative : PM24,
+    (QuotientGroup.mk representative : ComplementQuotient24) = coset ∧
+      wt24 representative = weight
+
 
 theorem sq24 (x : PM24) : x * x = 1 := by
   apply Multiplicative.toAdd.injective
@@ -151,6 +166,11 @@ theorem smul_finset_eq_map (g : Equiv.Perm (Fin 24)) (S : Finset (Fin 24)) :
 
 @[expose] def M23g (a : Fin 24) : Subgroup S24 := M24g ⊓ MulAction.stabilizer S24 a
 
+@[expose] def M22g (a b : Fin 24) : Subgroup S24 :=
+  M24g ⊓ MulAction.stabilizer S24 a ⊓ MulAction.stabilizer S24 b
+
+@[expose] def M2ab (a b : Fin 24) : Subgroup S24 :=
+  M24g ⊓ MulAction.stabilizer S24 ({a, b} : Finset (Fin 24))
 
 @[expose] def IsOctad (O : Finset (Fin 24)) : Prop := O.card = 8 ∧ eY O ∈ golayC
 
@@ -162,6 +182,29 @@ theorem smul_finset_eq_map (g : Equiv.Perm (Fin 24)) (S : Finset (Fin 24)) :
   S.card = 6 ∧ (∀ B ∈ S, B.card = 4) ∧ (∀ B ∈ S, ∀ B' ∈ S, B ≠ B' → Disjoint B B') ∧
     S.biUnion id = Finset.univ ∧ (∀ B ∈ S, ∀ B' ∈ S, B ≠ B' → IsOctad (B ∪ B'))
 
+@[expose] noncomputable def mathModel (isCode : Bool) (d : ℕ) (a b : Fin 24) (Γ : Subgroup S24) :
+    FFModel :=
+  FFModel.golaySec Γ
+    (if isCode then (if d = 22 then golayC ⊓ pairKer a b else golayC) else G6.coreMod 24)
+    (if isCode then Subgroup.zpowers (G6.allOnes 24)
+      else (if d = 22 then golayC ⊔ Subgroup.zpowers (pairVec a b) else golayC))
+
+@[expose] noncomputable def IsMathModule {V : Type*} [CommGroup V] (isCode : Bool) (d : ℕ)
+    (a b : Fin 24) (Γ : Subgroup S24) (ρ : ↥Γ →* MulAut V) : Prop :=
+  ∃ β, RealizesBy (mathModel isCode d a b Γ) ρ.range ⊤ ⊥ ρ.rangeRestrict β
+
+@[expose] def rImg {V : Type*} [CommGroup V] {Γ : Subgroup S24} (ρ : ↥Γ →* MulAut V)
+    (A : Subgroup S24) : Subgroup (MulAut V) :=
+  (A.subgroupOf Γ).map ρ
+
+@[expose] def Ld (d : ℕ) (a b : Fin 24) : Subgroup S24 :=
+  if d = 24 then M24g else if d = 23 then M23g a else M22g a b
+
+@[expose] def AutLd (d : ℕ) (a b : Fin 24) : Subgroup S24 :=
+  if d = 22 then M2ab a b else Ld d a b
+
+@[expose] def IsAbsIrredMod {V : Type*} [CommGroup V] (M : Subgroup (MulAut V)) : Prop :=
+  IsIrredOn M ⊤ ∧ ∀ θ : V →* V, (∀ g ∈ M, ∀ v, θ (g v) = g (θ v)) → θ = 1 ∨ θ = MonoidHom.id V
 
 end CFSG.ASVolI.ChH
 
@@ -173,6 +216,59 @@ open CFSG.Quasithin CFSG.ASVolI.ChH CFSG.Quasithin.H.Mathieu
 theorem mem_M23g_iff (a : Fin 24) (g : Equiv.Perm (Fin 24)) :
     g ∈ M23g a ↔ g ∈ M24g ∧ g a = a := by
   simp [M23g, Subgroup.mem_inf, MulAction.mem_stabilizer_iff, Equiv.Perm.smul_def]
+
+
+@[expose] def H_13_1_partial : Prop :=
+  ((∀ g ∈ M24g, ∀ u v : PM24, dot24 (G6.permAct 24 g u) (G6.permAct 24 g v) = dot24 u v) ∧
+    (∀ u : PM24, u ≠ 1 → ∃ v : PM24, dot24 u v ≠ 0) ∧
+    (∀ v : PM24, v ∈ G6.coreMod 24 ↔ dot24 v (G6.allOnes 24) = 0) ∧
+    golayC ≤ G6.coreMod 24 ∧ G6.allOnes 24 ∈ golayC) ∧
+  ((∀ u ∈ golayC, ∀ v ∈ golayC, dot24 u v = 0) ∧
+    (∀ w : PM24, (∀ c ∈ golayC, dot24 w c = 0) → w ∈ golayC)) ∧
+  (rk ↥golayC = 12 ∧ rk ↥(⊤ : Subgroup PM24) - rk ↥golayC = 12 ∧
+    rk ↥(G6.coreMod 24) - rk ↥golayC = 11 ∧ rk ↥golayC - rk ↥(Subgroup.zpowers (G6.allOnes 24)) = 11) ∧
+  ((∀ c ∈ golayC, c ∉ Subgroup.zpowers (G6.allOnes 24) → ∃ w ∈ G6.coreMod 24, dot24 c w ≠ 0) ∧
+    (∀ w ∈ G6.coreMod 24, w ∉ golayC → ∃ c ∈ golayC, dot24 c w ≠ 0)) ∧
+  ∀ a b : Fin 24, a ≠ b →
+    ((∀ g ∈ M24g, (G6.permAct 24 g (eY {a}) = eY {a} ↔ g a = a) ∧
+        (G6.permAct 24 g (eY {a}) * (eY {a})⁻¹ ∈ golayC ↔ g a = a)) ∧
+      Nonempty (↥(M23g a) ≃* ↥CFSG.Blueprint.NativeSporadic.M23) ∧
+      (∀ g ∈ M24g,
+        ((G6.permAct 24 g (eY {a}) = eY {a} ∧ G6.permAct 24 g (eY {b}) = eY {b}) ↔ g ∈ M22g a b) ∧
+        ((G6.permAct 24 g (eY {a}) * (eY {a})⁻¹ ∈ golayC ∧
+            G6.permAct 24 g (eY {b}) * (eY {b})⁻¹ ∈ golayC) ↔ g ∈ M22g a b)) ∧
+      Nonempty (↥(M22g a b) ≃* ↥CFSG.Blueprint.NativeSporadic.M22) ∧
+      (∀ g ∈ M24g, (G6.permAct 24 g (eY {a, b}) = eY {a, b} ↔ g ∈ M2ab a b) ∧
+        (G6.permAct 24 g (eY {a, b}) * (eY {a, b})⁻¹ ∈ golayC ↔ g ∈ M2ab a b)) ∧
+      Nonempty (↥(M2ab a b) ≃* MulAut ↥CFSG.Blueprint.NativeSporadic.M22)) ∧
+    (pairVec a b ∈ G6.coreMod 24 ∧ rk ↥(G6.coreMod 24) - rk ↥(golayC ⊔ Subgroup.zpowers (pairVec a b)) = 10 ∧
+      rk ↥(golayC ⊓ pairKer a b) - rk ↥(Subgroup.zpowers (G6.allOnes 24)) = 10 ∧
+      (∀ c ∈ golayC ⊓ pairKer a b, c ∉ Subgroup.zpowers (G6.allOnes 24) →
+        ∃ w ∈ G6.coreMod 24, dot24 c w ≠ 0) ∧
+      (∀ w ∈ G6.coreMod 24, w ∉ golayC ⊔ Subgroup.zpowers (pairVec a b) →
+        ∃ c ∈ golayC ⊓ pairKer a b, dot24 c w ≠ 0))
+
+@[expose] def H_13_1 : Prop :=
+  H_13_1_partial ∧
+  golayC = Subgroup.closure {vector : PM24 |
+    ∃ octad : Finset (Fin 24), IsOctad octad ∧ eY octad = vector} ∧
+  (∀ support : Finset (Fin 24), wt24 (eY support) = support.card) ∧
+  (∀ coset : Cocode24,
+    (∃ representative : PM24,
+      (QuotientGroup.mk representative : Cocode24) = coset ∧
+        wt24 representative = cocodeWt24 coset) ∧
+    (∀ representative : PM24,
+      (QuotientGroup.mk representative : Cocode24) = coset →
+        cocodeWt24 coset ≤ wt24 representative)) ∧
+  (∀ representative : PM24, ∀ weight : ℕ,
+    HasComplementWeight24 (QuotientGroup.mk representative) weight ↔
+      weight = wt24 representative ∨
+        weight = wt24 (representative * G6.allOnes 24)) ∧
+  (∀ representative : PM24,
+    wt24 (representative * G6.allOnes 24) = 24 - wt24 representative) ∧
+  (∀ a b : Fin 24, a ≠ b → pairVec a b = eY {a, b}) ∧
+  (∀ a b : Fin 24, ∀ representative : PM24,
+    representative ∈ pairKer a b ↔ dot24 representative (pairVec a b) = 0)
 
 
 @[expose] noncomputable def conjOn22 (g : ↥mog22plus) : ↥mog22 ≃* ↥mog22 where
@@ -259,6 +355,12 @@ theorem conjHom22_bijective : Function.Bijective conjHom22 := by
 
 
 end H13Cert
+
+@[expose] def H_13_2 : Prop :=
+  ∀ (isCode : Bool) (d : ℕ), (d = 22 ∨ d = 23 ∨ d = 24) → ∀ a b : Fin 24, a ≠ b →
+  ∀ (V : Type) [CommGroup V] (ρ : ↥(Ld d a b) →* MulAut V),
+    IsMathModule isCode d a b (Ld d a b) ρ →
+      Nat.card V = 2 ^ (if d = 22 then 10 else 11) ∧ IsAbsIrredMod ρ.range
 
 
 section H13Two

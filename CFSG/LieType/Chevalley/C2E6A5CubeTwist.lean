@@ -337,6 +337,8 @@ theorem mem_stdFixedGroup_iff
     rw [hF, e']
 
 
+theorem scalars_le_SU6 : LinearFlag.scalars 6 K ≤ SU6 := fun _ hz => tauSL_of_mem_scalars hz
+
 theorem scalars_le_diagSL : LinearFlag.scalars 6 K ≤ diagSL := by
   intro z hz
   obtain ⟨c, -, hc⟩ := LinearFlag.mem_scalars.mp hz

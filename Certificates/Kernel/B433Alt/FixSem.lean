@@ -114,6 +114,9 @@ theorem lab_sq (x : Fin 31671) : lab x * lab x = 1 := by
       = rho432F (eOf x) * (d0 * d0) * (rho432F (eOf x))⁻¹ := by group
     _ = 1 := by rw [hL.sq]; group
 
+theorem lab_self (x : Fin 31671) : lab x x = x := by
+  rw [lab, Equiv.Perm.mul_apply, Equiv.Perm.mul_apply, Equiv.Perm.inv_eq_iff_eq.2 (eOf_spec x).symm,
+    hL.fix0, eOf_spec]
 
 theorem lab_inj {x y : Fin 31671} (h : lab x = lab y) : x = y := by
   set e := eOf y

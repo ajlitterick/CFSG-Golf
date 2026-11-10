@@ -842,6 +842,12 @@ theorem sporNoAltDown_large (hOrd : SporadicOrdersTable) {p : ℕ} (hp : p.Prime
     | (revert hp; norm_num; done)
     | (revert hsq; cases name <;> decide)
 
+structure Open1314 : Prop where
+  fi22_5 : SporNoAltDown 5 7 .Fi22
+  fi24_5 : SporNoAltDown 5 7 .Fi24Prime
+  b_5 : SporNoAltDown 5 7 .B
+  m_5 : SporNoAltDown 5 7 .M
+  m_11 : SporNoAltDown 11 13 .M
 
 theorem finite_spor (hOrd : SporadicOrdersTable) (name : TauCeti.SporadicName) :
     Finite (TauCeti.CFSGIndex.sporadic name).Group := by

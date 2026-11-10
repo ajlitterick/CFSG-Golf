@@ -12,5 +12,7 @@ namespace CFSG.Quasithin.RuRank3
 
 open CFSG.Monster.B.Co2.Native
 
+@[expose] def ruCntD (ti : Array ℕ) : ℕ :=
+  (List.range 4060).countP fun x => (ruQLab[x]! == ruQLab[1]!) && ruRowA ti x
 
 end CFSG.Quasithin.RuRank3

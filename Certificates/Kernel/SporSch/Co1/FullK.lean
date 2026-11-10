@@ -56,6 +56,8 @@ theorem false_of {b : Bool} (h : Bool.not b = true) : b = false := by
 theorem m0 : memK F2.T F2.S 98280 0 = false := false_of (by quickRfl)
 theorem m1 : memK F2.T F2.S 98280 1 = false := false_of (by quickRfl)
 theorem mu : memK F2.T F2.S 98280 10876918 = false := false_of (by quickRfl)
+theorem kfw : FW.N = 552 := rfl
+theorem kfu : FU.N = 552 := rfl
 
 end CertificateChecks.KernelSporSch.Co1Full
 

@@ -282,6 +282,11 @@ theorem elt_zero : elt h ω 0 = 1 := by
       · exact elt_u4c_mul h X)
 
 
+theorem card_U4 : Nat.card U4 = 64 := by
+  rw [card_unitriangular, Nat.card_zmod]
+  norm_num
+
+
 end UnitaryFourCover
 
 open UnitaryFourCover CFSG.ClassicalGroups.UnitaryFlag LinearCover

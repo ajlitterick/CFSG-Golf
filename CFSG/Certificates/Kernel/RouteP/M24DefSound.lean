@@ -390,6 +390,9 @@ theorem keyTab_append (L₁ L₂ : List (Nat × Nat)) : keyTab (L₁ ++ L₂) = 
   rw [List.foldl_append]
   exact foldl_keyTab_start L₂ _
 
+theorem comboContribs_append (tab : Array (List (ℕ × Bool))) (a b : List (Nat × Nat × Nat)) :
+    comboContribs tab (a ++ b) = comboContribs tab a ++ comboContribs tab b := by
+  simp [comboContribs, List.flatMap_append]
 
 theorem strictN_eq (y : Nat) (k : Nat → Nat) : Loop.strictN y k = k y := by cases y <;> rfl
 
@@ -1209,6 +1212,27 @@ theorem bezoutOK_of (TW PA GQ FP LD LI LM RW CB FS LA SD TD : Nat → Nat)
     rw [hS, hlamK, hfil, hmap, hunit]
     exact hb
 
+theorem keyTab_slice_split (tab : Array (List (ℕ × Bool))) (L : List (Nat × Nat × Nat))
+    (lo a b : Nat) :
+    keyTab (comboContribs tab ((L.drop lo).take (a + b))) =
+      keyTab (comboContribs tab ((L.drop lo).take a)) ^^^
+        keyTab (comboContribs tab ((L.drop (lo + a)).take b)) := by
+  rw [List.take_add, comboContribs_append, keyTab_append, List.drop_drop]
+
+theorem decC_length (C : Nat): (decC C).length = ln 24 C 0 := by
+  simp [decC, ln_eq]
+
+theorem bucketsZero_of_comboK (TW PA GQ FP LD LI LM RW : Nat → Nat)
+    (hlet : lettersTabOK LI LD LM = true) (htree : ∀ q < 576, treeQ TW PA GQ FP LD LI q = true)
+    (hw : ((List.range 7).map fun i => decR (RW i)) = relWords)
+    (C : Nat) (hent : entriesOK (decC C) = true) (hk : comboK LD LI GQ FP RW C = true) :
+    bucketsZero (comboContribs (tabOf TW) (decC C)) = true := by
+  refine bucketsZero_of_keyTab TW _ hent ?_
+  have h0 : runE LD LI GQ FP RW C 0 (ln 24 C 0) 0 = 0 := Nat.eq_of_beq_eq_true hk
+  rw [runE_eq TW PA GQ FP LD LI LM RW hlet htree hw C hent 0 (ln 24 C 0) 0
+    (by rw [ln_eq]; simp), Nat.zero_xor, List.drop_zero, ← decC_length,
+    List.take_length] at h0
+  exact h0
 
 end CFSG.KC.M24Def
 

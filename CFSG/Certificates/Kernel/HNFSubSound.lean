@@ -232,6 +232,12 @@ theorem distOK_sound {N : Nat} {segs : List (List (List Nat))} (h : distOK N seg
   exact ⟨Nat.eq_of_beq_eq_true h1.1, (msortH_perm _).nodup_iff.1
     ((CFSG.KS.F3152.sortedK_pairwise _ h1.2).imp Nat.ne_of_lt)⟩
 
+theorem getSg_mem : ∀ (segs : List (List (List Nat))) (i : Nat), i < segs.length →
+    getSg segs i ∈ segs
+  | [], _, h => absurd h (Nat.not_lt_zero _)
+  | c :: _, 0, _ => List.mem_cons_self
+  | c :: cs, i + 1, h => List.mem_cons_of_mem c
+      (getSg_mem cs i (by simp only [List.length_cons] at h; omega))
 
 theorem mem_allKeys : ∀ (segs : List (List (List Nat))) (k : Nat), k ∈ allKeys segs →
     ∃ i < segs.length, k ∈ keysOf (getSg segs i)

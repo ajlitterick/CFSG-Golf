@@ -10,6 +10,8 @@ namespace CFSG.Monster.B.Dyadic
 
 open CFSG.Monster.B.Dyadic.Native
 
+@[expose] def z32 (x : UInt32) : ZMod 4294967296 := (x.toNat : ZMod 4294967296)
+
 
 @[expose] def numerAt (j t u : ℕ) : ℤ :=
   ((CFSG.Monster.B.Native.packetRows[j]!)[t]!).foldl (fun s e => if e.1 = u then s + e.2 else s) 0

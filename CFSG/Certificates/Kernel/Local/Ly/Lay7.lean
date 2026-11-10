@@ -16,6 +16,7 @@ namespace CFSG.KC.LL.Ly7
 
 @[expose] noncomputable def vec7 (v M : Nat) : Nat := CFSG.KC.Ord.vecR (nat_lit 5) (nat_lit 8) (nat_lit 56) (nat_lit 7) (nat_lit 4) LV7 HV7 RM7 v M
 
+@[expose] noncomputable def ent7 (X i j : Nat) : Nat := CFSG.KC.Ord.bitsN X (Nat.add (Nat.mul (nat_lit 56) i) (Nat.mul (nat_lit 8) j)) (nat_lit 8)
 
 @[expose] noncomputable def ent111 (X i j : Nat) : Nat := CFSG.KC.Ord.bitsN X (Nat.add (Nat.mul (nat_lit 1332) i) (Nat.mul (nat_lit 12) j)) (nat_lit 12)
 

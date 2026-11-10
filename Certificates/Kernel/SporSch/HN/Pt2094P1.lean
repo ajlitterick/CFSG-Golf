@@ -29,6 +29,11 @@ theorem gen4 : allN 10 (fun j => allN 13 (fun m => ptsImg TX MS CM3 M (TT (Nat.a
 theorem gen4c : allN 13 (fun m => ptsImg TX MS CM3 M (TT 0) (sliceP PL4 m)
     (imgP PL4 (SP4 10) m (cntP 800 m)) (cntP 800 m)) = true := by quickRfl
 
+theorem neg_gen1 : Bool.not (ptsImg TX MS CM3 M (TT 1) (sliceP PL1 0) (imgP PL1 (SP1 1) 0 64) 64) =
+    true := by quickRfl
+
+theorem neg_fix4 : Bool.not (ptsImg TX MS CM3 M (TT 21) (sliceP PL4 0) (sliceP PL4 0) 64) = true :=
+  by quickRfl
 
 end CertificateChecks.KernelSporSch.HNPt2094
 

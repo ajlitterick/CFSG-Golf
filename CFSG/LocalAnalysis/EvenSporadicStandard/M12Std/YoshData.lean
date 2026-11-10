@@ -65,4 +65,7 @@ open CFSG.Sporadic.SmallOddCore.Native CFSG.GH74.M12 AutETable
     tblEq 14 yEl[ixOf u1T]! u1T && tIdx.contains (ixOf u1T)
 
 
+@[expose] def fT8 : Bool := tIdx.any fun t => mt yM (mt yM t t) (mt yM t t) != 0
+
+
 end CFSG.EvenSporadicStandard.M12Std.Yosh

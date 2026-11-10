@@ -174,6 +174,7 @@ theorem tr_blt_false {a b : ℕ} (h : ¬a < b) : Nat.blt a b = false := by
   · rw [Nat.blt_eq] at hb
     exact absurd hb h
 
+theorem tr_brec_true (A B : WS) : Bool.rec (motive := fun _ => WS) A B true = B := rfl
 
 theorem tr_fld255_lt (a o : ℕ) : fld a o 255 < 256 := by
   rw [show fld a o 255 = fld a o (2 ^ 8 - 1) from rfl, stL_fld_eq]

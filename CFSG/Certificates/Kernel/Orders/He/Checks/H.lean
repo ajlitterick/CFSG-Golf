@@ -25,6 +25,9 @@ theorem hAB : CFSG.KC.Ord.andB
     (CFSG.KC.Ord.andB (Nat.beq (RH 1) (RW 1)) (Nat.beq (RH 2) (RW 2))) = true := by
   quickRfl
 
+theorem hs_0 : Nat.beq (CFSG.KC.Ord.runSlp RH (CFSG.KC.Ord.mulR 7 0xc 0x258 0x32 8 L H CM RM)
+    (CFSG.KC.Ord.validM 7 0x7530 L H) ONE [0x2800000000000602] 3) 5 = true := by
+  quickRfl
 
 end CFSG.KD.OrdHe
 

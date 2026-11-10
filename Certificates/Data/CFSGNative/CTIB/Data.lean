@@ -4,6 +4,7 @@ public section
 
 namespace CFSG.Monster.B.CTIB.Native
 
+@[expose] def genSigns : List Nat := [3711077, 3015616]
 
 @[expose] def liftWord6 : List Nat :=
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]

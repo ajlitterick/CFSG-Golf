@@ -236,6 +236,8 @@ theorem reps_facts : repsOK 3080 j1GenTbls j1GenInvTbls (j1OrderTables 2) [j1ATb
 
 abbrev clsB : Set (Equiv.Perm (Fin 3080)) := {x | ∃ k < J1PB.c, eJ (J1PB.J k) = x}
 
+theorem clsB_mem {k : Nat} (hk : k < J1PB.c) : eJ (J1PB.J k) ∈ GJ :=
+  el_mem chainCK (bfsB.1.lt k hk)
 
 theorem clsB_conj : ∀ k < J1PB.c, ∃ g ∈ GJ, g * ea * g⁻¹ = eJ (J1PB.J k) := by
   intro k

@@ -22,6 +22,18 @@ open Equiv Perm CFSG.Certificates.Kernel.PkCV CFSG.Certificates.Kernel.L5S
 @[expose] noncomputable def covN (GN : List Nat) (MP : Nat) (x : CV 16) : Bool :=
   if x.1 ∈ GN then covIdxN GN MP (idxN GN x) else n24CovC (closureList [yC, wC, x] 8) false
 
+@[expose] noncomputable def n24TailN (GN : List Nat) (MP : Nat) (x : CV 16) (o : List Nat) : Bool :=
+  (imgN x (pN Ppl) == pN Ppl) &&
+    (((fam0L.all fun F => decide (pN F ∈ o)) && covN GN MP x) ||
+       ((fam1L.all fun F => decide (pN F ∈ o)) && covN GN MP (twC⁻¹ * x * twC)))
+
+@[expose] noncomputable def n24ChkN (GN : List Nat) (MP : Nat) (x : CV 16) : Bool :=
+  decide ((orbListN [yC, wC, x] 3).length = 5) ||
+    (let o := orbListN [yC, wC, x] 6
+     decide (5 ≤ o.dedup.length) || n24TailN GN MP x o)
+
+@[expose] noncomputable def n24EntryN (GN : List Nat) (MP : Nat) (x : CV 16) : Bool :=
+  !(n24PreC x) || n24ChkN GN MP x
 
 @[expose] noncomputable def cHatN (GN : List Nat) (MP : Nat) (x : CV 16) : Bool :=
   if x.1 ∈ GN then
@@ -35,6 +47,8 @@ open Equiv Perm CFSG.Certificates.Kernel.PkCV CFSG.Certificates.Kernel.L5S
   (!(f0 || f1) || (imgN x (pN Ppl) == pN Ppl)) && (!f0 || decide (x.1 ∈ GN)) &&
     (!f0 || decide (x ∈ n24C) || cHatN GN MP x)
 
+@[expose] noncomputable def g72PinChk (GN : List Nat) (MP : Nat) : Bool :=
+  (G72C.map Subtype.val == GN) && Nat.beq mulGP MP
 
 end CFSG.Certificates.Kernel.L5H
 

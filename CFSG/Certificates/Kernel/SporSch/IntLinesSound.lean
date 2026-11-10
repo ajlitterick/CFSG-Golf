@@ -55,6 +55,29 @@ theorem line_parse {l : List Char} {xs : List Int} (h : intsSK (tokK l) = some x
   · unfold lineInts
     rw [h]
 
+theorem nonEmpty_eq (l : List Char) : (!(String.ofList l).isEmpty) = nonEmpty l := by
+  rw [CFSG.KC.YModel.TextSem.isEmpty_ofList]
+  cases l <;> rfl
+
+theorem lines_parse {α : Type} {cs : List Char} (h : textOK cs = true) (f : List Int → α) :
+    (((String.ofList cs).splitOn "\n").filter (fun s => !s.isEmpty)).map
+        (fun s => f ((s.splitOn " ").filterMap String.toInt?)) =
+      (linesNE cs).map (fun l => f (lineInts l)) := by
+  rw [CFSG.KC.LQT.Cov.Parse.nl_eq, CFSG.KC.Str.splitOn_ofList, ← CFSG.KC.LQT.Cov.Parse.linesK_eq,
+    List.filter_map, List.map_map]
+  have e : ((fun s : String => !s.isEmpty) ∘ String.ofList) = nonEmpty := funext nonEmpty_eq
+  rw [e]
+  unfold textOK at h
+  rw [List.all_eq_true] at h
+  apply List.map_congr_left
+  intro l hl
+  have hl' := h l hl
+  cases hs : intsSK (tokK l) with
+  | none => rw [hs] at hl'; exact absurd hl' (by simp)
+  | some xs =>
+    obtain ⟨h1, h2⟩ := line_parse hs
+    simp only [Function.comp_apply]
+    rw [h1, h2]
 
 end CFSG.KC.IntLines
 

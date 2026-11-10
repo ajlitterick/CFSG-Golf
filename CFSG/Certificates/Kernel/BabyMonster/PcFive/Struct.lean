@@ -123,6 +123,7 @@ theorem FiveRel.qrel (R : FiveRel x h) : QRel cmFive (qW x h) (zW x h) where
   s13 := flip_comm R.c13 R.z5 rfl
   s23 := flip_comm (k := 1) (by rw [pow_one]; exact R.c23) R.z5 rfl
 
+theorem nfQ_unit2 (q : Fin 4 → G) (z : G) : nfQ q z ⟨0, 0, 1, 0, 0⟩ = q 2 := by simp [nfQ]
 
 theorem FiveRel.pcHyp (R : FiveRel x h) : PcHyp x (qW x h) (zW x h) where
   rel := R.qrel

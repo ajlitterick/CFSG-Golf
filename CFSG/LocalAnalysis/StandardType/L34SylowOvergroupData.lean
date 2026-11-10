@@ -46,6 +46,7 @@ open CFSG.PSL3Four.Native
 
 @[expose] def pGensWith (r : Tab) : Array Tab := #[pT, qT, r]
 
+@[expose] def pGensWith2 (r g : Tab) : Array Tab := #[pT, qT, r, g]
 
 @[expose] def mRs : Array Tab :=
   #[aSixGen1T, aSixGen2T, aSixGen3T, aSixGen4T, aSixGen5T, aSixGen6T]

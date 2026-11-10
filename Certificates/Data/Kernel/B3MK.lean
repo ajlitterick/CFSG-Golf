@@ -63,6 +63,7 @@ open Certificates.WEMK
 
 @[expose] def lenL {α : Type} (l : List α) : Nat := List.rec (motive := fun _ => Nat) 0 (fun _ _ ih => Nat.succ ih) l
 
+@[expose] def allWf (l : List Nat) : Bool := List.rec (motive := fun _ => Bool) true (fun x _ ih => wfW x && ih) l
 
 @[expose] def chainsOK (r0 r2 : Nat) (J VW : List Nat) : Bool :=
   List.rec (motive := fun _ => Nat → Bool) (fun _ => true)

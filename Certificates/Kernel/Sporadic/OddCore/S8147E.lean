@@ -26,6 +26,7 @@ open CertificateChecks.KernelSpor CertificateChecks.KernelSpor.OddCore
 
 theorem szk : szOK 1782 11 = true := by quickRfl
 
+theorem upk_size (P : Nat) : (unpack 1782 11 P).size = 1782 := by simp [unpack]
 
 theorem upk_get {P x : Nat} (hx : x < 1782) : (unpack 1782 11 P)[x]! = pg 11 (mask 11) P x :=
   unpack_get' hx
@@ -405,6 +406,11 @@ theorem stepF_prefix (x : Array Nat) (st : SuzFiveBfsState) (m : Array Nat) :
   · exact ⟨#[], by simp⟩
   · exact ⟨#[compA 1782 m x], by simp [suzFiveAdd]⟩
 
+theorem stepF_good {st : SuzFiveBfsState} (h : Good st) (x m : Array Nat) : Good (stepF x st m) := by
+  unfold stepF
+  split
+  · exact h
+  · exact good_add h _
 
 theorem visit_prefix (x : Array Nat) (ms : Array (Array Nat)) :
     ∀ st : SuzFiveBfsState, ∃ L : Array (Array Nat), (suzFiveVisit ms st x).1 = st.1 ++ L := by

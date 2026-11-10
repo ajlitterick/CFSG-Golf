@@ -69,6 +69,11 @@ namespace CertificateChecks.KernelSporSch.RuP
 open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.SporSch CFSG.Sporadic.RuSchreier
   CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CertificateChecks.KernelSporSch
 
+theorem canons : bAnd(canonK 1920 11 (mask 11) (1920 * 11) (pidn 1920 11),
+    bAnd(canonK 1920 11 (mask 11) (1920 * 11) RuF.ZF,
+    bAnd(canonK 1920 11 (mask 11) (1920 * 11) (RuT1920.L 7),
+    bAnd(canonK 1920 11 (mask 11) (1920 * 11) (RuT1920.L 9),
+      canonK 1920 11 (mask 11) (1920 * 11) (RuT1920.L 10))))) = true := by quickRfl
 
 theorem idOK1920 : idK 1920 11 (mask 11) = true := by quickRfl
 

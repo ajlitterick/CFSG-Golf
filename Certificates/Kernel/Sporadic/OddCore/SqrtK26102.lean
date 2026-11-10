@@ -86,6 +86,16 @@ theorem k26103 : sqK 6156 13 (J3CentP 0) (J3CentP 9) (TC3HJ3P 1)
     (j3W yuWord (pcomp 6156 13 (mask 13) (TC3HJ3P 1) (J3CentP 0))) = true := by
   quickRfl
 
+theorem k26102_neg : sqK 315 9 (J2Cn.F 0) (J2Cn.F 31)
+    (pcomp 315 9 (mask 9) (TC3HJ2T.F 1) (TC3HJ2T.F 1)) true = false := by
+  decide +kernel
+
+theorem k26103_neg : sqK 6156 13 (J3CentP 0) (J3CentP 9)
+    (pcomp 6156 13 (mask 13) (TC3HJ3P 1) (TC3HJ3P 1)) true = false := by
+  decide +kernel
+
+theorem k26103_word_neg : j3W yuWord (TC3HJ3P 1) = false := by
+  decide +kernel
 
 end CertificateChecks.KernelSpor.SqrtK26102
 

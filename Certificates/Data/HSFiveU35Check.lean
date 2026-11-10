@@ -9,9 +9,20 @@ namespace Certificates.HSU35
 open CFSG.PSL3Four.Native Certificates.FusD2Perm Certificates.MaxD2Perm Certificates.MaxD2Heis
   Certificates.HSOver
 
+@[expose] def uEnum : Enum := enumBFS 100 dataU.gT 126000
 
 @[expose] def tabT : Tab := wT hsFiveDataP hsOverTW
 
+@[expose] def checkUEnum (E : Enum) : Bool := enumOK 100 dataU.gT E && E.tabs.size == 126000
+
+@[expose] def checkUCent (E : Enum) : Bool :=
+  allBelow E.tabs.size fun k =>
+    !(comp 100 E.tabs[k]! tabT == comp 100 tabT E.tabs[k]!) ||
+      anyBelow 8 fun j => E.tabs[k]! == powT 100 tabT j
+
+@[expose] def check19850 : Bool :=
+  let E := uEnum
+  checkUEnum E && checkUCent E
 
 @[expose] def tabX : Tab := wT hsFiveDataP hsOverXW
 

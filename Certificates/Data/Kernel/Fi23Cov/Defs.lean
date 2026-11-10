@@ -61,6 +61,8 @@ namespace CFSG.KC.Fi23Cov
     Bool :=
   chW (nthW T i) && E (nthW T i) (nthW t3W i) && E (repW (nthW T i) 3) []
 
+@[expose] noncomputable def genOK (E : List Nat → List Nat → Bool) : Bool :=
+  E [39, 39] [] && E [40, 41] []
 
 @[expose] noncomputable def link (E : List Nat → List Nat → Bool) (x z h a ai : List Nat) : Bool :=
   E (h ++ x) (z ++ h) && cm E x z && cm E z (a ++ x ++ ai)

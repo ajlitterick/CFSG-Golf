@@ -8,6 +8,10 @@ namespace CFSG
 
 namespace GorensteinWalter
 
+@[expose] abbrev CompactOrderNineFour := {i : Fin 7 // i.val < 4}
+@[expose] def compactOrderNineSmallT : Equiv.Perm CompactOrderNineFour :=
+  Equiv.swap ⟨0, by decide⟩ ⟨1, by decide⟩ *
+    Equiv.swap ⟨2, by decide⟩ ⟨3, by decide⟩
 
 end GorensteinWalter
 

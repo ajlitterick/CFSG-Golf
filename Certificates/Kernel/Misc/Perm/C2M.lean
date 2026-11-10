@@ -60,6 +60,7 @@ theorem gGD : ∀ k < 2, Good (GD k) := by
   · exact good_GD0
   · exact good_AM (k := 7) (by norm_num)
 
+theorem gD : ∀ i < 60, Good (PD i) := good_pts (fun k hk => (gGD k hk).1) rootD ptD_all
 
 theorem gGC1 : ∀ k < 3, Good (GC1 k) := by
   intro k hk

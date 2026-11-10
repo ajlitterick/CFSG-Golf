@@ -179,6 +179,7 @@ theorem swSp432_eq_one :
 
 @[expose] def yL : List ℕ := [0, 1, 2, 3, 4, 5, 6, 8, 9]
 
+theorem rels_y332_y432 : ∀ w ∈ yRels 3 3 2, w.map (shiftAt 3) ∈ yRels 4 3 2 := by decide
 
 theorem index_of_table {inv L eps nLab nT N RW RM nR nS nW nF : ℕ} {F D Wd Wd2 R S : ℕ → ℕ}
     {amap : ℕ} {walk cov : List ℕ} {rels words : List (List (ℕ × Bool))}

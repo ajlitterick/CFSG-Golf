@@ -40,5 +40,7 @@ decreasing_by exact _h
           i' != 0 &&
           tabPowIdx P L i' p == 0 && lab[i']! == c' && decide (depth[c']! < depth[c]!))
 
+@[expose] def genIdx (L : Array (Array Nat)) (j : Nat) : Nat := (L[j]!)[0]!
+
 
 end Timmesfeld.PcFus

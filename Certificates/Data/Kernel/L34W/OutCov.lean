@@ -106,6 +106,9 @@ open CFSG.KLie.CT (notB)
   allN (nat_lit 3) fun r => strictB (RP (Nat.succ r)) fun p => allN (nat_lit 2304) fun n =>
     bEq (Nat.beq (Y n) p) (Nat.beq n (Nat.mul (nat_lit 64) (Nat.succ r)))
 
+@[expose] noncomputable def kapOK (A K : Nat → Nat) : Bool :=
+  allN (nat_lit 6) fun j => strictB (K j) fun h => allN (nat_lit 3) fun r =>
+    bEq (invK A (hf h 0) (hf h 1) (hf h 2) (Nat.succ r)) (hasBit (hf h 3) r)
 
 @[expose] noncomputable def caseK (Y ST T A G EG E : Nat → Nat) (h FK FT LT S3 WB V cnt k : Nat) :
     Bool :=

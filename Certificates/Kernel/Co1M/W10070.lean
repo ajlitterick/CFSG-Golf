@@ -166,6 +166,9 @@ theorem chunks_spec {act : Nat → Nat → Nat} {ng root : Nat} {rec : Nat → N
     ∀ j < cnt, chunkOK act ng (fun _ => true) root rec n wv wl wp B (lo + j) = true :=
   (CFSG.KC.SortTree.allN_iff _ _).1 h
 
+theorem chunks_join {P : Nat → Prop} {a b : Nat} (ha : ∀ j < a, P (0 + j)) (hb : ∀ j < b, P (a + j)) :
+    ∀ c < a + b, P c :=
+  CFSG.KC.SortTree.forall_lt_add (fun c hc => by simpa using ha c hc) hb
 
 theorem w70_t2 : chunksK (actC w70.R w70.K4 w70.K4i) (lenL w70.K4) (w70.reg (getL 0 w70.r2 2))
     w70.t2.tab 120 576 w70.t2.wl w70.t2.wp w70.t2.B 0 4 = true := by quickRfl

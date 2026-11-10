@@ -101,6 +101,21 @@ deriving Inhabited, DecidableEq
 @[expose] def rref (d : Nat) (X : Array W) : RRef :=
   Nat.fold d (fun c _ st => colStep st c) ⟨X, 0, #[]⟩
 
+@[expose] def W.zeroBelow (a : W) (c : Nat) : Bool :=
+  Nat.all 13 fun l _ =>
+    if 64 * (l + 1) ≤ c then (a.limbP l ||| a.limbM l) == 0
+    else if 64 * l ≤ c then
+      (a.limbP l ||| a.limbM l) &&& (((1 : UInt64) <<< (c - 64 * l).toUInt64) - 1) == 0
+    else true
+
+@[expose] def rrefOK (r : Nat) (F : RRef) : Bool :=
+  let M := F.piv.foldl (fun M c => M.setTrit c 1) W.zero
+  F.rows.size == r && F.piv.size == r && F.rank == r &&
+    Nat.all r (fun k _ =>
+      let c := F.piv[k]!
+      let x := F.rows[k]!
+      c < 781 && (k == 0 || F.piv[k - 1]! < c) && x.canon && x.zeroBelow c &&
+        x.restrictEq M (W.zero.setTrit c 1))
 
 @[inline, expose] def stepForm (t : Array W) (X : Array W) : RRef :=
   rref 781 (X.map (frApply t))

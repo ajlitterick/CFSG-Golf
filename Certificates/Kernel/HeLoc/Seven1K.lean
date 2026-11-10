@@ -74,6 +74,7 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.SporSch CFSG.KC.HeLoc
       !eqOnL bs (fun y => cv1 c (gD1 (Nat.sub w 1) y)) (fun y => gD1 (Nat.sub w 1) (cv1 c y)))),
     bAnd(Nat.blt (Nat.sub w 100) 7, eqOnL bs (cv1 c) (powF x1 (Nat.sub w 100))))
 
+theorem kN1 : bAnd(Nat.beq C1.N 1176, Nat.beq D1.N 168) = true := by quickRfl
 
 theorem kCTree1 : allN 1176 (fun i => bIf(Nat.beq i 0, true, treeAtK 3 C1.P C1.L i)) = true := by
   quickRfl

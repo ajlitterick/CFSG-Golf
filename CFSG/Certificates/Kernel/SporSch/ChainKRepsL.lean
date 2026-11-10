@@ -515,6 +515,50 @@ theorem chainK_repsTotal' (hn : 1 ≤ n) (hbs : bv.toList.Nodup)
   · have hj' : j < CL.length := hlen ▸ hj
     exact countWord' hQ hn hbs (hRj j hj) hmy ws hk (hCW.2 j hj').1 (hCW.2 j hj').2
 
+theorem chainK_repsTotal2' (hn : 1 ≤ n) (hbs : bv.toList.Nodup)
+    (hQ : ChainK n w (gens) words bv PS PSI LR TR TRI kS BP NS CH)
+    {gA gB : Equiv.Perm (Fin n)} {tA tB : List Nat}
+    (hA : tA = imageList gA) (hB : tB = imageList gB) (hk : 2 ≤ k)
+    {mx my cap : Nat} {CL : List ClassDatum} {reps : List (Equiv.Perm (Fin n))}
+    {ws : List (List Nat × Nat)} (hcls : allC (clsOneR n w tA tB mx cap) CL = true)
+    (hR : reps.length = CL.length ∧ ∀ j < CL.length,
+      imageList (reps.getD j 1) = (unpack n w (CL.getD j (0, 0, 0, [], [], [], [])).2.2.1).toList)
+    (hmy : 0 < my) {CW : List (List (List Nat))}
+    (hCW : CW.length = CL.length ∧ ∀ j < CL.length, Cnt2 LR (CW.getD j [])
+      (cntWord2K n w (mask w) (n * w) (pidn n w) LR TR k mx my ws
+        (CL.getD j (0, 0, 0, [], [], [], [])).2.2.1))
+    (hne : allC (fun d => Nat.blt 0 (lenN d.2.2.2.2.2.2)) CL = true) :
+    repsTotal n (pairTables gA gB) (pairTables gA⁻¹ gB⁻¹) (reps.map toTable)
+        (orderTables (certificate hn gens words bv hbs) my) cap (wordsTest n mx my ws) =
+      ((List.range CL.length).map fun j =>
+        (CL.getD j (0, 0, 0, [], [], [], [])).2.2.2.2.2.2.length *
+          ((CW.getD j []).map List.sum).sum).sum := by
+  set d0 : ClassDatum := (0, 0, 0, [], [], [], [])
+  have hsz := chainK_szOK hQ
+  have h32 := szOK_lt hsz
+  rw [allC_iff] at hcls hne
+  have hlen := hR.1
+  have hRj : ∀ j (hj : j < reps.length), PRep n w (CL.getD j d0).2.2.1 reps[j] := fun j hj => by
+    have := prep_of_imageList (hR.2 j (hlen ▸ hj))
+    rwa [List.getD_eq_getElem _ 1 hj] at this
+  have hmem : ∀ j (hj : j < reps.length), CL.getD j d0 ∈ CL := fun j hj => by
+    rw [List.getD_eq_getElem _ _ (hlen ▸ hj)]
+    exact List.getElem_mem _
+  have hpos : ∀ j (hj : j < reps.length), 0 < (CL.getD j d0).2.2.2.2.2.2.length := fun j hj => by
+    have := hne _ (hmem j hj)
+    rwa [Nat.blt_eq, lenN_eq'] at this
+  have hF := fun j (hj : j < reps.length) =>
+    datum_facts hA hB hsz (hcls _ (hmem j hj)) (hpos j hj) (hRj j hj)
+  refine repsTotal_eq hlen (fun j hj => ?_) (fun j hj => ?_)
+  · have hg := rep_pair h32 gA gB
+    have hgK := genK_pair gA gB
+    have hcap : (CFSG.Sporadic.SmallOddCore.conjClass (genK (pairTables gA gB)
+        (fun l => if l = 0 then gA else gB)) reps[j]).ncard ≤ cap := by
+      rw [hgK, (hF j hj).1]
+      exact (hF j hj).2.1
+    rw [conjClosure_size hg (rep_toTable h32 reps[j]) hcap, hgK, (hF j hj).1]
+  · have hj' : j < CL.length := hlen ▸ hj
+    exact countWord2' hQ hn hbs (hRj j hj) hmy ws hk (hCW.2 j hj')
 
 end CFSG.KS.SporSch.MOC
 

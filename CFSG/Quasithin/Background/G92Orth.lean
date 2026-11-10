@@ -14,6 +14,9 @@ open CFSG.Quasithin.G11
 open scoped Matrix
 
 
+private abbrev SL2 : Type := Matrix.SpecialLinearGroup (Fin 2) (ZMod 2)
+
+
 section Module
 
 

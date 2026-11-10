@@ -47,6 +47,11 @@ open CFSG.Certificates CFSG.Certificates.Native CFSG.Monster.B.Co2 CFSG.Monster.
 @[expose] def hsP : Subgroup (Equiv.Perm (Fin 3850)) := Subgroup.closure {hsGen 0, hsGen 1}
 
 
+@[expose] def hsStabIdx : List ℕ := [2, 3, 4, 5, 6, 7]
+
+@[expose] def hsH0 : Subgroup (Equiv.Perm (Fin 3850)) :=
+  Subgroup.closure {g | ∃ j ∈ hsStabIdx, hsStrongPerm j = g}
+
 irreducible_def hsStabOrbits : List (List ℕ) := hsStabData.1
 
 irreducible_def hsMerges : List (ℕ × List (ℕ × ℕ × ℕ)) := hsStabData.2

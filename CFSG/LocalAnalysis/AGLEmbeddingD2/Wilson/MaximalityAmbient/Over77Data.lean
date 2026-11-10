@@ -24518,9 +24518,37 @@ namespace CFSG.AGLEmbeddingD2.Wilson.MaximalityAmbient.Over77
 "
 
 @[expose] def pWords : Array (List Nat) := parseWords pWordsStr
+@[expose] def rWords : Array (List Nat) := parseWords rWordsStr
+@[expose] def rMulData : Array Nat := parseNats rMulStr
+@[expose] def rClsData : Array Nat := parseNats rClsStr
+@[expose] def jxData : Array Nat := parseNats jxStr
 @[expose] def sWords : Array (List Nat) := parseWords sWordsStr
 
 @[expose] def PE : Array (Array Nat) := pWords.map (evalW dataP)
+@[expose] def RE : Array (Array Nat) := rWords.map (evalW dataS)
+@[expose] def XE (i : Nat) : Array Nat := RE.getD (jxData.getD i 0) idA
 
+@[expose] def chkR0 : Bool := rWords.getD 0 [] == []
+
+@[expose] def chkMul : Bool :=
+  (List.range 8064).all fun j => (List.range 9).all fun k =>
+    decide (rMulData.getD (2 * (9 * j + k) + 1) 0 < 8064) &&
+      comp (RE.getD j idA) (dataS.getD k idA) ==
+        comp (PE.getD (rMulData.getD (2 * (9 * j + k)) 0) idA)
+          (RE.getD (rMulData.getD (2 * (9 * j + k) + 1) 0) idA)
+
+@[expose] def chkCls : Bool :=
+  (List.range 8064).all fun j =>
+    let i := rClsData.getD (3 * j) 0
+    let p := PE.getD (rClsData.getD (3 * j + 1) 0) idA
+    let q := PE.getD (rClsData.getD (3 * j + 2) 0) idA
+    if i = 0 then RE.getD j idA == p
+    else decide (i ≤ 82) && RE.getD j idA == comp (comp p (XE (i - 1))) q
+
+@[expose] def chkSigma : Bool :=
+  (List.range 82).all fun i =>
+    evalW #[dataA, dataB, dataZ, XE i] (sWords.getD i []) == dataSigma
+
+@[expose] def over77Check : Bool := chkR0 && chkMul && chkCls && chkSigma
 
 end CFSG.AGLEmbeddingD2.Wilson.MaximalityAmbient.Over77

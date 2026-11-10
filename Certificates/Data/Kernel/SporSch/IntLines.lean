@@ -23,6 +23,8 @@ open CFSG.KC.LQT.Cov
 
 @[expose] noncomputable def linesNE (cs : List Char) : List (List Char) := (linesK cs).filter nonEmpty
 
+@[expose] noncomputable def textOK (cs : List Char) : Bool :=
+  (linesNE cs).all fun l => Option.rec (motive := fun _ => Bool) false (fun _ => true) (intsSK (tokK l))
 
 end CFSG.KC.IntLines
 

@@ -689,6 +689,62 @@ theorem KOut_holds : KOut := by
 
 end OutProofs
 
+@[expose] def Is421Index : TauCeti.LieTypeIndex → Prop
+  | .B 3 Q => Q.p = 2
+  | .twistedD 4 Q => Q.p = 2
+  | .A 5 Q => Q.card = 2
+  | .A 6 Q => Q.card = 2
+  | _ => False
+
+@[expose] def Is421Group (L : Type) [Group L] : Prop :=
+  ∃ d : TauCeti.ValidLieTypeIndex, Is421Index d.1 ∧ Nonempty (L ≃* (TauCeti.CFSGIndex.lie d).Group)
+
+@[expose] def jElementary (p : ℕ) {G : Type} [Group G] [Finite G] (R : Subgroup G) : Subgroup G :=
+  Subgroup.closure {x : G | ∃ E : Subgroup G, E ≤ R ∧ CFSG.Open.IsElemAbelian p E ∧
+    Nat.card E = p ^ CFSG.Open.pRank p R ∧ x ∈ E}
+
+@[expose] def wConjClass {G : Type} [Group G] (W H : Subgroup G) : Set (Subgroup G) :=
+  {K | ∃ w ∈ W, K = H.map (MulAut.conj w).toMonoidHom}
+
+@[expose] def HasThreeWClasses {G : Type} [Group G] (W A : Subgroup G) (k : ℕ)
+    (H₁ H₂ H₃ : Subgroup G) : Prop :=
+  (H₁ ≤ A ∧ Nat.card H₁ = k) ∧ (H₂ ≤ A ∧ Nat.card H₂ = k) ∧ (H₃ ≤ A ∧ Nat.card H₃ = k) ∧
+  (wConjClass W H₁).ncard = 3 ∧ (wConjClass W H₂).ncard = 6 ∧ (wConjClass W H₃).ncard = 4 ∧
+  ∀ H : Subgroup G, H ≤ A → Nat.card H = k →
+    H ∈ wConjClass W H₁ ∨ H ∈ wConjClass W H₂ ∨ H ∈ wConjClass W H₃
+
+@[expose] noncomputable def wClassCount {G : Type} [Group G] (W B H : Subgroup G) : ℕ :=
+  {K : Subgroup G | K ≤ B ∧ Nat.card K = 3 ∧ K ∈ wConjClass W H}.ncard
+
+@[expose] def K421 : Prop :=
+  ∀ (L : Type) [Group L] [Finite L], Is421Group L → ∀ (R : Sylow 3 L) (A : Subgroup L),
+    A = jElementary 3 (R : Subgroup L) →
+      (CFSG.Open.IsElemAbelian 3 A ∧ Nat.card A = 27) ∧
+      (∀ E : Subgroup L, CFSG.Open.IsElemAbelian 3 E →
+        ∃ g : L, E.map (MulAut.conj g).toMonoidHom ≤ A) ∧
+      ∃ A₁ A₂ A₃ B₁ B₂ B₃ : Subgroup L,
+        HasThreeWClasses (Subgroup.normalizer (A : Set L)) A 3 A₁ A₂ A₃ ∧
+        HasThreeWClasses (Subgroup.normalizer (A : Set L)) A 9 B₁ B₂ B₃ ∧
+        (wClassCount (Subgroup.normalizer (A : Set L)) B₁ A₁ = 2 ∧
+          wClassCount (Subgroup.normalizer (A : Set L)) B₁ A₂ = 2 ∧
+          wClassCount (Subgroup.normalizer (A : Set L)) B₁ A₃ = 0) ∧
+        (wClassCount (Subgroup.normalizer (A : Set L)) B₂ A₁ = 1 ∧
+          wClassCount (Subgroup.normalizer (A : Set L)) B₂ A₂ = 1 ∧
+          wClassCount (Subgroup.normalizer (A : Set L)) B₂ A₃ = 2) ∧
+        (wClassCount (Subgroup.normalizer (A : Set L)) B₃ A₁ = 0 ∧
+          wClassCount (Subgroup.normalizer (A : Set L)) B₃ A₂ = 3 ∧
+          wClassCount (Subgroup.normalizer (A : Set L)) B₃ A₃ = 1)
+
+
+open scoped MatrixGroups in
+@[expose] def K62 : Prop :=
+  ∀ r : ℕ, r.Prime → r ≠ 2 → ∀ (Q : Type) [Group Q] [Finite Q], IsPGroup r Q →
+    CFSG.Open.pRank r (⊤ : Subgroup Q) ≤ 2 → ∀ E : Subgroup (MulAut Q), ⁅E, E⁆ = E →
+    ∀ H N : Subgroup (MulAut Q), CFSG.Open.IsSubnormal H E → N ≤ H →
+      ∀ (_ : (N.subgroupOf H).Normal), IsSimpleGroup (↥H ⧸ N.subgroupOf H) →
+        ¬ IsMulCommutative (↥H ⧸ N.subgroupOf H) →
+      Nonempty ((↥H ⧸ N.subgroupOf H) ≃* PSL(2, ZMod r)) ∨
+        Nonempty ((↥H ⧸ N.subgroupOf H) ≃* alternatingGroup (Fin 5))
 
 open scoped MatrixGroups in
 @[expose] def K63_three : Prop :=

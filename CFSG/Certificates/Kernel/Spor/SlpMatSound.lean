@@ -78,6 +78,10 @@ theorem semArr_append_getD (g : Int → M) (Ws Es : Array (List Int)) {k : Nat} 
 
 section ChunkLemmas
 
+theorem chk_natRec (k : List (Nat × Nat) → Bool) (n x : Nat) (E : List (Nat × Nat)) :
+    Nat.rec (motive := fun _ => Bool) (k (List.cons (Prod.mk n (nat_lit 0)) E))
+      (fun v _ => k (List.cons (Prod.mk n (Nat.succ v)) E)) x = k ((n, x) :: E) := by
+  cases x <;> rfl
 
 theorem chk_orB {a b : Bool} (h : orB a b = true) : a = true ∨ b = true := by
   cases a <;> cases b <;> simp_all [orB]
@@ -616,6 +620,13 @@ theorem appL_eq (a b : List (List Nat)) : appL a b = a ++ b := by
   | nil => rfl
   | cons w a ih => change w :: appL a b = _; rw [ih]; rfl
 
+theorem nthL_eq {α : Type} (d : α) (l : List α) (j : Nat) : nthL d l j = l.getD j d := by
+  induction l generalizing j with
+  | nil => rfl
+  | cons a l ih =>
+    cases j with
+    | zero => rfl
+    | succ j => change nthL d l j = _; rw [ih]; rfl
 
 theorem eqLN_spec : ∀ {a b : List Nat}, eqLN a b = true → a = b
   | [], [], _ => rfl

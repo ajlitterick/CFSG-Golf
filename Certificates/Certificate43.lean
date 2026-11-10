@@ -27,5 +27,10 @@ private local instance : DecidableEq (Equiv.Perm (Fin 3)) :=
 
 namespace Certificates
 
+theorem certificate43 :
+      ∀ s t : Equiv.Perm (Fin 3),
+        (s ≠ 1 ∧ s ^ 2 = 1) → (t ≠ 1 ∧ t ^ 2 = 1) → s ≠ t →
+          (s * t) ^ 3 = 1 ∧ s * t ≠ 1 := by
+  decide +kernel
 
 end Certificates

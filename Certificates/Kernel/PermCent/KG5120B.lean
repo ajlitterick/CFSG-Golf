@@ -14,5 +14,8 @@ open CFSG.GH74.KGroups.L33
 
 theorem kE9 : e9freeC (elemsC QA) = true := by decide +kernel
 
+theorem kE9_neg : ((elemsC QA).all fun τ => bif powOneC τ 2 && !decide (τ = 1) then
+    (centL (elemsC QA) τ).all fun X => !powOneC X 3 || decide (X = 1) else true) = false := by
+  decide +kernel
 
 end CFSG.Certificates.Kernel.PkCV.KGrp.K5120

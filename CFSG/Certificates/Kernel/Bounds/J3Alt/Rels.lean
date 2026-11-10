@@ -31,6 +31,9 @@ namespace CFSG.KC.J3A
     (fun x _ ih => Prod.rec (motive := fun _ => Nat × Nat)
       (fun v n => Prod.mk (Nat.lor (letCode x) (Nat.shiftLeft v (nat_lit 8))) (Nat.succ n)) ih) w
 
+@[expose] noncomputable def encEnt (w : List (Nat × Bool)) : Nat :=
+  Prod.rec (motive := fun _ => Nat)
+    (fun v n => Nat.add (Nat.mul (nat_lit 4) n) (Nat.shiftLeft v (nat_lit 12))) (encW w)
 
 @[expose] noncomputable def eqL (A B : List Nat) : Bool :=
   List.rec (motive := fun _ => List Nat → Bool)
@@ -38,6 +41,8 @@ namespace CFSG.KC.J3A
     (fun a _ ih => fun B => List.rec (motive := fun _ => Bool) false
       (fun b tb _ => Bool.rec (motive := fun _ => Bool) false (ih tb) (Nat.beq a b)) B) A B
 
+@[expose] noncomputable def encList (L : List (List (Nat × Bool))) : List Nat :=
+  List.rec (motive := fun _ => List Nat) List.nil (fun h _ ih => List.cons (encEnt h) ih) L
 
 end CFSG.KC.J3A
 

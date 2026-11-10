@@ -209,6 +209,10 @@ open CFSG.CosetTable CFSG.Quasithin
     bQbabQ bQbqqf bQBfbq BaBfbq BaQBfB BABfbq BABfBQ BABfQB BAqbaB BAQABf BAQfBA BqqBqq \
     BqqBQf BqqBfq qaBqBQ qABfbq qbabab qbQbqf qbQbfq qbQbfQ qBAABq qBAfbQ qqbQbf QbaabQ \
     QBABfb QBqBQf fQBABA aabABfB aabQBfb abaBAfb aQBABfb"
+@[expose] def burnsideF48s_sp43eKS : List String :=
+  ["", "f", "aaa", "aaaf"]
+@[expose] def burnsideF48s_sp43eTS : List String :=
+  ["", "f", "aaa", "aaaf"]
 @[expose] def burnsideF48s_sp43eUS : List String :=
   ["p", "p", "p", "p", "p", "p", "p", "p", "pf", "pf", "pf", "pf", "pf", "pf", "pf", "pf",
     "aaap", "aaap", "aaap", "aaap", "aaap", "aaap", "aaap", "aaap", "aaapf", "aaapf", "aaapf",
@@ -221,10 +225,39 @@ open CFSG.CosetTable CFSG.Quasithin
   ["", "f", "aaa", "aaaf", "", "f", "aaa", "aaaf", "", "f", "aaa", "aaaf", "", "f", "aaa",
     "aaaf", "", "f", "aaa", "aaaf", "", "f", "aaa", "aaaf", "", "f", "aaa", "aaaf", "", "f",
     "aaa", "aaaf"]
+@[expose] def burnsideF48s_sp43eLS : List (List ℕ) :=
+  [[43, 1, 36, 3, 29, 20, 34, 18, 8, 26, 11, 23, 13, 16, 33, 17, 30, 21, 4, 12, 6, 15, 22, 28,
+      10, 35, 39, 41, 40, 0, 38, 42, 37, 44, 2, 32, 5, 31, 19, 9, 24, 27, 25, 7, 14],
+    [41, 2, 36, 6, 27, 20, 34, 22, 5, 21, 26, 14, 31, 10, 16, 28, 11, 25, 4, 17, 8, 33, 29, 12,
+      24, 19, 13, 18, 32, 7, 30, 23, 15, 9, 3, 35, 1, 39, 44, 40, 37, 43, 38, 0, 42],
+    [2, 1, 0, 8, 6, 7, 4, 5, 3, 14, 12, 13, 10, 11, 9, 15, 23, 17, 20, 24, 18, 21, 22, 16, 19, 25,
+      33, 27, 30, 34, 28, 31, 32, 26, 29, 35, 43, 37, 40, 44, 38, 41, 42, 36, 39],
+    [43, 21, 12, 33, 0, 31, 23, 41, 9, 8, 19, 42, 20, 25, 44, 17, 10, 15, 4, 28, 30, 1, 22, 36, 6,
+      38, 39, 7, 16, 27, 2, 34, 11, 3, 35, 5, 24, 13, 37, 26, 32, 29, 40, 18, 14],
+    [0, 1, 2, 8, 7, 6, 5, 4, 3, 14, 13, 12, 11, 10, 9, 15, 24, 21, 18, 23, 20, 17, 22, 19, 16, 35,
+      44, 41, 38, 43, 40, 37, 42, 39, 36, 25, 34, 31, 28, 33, 30, 27, 32, 29, 26]]
+@[expose] def burnsideF48s_sp43eLSi : List (List ℕ) :=
+  [[29, 1, 34, 3, 18, 36, 20, 43, 8, 39, 24, 10, 19, 12, 44, 21, 13, 15, 7, 38, 5, 17, 22, 11,
+      40, 42, 9, 41, 23, 4, 16, 37, 35, 14, 6, 25, 2, 32, 30, 26, 28, 27, 31, 0, 33],
+    [43, 36, 1, 34, 18, 8, 3, 29, 20, 33, 13, 16, 23, 26, 11, 32, 14, 19, 27, 25, 5, 9, 7, 31, 24,
+      17, 10, 4, 15, 22, 30, 12, 28, 21, 6, 35, 2, 40, 42, 37, 39, 0, 44, 41, 38],
+    [2, 1, 0, 8, 6, 7, 4, 5, 3, 14, 12, 13, 10, 11, 9, 15, 23, 17, 20, 24, 18, 21, 22, 16, 19, 25,
+      33, 27, 30, 34, 28, 31, 32, 26, 29, 35, 43, 37, 40, 44, 38, 41, 42, 36, 39],
+    [4, 21, 30, 33, 18, 35, 24, 27, 9, 8, 16, 32, 2, 37, 44, 17, 28, 15, 43, 10, 12, 1, 22, 6, 36,
+      13, 39, 29, 19, 41, 20, 5, 40, 3, 31, 34, 23, 38, 25, 26, 42, 7, 11, 0, 14],
+    [0, 1, 2, 8, 7, 6, 5, 4, 3, 14, 13, 12, 11, 10, 9, 15, 24, 21, 18, 23, 20, 17, 22, 19, 16, 35,
+      44, 41, 38, 43, 40, 37, 42, 39, 36, 25, 34, 31, 28, 33, 30, 27, 32, 29, 26]]
 @[expose] def burnsideF48s_sp43eR1 : List (List (Fin 5 × Bool)) := burnsideF48s_sp43eWords burnsideF48s_sp43eR1S
 
 @[expose] def burnsideF48s_sp43eR2 : List (List (Fin 5 × Bool)) := burnsideF48s_sp43eWords burnsideF48s_sp43eR2S
 
+@[expose] def burnsideF48s_sp43eP1W : List (List (Fin 5 × Bool)) := burnsideF48s_sp43eWords (burnsideF48s_sp43eP1Str.splitOn " ")
+
+@[expose] def burnsideF48s_sp43eP2W : List (List (Fin 5 × Bool)) := burnsideF48s_sp43eWords (burnsideF48s_sp43eP2Str.splitOn " ")
+
+@[expose] def burnsideF48s_sp43eKW : List (List (Fin 5 × Bool)) := burnsideF48s_sp43eWords burnsideF48s_sp43eKS
+
+@[expose] def burnsideF48s_sp43eTW : List (List (Fin 5 × Bool)) := burnsideF48s_sp43eWords burnsideF48s_sp43eTS
 
 @[expose] def burnsideF48s_sp43eU : List (List (Fin 5 × Bool)) := burnsideF48s_sp43eWords burnsideF48s_sp43eUS
 
@@ -239,5 +272,36 @@ abbrev burnsideF48s_sp43eWs (k : ℕ) : List (List (Fin 5 × Bool)) :=
 abbrev burnsideF48s_sp43eWsB (k : ℕ) : List (List (Fin (subsetOf 5 [0, 1, 2, 4]).length × Bool)) :=
   restrictWords (subsetOf 5 [0, 1, 2, 4]) (burnsideF48s_sp43eWs k)
 
+abbrev burnsideF48s_sp43eEvL (w : List (Fin 5 × Bool)) : List ℕ :=
+  burnsideF48s_eEvL 45 burnsideF48s_sp43eLS burnsideF48s_sp43eLSi w
+
+
+@[expose] def burnsideF48s_sp43eCheckLetters (_ : Unit := ()) : Bool :=
+  ((burnsideF48s_sp43eP1W ++ burnsideF48s_sp43eR1 ++ burnsideF48s_sp43eU).all fun w =>
+    w.all fun l => decide (l.1 ≠ 3)) &&
+  ((burnsideF48s_sp43eP2W ++ burnsideF48s_sp43eR2 ++ burnsideF48s_sp43eV).all fun w =>
+    w.all fun l => decide (l.1 ≠ 2)) &&
+  ((burnsideF48s_sp43eKW ++ burnsideF48s_sp43eTW ++ burnsideF48s_sp43eW).all fun w =>
+    w.all fun l => decide (l.1 ≠ 2 ∧ l.1 ≠ 3))
+
+@[expose] def burnsideF48s_sp43eCheckClosed (_ : Unit := ()) : Bool :=
+  let P1L := burnsideF48s_sp43eP1W.map burnsideF48s_sp43eEvL
+  let P2L := burnsideF48s_sp43eP2W.map burnsideF48s_sp43eEvL
+  decide (burnsideF48s_sp43eP1W.length = 1296) && decide (burnsideF48s_sp43eP2W.length = 1296) &&
+  decide (burnsideF48s_sp43eP1W.getD 0 [(0, true)] = []) &&
+  decide (burnsideF48s_sp43eP2W.getD 0 [(0, true)] = []) &&
+  decide (burnsideF48s_sp43eKW = [[], burnsideF48s_sp43eWord "f", burnsideF48s_sp43eWord "aaa", burnsideF48s_sp43eWord "aaaf"]) &&
+  decide (burnsideF48s_sp43eU.length = 32) && decide (burnsideF48s_sp43eV.length = 32) &&
+  decide (burnsideF48s_sp43eW.length = 32) &&
+  burnsideF48s_eClosed P1L burnsideF48s_sp43eLS [0, 1, 2, 4] &&
+  burnsideF48s_eClosed P2L burnsideF48s_sp43eLS [0, 1, 3, 4] &&
+  burnsideF48s_eClosedW (burnsideF48s_sp43eKW.map burnsideF48s_sp43eEvL)
+    ([burnsideF48s_sp43eWord "f", burnsideF48s_sp43eWord "aaa"].map burnsideF48s_sp43eEvL)
+
+@[expose] def burnsideF48s_sp43eCheckCand (_ : Unit := ()) : Bool :=
+  burnsideF48s_eCandOK (burnsideF48s_sp43eP1W.map burnsideF48s_sp43eEvL)
+    (burnsideF48s_sp43eP2W.map burnsideF48s_sp43eEvL) (burnsideF48s_sp43eKW.map burnsideF48s_sp43eEvL)
+    (burnsideF48s_sp43eTW.map burnsideF48s_sp43eEvL) (burnsideF48s_sp43eU.map burnsideF48s_sp43eEvL)
+    (burnsideF48s_sp43eV.map burnsideF48s_sp43eEvL) (burnsideF48s_sp43eW.map burnsideF48s_sp43eEvL)
 
 end CFSG.ASVolI

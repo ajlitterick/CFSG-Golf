@@ -48,5 +48,9 @@ namespace CFSG.Quasithin.G105
 
 open Equiv
 
+abbrev G0 : Type := Perm (Fin 3) × Perm (Fin 3)
+
+@[expose] def E9 : Subgroup G0 := (alternatingGroup (Fin 3)).prod (alternatingGroup (Fin 3))
+
 
 end CFSG.Quasithin.G105

@@ -35,6 +35,10 @@ open CFSG.Quasithin CFSG.Open
     ext f x
     simp [mul_smul]
 
+@[expose] noncomputable def permCore (X : Type*) [Finite X] :
+    Subgroup (Multiplicative (X → ZMod 2)) :=
+  letI := Fintype.ofFinite X
+  AddSubgroup.toSubgroup (AddMonoidHom.ker (∑ x : X, Pi.evalAddMonoidHom (fun _ : X => ZMod 2) x))
 
 abbrev AdjAmb : Type := Multiplicative (Matrix (Fin 3) (Fin 3) (ZMod 2))
 
@@ -124,12 +128,32 @@ abbrev AdjAmb : Type := Multiplicative (Matrix (Fin 3) (Fin 3) (ZMod 2))
     (a : G →* MulAut A) (b : G →* MulAut B) : Prop :=
   ModIsoSub a b ⊤
 
+@[expose] def IsoSecIn {G : Type*} [Group G] {X : Type*} [CommGroup X] (ρ : G →* MulAut X)
+    (U Z : Subgroup X) (A : Type*) [CommGroup A] (act : G →* MulAut A) (S : Subgroup A) : Prop :=
+  Z ≤ U ∧ (∀ g, ∀ u ∈ U, ρ g u ∈ U) ∧ (∀ g, ∀ z ∈ Z, ρ g z ∈ Z) ∧
+  ∃ β : ↥U →* A, β.range = S ∧ (∀ u : ↥U, β u = 1 ↔ (u : X) ∈ Z) ∧
+    ∀ (g : G) (u u' : ↥U), (u' : X) = ρ g u → β u' = act g (β u)
+
+@[expose] def IsQuotOfSub {G : Type*} [Group G] {A B : Type*} [CommGroup A] [CommGroup B]
+    (act : G →* MulAut A) (b : G →* MulAut B) (S : Subgroup B) : Prop :=
+  ∃ π : ↥S →* A, Function.Surjective π ∧
+    ∀ (g : G) (x x' : ↥S), (x' : B) = b g x → π x' = act g (π x)
 
 @[expose] def IsMaxSub {G : Type*} [Group G] {X : Type*} [CommGroup X] (ρ : G →* MulAut X)
     (W N : Subgroup X) : Prop :=
   N < W ∧ (∀ g, ∀ u ∈ N, ρ g u ∈ N) ∧
     ∀ N' : Subgroup X, N ≤ N' → N' ≤ W → (∀ g, ∀ u ∈ N', ρ g u ∈ N') → N' = N ∨ N' = W
 
+@[expose] def radSub {G : Type*} [Group G] {X : Type*} [CommGroup X] (ρ : G →* MulAut X)
+    (W : Subgroup X) : Subgroup X :=
+  W ⊓ ⨅ (N : Subgroup X) (_ : IsMaxSub ρ W N), N
+
+abbrev PermLT (T : Subgroup (GL (Fin 3) (ZMod 2))) : Type :=
+  Multiplicative ((GL (Fin 3) (ZMod 2) ⧸ T) → ZMod 2)
+
+@[expose] def permLH (H : Subgroup (GL (Fin 3) (ZMod 2))) :
+    GL (Fin 3) (ZMod 2) →* MulAut (Multiplicative ((GL (Fin 3) (ZMod 2) ⧸ H) → ZMod 2)) :=
+  permModAct (GL (Fin 3) (ZMod 2)) (GL (Fin 3) (ZMod 2) ⧸ H)
 
 end CFSG.ASVolI.ChH
 
@@ -572,6 +596,27 @@ theorem as_H_6_1 : H_6_1 := by
 
 end H61
 
+@[expose] def H_6_2 : Prop :=
+  ∀ (T : Subgroup (GL (Fin 3) (ZMod 2))) (p : V3) (l : Submodule (ZMod 2) V3), HypH5 T p l →
+    (∃ U₁ U₂ U₃ U₄ : Subgroup (PermLT T),
+      (∀ g, ∀ u ∈ U₁, permLH T g u ∈ U₁) ∧ (∀ g, ∀ u ∈ U₂, permLH T g u ∈ U₂) ∧
+      (∀ g, ∀ u ∈ U₃, permLH T g u ∈ U₃) ∧ (∀ g, ∀ u ∈ U₄, permLH T g u ∈ U₄) ∧
+      U₁ ⊔ U₂ ⊔ U₃ ⊔ U₄ = ⊤ ∧
+      U₁ ⊓ (U₂ ⊔ U₃ ⊔ U₄) = ⊥ ∧ U₂ ⊓ (U₁ ⊔ U₃ ⊔ U₄) = ⊥ ∧
+      U₃ ⊓ (U₁ ⊔ U₂ ⊔ U₄) = ⊥ ∧ U₄ ⊓ (U₁ ⊔ U₂ ⊔ U₃) = ⊥ ∧
+      IsoSecIn (permLH T) U₁ ⊥ (Multiplicative (ZMod 2)) modTriv ⊤ ∧
+      IsoSecIn (permLH T) U₂ ⊥ (Multiplicative ((GL (Fin 3) (ZMod 2) ⧸ Lpt p) → ZMod 2))
+        (permLH (Lpt p)) (permCore (GL (Fin 3) (ZMod 2) ⧸ Lpt p)) ∧
+      IsoSecIn (permLH T) U₂ (radSub (permLH T) U₂) (Multiplicative V3) modNat ⊤ ∧
+      IsoSecIn (permLH T) U₃ ⊥ (Multiplicative ((GL (Fin 3) (ZMod 2) ⧸ Lln l) → ZMod 2))
+        (permLH (Lln l)) (permCore (GL (Fin 3) (ZMod 2) ⧸ Lln l)) ∧
+      IsoSecIn (permLH T) U₃ (radSub (permLH T) U₃) (Multiplicative V3) modDual ⊤ ∧
+      IsoSecIn (permLH T) U₄ ⊥ AdjAmb adjAmbAct Adj3 ∧
+      (radSub (permLH T) ⊤ = radSub (permLH T) U₂ ⊔ radSub (permLH T) U₃ ∧
+        radSub (permLH T) U₂ ⊓ radSub (permLH T) U₃ = ⊥ ∧
+        IsoSecIn (permLH T) (radSub (permLH T) ⊤) ⊥ (Multiplicative V3 × Multiplicative V3)
+          (prodAct modNat modDual) ⊤ ∧
+        rk ↥(radSub (permLH T) ⊤) = 6))
 
 @[expose] def H_6_3 : Prop :=
   (∃ (ι : ↥Adj3 →* Multiplicative (GL (Fin 3) (ZMod 2) → ZMod 2))
@@ -598,6 +643,29 @@ end H61
       ∀ g : GL (Fin 3) (ZMod 2), adjAmbAct g m = m → g ∈ T) ∧
     (commOn Adj3 ((Lln l).map adjAmbAct) = Adj3 ∧ commOn Adj3 ((Lpt p).map adjAmbAct) = Adj3)
 
+@[expose] def H_6_4 : Prop :=
+  ∀ (R : Type) [Ring R] (M : Type) [AddCommGroup M] [Module R M], IsFiniteLength R M →
+  ∀ A B K : Submodule R M, A ⊔ B = ⊤ →
+  ∀ (S : Type) [AddCommGroup S] [Module R S], IsSimpleModule R S →
+    Nonempty ((↥A ⧸ Module.jacobson R ↥A) ≃ₗ[R] S) →
+    (¬ ∃ N₁ N₂ : Submodule R ↥B, N₁ ≤ N₂ ∧ Nonempty ((↥N₂ ⧸ N₁.comap N₂.subtype) ≃ₗ[R] S)) →
+      A ≤ K ∨ ∃ N : Submodule R (M ⧸ K), Nonempty (((M ⧸ K) ⧸ N) ≃ₗ[R] S)
+
+
+@[expose] def H_6_5 : Prop :=
+  ∀ (T : Subgroup (GL (Fin 3) (ZMod 2))) (p : V3) (l : Submodule (ZMod 2) V3), HypH5 T p l →
+  ∀ (A : Type) [CommGroup A] [Finite A], (∀ a : A, a ^ 2 = 1) →
+  ∀ act : GL (Fin 3) (ZMod 2) →* MulAut A, (∀ g, (∀ a, act g a = a) → g = 1) →
+  ∀ m : A, (∀ t ∈ T, act t m = m) →
+    Subgroup.closure (Set.range fun g : GL (Fin 3) (ZMod 2) => act g m) = ⊤ →
+    rk ↥(Subgroup.closure ((fun g : GL (Fin 3) (ZMod 2) => act g m) '' (Lln l : Set _))) = 2 →
+      IsQuotOfSub act (prodAct (permLH (Lpt p)) adjAmbAct)
+        ((permCore (GL (Fin 3) (ZMod 2) ⧸ Lpt p)).prod Adj3) ∧
+      (ModIsoSub act (permLH (Lpt p)) (permCore (GL (Fin 3) (ZMod 2) ⧸ Lpt p)) ∨
+        ModIsoSub act adjAmbAct Adj3 ∨ ModIso act modNat ∨
+        ModIsoSub act (prodAct modNat adjAmbAct) ((⊤ : Subgroup (Multiplicative V3)).prod Adj3) ∨
+        ModIsoSub act (prodAct (permLH (Lpt p)) adjAmbAct)
+          ((permCore (GL (Fin 3) (ZMod 2) ⧸ Lpt p)).prod Adj3))
 
 section HBridge65
 open CFSG.Quasithin.MS93 Matrix
@@ -2569,16 +2637,62 @@ open CFSG.ASVolI.ChH Matrix
 private def mkInvol (M : Matrix (Fin 3) (Fin 3) (ZMod 2)) (h : M * M = 1) : GL (Fin 3) (ZMod 2) :=
   ⟨M, M, h, h⟩
 
+private def gP : GL (Fin 3) (ZMod 2) := mkInvol !![1, 0, 0; 0, 0, 1; 0, 1, 0] (by decide)
+private def gP2 : GL (Fin 3) (ZMod 2) := mkInvol !![1, 0, 0; 0, 1, 0; 0, 1, 1] (by decide)
+private def gS : GL (Fin 3) (ZMod 2) := mkInvol !![0, 1, 0; 1, 0, 0; 0, 0, 1] (by decide)
 private def gH : GL (Fin 3) (ZMod 2) := mkInvol !![1, 0, 0; 1, 1, 0; 0, 0, 1] (by decide)
 private def gT : GL (Fin 3) (ZMod 2) := mkInvol !![1, 1, 0; 0, 1, 0; 0, 0, 1] (by decide)
+private def gU : GL (Fin 3) (ZMod 2) := mkInvol !![1, 0, 0; 0, 1, 1; 0, 0, 1] (by decide)
 
 private def d2 (x : V3) : ZMod 2 := x 1 * (1 + x 2)
 
+private def d4 (x : V3) : ZMod 2 := x 2
 
 private def d12 (x : V3) : ZMod 2 :=
   (if x = ![1, 0, 0] then 1 else 0) + (if x = ![0, 1, 0] then 1 else 0)
 
+private theorem I1 : ∀ x : V3, d4 x = d2 (gPt gP⁻¹ x) + d2 (gPt gP2⁻¹ x) := by decide
+private theorem I2 : ∀ x : V3,
+    (d2 x + d4 x) + (d2 (gPt gS⁻¹ x) + d4 (gPt gS⁻¹ x)) = d12 x := by decide
 private theorem I3 : ∀ x : V3, d12 x = d2 (gPt gH⁻¹ x) := by decide
+private theorem I5 : ∀ x : V3, d12 (gPt gH⁻¹ x) = d2 x := by decide
+
+private theorem zmod2_one_add_one : (1 : ZMod 2) + 1 = 0 := by decide
+
+private def vec8 : Fin 8 → V3 :=
+  ![0, ![1, 0, 0], ![0, 1, 0], ![1, 1, 0], ![0, 0, 1], ![1, 0, 1], ![0, 1, 1], ![1, 1, 1]]
+
+
+private theorem V3_cases : ∀ x : V3, x = 0 ∨ x = ![1, 0, 0] ∨ x = ![0, 1, 0] ∨ x = ![1, 1, 0] ∨
+    x = ![0, 0, 1] ∨ x = ![1, 0, 1] ∨ x = ![0, 1, 1] ∨ x = ![1, 1, 1] := by
+  decide +kernel
+
+private theorem I4 (F : V3 → ZMod 2) (h0 : F 0 = 0)
+    (hsum : F 0 + F ![1, 0, 0] + F ![0, 1, 0] + F ![1, 1, 0] + F ![0, 0, 1] + F ![1, 0, 1] +
+      F ![0, 1, 1] + F ![1, 1, 1] = 0)
+    (ht : ∀ x, F (gPt gT⁻¹ x) = F x) (hu : ∀ x, F (gPt gU⁻¹ x) = F x) :
+    ∀ x, F x = F ![0, 1, 0] * d2 x + F ![0, 0, 1] * d4 x := by
+  have e1 : F ![1, 1, 0] = F ![0, 1, 0] := by
+    have h := ht ![0, 1, 0]
+    rwa [show gPt gT⁻¹ ![0, 1, 0] = ![1, 1, 0] from by decide] at h
+  have e2 : F ![1, 1, 1] = F ![0, 1, 1] := by
+    have h := ht ![0, 1, 1]
+    rwa [show gPt gT⁻¹ ![0, 1, 1] = ![1, 1, 1] from by decide] at h
+  have e3 : F ![0, 1, 1] = F ![0, 0, 1] := by
+    have h := hu ![0, 0, 1]
+    rwa [show gPt gU⁻¹ ![0, 0, 1] = ![0, 1, 1] from by decide] at h
+  have e4 : F ![1, 0, 1] = F ![1, 1, 1] := by
+    have h := hu ![1, 0, 1]
+    rw [show gPt gU⁻¹ ![1, 0, 1] = ![1, 1, 1] from by decide] at h
+    exact h.symm
+  rw [h0, e1, e4, e2, e3] at hsum
+  have key : ∀ a b c : ZMod 2, 0 + a + b + b + c + c + c + c = 0 → a = 0 := by decide
+  have h100 : F ![1, 0, 0] = 0 := key _ _ _ hsum
+  have hF111 : F ![1, 1, 1] = F ![0, 0, 1] := e2.trans e3
+  have hF101 : F ![1, 0, 1] = F ![0, 0, 1] := e4.trans hF111
+  intro x
+  rcases V3_cases x with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;>
+    simp [d2, d4, h0, h100, e1, hF111, hF101, e3, zmod2_one_add_one]
 
 
 end FlagH62
@@ -2587,6 +2701,28 @@ namespace FlagH62
 
 open CFSG.ASVolI.ChH Matrix
 
+private def d2p (a : V3) : ZMod 2 := (1 + a 0) * a 1
+
+private def d4p (a : V3) : ZMod 2 := a 0
+
+private def gM1 : GL (Fin 3) (ZMod 2) :=
+  ⟨!![0, 1, 0; 0, 0, 1; 1, 0, 0], !![0, 0, 1; 1, 0, 0; 0, 1, 0],
+  by decide, by decide⟩
+private def gM2 : GL (Fin 3) (ZMod 2) :=
+  ⟨!![1, 0, 0; 0, 0, 1; 1, 1, 0], !![1, 0, 0; 1, 0, 1; 0, 1, 0],
+  by decide, by decide⟩
+
+
+private theorem I6 : ∀ a : V3, d2p (gDu gM1⁻¹ a) + d2p (gDu gM2⁻¹ a) = a 0 := by decide
+
+private theorem I7 : ∀ a : V3, (d2p a + d4p a) + (d2p (gDu gM1⁻¹ a) + d4p (gDu gM1⁻¹ a)) =
+    (if a = ![0, 0, 1] then 1 else 0) + (if a = ![0, 1, 0] then 1 else 0) := by
+  decide +kernel
+
+private theorem I8 : ∀ a : V3, d2p (gDu gP2⁻¹ a) =
+    (if a = ![0, 0, 1] then 1 else 0) + (if a = ![0, 1, 0] then 1 else 0) := by
+  decide
+
 
 end FlagH62
 
@@ -2594,6 +2730,9 @@ end FlagH62
 namespace FlagH62
 
 open CFSG.ASVolI.ChH Matrix
+
+
+private theorem key7 : ∀ d : ZMod 2, 0 + d + d + d + d + d + d + d = 0 → d = 0 := by decide
 
 
 end FlagH62

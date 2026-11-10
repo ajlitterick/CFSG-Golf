@@ -317,6 +317,8 @@ namespace CFSG.ASVolI
 @[expose] def burnsideF48t_g23BaseS0 : List (Fin 728) :=
   [0, 7, 16]
 
+@[expose] def burnsideF48t_g23SizesS0 : List ℕ :=
+  [1, 27, 27]
 
 @[expose] def burnsideF48t_g23WK : Array (List ℤ) :=
   #[[],
@@ -326,6 +328,18 @@ namespace CFSG.ASVolI
 @[expose] def burnsideF48t_g23BaseK : List (Fin 728) :=
   [0, 5, 2]
 
+@[expose] def burnsideF48t_g23SizesK : List ℕ :=
+  [1, 2, 2]
+
+@[expose] def burnsideF48t_g23HA : List (List (Fin 4 × Bool)) :=
+  [[(2, true)],
+    [(2, true), (3, true), (2, true)],
+    [(2, true), (3, true), (2, true), (3, true), (2, true)]]
+
+@[expose] def burnsideF48t_g23HB : List (List (Fin 4 × Bool)) :=
+  [[(3, true)],
+    [(3, true), (2, true), (3, true)],
+    [(3, true), (2, true), (3, true), (2, true), (3, true)]]
 
 @[expose] def burnsideF48t_g23PtsStr : String :=
   "100000000000001100000000000012000000000000111101000000000100000000000012220200000000121201" ++

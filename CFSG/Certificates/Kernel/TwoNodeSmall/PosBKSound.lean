@@ -477,6 +477,8 @@ theorem rec_of {F : Fd} {G : List (Nat × Nat)} {X N s bnd : Nat} {Q : SPt}
   · exact ⟨.transv t, by simp only [verifyPos, hwf, ht, Bool.and_self]⟩
   · exact ⟨.cycle c, by simp only [verifyPos, hwf, hc, Bool.and_self]⟩
 
+theorem grpB_nil (F : Fd) (B : List (Nat × Nat)) (vb cN o0 o1 X N s : Nat) (rs : List ExclK.Rec)
+    (os : List ORec) : grpB F B vb cN o0 o1 X N s [] rs os = (rs.isEmpty && os.isEmpty) := rfl
 
 theorem grpB_cons (F : Fd) (B : List (Nat × Nat)) (vb cN o0 o1 X N s : Nat) (fr : List Nat)
     (frs : List (List Nat)) (rs : List ExclK.Rec) (os : List ORec) :
@@ -664,6 +666,10 @@ theorem uvB_o1 {N s : Nat} (hN : N = 5 ∨ N = 6 ∨ N = 7) (hs : s < 3) (o : Na
   rw [if_neg (by rw [hj1]; exact Bool.false_ne_true),
     if_neg (by rw [hh]; exact fun e => hne (Option.some.inj e))]
 
+theorem uvB_in {N s k : Nat} (o : Nat × Nat × Nat) (fr : List Nat) (hJ : inJ N s k = true) :
+    uvB N s o fr k = if k - s = o.1 then (o.2.1, o.2.2) else (0, 0) := by
+  unfold uvB
+  rw [if_pos hJ]
 
 theorem pkG_ptB (p N s : Nat) (o : Nat × Nat × Nat) (fr : List Nat) :
     pkG (ptB p N s o fr).pt =

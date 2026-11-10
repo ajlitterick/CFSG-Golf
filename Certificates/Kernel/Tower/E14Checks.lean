@@ -139,5 +139,14 @@ theorem ch36409_e3_l12 : e14L12 slE3 11 0 16 32 3 2 = true := by decide +kernel
 theorem ch36409_e3_l30 : e14L3 slE3 11 0 3 0 = true := by decide +kernel
 theorem ch36409_e3_l31 : e14L3 slE3 11 0 3 1 = true := by decide +kernel
 
+theorem ch36409_e14_neg : (!e14Lvl3 16384 (slEm 0 132) (slE0 0) (slE0 1) (slE0 3) 128 (slE0 5)
+    (slE0 7) 16 (slE0 14) (slE0 16) (kyL (slE0 8) 2) (pvL (slE0 9) 1) (pvL (slE0 9) 2)
+    (Nat.land (slE0 22) 0) 0) = true := by
+  decide +kernel
+
+theorem ch36409_e14_neg2 : (!cmOK16 16384 (slEm 0 132) 128 (slE0 0) (slE0 1) (slE0 3)
+    (kyL (slE0 8) 0) (Nat.land (slE0 10) (Nat.sub (Nat.shiftLeft 1 (Nat.mul 16 20)) 65536))
+    (slE0 12) 20) = true := by
+  decide +kernel
 
 end Certificates.KernelTower

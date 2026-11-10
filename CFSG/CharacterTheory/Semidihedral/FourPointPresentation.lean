@@ -310,6 +310,12 @@ theorem finite_card_le {a b c z : P} (h : Relations a b c z)
   refine ⟨Finite.of_surjective (normalWord a b c z) hs, ?_⟩
   simpa [Nat.card_prod] using Nat.card_le_card_of_surjective (normalWord a b c z) hs
 
+theorem finite_card_le_48 (a b c z : P) (hz : z ∈ Subgroup.center P)
+    (ha : a ^ 2 = 1) (hb : b ^ 2 = 1) (hc : c ^ 2 = 1) (hzz : z ^ 2 = 1)
+    (hab : (a * b) ^ 3 = 1) (hbc : (b * c) ^ 3 = 1) (hac : (a * c) ^ 2 = z)
+    (hgen : Subgroup.closure ({a, b, c, z} : Set P) = ⊤) :
+    Finite P ∧ Nat.card P ≤ 48 :=
+  finite_card_le ⟨hz, ha, hb, hc, hzz, hab, hbc, hac⟩ hgen
 
 theorem finite_card_eq_48_of_surjective {Q : Type*} {a b c z : P}
     (h : Relations a b c z) (hgen : Subgroup.closure ({a, b, c, z} : Set P) = ⊤)

@@ -28,5 +28,11 @@ open Equiv.Perm
 
 namespace Certificates
 
+open CFSG.GorensteinWalter in
+open scoped Matrix MatrixGroups in
+open Equiv.Perm in
+theorem certificate12 : ∀ x : alternatingGroup (Fin 5), x ≠ 1 →
+      repPerm x.1 ≠ 1 ∧ repPerm x.1 ≠ -1 := by
+  decide
 
 end Certificates

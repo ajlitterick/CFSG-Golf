@@ -53,6 +53,9 @@ theorem maxFromTwo_strs4204 : CFSG.Quasithin.J4Ov.maxFromTwo =
 
 #j4q_all CFSG.KD.J4Ov.ch4204 CertificateChecks.KernelJ4Ov.ch4204K 10
 
+theorem ch4204_neg_l : notB (max4204K 1 2 (mt4204.getD 3 [])) = true := by quickRfl
+
+theorem ch4204_neg_w : notB (max4204K 2 4 ((mf4204.getD 4 []).dropLast)) = true := by quickRfl
 
 end CertificateChecks.KernelJ4Ov
 

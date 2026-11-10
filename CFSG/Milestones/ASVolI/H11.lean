@@ -71,6 +71,12 @@ namespace CFSG.ASVolI.ChH
 
 open CFSG.Quasithin CFSG.Open
 
+@[expose] noncomputable def m12Model : FFModel where
+  Gam := ↥CFSG.Blueprint.NativeSporadic.M12
+  Amb := G6.PermMod 12
+  act g x := G6.permAct 12 (g : Equiv.Perm (Fin 12)) x
+  sec := G6.coreMod 12
+  ker := Subgroup.zpowers (G6.allOnes 12)
 
 end CFSG.ASVolI.ChH
 
@@ -78,6 +84,17 @@ namespace CFSG.ASVolI
 
 open CFSG.Quasithin CFSG.ASVolI.ChH
 
+@[expose] def H_11_1 : Prop :=
+  ∀ (V : Type) [CommGroup V] [Finite V] [Finite (MulAut V)], (∀ v : V, v ^ 2 = 1) →
+  ∀ M : Subgroup (MulAut V), m12Model.Realizes (perfectCore M) ⊤ ⊥ →
+    ((M ≠ perfectCore M → CFSG.Open.pRank 2 M = 4) ∧ (M = perfectCore M → CFSG.Open.pRank 2 M = 3)) ∧
+    E3.mParam M = 4 ∧
+    ¬ H.IsFOneModule M ∧
+    (∀ A : Subgroup (MulAut V), A ≤ M → IsElemAbelian2 A → Nat.card A = 16 →
+      Nonempty (↥M ≃* MulAut ↥CFSG.Blueprint.NativeSporadic.M12) ∧ rk ↥(fixV A) ≤ 3 ∧
+        8 ≤ rk ↥(xiSub A)) ∧
+    (∀ A : Subgroup (MulAut V), A ≤ M → ¬ IsCyclic ↥A → IsQuadratic A →
+      (∀ a ∈ A, a ≠ 1 → IsTwoCentralElt M a) ∨ (rk ↥A = 2 ∧ 4 < rkIdx (fixV A)))
 
 section H11Proof
 

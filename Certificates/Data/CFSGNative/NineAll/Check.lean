@@ -46,6 +46,13 @@ structure NTables where
   orb1 : List OEnt
   reps : List NRep
 
+@[expose] def findBad (P : Pt) : Option Witness :=
+  (match findT P with
+    | some t => if verify P (.transv t) then some (.transv t) else none
+    | none => none) <|>
+  (match orderWit P with
+    | some o => if verify P (.order o) then some (.order o) else none
+    | none => none)
 
 @[expose] def centOK (P0 : Pt) (t : Refl) : Bool :=
   P0.gens.all fun g =>
@@ -55,6 +62,49 @@ structure NTables where
 @[expose] def centRootsOK (P0 : Pt) (t : Refl) (roots : List Root) : Bool :=
   roots.all fun ρ => reqb ρ.r t || reqb ρ.r (negR P0 t) || P0.dotv ρ.r.f P0.x == 0
 
+@[expose] def buildStage2N (P0 : Pt) (cand : List Refl) (r : Refl) :
+    Option (List Root × List Rep2 × List OEnt) :=
+  let Pj := withExtra P0 [r]
+  let roots := rootsOf Pj 20000
+  let rd := roots.map (·.r)
+  let ext := (movingOf P0 cand).filter fun c => !(rd.any (reqb c)) && !(asymAny Pj rd c)
+  let ot := orbitTable Pj Pj.gens.length 20000 ext
+  let reps? := ot.1.mapM fun q => (findBad (withExtra P0 [r, q])).map fun w => (⟨q, w⟩ : Rep2)
+  reps?.map fun reps => (roots, reps, ot.2)
+
+@[expose] def classifyN (P0 : Pt) (cand : List Refl) (t : Refl) : Option NRep :=
+  if centOK P0 t then
+    match buildStage2N P0 cand t with
+    | some (roots, reps2, orb2) =>
+      if centRootsOK P0 t roots then some ⟨t, .cent, roots, reps2, orb2⟩ else none
+    | none => none
+  else
+    let P1 := withExtra P0 [t]
+    match findBad P1 with
+    | some w => some ⟨t, .w w, [], [], []⟩
+    | none =>
+      match findW P1 with
+      | some c =>
+        if verify P1 (.weyl c) then
+          match buildStage2N P0 cand t with
+          | some (roots, reps2, orb2) => some ⟨t, .w (.weyl c), roots, reps2, orb2⟩
+          | none => none
+        else none
+      | none => none
+
+@[expose] def buildN (P0 : Pt) (Bstab : Nat) : Option NTables :=
+  let roots := rootsOf P0 20000
+  let rootsR := roots.map (·.r)
+  let cand := candList P0 rootsR
+  let fixing := cand.filter fun c => P0.dotv c.f P0.x == 0 && !(rootsR.any (reqb c))
+  let ot0 := orbitTable P0 P0.gens.length 20000 fixing
+  let reps0? := ot0.1.mapM fun c =>
+    (findBad (withBound (withExtra P0 [c]) Bstab)).map fun w => (⟨c, w⟩ : Rep0)
+  let ot1 := orbitTable P0 P0.gens.length 20000 (movingOf P0 cand)
+  let reps? := ot1.1.mapM fun t => classifyN P0 cand t
+  match reps0?, reps? with
+  | some reps0, some reps => some ⟨roots, ot0.2, reps0, ot1.2, reps⟩
+  | _, _ => none
 
 @[expose] def vFixN (P0 : Pt) : Bool := P0.gens.all fun g => P0.dotv g.f P0.x == 0
 
@@ -121,6 +171,10 @@ structure NTables where
    vCover0 P0 T cand && T.orb0.all (entry0OK P0 T) && T.reps0.all (rep0OK P0 Bstab) &&
    vCover1 P0 T cand && T.orb1.all (entry1OK P0 T) && T.reps.all (verifyRepN P0 cand))
 
+@[expose] def checkFrameN (P0 : Pt) (Bstab : Nat) : Bool :=
+  match buildN P0 Bstab with
+  | some T => verifyAllN P0 Bstab T
+  | none => false
 
 @[expose] def nineBstab : Nat := 4354560
 
@@ -130,6 +184,8 @@ structure NTables where
 @[expose, reducible] def nineFrame9 (_ : Unit := ()) : Pt :=
   { p := 3, D := 9, nFrame := 8, gens := frame9m (), x := [0, 0, 0, 0, 0, 0, 0, 1, 0], bound := bound9 }
 
+@[expose] def nineAllCheck (_ : Unit := ()) : Bool :=
+  checkFrameN (nineFrame8 ()) nineBstab && checkFrameN (nineFrame9 ()) nineBstab
 
 end CFSG.NineAll
 

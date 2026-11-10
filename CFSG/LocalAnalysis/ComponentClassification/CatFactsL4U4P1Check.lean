@@ -41,6 +41,10 @@ instance : Inhabited Run := ⟨⟨#[], [], 0, []⟩⟩
     if i.val < n then x[i.val]! else y[i.val - n]! + UInt32.ofNat n
 
 
+@[expose] def ord8 (n : Nat) (x : Table) : Bool :=
+  tblEq n (powT n 8 x) (idT n) && !tblEq n (powT n 4 x) (idT n)
+
+
 @[expose] def extraOK (n : Nat) (pg : Array Table) (sift : Table → Bool) (u : Table) : Bool :=
   permOK n u && invOK n u (invT n u) && !sift (compT n u u) &&
     pg.all fun g => sift (conjT n u (invT n u) g)

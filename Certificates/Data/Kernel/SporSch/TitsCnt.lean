@@ -65,6 +65,8 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw
     (t0 t1 t2 t3 t4 : Nat) : Bool :=
   allL (fun k => baseComm BP 5 (gptR t0 t1 t2 t3 t4) (gptC LR TR k)) G
 
+@[expose] noncomputable def ktK (LR TRI : Nat → Nat) (BP t0 t1 t2 t3 t4 : Nat) : Bool :=
+  siftPf LR TRI BP 5 0 (gptR t0 t1 t2 t3 t4)
 
 end CFSG.KS.SporSch
 

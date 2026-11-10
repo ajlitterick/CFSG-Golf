@@ -38,6 +38,13 @@ namespace CFSG.Certificates.Kernel.PkCV.L216T
 
 open CFSG.GH74.Uniqueness.SU.K.R4.L216M
 
+@[expose] noncomputable def invC : List (CV 17) :=
+  (elemsC QP).filter fun u => !decide (u = 1) && decide (u * u = 1)
+
+@[expose] noncomputable def e4C : Bool :=
+  (elemsC QA).all fun g => !decide (g * g = 1) ||
+    invC.any fun u => eq22C g u u g &&
+      invC.any fun v => !decide (v = u) && eq22C g v v g && eq22C u v v u
 
 end CFSG.Certificates.Kernel.PkCV.L216T
 

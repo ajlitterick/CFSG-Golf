@@ -106,6 +106,7 @@ instance : One AlpE := ⟨⟨0, 0, 0, 0⟩⟩
 instance : Mul AlpE := ⟨mul⟩
 instance : Inv AlpE := ⟨inv⟩
 
+theorem one_def : (1 : AlpE) = ⟨0, 0, 0, 0⟩ := rfl
 theorem mul_def (a b : AlpE) : a * b = mul a b := rfl
 theorem inv_def (a : AlpE) : a⁻¹ = inv a := rfl
 

@@ -17,6 +17,21 @@ open Std
 @[expose] def idCols (d : Nat) : List Nat := (List.range d).map fun i => 2 ^ i
 
 
+@[expose] def okInc (φ : Nat → Nat) (p : List Nat) (c : Nat) : Bool :=
+  (List.range (2 ^ p.length)).all fun y => φ (c ^^^ applyCols p y) == φ (2 ^ p.length + y)
+
+@[expose] def sigEnum (d : Nat) (φ : Nat → Nat) : Nat → List (List Nat)
+  | 0 => [[]]
+  | k + 1 =>
+    (sigEnum d φ k).flatMap fun p =>
+      ((List.range (2 ^ d)).filter fun c => okInc φ p c).map fun c => p ++ [c]
+
+@[expose] def injCols (d : Nat) (cols : List Nat) : Bool :=
+  decide (((List.range (2 ^ d)).map (applyCols cols)).Nodup)
+
+@[expose] def sigList (d : Nat) (φ : Nat → Nat) : List (List Nat) :=
+  (sigEnum d φ d).filter (injCols d)
+
 end Certificates.Data.S1277Sig
 
 end

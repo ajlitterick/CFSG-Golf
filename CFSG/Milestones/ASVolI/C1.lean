@@ -33,12 +33,101 @@ open scoped Pointwise
 
 variable {G : Type} [Group G]
 
+@[expose] def IsS2 (R : Subgroup G) : Prop := IsPGroup 2 R ∧ R ≠ ⊥
+
+@[expose] def IsCentralProductOfBlocks (H K : Subgroup G) : Prop :=
+  ∃ B : Finset (Subgroup G), (∀ L ∈ B, IsBlock2 H L) ∧
+    (∀ L ∈ B, ∀ L' ∈ B, L ≠ L' → L ≤ Subgroup.centralizer (L' : Set G)) ∧ K = ⨆ L ∈ B, L
+
+@[expose] def oUpperPi (π : Set ℕ) (Y : Subgroup G) : Subgroup G :=
+  ⨅ (N : Subgroup G) (_ : N ≤ Y ∧ Y ≤ Subgroup.normalizer (N : Set G) ∧
+      ∀ y ∈ Y, ∃ m : ℕ, 0 < m ∧ (∀ p ∈ m.primeFactors, p ∈ π) ∧ y ^ m ∈ N), N
+
+@[expose] def QuotQuasisimpleOrThree (L N : Subgroup G) : Prop :=
+  ∃ (Y : Type) (_ : Group Y) (φ : ↥L →* Y), Function.Surjective φ ∧ φ.ker = N.subgroupOf L ∧
+    (CFSG.IsQuasisimple Y ∨ Nat.card Y = 3)
+
+@[expose] def QuotHas (L N : Subgroup G) (P : ∀ (Y : Type) [Group Y], Prop) : Prop :=
+  ∃ (Y : Type) (_ : Group Y) (φ : ↥L →* Y), Function.Surjective φ ∧ φ.ker = N.subgroupOf L ∧ P Y
 
 structure HypC_1_14 (X V T : Subgroup G) : Prop where
   charTwo : CharTwo X
   reduced : IsTwoReducedIn X V
   sylow : IsSylowTwoOf T X
 
+@[expose] def IsR2Max (H W : Subgroup G) : Prop :=
+  IsTwoReducedIn H W ∧ ∀ W' : Subgroup G, IsTwoReducedIn H W' → W' ≤ W
+
+structure InYSet (X R S Y : Subgroup G) : Prop where
+  le : Y ≤ X
+  perf : Y = oTwoUpper Y
+  inv : S ⊔ pCoreOf 2 X ≤ Subgroup.normalizer (Y : Set G)
+  sylow : IsSylowTwoOf (R ⊓ Y) Y
+  natural : ∃ W : Subgroup G, IsR2Max ((S ⊔ pCoreOf 2 X) ⊔ Y) W ∧ ∃ n : ℕ, 1 ≤ n ∧
+    IsNatL2Section Y (pCoreOf 2 Y) W (W ⊓ Subgroup.centralizer (Y : Set G)) n
+
+@[expose] def IsMSPairWith [Finite G] (X R L : Subgroup G) : Prop :=
+  IsMSPair X R ∧ L ∈ cComp X ∧ (X : Set G) = (L : Set G) * (R : Set G)
+
+structure DualSplit (L U W₁ W₂ : Subgroup G) {F : Type} [Field F]
+    (α : ↥L →* Matrix.SpecialLinearGroup (Fin 3) F)
+    (βU : ↥U →* Multiplicative (Fin 3 → F))
+    (β₁ : ↥W₁ →* Multiplicative (Fin 3 → F))
+    (β₂ : ↥W₂ →* Multiplicative (Fin 3 → F)) : Prop where
+  alpha_onto : Function.Surjective α
+  alpha_ker : α.ker = CFSG.pCore 2 ↥L
+  le₁ : U ≤ W₁
+  le₂ : U ≤ W₂
+  le_Q₁ : W₁ ≤ pCoreOf 2 L
+  le_Q₂ : W₂ ≤ pCoreOf 2 L
+  join : W₁ ⊔ W₂ = pCoreOf 2 L
+  meet : W₁ ⊓ W₂ = U
+  norm₁ : L ≤ Subgroup.normalizer (W₁ : Set G)
+  norm₂ : L ≤ Subgroup.normalizer (W₂ : Set G)
+  natU_onto : Function.Surjective βU
+  natU_ker : βU.ker = ⊥
+  natU_act : ∀ (ℓ : ↥L) (u v : ↥U), (v : G) = ℓ * u * ℓ⁻¹ →
+    Multiplicative.toAdd (βU v) =
+      ((α ℓ : Matrix.SpecialLinearGroup (Fin 3) F) : Matrix (Fin 3) (Fin 3) F).mulVec
+        (Multiplicative.toAdd (βU u))
+  dual₁_onto : Function.Surjective β₁
+  dual₁_ker : β₁.ker = U.subgroupOf W₁
+  dual₁_act : ∀ (ℓ : ↥L) (u v : ↥W₁), (v : G) = ℓ * u * ℓ⁻¹ →
+    Multiplicative.toAdd (β₁ v) =
+      (((α ℓ)⁻¹ : Matrix.SpecialLinearGroup (Fin 3) F) : Matrix (Fin 3) (Fin 3) F).transpose.mulVec
+        (Multiplicative.toAdd (β₁ u))
+  dual₂_onto : Function.Surjective β₂
+  dual₂_ker : β₂.ker = U.subgroupOf W₂
+  dual₂_act : ∀ (ℓ : ↥L) (u v : ↥W₂), (v : G) = ℓ * u * ℓ⁻¹ →
+    Multiplicative.toAdd (β₂ v) =
+      (((α ℓ)⁻¹ : Matrix.SpecialLinearGroup (Fin 3) F) : Matrix (Fin 3) (Fin 3) F).transpose.mulVec
+        (Multiplicative.toAdd (β₂ u))
+
+@[expose] def InternalModelSection (D : FFModel) (X V U Z : Subgroup G) : Prop :=
+  Z ≤ U ∧ U ≤ V ∧ X ≤ Subgroup.normalizer (U : Set G) ∧
+    X ≤ Subgroup.normalizer (Z : Set G) ∧ D.ker ≤ D.sec ∧
+    (∀ element : D.Gam, ∀ coordinate ∈ D.sec, D.act element coordinate ∈ D.sec) ∧
+    (∀ element : D.Gam, ∀ coordinate ∈ D.ker, D.act element coordinate ∈ D.ker) ∧
+    ∃ (α : ↥X →* D.Gam) (β : ↥U →* ↥D.sec ⧸ D.ker.subgroupOf D.sec),
+      Function.Surjective α ∧
+      α.ker = (X ⊓ Subgroup.centralizer (V : Set G)).subgroupOf X ∧
+      Function.Surjective β ∧ β.ker = Z.subgroupOf U ∧
+      ∀ (element : ↥X) (original conjugate : ↥U) (coordinate : ↥D.sec)
+        (stable : D.act (α element) (coordinate : D.Amb) ∈ D.sec),
+        (conjugate : G) = element * original * element⁻¹ →
+        β original = QuotientGroup.mk coordinate →
+        β conjugate = QuotientGroup.mk ⟨D.act (α element) (coordinate : D.Amb), stable⟩
+
+@[expose] def InternalG2TwoNatural (X V U Z : Subgroup G) : Prop :=
+  InternalModelSection (FFModel.zornQ (quasithinG2 (ZMod 2))) X V U Z
+
+@[expose] def InternalS6Natural (X V U Z : Subgroup G) : Prop :=
+  InternalModelSection (FFModel.nat (CFSG.Assembly.LowTwoRank.StatedSp 2 (ZMod 2))) X V U Z
+
+@[expose] def IsG2TwoBlockNatural (L : Subgroup G) : Prop :=
+  IsG2Block L ∧
+    InternalModelSection (FFModel.zornQ ⁅quasithinG2 (ZMod 2), quasithinG2 (ZMod 2)⁆)
+      L (blockU L) (blockU L) (blockZ L)
 
 @[expose] def IsNatVia {ι : Type} [Fintype ι] [DecidableEq ι] {F : Type} [Field F]
     (A V Z : Subgroup G) (α : ↥A →* Matrix.SpecialLinearGroup ι F)
@@ -48,6 +137,9 @@ structure HypC_1_14 (X V T : Subgroup G) : Prop where
       Multiplicative.toAdd (β v) =
         ((α a : Matrix.SpecialLinearGroup ι F) : Matrix ι ι F).mulVec (Multiplicative.toAdd (β u))
 
+@[expose] def preimageIn {F : Type} [Field F] (V : Subgroup G)
+    (β : ↥V →* Multiplicative (Fin 3 → F)) (ℓ : Submodule F (Fin 3 → F)) : Subgroup G :=
+  (Subgroup.comap β (AddSubgroup.toSubgroup ℓ.toAddSubgroup)).map V.subtype
 
 structure SumOfTwoNat (L U : Subgroup G) (α : ↥L →* Matrix.SpecialLinearGroup (Fin 3) (ZMod 2))
     (U₁ U₂ : Subgroup G) (β₁ : ↥U₁ →* Multiplicative (Fin 3 → ZMod 2))
@@ -63,6 +155,25 @@ structure SumOfTwoNat (L U : Subgroup G) (α : ↥L →* Matrix.SpecialLinearGro
   nat₁ : IsNatVia L U₁ ⊥ α β₁
   nat₂ : IsNatVia L U₂ ⊥ α β₂
 
+@[expose] def TrivialOnDynkin (L T : Subgroup G) : Prop :=
+  T ≤ Subgroup.normalizer (L : Set G) ∧
+  (IsPSL 3 2 1 (↥L ⧸ CFSG.pCore 2 ↥L) →
+    ∀ t ∈ T, ∃ l : ↥L, ∀ x y : ↥L, (y : G) = t * x * t⁻¹ →
+      (QuotientGroup.mk y : ↥L ⧸ CFSG.pCore 2 ↥L) = QuotientGroup.mk (l * x * l⁻¹)) ∧
+  ((IsAlt 6 (↥L ⧸ CFSG.pCore 2 ↥L) ∨ IsHat (↥L ⧸ CFSG.pCore 2 ↥L) ↥(alternatingGroup (Fin 6))) →
+    ∃ φ : ↥L →* alternatingGroup (Fin 6), Function.Surjective φ ∧
+      φ.ker = (oTwoZIn L).subgroupOf L ∧
+      ∀ t ∈ T, ∃ σ : Equiv.Perm (Fin 6), ∀ x y : ↥L, (y : G) = t * x * t⁻¹ →
+        ((φ y : alternatingGroup (Fin 6)) : Equiv.Perm (Fin 6)) =
+          σ * (φ x : Equiv.Perm (Fin 6)) * σ⁻¹)
+
+@[expose] def IsIrrSection (X W₀ W : Subgroup G) : Prop :=
+  W₀ < W ∧ X ≤ Subgroup.normalizer (W₀ : Set G) ∧ X ≤ Subgroup.normalizer (W : Set G) ∧
+    ∀ K : Subgroup G, W₀ ≤ K → K ≤ W → X ≤ Subgroup.normalizer (K : Set G) → K = W₀ ∨ K = W
+
+@[expose] def internalIrrPlus (L U : Subgroup G) : Set (Subgroup G) :=
+  {I | I ≤ U ∧ ⁅I, L⁆ = I ∧
+    IsIrrSection L (I ⊓ Subgroup.centralizer (L : Set G)) I}
 
 end CFSG.ASVolI.ChC
 
@@ -71,6 +182,31 @@ namespace CFSG.ASVolI
 open CFSG.Open CFSG.Quasithin CFSG.QuasithinUnique CFSG.ASVolI.ChC
 open scoped Pointwise
 
+@[expose] def C_1_3 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (X R : Subgroup G), pCoreOf 2 X = ⊥ →
+    IsTwoRadicalIn X R → SatisfiesPU X R
+
+
+@[expose] def C_1_2 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (R : Subgroup G), IsS2 R →
+    (IsSylowTwoOf R ⊤ → IsTwoRadicalIn ⊤ R) ∧
+    (∃ B : Subgroup G, IsTwoRadicalIn ⊤ B ∧ R ≤ B ∧
+      Subgroup.normalizer (R : Set G) ≤ Subgroup.normalizer (B : Set G)) ∧
+    (∀ H K : Subgroup G, H ≤ K → IsTwoRadicalIn H R →
+      K ⊓ Subgroup.normalizer (R : Set G) ≤ H → IsTwoRadicalIn K R) ∧
+    (∀ M L : Subgroup G, L ≤ M → (L.subgroupOf M).Normal → L = oTwoUpper L →
+      IsSylowTwoOf R (centralizerSection M L (pCoreOf 2 L)) →
+      IsSylowTwoOf R (conjClosure R M) ∧ IsTwoRadicalIn M R)
+
+
+@[expose] def C_1_4 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (X R : Subgroup G), SatisfiesPU X R →
+    pCoreOf 2 X ≤ R ∧
+    ¬ thompsonJ R ≤ pCoreOf 2 X ∧
+    ∀ V : Subgroup G, IsTwoReducedIn X V →
+      twoPrimeResidual (X ⊓ Subgroup.centralizer (V : Set G)) = pCoreOf 2 X →
+        ¬ thompsonJ R ≤ Subgroup.centralizer (V : Set G) ∧
+          ∃ hV : IsElemAbelian 2 V, IsFFInt X V hV
 
 section BurnsideC1a
 
@@ -78,11 +214,36 @@ section BurnsideC1a
 end BurnsideC1a
 
 
+@[expose] def C_1_8 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (X : Subgroup G), IsShort2 X →
+    QuotQuasisimpleOrThree X (blockU X)
+
 section BurnsideC1b
 
 
 end BurnsideC1b
 
+
+@[expose] def C_1_9 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (X : Subgroup G),
+    ((∃ L : Subgroup G, IsBlock2 X L ∧ IsAltType L 3) → CharTwo (oTwoThreeIn X)) →
+    ∀ K L : Subgroup G, IsBlock2 X K → IsBlock2 X L → K ≠ L →
+      K ≤ Subgroup.centralizer (L : Set G)
+
+
+@[expose] def C_1_10 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (H X Y : Subgroup G),
+    IsBlock2 H X → (X.subgroupOf H).Normal →
+    ∀ (W : Type) [AddCommGroup W] (β : ↥(blockU X) →* Multiplicative W) (ρ : ↥X → AddAut W),
+      Function.Surjective β → β.ker = (blockZ X).subgroupOf (blockU X) →
+      (∀ (x : ↥X) (u v : ↥(blockU X)), (v : G) = x * u * x⁻¹ →
+        Multiplicative.toAdd (β v) = ρ x (Multiplicative.toAdd (β u))) →
+      Y ≤ H → Y = oTwoUpper Y →
+      Y = oUpperPi {p : ℕ | p.Prime ∧
+        p ∣ Nat.card {f : W →+ W // (∀ (x : ↥X) (w : W), f (ρ x w) = ρ x (f w)) ∧ f ≠ 0}} Y ⊔
+        ⁅Y, Y⁆ →
+      Y ≤ centralizerSection H X (pCoreOf 2 X) →
+      Y ≤ Subgroup.centralizer (X : Set G)
 
 section BurnsideC1d
 
@@ -90,11 +251,120 @@ section BurnsideC1d
 end BurnsideC1d
 
 
+@[expose] def C_1_11 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (H K S : Subgroup G),
+    IsCentralProductOfBlocks H K → IsSylowTwoOf S H → (H : Set G) = (K : Set G) * (S : Set G) →
+    H ⊓ Subgroup.centralizer ((⁅pCoreOf 2 K, K⁆ : Subgroup G) : Set G) = pCoreOf 2 H
+
+
+@[expose] def C_1_13 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (L T : Subgroup G),
+    IsShort2 L → T ≤ Subgroup.normalizer (L : Set G) → IsSylowTwoOf T (L ⊔ T) →
+    ((frattini ↥(pCoreOf 2 (L ⊔ T))).map (pCoreOf 2 (L ⊔ T)).subtype ≤
+        T ⊓ Subgroup.centralizer (L : Set G)) ∧
+    ((∀ (W : Type) [AddCommGroup W] [Module (ZMod 2) W]
+        (ρ : Representation (ZMod 2) (↥L ⧸ CFSG.pCore 2 ↥L) W)
+        (β : ↥(blockU L) →* Multiplicative W), Function.Surjective β →
+        β.ker = (blockZ L).subgroupOf (blockU L) →
+        (∀ (ℓ : ↥L) (u v : ↥(blockU L)), (v : G) = ℓ * u * ℓ⁻¹ →
+          Multiplicative.toAdd (β v) = ρ (QuotientGroup.mk ℓ) (Multiplicative.toAdd (β u))) →
+        (blockU L ⊔ (T ⊓ Subgroup.centralizer (L : Set G))).relIndex (pCoreOf 2 (L ⊔ T)) ≤
+          Nat.card (groupCohomology (Rep.of ρ) 1)) ∧
+      (CFSG.IsQuasisimple (↥L ⧸ CFSG.pCore 2 ↥L) →
+        ∃ (A : Type) (_ : Group A) (π : ↥(pCoreOf 2 L) →* A), Function.Surjective π ∧
+          π.ker = (blockU L).subgroupOf (pCoreOf 2 L) ∧
+          ∃ φ : quasithinHopfMultiplier (↥L ⧸ CFSG.pCore 2 ↥L) →* A, Function.Surjective φ) ∧
+      (Nat.card (↥L ⧸ CFSG.pCore 2 ↥L) = 3 → pCoreOf 2 L = blockU L)) ∧
+    (∀ m : ℕ, (m = 3 ∨ m = 5) → IsAltType L m →
+      (pCoreOf 2 (L ⊔ T) = blockU L ⊔ (T ⊓ Subgroup.centralizer (L : Set G)) ∧
+        blockU L ⊓ (T ⊓ Subgroup.centralizer (L : Set G)) = ⊥ ∧
+        blockU L ≤ Subgroup.centralizer ((T ⊓ Subgroup.centralizer (L : Set G) : Subgroup G) : Set G)) ∧
+      blockZ L = ⊥ ∧
+      (m = 3 → Nonempty (↥L ≃* alternatingGroup (Fin 4))) ∧
+      (m = 5 → (QuotHas L (blockU L) (fun Y _ => IsAlt 5 Y) ∨
+        (QuotHas L (blockU L) (fun Y _ => IsSL2 5 Y) ∧ Nat.card (Subgroup.center ↥L) = 2))) ∧
+      pCoreOf 2 (L ⊔ T) ≤ Subgroup.centralizer (pCoreOf 2 L : Set G)) ∧
+    (IsAltBlockType L 6 → pCoreOf 2 (L ⊔ T) ≤ Subgroup.centralizer (pCoreOf 2 L : Set G))
+
+
+@[expose] def C_1_15 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (X V T : Subgroup G), HypC_1_14 X V T →
+    ¬ thompsonJ T ≤ Subgroup.centralizer (V : Set G) → ∃ hV : IsElemAbelian 2 V, IsFFInt X V hV
+
+
+@[expose] def C_1_16 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (X V T : Subgroup G), HypC_1_14 X V T →
+    (∀ K : Subgroup (MulAut ↥V), CFSG.Open.IsComponentOf K (autOn X V) →
+      autOn (thompsonJ T) V ≤ Subgroup.normalizer (K : Set (MulAut ↥V))) ∧
+    (∀ L : Subgroup G, IsChiBlock2 X L →
+      ⁅autOn L V, autOn (thompsonJ T) V⁆ ≠ ⊥ → baum T ≤ Subgroup.normalizer (L : Set G)) ∧
+    (IsSQTKIn X → ∀ L : Subgroup G, L ∈ cComp X → CFSG.IsQuasisimple ↥(autOn L V) →
+      ⁅autOn L V, autOn (thompsonJ T) V⁆ ≠ ⊥ → baum T ≤ Subgroup.normalizer (L : Set G))
+
 section as_C_1_16
 
 
 end as_C_1_16
 
+@[expose] def C_1_18 : Prop :=
+  ∀ (Ω : Type) [Group Ω] [Finite Ω] (S : Subgroup Ω), IsPGroup 2 S → S ≠ ⊥ →
+    ∃ C₁ C₂ : Subgroup Ω, IsC118Pair S C₁ C₂
+
+
+@[expose] def C_1_19 : Prop :=
+  ∀ (Ω : Type) [Group Ω] [Finite Ω] (S : Subgroup Ω), IsPGroup 2 S → S ≠ ⊥ →
+    ∀ C₁ C₂ : Subgroup Ω, IsC118Pair (baum S) C₁ C₂ → IsC118Pair S (centerOf S ⊓ C₁) C₂
+
+
+@[expose] def C_1_21 : Prop :=
+  ∀ (Ω : Type) [Group Ω] [Finite Ω] (C₁ C₂ : Subgroup Ω → Subgroup Ω), IsGNChoice C₁ C₂ →
+  ∀ (X L T R : Subgroup Ω),
+    CharTwo X → L = oTwoUpper X → L ∈ cComp X →
+      CFSG.IsQuasisimple (↥L ⧸ CFSG.pCore 2 ↥L) →
+    IsPGroup 2 T → baum T ≤ R → R ≤ T → pCoreOf 2 X ≤ R → R ≤ X →
+    (∀ Y : Subgroup Ω, InYSet X R (baum T) Y →
+        (Y ≤ Subgroup.normalizer (C₂ T : Set Ω) ∨
+          (Y ≤ Subgroup.centralizer (C₁ T : Set Ω) ∧
+            Y ≤ Subgroup.centralizer (C₁ (baum T) : Set Ω)) ∨
+          IsL2OrA3Block Y Y) ∧
+        (Y ≤ Subgroup.normalizer (baum T : Set Ω) ∨
+          (IsSylowTwoOf (baum T) (Y ⊔ baum T) ∧ ⁅Y, thompsonJ R⁆ = Y))) ∧
+    (∀ 𝒴 : Set (Subgroup Ω), (∀ Y ∈ 𝒴, InYSet X R (baum T) Y) →
+        X = (⨆ Y ∈ 𝒴, Y) ⊔ (X ⊓ Subgroup.centralizer (omegaOneCenterOf R : Set Ω)) →
+        (∀ Y ∈ 𝒴, X = (X ⊓ Subgroup.normalizer (baum T : Set Ω)) ⊔ Y) →
+        (C₁ T ≤ centerOf X ∨ X ≤ Subgroup.normalizer (C₂ T : Set Ω) ∨
+          (IsShort2 L ∧ ∃ hU : IsElemAbelian 2 (blockU L),
+            IsFFInt (L ⊔ baum T) (blockU L) hU))) ∧
+    (∀ Y : Subgroup Ω, InYSet X R (baum T) Y →
+        X = (X ⊓ Subgroup.normalizer (baum T : Set Ω)) ⊔ Y →
+        ((∃ D : Subgroup Ω, D ≠ ⊥ ∧ D ≤ baum T ∧ (D.subgroupOf (baum T)).Characteristic ∧
+            X ≤ Subgroup.normalizer (D : Set Ω)) ∨
+          (IsShort2 L ∧ ∃ hU : IsElemAbelian 2 (blockU L),
+            IsFFInt (L ⊔ baum T) (blockU L) hU))) ∧
+    (∀ V : Subgroup Ω, IsTwoReducedIn X V →
+        autOn (thompsonJ R) V =
+          autOn (R ⊓ Subgroup.centralizer ((V ⊓ Subgroup.centralizer (thompsonJ R : Set Ω) :
+            Subgroup Ω) : Set Ω)) V →
+        ∀ Y : Subgroup Ω, Y = oTwoUpper Y → Y ≤ X →
+          thompsonJ R ⊔ (X ⊓ Subgroup.centralizer (V : Set Ω)) ≤
+            Subgroup.normalizer (Y : Set Ω) →
+          Y ⊓ Subgroup.centralizer (V : Set Ω) = pCoreOf 2 Y →
+          ((∃ n : ℕ, IsPSL 2 2 n
+              (↥(autOn (Y ⊔ thompsonJ R) V) ⧸ CFSG.pCore 2 ↥(autOn (Y ⊔ thompsonJ R) V))) ∨
+            Nonempty ((↥(autOn (Y ⊔ thompsonJ R) V) ⧸ CFSG.pCore 2 ↥(autOn (Y ⊔ thompsonJ R) V)) ≃*
+              Equiv.Perm (Fin 3))) →
+          IsSylowTwoOf (autOn (thompsonJ R) V) (autOn (Y ⊔ thompsonJ R) V) →
+          ⁅V ⊓ Subgroup.centralizer (thompsonJ R : Set Ω), Y⁆ ≠ ⊥ →
+          autOn (baum T) V = autOn (thompsonJ R) V ∧ InYSet X R (baum T) Y)
+
+@[expose] def C_1_22 : Prop :=
+  (∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), IsExcA7Block L →
+    blockZ L = ⊥ ∧ Nat.card (blockU L) = 2 ^ 4 ∧
+      L ≤ Subgroup.normalizer (blockU L : Set G) ∧
+      ∃ hU : IsElemAbelian 2 (blockU L), A7Four (autI hU L) ⊤ ⊥) ∧
+  (∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), IsHatA6Block L →
+    L ≤ Subgroup.normalizer (blockU L : Set G) ∧
+      ∃ hU : IsElemAbelian 2 (blockU L), TripleA6Six (autI hU L) ⊤ ⊥)
 
 section BurnsideC1c
 
@@ -106,6 +376,17 @@ section
 
 end
 
+@[expose] def C_1_23 : Prop :=
+  ∀ (Ω : Type) [Group Ω] [Finite Ω] (C₁ C₂ : Subgroup Ω → Subgroup Ω), IsGNChoice C₁ C₂ →
+  ∀ (T R X L : Subgroup Ω),
+    IsPGroup 2 T → baum T ≤ R → R ≤ T → IsSylowTwoOf R X → L ∈ cComp X →
+    (X : Set Ω) = (L : Set Ω) * (R : Set Ω) → CharTwo X →
+    (IsAlt 5 (↥L ⧸ CFSG.pCore 2 ↥L) ∨ IsAlt 7 (↥L ⧸ CFSG.pCore 2 ↥L)) →
+    (IsAlt 5 (↥L ⧸ CFSG.pCore 2 ↥L) →
+      (C₁ T ≤ centerOf X ∨ X ≤ Subgroup.normalizer (C₂ T : Set Ω) ∨
+        (IsBlock2 X L ∧ (IsAltType L 5 ∨ IsLin2Type L 2) ∧ ⁅L, thompsonJ T⁆ = L))) ∧
+    (IsBlock2 X L → IsExcA7Block L →
+      X = (X ⊓ Subgroup.centralizer (C₁ T : Set Ω)) ⊔ (X ⊓ Subgroup.normalizer (C₂ T : Set Ω)))
 
 @[expose] def C_1_24 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (X V T L R : Subgroup G), HypC_1_14 X V T →
@@ -1179,12 +1460,42 @@ theorem as_C_1_24
 
 end
 
+@[expose] def C_1_26 : Prop :=
+  ∀ (Ω : Type) [Group Ω] [Finite Ω] (C₁ C₂ : Subgroup Ω → Subgroup Ω), IsGNChoice C₁ C₂ →
+  ∀ (H T : Subgroup Ω), IsSQTKIn H → IsSylowTwoOf T H → CharTwo H → H ∈ uFamHat H T →
+    (C₁ T ≤ centerOf H ∨
+    H ≤ Subgroup.normalizer (C₂ T : Set Ω) ∨
+    ∃ K : Subgroup Ω, IsChi0Block H K ∧ ⁅K, thompsonJ T⁆ = K ∧
+      twoResidual H = ⨆ t ∈ T, conjByElt t K ∧
+      ∀ t ∈ T, ∀ t' ∈ T, conjByElt t K ≠ conjByElt t' K →
+        conjByElt t K ≤ Subgroup.centralizer (conjByElt t' K : Set Ω))
 
 section
 
 
 end
 
+@[expose] def C_1_27 : Prop :=
+  ∀ (Ω : Type) [Group Ω] [Finite Ω] (X T H K : Subgroup Ω),
+    CharTwo X → IsSylowTwoOf T X → CFSG.SectionRank.IsKGroupCat ↥X → H ∈ uFamHat X T →
+    IsBlock2 H K → ⁅K, thompsonJ T⁆ = K → H = T ⊔ conjClosure K T →
+    ∃ L : Subgroup Ω, IsBlock2 X L ∧ K ≤ L ∧ blockU L ≤ VZ T X ∧
+      (K = L ∨ ∃ m n : ℕ, Odd m ∧ Odd n ∧ 3 ≤ m ∧ 3 ≤ n ∧
+        IsAltQuotient L (Subgroup.centralizer (VZ T X : Set Ω)) m ∧
+        IsAltQuotient K (Subgroup.centralizer (VZ T X : Set Ω)) n)
+
+@[expose] def C_1_28 : Prop :=
+  ∀ (Ω : Type) [Group Ω] [Finite Ω] (C₁ C₂ : Subgroup Ω → Subgroup Ω), IsGNChoice C₁ C₂ →
+  ∀ (X T : Subgroup Ω), CharTwo X → IsSQTKIn X → IsSylowTwoOf T X →
+    (X = (X ⊓ Subgroup.centralizer (C₁ T : Set Ω)) ⊔ (X ⊓ Subgroup.normalizer (C₂ T : Set Ω)) ∨
+    (∃ L₁ : Subgroup Ω, IsChiBlock2 X L₁ ∧ ⁅L₁, thompsonJ T⁆ = L₁ ∧
+      (X : Set Ω) = (((X ⊓ Subgroup.centralizer (C₁ T : Set Ω)) ⊔
+        (X ⊓ Subgroup.normalizer (C₂ T : Set Ω)) : Subgroup Ω) : Set Ω) * (L₁ : Set Ω)) ∨
+    (∃ L₁ L₂ : Subgroup Ω, IsChiBlock2 X L₁ ∧ ⁅L₁, thompsonJ T⁆ = L₁ ∧
+      IsChiBlock2 X L₂ ∧ ⁅L₂, thompsonJ T⁆ = L₂ ∧
+      (X : Set Ω) = (((X ⊓ Subgroup.centralizer (C₁ T : Set Ω)) ⊔
+        (X ⊓ Subgroup.normalizer (C₂ T : Set Ω)) : Subgroup Ω) : Set Ω) * (L₁ : Set Ω) *
+          (L₂ : Set Ω)))
 
 section BurnsideA38b
 
@@ -1196,11 +1507,114 @@ section
 
 end
 
+@[expose] def C_1_29 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (X T M : Subgroup G),
+    CharTwo X → IsSylowTwoOf T X → IsSQTKIn X → cgsIn X T ≤ M → M ≤ X →
+    (X = M ∨
+    (∃ L₁ : Subgroup G, IsChi0Block X L₁ ∧ IsBorelOfBlock L₁ (L₁ ⊓ M) ∧
+      ⁅L₁, thompsonJ T⁆ = L₁ ∧ (X : Set G) = (M : Set G) * (L₁ : Set G)) ∨
+    (∃ L₁ L₂ : Subgroup G, IsChi0Block X L₁ ∧ IsBorelOfBlock L₁ (L₁ ⊓ M) ∧
+      ⁅L₁, thompsonJ T⁆ = L₁ ∧ IsChi0Block X L₂ ∧ IsBorelOfBlock L₂ (L₂ ⊓ M) ∧
+      ⁅L₂, thompsonJ T⁆ = L₂ ∧ (X : Set G) = (M : Set G) * (L₁ : Set G) * (L₂ : Set G)))
 
 section
 
 
 end
 
+@[expose] def C_1_35 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (X R L S : Subgroup G) (n : ℕ),
+    IsMSPairWith X R L → IsSylowTwoOf S X →
+    (∃ (F : Type) (_ : Field F) (_ : Fintype F), Fintype.card F = 2 ^ n ∧
+      Nonempty (↥L ⧸ CFSG.pCore 2 ↥L ≃* Matrix.SpecialLinearGroup (Fin 3) F)) →
+    X ⊓ Subgroup.centralizer (L : Set G) = ⊥ →
+    IsChiefSeriesFrom L (pCoreOf 2 L) (pCoreOf 2 L) 3 →
+    ((∃ a b : ℕ, IsSpecial2Group a b ↥(pCoreOf 2 L)) ∧
+      ∃ (F : Type) (_ : Field F) (_ : Fintype F), Fintype.card F = 2 ^ n ∧
+        ∃ (W₁ W₂ : Subgroup G) (α : ↥L →* Matrix.SpecialLinearGroup (Fin 3) F)
+          (βU : ↥(centerOf (pCoreOf 2 L)) →* Multiplicative (Fin 3 → F))
+          (β₁ : ↥W₁ →* Multiplicative (Fin 3 → F)) (β₂ : ↥W₂ →* Multiplicative (Fin 3 → F)),
+          DualSplit L (centerOf (pCoreOf 2 L)) W₁ W₂ α βU β₁ β₂) ∧
+    (∀ (F : Type) (_ : Field F) (_ : Fintype F), Fintype.card F = 2 ^ n →
+      ∀ (W₁ W₂ : Subgroup G) (α : ↥L →* Matrix.SpecialLinearGroup (Fin 3) F)
+        (βU : ↥(centerOf (pCoreOf 2 L)) →* Multiplicative (Fin 3 → F))
+        (β₁ : ↥W₁ →* Multiplicative (Fin 3 → F)) (β₂ : ↥W₂ →* Multiplicative (Fin 3 → F)),
+        DualSplit L (centerOf (pCoreOf 2 L)) W₁ W₂ α βU β₁ β₂ →
+        IsE2 (6 * n) ↥W₁ ∧ IsE2 (6 * n) ↥W₂ ∧
+        ∀ w : ↥W₁, (w : G) ∉ centerOf (pCoreOf 2 L) →
+          W₁.relIndex (pCoreOf 2 L ⊓ Subgroup.centralizer ({(w : G)} : Set G)) = 2 ^ n ∧
+          ∀ v : Fin 3 → F,
+            (∃ x : ↥W₂, (x : G) ∈ Subgroup.centralizer ({(w : G)} : Set G) ∧
+              Multiplicative.toAdd (β₂ x) = v) ↔
+            ∃ c : F, v = c • Multiplicative.toAdd (β₁ w)) ∧
+    pCoreOf 2 X = pCoreOf 2 L ∧
+    (∃ A : Subgroup G, IsMaxElemAbelian X A ∧ Nat.card ↥A = 2 ^ (6 * n)) ∧
+    (Subgroup.upperCentralSeries ↥S 2).map S.subtype ≤ centerOf (pCoreOf 2 L)
+
+@[expose] def C_1_36 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (X R L S : Subgroup G) (n : ℕ),
+    IsMSPairWith X R L → IsSylowTwoOf S X →
+    (∃ (F : Type) (_ : Field F) (_ : Fintype F), Fintype.card F = 2 ^ n ∧
+      Nonempty (↥L ⧸ CFSG.pCore 2 ↥L ≃* Matrix.SpecialLinearGroup (Fin 3) F)) →
+    X ⊓ Subgroup.centralizer (L : Set G) = ⊥ →
+    IsChiefSeriesFrom L (pCoreOf 2 L) (pCoreOf 2 L) 2 →
+    X ⊓ Subgroup.centralizer (pCoreOf 2 L : Set G) = pCoreOf 2 L ∧
+    ∃ A : Subgroup G, A ≤ L ∧ {B : Subgroup G | IsMaxElemAbelian S B} = {pCoreOf 2 L, A} ∧
+      Nat.card ↥(A ⊓ pCoreOf 2 L) = 2 ^ (4 * n)
+
+@[expose] def C_1_37 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (X T L P M V : Subgroup G),
+    (X : Set G) = (L : Set G) * (T : Set G) → IsSylowTwoOf T X → L ∈ cComp X → CharTwo X →
+    (IsPSL 3 2 1 (↥L ⧸ CFSG.pCore 2 ↥L) ∨ IsAlt 6 (↥L ⧸ CFSG.pCore 2 ↥L) ∨
+      IsHat (↥L ⧸ CFSG.pCore 2 ↥L) ↥(alternatingGroup (Fin 6)) ∨
+      IsPSU 3 3 1 (↥L ⧸ CFSG.pCore 2 ↥L)) →
+    TrivialOnDynkin L T →
+    T ≤ P → P ≤ M → IsMaxSubgroupIn X M →
+    (P = M ∨ (IsHat (↥L ⧸ CFSG.pCore 2 ↥L) ↥(alternatingGroup (Fin 6)) ∧ P.relIndex M = 3 ∧
+      ¬ oTwoUpper P ≤ oTwoZIn L)) →
+    IsTwoReducedIn X V → ⁅V, L⁆ ≠ ⊥ →
+    (IsPSL 3 2 1 (↥L ⧸ CFSG.pCore 2 ↥L) →
+      (∃ (α : ↥L →* Matrix.SpecialLinearGroup (Fin 3) (ZMod 2)) (U₁ U₂ : Subgroup G)
+          (β₁ : ↥U₁ →* Multiplicative (Fin 3 → ZMod 2))
+          (β₂ : ↥U₂ →* Multiplicative (Fin 3 → ZMod 2)), SumOfTwoNat L ⁅V, L⁆ α U₁ U₂ β₁ β₂) ∨
+      ((∃ (α : ↥L →* Matrix.SpecialLinearGroup (Fin 3) (ZMod 2))
+          (β : ↥⁅V, L⁆ →* Multiplicative (Fin 3 → ZMod 2)),
+          Function.Surjective α ∧ α.ker = CFSG.pCore 2 ↥L ∧ IsNatVia L ⁅V, L⁆ ⊥ α β) ∧
+        ∃ u ∈ ⁅V, L⁆, u ≠ 1 ∧ P = X ⊓ Subgroup.centralizer ({u} : Set G))) →
+    ((∃ D : Subgroup G, D ≠ ⊥ ∧ D ≤ baum (pCoreOf 2 P) ∧
+        (D.subgroupOf (baum (pCoreOf 2 P))).Characteristic ∧
+        X ≤ Subgroup.normalizer (D : Set G)) ∨
+    ((IsLnBlock L 3 ∨ IsAltBlockType L 6 ∨ IsHatA6Block L ∨ IsG2TwoBlockNatural L) ∧
+      (IsHatA6Block L → ∃ E : Subgroup G, E ≤ ⁅V, L⁆ ∧ IsE2 4 ↥E ∧
+        autOn M V = autOn (X ⊓ Subgroup.normalizer (E : Set G)) V)) ∨
+    (IsPSL 3 2 1 (↥L ⧸ CFSG.pCore 2 ↥L) ∧ ⁅V, L⁆ = ⁅pCoreOf 2 L, L⁆ ∧
+      ∃ (α : ↥L →* Matrix.SpecialLinearGroup (Fin 3) (ZMod 2)) (U₁ U₂ : Subgroup G)
+        (β₁ : ↥U₁ →* Multiplicative (Fin 3 → ZMod 2))
+        (β₂ : ↥U₂ →* Multiplicative (Fin 3 → ZMod 2)),
+        SumOfTwoNat L ⁅V, L⁆ α U₁ U₂ β₁ β₂ ∧
+        ∃ (ℓ : Submodule (ZMod 2) (Fin 3 → ZMod 2))
+          (coordinates : ∀ I : {I : Subgroup G // I ∈ internalIrrPlus L ⁅V, L⁆},
+            ↥I.val →* Multiplicative (Fin 3 → ZMod 2)),
+          Module.finrank (ZMod 2) ℓ = 2 ∧
+          (∀ I, IsNatVia L I.val ⊥ α (coordinates I)) ∧
+          P = X ⊓ ⨅ I : {I : Subgroup G // I ∈ internalIrrPlus L ⁅V, L⁆},
+            Subgroup.normalizer (preimageIn I.val (coordinates I) ℓ : Set G)) ∨
+    (IsG2Two ↥(autOn X V) ∧
+      InternalG2TwoNatural X V ⁅V, L⁆ (⁅V, L⁆ ⊓ Subgroup.centralizer (L : Set G)) ∧
+      (⁅V, L⁆ ⊓ Subgroup.centralizer (L : Set G)).relIndex ⁅V, L⁆ = 2 ^ 6 ∧
+      IsIrrSection X (⁅V, L⁆ ⊓ Subgroup.centralizer (L : Set G)) ⁅V, L⁆ ∧
+      ∃ l : Subgroup G, ⁅V, L⁆ ⊓ Subgroup.centralizer (L : Set G) ≤ l ∧ l ≤ ⁅V, L⁆ ∧
+        (⁅V, L⁆ ⊓ Subgroup.centralizer (L : Set G)).relIndex l = 4 ∧
+        P = X ⊓ Subgroup.normalizer (l : Set G)) ∨
+    (Nonempty (↥(autOn X V) ≃* Equiv.Perm (Fin 6)) ∧
+      InternalS6Natural X V ⁅V, L⁆ (⁅V, L⁆ ⊓ Subgroup.centralizer (L : Set G)) ∧
+      (⁅V, L⁆ ⊓ Subgroup.centralizer (L : Set G)).relIndex ⁅V, L⁆ = 2 ^ 4 ∧
+      IsIrrSection X (⁅V, L⁆ ⊓ Subgroup.centralizer (L : Set G)) ⁅V, L⁆ ∧
+      (∃ l : Subgroup G, ⁅V, L⁆ ⊓ Subgroup.centralizer (L : Set G) ≤ l ∧ l ≤ ⁅V, L⁆ ∧
+        (⁅V, L⁆ ⊓ Subgroup.centralizer (L : Set G)).relIndex l = 4 ∧
+        autOn P V = autOn (X ⊓ Subgroup.normalizer (l : Set G)) V) ∧
+      (IsHat (↥L ⧸ CFSG.pCore 2 ↥L) ↥(alternatingGroup (Fin 6)) →
+        ¬ oTwoUpper (oTwoZIn L) ≤ P) ∧
+      ∃ A : Subgroup G, IsMaxElemAbelian T A ∧ 2 < Nat.card ↥(autOn A V)))
 
 end CFSG.ASVolI

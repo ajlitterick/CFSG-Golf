@@ -106,6 +106,7 @@ theorem n0 : Nat.beq E.N 1080 = true ∧ Nat.beq E.ng 3 = true := ⟨by quickRfl
 
 theorem cls : allN 1080 (gfr3AtK 24 5 1080 E.T 1080 3 1) = true := by quickRfl
 
+theorem clsNeg : (!allN 1080 (gfr3AtK 24 5 1080 E.T 540 3 1)) = true := by quickRfl
 
 end CertificateChecks.KernelGFR3.M24
 

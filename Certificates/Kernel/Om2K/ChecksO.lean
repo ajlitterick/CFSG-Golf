@@ -20,6 +20,7 @@ theorem kDist : distinctK 6300 (fun i => keyK 240 9 48 (Orb.C i)) Orb.S = true :
 
 theorem kF0 : Nat.beq (eqMaskK 480 9 (EL.G 0) (cAK 2)) (Orb.M 0) = true := by quickRfl
 
+theorem kN : Orb.N = 6300 := rfl
 
 theorem kCov : allN 6300 covK = true := by quickRfl
 

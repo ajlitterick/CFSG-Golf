@@ -126,6 +126,9 @@ theorem c10038_fix : rootFixOK = true := by
   rw [rowsSA_eq]
   quickRfl
 
+theorem c10038_neg :
+    (!rootPK (lk CertificateChecks.KernelVec.Co1.Pt 32 0) && !rootPK 24) = true := by
+  quickRfl
 
 open Certificates in
 open CFSG.Monster.GMS.S365 in

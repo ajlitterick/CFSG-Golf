@@ -16,6 +16,11 @@ theorem sH1 : CFSG.KC.LceS.invOK INV INV8 (nat_lit 4) = true := by
 theorem sH3 : Nat.beq nC (nat_lit 943) = true := by
   quickRfl
 
+theorem sH4 : CFSG.KC.HeB.litOK litRT CFSG.KC.HeB.rel (nat_lit 7) = true := by
+  quickRfl
+
+theorem sH5 : CFSG.KC.HeB.litOK litST CFSG.KC.HeB.sub (nat_lit 2) = true := by
+  quickRfl
 
 theorem sH6 : CFSG.KC.HeB.hintsLt selWT (nat_lit 2048) (nat_lit 2) HS = true := by
   quickRfl

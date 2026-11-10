@@ -13,6 +13,9 @@ variable {G : Type*} [Group G]
 @[expose] def IsTwoRadicalIn (H R : Subgroup G) : Prop :=
   R ≤ H ∧ R ≠ ⊥ ∧ R = pCoreOf 2 (H ⊓ Subgroup.normalizer (R : Set G))
 
+@[expose] def SatisfiesPU (H R : Subgroup G) : Prop :=
+  IsTwoRadicalIn H R ∧ ∀ C : Subgroup G, C ≤ R → C ≠ ⊥ → (C.subgroupOf R).Characteristic →
+    ¬ H ≤ Subgroup.normalizer (C : Set G)
 
 @[expose] def cgsIn (H S : Subgroup G) : Subgroup G :=
   ⨆ (C : Subgroup G) (_ : C ≤ S) (_ : C ≠ ⊥) (_ : (C.subgroupOf S).Characteristic),

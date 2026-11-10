@@ -23,5 +23,13 @@ instance (k : Fin 2) (y : V4) : Decidable (inLine k y) :=
   | 1 => inferInstanceAs (Decidable
       (y = 0 ∨ y = ![1, 0, 0, 0] ∨ y = ![0, 0, 1, 1] ∨ y = ![1, 0, 1, 1]))
 
+@[expose] def y2 : Fin 2 → V4
+  | 0 => ![1, 0, 0, 0]
+  | 1 => ![0, 0, 1, 1]
+
+@[expose] def y3 : Fin 2 → V4
+  | 0 => ![0, 0, 1, 0]
+  | 1 => ![1, 0, 1, 1]
+
 
 end CFSG.Quasithin.ShultG53

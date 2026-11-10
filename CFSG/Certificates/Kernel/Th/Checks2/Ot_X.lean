@@ -39,6 +39,41 @@ theorem CFSG.KD.ThO.ra : CFSG.KC.Th.OutS.invRank (nat_lit 6) (CFSG.KC.Th.DceS.le
     (nat_lit 0)) = true := by
   quickRfl
 
+theorem CFSG.KD.ThO.c3_0 : Nat.beq (CFSG.KC.Th.OutS.countA CFSG.KD.ThB.E3 (nat_lit 0) (nat_lit 486)
+    (nat_lit 8)) (nat_lit 0) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThO.c4_0 : Nat.beq (CFSG.KC.Th.OutS.countA CFSG.KD.ThB.E4 (nat_lit 0) (nat_lit 288)
+    (nat_lit 5)) (nat_lit 3) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThO.c5_0 : Nat.beq (CFSG.KC.Th.OutS.countA CFSG.KD.ThB.E5 (nat_lit 0) (nat_lit 54)
+    (nat_lit 1)) (nat_lit 0) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThO.c6_0 : Nat.beq (CFSG.KC.Th.OutS.countA CFSG.KD.ThB.E6 (nat_lit 0) (nat_lit 6)
+    (nat_lit 1)) (nat_lit 0) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThO.c7_0 : Nat.beq (CFSG.KC.Th.OutS.countA CFSG.KD.ThB.E7 (nat_lit 0) (nat_lit 126)
+    (nat_lit 2)) (nat_lit 0) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThO.c8_0 : Nat.beq (CFSG.KC.Th.OutS.countA CFSG.KD.ThB.E8 (nat_lit 0) (nat_lit 78)
+    (nat_lit 2)) (nat_lit 0) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThO.c9_0 : Nat.beq (CFSG.KC.Th.OutS.countA CFSG.KD.ThB.E9 (nat_lit 0) (nat_lit 72)
+    (nat_lit 2)) (nat_lit 0) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThO.c10_0 : Nat.beq (CFSG.KC.Th.OutS.countA CFSG.KD.ThB.E10 (nat_lit 0) (nat_lit
+    2048) (nat_lit 32)) (nat_lit 0) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThO.c10_2048 : Nat.beq (CFSG.KC.Th.OutS.countA CFSG.KD.ThB.E10 (nat_lit 2048)
+    (nat_lit 1480) (nat_lit 24)) (nat_lit 0) = true := by
+  quickRfl
 
 theorem CFSG.KD.ThO.core : CFSG.KC.Th.OutS.coreOK CFSG.KD.ThB.E6 CFSG.KD.ThB.LT CFSG.KD.ThB.LI
     (nat_lit 2) (nat_lit 6) = true := by

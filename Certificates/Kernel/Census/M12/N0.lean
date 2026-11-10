@@ -17,6 +17,8 @@ namespace CertificateChecks.KernelCensus.M12K
 
 set_option maxRecDepth 1000000
 
+theorem kN0 : (List.range' 0 61).all nodeF = true := by quickRfl
+theorem kN61 : (List.range' 61 61).all nodeF = true := by quickRfl
 
 end CertificateChecks.KernelCensus.M12K
 

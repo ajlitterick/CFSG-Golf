@@ -14,6 +14,10 @@ theorem tag_F4 : F4.tag = .F4 :=
   rfl
 
 
+theorem perm_F4 : F4.perm = reeF4Perm :=
+  rfl
+
+
 theorem relationExponent_eq (t : ReeTag) (a : ℕ) (i : Fin t.tag.rank) :
     (if i ∈ t.longSet then t.prime ^ a else t.prime ^ (a + 1)) = t.prime ^ a * t.exponent i := by
   unfold exponent

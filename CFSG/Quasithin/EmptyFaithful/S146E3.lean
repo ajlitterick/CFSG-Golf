@@ -89,6 +89,7 @@ theorem theta_one : ∀ i, theta 1 i = i := by decide +kernel
     conv_lhs => rw [← ha']
     exact act_inv_act a e1
 
+theorem mem_stab1 {g : Γ} : g ∈ stab1 ↔ act g e1 = e1 := Iff.rfl
 
 @[expose] noncomputable def thetaEquiv (g : ↥stab1) : Equiv.Perm (Fin 3) :=
   Equiv.ofBijective (theta g.1) (theta_bij g.1 g.2)

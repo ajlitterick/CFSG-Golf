@@ -53,6 +53,8 @@ theorem run2 (ch : Char) (rest : List Char) (t i v dg : Nat) :
   rw [sB]
   rfl
 
+theorem runNil (t ph i v dg : Nat) :
+    K.progRun [] t ph i v dg = bAnd(Nat.beq ph 0, Nat.beq t K.N) := rfl
 
 theorem digV_spec {c : Nat} (h : CFSG.KC.SurjK.digV c < 10) :
     48 ≤ c ∧ c ≤ 57 ∧ CFSG.KC.SurjK.digV c = c - 48 := by

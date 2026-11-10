@@ -200,5 +200,14 @@ theorem commutator_mem_oddCoreOf_of_centralizes [Finite G] [IsSimpleGroup G] {K 
   · obtain ⟨i, rfl⟩ := Subgroup.mem_zpowers_iff.mp hv
     exact (Commute.zpow_right (show Commute r x from hxR r hr) i).eq
 
+theorem mem_sec19Y_of_centralizes [Finite G] [IsSimpleGroup G] {K : Subgroup G} {z : G}
+    (ht : S19R.TightStd p f K z) {R : Subgroup G} (hR : IsSylow2In R K) {x : G}
+    (hxX : x ∈ sec19X K z) (hx2 : IsPGroup 2 (Subgroup.zpowers x))
+    (hxR : ∀ r ∈ R, r * x = x * r) : x ∈ sec19Y K z := by
+  have hxN : x ∈ Subgroup.normalizer (K : Set G) := by
+    rw [normalizer_eq_centralizer_of_tight ht.toTightBranch]
+    exact sec19X_le_centralizer K z hxX
+  exact ⟨hxX, hxN, mem_normalizer_oddCoreOf_of_mem_normalizer hxN,
+    fun k hk => commutator_mem_oddCoreOf_of_centralizes ht hR hx2 hxN hxR hk⟩
 
 end CFSG.ClassicalInvolution.Disconnected.AschTight.S1916

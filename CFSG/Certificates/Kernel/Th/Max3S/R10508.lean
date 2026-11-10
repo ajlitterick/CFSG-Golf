@@ -100,6 +100,10 @@ theorem allN_sound {f : ℕ → Bool} {lo : ℕ} : ∀ {n : ℕ}, allN f lo n = 
     · exact allN_sound h'.2 j hj
     · exact h'.1
 
+theorem getN_mem : ∀ (Ns : List ℕ) (j : ℕ), j < Ns.length → getN Ns j ∈ Ns
+  | [], _, hj => absurd hj (Nat.not_lt_zero _)
+  | a :: _, 0, _ => List.mem_cons_self
+  | _ :: t, j + 1, hj => List.mem_cons_of_mem _ (getN_mem t j (by simpa using hj))
 
 theorem forall_mem_of_getN {f : ℕ → Bool} (Ns : List ℕ)
     (h : ∀ j < Ns.length, f (getN Ns j) = true) : ∀ a ∈ Ns, f a = true := by

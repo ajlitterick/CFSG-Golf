@@ -22,8 +22,22 @@ noncomputable def φ : FieldFour →+* F4 := (ι : FieldFour →+* F4)
 
 noncomputable def B1 : Matrix (Fin 16) (Fin 8) F4 := basis8.map φ
 
+noncomputable def B2 : Matrix (Fin 16) (Fin 8) F4 := basis8'.map φ
+
+noncomputable def P1 : Matrix (Fin 8) (Fin 16) F4 := proj8.map φ
+
+noncomputable def P2 : Matrix (Fin 8) (Fin 16) F4 := proj8'.map φ
+
 
 section Tensor
+
+variable {V : Type} [AddCommGroup V] [Module (ZMod 2) V] (e : V ≃ₗ[ZMod 2] (Fin 16 → ZMod 2))
+
+noncomputable def U1 : Submodule F4 (F4 ⊗[ZMod 2] V) :=
+  (LinearMap.range (Matrix.mulVecLin B1)).comap (theta F4 e).toLinearMap
+
+noncomputable def U2 : Submodule F4 (F4 ⊗[ZMod 2] V) :=
+  (LinearMap.range (Matrix.mulVecLin B2)).comap (theta F4 e).toLinearMap
 
 
 end Tensor

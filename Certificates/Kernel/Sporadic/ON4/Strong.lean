@@ -33,6 +33,8 @@ theorem inv_pair {f fi : Nat → Nat} (hf : Pair1 f fi) : Pair1 fi f := fun y hy
 theorem pair_of {s : Nat} {G GI : Nat → Nat → Nat} (h : InvPair 245520 s G GI) {j : Nat}
     (hj : j < s) : Pair1 (G j) (GI j) := h j hj
 
+theorem pair_inv {s : Nat} {G GI : Nat → Nat → Nat} (h : ∀ j < s, Pair1 (G j) (GI j)) :
+    InvPair 245520 s G GI := h
 
 theorem mcO_pair : InvPair 245520 3 mcO mcOI := by
   have A := pair_of mG_pair (j := 1) (by norm_num)

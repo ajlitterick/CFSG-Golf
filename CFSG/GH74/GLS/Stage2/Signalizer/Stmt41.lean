@@ -47,6 +47,9 @@ section Concl
 
 variable {A : Type} [Group A] [Finite A]
 
+@[expose] def C43a (X : Subgroup A) : Prop :=
+  ncl X = ⁅pCore 2 A, X⁆ ⊔ X ∧ Nonempty (↥⁅pCore 2 A, X⁆ ≃* QuaternionGroup 2) ∧
+    HasSL2Model ↥(ncl X) (fun q => q = 3)
 
 @[expose] def C43b (p : ℕ) (X : Subgroup A) : Prop :=
   ∃ n : ℕ, 3 < p ^ n ∧ HasSL2Model ↥(ncl X) (fun q => q = p ^ n) ∧
@@ -58,9 +61,18 @@ variable {A : Type} [Group A] [Finite A]
     X = Op p (X ⊔ ncl X ⊓ centralizer ({z} : Set A)) ∧ IsElementaryAbelian p ↥X ∧
     Nat.card ↥X = p ^ (2 * n)
 
+@[expose] def C43d (k : Kind) (z : A) (X : Subgroup A) : Prop :=
+  (k = Kind.mcl ∨ k = Kind.ly) ∧ Nat.card ↥X = 3 ∧
+    ((IsPGL3Four ↥(ncl X) ∧ ncl X ⊓ centralizer ({z} : Set A) = ⁅ncl X, ncl X⁆ ⊓ centralizer (X : Set A) ∧
+        IVK.IsL2 ↥(ncl X ⊓ centralizer ({z} : Set A)) (fun q => q = 4) ∧
+        (ncl X ⊔ zpowers z) ⊓ centralizer ((ncl X ⊓ centralizer ({z} : Set A) : Subgroup A) : Set A) =
+          X ⊔ zpowers z) ∨
+      (ncl X = ⁅pCore 2 A, X⁆ ⊔ X ∧ IsL34Two ↥⁅pCore 2 A, X⁆))
 
 @[expose] def C43e (X : Subgroup A) : Prop := HasSL2Model ↥(ncl X) (fun q => q = 5) ∧ Nat.card ↥X = 3
 
+@[expose] def Concl43 (k : Kind) (z : A) (p : ℕ) (X : Subgroup A) : Prop :=
+  C43a X ∨ C43b p X ∨ C43c z p X ∨ C43d k z X ∨ C43e X
 
 @[expose] def Hyp42 (z : A) (X : Subgroup A) : Prop :=
   layer A ⊔ X ⊔ zpowers z = ⊤ ∧ IsQuasisimple ↥(layer A) ∧ center ↥(layer A) = pCore 2 ↥(layer A) ∧
@@ -91,6 +103,12 @@ end Concl
     ∀ (H₀ : Subgroup G) (H₁ : Subgroup ↥H₀) [H₁.Normal] (hz : z ∈ H₀) (p : ℕ)
       (X : Subgroup (Sec H₀ H₁)), Sig4B G z H₀ H₁ hz p X → Hyp42 (zSec z H₀ hz H₁) X →
       Concl42 k (zSec z H₀ hz H₁) p X
+
+@[expose] def Prop4_3 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (z : G) (k : Kind) (S : Subgroup G), Stage2Ctx G z k S →
+    ∀ (H₀ : Subgroup G) (H₁ : Subgroup ↥H₀) [H₁.Normal] (hz : z ∈ H₀) (p : ℕ)
+      (X : Subgroup (Sec H₀ H₁)), Sig4B G z H₀ H₁ hz p X →
+      Concl43 k (zSec z H₀ hz H₁) p X
 
 
 end CFSG.GH74.GLS.Stage2.Signalizer

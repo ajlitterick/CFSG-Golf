@@ -23,6 +23,14 @@ open CFSG.KD.YamakiRep CFSG.KD.BfsK
 
 theorem ch550831i : invPosK RN 10752 [(7, 0), (114, 1)] = true := by quickRfl
 
+theorem ch550831nA : (!autChunk RN RQ ql1 ql0 qOne 10752 512 0) = true := by quickRfl
+
+theorem ch550831nB : (!autChunk RN (fun t => RQ (Nat.add t 1)) ql0 ql1 qOne 10752 512 5) = true := by
+  quickRfl
+
+theorem ch550831nC : (!autChunk RN RQ ql0 ql1 (Nat.add qOne 1) 10752 512 0) = true := by quickRfl
+
+theorem ch550831nD : (!invPosK RN 10752 [(7, 0), (115, 1)]) = true := by quickRfl
 
 end CFSG.KD.YamakiAut
 

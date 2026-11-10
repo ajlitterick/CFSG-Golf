@@ -10,6 +10,8 @@ open scoped Matrix
 
 namespace CFSG.ASVolI.ChH
 
+@[expose] def IsOrthonormalBasis5 (S : Finset (Fin 5 → ZMod 2)) : Prop :=
+  S.card = 5 ∧ (∀ x ∈ S, x ⬝ᵥ x = 1) ∧ ∀ x ∈ S, ∀ y ∈ S, x ≠ y → x ⬝ᵥ y = 0
 
 def oddVecs5 : Finset (Fin 5 → ZMod 2) := Finset.univ.filter fun x => x ⬝ᵥ x = 1
 

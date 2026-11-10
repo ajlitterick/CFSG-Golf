@@ -36,9 +36,23 @@ theorem rel0 : relOK CFSG.KD.Fi22BC3.A CFSG.KD.Fi22BC3.B (CFSG.KC.Fi22B.rel 0) =
 theorem rel1 : relOK CFSG.KD.Fi22BC3.A CFSG.KD.Fi22BC3.B (CFSG.KC.Fi22B.rel 1) = true := by quickRfl
 theorem rel2 : relOK CFSG.KD.Fi22BC3.A CFSG.KD.Fi22BC3.B (CFSG.KC.Fi22B.rel 2) = true := by quickRfl
 theorem rel3 : relOK CFSG.KD.Fi22BC3.A CFSG.KD.Fi22BC3.B (CFSG.KC.Fi22B.rel 3) = true := by quickRfl
+theorem rel4 : relOK CFSG.KD.Fi22BC3.A CFSG.KD.Fi22BC3.B (CFSG.KC.Fi22B.rel 4) = true := by quickRfl
+theorem rel5 : relOK CFSG.KD.Fi22BC3.A CFSG.KD.Fi22BC3.B (CFSG.KC.Fi22B.rel 5) = true := by quickRfl
 theorem rel6 : relOK CFSG.KD.Fi22BC3.A CFSG.KD.Fi22BC3.B (CFSG.KC.Fi22B.rel 6) = true := by quickRfl
+theorem rel7 : relOK CFSG.KD.Fi22BC3.A CFSG.KD.Fi22BC3.B (CFSG.KC.Fi22B.rel 7) = true := by quickRfl
+theorem rel8 : relOK CFSG.KD.Fi22BC3.A CFSG.KD.Fi22BC3.B (CFSG.KC.Fi22B.rel 8) = true := by quickRfl
+theorem rel9 : relOK CFSG.KD.Fi22BC3.A CFSG.KD.Fi22BC3.B (CFSG.KC.Fi22B.rel 9) = true := by quickRfl
+theorem rel10 : relOK CFSG.KD.Fi22BC3.A CFSG.KD.Fi22BC3.B (CFSG.KC.Fi22B.rel 10) = true := by quickRfl
+theorem rel11 : relOK CFSG.KD.Fi22BC3.A CFSG.KD.Fi22BC3.B (CFSG.KC.Fi22B.rel 11) = true := by quickRfl
 theorem rel12 : relOK CFSG.KD.Fi22BC3.A CFSG.KD.Fi22BC3.B (CFSG.KC.Fi22B.rel 12) = true := by quickRfl
 
+theorem swap_rejected : notB (relOK CFSG.KD.Fi22BC3.B CFSG.KD.Fi22BC3.A (CFSG.KC.Fi22B.rel 4)) = true := by
+  quickRfl
+
+theorem ab10_rejected : notB (relOK CFSG.KD.Fi22BC3.A CFSG.KD.Fi22BC3.B
+    (Nat.add (nat_lit 80) (Nat.shiftLeft (Nat.land (Nat.shiftRight (CFSG.KC.Fi22B.rel 2) (nat_lit 12))
+      (Nat.sub (Nat.shiftLeft (nat_lit 1) (nat_lit 160)) (nat_lit 1))) (nat_lit 12)))) = true := by
+  quickRfl
 
 end CFSG.KC.Fi22B2.Std3
 

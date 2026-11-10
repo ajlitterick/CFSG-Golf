@@ -148,6 +148,11 @@ theorem rho_mul (A B : SL23) : pkRho (A * B) = pkRho A * pkRho B := by
 
 @[expose] def rhoH : SL23 →* P45 := MonoidHom.mk' pkRho rho_mul
 
+@[expose] def betaH : SL23 →* P45 := (MulAut.conj (g0 ())⁻¹).toMonoidHom.comp rhoH
+
+theorem betaH_apply (A : SL23) : betaH A = cj (g0 ()) (pkRho A) := by
+  simp only [betaH, rhoH, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, MulAut.conj_apply,
+    MonoidHom.mk'_apply, inv_inv, cj]
 
 theorem g0_sq : g0 () * g0 () = 1 := (conjK_spec cent.2.2 prep_rR hg0).1
 

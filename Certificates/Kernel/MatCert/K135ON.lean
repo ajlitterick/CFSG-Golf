@@ -49,6 +49,10 @@ theorem k135ON_K : forceB (payON ONS1.chars) (fun A => forceB (payON ONS2.chars)
     true := by
   quickRfl
 
+theorem k135ON_neg : (forceB (payON ONS1.chars) fun A => forceB (payON ONS2.chars) fun B =>
+    !mcertN O3 A B { CFSG.RankThree.PartTwo.Sec13.F135Last.K135.onCert with
+      facts := [.eq [(0, 1)] [(1, 1)]] }) = true := by
+  quickRfl
 
 end CertificateChecks.KernelMC
 

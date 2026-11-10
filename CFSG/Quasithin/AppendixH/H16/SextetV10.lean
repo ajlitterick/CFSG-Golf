@@ -9,5 +9,7 @@ namespace CFSG.ASVolI.H16
 open CFSG.ASVolI.ChH CFSG.Quasithin CFSG.Quasithin.H.LU24 CFSG.Quasithin.H.LU CFSG.Monster.Code
   CFSG.Quasithin.H.Mathieu CFSG.Quasithin.H.ModChk CFSG.Open CFSG.Quasithin.H.Coc
 
+@[expose] def V10 : Subgroup W11 := maskSub 11 v10Basis
+
 
 end CFSG.ASVolI.H16

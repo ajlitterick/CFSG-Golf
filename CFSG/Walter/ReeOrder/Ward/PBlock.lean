@@ -186,6 +186,11 @@ theorem FS1 : ∑ χ ∈ S.S1, nu χ * S.d1 χ = 0 := by
     rw [Set.Finite.mem_toFinset] at hχ
     rw [S.van1 hχ hnot, mul_zero]).symm
 
+theorem FS2 : ∑ χ ∈ S.S2, nu χ * S.d2 χ = 0 := by
+  rw [← S.fs_col (fun y hy => S.W.Φ2_even hy) S.d2 (fun χ hχ => S.inner_Φ2 hχ)]
+  exact (sum_irr_eq_sum_of_vanish (supp_sub _) _ fun χ hχ hnot => by
+    rw [Set.Finite.mem_toFinset] at hχ
+    rw [S.van2 hχ hnot, mul_zero]).symm
 
 theorem FS3 : ∑ χ ∈ S.S3, nu χ * S.d3 χ = 0 := by
   rw [← S.fs_col (fun y hy => S.W.Φ3_even hy) S.d3 (fun χ hχ => S.inner_Φ3 hχ)]

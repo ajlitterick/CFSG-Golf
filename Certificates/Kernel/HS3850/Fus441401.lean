@@ -49,6 +49,8 @@ theorem fus_sl : penumSlK 3850 12 (mask 12) (3850 * 12) true FB.G FB.GI FB.k FB.
 theorem fus_fix : bIf(Nat.beq (fx (pc (HC.F 21) B0)) (fx (HC.F 21)), false, true) = true := by
   quickRfl
 
+theorem fus_root_neg : penumHdK E21 FB.cnt 300 FB.T FB.PL = false := by
+  decide +kernel
 
 end CFSG.KD.HS3850.Fus
 

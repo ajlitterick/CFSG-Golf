@@ -62,6 +62,10 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.SporSch CertificateCh
 @[expose] noncomputable def ptK (w : List Int) : Nat :=
   List.rec (motive := fun _ => Nat) 0 (fun l _ ih => pg 12 (mask 12) (gK l) ih) w
 
+theorem kHi : bAnd(Nat.beq (Nat.shiftRight A0I (4060 * 12)) 0,
+    bAnd(Nat.beq (Nat.shiftRight A1I (4060 * 12)) 0,
+    bAnd(Nat.beq (Nat.shiftRight A0 (4060 * 12)) 0, Nat.beq (Nat.shiftRight A1 (4060 * 12)) 0))) =
+    true := by quickRfl
 
 theorem kRange : allN 4060 (fun i => bAnd(Nat.blt (pg 12 (mask 12) A0 i) 4060,
     bAnd(Nat.blt (pg 12 (mask 12) A1 i) 4060, bAnd(Nat.blt (pg 12 (mask 12) A0I i) 4060,

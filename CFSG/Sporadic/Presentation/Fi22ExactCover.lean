@@ -50,6 +50,14 @@ theorem rel_ab11 : (aG * bG) ^ 11 = 1 := by
     gen0_two] at this
   exact this
 
+theorem rel_ab2_21 : (aG * bG ^ 2) ^ 21 = 1 := by
+  have h : (List.replicate 21 [0, 2, 2]).flatten ∈ codes W0 :=
+    Certificates.certificate9108.2.2.2.1
+  have := evalWord_codes_eq_one h
+  rw [evalWord_flatten_replicate, evalWord_cons, evalWord_cons, evalWord_cons, evalWord_nil,
+    mul_one, gen0_zero, gen0_two] at this
+  rw [pow_two]
+  exact this
 
 noncomputable def xG (k : ℕ) : GG := (bG ^ k)⁻¹ * aG * bG ^ k
 

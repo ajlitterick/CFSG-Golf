@@ -152,6 +152,13 @@ private theorem wf_xor {a b : V2} (ha : a.wf = true) (hb : b.wf = true) : (a.xor
 
 private theorem wf_zero : V2.zero.wf = true := rfl
 
+private theorem wf_get! {t : Array V2} (ht : ∀ i (h : i < t.size), t[i].wf = true) (i : Nat) :
+    (t[i]!).wf = true := by
+  by_cases h : i < t.size
+  · rw [getElem!_pos t i h]
+    exact ht i h
+  · rw [getElem!_neg t i h]
+    rfl
 
 private theorem wf_getD {t : Array V2} (ht : ∀ i (h : i < t.size), t[i].wf = true) (i : Nat) :
     (t[i]?.getD V2.zero).wf = true := by
@@ -161,6 +168,42 @@ private theorem wf_getD {t : Array V2} (ht : ∀ i (h : i < t.size), t[i].wf = t
   · rw [getElem?_neg t i h, Option.getD_none]
     exact wf_zero
 
+private theorem wf_frEntry {Y : Array V2} (hY : ∀ i (h : i < Y.size), Y[i].wf = true) (k c : Nat) :
+    (frEntry Y k c).wf = true := by
+  have key : ∀ (L : List Nat) (acc : V2), acc.wf = true → (L.foldl (fun acc j =>
+      if (c >>> j) % 2 = 1 then acc.xor (Y[8 * k + j]?.getD V2.zero) else acc)
+      acc).wf = true := by
+    intro L
+    induction L with
+    | nil => intro acc h; exact h
+    | cons a L ih =>
+      intro acc hacc
+      rw [List.foldl_cons]
+      apply ih
+      split
+      · exact wf_xor hacc (wf_getD hY _)
+      · exact hacc
+  exact key (List.range 8) _ wf_zero
+
+private theorem wf_frTable {Y : Array V2} (hY : ∀ i (h : i < Y.size), Y[i].wf = true) :
+    ∀ i (h : i < (frTable Y).size), (frTable Y)[i].wf = true := by
+  have hmem : ∀ x ∈ frTable Y, x.wf = true := by
+    intro x hx
+    unfold frTable at hx
+    rw [Array.mem_ofFn] at hx
+    obtain ⟨j, rfl⟩ := hx
+    exact wf_frEntry hY _ _
+  intro i h
+  exact hmem _ (Array.getElem_mem h)
+
+private theorem wf_frApplyT {t : Array V2} (ht : ∀ i (h : i < t.size), t[i].wf = true) (v : V2) :
+    (frApply t v).wf = true := by
+  have hb : ∀ base w s acc, acc.wf = true → (frByte t base w s acc).wf = true :=
+    fun _ _ _ _ h => wf_xor h (wf_get! ht _)
+  unfold frApply frWord6 frWord
+  exact hb _ _ _ _ (hb _ _ _ _ (hb _ _ _ _ (hb _ _ _ _ (hb _ _ _ _ (hb _ _ _ _
+    (hb _ _ _ _ (hb _ _ _ _ (hb _ _ _ _ (hb _ _ _ _ (hb _ _ _ _ (hb _ _ _ _ (hb _ _ _ _
+    (hb _ _ _ _ wf_zero)))))))))))))
 
 private theorem foldr_bits (g : Nat → Nat) (L : List Nat) (k : Nat) :
     (L.foldr (fun i acc => Nat.lor (g i) acc) 0).testBit k = L.any (fun i => (g i).testBit k) := by
@@ -196,6 +239,14 @@ private theorem andB_true {a b : Bool} (h : andB a b = true) : a = true ∧ b = 
   · exact absurd h Bool.false_ne_true
   · exact ⟨rfl, h⟩
 
+theorem consts_one {c rm one pad t0 t1 t2 t3 t4 t5 t6 : Nat}
+    (h : Consts c rm one pad t0 t1 t2 t3 t4 t5 t6) : one = rep 1 129 112 := by
+  unfold Consts constsOK at h
+  obtain ⟨-, h⟩ := andB_true h
+  obtain ⟨-, h⟩ := andB_true h
+  obtain ⟨-, h⟩ := andB_true h
+  obtain ⟨h, -⟩ := andB_true h
+  exact Nat.eq_of_beq_eq_true h
 
 private theorem v2N_lt (v : V2) : v2N v < 2 ^ 128 := by
   apply Nat.lt_pow_two_of_testBit

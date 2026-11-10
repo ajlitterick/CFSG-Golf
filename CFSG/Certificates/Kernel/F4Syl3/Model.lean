@@ -70,6 +70,7 @@ theorem vmulk_three (c : ℕ) : vmulk 3 c = 0 := by
   have := dg_lt c 3
   apply eq_of_dg (vadd_lt _ _) (by decide) <;> simp only [dg_zero] <;> omega
 
+theorem lin_lt (c0 c1 c2 c3 a : ℕ) : lin c0 c1 c2 c3 a < 81 := vadd_lt _ _
 
 theorem m4_lt (a : ℕ) : m4 a < 81 := vadd_lt _ _
 

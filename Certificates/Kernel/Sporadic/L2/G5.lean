@@ -61,6 +61,7 @@ theorem genQ_get {l : Nat} (hl : l < 6) : genQ[l]! = eltPin (6 + l) := by
 theorem not_or_of {a b : Bool} (h : bIf(a, b, true) = true) : (!a || b) = true := by
   cases a <;> simp_all
 
+theorem bdec {p : Prop} [Decidable p] (h : p) : decide p = true := decide_eq_true h
 
 theorem npK_get {r k : Nat} (hr : r < 3) (hk : k < 36) :
     (hexTable 3 36 (36 * r) LevelTwoPins.nbPHex)[k]! = npK r k := by

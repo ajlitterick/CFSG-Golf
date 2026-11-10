@@ -13,6 +13,9 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.Mathieu
   pg 11 (mask 11) (Nat.land (Nat.shiftRight p (Nat.mul (nat_lit 704) (Nat.div i (nat_lit 64))))
     (mask (nat_lit 704))) (Nat.mod i (nat_lit 64))
 
+@[expose] noncomputable def eq22R (n x g : Nat) : Bool :=
+  allN n (fun i => Nat.beq (pgR x (pgR g i)) (pgR g (pgR x i)))
+
 
 @[expose] noncomputable def allA {α : Type} (f : α → Bool) (A : List α) : Bool :=
   List.rec (motive := fun _ => Bool) true (fun a _ ih => bAnd(f a, ih)) A
@@ -34,6 +37,12 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.Mathieu
 @[expose] noncomputable def memN (p : Nat) (L : List Nat) : Bool :=
   List.rec (motive := fun _ => Bool) false (fun y _ ih => bIf(Nat.beq p y, true, ih)) L
 
+@[expose] noncomputable def filterEqK (f : Nat → Bool) (L : List Nat) : List Nat → Bool :=
+  List.rec (motive := fun _ => List Nat → Bool)
+    (fun Q => List.rec (motive := fun _ => Bool) true (fun _ _ _ => false) Q)
+    (fun x _ ih Q => bIf(f x,
+      List.rec (motive := fun _ => Bool) false (fun q Q' _ => bAnd(Nat.beq x q, ih Q')) Q,
+      ih Q)) L
 
 @[expose] noncomputable def gptR (t0 t1 t2 t3 t4 i : Nat) : Nat :=
   pgR t0 (pgR t1 (pgR t2 (pgR t3 (pgR t4 i))))
@@ -57,6 +66,40 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.Mathieu
 @[expose] noncomputable def commR (G t0 t1 t2 t3 t4 : Nat) : Bool :=
   allN 1755 (fun i => Nat.beq (gptR t0 t1 t2 t3 t4 (pgR G i)) (pgR G (gptR t0 t1 t2 t3 t4 i)))
 
+@[expose] noncomputable def zipProdP (LR TR : Nat → Nat) (c l : Nat) : Bool :=
+  bAnd(canonK 1755 11 (mask 11) (1755 * 11) l,
+  strictB (rcnt (LR 1)) (fun c1 => strictB (rcnt (LR 2)) (fun c2 =>
+  strictB (rcnt (LR 3)) (fun c3 => strictB (rcnt (LR 4)) (fun c4 =>
+  strictB (Nat.div c c4) (fun k3 => strictB (Nat.div k3 c3) (fun k2 =>
+  strictB (Nat.div k2 c2) (fun k1 => strictB (Nat.div k1 c1) (fun a =>
+  eqR l (trAt 1755 (1755 * 11) LR TR 0 a) (trAt 1755 (1755 * 11) LR TR 1 (Nat.mod k1 c1))
+    (trAt 1755 (1755 * 11) LR TR 2 (Nat.mod k2 c2)) (trAt 1755 (1755 * 11) LR TR 3 (Nat.mod k3 c3))
+    (trAt 1755 (1755 * 11) LR TR 4 (Nat.mod c c4)))))))))))
+
+@[expose] noncomputable def pgS (p i : Nat) : Nat :=
+  pg 11 (mask 11) (Nat.land (Nat.shiftRight p
+    (Nat.add (nat_lit 64) (Nat.mul (nat_lit 704) (Nat.div i (nat_lit 64))))) (mask (nat_lit 704)))
+    (Nat.mod i (nat_lit 64))
+
+@[expose] noncomputable def canonS (l : Nat) : Bool :=
+  bAnd(Nat.beq (Nat.shiftRight l (Nat.add (nat_lit 64) (1755 * 11))) (nat_lit 0),
+    allN 1755 (fun i => Nat.blt (pgS l i) 1755))
+
+@[expose] noncomputable def zipProdS (LR TR : Nat → Nat) (c l : Nat) : Bool :=
+  bAnd(canonS l,
+  strictB (rcnt (LR 1)) (fun c1 => strictB (rcnt (LR 2)) (fun c2 =>
+  strictB (rcnt (LR 3)) (fun c3 => strictB (rcnt (LR 4)) (fun c4 =>
+  strictB (Nat.div c c4) (fun k3 => strictB (Nat.div k3 c3) (fun k2 =>
+  strictB (Nat.div k2 c2) (fun k1 => strictB (Nat.div k1 c1) (fun a =>
+  strictB (trAt 1755 (1755 * 11) LR TR 0 a) (fun t0 =>
+  strictB (trAt 1755 (1755 * 11) LR TR 1 (Nat.mod k1 c1)) (fun t1 =>
+  strictB (trAt 1755 (1755 * 11) LR TR 2 (Nat.mod k2 c2)) (fun t2 =>
+  strictB (trAt 1755 (1755 * 11) LR TR 3 (Nat.mod k3 c3)) (fun t3 =>
+  strictB (trAt 1755 (1755 * 11) LR TR 4 (Nat.mod c c4)) (fun t4 =>
+  allN 1755 (fun i => Nat.beq (gptR t0 t1 t2 t3 t4 i) (pgS l i))))))))))))))))
+
+@[expose] noncomputable def eq22S (x g : Nat) : Bool :=
+  allN 1755 (fun i => Nat.beq (pgS x (pgS g i)) (pgS g (pgS x i)))
 
 @[expose] noncomputable def wPt (S SI : Nat → Nat) (wd : List Int) (i : Nat) : Nat :=
   List.rec (motive := fun _ => Nat → Nat) (fun i => i)
@@ -73,6 +116,23 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.Mathieu
   bAnd(lettersK (nat_lit 13) wd,
     allN 1755 (fun i => Nat.beq (wPt S SI wd (pgR y i)) (pgR T (wPt S SI wd i))))
 
+@[expose] noncomputable def siftPf (LR TRI : Nat → Nat) (BP : Nat) (f : Nat) :
+    Nat → (Nat → Nat) → Bool :=
+  Nat.rec (motive := fun _ => Nat → (Nat → Nat) → Bool)
+    (fun _ g => allN 1755 (fun i => Nat.beq (g i) i))
+    (fun _ ih l g => strictB (LR l) (fun R =>
+      strictB (rpos 11 (mask 11) (1755 * 11) R (g (pg 11 (mask 11) BP l))) (fun k =>
+      bIf(Nat.blt k (rcnt R),
+        strictB (TRI (Nat.add (roff 1755 (1755 * 11) R) k)) (fun t =>
+          ih (Nat.succ l) (fun i => pgR t (g i))),
+        false))))
+    f
+
+@[expose] noncomputable def siftP (LR TRI : Nat → Nat) (BP nb G : Nat) : Bool :=
+  siftPf LR TRI BP nb 0 (fun i => pgR G i)
+
+@[expose] noncomputable def siftPS (LR TRI : Nat → Nat) (BP nb G : Nat) : Bool :=
+  siftPf LR TRI BP nb 0 (fun i => pgS G i)
 
 end CFSG.KS.SporSch
 

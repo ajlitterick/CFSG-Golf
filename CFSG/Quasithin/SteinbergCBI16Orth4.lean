@@ -75,6 +75,9 @@ theorem hermAct_rk (D : F4Data F) (g : SL2 F) (u : Fin 2 → F) :
 
 @[expose] def X (D : F4Data F) (p : Fin 5) : ↥(hermA 1 F) := ⟨rk (D.pt p), D.rk_mem _⟩
 
+theorem X_coe (D : F4Data F) (p : Fin 5) :
+    ((D.X p : ↥(hermA 1 F)) : Matrix (Fin 2) (Fin 2) F) = rk (D.pt p) :=
+  rfl
 
 theorem X_injective (D : F4Data F) : Function.Injective D.X := by
   have h0 := D.ω_ne_zero
@@ -324,6 +327,47 @@ abbrev kap : ZMod 2 →+* F := ZMod.castHom (dvd_refl 2) F
 
 theorem val_cast (z : ZMod 2) : ((z.val : ℕ) : F) = kap z := by
   rw [ZMod.natCast_val, ZMod.castHom_apply]
+
+theorem lam_apply (D : F4Data F) (x : Fin 5 → ZMod 2) (i j : Fin 2) :
+    ((D.lam x : ↥(hermA 1 F)) : Matrix (Fin 2) (Fin 2) F) i j =
+      ∑ p, kap (x p) * rk (D.pt p) i j := by
+  change ((∑ p, (x p).val • D.X p : ↥(hermA 1 F)) : Matrix (Fin 2) (Fin 2) F) i j = _
+  rw [AddSubmonoidClass.coe_finsetSum, Matrix.sum_apply]
+  refine Finset.sum_congr rfl fun p _ => ?_
+  rw [AddSubmonoidClass.coe_nsmul, Matrix.smul_apply, nsmul_eq_mul, val_cast, X_coe]
+
+theorem M_apply (D : F4Data F) (y : Fin 4 → ZMod 2) (i j : Fin 2) :
+    ((D.M y : ↥(hermA 1 F)) : Matrix (Fin 2) (Fin 2) F) i j =
+      kap (y 0) * rk (D.pt 0) i j + kap (y 1) * rk (D.pt 1) i j +
+        kap (y 2) * rk (D.pt 2) i j + kap (y 3) * rk (D.pt 3) i j +
+          kap (y 0 + y 1 + y 2 + y 3) * rk (D.pt 4) i j := by
+  change ((D.lam (inclOdd 4 y) : ↥(hermA 1 F)) : Matrix (Fin 2) (Fin 2) F) i j = _
+  rw [lam_apply, Fin.sum_univ_five]
+  simp [inclOdd, Fin.sum_univ_four]
+
+theorem M_00 (D : F4Data F) (y : Fin 4 → ZMod 2) :
+    ((D.M y : ↥(hermA 1 F)) : Matrix (Fin 2) (Fin 2) F) 0 0 = kap (y 1) := by
+  have h3 := D.cube D.ω_ne_zero
+  have h3' := D.cube (show D.ω + 1 ≠ 0 from fun h => D.ω_ne_one (by grind))
+  rw [M_apply]
+  simp only [rk, pt, of_apply, map_add]
+  simp
+  grind
+
+theorem M_11 (D : F4Data F) (y : Fin 4 → ZMod 2) :
+    ((D.M y : ↥(hermA 1 F)) : Matrix (Fin 2) (Fin 2) F) 1 1 = kap (y 0) := by
+  rw [M_apply]
+  simp only [rk, pt, of_apply, map_add]
+  simp
+  grind
+
+theorem M_01 (D : F4Data F) (y : Fin 4 → ZMod 2) :
+    ((D.M y : ↥(hermA 1 F)) : Matrix (Fin 2) (Fin 2) F) 0 1 =
+      kap (y 0 + y 1 + y 3) + kap (y 0 + y 1 + y 2) * D.ω := by
+  rw [M_apply]
+  simp only [rk, pt, of_apply, map_add]
+  simp
+  grind
 
 
 end F4Data

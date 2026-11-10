@@ -158,6 +158,8 @@ theorem card_le :
   exact (card_closure_le TauCeti.Sporadic.j3Presentation generatorCount_eq relators).trans
     (hc.trans (by norm_num))
 
+theorem perm2 : allN 5 (fun j => permOK 6156 13 (mask 13) (6156 * 13) (PJ3.S j) (PJ3.SI j)) =
+    true := perm
 
 theorem inv_eq (l : Nat) (hl : l < 5) : (rawInvs 6156 j3StrongArrs)[l]! = unpack 6156 13 (PJ3.SI l) := by
   have hI := (invEqK_sound (allN_spec perm l hl)).1

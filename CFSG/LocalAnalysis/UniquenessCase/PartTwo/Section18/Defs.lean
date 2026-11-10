@@ -124,6 +124,10 @@ theorem apply_eq {x : MulAut W} (hx : x ∈ centVec X v) : x v = v :=
 
 end centVec
 
+@[expose] def P18_6_1 (D : Data G) (V₀ V : Subgroup G) (p : ℕ) (L : Subgroup G)
+    (h : Hyp18 D V₀ V p L) (Δ : Set (Subgroup G)) : Prop :=
+  MBarGT D.M V₀ V (bBar (conjClosure D.M L) D.M V₀ V h.hyp125.isElemAbelian + 2) ∧
+    (V₀ ≠ ⊥ → (fIndexMax Δ + 2 : ℕ∞) < (mBar D.M V₀ V h.hyp125.isElemAbelian : ℕ∞))
 
 @[expose] def P18_6_2 (D : Data G) (V₀ V : Subgroup G) (p : ℕ) (L : Subgroup G)
     (h : Hyp18 D V₀ V p L) : Prop :=

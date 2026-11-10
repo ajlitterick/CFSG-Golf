@@ -148,6 +148,7 @@ theorem sigPerm_inv (x : L) : (sigPerm D x)⁻¹ = sigPerm D x := by
     rintro _ ⟨x, rfl⟩
     exact ⟨x, (sigPerm_inv D x).symm⟩
 
+theorem mem_S0 {g : Equiv.Perm (Wd F L)} : g ∈ S0 D ↔ ∃ x, sigPerm D x = g := Iff.rfl
 
 theorem sigPerm_injective : Function.Injective (sigPerm D) := by
   intro x y h

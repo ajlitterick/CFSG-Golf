@@ -26,5 +26,12 @@ open Equiv
 
 namespace Certificates
 
+open Equiv in
+theorem certificate3 :
+      ∀ t s : Equiv.Perm (Fin 4), t.support.card = 2 → s.support.card = 2 →
+        ∃ g : Equiv.Perm (Fin 4), g * t * g⁻¹ = s := by
+  intro t s ht hs
+  revert t s ht hs
+  decide
 
 end Certificates

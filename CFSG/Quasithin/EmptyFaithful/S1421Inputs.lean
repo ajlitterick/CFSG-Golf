@@ -20,6 +20,16 @@ variable {G : Type} [Group G]
     Nat.card (pCoreOf 2 L2) = 2 ^ 11
 
 
+@[expose] def Survivor4Vertex (K1 L2 S : Subgroup G) : Prop :=
+  IsAmalgamOfGroup (RankTwoAmalgam.ofSubgroups (K1 ⊔ bigB K1 L2 S) (L2 ⊔ bigB K1 L2 S))
+      (IsLieOverTwo .trialityD4 0 1) ∧ IsL2Quot 3 (OTwoQuot K1) ∧
+    IsSpecialPow 2 2 4 ↥(pCoreOf 2 (K1 ⊔ bigB K1 L2 S)) ∧ IsL2Quot 1 (OTwoQuot L2) ∧
+    Nat.card (pCoreOf 2 (L2 ⊔ bigB K1 L2 S)) = 2 ^ 11
+
+
+abbrev Survivor4 (K1 L2 S : Subgroup G) : Prop := Survivor4Vertex K1 L2 S
+
+
 end Survivors
 
 section D4

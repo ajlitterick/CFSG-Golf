@@ -165,6 +165,7 @@ theorem nAdd_aux : ∀ m x y, Gd m x → Gd m y →
       · rw [nib_succ _ _ (by omega), i3 k (by omega)]
         conv_rhs => rw [ex, ey, nib_succ _ _ (by omega), nib_succ _ _ (by omega)]
 
+theorem mC_five : mC 5 = 69905 := rfl
 
 theorem nAdd_eq (x y : ℕ) : nAdd x y = x + y - 3 * maskF (mC 5) (x + y) := by
   unfold nAdd
@@ -251,6 +252,10 @@ theorem nibR_spec : ∀ m x, (∀ k < m, x / 4 ^ k % 4 < 3) →
       simp
     · rw [nib_succ _ _ (by omega), h k (by omega), Nat.div_div_eq_div_mul, ← pow_succ']
 
+theorem vecOK_lt {u : ℕ} (h : vecOK 13 u = true) : u < 4 ^ 13 := by
+  obtain ⟨h1, -⟩ := band_true h
+  simp only [Nat.blt_eq] at h1
+  simpa [Nat.shiftLeft_eq] using h1
 
 theorem nibA_spec {u : ℕ} (h : vecOK 13 u = true) :
     Gd 5 (nibA u) ∧ ∀ k < 5, nib (nibA u) k = dg u (8 + k) := by

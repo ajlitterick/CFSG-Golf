@@ -18,6 +18,13 @@ open CFSG.RankThree.Native
 
 @[expose] def heSylGens : Array (Array ℕ) := Array.ofFn fun i : Fin 5 => heSylGen i.val
 
+@[expose] def heSylCert8330 : ArrCert := enumBfs 8330 heSylGens [0] 2000
+
+@[expose] def sylCheck8330 : Bool :=
+  heSylWords.length == 5 &&
+    allLt 5 (fun i => lettersOK 9 (heSylWords.getD i [])) &&
+    allLt 9 (fun j => validA 8330 heSylLetters[j]!) &&
+    enumOK 8330 heSylGens [0] heSylCert8330 && heSylCert8330.pts.size == 1024
 
 @[expose] def sylCheckRestrict : Bool :=
   heSylPts.size == 16 && heSyl16.length == 5 &&

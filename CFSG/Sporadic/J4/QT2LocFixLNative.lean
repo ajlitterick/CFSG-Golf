@@ -18,4 +18,7 @@ open CFSG.Sporadic.J4.Native CFSG.Sporadic.J4.QT CFSG.Sporadic.J4.QT2A
   (O.pts.filter fun v => (frApply T v).beq v).toList
 
 
+@[expose] def chkOrb5 : Bool := vorbOK locTabs rep5Vec orb5 15180
+
+
 end CFSG.Sporadic.J4.QT2

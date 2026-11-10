@@ -52,6 +52,9 @@ partial def lowB (sk : Array Nat) (x lo hi : Nat) : Nat :=
     rows[k]!.toArray ++ #[par[k]!, lab[k]!, cnt[k]!, sig[k]!, sinv[k]!, lowB sk keys[k]! 0 sk.size] ++
       ((Array.range G.size).map fun t => M.getD (keyNat n 5 (rows[k]!.map (img (G[t]!)))) 0)
 
+@[expose] def slpA : Array (Array Nat) := slpTabsA hATa hATb hAProg
+
+@[expose] def slpB : Array (Array Nat) := slpTabsA hBTa hBTb hBProg
 
 @[expose] def orbOrder (n : Nat) (G : Array (Array Nat)) : Array Nat := Id.run do
   let mut seen : Array Bool := Array.replicate n false
@@ -97,9 +100,25 @@ partial def lowB (sk : Array Nat) (x lo hi : Nat) : Nat :=
     (Array.range D.reps.size).map fun j =>
       hitCount D.rSet (conjKeys D.n D.B D.RT D.rpar D.rlab D.NR (D.Xi j) (D.X j))]
 
+@[expose] def ihA : Array (Array Nat) := ihOf heDcA
+
+@[expose] def ihB : Array (Array Nat) := ihOf heDcB
+
+@[expose] def recAV : Array (Array (Array Nat)) := recVs heDcA
+
+@[expose] def recAV0 : Array (Array Nat) := recAV[0]!
+
+@[expose] def recAV1 : Array (Array Nat) := recAV[1]!
+
+@[expose] def recBV : Array (Array (Array Nat)) := recVs heDcB
+
+@[expose] def recBV0 : Array (Array Nat) := recBV[0]!
+
+@[expose] def recBV1 : Array (Array Nat) := recBV[1]!
 
 @[expose] def hposA : Array (Array Nat) := hposOf heDcA
 
+@[expose] def hposB : Array (Array Nat) := hposOf heDcB
 
 end CFSG.KD.He589203
 

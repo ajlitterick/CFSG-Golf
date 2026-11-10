@@ -35,6 +35,8 @@ abbrev QuotK7 (p : ℕ) (H : Subgroup G) : Type :=
 abbrev LKQuot7 (p : ℕ) (H : Subgroup G) : Type :=
   ↥(ImageModK p H (Opp p H))
 
+@[expose] def PiPrimeCore (π : Set ℕ) (X : Subgroup G) : Subgroup G :=
+  sSup {N : Subgroup G | N ≤ X ∧ (N.subgroupOf X).Normal ∧ ∀ q ∈ π, ¬ q ∣ Nat.card N}
 
 @[expose] noncomputable def DerInf (X : Subgroup G) : Subgroup G :=
   (⨅ n : ℕ, derivedSeries ↥X n).map X.subtype
@@ -70,5 +72,14 @@ abbrev LKQuot7 (p : ℕ) (H : Subgroup G) : Type :=
       (∀ X : Subgroup G, X ≤ E → Nat.card X = r → 1 < Open.pRank p (D.M ⊓ normalizer (X : Set G))) →
         rankThreeGamma 1 r E ≤ D.M
 
+@[expose] def R77 (D : Data G) : Prop :=
+  ∀ p : ℕ, p.Prime → p ≠ 2 → IsStronglyPEmbedded p D.M →
+    ∀ r : ℕ, r.Prime → r ≠ 2 → r ∉ D.sig →
+      ∀ X : Subgroup G, X ≤ D.M → IsPGroup r X → ¬ IsCyclic X → (∀ x ∈ X, x ^ r = 1) →
+        ⁅⁅X, X⁆, X⁆ = ⊥ → 2 < Open.pRank p (D.M ⊓ normalizer (X : Set G)) →
+        (¬ r ≡ 1 [MOD p] ∨ Open.pRank r X = 2 ∨ 3 < Open.pRank p (D.M ⊓ normalizer (X : Set G)) ∨
+          (Open.pRank p D.M = Open.pRank p (D.M ⊓ normalizer (X : Set G)) ∧ p ∈ D.sig) ∨
+          (D.M ≤ normalizer ((X ⊔ PiPrimeCore {r, p} D.M : Subgroup G) : Set G) ∧ p ∈ D.sig)) →
+        rankThreeGamma 1 r X ≤ D.M
 
 end CFSG.LocalAnalysis.UniquenessCase.UC22.F07

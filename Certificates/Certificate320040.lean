@@ -9,5 +9,7 @@ namespace Certificates
 
 open CertificateChecks
 
+theorem certificate320040 : S3x3GL42.Facts :=
+  ⟨KernelMisc.GL4S3.classify, KernelMisc.GL4S3.stdI, KernelMisc.GL4S3.stdII⟩
 
 end Certificates

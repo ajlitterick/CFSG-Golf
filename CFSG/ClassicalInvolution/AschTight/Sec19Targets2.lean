@@ -70,4 +70,10 @@ structure Sec19DataT {G : Type} [Group G] [Finite G] (K : Subgroup G) (z : G) (S
         ∀ a ∈ centralizerModOdd A L, ∀ b ∈ B, a * b = b * a
 
 
+@[expose] def C19_11Tmp : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (K : Subgroup G) (z : G) (S : Sylow 2 G)
+    (W : Subgroup G), Sec19Data p f K z S W →
+      (S : Subgroup G) ⊓ centralizerModOdd ⊤ (sec19X K z) ≤ W
+
+
 end CFSG.ClassicalInvolution.Disconnected.AschTight

@@ -53,6 +53,9 @@ theorem rd8_eq (b : ByteArray) (i : ℕ) : rd8 b i = b[i]!.toNat := by
   unfold rd8
   rw [get!_eq]
 
+theorem rd8_lt (b : ByteArray) (i : ℕ) : rd8 b i < 256 := by
+  unfold rd8
+  exact UInt8.toNat_lt _
 
 theorem rd8_of_le {b : ByteArray} {i : ℕ} (h : b.size ≤ i) : rd8 b i = 0 := by
   rw [rd8_eq, getElem!_neg b i (by omega)]

@@ -40,6 +40,13 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KC.IntLines
 
 @[expose] noncomputable def rowsK : List (Nat × List Int) := (linesNE JR).map fun l => rowOf (lineInts l)
 
+theorem textW : textOK JW = true := by quickRfl
+
+theorem textR : textOK JR = true := by quickRfl
+
+theorem wordsOK : (Nat.beq wordsK.length 19 && wordsK.all (CFSG.Monster.B.Co2.Native.lettersOK 2)) =
+    true := by
+  quickRfl
 
 @[expose] noncomputable def Gab (j : Nat) : Nat := Bool.rec (motive := fun _ => Nat) A1 A0 (Nat.beq j 0)
 
@@ -51,6 +58,9 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KC.IntLines
 #kc_each wordChk 0 19
 #kc_each permChk 0 19
 
+theorem permA : bAnd(permOK 4060 12 (mask 12) (4060 * 12) A0 (pinv A0),
+    permOK 4060 12 (mask 12) (4060 * 12) A1 (pinv A1)) = true := by
+  quickRfl
 
 @[expose] noncomputable def exK (T : Nat → Nat) (e : Ex) : Nat :=
   Ex.rec (motive := fun _ => Nat) (fun k => Bool.rec (motive := fun _ => Nat) pid (T k) (Nat.blt k 19))
@@ -66,6 +76,7 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KC.IntLines
 @[expose] noncomputable def atChunk (c : Nat) : Bool :=
   (List.range 40).all fun j => atK W ((atoms ()).getD (40 * c + j) (.eq .one .one))
 
+theorem atomsLen : Nat.beq (atoms ()).length 737 = true := by quickRfl
 
 #kc_each atChunk 0 19
 
@@ -82,6 +93,17 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KC.IntLines
 
 #kc_each keyChunk 0 12
 
+theorem sl2Pure : ((List.range 625).all (fun k => (wordOf rowsK k).all fun l => l == 1 || l == 2) &&
+    (slKeys ()).all (fun k => keyProd (wordOf rowsK k) == k) &&
+    wordOf rowsK 126 == [] && wordOf rowsK 533 == [1] && wordOf rowsK 107 == [2] &&
+    (slKeys ()).length == 120 &&
+    rowsK.all (fun r => r.2.all fun l => l == 1 || l == 2)) = true := by
+  quickRfl
+
+theorem neg : (!Nat.beq (W 0) (W 3) && !atK W (.eq (.el 12) .one) &&
+    !Nat.beq (pc (W 0) (W 3)) (pc (W 3) (W 0)) &&
+    !Nat.beq (tabKK (keyMul 533 107)) (pc (tabKK 533) (W 0))) = true := by
+  quickRfl
 
 end CertificateChecks.KernelSporSch.RuJ49
 

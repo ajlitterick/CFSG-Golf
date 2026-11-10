@@ -71,6 +71,9 @@ open CFSG.Blueprint CFSG.Sporadic.SmallF2 CFSG.Sporadic.SmallF2.Native
 @[expose] def FS : Forest := forestBFS PS QS rootsS 10000000
 
 
+@[expose] def ords1 : Array ℕ := ordersWith (rr 86) FS
+
+
 @[expose] def PO : Array (Array ℕ) := (brayIdx.map rr).toArray
 
 

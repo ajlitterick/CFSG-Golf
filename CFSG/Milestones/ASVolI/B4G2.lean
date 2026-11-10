@@ -172,8 +172,6 @@ open scoped commutatorElement
 
 section N1Transport
 
-variable {K' : Type} [Field K']
-
 
 end N1Transport
 

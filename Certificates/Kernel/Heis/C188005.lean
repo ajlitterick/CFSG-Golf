@@ -43,5 +43,24 @@ theorem u38_class : fk8.forallUnitaryN 8 (fk8.classOkN 8
 theorem u38_k : fk8.u38N 8 rawGens8 words1_8 (decodeL W8.chars) rows188005 = true :=
   FK.u38N_of_parts fk8 u38_gu u38_cover u38_table u38_class
 
+theorem u38_neg_cover :
+    fk8.coverN 8 ((decodeL W8.chars).dropLast.map (fk8.evalN letters188005)) = false := by
+  decide +kernel
+
+theorem u38_neg_gen :
+    (rows188005.map fun r => (r.1, matN [1, 0, 0, 0, 8, 0, 0, 0, 8] :: r.2.1.tail, r.2.2)).all
+      (fun r => fk8.u38EntryOkN 8 letters188005 (matN r.1) r.2.1 r.2.2) = false := by
+  decide +kernel
+
+theorem u38_neg_letters :
+    (rows188005.map fun r => (r.1, r.2.1, r.2.2.reverse)).all
+      (fun r => fk8.u38EntryOkN 8 letters188005 (matN r.1) r.2.1 r.2.2) = false := by
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+theorem u38_neg_class : fk8.forallUnitaryN 8 (fk8.classOkN 8
+    (fk8.bitsF4 8 (rows188005.dropLast.flatMap fun r => fk8.orbitN (fk8.guListN 8) (matN r.1)))) =
+      false := by
+  decide +kernel
 
 end CertificateChecks.KernelHeis

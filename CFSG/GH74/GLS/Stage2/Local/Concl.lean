@@ -30,6 +30,11 @@ variable {G : Type} [Group G]
 @[expose] def IsL34Two (Y : Type) [Group Y] : Prop :=
   Nonempty (Y ≃* CFSG.GH74.GLS.Bg.TwoGroups.SylSL3_4)
 
+@[expose] def SO5 (K : Type) [Field K] : Subgroup (GL (Fin 2 ⊕ Fin 2 ⊕ Unit) K) :=
+  Subgroup.closure {A : GL (Fin 2 ⊕ Fin 2 ⊕ Unit) K | ∀ v,
+    StatedQuadOdd 2 K ((A : Matrix (Fin 2 ⊕ Fin 2 ⊕ Unit) (Fin 2 ⊕ Fin 2 ⊕ Unit) K) *ᵥ v) =
+      StatedQuadOdd 2 K v} ⊓ (Matrix.GeneralLinearGroup.det).ker
+
 
 @[expose] def HasTwoInvolutionClasses (Y : Type) [Group Y] : Prop :=
   ∃ x y : Y, orderOf x = 2 ∧ orderOf y = 2 ∧ ¬ IsConj x y

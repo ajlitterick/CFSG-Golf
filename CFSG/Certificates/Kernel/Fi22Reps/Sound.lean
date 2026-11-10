@@ -26,6 +26,10 @@ theorem bNot {c : Bool} (h : Bool.rec (motive := fun _ => Bool) true false c = t
   · rfl
   · exact absurd h Bool.false_ne_true
 
+theorem nbeq_false {x y : ℕ} (h : x ≠ y) : Nat.beq x y = false := by
+  cases e : Nat.beq x y
+  · rfl
+  · exact absurd (Nat.eq_of_beq_eq_true e) h
 
 theorem xorB_ne {p q : Bool} (h : xorB p q = true) : p ≠ q := by
   revert h

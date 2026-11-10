@@ -212,6 +212,13 @@ section Six
 
 variable {G : Type} [Group G]
 
+@[expose] def L6_13 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)), HypOmegaMod Ω →
+    ∀ R ∈ RSet Ω, ∀ Y X : Subgroup G, R ≤ Y → X ≤ Y → (∀ y ∈ Y, conjSub y X = X) →
+      R ⊓ X = ⊥ →
+        (⨆ R' ∈ {R' : Subgroup G | (∃ y ∈ Y, R' = conjSub y R) ∧ R' ≤ R ⊔ X}, R') ≤
+            R ⊔ oddCoreOf X ∧
+          ⁅R, X⁆ ≤ oddCoreOf X
 
 end Six
 

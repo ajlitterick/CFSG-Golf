@@ -108,6 +108,13 @@ theorem lane_D {n : ℕ} {c : ℕ → ℕ} (hc : ∀ k < n, c k < 2 ^ 32) (k : �
         exact lt_of_lt_of_le this (Nat.pow_le_pow_right (by norm_num) (by omega))
       rw [Nat.div_eq_of_lt hx, Nat.zero_mod, ite_eq_right (by omega)]
 
+theorem eq_D {x n : ℕ} (hx : x < 2 ^ (32 * n)) : x = D n (laneV x) := by
+  apply laneV_ext
+  intro k
+  rw [lane_D (fun k _ => laneV_lt x k)]
+  split_ifs with h
+  · rfl
+  · exact laneV_of_le hx (by omega)
 
 theorem D_add (n : ℕ) (c d : ℕ → ℕ) : D n c + D n d = D n fun k => c k + d k := by
   rw [D, D, D, ← sum_add_distrib]
@@ -292,6 +299,8 @@ theorem lane_encV (v : Fin 45 → ZMod 7) (j : ℕ) : lane (encV v) j = ev v j :
   · rw [ite_eq_left hj]
   · rw [ite_eq_right hj, ev, dite_eq_right hj]
 
+theorem enc_lt {m : ℕ} (A : Matrix (Fin m) (Fin 45) (ZMod 7)) : enc A < 2 ^ (32 * (45 * m)) :=
+  D_lt (ent_lt32 A)
 
 theorem encV_lt (v : Fin 45 → ZMod 7) : encV v < 2 ^ (32 * 45) := D_lt (ev_lt32 v)
 

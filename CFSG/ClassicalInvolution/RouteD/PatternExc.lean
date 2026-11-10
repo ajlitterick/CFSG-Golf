@@ -71,4 +71,10 @@ private instance (a0 a1 a2 a3 : ZMod 2) : Decidable (chkInnerE8 a0 a1 a2 a3) := 
   unfold chkInnerE8; infer_instance
 
 
+private def aF4 : Fin 4 → Fin 4 → ZMod 2 := ![![0, 1, 0, 0], ![1, 0, 1, 0], ![0, 0, 0, 1], ![0, 0, 1, 0]]
+
+
+private def aG2 : Fin 2 → Fin 2 → ZMod 2 := ![![0, 1], ![1, 0]]
+
+
 end CFSG.ClassicalInvolution.RouteD

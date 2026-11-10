@@ -1438,6 +1438,9 @@ theorem coordinateTorus_card : Nat.card coordinateTorus = 5 ^ 3 := by
     _ = 5 * (5 * 5) := by rw [coordT01_card, coordT23_45_card]
     _ = 5 ^ 3 := by norm_num
 
+theorem coordinateTorus_card_125 : Nat.card coordinateTorus = 125 := by
+  rw [coordinateTorus_card]
+  norm_num
 
 theorem coordinateTorus_isPGroup : IsPGroup 5 coordinateTorus :=
   CFSG.Open.IsElemAbelian.isPGroup coordinateTorus_isElemAbelian

@@ -32,6 +32,7 @@ theorem prb1 : (reb g1β).2.2 = true ∧ Nat.beq (reb g1β).1 (SPP.G 0) = true :
 theorem prb2 : (reb g2β).2.2 = true ∧ Nat.beq (reb g2β).1 (SPP.G 1) = true :=
   ⟨by quickRfl, by quickRfl⟩
 
+theorem pn0 : Nat.beq SPP.N 7560 = true := by quickRfl
 
 theorem psiftG : ∀ k < 2, Nat.beq (Nat.shiftRight (SPP.G k) (1782 * 11)) 0 = true ∧
     allN 1782 (fun t => Nat.blt (pg 11 (mask 11) (SPP.G k) t) 1782) = true ∧

@@ -80,6 +80,7 @@ theorem kHd : andB (Nat.beq PK.cnt 20160) (andB (Nat.beq PK.k 2)
       (andB (Nat.beq (PK.G 0) PA) (Nat.beq (PK.G 1) PB)))) = true := by
   quickRfl
 
+theorem kNeg : notB (Nat.beq (CA (WK suzWordU1) (WK suzWordV1)) PB) = true := by quickRfl
 
 @[expose] noncomputable def kSl (s : Nat) : Bool :=
   penumSlK 1782 11 (mask 11) (1782 * 11) false PK.G PK.GI 2 PK.cnt PK.T PK.PL PK.POS PK.SRT PK.SRI

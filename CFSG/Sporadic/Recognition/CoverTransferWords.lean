@@ -69,6 +69,16 @@ theorem mk_eq_lift_of {α : Type*} (rels : Set (FreeGroup α)) (x : FreeGroup α
     FreeGroup.ext_hom _ _ fun _ => FreeGroup.lift_apply_of
   rw [h]
 
+theorem index_le_of_subsetCheckShortCC {m : ℕ} (ws : List (List (Fin m × Bool))) (S : List ℕ)
+    {k cap n : ℕ} (h : subsetCheckShortCC ws S k cap n = true) (H : Subgroup (PG m ws))
+    (hH : ∀ i ∈ subsetOf m S, (PresentedGroup.of i : PG m ws) ∈ H) :
+    H.FiniteIndex ∧ H.index ≤ n :=
+  index_le_of_checkHLT (goodColParamsShort ws _ k H (by
+      intro w hw
+      obtain ⟨i, hi, rfl⟩ := List.mem_map.1 hw
+      exact hH i hi))
+    (by simpa [colParamsShort, mkParams] using closure_colLetter ws)
+    (subsetCheckShortC_of_subsetCheckShortCC ws S h)
 
 theorem card_PG_le_of_subsetCheckShortCC_nil {m : ℕ} (ws : List (List (Fin m × Bool)))
     {k cap n : ℕ} (h : subsetCheckShortCC ws [] k cap n = true) :

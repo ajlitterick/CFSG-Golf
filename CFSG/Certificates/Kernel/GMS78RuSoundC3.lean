@@ -351,6 +351,33 @@ theorem testBit_xwK {w w' t : Nat} (hw : w < 256) (hw' : w' < 256) (ht : t < 3) 
       P.testBit_maF ht hw']
   · simp [fget_zero]
 
+theorem radK_spec {d : Nat} (hd : d < 256) (h : (radK (maK c p q)).testBit d = true) :
+    ∀ a < 8, Bi c p q (2 ^ a) d = 0 := by
+  have key : ∀ n, (Nat.rec (motive := fun _ => Nat) ALL
+      (fun i ih => Nat.land ih (Nat.xor ALL (fget (maK c p q) i (nat_lit 256)))) n).testBit d =
+        true → ∀ i < n, (fget (maK c p q) i 256).testBit d = false := by
+    intro n
+    induction n with
+    | zero => intro _ i hi; omega
+    | succ n ih =>
+      intro hn i hi
+      change (Nat.land _ (Nat.xor ALL _)).testBit d = true at hn
+      rw [nat_land_eq, nat_xor_eq, Nat.testBit_and, testBit_ALL_xor hd, Bool.and_eq_true] at hn
+      rcases Nat.lt_succ_iff_lt_or_eq.mp hi with hi | rfl
+      · exact ih hn.1 i hi
+      · simpa using hn.2
+  intro a ha
+  have hz : ∀ t < 3, (Bi c p q (2 ^ a) d).testBit t = false := by
+    intro t ht
+    have := key 24 h (3 * a + t) (by omega)
+    rw [maK_field c p q (by omega), P.testBit_maF ht hd] at this
+    exact this
+  apply Nat.eq_of_testBit_eq; intro t
+  rcases Nat.lt_or_ge t 3 with ht | ht
+  · rw [hz t ht, Nat.zero_testBit]
+  · rw [Nat.zero_testBit]
+    exact Nat.testBit_lt_two_pow (Nat.lt_of_lt_of_le (Bi_lt c p q _ _)
+      (Nat.pow_le_pow_right (n := 2) (by omega) ht : 2 ^ 3 ≤ 2 ^ t))
 
 end Par
 
@@ -1055,6 +1082,15 @@ theorem colV_n0K {MA Z x : Nat} (hx : x < 256) :
   | 0 => 0
   | k + 1 => (encF w f k <<< w) ||| f k
 
+theorem encF_lt {w : Nat} {f : Nat → Nat} (hf : ∀ j, f j < 2 ^ w) : ∀ k, encF w f k < 2 ^ (w * k)
+  | 0 => by simp [encF]
+  | k + 1 => by
+    rw [encF, ← Nat.shiftLeft_add_eq_or_of_lt (hf k), Nat.shiftLeft_eq]
+    have := encF_lt hf k
+    calc encF w f k * 2 ^ w + f k < encF w f k * 2 ^ w + 2 ^ w := by have := hf k; omega
+      _ = (encF w f k + 1) * 2 ^ w := by rw [Nat.succ_mul]
+      _ ≤ 2 ^ (w * k) * 2 ^ w := Nat.mul_le_mul_right _ this
+      _ = 2 ^ (w * (k + 1)) := by rw [← Nat.pow_add, Nat.mul_succ]
 
 theorem fget_encF {w : Nat} {f : Nat → Nat} (hf : ∀ j, f j < 2 ^ w) :
     ∀ k i, i < k → fget (encF w f k) i w = f (k - 1 - i)

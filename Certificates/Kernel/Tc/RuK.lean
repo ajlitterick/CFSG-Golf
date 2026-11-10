@@ -56,6 +56,8 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.SporSch CFSG.KC.HeLoc CFSG.KC.TcF
 @[expose] noncomputable def kk (i : Nat) : Nat := keyV 4060 ruKeys (tk i)
 @[expose] noncomputable def kc (i : Nat) : Nat := keyV 4060 ruKeys (tc i)
 
+theorem kN : bAnd(Nat.beq TQ.N 1080, bAnd(Nat.beq TK.N 180, Nat.beq TC.N 2160)) = true := by
+  quickRfl
 
 theorem kTreeQ : allN 1080 (fun i => bIf(Nat.beq i 0, true, treeAtK 2 TQ.P TQ.L i)) = true := by
   quickRfl
@@ -100,6 +102,10 @@ theorem inC : allN 2 (fun l => memF bs 2160 tc (gq l)) = true := by quickRfl
 theorem normQ : allN 2 (fun k => allN 2 fun l =>
     memF bs 1080 tq (fun y => gc k (gq l (i3 (Nat.add 1 k) y)))) = true := by quickRfl
 
+theorem restNeg : (!tcRestF bs 6 (t3 0) 2 gq cu cv cui cvi 3 gk
+    (fun j => rr (Nat.sub j (Nat.ble j 1).toNat)) (fun j => ri (Nat.sub j (Nat.ble j 1).toNat))
+    sigF 1080 tq 180 tk ES.N) = true := by
+  quickRfl
 
 end CertificateChecks.KernelTc.Ru
 

@@ -101,6 +101,9 @@ theorem ru_cert' : BaseCertS ruData.n ruB
 @[expose] noncomputable def ruSg : List (J ruData) :=
   ruQp.map fun p => (slpElts (a ruData) (b ruData) ruProg).getD p.1 1
 
+theorem ruSg_def : ruSg = ruQp.map fun p => (slpElts (a ruData) (b ruData) ruProg).getD p.1 1 := by
+  unfold ruSg
+  rfl
 
 theorem ru_sGens :
     genTabs ruData.n ruSg = ruSTabsL ∧ Nat.card (Subgroup.closure {x | x ∈ ruSg}) = 2 ^ 14 := by

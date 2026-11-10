@@ -85,6 +85,15 @@ theorem cs_facts (i : Nat) (hi : i < 4725) (j : Nat) (hj : j < 2) : actK j i < 4
   obtain ⟨h2, h3⟩ := (bAnd_iff _ _).1 h
   exact ⟨Nat.le_of_ble_eq_true h1, Nat.le_of_ble_eq_true h2, Nat.eq_of_beq_eq_true h3⟩
 
+theorem csC : cosetCheck = true := by
+  unfold cosetCheck
+  refine allLt_iff.2 fun i hi => allLt_iff.2 fun j hj => ?_
+  obtain ⟨h1, h2, h3⟩ := cs_facts i hi j hj
+  rw [act_pt, wit_pt, repArrs_eq i hi, letter_eq, eltArrs_eq _ h2, repArrs_eq _ h1,
+    compA_unpackN (repT_canon i hi) (letP_canon j), compA_unpackN (eltT_canon _ h2) (repT_canon _ h1),
+    eqA_unpackN (canon_pcN (repT_canon i hi) (letP_canon j))
+      (canon_pcN (eltT_canon _ h2) (repT_canon _ h1)), h3, Nat.beq_refl]
+  simp [h1, h2]
 
 @[expose] noncomputable def fMM (a : Nat) : Bool :=
   allN 128 fun b => bAnd(Nat.blt (mtK a b) 128,

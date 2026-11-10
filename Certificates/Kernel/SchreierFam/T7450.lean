@@ -19,5 +19,15 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CertificateChecks.KernelSpor
 @[expose] noncomputable def T : Nat :=
   wordK 1755 11 (mask 11) (pidn 1755 11) TitsText.F FI w7450
 
+theorem wordT : wordEqK 1755 11 (mask 11) (pidn 1755 11) TitsText.F FI 4 w7450 T = true := by
+  quickRfl
+
+theorem rangeT : allN 1755 (fun i => Nat.blt (pg 11 (mask 11) T i) 1755) = true := by quickRfl
+
+theorem highT : Nat.beq (Nat.shiftRight T (1755 * 11)) 0 = true := by quickRfl
+
+theorem siftOK :
+    siftK 1755 11 (mask 11) (1755 * 11) (pidn 1755 11) TitsK.LR TitsK.TRI TitsK.BP 5 0 T = true := by
+  quickRfl
 
 end CertificateChecks.KernelSchreierFam.T7450

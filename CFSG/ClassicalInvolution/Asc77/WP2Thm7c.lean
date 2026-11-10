@@ -71,6 +71,11 @@ structure Hyp24 {G : Type} [Group G] [Finite G] (Ω : Set (Subgroup G)) (K K' W 
     (K K' W : Subgroup G) (S : Sylow 2 G) (R R' : Subgroup G) (z u : G),
     Hyp24 p f Ω K K' W S R R' z u → 8 < Nat.card ↥R
 
+@[expose] def C24_10 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))
+    (K K' W : Subgroup G) (S : Sylow 2 G) (R R' : Subgroup G) (z u : G),
+    Hyp24 p f Ω K K' W S R R' z u → ConcOrTF4 G
+
 
 @[expose] def C24_1 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K K' : Subgroup G)
@@ -96,6 +101,19 @@ structure Hyp25 {G : Type} [Group G] [Finite G] (Ω : Set (Subgroup G)) (K K' W 
   hu₁ : u₁ ∈ R ∧ orderOf u₁ = 4 ∧ ∀ r ∈ R, r * u₁ * r⁻¹ ∈ Subgroup.zpowers u₁
   hu₂ : u₂ ∈ R' ∧ orderOf u₂ = 4 ∧ ∀ r ∈ R', r * u₂ * r⁻¹ ∈ Subgroup.zpowers u₂
 
+@[expose] def C25_1 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))
+    (K K' W : Subgroup G) (S : Sylow 2 G) (R R' : Subgroup G) (z t u₁ u₂ : G),
+    Hyp25 p f Ω K K' W S R R' z t u₁ u₂ → ∀ g : G, g * z * g⁻¹ = t →
+      ∀ x ∈ conjSub g⁻¹ K, orderOf x = 4 → x * z ≠ z * x
+
+@[expose] def C25_2 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))
+    (K K' W : Subgroup G) (S : Sylow 2 G) (R R' : Subgroup G) (z t u₁ u₂ : G),
+    Hyp25 p f Ω K K' W S R R' z t u₁ u₂ →
+      ∃ t' ∈ (S : Subgroup G), (∃ g : G, g * z * g⁻¹ = t') ∧ conjSub t' R = R' ∧
+        (∃ h : G, h * (t' * z) * h⁻¹ = u₁ * u₂ ∨ h * (t' * z) * h⁻¹ = u₁ * u₂ * z) ∧
+        ¬ ∃ h : G, h * (t' * z) * h⁻¹ = z
 
 @[expose] def C25_3 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))
@@ -128,12 +146,35 @@ structure Hyp25 {G : Type} [Group G] [Finite G] (Ω : Set (Subgroup G)) (K K' W 
       (S : Subgroup G) ⊓ Subgroup.centralizer ((R ⊔ R' : Subgroup G) : Set G) =
         Subgroup.zpowers z
 
+@[expose] def C25_12 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))
+    (K K' W : Subgroup G) (S : Sylow 2 G) (R R' : Subgroup G) (z t u₁ u₂ : G),
+    Hyp25 p f Ω K K' W S R R' z t u₁ u₂ → ∀ a ∈ (S : Subgroup G),
+      a * a ∈ Subgroup.centralizer ((R ⊔ R' : Subgroup G) : Set G) → IsFAut R a →
+        ∃ b ∈ (fun r : G => a * r) '' (R : Set G), b * b = 1 ∧ IsFAut R b
+
+@[expose] def C25_15 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))
+    (K K' W : Subgroup G) (S : Sylow 2 G) (R R' : Subgroup G) (z t u₁ u₂ : G),
+    Hyp25 p f Ω K K' W S R R' z t u₁ u₂ →
+      (S : Subgroup G) ⊓ Subgroup.centralizer (R' : Set G) = R ∨
+        (Nat.card ↥((S : Subgroup G) ⊓ Subgroup.centralizer (R' : Set G)) = 2 * Nat.card ↥R ∧
+          (IsQuatSub ((S : Subgroup G) ⊓ Subgroup.centralizer (R' : Set G)) ∨
+            IsSemidihedral ((S : Subgroup G) ⊓ Subgroup.centralizer (R' : Set G))))
 
 @[expose] def C25_16 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))
     (K K' W : Subgroup G) (S : Sylow 2 G) (R R' : Subgroup G) (z t u₁ u₂ : G),
     Hyp25 p f Ω K K' W S R R' z t u₁ u₂ → ∀ a ∈ (S : Subgroup G), ¬ IsFAut R' a
 
+@[expose] def C25_17 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))
+    (K K' W : Subgroup G) (S : Sylow 2 G) (R R' : Subgroup G) (z t u₁ u₂ : G),
+    Hyp25 p f Ω K K' W S R R' z t u₁ u₂ →
+      (∀ s ∈ (S : Subgroup G), conjSub s (R ⊔ R') = R ⊔ R') ∧
+        (∀ s ∈ (S : Subgroup G), s * s ∈ R ⊔ R') ∧
+        (Nat.card ↥(S : Subgroup G) = 2 * Nat.card ↥(R ⊔ R') ∨
+          Nat.card ↥(S : Subgroup G) = 4 * Nat.card ↥(R ⊔ R'))
 
 @[expose] def C25_19 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))

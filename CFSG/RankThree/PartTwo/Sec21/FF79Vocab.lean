@@ -97,6 +97,46 @@ structure FF79Sec3 [Finite G] (b : G) (J : Subgroup G) : Prop where
   rank3 : localRank 3 G = 3
   notConj : ¬ ConjInto b J
 
+structure FF79Sec3Data [Finite G] (b : G) (J B A P D : Subgroup G) : Prop where
+  sylB : IsSylowOf 3 B (Cen b)
+  sylP : IsSylowOf 3 P (Nor B)
+  hAP : A ≤ P
+  hbA : P = Subgroup.zpowers b ⊔ A
+  hB0A : B ⊓ J ≤ A
+  hA : Nat.card A = 3 ^ 4 ∧ IsMulCommutative A ∧ (Monoid.exponent A = 3 ∨ Monoid.exponent A = 9)
+  hAN : P ≤ Nor A
+  hcomm : ⁅Subgroup.zpowers b, A⁆ = B ⊓ J
+  sylD : IsSylowOf 2 D (Nor B ⊓ J)
+  hD : Nat.card D = 8 ∧ ¬ IsMulCommutative D ∧ ∃ d ∈ D, orderOf d = 4
+  hDA : D ≤ Nor A
+  hZ : ∀ z ∈ Subgroup.center D, z ≠ 1 → ∀ a ∈ A, z * a * z⁻¹ = a⁻¹
+
+@[expose] def FF79_3_1 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (b : G) (J : Subgroup G), FF79Sec3 b J →
+    ∀ B : Subgroup G, IsSylowOf 3 B (Cen b) → ∃ A P D : Subgroup G, FF79Sec3Data b J B A P D
+
+@[expose] def FF79ThmAConcl (b : G) : Prop :=
+  b ∉ generalizedFitting G ∧ ∀ S : Subgroup G, IsSylowOf 3 S (generalizedFitting G) →
+    Nat.card S = 81 ∧ IsMulCommutative S ∧ Monoid.exponent S = 9 ∧
+      Nat.card {x : G // x ∈ S ∧ x ^ 3 = 1} = 9
+
+@[expose] def FF79_3_2 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (b : G) (J B A P D : Subgroup G), FF79Sec3 b J →
+    FF79Sec3Data b J B A P D →
+    FF79ThmAConcl b ∨
+      (IsElemAb 3 4 A ∧ Odd (Nat.card (CenS B)) ∧ J = OUpp 2 (Cen b) ∧ Monoid.exponent P = 3)
+
+structure FF79Sec3Data' [Finite G] (b : G) (J B A P D : Subgroup G) : Prop
+    extends FF79Sec3Data b J B A P D where
+  elem : IsElemAb 3 4 A
+  oddCB : Odd (Nat.card (CenS B))
+  hJ : J = OUpp 2 (Cen b)
+  expP : Monoid.exponent P = 3
+
+@[expose] def FF79_3_3 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (b : G) (J B A P D : Subgroup G), FF79Sec3 b J →
+    FF79Sec3Data' b J B A P D → ∀ As : Subgroup G, IsSylowOf 3 As (CenS A) → b ∈ Nor As →
+    IsMulCommutative As ∧ IsSylowOf 3 (As ⊔ Subgroup.zpowers b) ⊤
 
 @[expose] def FF79TheoremA_simpleK : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (b : G) (J : Subgroup G),

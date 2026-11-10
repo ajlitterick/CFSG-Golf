@@ -82,6 +82,8 @@ def forestBFS (P Q roots : Array (Array Nat)) (cap : Nat) : Forest :=
   | 0, acc => acc
   | n + 1, acc => collectBelow p n (if p n then n :: acc else acc)
 
+@[expose] def rtCount (F : Forest) (j : Nat) : Nat :=
+  countBelow (fun i => F.rt[i]! == j) F.rt.size 0
 
 @[expose] def isFixedN (Mt : Array Nat) (x : Nat) : Bool := vecMulN 24 Mt x == x
 
@@ -111,6 +113,8 @@ def forestBFS (P Q roots : Array (Array Nat)) (cap : Nat) : Forest :=
 @[expose] def gramOK (Ft : Array Nat) (W : List Nat) : Bool :=
   W.all fun u => u == 0 || W.any fun v => bilN Ft u v
 
+@[expose] def faithfulOK (Zs : Array (Array Nat)) (W : List Nat) : Bool :=
+  Zs.all fun z => z == idRows 24 || W.any fun v => !isFixedN (transposeRows 24 z) v
 
 @[expose] def orderLoop (M : Array Nat) : Nat → Array Nat → Nat → Nat
   | 0, _, _ => 0
@@ -118,5 +122,13 @@ def forestBFS (P Q roots : Array (Array Nat)) (cap : Nat) : Forest :=
 
 @[expose] def orderN (M : Array Nat) : Nat := orderLoop M 400 M 1
 
+@[expose] def ordersWith (rho : Array Nat) (F : Forest) : Array Nat :=
+  F.pts.map fun x => orderN (mulRows 24 rho x)
+
+@[expose] def oddCount (ords : Array Nat) : Nat :=
+  countBelow (fun i => ords[i]! % 2 == 1 && ords[i]! != 1) ords.size 0
+
+@[expose] def zeroCount (ords : Array Nat) : Nat :=
+  countBelow (fun i => ords[i]! == 0) ords.size 0
 
 end CFSG.Sporadic.Co1.OddNative

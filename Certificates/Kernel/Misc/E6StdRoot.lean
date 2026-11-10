@@ -98,6 +98,9 @@ theorem maskOf_lt {e : ℕ} (he : e < 136) : maskOf e < 2 ^ 78 := by
   · rw [Nat.one_shiftLeft]
     exact Nat.pow_lt_pow_right (by norm_num) (by omega)
 
+theorem testBit_ite_zero (c : Bool) (m k : ℕ) : (if c = true then m else 0).testBit k =
+    (c && m.testBit k) := by
+  cases c <;> simp
 
 theorem testBit_rootColK (codes bits r l : ℕ) (b₀ b₁ : Bool) (hr : r < 78) (hl78 : l < 78)
     (hc : code codes r l < 136) (k : ℕ) (hk : k < 78) :

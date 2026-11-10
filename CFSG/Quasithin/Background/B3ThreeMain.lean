@@ -62,6 +62,13 @@ theorem eq_bot_of_subgroupOf_bot (hle : A ≤ B) (h : A.subgroupOf B = ⊥) : A 
   rw [h, Subgroup.mem_bot] at this
   exact Subgroup.mem_bot.2 (congrArg Subtype.val this)
 
+theorem card_threeStep (hS : ThreeStep ρ A B) (ψ : Sec B A ≃* WV n) :
+    Nat.card ↥B = Nat.card ↥A * Nat.card (WV n) := by
+  have h1 := Subgroup.card_eq_card_quotient_mul_card_subgroup (A.subgroupOf B)
+  rw [card_subgroupOf_of_le hS.le] at h1
+  have h2 : Nat.card (↥B ⧸ A.subgroupOf B) = Nat.card (WV n) := Nat.card_congr ψ.toEquiv
+  rw [h2] at h1
+  rw [h1, mul_comm]
 
 theorem subgroupOf_le_commG (hn5 : 5 ≤ n) (hV : ∀ v : V, v ^ 2 = 1) (hS : ThreeStep ρ A B)
     (hindec : IsIndec ρ) : A.subgroupOf B ≤ commG (resAct ρ B hS.invB) := fun a _ =>
@@ -176,6 +183,77 @@ theorem classify_odd [Finite V] (hn : n = 5 ∨ n = 7) (hV : ∀ v : V, v ^ 2 = 
     exact m.2
   exact ⟨hc.2.trans hAbot, hc.1.trans hBtop, exists_iso_of_eq_top hS.invB hBtop φ hφ⟩
 
+theorem classify_even [Finite V] (hn : n = 6 ∨ n = 8) (hV : ∀ v : V, v ^ 2 = 1)
+    (hone : HasOneChief n ρ) (hindec : IsIndec ρ) :
+    Nat.card ↥(commG ρ) = Nat.card ↥(fixG ρ) * Nat.card (WV n) ∧
+    ((fixG ρ = ⊥ ∧ ((commG ρ = ⊤ ∧ ∃ Φ : V ≃* WV n, IsModIso ρ (actL n Mod.ut0) Φ) ∨
+        (commG ρ ≠ ⊤ ∧ ∃ Φ : V ≃* Mod.V n Mod.ut, IsModIso ρ (actL n Mod.ut) Φ))) ∨
+    (Nat.card ↥(fixG ρ) = 2 ∧ ((commG ρ = ⊤ ∧ ∃ Φ : V ≃* Mod.V n Mod.u0,
+          IsModIso ρ (actL n Mod.u0) Φ) ∨
+        (commG ρ ≠ ⊤ ∧ ∃ Φ : V ≃* Mod.V n Mod.u, IsModIso ρ (actL n Mod.u) Φ)))) := by
+  have hn5 : 5 ≤ n := by omega
+  obtain ⟨A, B, hA, hB, hS, ψ, hψ⟩ := threeStep_of_chief hn5 hone
+  have hc := commG_eq_of_threeStep hV hS hindec
+  rw [hc.1, hc.2]
+  exact ⟨card_threeStep hS ψ, classify_even_aux hn hV hS hindec ψ hψ⟩
+
+
+theorem B3_3_2 [Finite V] {H : Type*} [Group H] (j : LG n →* H) (ρH : H →* MulAut V)
+    (hn : n = 6 ∨ n = 8) (hV : ∀ v : V, v ^ 2 = 1) (hone : HasOneChief n (ρH.comp j))
+    (hindec : IsIndec (ρH.comp j))
+    (hquot : ∃ θ : (V ⧸ fixG ρH) ≃* WV n, ∀ x v,
+      θ (QuotientGroup.mk ((ρH.comp j) x v)) = actL n Mod.ut0 x (θ (QuotientGroup.mk v))) :
+    (∃ Φ : V ≃* Mod.V n Mod.u0, IsModIso (ρH.comp j) (actL n Mod.u0) Φ) ∨
+    (∃ Φ : V ≃* Mod.V n Mod.ut0, IsModIso (ρH.comp j) (actL n Mod.ut0) Φ) := by
+  obtain ⟨θ, -⟩ := hquot
+  obtain ⟨hcard, hcases⟩ := classify_even hn hV hone hindec
+  have hle : fixG ρH ≤ fixG (ρH.comp j) := fun v hv =>
+    mem_fixG.2 (fun x => mem_fixG.1 hv (j x))
+  have h1 := Subgroup.card_eq_card_quotient_mul_card_subgroup (fixG ρH)
+  have h2 : Nat.card (V ⧸ fixG ρH) = Nat.card (WV n) := Nat.card_congr θ.toEquiv
+  have h3 : Nat.card ↥(fixG ρH) ≤ Nat.card ↥(fixG (ρH.comp j)) := Subgroup.card_le_of_le hle
+  have h5 : Nat.card V = Nat.card (WV n) * Nat.card ↥(fixG ρH) := by rw [h1, h2]
+  have h6 : Nat.card V ≤ Nat.card ↥(commG (ρH.comp j)) := by
+    rw [hcard, h5, mul_comm (Nat.card ↥(fixG (ρH.comp j)))]
+    exact Nat.mul_le_mul_left _ h3
+  have htop : commG (ρH.comp j) = ⊤ := Subgroup.eq_top_of_card_eq _
+    (le_antisymm (Subgroup.card_le_card_group _) h6)
+  rcases hcases with ⟨-, ⟨-, hΦ⟩ | ⟨hne, -⟩⟩ | ⟨-, ⟨-, hΦ⟩ | ⟨hne, -⟩⟩
+  · exact Or.inr hΦ
+  · exact absurd htop hne
+  · exact Or.inl hΦ
+  · exact absurd htop hne
+
+
+theorem B3_3_3 [Finite V] (hn : n = 6 ∨ n = 8) (hV : ∀ v : V, v ^ 2 = 1)
+    (hone : HasOneChief n ρ) (hindec : IsIndec ρ)
+    (hcomm : ∃ φ : ↥(commG ρ) ≃* WV n,
+      IsModIso (resAct ρ (commG ρ) (isInv_commG ρ)) (actL n Mod.ut0) φ) :
+    (∃ Φ : V ≃* Mod.V n Mod.ut, IsModIso ρ (actL n Mod.ut) Φ) ∨
+    (∃ Φ : V ≃* Mod.V n Mod.ut0, IsModIso ρ (actL n Mod.ut0) Φ) := by
+  obtain ⟨φ, -⟩ := hcomm
+  obtain ⟨hcard, hcases⟩ := classify_even hn hV hone hindec
+  have h1 : Nat.card ↥(commG ρ) = Nat.card (WV n) := Nat.card_congr φ.toEquiv
+  have hpos : 0 < Nat.card (WV n) := Nat.card_pos
+  rcases hcases with ⟨-, ⟨-, hΦ⟩ | ⟨-, hΦ⟩⟩ | ⟨h2, -⟩
+  · exact Or.inr hΦ
+  · exact Or.inl hΦ
+  · exfalso
+    rw [h1, h2] at hcard
+    omega
+
+theorem B3_3_4 [Finite V] (hn : n = 6 ∨ n = 8) (hV : ∀ v : V, v ^ 2 = 1)
+    (hone : HasOneChief n ρ) (hindec : IsIndec ρ) :
+    (∃ Φ : V ≃* Mod.V n Mod.u, IsModIso ρ (actL n Mod.u) Φ) ∨
+    (∃ Φ : V ≃* Mod.V n Mod.u0, IsModIso ρ (actL n Mod.u0) Φ) ∨
+    (∃ Φ : V ≃* Mod.V n Mod.ut, IsModIso ρ (actL n Mod.ut) Φ) ∨
+    (∃ Φ : V ≃* Mod.V n Mod.ut0, IsModIso ρ (actL n Mod.ut0) Φ) := by
+  obtain ⟨-, hcases⟩ := classify_even hn hV hone hindec
+  rcases hcases with ⟨-, ⟨-, hΦ⟩ | ⟨-, hΦ⟩⟩ | ⟨-, ⟨-, hΦ⟩ | ⟨-, hΦ⟩⟩
+  · exact Or.inr (Or.inr (Or.inr hΦ))
+  · exact Or.inr (Or.inr (Or.inl hΦ))
+  · exact Or.inr (Or.inl hΦ)
+  · exact Or.inl hΦ
 
 theorem hasOneChief_natural (hn : 5 ≤ n) : HasOneChief n (actL n Mod.ut0) := by
   have hirr : ∀ Z : Subgroup (WV n), IsInv (actL n Mod.ut0) Z → Z = ⊥ ∨ Z = ⊤ := fun Z hZ =>

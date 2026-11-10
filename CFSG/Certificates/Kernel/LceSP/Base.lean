@@ -186,6 +186,10 @@ theorem lv_255 : lv gen 255 = 1 := by simp [lv]
 
 end Values
 
+theorem inv16_lt (INV c : ℕ) : inv16 INV c < 65536 := by
+  change (INV >>> (c <<< 4)) &&& (2 ^ 16 - 1) < 65536
+  rw [Nat.and_two_pow_sub_one_eq_mod]
+  exact Nat.mod_lt _ (by norm_num)
 
 theorem invOK_spec {INV INV8 L : ℕ} (h : invOK INV INV8 L = true) :
     L < 255 ∧ L % 2 = 0 ∧ ∀ c < 256,

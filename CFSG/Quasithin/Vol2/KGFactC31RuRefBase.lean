@@ -39,6 +39,10 @@ theorem hb64 : List.Forall₂ (Rep 4060) b64A (List.ofFn v64) :=
   forall₂_vOf rfl (by decide)
 theorem hb3 : List.Forall₂ (Rep 4060) b3A (List.ofFn v3) :=
   forall₂_vOf rfl (by decide)
+theorem hb16 : List.Forall₂ (Rep 4060) b16A (List.ofFn v16) :=
+  forall₂_vOf rfl (by decide)
+theorem hb32 : List.Forall₂ (Rep 4060) b32A (List.ofFn v32) :=
+  forall₂_vOf rfl (by decide)
 theorem hbV32E :
     List.Forall₂ (Rep 4060) bV32EA (List.ofFn vV32E) := forall₂_vOf rfl (by decide)
 
@@ -86,7 +90,9 @@ theorem cQ_memC : cQ ∈ ruC := wG_memC (by decide)
 
 section Reps
 
+theorem rep_x16 : Rep 4060 x16A x16 := rep_wA (by decide)
 theorem rep_xE : Rep 4060 xEA xE := rep_wA (by decide)
+theorem rep_x32 : Rep 4060 x32A x32 := rep_wA (by decide)
 
 end Reps
 

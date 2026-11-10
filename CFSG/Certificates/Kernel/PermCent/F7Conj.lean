@@ -68,6 +68,11 @@ theorem numMoved_le {m : ℕ} (r : Perm (Fin m)) : numMoved r ≤ m := by
   rw [numMoved_eq_card_support]
   exact (Finset.card_le_univ _).trans (Fintype.card_fin m).le
 
+theorem two_le_numMoved {m : ℕ} {r : Perm (Fin m)} (h : r ≠ 1) : 2 ≤ numMoved r := by
+  rw [numMoved_eq_card_support]
+  have h0 : r.support.card ≠ 0 := fun h0 => h (card_support_eq_zero.1 h0)
+  have h1 := card_support_ne_one (f := r)
+  omega
 
 theorem sign_of_cycleType_two {m k : ℕ} {r : Perm (Fin m)}
     (hk : r.cycleType = Multiset.replicate (k + 1) 2) : sign r = (-1) ^ (3 * (k + 1)) := by
@@ -75,6 +80,21 @@ theorem sign_of_cycleType_two {m k : ℕ} {r : Perm (Fin m)}
   congr 1
   ring
 
+theorem even_of_sign_one {j : ℕ} (h : ((-1 : ℤˣ) ^ j) = 1) : Even j := by
+  rcases Nat.even_or_odd j with he | ho
+  · exact he
+  · rw [ho.neg_one_pow] at h
+    exact absurd h (by decide)
+
+theorem cycleType_of_even_inv {r : Perm (Fin 7)} (h2 : r ^ 2 = 1) (h1 : r ≠ 1) (hs : sign r = 1) :
+    r.cycleType = Multiset.replicate 2 2 := by
+  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
+  obtain ⟨k, hk, hn⟩ := cycleType_of_pow_prime h2 h1
+  have he := even_of_sign_one ((sign_of_cycleType_two hk).symm.trans hs)
+  have hle := numMoved_le r
+  obtain ⟨j, hj⟩ := he
+  have hk1 : k = 1 := by omega
+  rw [hk, hk1]
 
 theorem numMoved_one {m : ℕ} : numMoved (1 : Perm (Fin m)) = 0 := by
   rw [numMoved_eq_card_support, support_one, Finset.card_empty]
@@ -104,6 +124,51 @@ theorem numMoved_sign_of_sq {m : ℕ} {r : Perm (Fin m)} (h2 : r ^ 2 = 1) :
 theorem eq_one_of_numMoved {m : ℕ} {r : Perm (Fin m)} (h : numMoved r = 0) : r = 1 :=
   card_support_eq_zero.1 h
 
+@[expose] def w5 : Perm (Fin 7) := swap 2 3 * swap 3 4 * swap 4 5 * swap 5 6
+
+theorem w5_comm : w5 * swap 0 1 = swap 0 1 * w5 := by decide
+
+theorem w5_pow : w5 ^ 5 = 1 := by decide
+
+theorem w5_ne_one : w5 ≠ 1 := by decide
+
+theorem sign_w5 : sign w5 = 1 := by
+  simp [w5, sign_mul, sign_swap]
+
+theorem cycleType_swap01 : (swap (0 : Fin 7) 1).cycleType = Multiset.replicate 1 2 := by
+  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
+  obtain ⟨k, hk, hn⟩ := cycleType_of_pow_prime (p := 2) (r := swap (0 : Fin 7) 1) (by decide)
+    (by decide)
+  have h2 : numMoved (swap (0 : Fin 7) 1) = 2 := by decide
+  have : k = 0 := by omega
+  rw [hk, this]
+
+theorem exists_comm_five {r : Perm (Fin 7)} (h2 : r ^ 2 = 1) (hn : numMoved r ≤ 2) :
+    ∃ w : Perm (Fin 7), w * r = r * w ∧ sign w = 1 ∧ w ^ 5 = 1 ∧ w ≠ 1 := by
+  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
+  obtain ⟨c, hc⟩ : ∃ c : Perm (Fin 7), c * (if r = 1 then 1 else swap 0 1) * c⁻¹ = r := by
+    by_cases h1 : r = 1
+    · exact ⟨1, by simp [h1]⟩
+    · rw [if_neg h1]
+      obtain ⟨k, hk, hm⟩ := cycleType_of_pow_prime h2 h1
+      have hk0 : k = 0 := by omega
+      rw [hk0] at hk
+      exact isConj_iff.1 (isConj_iff_cycleType_eq.2 (cycleType_swap01.trans hk.symm))
+  have hw : w5 * (if r = 1 then 1 else swap 0 1) = (if r = 1 then 1 else swap 0 1) * w5 := by
+    split_ifs
+    · simp
+    · exact w5_comm
+  refine ⟨c * w5 * c⁻¹, ?_, ?_, ?_, ?_⟩
+  · rw [← hc]
+    calc c * w5 * c⁻¹ * (c * (if r = 1 then 1 else swap 0 1) * c⁻¹)
+        = c * (w5 * (if r = 1 then 1 else swap 0 1)) * c⁻¹ := by group
+      _ = c * ((if r = 1 then 1 else swap 0 1) * w5) * c⁻¹ := by rw [hw]
+      _ = c * (if r = 1 then 1 else swap 0 1) * c⁻¹ * (c * w5 * c⁻¹) := by group
+  · rw [map_mul, map_mul, sign_w5, map_inv, mul_one, mul_inv_cancel]
+  · rw [conj_pow, w5_pow, mul_one, mul_inv_cancel]
+  · intro h
+    rw [conj_eq_one_iff] at h
+    exact w5_ne_one h
 
 end CFSG.Certificates.Kernel.F7Conj
 

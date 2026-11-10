@@ -85,6 +85,9 @@ theorem x1_check : heX1.check = true ∧ heX1.orderCertificate = 10752 := by
   obtain ⟨h1, h2⟩ := chainK_check (by decide) (by decide) chainX1
   exact ⟨h1, h2.trans (Nat.eq_of_beq_eq_true oX1)⟩
 
+theorem sig_perm : (∀ j < 9, permChk 240 (heInnerSigma0.getD j #[]) = true) ∧
+    ∀ j < 9, permChk 42 (heInnerSigma1.getD j #[]) = true :=
+  ⟨fun _ hj => (bind_facts (atX0 hj)).2.1, fun _ hj => (bind_facts (atX1 hj)).2.1⟩
 
 end CertificateChecks.KernelSporSch.HeX14
 

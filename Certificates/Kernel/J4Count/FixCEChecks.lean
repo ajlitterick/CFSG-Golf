@@ -61,6 +61,25 @@ theorem p77 : Nat.beq (walkK rm A A B Bi W77 rootBits) (nth (nat_lit 0) PTS (nat
 
 theorem tree_ok : allN (nat_lit 737) (treeAt rm CGM PTS PAR) = true := by quickRfl
 
+theorem neg_cm : notK (Nat.beq (mulJ c rm (mulJ c rm (mulJ c rm (mulJ c rm (mulJ c rm YB YB) YB) YB)
+    YB) YB) CMD) = true := by quickRfl
+
+theorem neg_fix : notK (fixAllJ rm CMD [Nat.xor (nth (nat_lit 0) PTS (nat_lit 1)) (nat_lit 1)]) =
+    true := by quickRfl
+
+theorem neg_nodup : notK (nodupK (nth (nat_lit 0) PTS (nat_lit 5) :: PTS)) = true := by quickRfl
+
+theorem neg_tree : notK (allN (nat_lit 737) (treeAt rm (CGM.reverse) PTS PAR)) = true := by
+  quickRfl
+
+theorem neg_p77 : notK (Nat.beq (walkK rm A A B Bi W77.dropLast rootBits)
+    (nth (nat_lit 0) PTS (nat_lit 77))) = true := by quickRfl
+
+theorem neg_cols : notK (Nat.beq (mulJ c rm CMD (getN one UL (nat_lit 0)))
+    (mulJ c rm (etaK c rm one UL (Nat.xor (colK PC (nat_lit 0)) (nat_lit 1))) CMD)) = true := by
+  quickRfl
+
+theorem neg_cnt : notK (Nat.beq (fixCntK PC) (nat_lit 33)) = true := by quickRfl
 
 end CertificateChecks.KernelJ4Count.FixCE
 

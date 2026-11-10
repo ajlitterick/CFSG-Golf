@@ -341,6 +341,9 @@ theorem zero_lor {S x y p : ℕ} (hx : Zero np S x p) (hy : Zero np S y p) :
   rw [Nat.testBit_or, hx b hb, hy b hb]
   rfl
 
+theorem zero_land_l {S x y p : ℕ} (hx : Zero np S x p) : Zero np S (Nat.land x y) p := fun b hb => by
+  change (x &&& y).testBit _ = false
+  rw [Nat.testBit_and, hx b hb, Bool.false_and]
 
 theorem zero_land_rep (hO : PLaw np O) {S m x p : ℕ} (hm : m < 2 ^ S) (hp : p < S)
     (hb : m.testBit p = false) : Zero np S (Nat.land x (O.rep S m)) p := fun b hb' => by
@@ -597,6 +600,18 @@ theorem xor63_blk {B c : ℕ} (hc : c < 64) : (64 * B + c) ^^^ 63 = 64 * B + (c 
 
 @[expose] noncomputable def phi (r : ℕ) : ℕ := if mk6.testBit r then r ^^^ 63 else r
 
+theorem phi_lt {r : ℕ} (hr : r < SX) : phi r < SX := by
+  unfold phi
+  split_ifs with h
+  · rw [testBit_mk6 hr] at h
+    simp only [Bool.and_eq_true, decide_eq_true_eq] at h
+    have e := Nat.div_add_mod r 64
+    have hc : r % 64 < 64 := Nat.mod_lt _ (by decide)
+    rw [← e, xor63_blk hc]
+    have := (xs_blk _ hc).2
+    change _ < 131072
+    omega
+  · exact hr
 
 theorem mk6_phi {r : ℕ} (hr : r < SX) : mk6.testBit (phi r) = mk6.testBit r := by
   unfold phi

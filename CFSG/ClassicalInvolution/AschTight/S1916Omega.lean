@@ -26,6 +26,29 @@ theorem conjClosure_le {C Q H : Subgroup G} (h : ∀ c ∈ C, conjSub c Q ≤ H)
     conjClosure C Q ≤ H :=
   iSup₂_le h
 
+theorem conjClosure_le_of_normalizes {C Q H : Subgroup G} (hQH : Q ≤ H)
+    (hH : ∀ c ∈ C, conjSub c H = H) : conjClosure C Q ≤ H :=
+  conjClosure_le fun c hc => (hH c hc) ▸ conjSub_mono hQH
+
+theorem conjSub_conjClosure {C Q : Subgroup G} {c : G} (hc : c ∈ C) :
+    conjSub c (conjClosure C Q) = conjClosure C Q := by
+  have key : ∀ c ∈ C, conjSub c (conjClosure C Q) ≤ conjClosure C Q := by
+    intro c hc
+    rw [conjSub_le_iff]
+    refine conjClosure_le fun d hd => ?_
+    rw [← conjSub_le_iff, ← conjSub_mul]
+    exact conjSub_le_conjClosure (C.mul_mem hc hd)
+  refine le_antisymm (key c hc) ?_
+  have h := key c⁻¹ (C.inv_mem hc)
+  have h2 := (conjSub_le_iff c⁻¹).mp h
+  rwa [inv_inv] at h2
+
+theorem closure_twoElements_eq_conjClosure {C Q : Subgroup G} (hQ : IsPGroup 2 Q) :
+    Subgroup.closure {x : G | x ∈ conjClosure C Q ∧ IsPGroup 2 (Subgroup.zpowers x)} =
+      conjClosure C Q := by
+  refine le_antisymm ((Subgroup.closure_le _).mpr fun x hx => hx.1) ?_
+  refine conjClosure_le fun c hc x hx => Subgroup.subset_closure ⟨conjSub_le_conjClosure hc hx, ?_⟩
+  exact (isPGroup_conjSub c hQ).to_le (Subgroup.zpowers_le.mpr hx)
 
 theorem IsSylow2In.conj {P M : Subgroup G} (h : IsSylow2In P M) (g : G) :
     IsSylow2In (conjSub g P) (conjSub g M) := by

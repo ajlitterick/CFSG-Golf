@@ -34,6 +34,8 @@ namespace CFSG.KC.BM
   [65536, 32768, 16384, 8192, 4096, 2048, 1024, 512, 256, 128, 64, 32, 16, 32, 64, 128, 256, 512,
     1024, 2048, 4096, 8192, 16384, 32768, 65536]
 
+@[expose] noncomputable def netAOK (Ms Ds : List Nat) (T NM : Nat) : Bool :=
+  andB (andB (allAligned Ms) (shifts16 Ds)) (benesOK Ms Ds T NM)
 
 end CFSG.KC.BM
 

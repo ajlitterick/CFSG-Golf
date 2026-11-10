@@ -88,6 +88,11 @@ theorem kRes : (allN 42 (fun i => Nat.beq (resK (SuzInvT1.F 0) i) (pg 6 (mask 6)
 theorem kLetters : (resT1Word.all (· < 3) && resZWord.all (· < 3) && tauSWord.all (· < 3) &&
     allN 3 fun k => (gensSWords.getD k []).all (· < 2)) = true := by quickRfl
 
+theorem negRes : Bool.not (allN 42 fun i =>
+    Nat.beq (resK (SuzInvT1.F 0) i) (pg 6 (mask 6) (Nat.xor (SuzC1BR 0) 1) i)) = true := by
+  quickRfl
+
+theorem negFix : Bool.not (fixedK 1782 11 (mask 11) W0 fixL.tail) = true := by quickRfl
 
 theorem pc' {a b : Array Nat} {A B : Nat} (ha : P a A) (hb : P b B) :
     P (comp 1782 a b) (pc A B) := p_comp ha hb

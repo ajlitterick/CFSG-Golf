@@ -26,6 +26,7 @@ theorem link_T1 : KB.linkOk T2.amap T1.words = true := by quickRfl
 
 theorem link_T2 : KB.linkOk T3.amap T2.words = true := by quickRfl
 
+theorem order_from_T2 : Nat.beq (Nat.mul T2.N T3.N) (nat_lit 2903040) = true := by quickRfl
 
 theorem order : Nat.beq (Nat.mul (Nat.mul T1.N T2.N) T3.N) (nat_lit 495766656000) = true := by quickRfl
 

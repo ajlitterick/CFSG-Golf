@@ -24,6 +24,9 @@ structure Mat where
 
 @[expose] def Mat.one : Mat := ⟨1, 0, 0, 1⟩
 
+@[expose] def allMats : List Mat :=
+  (List.range 8).flatMap fun a => (List.range 8).flatMap fun b =>
+    (List.range 8).flatMap fun c => (List.range 8).map fun d => ⟨a, b, c, d⟩
 
 @[expose] def addP (p q : Nat) : Nat :=
   (p % 8 + q % 8) % 8 + 8 * ((p / 8 % 8 + q / 8 % 8) % 8)
@@ -71,5 +74,10 @@ structure Mat where
   rhoMap := fun x => rho0.ap (x % 64) + 64 * (x / 64)
   gens := #[1, 8, 64, 128, 256]
 
+@[expose] def fusionLoopA (_ : Unit := ()) : Bool :=
+  (allMats.filter candT).all fun t =>
+    let ls := allMats.filter (candL t)
+    (allMats.filter (candS t)).all fun s =>
+      (ls.filter fun l => s.mul l == l.mul s).all fun l => fusionBad (parOfA t s l)
 
 end Certificates.FzR10A

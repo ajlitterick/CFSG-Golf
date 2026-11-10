@@ -551,6 +551,7 @@ private theorem lP_lt (A : ℕ) : lP A < 2 := by
   rw [Nat.and_one_is_mod]
   omega
 
+private theorem aX_zero : aX 0 = 0 := rfl
 
 private noncomputable def d2 (X : ℕ) : Multiplicative (ZMod 2) := Multiplicative.ofAdd (X : ZMod 2)
 

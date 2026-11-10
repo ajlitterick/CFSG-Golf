@@ -101,6 +101,12 @@ theorem card_four_torsion_torus (k : Fin 3 → ℕ) :
       Equiv.subtypePiEquivPi
   rw [Nat.card_congr e, Nat.card_pi]
 
+theorem card_four_torsion_torus_133 :
+    Nat.card {v : Torus ![1, 3, 3] // (4 : ℤ) • v = 0} = 32 := by
+  rw [card_four_torsion_torus, Fin.prod_univ_three]
+  simp only [Nat.card_eq_fintype_card]
+  decide
+
 
 theorem pow_four_eq_one_of_dataA {x : G} (hx : x ∈ X.A) : x ^ 4 = 1 := by
   have h4 : (4 : ℕ) • X.dataA.e (Additive.ofMul ⟨x, hx⟩) = 0 :=

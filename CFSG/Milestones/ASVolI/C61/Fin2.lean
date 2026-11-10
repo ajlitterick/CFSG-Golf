@@ -13,8 +13,6 @@ open scoped Pointwise
 
 section HSide
 
-include hι
-
 
 end HSide
 

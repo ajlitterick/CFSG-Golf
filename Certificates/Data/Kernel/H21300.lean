@@ -48,6 +48,18 @@ namespace CFSG.KD.H21300
   [c &&& 7, (c >>> 3) &&& 7, (c >>> 6) &&& 7, (c >>> 9) &&& 7, (c >>> 12) &&& 7,
     (c >>> 15) &&& 7, (c >>> 18) &&& 7]
 
+@[expose] def covB (L : List (List Nat)) (A : List Nat) : Bool :=
+  L.all fun a => A.any fun c => decode c == a
+
+@[expose] def rowH (c : Nat) : List Nat → Nat → Bool
+  | [], _ => true
+  | d :: B, h => cnt (evalL (decode c) (decode d)
+      (CFSG.Holt.SmallGroups.s7Words.getD (h % 64) [])) == 2 && rowH c B (h / 64)
+
+@[expose] def chkH (B : List Nat) : List Nat → List Nat → Bool
+  | [], _ => true
+  | _ :: _, [] => false
+  | c :: A, h :: H => rowH c B h && chkH B A H
 
 end CFSG.KD.H21300
 

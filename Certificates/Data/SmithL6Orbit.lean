@@ -8,6 +8,33 @@ namespace CFSG.SmithL6
 
 open CFSG.SmithE (applyCols)
 
+@[expose] def treeBFS (n : Nat) (gens : Array Nat) (f : Nat → Nat → Nat) (roots : List Nat) :
+    Array Nat × Array Nat × Array Nat := Id.run do
+  let mut par := Array.replicate n n
+  let mut gen := Array.replicate n 0
+  let mut dep := Array.replicate n (n + 1)
+  let mut queue : Array Nat := #[]
+  for r in roots do
+    dep := dep.set! r 0
+    queue := queue.push r
+  let mut head := 0
+  for _ in [0:n] do
+    if head < queue.size then
+      let u := queue[head]!
+      head := head + 1
+      for g in gens do
+        let v := f g u
+        if v < n && n < dep[v]! then
+          dep := dep.set! v (dep[u]! + 1)
+          par := par.set! v u
+          gen := gen.set! v g
+          queue := queue.push v
+  return (par, gen, dep)
+
+@[expose] def treeOK (n m : Nat) (isRoot : Nat → Bool) (edge : Nat → Nat → Nat → Bool)
+    (t : Array Nat × Array Nat × Array Nat) : Bool :=
+  (List.range n).all fun v => isRoot v || (decide (t.1[v]! < n) && decide (t.2.1[v]! < m) &&
+    decide (t.2.2[t.1[v]!]! < t.2.2[v]!) && edge t.2.1[v]! t.1[v]! v)
 
 @[expose] def ugens : Array Nat := #[189, 193, 201, 158, 162, 170, 127, 131, 139]
 
@@ -36,9 +63,19 @@ open CFSG.SmithE (applyCols)
 
 @[expose] def stabGens : Array Nat := ((List.range 1953).filter fun p => planeImg p 0 == 0).toArray
 
+@[expose] def chkTrans : Bool :=
+  elemGens.all (· < 1953) &&
+  treeOK 1395 elemGens.size (fun j => j == 0)
+    (fun g j' j => planeImg elemGens[g]! j' == j)
+    (treeBFS 1395 (Array.range elemGens.size) (fun g j => planeImg elemGens[g]! j) [0])
 
 @[expose] def dRoot (c : Nat) : Nat := ((List.range 1395).find? fun j => meetCard 0 j == c).getD 0
 
+@[expose] def chkPlaneOrbits : Bool :=
+  treeOK 1395 stabGens.size (fun j => j == dRoot (meetCard 0 j))
+    (fun g j' j => meetCard 0 j' == meetCard 0 j && planeImg stabGens[g]! j' == j)
+    (treeBFS 1395 (Array.range stabGens.size) (fun g j => planeImg stabGens[g]! j)
+      [dRoot 49, dRoot 9, dRoot 1, dRoot 0])
 
 @[expose] def uSums : Array Bool :=
   Array.ofFn (n := 512) fun v => (List.range 49).any fun k => (List.range 49).any fun l =>
@@ -55,5 +92,18 @@ open CFSG.SmithE (applyCols)
 @[expose] def ucols (p : Nat) : Array Nat :=
   Array.ofFn (n := 9) fun j => uco[pos0 tvTab[p]![ugens[j.val]!]!]!
 
+@[expose] def ucolsArr : Array (Array Nat) := stabGens.map ucols
+
+@[expose] def chkUOrbits : Bool :=
+  let S2 := uSums
+  let ucs := ucolsArr
+  uCls S2 0 == 0 &&
+  (List.range 512).countP (fun v => uCls S2 v == 1) == 49 &&
+  (List.range 512).countP (fun v => uCls S2 v == 2) == 294 &&
+  (List.range 512).countP (fun v => uCls S2 v == 3) == 168 &&
+  treeOK 512 stabGens.size (fun v => v == uRoot S2 (uCls S2 v))
+    (fun g u v => uCls S2 u == uCls S2 v && applyCols ucs[g]! u == v)
+    (treeBFS 512 (Array.range stabGens.size) (fun g v => applyCols ucs[g]! v)
+      [uRoot S2 1, uRoot S2 2, uRoot S2 3])
 
 end CFSG.SmithL6

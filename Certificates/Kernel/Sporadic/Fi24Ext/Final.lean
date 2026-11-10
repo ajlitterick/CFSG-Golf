@@ -249,6 +249,8 @@ theorem zeroFrom_matF : ZeroFrom 781 (matF ()) := by
   unfold matF
   exact zeroFrom_ofFn_ofTrits (by norm_num) _
 
+theorem canonRows_matF : canonRows 781 (matF ()) = true :=
+  canonRows_of matF_size rowsWF_matF zeroFrom_matF
 
 theorem canonRows_mulW_of {r : ℕ} {X Y : Array W} (hXs : X.size = r) (hX : RowsWF X)
     (hY : RowsWF Y) (hz : ZeroFrom 781 Y) : canonRows r (mulW X Y) = true :=
@@ -270,6 +272,15 @@ theorem R_pw : matW 781 781 (rootForm ()).rows = Mt Rr := by rw [rootForm_rows, 
 theorem Rt_pw : matW 781 781 (transposeW 253 781 (rootForm ()).rows) = Mt CFSG.KD.Fi24Fix.R := by
   rw [pw_transposeW rowsWF_R R_size, rootForm_rows, Rt_mt]
 
+theorem zeroFrom_R : ZeroFrom 781 (rootForm ()).rows := by
+  rw [rootForm_rows]
+  intro i j hj
+  by_cases hi : i < 253
+  · unfold rowW initRows
+    rw [Array.getElem?_ofFn]
+    simp only [hi, ↓reduceDIte, Option.getD_some]
+    rw [ofTrits_val (by norm_num), if_neg (by omega)]
+  · exact zeroFrom_initRows_rows i (by omega) j
 
 noncomputable abbrev KW : Array W := gramW 253 (rootForm ()).rows (matF ())
 
@@ -360,6 +371,7 @@ theorem norm_letters' : ∀ w ∈ normWords.toList, ∀ z ∈ w, z ≠ 0 ∧ z.n
 theorem norm_letters : ∀ w ∈ normWords, ∀ z ∈ w, z ≠ 0 ∧ z.natAbs ≤ 13 :=
   fun w hw => norm_letters' w (Array.mem_toList_iff.2 hw)
 
+theorem A_cn : Cn (CFSG.KD.BrFi24.RB 23) := cn_A
 
 theorem normChecks_true : normChecks sgW' sgiW' (matT ()) = true := by
   obtain ⟨t1, t2⟩ := T_facts

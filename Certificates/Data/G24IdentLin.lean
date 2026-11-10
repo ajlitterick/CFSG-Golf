@@ -29,6 +29,10 @@ abbrev ZMat := Array (Array (ZMod 2))
   #[G.getD 0 #[], zmul n n n (G.getD 1 #[]) (G.getD 1 #[]),
     zmul n n n (G.getD 2 #[]) (G.getD 2 #[])]
 
+@[expose] def zevalRel (n : ℕ) (G : Array ZMat) (r : List (Fin 3 × Bool)) : ZMat :=
+  let Gi := zinvs n G
+  r.foldl (fun A l => zmul n n n A (if l.2 then G.getD l.1.val #[] else Gi.getD l.1.val #[]))
+    (zone n)
 
 @[expose] def bits (s : String) : Array (ZMod 2) :=
   s.toList.toArray.map fun c => if c = '1' then 1 else 0
@@ -566,5 +570,54 @@ abbrev ZMat := Array (Array (ZMod 2))
    "110001000000000000000000000100001100000001010000",
    "100011000000000000000000001100001000000011110000"]
 
+@[expose] def kpCheck (n d r : ℕ) (M K P Y : ZMat) : Bool :=
+  decide (zmul n d n K P = zadd n n (zone n) (zmul n r n Y M))
+
+@[expose] def linRels (_ : Unit := ()) : Bool :=
+  let V1 := gV1 ()
+  let Z1 := gZ1 ()
+  let V2 := gV2 ()
+  let Z2 := gZ2 ()
+  let U := gU2 ()
+  let N := gN2 ()
+  relsA.all fun r =>
+    decide (zevalRel 8 V1 r = zone 8) && decide (zevalRel 2 Z1 r = zone 2) &&
+    decide (zevalRel 6 V2 r = zone 6) && decide (zevalRel 4 Z2 r = zone 4) &&
+    decide (zevalRel 2 U r = zone 2) && decide (zevalRel 4 N r = zone 4)
+
+@[expose] def linComm (_ : Unit := ()) : Bool :=
+  let Z2 := gZ2 ()
+  kpCheck 16 2 32 (mComm (Z2.getD 0 #[]) (Z2.getD 1 #[])) (kComm ((gN2 ()).getD 2 #[]))
+    (ofBits pComm) (ofBits yComm)
+
+@[expose] def linQuad1 (_ : Unit := ()) : Bool :=
+  let V1 := gV1 ()
+  let Z1 := gZ1 ()
+  kpCheck 72 2 216 (mQuad 8 2 V1 Z1) (kQuad 2 (qVec 8 2 q1lin q1c) (Z1.getD 2 #[]))
+    (ofBits pQuad1) (ofBits yQuad1)
+
+@[expose] def linQuad2 (_ : Unit := ()) : Bool :=
+  let V2 := gV2 ()
+  let Z2 := gZ2 ()
+  kpCheck 84 2 252 (mQuad 6 4 V2 Z2) (kQuad 4 (qVec 6 4 q2lin q2c) ((gN2 ()).getD 2 #[]))
+    (ofBits pQuad2) (ofBits yQuad2)
+
+@[expose] def linH11 (_ : Unit := ()) : Bool :=
+  let V1 := gV1 ()
+  let Z1 := gZ1 ()
+  kpCheck 48 16 96 (mFox 8 2 V1 Z1) (kFox 8 2 V1 Z1) (ofBits pH11) (ofBits yH11)
+
+@[expose] def linH12 (_ : Unit := ()) : Bool :=
+  let V2 := gV2 ()
+  let Z2 := gZ2 ()
+  kpCheck 72 24 144 (mFox 6 4 V2 Z2) (kFox 6 4 V2 Z2) (ofBits pH12) (ofBits yH12)
+
+@[expose] def linExt2 (_ : Unit := ()) : Bool :=
+  let U := gU2 ()
+  let N := gN2 ()
+  kpCheck 24 10 48 (mExt U N) (kExt U N (gX0 ())) (ofBits pExt2) (ofBits yExt2)
+
+@[expose] def linCheck (_ : Unit := ()) : Bool :=
+  linRels () && linComm () && linQuad1 () && linQuad2 () && linH11 () && linH12 () && linExt2 ()
 
 end CFSG.Quasithin.St84.G24Lin

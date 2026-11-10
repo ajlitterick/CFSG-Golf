@@ -117,5 +117,35 @@ end CFSG.KD.ThS.Rows_Sm_Y7
 #kc_rows_unfold CFSG.KD.ThS.Rows_Sm_Y7.f11 1 as CFSG.KD.ThS.bs7_1_ names CFSG.KD.ThS.Rows_Sm_Y7.f11I
   eval CFSG.KD.ThS.Rows_Sm_Y7.f11P CFSG.KD.ThS.Rows_Sm_Y7.f11l0
 
+theorem CFSG.KD.ThS.sd7 : CFSG.KC.Th.andB (Nat.beq (CFSG.KD.ThS.RBp7 (nat_lit 1)) (CFSG.KD.ThS.RBf
+    (nat_lit 1))) (Nat.beq (CFSG.KD.ThS.RBp7 (nat_lit 2)) (CFSG.KD.ThS.RBf (nat_lit 2))) = true :=
+    by
+  quickRfl
+
+theorem CFSG.KD.ThS.pw7 : CFSG.KC.Th.BigS.pwOK CFSG.KD.ThS.RBp7 CFSG.KD.ThS.PW7 CFSG.KD.ThS.c
+    CFSG.KD.ThS.rm CFSG.KD.ThS.PR7 (nat_lit 2) (nat_lit 7) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.gpc7 : CFSG.KC.Th.BigS.gensPcOK CFSG.KD.ThS.GL7 (nat_lit 2) CFSG.KD.ThS.PR7
+    CFSG.KD.ThS.n7 (nat_lit 32) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.rg7 : CFSG.KC.Th.andB (CFSG.KC.Th.BigS.regsIn CFSG.KD.ThS.PR7 CFSG.KD.ThS.n7
+    (nat_lit 36)) (CFSG.KC.Th.BigS.regsIn CFSG.KD.ThS.GL7 (nat_lit 2) (nat_lit 36)) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bf7_0 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp7 CFSG.KD.ThS.rm
+    CFSG.KD.ThS.PR7 (CFSG.KD.ThS.PT7_0 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL7 (nat_lit
+    5) (nat_lit 5)) (nat_lit 2) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bf7_1 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp7 CFSG.KD.ThS.rm
+    CFSG.KD.ThS.PR7 (CFSG.KD.ThS.PT7_1 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL7 (nat_lit
+    15) (nat_lit 5)) (nat_lit 2) = true := by
+  quickRfl
+
+theorem CFSG.KD.ThS.bl7 : CFSG.KC.Th.BigS.blocksOK CFSG.KD.ThS.BL7 CFSG.KD.ThS.nb7 CFSG.KD.ThS.n7 =
+    true := by
+  quickRfl
 
 end

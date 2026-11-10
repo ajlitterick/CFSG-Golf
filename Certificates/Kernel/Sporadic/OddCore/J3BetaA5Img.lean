@@ -39,6 +39,9 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.PEnum
 theorem cay_ok : cayK = true := by
   decide +kernel
 
+theorem cay_neg : ((List.range 60).all fun k => (List.range 2).all fun l =>
+    eq5 imgK[r32 J3BACl (4 * k + l)]! (compT 5 imgK[k]! piA5J3[1 - l]!)) = false := by
+  decide +kernel
 
 end CertificateChecks.KernelSpor.J3BetaA5
 

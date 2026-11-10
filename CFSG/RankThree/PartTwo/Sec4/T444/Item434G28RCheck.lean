@@ -8,6 +8,8 @@ public section
 namespace CFSG.RankThree.PartTwo.Sec4.Item434G28
 
 
+@[expose] def comm2 (a b : ℕ) : Bool := mul2 a b == mul2 b a
+
 @[expose] def invols (S : Array ℕ) : Array ℕ := S.filter fun s => s != id2 && mul2 s s == id2
 
 @[expose] def ord3s (S : Array ℕ) : Array ℕ := S.filter fun s => s != id2 && pw2 s 3 == id2

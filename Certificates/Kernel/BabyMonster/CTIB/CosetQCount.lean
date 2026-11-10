@@ -128,6 +128,8 @@ theorem andB_eq (a b : Bool) : andB a b = (a && b) := by cases a <;> rfl
 
 theorem notB_eq (a : Bool) : notB a = !a := by cases a <;> rfl
 
+theorem brec_false_eq (a b : Bool) : Bool.rec (motive := fun _ => Bool) false b a = (a && b) := by
+  cases a <;> rfl
 
 @[expose] noncomputable def vEnt0 (VT j : ℕ) : ℕ := Nat.land (Nat.shiftRight (fld32 VT j) 2) 1023
 

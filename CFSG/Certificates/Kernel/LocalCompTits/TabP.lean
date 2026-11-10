@@ -23,6 +23,7 @@ structure Gd (N P : Nat) : Prop where
   mp : Mp N P
   bd : Bd N P
 
+theorem mask11 : mask 11 = 2047 := rfl
 
 theorem pg_lt11 (P i : Nat) : pg 11 (mask 11) P i < 2048 := by
   have := pg_lt 11 P i
@@ -95,6 +96,12 @@ theorem compT_TR' {n : Nat} {P Q : Table} {f g : Nat → Nat} (hP : TR n P f)
   have e : (Q[i]!).toNat = g i := hq1
   rw [e]
   exact hp1
+
+theorem powT_TR' {n : Nat} (hn : n < 2 ^ 32) {P : Table} {f : Nat → Nat} (hP : TR n P f) (e : Nat) :
+    TR n (powT n e P) (CFSG.KS.PK.itr f e) := by
+  induction e with
+  | zero => exact idT_TR hn
+  | succ e ih => exact compT_TR' (f := f) (g := CFSG.KS.PK.itr f e) hP ih
 
 
 theorem gd_pidn {N : Nat} (hN : N + 1 < 2048) : Gd N (pidn N 11) :=
@@ -235,6 +242,7 @@ theorem wordT_eq {N : Nat} {TG : Nat → Nat} {tbls : Array Table}
     refine ⟨?_, gd_pcomp (by omega) l2 ih2⟩
     rw [map_eq_compT (tabP_size _ _), tabP_pcomp (by omega) l2.mp ih2.mp]
 
+theorem mask11_eq : (CFSG.KC.LocalComp.TitsChain.m11) = mask 11 := rfl
 
 open CFSG.KC.LocalComp.TitsChain in
 theorem letters_sound {TG TL : Nat → Nat} {words : Array (List Int)} {tbls : Array Table}

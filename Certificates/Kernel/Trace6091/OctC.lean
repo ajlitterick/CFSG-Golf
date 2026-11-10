@@ -40,6 +40,7 @@ theorem octC_sum : ∑ o ∈ range 759, ∑ m ∈ range 64,
   interval_cases k
   exacts [octC_0, octC_1, octC_2, octC_3, octC_4, octC_5, octC_6, octC_7, octC_8, octC_9, octC_10]
 
+theorem octBadC_1 : octScanT PBad (betaTabT PBad) 69 69 ≠ 0 := by decide +kernel
 
 end Certificates.Kernel.Trace6091
 

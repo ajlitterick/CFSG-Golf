@@ -35,6 +35,14 @@ open Subgroup Equiv Perm CFSG.GH74.GLS.C3.Layer2 CFSG.GH74.GLS.C3.Layer2.Model C
 set_option maxRecDepth 100000
 set_option maxHeartbeats 0
 
+private theorem HL_len_true_0 : decide (HL.length = 1152) = true := by
+  decide +kernel
+
+private theorem HL_nodup_true_1 : decide HL.Nodup = true := by
+  decide +kernel
+
+private theorem HL_hp_true_2 : (HL.all fun σ => decide (Hp σ)) = true := by
+  decide +kernel
 
 end CertificateChecks.Batch5080
 

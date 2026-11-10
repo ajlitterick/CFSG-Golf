@@ -73,6 +73,12 @@ theorem synL_xor (FB : List ℕ) (a b : ℕ) : synL FB (a ^^^ b) = synL FB a ^^^
         all_goals omega
       rw [e, e, e, Nat.testBit_xor]
 
+theorem synL_lt (FB : List ℕ) (y : ℕ) : synL FB y < 2 ^ FB.length := by
+  induction FB with
+  | nil => exact Nat.one_pos
+  | cons f FB ih =>
+    rw [synL_cons, List.length_cons, Nat.pow_succ, bXK_eq]
+    cases bX f y <;> simp <;> omega
 
 theorem synL_eq_zero (FB : List ℕ) (y : ℕ) :
     synL FB y = 0 ↔ (FB.all fun f => !bX f y) = true := by

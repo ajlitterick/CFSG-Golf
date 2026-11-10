@@ -252,6 +252,10 @@ theorem trun_rel (hpa : ∀ i < 24, pa[i]! < 24) (hpb : ∀ i < 24, pb[i]! < 24)
       List.foldl_cons, List.foldl_nil]
     exact stepTr_rel hpa hpb ih k
 
+theorem idxOf_getDT {l : List Nat} (hnd : l.Nodup) {k : Nat} (hk : k < l.length) :
+    l.idxOf (l.getD k 0) = k := by
+  rw [List.getD_eq_getElem?_getD, List.getElem?_eq_getElem hk, Option.getD_some]
+  exact List.Nodup.idxOf_getElem hnd k hk
 
 theorem getD_memT {l : List Nat} {i : Nat} (h : i < l.length) : l.getD i 0 ∈ l := by
   rw [List.getD_eq_getElem?_getD, List.getElem?_eq_getElem h, Option.getD_some]

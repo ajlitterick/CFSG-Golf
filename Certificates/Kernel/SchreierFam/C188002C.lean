@@ -132,5 +132,7 @@ theorem gen5 : (List.range 513).all (actK 5) = true := gen_of (by decide +kernel
 
 theorem gen6 : (List.range 513).all (actK 6) = true := gen_of (by decide +kernel)
 
+theorem negChain : sk (PF 7) = false ∧ Nat.beq (PF 0) (PF 1) = false := by
+  constructor <;> decide +kernel
 
 end CertificateChecks.KernelSchreierFam.U38

@@ -137,6 +137,11 @@ theorem testBit_encM' (A : M3) (i j : Fin 3) : (encM A).testBit (3 * i.val + j.v
   have h3 : 3 * i.val + j.val < 9 := by omega
   simp [h1, h2, h3, fin3_eq]
 
+theorem encM_lt (A : M3) : encM A < 512 :=
+  orN_lt (w := 9) fun k hk => by
+    split
+    · exact Nat.pow_lt_pow_right (by omega) hk
+    · exact Nat.two_pow_pos _
 
 theorem encM_inj {A B : M3} (h : encM A = encM B) (i j : Fin 3) : A i j = B i j := by
   have h1 := testBit_encM' A i j
@@ -539,6 +544,10 @@ theorem xW_zero {X p q : Nat} (hc : canonK p q = true) (hp : p < 8) (hq : q < 8)
   rw [xAppK_wK hc hp hq (by omega), xorN_congr (g := fun _ => 0) (fun k _ => by simp),
     xorN_zero_fun]
 
+theorem xW_lt {X p q i : Nat} (hc : canonK p q = true) (hp : p < 8) (hq : q < 8) (hi : i < 256) :
+    xAppK X p q (wK p q i) < 256 := by
+  rw [xAppK_wK hc hp hq hi]
+  exact xorN_lt (w := 8) fun k _ => by split; exact fget_lt _ _ _; exact Nat.two_pow_pos _
 
 theorem wK_xor {p q i j : Nat} (hp : p < 8) (hq : q < 8) (hi : i < 256) (hj : j < 256) :
     wK p q (i ^^^ j) = wK p q i ^^^ wK p q j := by

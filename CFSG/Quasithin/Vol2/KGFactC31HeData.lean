@@ -58,6 +58,9 @@ open CFSG.Monster.B.Co2.Native CFSG.Sporadic.HeldB CFSG.Certificates.Native
   bba222ababbb12122212212212"
 
 
+@[expose] def size0 : List ℕ := [240, 315, 315, 630, 2]
+
+
 @[expose] def scan0H : List (List ℤ) := decodeWs "bbbbbababababbbabbabbaababaaaba2121ba22ababaaaba\
   21212a2abba2aba22aba2aba2ab abbbbbabbab122212121222aba2aba2abb abbbabbabbbabbabbabbbba22ababaaab\
   a2122ababbbaba222abba2a2aba22abba2abb"
@@ -66,6 +69,9 @@ open CFSG.Monster.B.Co2.Native CFSG.Sporadic.HeldB CFSG.Certificates.Native
   bb1bbb1bbaba2a2a bcbc22cbbb1b121babcbbabbab3b123212acbab3b123212 babba22a2a222abba22ababaaaba212\
   1ba22abba22ababaaaba21212abba22abba221221b121b121bba bbabbabbababbababaaaba2121ba22abba22ababaaa\
   ba21212aba2ababa222121212a2a2a2a22ab1b|"
+
+
+@[expose] def size1 : List ℕ := [84, 168, 84, 168, 42, 14, 14]
 
 
 @[expose] def scan1H : List (List ℤ) := decodeWs "ababababbabbbbabbbababbababaaaba2121ba22ababaaab\

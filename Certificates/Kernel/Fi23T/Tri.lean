@@ -101,6 +101,7 @@ structure OK : Prop where
 
 variable {C}
 
+theorem adj_T_iff {V : Finset P} : Adj C.τ C.T V ↔ V ∈ C.Nr := Iff.rfl
 
 namespace OK
 
@@ -165,6 +166,7 @@ theorem nr_ne {V : Finset P} (hV : V ∈ C.Nr) : V ≠ C.T := by
   rw [e, Finset.inter_self] at h
   exact hC.hc1T h.symm
 
+theorem x0_nr : C.τ C.f0 • C.T ∈ C.Nr := ⟨C.f0, hC.hf0, rfl⟩
 
 theorem KG_H : Subgroup.closure (C.τ '' C.K) ≤ C.H := hC.closure_H hC.hK
 
@@ -294,6 +296,30 @@ theorem far_card {V : Finset P} (hV : V ∈ C.Nr) : (farNb C V).ncard = C.F1.car
     Set.InjOn.ncard_image (fun a ha b hb h => hC.lab_inj (hC.hF1 a ha).1 (hC.hF1 b hb).1 h),
     Set.ncard_coe_finset]
 
+theorem e1_F1 : C.lab C.e1 ≠ C.T ∧ C.lab C.e1 ∉ C.Nr := by
+  refine ⟨fun e => ?_, fun hn => ?_⟩
+  · have hc := hC.hc2
+    rw [e, Finset.inter_self] at hc
+    exact hC.hc2T hc.symm
+  · have hc := hC.hc2
+    rw [hC.nr_card hn] at hc
+    exact hC.hc21 hc.symm
+
+theorem e1_out : C.e1 ∉ C.T := by
+  intro h
+  have hn : C.lab C.e1 ∈ C.Nr := by
+    unfold lab
+    rw [hC.fixT h]
+    exact hC.x0_nr
+  exact hC.e1_F1.2 hn
+
+theorem v0_N2 : C.v0 ∈ C.N2 :=
+  ⟨hC.e1_F1.1, hC.e1_F1.2, _, hC.x0_nr, hC.adj_x0.2 ⟨C.e1, hC.e1_out, rfl⟩⟩
+
+theorem H_N2 {g : Equiv.Perm P} (hg : g ∈ C.H) {W : Finset P} (hW : W ∈ C.N2) : g • W ∈ C.N2 := by
+  obtain ⟨hT, hN, x, hx, hadj⟩ := hW
+  exact ⟨by rwa [Ne, hC.H_T hg], by rwa [hC.H_nr hg], g • x, hC.H_nr_aux hg hx,
+    hC.sys.adj_smul (hC.H_le hg) hadj⟩
 
 theorem far_orbit {W : Finset P} (hW : W ∈ C.N2) : ∃ g ∈ C.H, W = g • C.v0 := by
   obtain ⟨hT, hN, x, ⟨f, hf, rfl⟩, hadj⟩ := hW

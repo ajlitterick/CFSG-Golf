@@ -17,6 +17,10 @@ variable {G : Type} [Group G] [Finite G]
 @[expose] def S21_5 (D : Data G) (Ch : Choice2011 G) : Prop :=
   H1930 D → ∀ c : Ctx21 D Ch, ∀ L ∈ calC D.M, c.B ≤ normalizer (L : Set G)
 
+@[expose] def S21_6 (D : Data G) (Ch : Choice2011 G) : Prop :=
+  H1930 D → ∀ c : Ctx21 D Ch, ∀ L ∈ calC D.M, (∃ s : TauCeti.SporadicName, IsSpor (Bar2 L) s) →
+    IsJ1 (Bar2 L) ∧
+      (⁅CFSG.Quasithin.opResidual 3 c.B, L⁆ ≤ CFSG.Open.pCoreOf 2 L ∨ 7 ∈ piSet c.B)
 
 @[expose] def S21_13 (D : Data G) (Ch : Choice2011 G) : Prop :=
   H1930 D → ∀ _ : Ctx21 D Ch, ∀ L ∈ calC D.M, ∀ n : ℕ, IsAlt (BarInf L) n → n = 5

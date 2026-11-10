@@ -80,5 +80,11 @@ end CFSG.KD.ThM3.Rows_M3_89
 #kc_rows_unfold CFSG.KD.ThM3.Rows_M3_89.f6 240 as CFSG.KD.ThM3.i1_ names CFSG.KD.ThM3.Rows_M3_89.f6I
   eval CFSG.KD.ThM3.Rows_M3_89.f6P
 
+theorem CFSG.KD.ThM3.i1_0 : Nat.beq (CFSG.KD.ThM3.RB (nat_lit 25)) CFSG.KD.ThS.ONE = true := by
+  quickRfl
+
+theorem CFSG.KD.ThM3.i1_1 : Nat.beq (CFSG.KD.ThM3.RB (nat_lit 26)) (CFSG.KD.ThM3.RB (nat_lit 16)) =
+    true := by
+  quickRfl
 
 end

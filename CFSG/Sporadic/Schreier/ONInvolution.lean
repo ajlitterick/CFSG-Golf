@@ -49,6 +49,18 @@ abbrev qtr
 
 abbrev qsize (i : ℕ) : ℕ := (CArrays.lev nPts qonStrongArrs Data.baseList.toArray i).pts.size
 
+theorem qsize_eq
+    {i : ℕ} (hi : i < 29) :
+    qsize i = ([245520, 52136, 36] ++ List.replicate 26 1)[i]'(by simpa using hi) := by
+  have hi' : i < QON.baseCount := by rw [qon_baseCount]; exact hi
+  have h := qon_point.2 ⟨i, hi'⟩
+  rw [QON.orbitSize_eq_card, qon_card_orbit] at h
+  exact h.symm
+
+theorem qsize1 :
+    qsize 1 = 52136 := by rw [qsize_eq (by norm_num)]; rfl
+theorem qsize2 :
+    qsize 2 = 36 := by rw [qsize_eq (by norm_num)]; rfl
 
 theorem qtr_facts
     {i k : ℕ} (hi : i < QON.baseCount) (hk : k < qsize i) :

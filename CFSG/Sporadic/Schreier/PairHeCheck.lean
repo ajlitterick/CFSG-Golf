@@ -19,6 +19,7 @@ open CFSG.Sporadic.Schreier.PairNative CFSG.Certificates.Native CFSG.Monster.B.C
 
 @[expose] def t1Arr : Array Nat := Array.ofFn fun p : Fin 8330 => evR wT p.val
 
+@[expose] def wT1 : List (Array Nat) := [t1Arr]
 
 theorem word_orders :
     ordB bs wA 2 = true ∧ ordB bs wB 7 = true ∧ ordB bs (patW wA wB [false, true]) 17 = true ∧

@@ -100,6 +100,12 @@ theorem c10044_root : rootCheck = true := by
   rw [rowsSA_eq, cover10044, Bool.and_true]
   quickRfl
 
+theorem c10044_neg :
+    (!bfsK (mclAct (unpackR 24 C1) (unpackR 24 C2)) rootBase 400 TL (TP.set 5 0) TB &&
+      !bfsK (mclAct (unpackR 24 C1) (unpackR 24 C2)) rootBase 100 TL TP TB &&
+      !(!orthAll rootGs (lk CertificateChecks.KernelVec.Co1.Pt 32 827) ||
+        ([] : List Nat).contains (lk CertificateChecks.KernelVec.Co1.Pt 32 827))) = true := by
+  quickRfl
 
 open Certificates in
 open CFSG.Sporadic.Co1.Module.Pairs in

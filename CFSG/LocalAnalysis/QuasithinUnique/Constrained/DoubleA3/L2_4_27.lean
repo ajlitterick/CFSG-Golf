@@ -28,6 +28,10 @@ open CFSG.Open CFSG.Quasithin
     ((IsAltType L 5 ∧ conjJoin S L = L) ∨ (IsAltType L 3 ∧ conjJoin S L ≠ L)) →
     Lemma2_4_27Concl T H S L
 
+@[expose] def Lemma2_4_27_1 : Prop :=
+  ∀ (G : Type) [Group G] [Finite G] (T M H S L : Subgroup G), ConstrainedSetting G T M H S L →
+    ((IsAltType L 5 ∧ conjJoin S L = L) ∨ (IsAltType L 3 ∧ conjJoin S L ≠ L)) →
+    S.relIndex T = 2 ∧ baum S = thompsonJ S ∧ thompsonJ S = thompsonJ T
 
 @[expose] def Lemma2_4_27_1A3 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T M H S L : Subgroup G), ConstrainedSetting G T M H S L →
@@ -38,6 +42,12 @@ open CFSG.Open CFSG.Quasithin
   ∀ (G : Type) [Group G] [Finite G] (T M H S L : Subgroup G), ConstrainedSetting G T M H S L →
     IsAltType L 5 → conjJoin S L = L →
     S.relIndex T = 2 ∧ baum S = thompsonJ S ∧ thompsonJ S = thompsonJ T
+
+theorem Lemma2_4_27_1.toA3 (h : Lemma2_4_27_1) : Lemma2_4_27_1A3 :=
+  fun G _ _ T M H S L hcs h3 hne => h G T M H S L hcs (Or.inr ⟨h3, hne⟩)
+
+theorem Lemma2_4_27_1.toA5 (h : Lemma2_4_27_1) : Lemma2_4_27_1A5 :=
+  fun G _ _ T M H S L hcs h5 hj => h G T M H S L hcs (Or.inl ⟨h5, hj⟩)
 
 
 @[expose] def Lemma2_4_27A5 : Prop :=

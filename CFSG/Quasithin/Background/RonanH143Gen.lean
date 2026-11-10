@@ -39,5 +39,36 @@ theorem exists_labAct {G α : Type*} [Group G] [MulAction G α] {n : ℕ} (X : F
             map_one' := Equiv.ext hone
             map_mul' := fun g h => Equiv.ext (hmul g h) }, fun g i => (hf g i).symm⟩
 
+theorem labAct_eq_of_smul {G α : Type*} [Group G] [MulAction G α] {n : ℕ} (X : Fin n → α)
+    (hX : Function.Injective X) (H : Subgroup G) (π : ↥H →* Equiv.Perm (Fin n))
+    (hπ : ∀ (g : ↥H) (i : Fin n), X (π g i) = (g : G) • X i) (g : ↥H)
+    (σ : Equiv.Perm (Fin n)) (h : ∀ i, (g : G) • X i = X (σ i)) : π g = σ :=
+  Equiv.ext fun i => hX ((hπ g i).trans (h i))
+
+theorem card_eq_card_ker_mul {G : Type*} [Group G] [Finite G] {n : ℕ}
+    (π : G →* Equiv.Perm (Fin n)) (hπ : π.range = ⊤) :
+    Nat.card G = Nat.card π.ker * n.factorial := by
+  have h1 := Subgroup.card_ker_mul_card_range π
+  rw [hπ, Subgroup.card_top, Nat.card_perm, Nat.card_fin] at h1
+  exact h1.symm
+
+theorem ker_eq_of_card_le {G : Type*} [Group G] [Finite G] {n : ℕ}
+    (π : G →* Equiv.Perm (Fin n)) (hπ : π.range = ⊤) (N : Subgroup G) (hN : N ≤ π.ker)
+    (hc : Nat.card G ≤ Nat.card N * n.factorial) : π.ker = N := by
+  have h2 := card_eq_card_ker_mul π hπ
+  have hfac : 0 < n.factorial := Nat.factorial_pos n
+  rw [h2] at hc
+  have hle : Nat.card π.ker ≤ Nat.card N := Nat.le_of_mul_le_mul_right hc hfac
+  exact (Subgroup.eq_of_le_of_card_ge hN hle).symm
+
+
+theorem map_closure_eq_top_of_cycle_swap {G : Type*} [Group G] {n : ℕ}
+    (π : G →* Equiv.Perm (Fin n)) (σ : Equiv.Perm (Fin n)) (hσ : σ.IsCycle)
+    (hs : σ.support = ⊤) (x : Fin n) (g₁ g₂ : G) (h1 : π g₁ = σ)
+    (h2 : π g₂ = Equiv.swap x (σ x)) : (Subgroup.closure ({g₁, g₂} : Set G)).map π = ⊤ := by
+  have hs' : σ.support = Finset.univ := hs.trans Finset.top_eq_univ
+  have key := Equiv.Perm.closure_cycle_adjacent_swap hσ hs' x
+  rw [MonoidHom.map_closure, Set.image_pair, h1, h2, key]
+
 
 end CFSG.Quasithin.RonanH143

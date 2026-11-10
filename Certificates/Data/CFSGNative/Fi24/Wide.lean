@@ -155,5 +155,21 @@ deriving Inhabited, DecidableEq
 @[inline, expose] def W.canon (a : W) : Bool :=
   a.wf && a.p12 >>> 13 == 0 && a.m12 >>> 13 == 0
 
+@[inline, expose] def W.isZero (a : W) : Bool :=
+  a.p0 == 0 && a.p1 == 0 && a.p2 == 0 && a.p3 == 0 && a.p4 == 0 && a.p5 == 0 && a.p6 == 0 &&
+    a.p7 == 0 && a.p8 == 0 && a.p9 == 0 && a.p10 == 0 && a.p11 == 0 && a.p12 == 0 && a.m0 == 0 &&
+    a.m1 == 0 && a.m2 == 0 && a.m3 == 0 && a.m4 == 0 && a.m5 == 0 && a.m6 == 0 && a.m7 == 0 &&
+    a.m8 == 0 && a.m9 == 0 && a.m10 == 0 && a.m11 == 0 && a.m12 == 0
+
+@[inline, expose] def W.restrictEq (a M U : W) : Bool :=
+  a.p0 &&& M.p0 == U.p0 && a.p1 &&& M.p1 == U.p1 && a.p2 &&& M.p2 == U.p2 &&
+    a.p3 &&& M.p3 == U.p3 && a.p4 &&& M.p4 == U.p4 && a.p5 &&& M.p5 == U.p5 &&
+    a.p6 &&& M.p6 == U.p6 && a.p7 &&& M.p7 == U.p7 && a.p8 &&& M.p8 == U.p8 &&
+    a.p9 &&& M.p9 == U.p9 && a.p10 &&& M.p10 == U.p10 && a.p11 &&& M.p11 == U.p11 &&
+    a.p12 &&& M.p12 == U.p12 && a.m0 &&& M.p0 == 0 && a.m1 &&& M.p1 == 0 && a.m2 &&& M.p2 == 0 &&
+    a.m3 &&& M.p3 == 0 && a.m4 &&& M.p4 == 0 && a.m5 &&& M.p5 == 0 && a.m6 &&& M.p6 == 0 &&
+    a.m7 &&& M.p7 == 0 && a.m8 &&& M.p8 == 0 && a.m9 &&& M.p9 == 0 && a.m10 &&& M.p10 == 0 &&
+    a.m11 &&& M.p11 == 0 && a.m12 &&& M.p12 == 0
+
 
 end CFSG.Sporadic.Fi24.Native

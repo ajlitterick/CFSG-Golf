@@ -15,6 +15,9 @@ variable {K : Type*} [Field K]
 
 @[expose] def monoM₂ (a b c : K) : Matrix (Fin 3) (Fin 3) K := !![0, a, 0; 0, 0, b; c, 0, 0]
 
+@[expose] def fourier3 (ω : K) : Matrix (Fin 3) (Fin 3) K :=
+  !![1, 1, 1; 1, ω ^ 2, ω; 1, ω, ω ^ 2]
+
 
 theorem exists_sl3_conj_of_eigen {M Q : Matrix (Fin 3) (Fin 3) K} {d : Fin 3 → K}
     (hQ : Q.det ≠ 0) (hd : d 0 * d 1 * d 2 = 1) (hMQ : M * Q = Q * Matrix.diagonal d)

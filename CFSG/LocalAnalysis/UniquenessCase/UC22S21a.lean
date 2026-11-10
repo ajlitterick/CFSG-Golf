@@ -82,6 +82,13 @@ variable {G : Type} [Group G] [Finite G]
 @[expose] def S21_2 (D : Data G) (Ch : Choice2011 G) : Prop :=
   H1930 D → ∀ c : Ctx21 D Ch, ∀ A : Subgroup G, A ≤ c.B → ¬ normalizer (A : Set G) ≤ D.M
 
+@[expose] def S21_8 (D : Data G) (Ch : Choice2011 G) : Prop :=
+  H1930 D → ∀ _ : Ctx21 D Ch, ∀ L ∈ calC D.M, ∀ n : ℕ, LieRankTwoEven (BarInf L) n →
+    ¬ IsPowTwo n → ∀ r : ℕ, r.Prime → r ∣ 2 ^ n - 1 →
+      (IsSp4 (Bar2 L) n ∧ (L.subgroupOf D.M).Normal ∧ ∃ t ∈ D.T, ActsNontrivOnDiagram L t) ∧
+      (Odd n ∧ D.k = 1) ∧
+      L = Opp r D.M ∧
+      ∃ X : Subgroup G, Nat.card X = r ∧ X ≤ L ∧ X ∈ uniqueSet D.M
 
 @[expose] def S21_12 (D : Data G) (Ch : Choice2011 G) : Prop :=
   H1930 D → ∀ c : Ctx21 D Ch, ∀ L ∈ calC D.M, ∀ p : ℕ, p.Prime → p ≠ 2 → IsChev (BarInf L) p →

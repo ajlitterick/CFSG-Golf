@@ -17,6 +17,11 @@ theorem foldN_one : ∀ x < 256, foldN x = (false, 0, 0) → x = 0 := by decide 
 
 theorem foldN_r : ∀ x < 256, foldN x = (false, 0, 191) → x = 128 := by decide +kernel
 
+theorem foldN_r_ne : ¬ ∀ x < 256, foldN x = (false, 0, 191) → x = 0 := by decide +kernel
+
+theorem comm_corrupt :
+    Model.Pauli.mul (false, 63, 0) (false, 0, 1) ≠ Model.Pauli.mul (false, 0, 1) (false, 63, 0) := by
+  decide +kernel
 
 theorem bvec_128 : bvec 8 128 = Pi.single 7 1 := by decide +kernel
 

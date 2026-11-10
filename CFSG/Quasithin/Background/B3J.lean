@@ -38,6 +38,19 @@ theorem chain_sound' (gens : List Tab) (hg : ∀ g ∈ gens, isTab n g = true) :
     · exact hA
     · exact ih (a :: done) hrest hdone' x hx
 
+theorem closure_tabs_eq_subOf (gens S : List Tab) (hS : subOK n S = true)
+    (hgS : ∀ g ∈ gens, g ∈ S) (hc : chainOK gens (idT n) [] S = true) :
+    Subgroup.closure {x : Gp n | tab x ∈ gens} = subOf n S := by
+  apply le_antisymm
+  · rw [Subgroup.closure_le]
+    intro x hx
+    rw [SetLike.mem_coe, mem_subOf hS]
+    exact hgS _ hx
+  · intro x hx
+    rw [mem_subOf hS] at hx
+    obtain ⟨σ, hσ, hσx⟩ := chain_sound' gens (fun g hg => (subOK_spec hS).1 g (hgS g hg)) S []
+      hc (by simp) _ hx
+    rwa [← tab_injective hσx]
 
 theorem IsOffG.comm_sq (hn : 5 ≤ n) {k : Mod} {A : Subgroup (Gp n)} (hA : IsOffG n k A) :
     (∀ a ∈ A, ∀ b ∈ A, a * b = b * a) ∧ (∀ a ∈ A, a * a = 1) := by

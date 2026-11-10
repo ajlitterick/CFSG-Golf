@@ -99,6 +99,10 @@ theorem dec_actY : ∀ (k : Fin 2) (j : Fin 4),
     nfE (Yw j.val) (subst (TT k.val) (nfw (nfYData.getD (4 * k.val + j.val) []))) = true := by
   decide +kernel
 
+theorem neg_xy : nfE (Xw 0 ++ Yw 0) (Yw 0 ++ Xw 0) = false := by decide +kernel
+
+theorem neg_actX : nfE (Xw 0) (subst TX (nfw [2, 2, 2, 2, 0, 0, 2, 2, 0])) = false := by
+  decide +kernel
 
 section Mat
 

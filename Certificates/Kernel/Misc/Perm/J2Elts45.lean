@@ -60,6 +60,9 @@ theorem chkElts45_true : chkElts45 = true := by
     rw [rc.commA rZ, rc.commA rX]
     quickRfl
 
+theorem neg_h1 : (!Nat.beq (cm H1 J2C3.X) (cm J2C3.X H1)) = true := by quickRfl
+
+theorem neg_hV : (!Nat.beq (cm HV (cm V1 (iv HV))) V1) = true := by quickRfl
 
 end CertificateChecks.KernelMisc.J2En
 

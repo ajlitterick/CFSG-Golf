@@ -92,6 +92,16 @@ theorem kE : (allN 3 (fun i => andB (andB (eqK (powWK (EK i) 3) oneK) (commK (EK
 theorem kE81 : allN 81 (fun n => orB (Nat.beq n 0) (notB (eqK (prodE n) oneK))) = true := by
   quickRfl
 
+theorem negD : notB (eqK (powWK DK 2) oneK) = true := by quickRfl
+
+theorem negR0 : notB (gtPinK R0M 7 128 (R0T.N - 1) R0T.P R0T.PAR R0T.LAB R0T.W R0T.S) = true := by
+  quickRfl
+
+theorem negQ : notB (impAllK (fun x => commK x oneK) inR0 QL) = true := by quickRfl
+
+theorem negK1 : notB (allN 128 fun i => notB (eqK (R0T.P 5) (R0T.P i))) = true := by quickRfl
+
+theorem negE81 : notB (allN 81 fun n => notB (eqK (prodE n) oneK)) = true := by quickRfl
 
 end CertificateChecks.KernelCo1I301
 

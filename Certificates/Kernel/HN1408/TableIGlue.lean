@@ -327,6 +327,7 @@ abbrev WT (wd : List Nat) : Prop := tabW wd = tabT (unpack 1408 11 (WK wd)) ∧ 
 
 theorem wA : WT wordA := tabW_eq (by decide)
 theorem wZ : WT wordZ := tabW_eq (by decide)
+theorem wB : WT wordB := tabW_eq (by decide)
 theorem wZ1 : WT wordZ₁ := tabW_eq (by decide)
 theorem wAZ : WT wordAZ := tabW_eq (by decide)
 theorem wAZ1 : WT (wordA ++ wordZ₁) := tabW_eq (by decide)

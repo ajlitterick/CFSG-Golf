@@ -203,6 +203,11 @@ theorem a8_par : (a8Data ()).par = P.toArray := by simp only [a8Data, hE]
 theorem a8_inverses : (a8Data ()).inverses = (invsL L).toArray := by
   simp only [a8Data, hE, invArr_eq]
 
+theorem a8_invMap (hnd : L.Nodup) (g d : ℕ) :
+    (a8Data ()).invMap.getD g d = lookD L (invsL L) g d := by
+  have e : (a8Data ()).invMap = invMapOf L.toArray (invsL L).toArray := by
+    simp only [a8Data, hE, invArr_eq]
+  rw [e, invMapOf_getD hnd (by simp [invsL])]
 
 theorem a8_involutions : (a8Data ()).involutions = (involL L).toArray := by
   simp only [a8Data, hE, invsOf, involL, List.filter_toArray, isInvCode_eq]

@@ -60,6 +60,8 @@ theorem k_p5 : bAnd(Nat.beq UP5.k 10, bAnd(Nat.beq UP5.cnt 20160,
         (pcomp 42 6 (mask 6) (pcomp 42 6 (mask 6) R0 (UP5.G i)) R0)))))) = true := by
   quickRfl
 
+theorem kNeg : notB (unK (pidn 42 6) (pidn 42 6) R0) = true := by
+  quickRfl
 
 end CertificateChecks.KernelLC.L34Un
 

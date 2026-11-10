@@ -17,5 +17,9 @@ instance (k : Fin 2) (y : V4) : Decidable (linePred k y) :=
   | 0 => inferInstanceAs (Decidable (predLine4a y))
   | 1 => inferInstanceAs (Decidable (predLine4b y))
 
+@[expose] def T5 : Fin 2 → Fin 2 → Perm (Fin 6)
+  | 0 => T5_0
+  | 1 => T5_1
+
 
 end CFSG.Quasithin.ShultG53

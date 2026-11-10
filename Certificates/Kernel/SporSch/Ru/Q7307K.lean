@@ -89,6 +89,9 @@ theorem kOrb : orbRecK 4060 Mv 4 gR Lf Rf Pf Kf Df = true := by quickRfl
 
 @[expose] noncomputable def TI : Nat := pinv (wK Af (Iso7047.twK 32 1))
 
+theorem kNbr : allN 1755 (fun u => allN 10 (fun i => Nat.blt (pgW 11 TitsGN.NB (10 * u + i)) 1755)) =
+    true := by
+  quickRfl
 
 theorem kWord : ((Iso7047.twK 32 1).all fun l => l != 0 && decide (l.natAbs ≤ 2)) = true := by
   quickRfl
@@ -97,6 +100,12 @@ theorem kPerm0 : permOK 4060 12 (mask 12) (4060 * 12) A0 (pinv A0) = true := by 
 
 theorem kPerm1 : permOK 4060 12 (mask 12) (4060 * 12) A1 (pinv A1) = true := by quickRfl
 
+@[expose] noncomputable def ptOK (B T j : Nat) : Bool :=
+  bAnd(Nat.blt (fl T (fl Iso7047.D j)) 4060,
+    (Nat.testBit B j == (Nat.beq j 0 || Nat.beq (Lf (fl T (fl Iso7047.D j))) (Lf 1))))
+
+theorem kMain : strictB (maskL ballK) (fun B => strictB TI (fun T => allN 1755 (ptOK B T))) = true := by
+  quickRfl
 
 theorem neg : bAnd(bIf(allN 1755 (fun j => Nat.testBit (maskL ballK) j), false, true),
     bAnd(bIf(Nat.beq (Lf 1) (Lf 0), false, true),

@@ -126,6 +126,15 @@ namespace CertificateChecks.KernelSporSch.RuEnd
 open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.SporSch
 open CertificateChecks.KernelSporSch
 
+theorem negA0 : bIf(anyN 4060 fun p => bIf(Nat.beq (fv A0 (fv A0 p)) p, Nat.beq (fv A0 p) p, true),
+    false, true) = true := by
+  quickRfl
+
+theorem negSig : bIf(allN 4060 fun p => Nat.beq (fv LAB (fv (RuT4060.L 39) p)) (fv LAB p),
+    false, true) = true := by
+  quickRfl
+
+theorem negSift : bIf(siftP SW, false, true) = true := by quickRfl
 
 end CertificateChecks.KernelSporSch.RuEnd
 

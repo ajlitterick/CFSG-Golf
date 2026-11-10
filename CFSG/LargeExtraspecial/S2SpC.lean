@@ -111,6 +111,42 @@ theorem spRadFix_le_closure_not_isSpTypeA (hf : f.IsAlt) (hnd : f.Nondegenerate)
       (Subgroup.subset_closure (hmem 0 (Submodule.zero_mem _) (map_zero _)))
   · exact Subgroup.subset_closure (hmem u huF hpu)
 
+theorem sp_timmesfeld_2_1_c0 (hf : f.IsAlt) (hnd : f.Nondegenerate) {F : Submodule (ZMod 2) V}
+    (hF : F ⊓ spPerp f F = ⊥) (h4 : 4 ≤ finrank (ZMod 2) (spPerp f F)) {p p₁ : V}
+    (hpF : p ∈ spPerp f F) (hp₁F : p₁ ∈ spPerp f F) (hpp₁ : f p p₁ = 1) :
+    ∃ y ∈ spRadFix f F p, ∃ z ∈ spRadFix f F p₁, IsSpTypeC f y 2 ∧ IsSpTypeC f z 2 ∧
+      orderOf (y * z) = 3 ∧ (y * z) p = p₁ := by
+  obtain ⟨hp0, hp₁0, -⟩ := linearIndependent_pair_iff.mp (linearIndependent_of_apply_eq_one hf hpp₁)
+  set K := F ⊔ Submodule.span (ZMod 2) {p, p₁} with hKdef
+  have hKdim : finrank (ZMod 2) (spPerp f K) + 2 = finrank (ZMod 2) (spPerp f F) :=
+    finrank_spPerp_sup_span_pair hf hnd hF hpF hp₁F hpp₁
+  have hne : spPerp f K ≠ ⊥ := by
+    intro h
+    rw [h, finrank_bot] at hKdim
+    omega
+  obtain ⟨c, hcK, hc0⟩ := Submodule.exists_mem_ne_zero_of_ne_bot hne
+  obtain ⟨hcF, hpc, hp₁c⟩ := mem_spPerp_sup_span_pair.mp hcK
+  have hli : ∀ {a : V}, a ≠ 0 → f a p₁ = 1 ∨ f a p = 1 → f a c = 0 →
+      LinearIndependent (ZMod 2) ![a, c] := by
+    intro a ha0 ha hac
+    refine linearIndependent_pair_iff.mpr ⟨ha0, hc0, ?_⟩
+    rintro rfl
+    rcases ha with h | h
+    · rw [isAlt_symm hf, hp₁c] at h
+      exact zero_ne_one h
+    · rw [isAlt_symm hf, hpc] at h
+      exact zero_ne_one h
+  have hpow := spSiegel_mul_spSiegel_pow_three hf hpp₁ hpc hp₁c
+  refine ⟨spSiegel f hf p c 1, (mem_spRadFix_iff hf hnd hp0 hpF).mpr ⟨c, hcF, hpc, 1, rfl⟩,
+    spSiegel f hf p₁ c 1, (mem_spRadFix_iff hf hnd hp₁0 hp₁F).mpr ⟨c, hcF, hp₁c, 1, rfl⟩,
+    isSpTypeC_spSiegel_one hf hnd hpc (hli hp0 (Or.inl hpp₁) hpc),
+    isSpTypeC_spSiegel_one hf hnd hp₁c
+      (hli hp₁0 (Or.inr (by rw [isAlt_symm hf, hpp₁])) hp₁c), ?_, hpow.1⟩
+  refine orderOf_eq_prime hpow.2 fun h => ?_
+  have := hpow.1
+  rw [h, LinearEquiv.coe_one, id] at this
+  rw [this, hf.self_eq_zero] at hpp₁
+  exact zero_ne_one hpp₁
 
 variable {M : Type*} [AddCommGroup M] [Module (ZMod 2) M] [FiniteDimensional (ZMod 2) M]
 variable (ρ : TauCeti.BilinForm.isometryGroup f →* (M ≃ₗ[ZMod 2] M))

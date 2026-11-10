@@ -57,6 +57,23 @@ theorem EquivData.intertwine_y {X Y Q Qi : Cols} (h : EquivData X Y Q Qi) (v : �
 
 @[expose] def unpackC (m : ℕ) : Cols := ⟨m % 16, m / 16 % 16, m / 256 % 16, m / 4096 % 16⟩
 
+@[expose] def invByScan (P : Cols) : Cols :=
+  let f : ℕ → ℕ := fun b => ((List.range 16).find? (fun v => applyC P v == b)).getD 0
+  ⟨f 1, f 2, f 4, f 8⟩
+
+@[expose] def glList : List (Cols × Cols) :=
+  (List.range 65536).filterMap fun m =>
+    let P := unpackC m
+    let Pi := invByScan P
+    if compC P Pi = idC ∧ compC Pi P = idC then some (P, Pi) else none
+
+@[expose] def packPair (X Y : Cols) : ℕ := packC X + 65536 * packC Y
+
+@[expose] def omega1 : Std.HashMap ℕ (Cols × Cols) :=
+  glList.foldl (fun m PPi =>
+    m.insert (packPair (compC (compC PPi.1 modelX) PPi.2) (compC (compC PPi.1 modelY) PPi.2)) PPi)
+    ∅
+
 
 theorem packC_lt {c : Cols} (hc : ∀ i, c.col i < 16) : packC c < 65536 := by
   have h0 := hc 0; have h1 := hc 1; have h2 := hc 2; have h3 := hc 3

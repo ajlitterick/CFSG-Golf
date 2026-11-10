@@ -28,6 +28,15 @@ namespace CFSG.KC.G23F48
 
 open CFSG.ASVolI CFSG.KC.Enum CFSG.KS CFSG.KC.Misc.ArrEnum
 
+theorem m_bind : allN 4 (fun k => arrBind (burnsideF48t_g23Mats ())[k]! 196 2 (MP k)) = true := by
+  decide +kernel
+
+theorem pts_ok : ptsK PtsT.F = true := by
+  quickRfl
+
+theorem gens_ok : gensK GP MP PtsT.F = true := by
+  quickRfl
+
 
 end CFSG.KC.G23F48
 

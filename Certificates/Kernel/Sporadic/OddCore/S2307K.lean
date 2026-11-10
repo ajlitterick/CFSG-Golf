@@ -24,7 +24,10 @@ theorem pG : allN 11 (fun g => permOK 1782 11 (mask 11) (1782 * 11) (SSE.G g)
     (pinvS 1782 11 (mask 11) (SSE.G g))) = true := by quickRfl
 theorem gI : allN 11 (fun g => Nat.beq (SSE.GI g) (pinvS 1782 11 (mask 11) (SSE.G g))) = true := by
   quickRfl
+theorem cGI : allN 11 (fun g => canonK 1782 11 (mask 11) (1782 * 11) (SSE.GI g)) = true := by
+  quickRfl
 theorem cI : canonK 1782 11 (mask 11) (1782 * 11) (pidn 1782 11) = true := by quickRfl
+theorem idk : idK 1782 11 (mask 11) = true := by quickRfl
 theorem szk : szOK 1782 11 = true := by quickRfl
 
 @[expose] noncomputable def rs (s : Nat) : Bool :=

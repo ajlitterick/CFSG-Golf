@@ -25,6 +25,7 @@ theorem za_2 : zall 7 o0w (hwA 2) = true := by decide +kernel
 theorem za_3 : zall 17 o0w (hwA 3) = true := by decide +kernel
 theorem za_4 : zall 19 o0w (hwA 4) = true := by decide +kernel
 
+theorem za_neg : zall 1 o0w (hwA 1) = false := by decide +kernel
 
 @[expose] def Gtab : List (List ℕ) :=
   [[0, 891, 0, 0, 0], [44, 0, 1232, 0, 0], [0, 28, 1120, 0, 0], [0, 0, 0, 840, 324],

@@ -16,6 +16,8 @@ theorem tx1 : vecAt TX 543953 CFSG.KD.HNChain.V1 = true := by quickRfl
 theorem tx2 : vecAt TX 147358 CFSG.KD.HNChain.V2 = true := by quickRfl
 theorem tx3 : vecAt TX 549971 CFSG.KD.HNChain.V3 = true := by quickRfl
 
+theorem neg_tx1 : Bool.not (vecAt TX 543953 CFSG.KD.HNChain.V2) = true := by quickRfl
+theorem neg_tx3 : Bool.not (vecAt TX 549970 CFSG.KD.HNChain.V3) = true := by quickRfl
 
 end CertificateChecks.KernelHNChain
 

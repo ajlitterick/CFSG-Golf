@@ -52,6 +52,13 @@ theorem kR1 : allN 16 (fun i => strictB (SuzC1EV.T (SuzC1EC.getD i 0)) fun C =>
 
 theorem kCnt : SuzC1EQ.cnt = 192 ∧ SuzC1EA.cnt = 12 := ⟨rfl, rfl⟩
 
+theorem negDist : Bool.not (allN 48 (fun a => allN a fun b =>
+    !(allBelow 4 fun i => Nat.beq (SuzC1EY (4 * a + i))
+      (SuzC1EY (if a = 7 ∧ b = 3 then 4 * a + i else 4 * b + i))))) = true := by quickRfl
+
+theorem negA4 : Bool.not (Nat.beq (cntK a4q 3) 13) = true := by
+  rw [Nat.eq_of_beq_eq_true kA4]
+  rfl
 
 theorem pH {i : Nat} (hi : i < 2) : P ce3Tabs[i]! (SuzC1EH i) := by
   rw [show ce3Tabs[i]! = ce3Tab i from ofFn_get _ hi]

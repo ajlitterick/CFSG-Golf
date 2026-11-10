@@ -362,6 +362,23 @@ theorem seg_mem (hx : chkInv (letMat LET 0) (letMat LET 1) = true)
     rw [hSG0 e he]
     decide
 
+theorem words_mem (ht : t * t = 1) (hI : k.INV = invJ)
+    (hrel : ∀ r, wW (k.RT r) < 256 ^ wN (k.RT r) ∧ wv (jv x y t 1) (wW (k.RT r)) (wN (k.RT r)) = 1)
+    (hW : ∀ w < d.nW, wordAt k.RT d.WT k.INV w = true) (hWT0 : ∀ w, d.nW ≤ w → d.WT w = 0) (w : ℕ) :
+    wW (d.WT w) < 256 ^ wN (d.WT w) ∧ wv (fv x y t) (wW (d.WT w)) (wN (d.WT w)) = 1 := by
+  rcases Nat.lt_or_ge w d.nW with hw | hw
+  · have h := hW w hw
+    unfold wordAt wordOK at h
+    rw [letB_eq] at h
+    obtain ⟨hf, hc⟩ := andB_eq_true.1 h
+    refine ⟨CFSG.Certificates.J4KShape.wFits_spec hf, ?_⟩
+    rw [hI] at hc
+    exact CFSG.Certificates.J4Words.chkWord_val (jv x y t 1) (hrel _).1 (hrel _).2
+      (fun q _ _ => (jv_inv x y t 1 ht _).2) hc
+  · rw [hWT0 w hw]
+    have e : wN 0 = 0 := by decide
+    refine ⟨by decide, ?_⟩
+    rw [e, wv_zero]
 
 theorem wv_lvE_of {f : ℕ → G} {W n : ℕ} (h : ∀ q < n, wLet W q < 5) : wv (lvE f) W n = wv f W n := by
   unfold wv
@@ -373,6 +390,54 @@ theorem wv_lvE_of {f : ℕ → G} {W n : ℕ} (h : ∀ q < n, wLet W q < 5) : wv
     omega
   simp [lvE, hne]
 
+theorem relAll_of (hS : kSetup k = true) (hRg : kRange k = true)
+    (hRT0 : ∀ r, 12 ≤ r → k.RT r = 0) (hR : ∀ r < 12, rv (jv x y t 1) (k.RT r) = 1) (r : ℕ) :
+    wW (k.RT r) < 256 ^ wN (k.RT r) ∧ wv (jv x y t 1) (wW (k.RT r)) (wN (k.RT r)) = 1 := by
+  rcases Nat.lt_or_ge r 12 with hr | hr
+  · obtain ⟨-, -, -, -, -, hrel, -⟩ := kSetup_parts hS
+    have h := hrel r hr
+    change andB _ _ = true at h
+    obtain ⟨hf, -⟩ := andB_eq_true.1 h
+    refine ⟨CFSG.Certificates.J4KShape.wFits_spec hf, ?_⟩
+    rw [← wv_lvE_of (CFSG.Certificates.J4KShape.letsBelow_spec _ (kRange_lets hRg r hr))]
+    exact hR r hr
+  · rw [hRT0 r hr]
+    have e : wN 0 = 0 := by decide
+    refine ⟨by decide, ?_⟩
+    rw [e, wv_zero]
+
+theorem env_of (hS : kSetup k = true) (hM : mSetup d k = true)
+    (hHT0 : ∀ a, d.nH ≤ a → d.HT a = 0) (hSG0 : ∀ e, d.nSG ≤ e → d.SG e = 0)
+    {φ : Nhat k.LET →* G}
+    (hφx : ∀ g : Nhat k.LET, (g : GLm) = xh k.LET → φ g = x)
+    (hφy : ∀ g : Nhat k.LET, (g : GLm) = yh k.LET → φ g = y) (ht : t * t = 1)
+    (hStab : ∀ g : Nhat k.LET, (fun v => v ᵥ* ((g : GLm) : Mat12)) '' ptVecs k.TH = ptVecs k.TH →
+      φ g * t = t * φ g) : Env d φ x y t k.TH := by
+  obtain ⟨-, hx, hy, -, -, -, -⟩ := kSetup_parts hS
+  obtain ⟨-, hT, -⟩ := kSetup_more hS
+  obtain ⟨hH, hO, hSG, -, -, -, -, hND, -⟩ := mSetup_parts hM
+  have hdr := hdr_mem hx hy hφx hφy hH
+  exact { nd := hND, th := hT, ht := ht
+          stab := fun m ⟨g, hg⟩ hmap => by
+            rw [← hg] at hmap
+            rw [ev_eq φ g hg]
+            exact hStab g hmap
+          hdr := fun i hi => (hdr i hi).1
+          hdr0 := hHT0
+          om := om_mem hT (fun i hi => (hdr i hi).1) hHT0 hO
+          seg := seg_mem hx hy hφx hφy hSG hSG0 }
+
+theorem env2_of (hS : kSetup k = true) (hM : mSetup d k = true) {φ : Nhat k.LET →* G}
+    (hφx : ∀ g : Nhat k.LET, (g : GLm) = xh k.LET → φ g = x)
+    (hφy : ∀ g : Nhat k.LET, (g : GLm) = yh k.LET → φ g = y) (ht : t * t = 1)
+    (hrel : ∀ r, wW (k.RT r) < 256 ^ wN (k.RT r) ∧ wv (jv x y t 1) (wW (k.RT r)) (wN (k.RT r)) = 1)
+    (hWT0 : ∀ w, d.nW ≤ w → d.WT w = 0) : Env2 d k.LET x y t := by
+  obtain ⟨-, hx, hy, -, -, -, -⟩ := kSetup_parts hS
+  obtain ⟨hI, -, -⟩ := kSetup_more hS
+  obtain ⟨hH, -, -, hW, -, -, hnd0, -, hnf⟩ := mSetup_parts hM
+  have hdr := hdr_mem hx hy hφx hφy hH
+  exact { hdrI := fun i hi => (hdr i hi).2, words := words_mem ht hI hrel hW hWT0, nd0 := hnd0,
+          nf := hnf }
 
 end Env
 
@@ -397,6 +462,72 @@ theorem zsub_eq (x y t Z : G) : CFSG.Certificates.J4Words.zsub (jv x y t 1) Z Z�
     simp [CFSG.Certificates.J4Words.zsub, jv]
   simp [CFSG.Certificates.J4Words.zsub, jv, h5, h6]
 
+theorem mlevel_sound {k : KD} {d : MD} {MW MT : List ℕ} (hS : kSetup k = true)
+    (hRg : kRange k = true) (hM : mSetup d k = true)
+    (hMW : runM d k MW (mkC 0 1) = mkC d.NF d.ND) (hMT : runT d k MT 0 = 89)
+    (hHT0 : ∀ a, d.nH ≤ a → d.HT a = 0) (hSG0 : ∀ e, d.nSG ≤ e → d.SG e = 0)
+    (hWT0 : ∀ w, d.nW ≤ w → d.WT w = 0) (hRT0 : ∀ r, 12 ≤ r → k.RT r = 0)
+    (φ : Nhat k.LET →* G) (x y t : G)
+    (hφx : ∀ g : Nhat k.LET, (g : GLm) = xh k.LET → φ g = x)
+    (hφy : ∀ g : Nhat k.LET, (g : GLm) = yh k.LET → φ g = y) (ht : t * t = 1)
+    (hR : ∀ r < 12, rv (jv x y t 1) (k.RT r) = 1)
+    (hStab : ∀ g : Nhat k.LET, (fun v => v ᵥ* ((g : GLm) : Mat12)) '' ptVecs k.TH = ptVecs k.TH →
+      φ g * t = t * φ g) :
+    ∀ r < 89, rv (jv x y t (zv x y t)) (k.RZT r) = 1 := by
+  have hrel := relAll_of hS hRg hRT0 hR
+  have E := env_of (d := d) hS hM hHT0 hSG0 hφx hφy ht hStab
+  have E2 := env2_of (d := d) hS hM hφx hφy ht hrel hWT0
+  obtain ⟨hI, -, -⟩ := kSetup_more hS
+  obtain ⟨-, -, -, -, hZW, hL, -⟩ := mSetup_parts hM
+  have htw : ∀ i < 89, wW (d.TW i) < 256 ^ wN (d.TW i) := fun i hi => by
+    have h := hL i hi
+    unfold linkAt at h
+    rw [letB_eq, letB_eq] at h
+    exact CFSG.Certificates.J4KShape.wFits_spec (andB_eq_true.1 h).1
+  obtain ⟨w, hw0, hw⟩ := facts_hold (facts_run E E2 hMW)
+  have hT := traces_run E E2.nd0 E2.nf hw hw0 htw hMT
+  intro r hr
+  have h := hL r hr
+  unfold linkAt at h
+  rw [letB_eq, letB_eq] at h
+  obtain ⟨-, -, hc⟩ := (andB_eq_true.1 h).imp_right andB_eq_true.1
+  rw [hZW, hI] at hc
+  have key := CFSG.Certificates.J4Words.chkSubstRed_val (jv x y t 1)
+    (fun c _ => (jv_inv x y t 1 ht c).2) zw_fit (CFSG.Certificates.J4Words.wInv_lt _ _ _) hc
+  have hZi : wv (lvE (jv x y t 1)) (wInv invJ (wW (zWord invJ)) (wN (zWord invJ))) (wN (zWord invJ)) =
+      (wv (lvE (jv x y t 1)) (wW (zWord invJ)) (wN (zWord invJ)))⁻¹ :=
+    CFSG.Certificates.J4Words.wv_wInv _ invJ _ _ fun q hq => by
+      have h5 := zw_lets q hq
+      obtain ⟨hl, hv⟩ := jv_inv x y t 1 ht (wLet (wW (zWord invJ)) q)
+      have hne1 : lInv invJ (wLet (wW (zWord invJ)) q) ≠ 255 := by omega
+      have hne2 : wLet (wW (zWord invJ)) q ≠ 255 := by omega
+      simp only [lvE, hne1, hne2, ↓reduceIte]
+      exact hv
+  have hgoal : rv (jv x y t (zv x y t)) (k.RZT r) =
+      wv (lvE (CFSG.Certificates.J4Words.zsub (jv x y t 1)
+        (wv (lvE (jv x y t 1)) (wW (zWord invJ)) (wN (zWord invJ)))
+        (wv (lvE (jv x y t 1)) (wInv invJ (wW (zWord invJ)) (wN (zWord invJ))) (wN (zWord invJ)))))
+        (wW (k.RZT r)) (wN (k.RZT r)) := by
+    rw [hZi, zsub_eq]
+    rfl
+  exact hgoal.trans (key.trans (hT r hr))
+
+theorem mlevel_psi {k : KD} {d : MD} {MW MT : List ℕ} (hS : kSetup k = true)
+    (hRg : kRange k = true) (hM : mSetup d k = true)
+    (hMW : runM d k MW (mkC 0 1) = mkC d.NF d.ND) (hMT : runT d k MT 0 = 89)
+    (hHT0 : ∀ a, d.nH ≤ a → d.HT a = 0) (hSG0 : ∀ e, d.nSG ≤ e → d.SG e = 0)
+    (hWT0 : ∀ w, d.nW ≤ w → d.WT w = 0) (hRT0 : ∀ r, 12 ≤ r → k.RT r = 0)
+    (φ : Nhat k.LET →* G) (x y t : G)
+    (hφx : ∀ g : Nhat k.LET, (g : GLm) = xh k.LET → φ g = x)
+    (hφy : ∀ g : Nhat k.LET, (g : GLm) = yh k.LET → φ g = y) (ht : t * t = 1)
+    (hR : ∀ r < 12, rv (jv x y t 1) (k.RT r) = 1)
+    (hStab : ∀ g : Nhat k.LET, (fun v => v ᵥ* ((g : GLm) : Mat12)) '' ptVecs k.TH = ptVecs k.TH →
+      φ g * t = t * φ g) :
+    rv (jv x y t (zv x y t)) (psiWord invJ k.PAW k.PBW) = 1 := by
+  have h := mlevel_sound hS hRg hM hMW hMT hHT0 hSG0 hWT0 hRT0 φ x y t hφx hφy ht hR hStab 88
+    (by norm_num)
+  obtain ⟨hI, -, h88⟩ := kSetup_more hS
+  rwa [h88, hI] at h
 
 theorem psi_decode (x y t z : G) (ht : t * t = 1) {PA PB : ℕ} (hA : wW PA < 256 ^ wN PA) (hBe : ∀ q < wN PB, wLet (wW PB) q ≠ 255)
     (hn : wN PA + wN PB + 2 < 65536) (h : rv (jv x y t z) (psiWord invJ PA PB) = 1) :

@@ -22,6 +22,8 @@ open CFSG.ONSchreier CFSG.ONSchreier.Native CFSG.PSL3Four.Native
       right_inv := fun i => Fin.ext (pisInv_spec h.2 i.2).2 }
   else 1
 
+abbrev p120 (t : Array ℕ) : Equiv.Perm (Fin 120) := onKPerm 120 t
+
 
 @[expose] def onKY5 : Array ℕ :=
   #[106, 118, 20, 115, 54, 18, 95, 73, 39, 41, 36, 50, 9, 82, 96, 5, 99, 68, 92, 35, 47, 84, 53,

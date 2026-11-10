@@ -57,6 +57,10 @@ theorem exactLayer3_eq_iSup : exactLayer3 Ω c = ⨆ L ∈ exactFamily3 Ω c, L 
   rw [centralizingMembers_exactFamily3]
 
 
+@[expose] def LayerOrthType3 (d : ℕ) (ε : Bool) : Prop :=
+  SectionOrthTypeU 3 1 (exactFamily3 Ω c) (exactLayer3 Ω c) d ε
+
+
 theorem card_exactLayer3_lt (hnc : ¬ ({c} : Set G) ⊆ Subgroup.center G) :
     Nat.card (exactLayer3 Ω c) < Nat.card G :=
   card_centralizingLayer_lt _ hnc

@@ -50,6 +50,15 @@ theorem kBN : siftK 1755 11 (mask 11) (1755 * 11) (pidn 1755 11) TitsN.LR TitsN.
 @[expose] noncomputable def QSyl : Nat → Nat → Nat → Nat → Nat → Nat → Bool :=
   fun _ => invTB TitsN.BP TitsT TitsB1
 
+theorem negRelX : strictB (wK yWord) (fun Y => strictB (wK zWord)
+    (fun Z => bIf(rel3 1755 11 (pidn 1755 11) Y Z, false, true))) = true := by quickRfl
+theorem negRelZ : strictB (wK xWord) (fun X => strictB (wK yWord)
+    (fun Y => bIf(rel3 1755 11 X Y Y, false, true))) = true := by quickRfl
+theorem negLine : bIf(p513 (nfix 2925 12 (pidn 2925 12)), false, true) = true := by quickRfl
+theorem negInv : bIf(invTB TitsN.BP (pidn 1755 11) (pidn 1755 11) TitsT (pidn 1755 11)
+    (pidn 1755 11) (pidn 1755 11) (pidn 1755 11), false, true) = true := by quickRfl
+theorem posInv : invTB TitsN.BP TitsT TitsB1 TitsT (pidn 1755 11) (pidn 1755 11) (pidn 1755 11)
+    (pidn 1755 11) = true := by quickRfl
 
 end CertificateChecks.KernelSporSch.TitsSyl
 

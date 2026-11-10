@@ -59,6 +59,9 @@ variable {n : Nat} [Group (Idx n)]
   else if w.headD 3 = 1 then thWit e ld (w.getD 1 0) ((elemsI n).getD (w.getD 2 0) 1)
   else scpWit e ld (w.getD 1 0) (w.getD 2 0, w.getD 3 0, w.getD 4 0, w.getD 5 0)
 
+@[expose] def allWit (e : Eng n) (ws : List (List Nat)) : Bool :=
+  decide (ws.length = (leaders e.reps.length).length) &&
+    ((leaders e.reps.length).zip ws).all fun p => witOK e p.1 p.2
 
 end CFSG.GH74.GLS.C3.Layer2.L5.Fus
 
