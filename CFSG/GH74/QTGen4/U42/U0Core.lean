@@ -160,17 +160,11 @@ instance : DecidablePred (· ∈ Bc) := fun x =>
 
 instance : DecidablePred (· ∈ Bhc) := fun x => inferInstanceAs (Decidable (x.right 4 = 4))
 
-theorem card_Tc : Nat.card Tc = 64 := by
-  rw [Nat.card_eq_fintype_card]
-  decide +kernel
 
 theorem card_Thc : Nat.card Thc = 128 := by
   rw [Nat.card_eq_fintype_card]
   decide +kernel
 
-theorem card_Bc : Nat.card Bc = 192 := by
-  rw [Nat.card_eq_fintype_card]
-  decide +kernel
 
 theorem card_Bhc : Nat.card Bhc = 384 := by
   rw [Nat.card_eq_fintype_card]

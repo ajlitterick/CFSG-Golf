@@ -117,10 +117,6 @@ theorem sg_exact (l : List ℕ) (hl : ∀ c ∈ l, invOK c = true) {G E PA SG CT
   rw [sg_eq l hl]
   exact ⟨h4, h1, h5, sort_distinct hs⟩
 
-theorem inL_iff (E : ℕ → ℕ) (N c : ℕ) : inL E N c = true ↔ ∃ k < N, E k = c := by
-  unfold inL
-  rw [anyN_iff]
-  simp only [beq_iff]
 
 theorem sorted_facts {N : ℕ} {E SG : ℕ → ℕ} (hs : ∀ i < N, sortAt N E SG i = true) :
     (∀ a b, a ≤ b → b < N → E (SG a) ≤ E (SG b)) ∧ ∀ k < N, ∃ a < N, SG a = k := by

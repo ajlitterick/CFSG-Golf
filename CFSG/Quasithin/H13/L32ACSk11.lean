@@ -9,16 +9,6 @@ namespace CFSG.Quasithin.H13.L32A.C
 
 open CFSG.Open CFSG.Blueprint CFSG.QuasithinUnique
 
-@[expose] def tensSums : (Fin 5 → Fin 3 → ZMod 2) →+ (Fin 5 → ZMod 2) × (Fin 3 → ZMod 2) where
-  toFun M := (fun i => ∑ j, M i j, fun j => ∑ i, M i j)
-  map_zero' := by
-    ext <;> simp
-  map_add' M N := by
-    ext <;> simp [Finset.sum_add_distrib]
-
-@[expose] def tensMod53 : Subgroup (Multiplicative (Fin 5 → Fin 3 → ZMod 2)) :=
-  (AddMonoidHom.toMultiplicative tensSums).ker
-
 
 @[expose] def Lemma14_7_43 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T L V H : Subgroup G), Setting147 G T L V H →

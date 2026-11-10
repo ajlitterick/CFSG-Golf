@@ -48,16 +48,5 @@ theorem MS93ConclASW.of_case13 (hX : Xq M ≤ Zq M L ⊔ Uq M T L) (h : MS93Case
     (hW : MS93Case13W (Vq M L) L) : MS93ConclASW M T L :=
   Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr ⟨hX, h, hW⟩)))))))
 
-theorem MS93ConclASW.toConclAS (h : MS93ConclASW M T L) : MS93ConclAS M T L := by
-  rcases h with h | h | h | ⟨hX, h⟩ | h | h | h | ⟨hX, h⟩ | ⟨hX, h, -⟩
-  · exact MS93ConclAS.of_case2 h
-  · exact MS93ConclAS.of_case3 h
-  · exact MS93ConclAS.of_case4 h
-  · exact MS93ConclAS.of_case5 hX h
-  · exact MS93ConclAS.of_case6 h
-  · exact MS93ConclAS.of_case8 h
-  · exact MS93ConclAS.of_case10 h
-  · exact MS93ConclAS.of_case11 hX h
-  · exact MS93ConclAS.of_case13 hX h
 
 end CFSG.Quasithin.SzMSW

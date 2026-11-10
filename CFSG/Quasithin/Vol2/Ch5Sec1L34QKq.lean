@@ -63,17 +63,6 @@ section Congr
 
 variable {V V' : Type*} [CommGroup V] [CommGroup V'] (e : V ≃* V')
 
-theorem commSeries_map_congr (A : Subgroup (MulAut V)) (k : ℕ) :
-    commSeries (A.map (congrHom e)) k = (commSeries A k).map e.toMonoidHom :=
-  commSeries_map_mulAutCongr e A k
-
-
-theorem rAV_map_congr (A : Subgroup (MulAut V)) : rAV (A.map (congrHom e)) = rAV A :=
-  rAV_map_mulAutCongr e A
-
-theorem IsA2.map_congr {X A : Subgroup (MulAut V)} (h : IsA2 X A) :
-    IsA2 (X.map (congrHom e)) (A.map (congrHom e)) :=
-  isA2_map_mulAutCongr e h
 
 theorem kq_map_congr_le [Finite V] [Finite V'] (X : Subgroup (MulAut V)) (k : ℕ) :
     kq (X.map (congrHom e)) k ≤ kq X k :=

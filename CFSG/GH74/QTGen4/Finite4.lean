@@ -23,8 +23,6 @@ instance instFinite4Quotient (G : Type u) [Group G] [Finite4 G] (N : Subgroup G)
   finite := inferInstance
   gen4 := Gen4.quotient N Finite4.gen4
 
-theorem finite4_of_gen4 {G : Type u} [Group G] [Finite G] (h : Gen4 G) : Finite4 G :=
-  ⟨inferInstance, h⟩
 
 theorem Finite4.of_mulEquiv {G H : Type u} [Group G] [Group H] [Finite4 G] (e : G ≃* H) :
     Finite4 H :=

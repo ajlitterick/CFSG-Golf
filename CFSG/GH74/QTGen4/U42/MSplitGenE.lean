@@ -23,8 +23,6 @@ theorem pa_sq : pa * pa = 1 := by decide
 
 theorem pa_t3_pow_five : (pa * t3) ^ 5 = 1 := by decide
 
-theorem fix_t3 : ∀ x : W5, pact pa x = x → pact t3 x = x → x = 1 := by
-  decide +kernel
 
 theorem sq_W5 (x : W5) : x * x = 1 := by
   apply Multiplicative.toAdd.injective
@@ -231,8 +229,6 @@ theorem rgL_V (hVL : V ≤ L) {v : G} (hv : v ∈ V) : rgL S v = 1 := by
   intro w hw
   exact B2F.isElemAbelian_comm S.elemAbelian_V hw hv
 
-theorem rgL_sign {g : G} (hg : g ∈ L) : (rgL S g).sign = 1 :=
-  (S.frame.image_L (rgL S g)).1 ⟨⟨g, S.frame.L_le hg⟩, hg, (rgL_of_mem S hg).symm⟩
 
 theorem mem_V_of_rgL_eq_one (hO : pCoreOf 2 (L ⊔ T) = V) {g : G} (hg : g ∈ L)
     (h1 : rgL S g = 1) : g ∈ V := by
@@ -243,21 +239,6 @@ theorem mem_V_of_rgL_eq_one (hO : pCoreOf 2 (L ⊔ T) = V) {g : G} (hg : g ∈ L
   rw [S.cLT, hO] at hmem
   exact hmem
 
-theorem eq_of_rgL_eq (hO : pCoreOf 2 (L ⊔ T) = V) {K : Subgroup G}
-    (hK : K ≤ L) (hKV : K ⊓ V = ⊥) {x y : G} (hx : x ∈ K) (hy : y ∈ K)
-    (h : rgL S x = rgL S y) : x = y := by
-  have hxL : x ∈ L := hK hx
-  have hyL : y ∈ L := hK hy
-  have h1 : rgL S (x * y⁻¹) = 1 := by
-    rw [rgL_mul S hxL (L.inv_mem hyL), rgL_inv S hyL, h, mul_inv_cancel]
-  have hzV : x * y⁻¹ ∈ V := mem_V_of_rgL_eq_one S hO (L.mul_mem hxL (L.inv_mem hyL)) h1
-  have hz : x * y⁻¹ ∈ K ⊓ V := ⟨K.mul_mem hx (K.inv_mem hy), hzV⟩
-  rw [hKV] at hz
-  exact mul_inv_eq_one.mp (Subgroup.mem_bot.mp hz)
-
-theorem rgL_one : rgL S 1 = 1 := by
-  rw [rgL_of_mem S L.one_mem]
-  exact map_one _
 
 theorem exists_rgL_eq {K : Subgroup G} (hVL : V ≤ L) (hK : K ≤ L) (hKL : V ⊔ K = L)
     {σ : Equiv.Perm (Fin 5)} (hσ : σ.sign = 1) : ∃ a ∈ K, rgL S a = σ := by
@@ -292,157 +273,6 @@ theorem u_mem (hO : pCoreOf 2 (L ⊔ T) = V) (hVL : V ≤ L) {A B : Subgroup G}
   apply mem_V_of_rgL_eq_one S hO (L.mul_mem (hB hbB) (L.inv_mem (hA haA)))
   rw [rgL_mul S (hB hbB) (L.inv_mem (hA haA)), rgL_inv S (hA haA), hbρ, haρ, mul_inv_cancel]
 
-open Classical in
-noncomputable def cocE {A B : Subgroup G} (hO : pCoreOf 2 (L ⊔ T) = V) (hVL : V ≤ L)
-    (hA : A ≤ L) (hAL : V ⊔ A = L) (hB : B ≤ L) (hBL : V ⊔ B = L)
-    (σ : Equiv.Perm (Fin 5)) : W5 :=
-  if h : σ.sign = 1 then
-    S.frame.ψ ⟨pickE S B σ * (pickE S A σ)⁻¹, u_mem S hO hVL hA hAL hB hBL h⟩
-  else 1
-
-theorem cocE_eq {A B : Subgroup G} (hO : pCoreOf 2 (L ⊔ T) = V) (hVL : V ≤ L)
-    (hA : A ≤ L) (hAL : V ⊔ A = L) (hB : B ≤ L) (hBL : V ⊔ B = L)
-    {σ : Equiv.Perm (Fin 5)} (h : σ.sign = 1) :
-    cocE S hO hVL hA hAL hB hBL σ =
-      S.frame.ψ ⟨pickE S B σ * (pickE S A σ)⁻¹, u_mem S hO hVL hA hAL hB hBL h⟩ := by
-  simp [cocE, h]
-
-theorem conj_mem_V {h v : G} (hh : h ∈ L) (hv : v ∈ V) : h * v * h⁻¹ ∈ V :=
-  (Subgroup.mem_normalizer_iff.mp (S.frame.L_le hh) v).mp hv
-
-theorem pickE_mul {A : Subgroup G} (hO : pCoreOf 2 (L ⊔ T) = V) (hVL : V ≤ L) (hA : A ≤ L)
-    (hAL : V ⊔ A = L) (hAV : A ⊓ V = ⊥) {σ τ : Equiv.Perm (Fin 5)} (hσ : σ.sign = 1)
-    (hτ : τ.sign = 1) : pickE S A (σ * τ) = pickE S A σ * pickE S A τ := by
-  have hστ : (σ * τ).sign = 1 := by rw [Equiv.Perm.sign_mul, hσ, hτ, mul_one]
-  have h1 := pickE_spec S hVL hA hAL hσ
-  have h2 := pickE_spec S hVL hA hAL hτ
-  have h3 := pickE_spec S hVL hA hAL hστ
-  exact eq_of_rgL_eq S hO hA hAV h3.1 (A.mul_mem h1.1 h2.1)
-    (by rw [h3.2, rgL_mul S (hA h1.1) (hA h2.1), h1.2, h2.2])
-
-theorem cocE_mul {A B : Subgroup G} (hO : pCoreOf 2 (L ⊔ T) = V) (hVL : V ≤ L)
-    (hA : A ≤ L) (hAL : V ⊔ A = L) (hAV : A ⊓ V = ⊥)
-    (hB : B ≤ L) (hBL : V ⊔ B = L) (hBV : B ⊓ V = ⊥)
-    {σ τ : Equiv.Perm (Fin 5)} (hσ : σ.sign = 1) (hτ : τ.sign = 1) :
-    cocE S hO hVL hA hAL hB hBL (σ * τ) =
-      cocE S hO hVL hA hAL hB hBL σ * pact σ (cocE S hO hVL hA hAL hB hBL τ) := by
-  have hστ : (σ * τ).sign = 1 := by rw [Equiv.Perm.sign_mul, hσ, hτ, mul_one]
-  have haσ : pickE S A σ ∈ A := (pickE_spec S hVL hA hAL hσ).1
-  have hρσ : S.frame.ρ ⟨pickE S A σ, S.frame.L_le (hA haσ)⟩ = σ := by
-    rw [← rgL_of_mem S (hA haσ)]
-    exact (pickE_spec S hVL hA hAL hσ).2
-  have huστ := u_mem S hO hVL hA hAL hB hBL hστ
-  have huσ := u_mem S hO hVL hA hAL hB hBL hσ
-  have huτ := u_mem S hO hVL hA hAL hB hBL hτ
-  have hconjmem : pickE S A σ * (pickE S B τ * (pickE S A τ)⁻¹) * (pickE S A σ)⁻¹ ∈ V :=
-    conj_mem_V S (hA haσ) huτ
-  have hconjτ : S.frame.ψ ⟨pickE S A σ * (pickE S B τ * (pickE S A τ)⁻¹) * (pickE S A σ)⁻¹,
-      hconjmem⟩ = pact σ (cocE S hO hVL hA hAL hB hBL τ) := by
-    rw [cocE_eq S hO hVL hA hAL hB hBL hτ]
-    have h := S.psi_conj ⟨pickE S A σ, S.frame.L_le (hA haσ)⟩
-      ⟨pickE S B τ * (pickE S A τ)⁻¹, huτ⟩
-    rw [hρσ] at h
-    exact h
-  have hbστ : pickE S B (σ * τ) = pickE S B σ * pickE S B τ :=
-    pickE_mul S hO hVL hB hBL hBV hσ hτ
-  have haστ : pickE S A (σ * τ) = pickE S A σ * pickE S A τ :=
-    pickE_mul S hO hVL hA hAL hAV hσ hτ
-  have hX : (⟨_, huστ⟩ : ↥V) = ⟨_, huσ⟩ * ⟨_, hconjmem⟩ := Subtype.ext (by
-    show pickE S B (σ * τ) * (pickE S A (σ * τ))⁻¹ =
-      (pickE S B σ * (pickE S A σ)⁻¹) *
-        (pickE S A σ * (pickE S B τ * (pickE S A τ)⁻¹) * (pickE S A σ)⁻¹)
-    rw [hbστ, haστ]
-    group)
-  calc cocE S hO hVL hA hAL hB hBL (σ * τ)
-      = S.frame.ψ ⟨_, huστ⟩ := cocE_eq S hO hVL hA hAL hB hBL hστ
-    _ = S.frame.ψ (⟨_, huσ⟩ * ⟨_, hconjmem⟩) := congrArg S.frame.ψ hX
-    _ = S.frame.ψ ⟨_, huσ⟩ * S.frame.ψ ⟨_, hconjmem⟩ := map_mul _ _ _
-    _ = cocE S hO hVL hA hAL hB hBL σ * pact σ (cocE S hO hVL hA hAL hB hBL τ) := by
-        rw [hconjτ, cocE_eq S hO hVL hA hAL hB hBL hσ]
-
-theorem complement_conj (hO : pCoreOf 2 (L ⊔ T) = V) {A B : Subgroup G}
-    (hA : A ≤ L) (hAV : A ⊓ V = ⊥) (hAL : V ⊔ A = L)
-    (hB : B ≤ L) (hBV : B ⊓ V = ⊥) (hBL : V ⊔ B = L) :
-    ∃ w ∈ V, ∀ x : G, x ∈ B ↔ w⁻¹ * x * w ∈ A := by
-  have hVL : V ≤ L := by rw [← hAL]; exact le_sup_left
-  have one_sign : (1 : Equiv.Perm (Fin 5)).sign = 1 := by simp
-  have hpB1 : pickE S B 1 = 1 :=
-    eq_of_rgL_eq S hO hB hBV (pickE_spec S hVL hB hBL one_sign).1 B.one_mem
-      (by rw [(pickE_spec S hVL hB hBL one_sign).2, rgL_one])
-  have hpA1 : pickE S A 1 = 1 :=
-    eq_of_rgL_eq S hO hA hAV (pickE_spec S hVL hA hAL one_sign).1 A.one_mem
-      (by rw [(pickE_spec S hVL hA hAL one_sign).2, rgL_one])
-  have hcone1 : cocE S hO hVL hA hAL hB hBL 1 = 1 := by
-    have e : (⟨pickE S B 1 * (pickE S A 1)⁻¹, u_mem S hO hVL hA hAL hB hBL one_sign⟩ : ↥V) = 1 :=
-      Subtype.ext (by
-        show pickE S B 1 * (pickE S A 1)⁻¹ = 1
-        rw [hpB1, hpA1, inv_one, mul_one])
-    rw [cocE_eq S hO hVL hA hAL hB hBL one_sign, e, map_one]
-  obtain ⟨v, hv⟩ := cocycle_coboundary_alt (cocE S hO hVL hA hAL hB hBL) hcone1
-    (fun σ τ hσ hτ => cocE_mul S hO hVL hA hAL hAV hB hBL hBV hσ hτ)
-  obtain ⟨W, hW⟩ : ∃ W : ↥V, S.frame.ψ W = v :=
-    ⟨S.frame.ψ.symm v, MulEquiv.apply_symm_apply _ v⟩
-  have hWW : W * W = 1 := S.frame.ψ.injective (by rw [map_mul, map_one, hW, sq_W5])
-  have hw2 : (W : G) * (W : G) = 1 := congrArg Subtype.val hWW
-  have hwinv : (W : G)⁻¹ = (W : G) := inv_eq_of_mul_eq_one_right hw2
-  have key : ∀ σ : Equiv.Perm (Fin 5), σ.sign = 1 →
-      pickE S B σ = (W : G)⁻¹ * pickE S A σ * (W : G) := by
-    intro σ hσ
-    have haA : pickE S A σ ∈ A := (pickE_spec S hVL hA hAL hσ).1
-    have hρ : S.frame.ρ ⟨pickE S A σ, S.frame.L_le (hA haA)⟩ = σ := by
-      rw [← rgL_of_mem S (hA haA)]
-      exact (pickE_spec S hVL hA hAL hσ).2
-    have hYmem : pickE S A σ * (W : G) * (pickE S A σ)⁻¹ ∈ V :=
-      conj_mem_V S (hA haA) W.2
-    have hY : S.frame.ψ ⟨pickE S A σ * (W : G) * (pickE S A σ)⁻¹, hYmem⟩ = pact σ v := by
-      have h := S.psi_conj ⟨pickE S A σ, S.frame.L_le (hA haA)⟩ W
-      rw [hρ, hW] at h
-      exact h
-    have huσ := u_mem S hO hVL hA hAL hB hBL hσ
-    have hcσ : S.frame.ψ ⟨pickE S B σ * (pickE S A σ)⁻¹, huσ⟩ = v * pact σ v := by
-      rw [← cocE_eq S hO hVL hA hAL hB hBL hσ]
-      exact hv σ hσ
-    have hmain : W * ⟨pickE S A σ * (W : G) * (pickE S A σ)⁻¹, hYmem⟩ =
-        ⟨pickE S B σ * (pickE S A σ)⁻¹, huσ⟩ :=
-      S.frame.ψ.injective (by rw [map_mul, hW, hY, hcσ])
-    have hG : (W : G) * (pickE S A σ * (W : G) * (pickE S A σ)⁻¹) =
-        pickE S B σ * (pickE S A σ)⁻¹ := congrArg Subtype.val hmain
-    calc pickE S B σ = pickE S B σ * (pickE S A σ)⁻¹ * pickE S A σ := by group
-      _ = (W : G) * (pickE S A σ * (W : G) * (pickE S A σ)⁻¹) * pickE S A σ := by rw [hG]
-      _ = (W : G)⁻¹ * pickE S A σ * (W : G) := by rw [hwinv]; group
-  refine ⟨(W : G), W.2, fun x => ⟨fun hx => ?_, fun hx => ?_⟩⟩
-  ·
-    have hxL : x ∈ L := hB hx
-    have hσ : (rgL S x).sign = 1 := rgL_sign S hxL
-    have hxeq : x = pickE S B (rgL S x) :=
-      eq_of_rgL_eq S hO hB hBV hx (pickE_spec S hVL hB hBL hσ).1
-        (by rw [(pickE_spec S hVL hB hBL hσ).2])
-    rw [hxeq, key _ hσ]
-    have e : (W : G)⁻¹ * ((W : G)⁻¹ * pickE S A (rgL S x) * (W : G)) * (W : G) =
-        pickE S A (rgL S x) := by
-      rw [hwinv]
-      calc (W : G) * ((W : G) * pickE S A (rgL S x) * (W : G)) * (W : G)
-          = ((W : G) * (W : G)) * pickE S A (rgL S x) * ((W : G) * (W : G)) := by group
-        _ = pickE S A (rgL S x) := by rw [hw2, one_mul, mul_one]
-    rw [e]
-    exact (pickE_spec S hVL hA hAL hσ).1
-  ·
-    obtain ⟨σ, hσdef⟩ : ∃ σ : Equiv.Perm (Fin 5), rgL S ((W : G)⁻¹ * x * (W : G)) = σ :=
-      ⟨_, rfl⟩
-    have hyL : (W : G)⁻¹ * x * (W : G) ∈ L := hA hx
-    have hσ : σ.sign = 1 := by rw [← hσdef]; exact rgL_sign S hyL
-    have hpA : pickE S A σ ∈ A := (pickE_spec S hVL hA hAL hσ).1
-    have hyeq : (W : G)⁻¹ * x * (W : G) = pickE S A σ :=
-      eq_of_rgL_eq S hO hA hAV hx hpA
-        (by rw [(pickE_spec S hVL hA hAL hσ).2, hσdef])
-    have hxa : x = (W : G) * pickE S A σ * (W : G) := by
-      calc x = (W : G) * ((W : G)⁻¹ * x * (W : G)) * (W : G)⁻¹ := by group
-        _ = (W : G) * pickE S A σ * (W : G)⁻¹ := by rw [hyeq]
-        _ = (W : G) * pickE S A σ * (W : G) := by rw [hwinv]
-    have hxB : x = pickE S B σ := by
-      rw [key σ hσ, hxa, hwinv]
-    rw [hxB]
-    exact (pickE_spec S hVL hB hBL hσ).1
 
 end Complement
 

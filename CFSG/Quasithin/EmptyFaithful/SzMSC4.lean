@@ -75,10 +75,6 @@ theorem not_c134_of_exclHyp_corrM [Finite G] {K S : Subgroup G} {e : ℕ} (h : E
     exact c134Ex_case5 hCQ h1 he5 hTcard
   · exact hi
 
-theorem not_c134_of_exclHyp_corr [Finite G] {K S : Subgroup G} {e : ℕ} (h : ExclHyp K S e) :
-    ∀ i : ℕ, ¬ MS93.IsC134CaseCorr i (K ⊔ S) S K := by
-  intro i hi
-  exact not_c134_of_exclHyp_corrM h i hi.toCaseM
 
 end HSRuLoc
 
@@ -86,17 +82,6 @@ open CFSG.Open CFSG.QuasithinUnique CFSG.Assembly.LowTwoRank CFSG.Timmesfeld.Ord
   CFSG.Quasithin.H13.VolI CFSG.Quasithin.Vol2.Ch10.SecA CFSG.LieType.BorelTits
 open scoped Pointwise
 
-@[expose] def Input15122HSRuLocalCorr : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (L S : Subgroup G), CFSG.Open.IsQuasisimple ↥L →
-    IsPGroup 2 ↥(Subgroup.center ↥L) →
-    (IsSporadic .HS (↥L ⧸ CFSG.pCore 2 ↥L) ∨ IsSporadic .Ru (↥L ⧸ CFSG.pCore 2 ↥L)) →
-    IsPGroup 2 ↥S → S ≤ Subgroup.normalizer (L : Set G) → IsSylowTwoOf (S ⊓ L) L →
-    ¬ L ≤ Subgroup.centralizer (centerOf (S ⊓ L) : Set G) →
-    ∃ K : Subgroup G, K ≤ L ∧ S ≤ Subgroup.normalizer (K : Set G) ∧ K ∈ cComp (K ⊔ S) ∧
-      IsSylowTwoOf S (K ⊔ S) ∧ CharTwo K ∧
-      (∃ α : ↥K →* ↥(CFSG.Assembly.LowTwoRank.StatedSL 3 (ZMod 2)), IsModO2Surj K α) ∧
-      ¬ K ≤ Subgroup.centralizer (centerOf (S ⊓ L) : Set G) ∧
-      ∀ i : ℕ, ¬ MS93.IsC134CaseCorr i (K ⊔ S) S K
 
 @[expose] def Input15122HSRuLocalCorrM : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (L S : Subgroup G), CFSG.Open.IsQuasisimple ↥L →
@@ -110,23 +95,6 @@ open scoped Pointwise
       ¬ K ≤ Subgroup.centralizer (centerOf (S ⊓ L) : Set G) ∧
       ∀ i : ℕ, ¬ IsC134CaseM i (K ⊔ S) S K
 
-open HSRuLoc in
-theorem input15122HSRuLocalCorr_of_models (hHS : Input15122HSModel) (hRu : Input15122RuModel) :
-    Input15122HSRuLocalCorr := by
-  intro G _ _ L S hLq hZ hHR hS2 hSN hsyl hnc
-  have hnorm : (CFSG.pCore 2 ↥L).Normal := inferInstance
-  let π : ↥L →* (↥L ⧸ CFSG.pCore 2 ↥L) := QuotientGroup.mk' (CFSG.pCore 2 ↥L)
-  have hπ : Function.Surjective π := QuotientGroup.mk'_surjective _
-  have hker : π.ker = CFSG.pCore 2 ↥L := QuotientGroup.ker_mk' _
-  have hmod : HSRuModelFor (↥L ⧸ CFSG.pCore 2 ↥L) := by
-    rcases hHR with h | h
-    · exact hHS _ h
-    · exact hRu _ h
-  obtain ⟨K, R, e, hm⟩ := hmod _ (isSylowTwoOf_map L S π hπ hker hsyl)
-  have c : LiftCtx L S π _ K R e := ⟨hLq, hZ, hπ, hker, hS2, hSN, hsyl, hnc, rfl, hm⟩
-  obtain ⟨h1, h2, h3, h4, h5, h6, h7⟩ := lift_struct c
-  have hx := lift_excl c
-  exact ⟨liftK L π K, h1, h2, h3, h4, h5, h6, h7, not_c134_of_exclHyp_corr hx⟩
 
 open HSRuLoc in
 theorem input15122HSRuLocalCorrM_of_models (hHS : Input15122HSModel) (hRu : Input15122RuModel) :
@@ -146,9 +114,6 @@ theorem input15122HSRuLocalCorrM_of_models (hHS : Input15122HSModel) (hRu : Inpu
   have hx := lift_excl c
   exact ⟨liftK L π K, h1, h2, h3, h4, h5, h6, h7, not_c134_of_exclHyp_corrM hx⟩
 
-theorem input15122HSRuLocalCorr_of_combined (h : Input15122HSRuModels) :
-    Input15122HSRuLocalCorr :=
-  input15122HSRuLocalCorr_of_models h.1 h.2
 
 theorem input15122HSRuLocalCorrM_of_combined (h : Input15122HSRuModels) :
     Input15122HSRuLocalCorrM :=

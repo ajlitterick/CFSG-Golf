@@ -315,22 +315,6 @@ theorem charTwo_sup_of_normalizes {L T : Subgroup G} (hT : IsPGroup 2 T)
     (hTL : T ≤ Subgroup.normalizer (L : Set G)) (hL : CharTwo L) : CharTwo (L ⊔ T) :=
   CFSG.QuasithinUnique.CharTwo.sup_of_le_normalizer hL hT hTL
 
-omit [Finite G] in
-theorem frattini_map_le_of_forall {U V₁ : Subgroup G} (hU : IsPGroup 2 U)
-    (hcomm : ∀ x ∈ U, ∀ y ∈ U, x * y * x⁻¹ * y⁻¹ ∈ V₁) (hsq : ∀ x ∈ U, x ^ 2 ∈ V₁)
-    [Finite U] : (frattini U).map U.subtype ≤ V₁ := by
-  have : Fact (IsPGroup 2 U) := ⟨hU⟩
-  rw [CFSG.frattini_eq_closure_commutator_union_powers (p := 2), MonoidHom.map_closure,
-    Subgroup.closure_le]
-  rintro _ ⟨x, hx | ⟨r, rfl⟩, rfl⟩
-  · have h1 : (_root_.commutator U).map U.subtype ≤ V₁ := by
-      rw [_root_.commutator_def, Subgroup.map_commutator]
-      have : (⊤ : Subgroup U).map U.subtype = U := by
-        rw [← MonoidHom.range_eq_map, Subgroup.range_subtype]
-      rw [this, Subgroup.commutator_le]
-      exact fun a ha b hb => hcomm a ha b hb
-    exact h1 ⟨x, hx, rfl⟩
-  · exact hsq r r.2
 
 end Aux
 

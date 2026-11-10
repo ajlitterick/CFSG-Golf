@@ -132,8 +132,6 @@ open CFSG.Open CFSG.QuasithinUnique CFSG.Quasithin CFSG.Quasithin.H13
   CFSG.Quasithin.Background.Harris.F112S3Big
 open scoped commutatorElement
 
-theorem leafL34Model : LeafL34Model :=
-  Nonempty.intro ⟨L34.mdlPSL, L34.mdl_facts⟩
 
 end CFSG.GH74.QTGen4.DSGen4
 

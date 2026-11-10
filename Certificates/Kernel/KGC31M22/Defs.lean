@@ -22,9 +22,6 @@ open CFSG.Quasithin.KGC31.M22 CertificateChecks.KernelSporSch
 @[expose] noncomputable def X11 : Nat := pw w11
 
 
-@[expose] noncomputable def P7 : List Nat := (List.range 7).map (ppw 22 5 X7)
-
-
 @[expose] noncomputable def hexP : List Nat := hexW.map pw
 @[expose] noncomputable def duadP : List Nat := duadW.map pw
 @[expose] noncomputable def e8P : List Nat := e8W.map pw

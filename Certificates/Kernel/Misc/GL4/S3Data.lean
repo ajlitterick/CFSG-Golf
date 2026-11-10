@@ -64,10 +64,6 @@ open CertificateChecks.KernelMisc.GL4EA (EA)
 
 @[expose] noncomputable def s3S (s : Nat) : Bool := allR (Nat.mul (nat_lit 5040) s) (nat_lit 5040) s3At
 
-@[expose] noncomputable def centS (t : Nat) : Bool :=
-  allN (nat_lit 3) fun i => allN (nat_lit 6) fun l => letB (cT t i l) fun g =>
-    impB (Nat.beq (mul4F (mul4F g g) g) id4) (orB (Nat.beq g id4) (orB (Nat.beq g (sB0 t))
-      (Nat.beq g (mul4F (sB0 t) (sB0 t)))))
 
 end CertificateChecks.KernelMisc.GL4S3
 

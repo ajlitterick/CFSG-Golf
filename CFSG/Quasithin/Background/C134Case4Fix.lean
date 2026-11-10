@@ -73,45 +73,5 @@ theorem le_normalizer_c134CQ {G₀ R L : Subgroup G} (hRG : R ≤ G₀)
       (CFSG.LieType.BorelTits.le_normalizer_pCoreOf 2 G₀ (hRG hr)) (hRL hr))
     (mem_normalizer_centralizer (hRL hr))
 
-theorem exists_mem [Finite G] {G₀ R L : Subgroup G}
-    (h4 : C134CorrLocal.IsC134Case4Corr G₀ R L) (hR : IsPGroup 2 R) (hRG : R ≤ G₀)
-    (hRL : R ≤ Subgroup.normalizer (L : Set G)) (hQR : c134Q G₀ L ≤ R) :
-    ∃ c ∈ c134CQ G₀ L, c ≠ 1 ∧ c ∈ quasithinOmegaOneCenter R := by
-  classical
-  obtain ⟨⟨n, F, _, _, -, hFc, -, hE, -⟩, -⟩ := h4
-  obtain ⟨e⟩ := hE
-  set W := c134CQ G₀ L with hW
-  have hsq : ∀ x : ↥W, x * x = 1 := fun x => by
-    apply e.injective
-    rw [map_mul, map_one]
-    apply Multiplicative.toAdd.injective
-    funext i
-    simp only [toAdd_mul, toAdd_one, Pi.add_apply, Pi.zero_apply]
-    generalize Multiplicative.toAdd (e x) i = a
-    revert a
-    decide
-  have hn : n ≠ 0 := by
-    rintro rfl
-    have h2 : 2 ≤ Fintype.card F := Fintype.one_lt_card
-    rw [hFc] at h2
-    norm_num at h2
-  have hW1 : W ≠ ⊥ := by
-    intro hbot
-    have hcard : Nat.card ↥W = 2 ^ (2 * n) := by
-      rw [Nat.card_congr e.toEquiv, Nat.card_eq_fintype_card]
-      simp [Fintype.card_pi]
-    rw [hbot, Subgroup.card_bot] at hcard
-    have : 2 ^ (2 * n) ≠ 1 := by
-      apply Nat.one_lt_pow (by omega) (by norm_num) |>.ne'
-    exact this hcard.symm
-  have hWR : W ≤ R := inf_le_left.trans hQR
-  obtain ⟨c, hc1⟩ := Subgroup.ne_bot_iff_exists_ne_one.mp
-    (inf_centralizer_ne_bot hR hWR (le_normalizer_c134CQ hRG hRL) hW1)
-  refine ⟨(c : G), c.2.1, fun h => hc1 (Subtype.ext h), ?_⟩
-  have hcW : (c : G) ∈ W := c.2.1
-  have hc2 : (c : G) ^ 2 = 1 := by
-    rw [pow_two]
-    exact congrArg Subtype.val (hsq ⟨c, hcW⟩)
-  exact Subgroup.subset_closure ⟨⟨hWR hcW, c.2.2⟩, hc2⟩
 
 end CFSG.Quasithin.C134Case4Fix

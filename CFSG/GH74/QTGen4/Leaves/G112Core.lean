@@ -257,7 +257,5 @@ theorem g112ConclA2_d4_holds : CFSG.GH74.QTGen4.G112ConclA2_d4 := by
   exact finCore B hd h101.alt h101.nondegenerate Γ h101.isometry t (h101.X_le ht)
     (h101.X_sq t ht) hrk ha2 v₁ h101.point hv₁ hcard
 
-theorem g112ConclA2_le4_holds : CFSG.GH74.QTGen4.G112ConclA2_le4 :=
-  CFSG.GH74.QTGen4.g112ConclA2_le4_of_d4 g112ConclA2_d4_holds
 
 end CFSG.GH74.QTGen4.Leaves.G112

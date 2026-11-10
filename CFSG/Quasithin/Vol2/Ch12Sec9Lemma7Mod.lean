@@ -12,8 +12,6 @@ open scoped IsMulCommutative commutatorElement
 
 namespace L1297
 
-theorem open_pCore_eq (p : ℕ) (A : Type*) [Group A] : CFSG.Open.pCore p A = CFSG.pCore p A :=
-  (CFSG.pCore_eq_open A p).symm
 
 theorem comap_pCore_eq_of_isPGroup_ker {A B : Type*} [Group A] [Group B] [Finite A] {p : ℕ}
     (f : A →* B) (hf : Function.Surjective f) (hk : IsPGroup p f.ker) :

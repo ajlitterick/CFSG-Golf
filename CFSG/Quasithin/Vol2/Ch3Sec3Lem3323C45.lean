@@ -174,21 +174,6 @@ theorem false_of_card
     Subgroup.mem_normalizer_iff_map_conj_eq.mpr hMd
   exact hdM (by simpa using M.inv_mem (normalizer_le h.maxM hdN))
 
-omit [Finite G] in
-theorem isE2_card_sq {m : ℕ} {X : Type} [Group X] (h : IsE2 m X) :
-    Nat.card X = 2 ^ m ∧ ∀ x : X, x * x = 1 := by
-  obtain ⟨e⟩ := h
-  refine ⟨?_, fun x => ?_⟩
-  · rw [Nat.card_congr e.toEquiv, Nat.card_eq_fintype_card]
-    simp [Fintype.card_pi]
-  · apply e.injective
-    rw [map_mul, map_one]
-    apply Multiplicative.toAdd.injective
-    funext i
-    simp only [toAdd_mul, Pi.add_apply, toAdd_one, Pi.zero_apply]
-    generalize Multiplicative.toAdd (e x) i = a
-    revert a
-    decide
 
 theorem relIndex_eq (hTL : T ≤ Subgroup.normalizer (L : Set G)) :
     T.relIndex L = T.relIndex (L ⊔ T) := by

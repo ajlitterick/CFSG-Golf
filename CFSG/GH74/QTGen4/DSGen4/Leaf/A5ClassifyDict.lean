@@ -100,14 +100,6 @@ def pre (F : ElemFrame P E K) (S : Finset Vec4) (h0 : 0 ∈ S)
       exact this _
     rw [this]; exact h
 
-theorem mem_pre {F : ElemFrame P E K} {S : Finset Vec4} {h0 : 0 ∈ S}
-    {hS : ∀ u ∈ S, ∀ w ∈ S, u + w ∈ S} {g : G} :
-    g ∈ pre F S h0 hS ↔ ∃ e : ↥E, (e : G) = g ∧ Multiplicative.toAdd (F.φ e) ∈ S := Iff.rfl
-
-theorem pre_le (F : ElemFrame P E K) {S : Finset Vec4} (h0 : 0 ∈ S)
-    (hS : ∀ u ∈ S, ∀ w ∈ S, u + w ∈ S) : pre F S h0 hS ≤ E := by
-  rintro _ ⟨e, rfl, -⟩
-  exact e.2
 
 theorem img_pre (F : ElemFrame P E K) {S : Finset Vec4} (h0 : 0 ∈ S)
     (hS : ∀ u ∈ S, ∀ w ∈ S, u + w ∈ S) : img F (pre F S h0 hS) = S := by
@@ -257,12 +249,6 @@ theorem comm_mem_K_iff (hPE : P ≤ Subgroup.normalizer (E : Set G)) {p : G} (hp
     apply Multiplicative.toAdd.injective
     rw [hφ, h1, sub_self, toAdd_one]
 
-theorem comm_mem_K_iff' (hPE : P ≤ Subgroup.normalizer (E : Set G)) {p : G} (hp : p ∈ P) {e : G}
-    (he : e ∈ E) :
-    ⁅p, e⁆ ∈ K ↔ glMat (F.M ⟨p, hp⟩) *ᵥ Multiplicative.toAdd (F.φ ⟨e, he⟩) =
-      Multiplicative.toAdd (F.φ ⟨e, he⟩) := by
-  rw [← comm_mem_K_iff hPE hp he, ← commutatorElement_inv]
-  exact ⟨fun h => by simpa using K.inv_mem h, fun h => K.inv_mem h⟩
 
 end Comm
 

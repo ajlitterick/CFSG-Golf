@@ -369,53 +369,6 @@ theorem A5Model.eq_or_eq_of_normalizes {H : Finset Mat4} (hF : Certificates.A5GL
   · right
     exact ext_of_img M.F hKX hXE h.sec.1 le_rfl (by rw [hW, img_top])
 
-theorem A5Model.exists_act_eq_of_mem_sup (M : A5Model P L E K H) (h : A5Pre P L E K)
-    {T : Subgroup G} (hT : IsSylowTwoOf T L) {s : G} (hs : s ∈ T ⊔ pCoreOf 2 P) :
-    ∃ hsP : s ∈ P, ∃ t : ↥P, (t : G) ∈ T ∧ M.F.M ⟨s, hsP⟩ = M.F.M t ∧ s * (t : G)⁻¹ ∈ pCoreOf 2 P := by
-  have hTP : T ≤ P := hT.1.trans h.le
-  have hQnorm : P ≤ Subgroup.normalizer (pCoreOf 2 P : Set G) :=
-    (Subgroup.le_normalizer).trans (normalizer_le_normalizer_pCoreOf P)
-  have hQP : pCoreOf 2 P ≤ P := CFSG.LieType.BorelTits.pCoreOf_le 2 P
-  obtain ⟨t, htT, hst⟩ := exists_mul_inv_mem_of_mem_sup hTP hQnorm s hs
-  have hsP : s ∈ P := (sup_le hTP hQP) hs
-  refine ⟨hsP, ⟨t, hTP htT⟩, htT, ?_, hst⟩
-  have h1 := M.core ⟨s * t⁻¹, P.mul_mem hsP (P.inv_mem (hTP htT))⟩ hst
-  have h2 : (⟨s, hsP⟩ : ↥P) = ⟨s * t⁻¹, P.mul_mem hsP (P.inv_mem (hTP htT))⟩ * ⟨t, hTP htT⟩ :=
-    Subtype.ext (by simp)
-  rw [h2, map_mul, h1, one_mul]
-
-theorem A5Model.mem_core_of_act_eq_one (M : A5Model P L E K H) (h : A5Pre P L E K)
-    {T : Subgroup G} (hT : IsSylowTwoOf T L) {s : G} (hs : s ∈ T ⊔ pCoreOf 2 P) (hsP : s ∈ P)
-    (h1 : M.F.M ⟨s, hsP⟩ = 1) : s ∈ pCoreOf 2 P := by
-  obtain ⟨hsP', t, htT, hMst, hst⟩ := M.exists_act_eq_of_mem_sup h hT hs
-  have hM1 : M.F.M t = 1 := by rw [← hMst]; exact h1
-  have htQ : (t : G) ∈ pCoreOf 2 P :=
-    pCoreOf_le_pCoreOf h.le h.norm_L ((M.kerL t (hT.1 htT)).mp hM1)
-  have : s = (s * (t : G)⁻¹) * (t : G) := by simp
-  rw [this]
-  exact (pCoreOf 2 P).mul_mem hst htQ
-
-theorem klein_card {x y : Mat4} (hk : IsKlein x y) : (klein x y).card = 4 := by
-  obtain ⟨hx1, hy1, hxy, hxx, hyy, -⟩ := hk
-  have d1 : x * y ≠ 1 := fun h => hxy (by
-    calc x = x * 1 := (mul_one x).symm
-      _ = x * (x * y) := by rw [h]
-      _ = (x * x) * y := (mul_assoc x x y).symm
-      _ = y := by rw [hxx, one_mul])
-  have d2 : x * y ≠ x := fun h => hy1 (by
-    calc y = (x * x) * y := by rw [hxx, one_mul]
-      _ = x * (x * y) := mul_assoc x x y
-      _ = x * x := by rw [h]
-      _ = 1 := hxx)
-  have d3 : x * y ≠ y := fun h => hx1 (by
-    calc x = x * (y * y) := by rw [hyy, mul_one]
-      _ = (x * y) * y := (mul_assoc x y y).symm
-      _ = y * y := by rw [h]
-      _ = 1 := hyy)
-  unfold klein
-  rw [Finset.card_insert_of_notMem (by simp [Ne.symm hx1, Ne.symm hy1, Ne.symm d1]),
-    Finset.card_insert_of_notMem (by simp [hxy, Ne.symm d2]),
-    Finset.card_insert_of_notMem (by simp [Ne.symm d3]), Finset.card_singleton]
 
 end Data
 

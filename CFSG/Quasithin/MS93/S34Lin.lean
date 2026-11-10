@@ -93,33 +93,6 @@ theorem exists_matrix_of_linear [Fintype ι] [DecidableEq ι] {g : G}
     rw [LinearMap.toMatrix'_mulVec]
     rfl⟩
 
-theorem exists_gl_of_card_two [Fintype ι] [DecidableEq ι] [Fintype F]
-    (hF : Fintype.card F = 2) (hβ : Function.Surjective β) (hβker : β.ker = Z.subgroupOf V)
-    {g : G} (hgV : g ∈ Subgroup.normalizer (V : Set G))
-    (hgZ : g ∈ Subgroup.normalizer (Z : Set G)) :
-    ∃ γ : GL ι F, IsCoordAct β g (γ : Matrix ι ι F).mulVec := by
-  classical
-  have hc : ∀ c : F, c = 0 ∨ c = 1 := by
-    intro c
-    by_contra hne
-    push Not at hne
-    have h3 : 3 ≤ Fintype.card F := by
-      have : ({0, 1, c} : Finset F).card = 3 := by
-        rw [Finset.card_insert_of_notMem (by simp [hne.1.symm, zero_ne_one]),
-          Finset.card_pair (Ne.symm hne.2)]
-      rw [← this]
-      exact Finset.card_le_univ _
-    omega
-  have hlin : ∀ (f : (ι → F) →+ (ι → F)) (c : F) x, f (c • x) = c • f x := by
-    intro f c x
-    rcases hc c with rfl | rfl
-    · simp
-    · simp
-  obtain ⟨f, hf⟩ := exists_isCoordAct hβ hβker hgV hgZ
-  obtain ⟨f', hf'⟩ := exists_isCoordAct hβ hβker (inv_mem hgV) (inv_mem hgZ)
-  obtain ⟨A, hA⟩ := exists_matrix_of_linear hf (hlin f)
-  obtain ⟨B, hB⟩ := exists_matrix_of_linear hf' (hlin f')
-  exact exists_gl_of_isCoordAct hβ hgV hA hB
 
 theorem IsCoordAct.pow [Fintype ι] [DecidableEq ι] {g : G}
     (hgV : g ∈ Subgroup.normalizer (V : Set G)) {γ : GL ι F}

@@ -994,33 +994,5 @@ theorem dsucp_main {G : Type} [Group G] [Finite G] {L1 L2 S : Subgroup G}
     have hqL1 : q ∈ L1 := hS (hQ2S hq)
     exact dsucp_comm hBle' e hBe ⟨q, hqL1⟩ ((hU0 ⟨q, hqL1⟩).mp hq)
 
-theorem leafUAmalCoordsPlain [DSLeaf LeafDSBReduce] [DSLeaf LeafDSBA5Vertex] [DSLeaf LeafDSBS3Vertex] [DSLeaf LeafDSBUQQ] [DSLeaf LeafDSBUQ1] [DSLeaf LeafDSBUQ2] [DSLeaf LeafZiChief] [DSLeaf LeafM2] [DSLeaf LeafM3] [DSLeaf LeafM5] [DSLeaf LeafFaithfulA5] [DSLeaf LeafFrattiniChief] [DSLeaf LeafAlt5OfOrth] [DSLeaf LeafSylowS] [DSLeaf LeafDSBJQ2] : LeafUAmalCoordsPlain := by
-  intro G _ _ L1 L2 S h hns hs3 hb6 hS
-  have hDSB0 : DSBHyp0 L1 L2 S := ⟨h, hns, hs3⟩
-  have hDSBr := dsb_reduce hDSB0
-  have hSred : (S ⊓ L1) ⊔ (S ⊓ L2) = S := by
-    rw [inf_eq_left.mpr hS]
-    exact sup_eq_left.mpr inf_le_left
-  have hDSB : DSBHyp L1 L2 S := by
-    rw [hSred] at hDSBr
-    exact hDSBr
-  have hU : ⁅dsZi L1 S, L1⁆ ≠ ⊥ := by
-    intro hJ
-    obtain ⟨-, hc⟩ := dsbjq2 hDSB hJ
-    obtain ⟨-, hsp, -⟩ := hb6
-    have hcard : Nat.card ↥(pCoreOf 2 L2) = 2 ^ (1 + 2 * 2) := hsp.2.1
-    rw [hc] at hcard
-    norm_num at hcard
-  obtain ⟨hE1, hEZ, -, -, hE16, -, -, -⟩ := dsbuq1 hDSB hU
-  obtain ⟨hQ2, -, hsp2⟩ := dsbuq2 hDSB hU
-  obtain ⟨hQQ, -, hnotZ⟩ := dsbuqq hDSB hU
-  obtain ⟨-, hsylP1, -⟩ := sylow_s h
-  obtain ⟨-, hsylP2, -⟩ := sylow_s h.symm
-  have hQ2c : Nat.card ↥(pCoreOf 2 L2) = 32 := by
-    have h32 : Nat.card ↥(pCoreOf 2 L2) = 2 ^ (1 + 2 * 2) := hsp2.2.1
-    rw [h32]
-    norm_num
-  exact dsucp_main h hS hs3 hb6 hE1 hEZ hE16 hQ2 hQ2c hQQ hnotZ hsylP1 hsylP2
-
 
 end CFSG.GH74.QTGen4.DSGen4

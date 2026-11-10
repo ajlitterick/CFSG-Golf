@@ -154,10 +154,6 @@ theorem card_le_of_c134_corrM {K R V W S : Subgroup G} {y : G} (d : L32Data K R 
     exact g_afl1 d.Wsq hcoord hα's hker3 hkerfix htriv d.vd d.hVW (card_map_sylow d.hS hα's)
   · exact hi.elim
 
-theorem card_le_of_c134_corr {K R V W S : Subgroup G} {y : G} (d : L32Data K R V W S y) {i : ℕ}
-    (hi : MS93.IsC134CaseCorr i (K ⊔ R) R K) :
-    Nat.card (Subgroup.closure {x : G | ∃ k ∈ K, ∃ z ∈ V, k * z * k⁻¹ = x}) ≤ 8 :=
-  card_le_of_c134_corrM d hi.toCaseM
 
 end Cases
 

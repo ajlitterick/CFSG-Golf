@@ -159,59 +159,6 @@ theorem card_commutator_ge_ch615 (c : Cx615B G T M L V H n) :
     rw [Nat.card_congr Multiplicative.toAdd, Nat.card_fun, Nat.card_fin, hF, ← pow_mul, mul_comm]
   omega
 
-theorem not_isQ8D8_ch615 (c : Cx615B G T M L V H n) : ¬ IsQ8D8 ↥(pCoreOf 2 L) := by
-  intro hQ
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have h := c.hyp
-  set W := ⁅V, L⁆ with hW
-  have hWO := c.commutator_le_pCoreOf_ch615
-  have hWel : IsElemAbelian 2 W := B2F.isElemAbelian_mono
-    (Subgroup.le_normalizer_iff_commutator_le_left.mp (le_sup_left.trans c.V_facts.2.1))
-    c.V_facts.1
-  have hW2 : IsPGroup 2 W := B2F.isPGroup_of_isElemAbelian hWel
-  obtain ⟨k, hk⟩ := hW2.exists_card_eq
-  have hcard := c.card_commutator_ge_ch615
-  have h16 : 2 ^ 4 ∣ Nat.card W := by
-    rw [hk]
-    refine pow_dvd_pow 2 ?_
-    have h2n : 2 ^ 4 ≤ 2 ^ k := by
-      calc 2 ^ 4 ≤ 2 ^ (2 * n) := Nat.pow_le_pow_right (by norm_num) (by have := h.two_le; omega)
-        _ ≤ 2 ^ k := hk ▸ hcard
-    exact (Nat.pow_le_pow_iff_right (by norm_num)).mp h2n
-  obtain ⟨E, hE⟩ := Sylow.exists_subgroup_card_pow_prime 2 h16
-  set A : Subgroup ↥(pCoreOf 2 L) := (E.map W.subtype).subgroupOf (pCoreOf 2 L) with hA
-  have hEW : E.map W.subtype ≤ pCoreOf 2 L := (Subgroup.map_subtype_le E).trans hWO
-  refine false_of_isQ8D8_of_elemAbelian hQ (A := A) ?_ ?_
-  · intro x hx
-    rw [hA, Subgroup.mem_subgroupOf] at hx
-    obtain ⟨y, -, hy⟩ := hx
-    apply Subtype.ext
-    show (x : G) ^ 2 = 1
-    rw [← hy]
-    exact hWel.2 (y : G) y.2
-  · rw [hA, Nat.card_congr (Subgroup.subgroupOfEquivOfLe hEW).toEquiv,
-      Subgroup.card_map_of_injective W.subtype_injective, hE]
-    norm_num
-
-theorem not_isSpecialPow_ch615 (c : Cx615B G T M L V H n) (hn : 3 ≤ n) :
-    ¬ IsSpecialPow 2 2 4 ↥(pCoreOf 2 L) := by
-  intro hQ
-  set W := ⁅V, L⁆ with hW
-  have hWO := c.commutator_le_pCoreOf_ch615
-  have hWel : IsElemAbelian 2 W := B2F.isElemAbelian_mono
-    (Subgroup.le_normalizer_iff_commutator_le_left.mp (le_sup_left.trans c.V_facts.2.1))
-    c.V_facts.1
-  set A : Subgroup ↥(pCoreOf 2 L) := W.subgroupOf (pCoreOf 2 L) with hA
-  have hcomm : ∀ a ∈ A, ∀ b ∈ A, a * b = b * a := by
-    intro a ha b hb
-    rw [hA, Subgroup.mem_subgroupOf] at ha hb
-    exact Subtype.ext (B2F.isElemAbelian_comm hWel ha hb)
-  have h1 := card_le_of_isSpecialPow_ch615 hQ hcomm
-  rw [hA, Nat.card_congr (Subgroup.subgroupOfEquivOfLe hWO).toEquiv] at h1
-  have h2 := c.card_commutator_ge_ch615
-  have h3 : 2 ^ 6 ≤ 2 ^ (2 * n) := Nat.pow_le_pow_right (by norm_num) (by omega)
-  have : 2 ^ 6 ≤ 2 ^ 5 := h3.trans (h2.trans h1)
-  norm_num at this
 
 theorem not_isQ8D8_of_commutator_le_ch615 (c : Cx615B G T M L V H n) {P : Subgroup G}
     (hWP : ⁅V, L⁆ ≤ P) : ¬ IsQ8D8 ↥P := by

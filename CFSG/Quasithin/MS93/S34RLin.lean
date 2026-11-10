@@ -109,15 +109,6 @@ theorem sl3Full_of_le_linPart (h : PUHyp M T L) {n : ℕ} {F : Type} [Field F] [
     obtain ⟨-, γ, hγ⟩ := hT ht
     exact ⟨γ, hγ⟩
 
-theorem le_linPart_of_card_two (h : PUHyp M T L) {ι : Type} [Fintype ι] [DecidableEq ι]
-    {F : Type} [Field F] [Fintype F] (hF : Fintype.card F = 2) {Z : Subgroup G}
-    {β : ↥(Uq M T L) →* Multiplicative (Fin 1 → ι → F)} (hβ : Function.Surjective β)
-    (hβker : β.ker = Z.subgroupOf (Uq M T L))
-    (hTZ : T ≤ Subgroup.normalizer (Z : Set G)) : T ≤ linPart h β := by
-  intro t ht
-  obtain ⟨γ, hγ⟩ := exists_gl_of_card_two hF hβ hβker
-    ((h.le.trans (le_normalizer_Uq h.le_normalizer)) ht) (hTZ ht)
-  exact ⟨ht, ⟨γ, Subgroup.mem_top _⟩, hγ⟩
 
 theorem card_eq_two_of_lt {n : ℕ} {F : Type} [Field F] [Fintype F]
     (hcard : Fintype.card F = 2 ^ n) (hn : n < 2) : Fintype.card F = 2 := by

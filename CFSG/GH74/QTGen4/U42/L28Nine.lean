@@ -230,14 +230,5 @@ theorem exists_orderOf_nine_of_lieModel_psl2_three {X : Type} [Group X]
   · exact absurd hn (by norm_num)
   · exact absurd hn (by norm_num)
 
-theorem isL2Quot_three_exists_orderOf_nine {X : Type*} [Group X]
-    (h : CFSG.Quasithin.IsL2Quot 3 X) : ∃ x : X, orderOf x = 9 := by
-  obtain ⟨e⟩ := h
-  have hcard : Nat.card (GaloisField 2 3) = 2 ^ 3 := GaloisField.card 2 3 (by norm_num)
-  have hK8 : Nat.card (GaloisField 2 3) = 8 := by simpa using hcard
-  letI := Fintype.ofFinite (GaloisField 2 3)
-  have hK : Fintype.card (GaloisField 2 3) = 8 := by rw [← Nat.card_eq_fintype_card]; exact hK8
-  obtain ⟨y, hy⟩ := exists_nine_psl (GaloisField 2 3) hK
-  exact ⟨e.symm y, (e.symm.orderOf_eq y).trans hy⟩
 
 end CFSG.GH74.QTGen4.U42.L28Nine

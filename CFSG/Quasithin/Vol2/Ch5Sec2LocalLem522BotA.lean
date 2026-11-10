@@ -57,13 +57,6 @@ theorem card_inf_of_card_oTwoQuot {S L : Subgroup G} (hS : IsSylowTwoOf (S ⊓ L
     ring
   rw [card_sylow_eq_pow hS.1 hS hm hL', ha, pow_add]
 
-theorem card_pCoreOf_le_of_le_normalizer {L X : Subgroup G} (hLX : L ≤ X)
-    (hXL : X ≤ Subgroup.normalizer (L : Set G)) :
-    Nat.card ↥(pCoreOf 2 L) ≤ Nat.card ↥(pCoreOf 2 X) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  refine Subgroup.card_le_of_le (le_pCoreOf_of_le_normalizer 2 ((pCoreOf_le 2 L).trans hLX) ?_
-    (pCoreOf_isPGroup 2 L))
-  exact hXL.trans (normalizer_le_normalizer_pCoreOf 2 L)
 
 end Orders
 
@@ -118,35 +111,6 @@ end Orient
 
 section AutJ2
 
-variable {G : Type} [Group G] [Finite G]
-
-theorem false_of_autJ2_entry {L₂ Y S : Subgroup G} (hSY : IsSylowTwoOf S Y)
-    (hY : Nonempty (oTwoQuot ↥Y ≃* Equiv.Perm (Fin 3))) (hY6 : Nat.card ↥(pCoreOf 2 Y) = 2 ^ 6)
-    (hSL : S ≤ Subgroup.normalizer (L₂ : Set G)) (hSyl : IsSylowTwoOf (S ⊓ L₂) L₂)
-    (h5 : Nonempty (oTwoQuot ↥(L₂ ⊔ S) ≃* Equiv.Perm (Fin 5)))
-    (hQ : Nat.card ↥(pCoreOf 2 L₂) = 32) : False := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hS : Nat.card ↥S = 2 ^ 7 := by
-    rw [card_eq_two_mul_of_perm_three hSY hY, hY6]
-    norm_num
-  have hS2 : IsPGroup 2 ↥S := hSY.2.1
-  have hSyl' : IsSylowTwoOf S (L₂ ⊔ S) :=
-    C124.L2.isSylowTwoOf_sup_of_normalizing hSL hS2 hSyl
-  obtain ⟨e⟩ := h5
-  obtain ⟨a, ha⟩ := IsPGroup.iff_card.mp (pCoreOf_isPGroup 2 (L₂ ⊔ S))
-  have hX : Nat.card ↥(L₂ ⊔ S) = 2 ^ (3 + a) * 15 := by
-    rw [card_eq_card_oTwoQuot_mul_card_pCoreOf, Nat.card_congr e.toEquiv, card_perm_fin_five, ha,
-      pow_add]
-    ring
-  have h1 := card_sylow_eq_pow hSyl'.1 hSyl' (by decide) hX
-  rw [hS] at h1
-  have ha4 : a = 4 := by
-    have := Nat.pow_right_injective (le_refl 2) h1
-    omega
-  have hle := card_pCoreOf_le_of_le_normalizer (le_sup_left : L₂ ≤ L₂ ⊔ S)
-    (sup_le Subgroup.le_normalizer hSL)
-  rw [hQ, ha, ha4] at hle
-  norm_num at hle
 
 end AutJ2
 

@@ -82,14 +82,6 @@ theorem false_of_c134Case4_corrM (h113 : StageLemma14113) (k : Ctx67 G T Mc M V�
   rw [k.c.hyp.card_VZ, hU8] at hle
   omega
 
-theorem false_of_c134Case4_corr (h113 : StageLemma14113) (k : Ctx67 G T Mc M V₁ V₂ E t)
-    (r67 : Res15367 T Mc M V₁ V₂ E) (gl : GoldLine153 T V₁ E s) (r68 : Res15368NoTwo T Mc M E s)
-    {L : Subgroup G} (hLG : L ≤ G0_153 T Mc M E s) (hO : oTwoUpper (G0_153 T Mc M E s) ≤ L)
-    (α₀ : ↥L →* ↥(CFSG.Assembly.LowTwoRank.StatedSL 3 (ZMod 2))) (h₀s : Function.Surjective α₀)
-    (h₀k : α₀.ker = CFSG.pCore 2 ↥L)
-    (h : MS93.IsC134Case4Corr (G0_153 T Mc M E s) (TE153 T E) L) : False :=
-  false_of_c134Case4_corrM h113 k r67 gl r68 hLG hO α₀ h₀s h₀k
-    (CFSG.Quasithin.MS93.IsC134CaseCorr.toCaseM (i := 4) h)
 
 end Corr
 

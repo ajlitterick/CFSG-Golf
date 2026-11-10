@@ -3,7 +3,6 @@ module
 public import CFSG.Yardstones.M0362f3a873a3.Goals
 public import CFSG.Yardstones.M17df483990b0.Definitions
 public import CFSG.Yardstones.M1c8bff0b777b.Goals
-public import CFSG.Yardstones.M39f387008ab2.Goals
 public import CFSG.Yardstones.M3aba7dc4b8a8.Goals
 public import CFSG.Yardstones.M3ea6b5821535.Goals
 public import CFSG.Yardstones.M3ea6b5821535.Reduction

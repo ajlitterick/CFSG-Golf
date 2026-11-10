@@ -193,25 +193,6 @@ section Block
 open CFSG.Open CFSG.QuasithinUnique CFSG.Assembly.LowTwoRank CFSG.Quasithin
 open CFSG.Quasithin.S151TB
 
-structure L3ResCorr : Prop where
-  noCase2 : ∀ (G : Type) [Group G] [Finite G] (T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G),
-    Ctx15120 T Mc M Z₁ Z₂ V₁ V₂ L → CharTwo L → L ∈ cComp (g1_1516 Z₁) →
-    IsPSL 3 2 1 (LStar L ⧸ Subgroup.center (LStar L)) →
-    q1_1516 Mc Z₁ ≤ Subgroup.normalizer (L : Set G) →
-    C27CaseG L (q1_1516 Mc Z₁) (mZ1516 Mc Z₁) →
-    ¬ MS93.IsC134CaseCorr 2 (L ⊔ q1_1516 Mc Z₁) (q1_1516 Mc Z₁) L
-  noCase3 : ∀ (G : Type) [Group G] [Finite G] (T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G),
-    Ctx15120 T Mc M Z₁ Z₂ V₁ V₂ L → CharTwo L → L ∈ cComp (g1_1516 Z₁) →
-    IsPSL 3 2 1 (LStar L ⧸ Subgroup.center (LStar L)) →
-    q1_1516 Mc Z₁ ≤ Subgroup.normalizer (L : Set G) →
-    C27CaseG L (q1_1516 Mc Z₁) (mZ1516 Mc Z₁) →
-    ¬ MS93.IsC134CaseCorr 3 (L ⊔ q1_1516 Mc Z₁) (q1_1516 Mc Z₁) L
-  noCase4 : ∀ (G : Type) [Group G] [Finite G] (T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G),
-    Ctx15120 T Mc M Z₁ Z₂ V₁ V₂ L → CharTwo L → L ∈ cComp (g1_1516 Z₁) →
-    IsPSL 3 2 1 (LStar L ⧸ Subgroup.center (LStar L)) →
-    q1_1516 Mc Z₁ ≤ Subgroup.normalizer (L : Set G) →
-    C27CaseG L (q1_1516 Mc Z₁) (mZ1516 Mc Z₁) →
-    ¬ MS93.IsC134CaseCorr 4 (L ⊔ q1_1516 Mc Z₁) (q1_1516 Mc Z₁) L
 
 structure L3ResCorrM : Prop where
   noCase2 : ∀ (G : Type) [Group G] [Finite G] (T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G),
@@ -233,16 +214,6 @@ structure L3ResCorrM : Prop where
     C27CaseG L (q1_1516 Mc Z₁) (mZ1516 Mc Z₁) →
     ¬ IsC134CaseM 4 (L ⊔ q1_1516 Mc Z₁) (q1_1516 Mc Z₁) L
 
-theorem L3ResCorrM.toCorr (h : L3ResCorrM) : L3ResCorr where
-  noCase2 G _ _ T Mc M Z₁ Z₂ V₁ V₂ L hc hchar hcomp hL3 hRN hg hi :=
-    h.noCase2 G T Mc M Z₁ Z₂ V₁ V₂ L hc hchar hcomp hL3 hRN hg
-      (hi.toCaseM)
-  noCase3 G _ _ T Mc M Z₁ Z₂ V₁ V₂ L hc hchar hcomp hL3 hRN hg hi :=
-    h.noCase3 G T Mc M Z₁ Z₂ V₁ V₂ L hc hchar hcomp hL3 hRN hg
-      (hi.toCaseM)
-  noCase4 G _ _ T Mc M Z₁ Z₂ V₁ V₂ L hc hchar hcomp hL3 hRN hg hi :=
-    h.noCase4 G T Mc M Z₁ Z₂ V₁ V₂ L hc hchar hcomp hL3 hRN hg
-      (hi.toCaseM)
 
 theorem l3ResCorrM_holds : L3ResCorrM := by
   refine ⟨?_, ?_, ?_⟩ <;>
@@ -304,7 +275,5 @@ end CFSG.Quasithin.S151TC
 
 namespace CFSG.Quasithin.S151TC
 
-theorem l3ResCorr_holds : L3ResCorr :=
-  L3ResCorrM.toCorr l3ResCorrM_holds
 
 end CFSG.Quasithin.S151TC

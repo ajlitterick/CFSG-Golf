@@ -31,11 +31,5 @@ instance : KuLeaf LeafCardOTwoUpperInfL2 := ⟨leafCardOTwoUpperInfL2⟩
 instance : KuLeaf LeafKuNEqL2DoubleCoset := ⟨leafKuNEqL2DoubleCoset⟩
 instance : KuLeaf LeafExistsY2TJ := ⟨leafExistsY2TJ⟩
 
-theorem stmtKuM22_F4_holds :
-    StmtKuM22_F4 :=
-  stmtKuM22_F4_of_leaves leafCardKuA leafIsMulCommutativeKuA leafHInfCentralizerKuA
-    leafEqKuAOfElemAbelian leafTInfCentralizerKuWLeKuA leafKuV2LeKuW leafExistsIsParabolicL1
-    leafOTwoUpperInfL2 leafCardOTwoUpperInfL2 leafKuNEqL2DoubleCoset leafExistsA6Model
-    leafKuCloseHolds
 
 end CFSG.GH74.QTGen4.Ku
