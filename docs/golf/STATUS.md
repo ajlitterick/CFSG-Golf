@@ -142,6 +142,17 @@ Open, small, found by the duplicates audit (not yet done, each needs a short bri
 
 Open, larger:
 
+0. **Rank three versus rank at least four.** Several results are proved twice with disjoint
+   hypotheses e(G) = 3 and e(G) ≥ 4 although the published statements are uniform for e(G) ≥ 3:
+   AGL81 Theorem D1 (`agl81TheoremAResiduesE3` 6.9 MB against `lc_gl_embedding_theorem_d1_rank_four`
+   8.1 MB), Aschbacher's Theorem 16.69 (`ascSixteenSixtyNine` 9.9 MB against `uc_theorem_16_69_four`
+   2.4 MB), Sections 18, 19, 22, 23 of the uniqueness case, and GL83 Theorem C.
+   `AGLEmbeddingD2.AGLGlobal` is already stated for 3 ≤ e(G). Generalising the e ≥ 4 proofs to
+   e ≥ 3 would remove the e = 3 copies. This is a refactor that needs compile feedback, not glue.
+
+A sweep of all 31 yardstone directories and the `CL_LIT_*` milestones for further duplicated or
+restricted re-proofs found nothing else above 15 kB: every large yardstone has a single producer.
+
 4. **Parallel families**: `StandardType/ClassicalPosition/BlockModelDualPair{PSp,POmegaPlus,POmegaMinus}`
    (three files of about 8,000 lines with matching theorems). The `HSFLit*` / `SmallF3/L33/Fritz`
    pairs (1.3 MB) are parallel adaptations over different data, not duplicates.
