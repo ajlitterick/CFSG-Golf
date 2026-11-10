@@ -12,40 +12,6 @@ namespace CertificateChecks.KernelBSeed
 
 open CFSG.KC.BSeed
 
-theorem decChunkSC_eq (len : Nat) : ∀ (N : Nat) (t : List Nat),
-    decChunkSC len N (t.map Char.ofNat) = (decChunkS len N t).map Char.ofNat := by
-  induction len with
-  | zero => intro N t; rfl
-  | succ len ih =>
-    intro N t
-    change List.cons _ (decChunkSC len _ _) = (List.cons _ (decChunkS len _ _)).map Char.ofNat
-    rw [ih, List.map_cons]
-
-theorem charsOfS_eq (L : List (Nat × Nat)) : charsOfS L = (bytesOfS L).map Char.ofNat := by
-  induction L with
-  | nil => rfl
-  | cons p L ih =>
-    obtain ⟨N, len⟩ := p
-    change decChunkSC len N (charsOfS L) = (decChunkS len N (bytesOfS L)).map Char.ofNat
-    rw [ih, decChunkSC_eq]
-
-theorem decChunkS_append (len : Nat) : ∀ (N : Nat) (t u : List Nat),
-    decChunkS len N t ++ u = decChunkS len N (t ++ u) := by
-  induction len with
-  | zero => intro N t u; rfl
-  | succ len ih =>
-    intro N t u
-    change List.cons _ (decChunkS len _ _) ++ u = List.cons _ (decChunkS len _ _)
-    rw [List.cons_append, ih]
-
-theorem bytesOfS_append (L M : List (Nat × Nat)) : bytesOfS (L ++ M) = bytesOfS L ++ bytesOfS M := by
-  induction L with
-  | nil => rfl
-  | cons p L ih =>
-    obtain ⟨N, len⟩ := p
-    change decChunkS len N (bytesOfS (L ++ M)) = decChunkS len N (bytesOfS L) ++ bytesOfS M
-    rw [ih, decChunkS_append]
-
 @[expose] noncomputable def B1 (k : Nat) : List Nat := bytesOfS
   ([CFSG.KD.BSeed.M1C00.CH, CFSG.KD.BSeed.M1C01.CH, CFSG.KD.BSeed.M1C02.CH, CFSG.KD.BSeed.M1C03.CH,
     CFSG.KD.BSeed.M1C04.CH, CFSG.KD.BSeed.M1C05.CH, CFSG.KD.BSeed.M1C06.CH, CFSG.KD.BSeed.M1C07.CH,

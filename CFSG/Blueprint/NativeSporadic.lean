@@ -2,6 +2,8 @@ module
 
 public import Mathlib
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.Index
+public import CFSG.Certificates.Kernel.BSeed.Text1
+public import CFSG.Certificates.Kernel.BSeed.Text2
 
 public noncomputable section
 
@@ -120,8 +122,18 @@ def ThSeed1 : String := include_str "Data"/"ThG1-f2r248B0.m1"
 def ThSeed2 : String := include_str "Data"/"ThG1-f2r248B0.m2"
 abbrev Th : Type := (seedMonoid 2 248 1 ThSeed1 ThSeed2)ˣ
 
-def BSeed1 : String := include_str "Data"/"BG1-f2r4370B0.m1"
-def BSeed2 : String := include_str "Data"/"BG1-f2r4370B0.m2"
+open CFSG.Monster.B.SeedText in
+-- the bytes of `Data/BG1-f2r4370B0.m1`, cut in 19 pieces by `#text_range` (hash-pinned)
+def BSeed1 : String :=
+  m1c00 ++ m1c01 ++ m1c02 ++ m1c03 ++ m1c04 ++ m1c05 ++ m1c06 ++
+    m1c07 ++ m1c08 ++ m1c09 ++ m1c10 ++ m1c11 ++ m1c12 ++ m1c13 ++
+    m1c14 ++ m1c15 ++ m1c16 ++ m1c17 ++ m1c18
+open CFSG.Monster.B.SeedText in
+-- the bytes of `Data/BG1-f2r4370B0.m2`, cut in 19 pieces by `#text_range` (hash-pinned)
+def BSeed2 : String :=
+  m2c00 ++ m2c01 ++ m2c02 ++ m2c03 ++ m2c04 ++ m2c05 ++ m2c06 ++
+    m2c07 ++ m2c08 ++ m2c09 ++ m2c10 ++ m2c11 ++ m2c12 ++ m2c13 ++
+    m2c14 ++ m2c15 ++ m2c16 ++ m2c17 ++ m2c18
 abbrev B : Type := (seedMonoid 2 4370 1 BSeed1 BSeed2)ˣ
 
 @[expose] def y443Adjacent (i j : Fin 12) : Prop :=

@@ -58,3 +58,7 @@ elab "#bs_chunk " pre:ident sId:ident rId:ident hdr:ident i0:num i1:num : comman
             #[mkRawNatLit 4370, mkApp (mkConst ``CFSG.KC.BSeed.bytesOfS) (mkConst (P ++ `CH)), hdrE,
               mkRawNatLit i0.getNat, mkRawNatLit i1.getNat, mkConst rN])
           (mkConst ``Bool.true)) reflBoolTrue [])
+      let strE := mkConst ``String
+      CFSG.KC.addThmDecl <| (mkTheoremValEx (P ++ `lit) [] (mkApp3 (mkConst ``Eq [1]) strE
+        (mkConst sN) (mkApp (mkConst ``String.ofList) (mkApp (mkConst ``CFSG.KC.BSeed.charsOfS)
+          (mkConst (P ++ `CH))))) (mkApp2 (mkConst ``Eq.refl [1]) strE (mkConst sN)) [])
