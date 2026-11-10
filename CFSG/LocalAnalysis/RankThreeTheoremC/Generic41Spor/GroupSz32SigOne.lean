@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32
 import CFSG.LocalAnalysis.RankFourTheoremC.PPointExoticSigSzCore
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSz32Local
-import CFSG.RankThree.PartOne.CTP.SeitzExcModels
-import CFSG.RankThree.PartOne.K159.AutSzIso
-import CFSG.RankThree.PartOne.K159.AutSzAbs
-import CFSG.LieType.Ree.SuzukiSimple
 import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 

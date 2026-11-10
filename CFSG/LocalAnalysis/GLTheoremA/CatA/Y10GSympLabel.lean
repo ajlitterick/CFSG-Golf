@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-import CFSG.LocalAnalysis.StandardType.MarkingSmall
 
 public section
 

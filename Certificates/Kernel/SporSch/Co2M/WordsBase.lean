@@ -6,7 +6,6 @@ public import Certificates.Kernel.SporSch.Co2M.ChainS
 public import Certificates.Kernel.SporSch.Co2M.OrbC
 public import Certificates.Kernel.SporSch.Co2M.OrbD
 public import Certificates.Kernel.SporSch.Co2M.OrbJ
-public import CFSG.Sporadic.Co2Schreier.ChainCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.ChainCheckInputs
 meta import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Kernel.SporSch.HN.GenNTree

@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUSp6LagrangianStatem
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergCHSp6SuzukiLayerCore
 public import CFSG.Blueprint.EvenStandardExact
 import CFSG.Blueprint.LieModelAPI
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.GroupTheory.LocalCores.Layer
 public import CFSG.LieType.Chevalley.RootCommutator

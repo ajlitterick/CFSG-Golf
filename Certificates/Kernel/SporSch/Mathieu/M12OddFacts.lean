@@ -5,11 +5,8 @@ public import Certificates.Kernel.SporSch.Mathieu.M12OddZ3
 public import Certificates.Kernel.SporSch.Mathieu.M12OddZ5
 public import Certificates.Kernel.SporSch.Mathieu.M12OddZ11
 public import Certificates.Kernel.SporSch.Mathieu.M12Facts
-public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
 public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
 public import CFSG.Certificates.Kernel.SporSch.CodesImg
-public import Certificates.Data.Kernel.Spor.MulH
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckBase
 public import CFSG.Sporadic.SmallOddCore.ClassSimple
 

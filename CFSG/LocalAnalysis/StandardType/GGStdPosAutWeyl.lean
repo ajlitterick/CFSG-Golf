@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdPosAutCent
 public import CFSG.LocalAnalysis.StandardType.GGStdPosWeylNorm
-import Mathlib.Tactic.Group
 
 public section
 

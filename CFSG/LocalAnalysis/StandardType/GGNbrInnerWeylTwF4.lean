@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylScIrred
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanks
 public import CFSG.LocalAnalysis.StandardType.GGTwF4SUThreeRank
 
 public section

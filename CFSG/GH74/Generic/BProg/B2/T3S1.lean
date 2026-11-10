@@ -2,9 +2,6 @@ module
 
 public import CFSG.GH74.Generic.BProg.B2.T3S1Bar
 import CFSG.GH74.Generic.BProg.Cor2
-import CFSG.GH74.Generic.OuterInvolution
-import CFSG.GH74.GLS.C3.Layer1.BackConj
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.Generic.BProg.B2.T3Sect13C1
 
 public section

@@ -1,12 +1,8 @@
 module
 
 public import CFSG.GH74.Generic.BProg.B3.S1ThreeSplit
-public import CFSG.GH74.Generic.Front.OuterModels
 public import CFSG.GH74.Generic.BProg.B2.T3S1Abs
-public import CFSG.GH74.Generic.S1.Exo.Glue
 public import CFSG.GH74.Generic.S1.Exo.Q3Perf
-public import CFSG.Milestones.OO_odd_order_solvable
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

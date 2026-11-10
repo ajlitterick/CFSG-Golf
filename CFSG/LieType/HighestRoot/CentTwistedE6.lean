@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LieType.HighestRoot.CentIsogenyE6E7
-public import CFSG.LieType.Steinberg.TwistedE6.RankOne
-public import CFSG.LieType.Steinberg.TwistedD4.RankOne
-public import CFSG.LieType.Steinberg.Exceptional.Fields
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalAdjoint
 public import CFSG.LocalAnalysis.ComponentClassification.BadTwoComponentSubgroup
 

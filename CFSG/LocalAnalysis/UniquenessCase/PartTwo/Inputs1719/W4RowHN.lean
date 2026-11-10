@@ -3,56 +3,18 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm11_1RowMGe
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1Sub
 public import CFSG.Sporadic.HNOddCore.OuterFix
-public import CFSG.Sporadic.HNOddCore.SixA
 public import CFSG.Sporadic.HN.Local.Main
-public import CFSG.Sporadic.HNSchreier.InvolSpec
 public import Certificates.Certificate1037101
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4RowGen
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1Fix
 public import Certificates.Kernel.J4Count.FixCE
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
-public import CFSG.LocalAnalysis.ComponentInitial.PGroupRankOneClassification
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsE
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs12d
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs
-public import CFSG.Quasithin.Background.A3Structure318Red
-public import CFSG.Quasithin.Background.A3Structure36A
-public import CFSG.Quasithin.Background.A3Structure36BAction
-public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
-public import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
-public import CFSG.Quasithin.Background.A3Structure36BFrattini
-public import CFSG.Quasithin.Background.A3Structure36BHeisBase
-public import CFSG.Quasithin.Background.A3Structure36BHomocyclic
-public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
-public import CFSG.Quasithin.Background.A3Structure36BStarBase
-public import CFSG.Quasithin.Background.A3Structure36Base
-public import CFSG.Quasithin.Background.A3Structure37Base
-public import CFSG.Quasithin.Background.A3Structure37Comm
-public import CFSG.Quasithin.Background.A3Structure37Frattini
-public import CFSG.Quasithin.Background.A3Structure37KeyBase
-public import CFSG.Quasithin.Background.A3Structure37Schur
-public import CFSG.Quasithin.Background.A3Structure38Part3
-public import CFSG.Quasithin.Background.B1MoreElevenE
-public import CFSG.Quasithin.Background.B1MoreNineG
-public import CFSG.Quasithin.Background.B4ModelsAction
-public import CFSG.Quasithin.Background.B4ModelsIso
-public import CFSG.Quasithin.Background.C2Basic
-public import CFSG.Quasithin.Background.C2Inputs
-public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.Background.F6Amalgams
 public import CFSG.Quasithin.Background.F6SolvableQuotient
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
-public import CFSG.Quasithin.Vol2.Ch1Local
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 import CFSG.Quasithin.Background.SmithB45ExcEngine
 
 public section

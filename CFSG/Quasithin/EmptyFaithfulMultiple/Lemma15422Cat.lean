@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithfulMultiple.Lemma15422Quot
 public import CFSG.Quasithin.Background.F6Cat
-public import Mathlib.FieldTheory.Finite.GaloisField
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
@@ -22,9 +21,6 @@ public import CFSG.Quasithin.Background.D1Statement
 public import CFSG.Quasithin.Background.F6Amalgams
 public import CFSG.Quasithin.EmptyFaithful.QTKELocal
 public import CFSG.Quasithin.EmptyFaithfulMultiple.Bridge
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

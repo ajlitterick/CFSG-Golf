@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusF4LangA
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusF4LangN
 

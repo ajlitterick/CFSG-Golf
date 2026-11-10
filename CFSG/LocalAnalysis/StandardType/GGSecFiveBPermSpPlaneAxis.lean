@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneBlocks
-public import CFSG.LocalAnalysis.ComponentInitial.CentralSL2Semilinear
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusWeylMatrices
-import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneTorusDefs
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 
 public section
 

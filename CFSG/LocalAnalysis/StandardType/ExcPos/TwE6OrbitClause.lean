@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFinModelInput
-public import CFSG.LocalAnalysis.StandardType.GGFinModelPi
-public import CFSG.LocalAnalysis.StandardType.GGFinModelEps
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 
 public section
 

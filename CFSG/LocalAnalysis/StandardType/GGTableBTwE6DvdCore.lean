@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryDesc
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 
 public section
 

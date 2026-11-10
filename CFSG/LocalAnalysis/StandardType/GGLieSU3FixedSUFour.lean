@@ -5,10 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedCore
 public import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedLift
 
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindUnitaryGlobal
-import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestInner
 import CFSG.LocalAnalysis.StandardType.GGL45FixA2Centre
-import CFSG.Assembly.Subnormal
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphUnitaryNormal
 import CFSG.LocalAnalysis.SeitzReduction.LinearPilotQ2SmallJ
 import CFSG.LocalAnalysis.SeitzReduction.LinearPilotWeakCTGlobal

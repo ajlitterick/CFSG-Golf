@@ -6,10 +6,6 @@ public import CFSG.Quasithin.Recognition.GoldschmidtF112TitsBorel
 public import CFSG.Quasithin.Recognition.CertTitsAmalgamLocal
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2pFactsTransport
 public import CFSG.Quasithin.Vol2.Ch5Sec1L34J2Aut
-public import CFSG.CharacterTheory.Semidihedral.Principal.CyclicInversionAlternatingFive
-public import CFSG.GroupTheory.ABGLocalTools.OddOrderLocal
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
-public import CFSG.Quasithin.H13.J4Core
 public import CFSG.Quasithin.Recognition.CertTwoLocalPair
 
 public section

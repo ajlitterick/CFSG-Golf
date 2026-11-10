@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGExcRERegimeDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmRABase
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUTableClDefs
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

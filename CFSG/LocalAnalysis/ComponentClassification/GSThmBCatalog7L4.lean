@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4Graph
 public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecAssembly
 public import CFSG.RankThree.CentralLift.LinearScalarCover
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
 
 public noncomputable section
 

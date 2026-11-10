@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpModelPaired
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpBlockAnModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcU2Ind
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeOrthAsmCases
 public import CFSG.ClassicalInvolution.Balance.PassTwoFinal
@@ -12,7 +11,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcU2Defs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeOrthBlockAnalysis
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeOrthBlockProofFixed
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgOrthogonalLie
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpBlockAnMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpModel
 
 public section

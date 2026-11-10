@@ -6,12 +6,9 @@ public import CFSG.LocalAnalysis.StandardType.GGAllFixedSC
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBFixedCentralQuotientSolvable
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCentralizerLift
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotSwapBasic
-public import CFSG.FeitThompson.OddOrderTheorem
 public import CFSG.Quasithin.Vol2.Ch4Sec4L443E4Inner
-public import CFSG.Quasithin.Background.A3Structure38Facts
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanProjection
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CoprimeAxB
 public import CFSG.Quasithin.Vol2.Ch4Sec4L443E3Conj
 public import CFSG.Quasithin.Vol2.Ch4Sec4L443EIn
 public import CFSG.Quasithin.Vol2.Ch4Sec4W446

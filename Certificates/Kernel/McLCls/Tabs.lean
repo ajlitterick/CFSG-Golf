@@ -1,9 +1,7 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.LocalComp.McLCent
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import Certificates.Data.McLCls
 meta import Certificates.Data.McLCls
 meta import CFSG.Sporadic.SmallOddCore.McLData

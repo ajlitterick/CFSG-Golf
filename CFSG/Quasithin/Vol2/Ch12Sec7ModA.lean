@@ -2,10 +2,6 @@ module
 
 public import CFSG.Fischer.F4
 public import CFSG.Quasithin.Vol2.Ch12Sec7ModData
-public import Mathlib.Algebra.Order.Ring.Star
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
 
 public section
 

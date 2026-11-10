@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LieType.Chevalley.KernelComponentRoots
-public import CFSG.LieType.Chevalley.SignKernelComponentBorel
 public import CFSG.LieType.Chevalley.CLSOddE7RationalEightGroup
-public import CFSG.LieType.Chevalley.E6ToralGraphInvolution
-public import CFSG.LieType.Chevalley.ToralCentralizerBruhat
-public import CFSG.LieType.Chevalley.TorusCoordinates
 
 public section
 

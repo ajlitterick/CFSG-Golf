@@ -1,10 +1,8 @@
 module
 
-public import Certificates.Data.KappaLemmaA
 public import Certificates.Kernel.EvenBN.K561002
 public import Certificates.Kernel.EvenBN.Lists
 import CFSG.Certificates.Kernel.Common.Harness
-public import Certificates.Certificate7050Base
 
 public section
 

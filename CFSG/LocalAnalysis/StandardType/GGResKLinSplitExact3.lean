@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeLinear
 public import CFSG.LocalAnalysis.StandardType.GGResFixedWeylCentralizer
 import CFSG.LocalAnalysis.StandardType.GGResSingularAExactTwo
-import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar
-import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
 
 public section
 

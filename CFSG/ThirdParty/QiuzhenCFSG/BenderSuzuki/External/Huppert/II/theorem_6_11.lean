@@ -1,13 +1,8 @@
 module
 
-public import Mathlib.GroupTheory.GroupAction.MultipleTransitivity
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective
-public import Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup
 public import Mathlib.LinearAlgebra.Projectivization.Action
 public import Mathlib.LinearAlgebra.Projectivization.Cardinality
 
-import Mathlib.LinearAlgebra.Basis.VectorSpace
-import Mathlib.LinearAlgebra.Center
 import Mathlib.LinearAlgebra.Projectivization.Independence
 
 namespace CFSG

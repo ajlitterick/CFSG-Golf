@@ -1,9 +1,6 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
-public import Certificates.Kernel.UnitarySix.Sec3.Arrs
 public import Certificates.Kernel.Sporadic.RawGenSchPFJ
-public import Certificates.Kernel.UnitarySix.Sec3.CK2A2D
 public import Certificates.Kernel.UnitarySix.Sec3.CK2A2Lv
 public import Certificates.Kernel.UnitarySix.Sec3.CK2A2F0
 public import Certificates.Kernel.UnitarySix.Sec3.CK2A2F1

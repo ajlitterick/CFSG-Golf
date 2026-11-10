@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.RadSetting
 import CFSG.LocalAnalysis.StandardType.FF81.CentE6.MatD
-import Mathlib.GroupTheory.Sylow
-import Mathlib.GroupTheory.Complement
-import Mathlib.Tactic.Group
 
 public section
 

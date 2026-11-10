@@ -2,20 +2,15 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2213TDefs
 public import CFSG.LocalAnalysis.UniquenessCase.UC22InE229N
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S22a
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22wj
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22ud
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront08UsePair
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P2214a
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2214h
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2213b
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2213Tb
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2213Tc
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2213Td
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2213c
-import CFSG.LocalAnalysis.UniquenessCase.UC22P2214Ui
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22a
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22i
 import CFSG.LocalAnalysis.UniquenessCase.UC22S13xl
 import CFSG.Adapters.StatedPSLTwo
 import CFSG.LocalAnalysis.EvenBN.GMSK.U3Facts

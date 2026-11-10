@@ -1,12 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.AscC25J19
-public import CFSG.ClassicalInvolution.RouteD.TypeULocal
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15OuterU4Model
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15ChainU
-public import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutMain
-public import CFSG.ClassicalInvolution.Models.UnitaryFrames.Frame
-public import CFSG.ClassicalInvolution.Models.UnitaryFrames.Chart
 
 public section
 

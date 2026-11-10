@@ -6,18 +6,12 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.AlmostSimp
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Sylow
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Diag
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Torus
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Hom
-public import CFSG.RankThree.Chevalley.SteinbergCAG2ToralPrimePlane
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcConj
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Chevalley.SignKernelComponentPerfect
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.RankThree.Chevalley.SteinbergCEG2EvenLocalCoreCommutator
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Walter.Defs
 
 public section

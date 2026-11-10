@@ -4,8 +4,6 @@ public import Certificates.Kernel.Co1B.Data17597
 public import Certificates.Kernel.Co1M.Regs10071
 public import Certificates.Kernel.Co1ThreeK.Letters
 public import Certificates.Kernel.SporSch.Co1.ElemDag
-public import Certificates.Data.Kernel.Co1F2
-public import Certificates.Data.Kernel.Co1BW
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

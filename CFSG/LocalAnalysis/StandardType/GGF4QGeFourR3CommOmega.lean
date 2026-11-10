@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourR3Comm
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2OmegaComm
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2Cross
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
-import Mathlib.Tactic.Group
 
 public section
 

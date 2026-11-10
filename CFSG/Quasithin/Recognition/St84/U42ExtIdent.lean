@@ -3,10 +3,7 @@ module
 public import CFSG.Quasithin.Recognition.St84.U42ExtCoords
 public import CFSG.GH74.QTGen4.DSGen4.MainAmal
 public import CFSG.GH74.QTGen4.DSGen4.Leaf.SylowS
-public import CFSG.Quasithin.EmptyFaithful.S1421L2Two
-public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 public import CFSG.Quasithin.Recognition.GoldschmidtF112RY9
-public import CFSG.Quasithin.EmptyFaithful.S1421F112
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
@@ -26,7 +23,6 @@ public import CFSG.Quasithin.Vol2.GoldschmidtF431U42AutP5Psi
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixC
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

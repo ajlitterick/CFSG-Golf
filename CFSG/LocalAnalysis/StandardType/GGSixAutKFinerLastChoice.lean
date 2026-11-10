@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerThree
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerTailDFour
 import CFSG.Timmesfeld.Orders.Classical
-import CFSG.Timmesfeld.Orders.ClassicalLinear
-import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.Adapters.StatedClassicalUnitaryOrders
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
@@ -13,7 +11,6 @@ import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 import CFSG.LocalAnalysis.SectionRank.SporadicCover
 import CFSG.Sporadic.M23.M23Group
-import CFSG.Sporadic.Th.F2Spec
 
 public section
 

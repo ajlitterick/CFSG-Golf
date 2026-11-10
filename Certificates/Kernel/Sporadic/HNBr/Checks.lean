@@ -5,7 +5,6 @@ public import Certificates.Kernel.Sporadic.HNBr.Data
 public import CFSG.Certificates.Kernel.Orders.HN.Rels
 import CFSG.Certificates.Kernel.Common.Each
 import CFSG.Certificates.Kernel.Common.ForallChunks
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 

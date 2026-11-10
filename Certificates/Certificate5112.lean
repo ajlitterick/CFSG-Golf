@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate5112Base
 
-public import CFSG.GH74.KGroups.CoverL34Inputs
 import CFSG.Certificates.Kernel.Census.CatFacts.PkEnum
 import Certificates.Kernel.KGroupsE.K5112
 

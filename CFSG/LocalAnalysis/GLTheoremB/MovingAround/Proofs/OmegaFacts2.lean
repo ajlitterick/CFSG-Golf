@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.AltFacts3
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.SchurFacts
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims138
 public import CFSG.Milestones.ASVolI.A2OddAut
-public import CFSG.HardMathSupport.Timmesfeld.OrthogonalGeneration.TransvFinal
 public import CFSG.LieType.SeitzGeneration.NonabHeisThreeCore
 public import CFSG.LieType.SeitzGeneration.NonabHeisThreeUnitary
 public import CFSG.LieType.SeitzGeneration.UnitaryBlocks

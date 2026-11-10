@@ -3,12 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVPComp
 public import CFSG.LocalAnalysis.AGLEmbedding.PushingUpLemmas
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreQuotient
-public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.RankThree.GroupTheory.PerfectSubnormalModNormal
 public import CFSG.Permutation.FiveTransitive.CharacteristicAutomorphism
 public import CFSG.Fischer.Aut.TwoPower
 public import CFSG.GroupTheory.CenterlessInnerCentralizer
-public import TauCeti.GroupTheory.DerivedCentralQuotient
 public import CFSG.GroupTheory.CommutingConjugatePair
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.GroupTheory.PCore.SubgroupCore
@@ -19,7 +17,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
 public import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
 public import CFSG.LocalAnalysis.ComponentInitial.PerfectOuterInjection
 public import CFSG.LocalAnalysis.GLTheoremB.UniqInputs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

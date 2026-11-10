@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHLAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGXFixedReflK
-public import CFSG.LocalAnalysis.StandardType.GGNbrCentralizer
 
 public section
 

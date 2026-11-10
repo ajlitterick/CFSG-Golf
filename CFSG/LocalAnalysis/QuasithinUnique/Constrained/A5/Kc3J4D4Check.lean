@@ -7,10 +7,7 @@ public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4D4Wit
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4Dec2Native
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4Reps2A
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4Reps2B0
-public import Certificates.Certificate4017
-public import Certificates.Certificate4027
 public import Certificates.Certificate4108
-public import Certificates.Certificate4029
 public meta import CFSG.Foundations
 public import CFSG.Foundations
 public meta import CFSG.GroupTheory.Fitting.CharacteristicP
@@ -41,7 +38,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4FinalBase
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4HBase
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4HBase
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4Parts
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4Parts
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4PlanBase
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.AppCCases
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.AppCCases
@@ -64,7 +60,6 @@ public meta import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
 public meta import CFSG.Quasithin.Background.A3Components
 public meta import CFSG.Quasithin.Background.A3ComponentsAmbient
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public meta import CFSG.Quasithin.Background.A3StructureBasic
 public import CFSG.Quasithin.Background.A3StructureBasic
 public meta import CFSG.Quasithin.Background.B1Basic
@@ -90,20 +85,14 @@ public meta import CFSG.Sporadic.J4.QTOutChar
 public import CFSG.Sporadic.J4.QTOutChar
 public meta import CFSG.Sporadic.J4.QTRankInvProof
 public meta import CFSG.Sporadic.J4Base
-public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public meta import CFSG.Sporadic.Mathieu.M12
 public meta import CFSG.Sporadic.Mathieu.M24
 public import CFSG.Sporadic.Mathieu.M24
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 public meta import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2RootGroups
 public meta import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2RootGroups
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public meta import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import Certificates.Certificate17030
 public meta import Certificates.Certificate43

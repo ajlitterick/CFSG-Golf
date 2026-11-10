@@ -3,12 +3,9 @@ module
 
 public import Certificates.Kernel.EvenBN.CNtAux
 public import Certificates.Kernel.Sporadic.Tits.Sift2264
-public import Certificates.Kernel.SporSch.Tits.GenList
 public import Certificates.Kernel.SporSch.Th.GenV4
-public import CFSG.Quasithin.Recognition.RuRank3TitsClsInputs
 public meta import CFSG.Quasithin.Recognition.RuRank3TitsClsInputs
 public meta import Certificates.Kernel.Sporadic.RawGen
-import Certificates.Kernel.Misc.Perm.HexCmd
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000

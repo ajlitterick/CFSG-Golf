@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTriD4ThreeDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylResidualTriD4
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylComp
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwo
 
 public section
 

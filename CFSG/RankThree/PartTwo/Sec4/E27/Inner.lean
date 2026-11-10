@@ -1,17 +1,9 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.E27.AllInnerRows
-public import CFSG.RankThree.PartOne.KC.UnitaryNoninnerPlaneGeneral
 public import CFSG.LieType.SeitzGeneration.UnitaryHyperPSU
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14LUCoset
-public import CFSG.RankThree.PartTwo.KFacts.AutPSLOrderThree
 public import CFSG.RankThree.PartTwo.Sec6.BThreeCensusSp4Odd
-public import CFSG.RankThree.SteinbergR3ELinearRegularUnipotent
-public import CFSG.RankThree.PartTwo.Sec4.Item47Bridges
-public import CFSG.LieType.SeitzGeneration.HyperIrrFinal
-public import CFSG.Adapters.LinearCatalog
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogRigidityCommon
-public import CFSG.LocalAnalysis.AGLEmbedding.IIIaLists
 public import CFSG.Quasithin.Background.A3Structure36BPrime
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
@@ -110,7 +102,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureSylowA
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
 public import CFSG.Quasithin.Background.A1cTransfer
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.RankThree.CentralLiftSO.SplitTorusWeyl
@@ -149,18 +140,6 @@ public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 
 public section
 

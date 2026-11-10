@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.SporSch.PairBT.McLSylEData
 public import Certificates.Kernel.SporSch.PairBT.McLSyl5A1
 public import Certificates.Kernel.SporSch.PairBT.McLSyl5A2
 public import Certificates.Kernel.SporSch.PairBT.McLSyl5B

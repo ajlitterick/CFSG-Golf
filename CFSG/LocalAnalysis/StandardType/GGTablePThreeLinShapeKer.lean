@@ -2,20 +2,14 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinDefs
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeRLeaf
-import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.PslBadKey
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgLinear
 import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsLin
-import CFSG.LocalAnalysis.StandardType.GGTableBLinear
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLLIDPSL
-import CFSG.LocalAnalysis.StandardType.GGLemmaThreeThirteenBasic
 import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Lemma27Aux1
 import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec6.BasicAuxGen
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T263SDLinProj
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLLinear
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonL2Holds
-import CFSG.LocalAnalysis.StandardType.GGSixStepTwoAutK
-import CFSG.Fischer.Classification.Recognition.Basic
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.LinearInner
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare

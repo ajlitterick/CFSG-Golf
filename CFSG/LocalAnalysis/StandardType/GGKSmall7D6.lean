@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKSmall7Defs
 public import CFSG.LocalAnalysis.StandardType.GGRootSpan7
-public import CFSG.LocalAnalysis.StandardType.GGRCCardJoin
 public import CFSG.LocalAnalysis.StandardType.GGRCTransfer
 public import CFSG.LocalAnalysis.StandardType.ZS.Adapter
 

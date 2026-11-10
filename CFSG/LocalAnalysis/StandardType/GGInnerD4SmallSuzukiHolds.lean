@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4SmallContracts
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmall
 
 public section
 

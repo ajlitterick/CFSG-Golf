@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Linear
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Unitary
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixOpenDefs
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-public import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldLinear
 
 public section
 

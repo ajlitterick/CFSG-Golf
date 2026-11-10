@@ -1,19 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResQTwoCell
 public import CFSG.LocalAnalysis.StandardType.GGResQTwoKernel
 public import CFSG.LocalAnalysis.StandardType.GGResQTwoCellData
 public import CFSG.LocalAnalysis.StandardType.GGResIDispatch
 public import CFSG.LocalAnalysis.StandardType.GGResIStdFork
 public import CFSG.LocalAnalysis.StandardType.GGResIO2bExcl
-public import CFSG.LocalAnalysis.StandardType.GGResICellSound
-public import CFSG.LocalAnalysis.StandardType.GGResITransport
 public import CFSG.LocalAnalysis.StandardType.GGResIQEight
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelProof
-public import CFSG.LocalAnalysis.StandardType.GGE6DepPerpDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQSplit
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGRCTransfer
 
 public section

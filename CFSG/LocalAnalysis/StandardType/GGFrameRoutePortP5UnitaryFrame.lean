@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.SeitzGeneration.ExcPlanePair
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP5Unitary
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP5UnitaryFrameCoord
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP5UnitaryFramePlane

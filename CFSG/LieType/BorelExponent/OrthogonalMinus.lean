@@ -2,13 +2,9 @@ module
 
 public import CFSG.LieType.BorelExponent.Defs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommOrthMinusBorel
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelTransport
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.Orthogonal
 public import CFSG.RankThree.PartOne.KF.ClsOmega
-public import CFSG.ClassicalGroups.Orthogonal.Simple
 public import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabIrrOrthMinusPlane
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailLeviPPrime
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 public import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusLeaf
-public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusFix
-public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusChain
-public import CFSG.ClassicalInvolution.RouteD.GapsMoved
-public import CFSG.ClassicalInvolution.RouteD.GapsToralD
 public import CFSG.ClassicalInvolution.RouteD.ExoticSingleMinus
 
 public section

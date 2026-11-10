@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20o
 import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotModel
 import CFSG.LocalAnalysis.UniquenessCase.Lie.ExcShared
-import CFSG.Timmesfeld.Orders.ExceptionalTorus
 import CFSG.Timmesfeld.Orders.ExceptionalTwistedBruhat
 import CFSG.LieType.Chevalley.C2E6StandardFixedData
 import CFSG.LieType.Chevalley.C2E6UnitaryFourImages

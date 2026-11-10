@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.MinusEnum.Checks
-public import CFSG.Certificates.Kernel.BfsPinKeySound
-import CFSG.Certificates.Kernel.BfsPinUnpack
 
 public section
 

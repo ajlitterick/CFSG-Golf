@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeGeoFlag
-public import Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff
 
 public section
 

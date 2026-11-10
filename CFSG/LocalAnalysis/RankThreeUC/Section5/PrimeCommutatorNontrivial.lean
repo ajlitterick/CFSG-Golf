@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.JointQuotientAction
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.SstarCoprimeStructure
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.CentralizerEqCenterAndActorCyclicAndPrimeCoreCyclic
-public import CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 import all CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 
 public section

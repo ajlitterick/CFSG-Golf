@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Universal.Spin.Datum
 public import CFSG.LieType.Universal.Spin.Generation.Eichler
 
 public section

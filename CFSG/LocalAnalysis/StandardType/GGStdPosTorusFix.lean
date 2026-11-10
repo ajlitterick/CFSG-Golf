@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGStdPosTorus
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInner
-import Mathlib.Tactic.Group
 
 public section
 

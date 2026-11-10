@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Defs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Subtype
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Weyl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1PresD

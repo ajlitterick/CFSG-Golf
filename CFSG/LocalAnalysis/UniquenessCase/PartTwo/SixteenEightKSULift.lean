@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightF8Pred
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightF8Nat
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightF8Red
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightKSUComm
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightKSUGen

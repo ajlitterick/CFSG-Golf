@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Blueprint.Catalog
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.RankFourTheoremC.InvariantTwo.KFacts.Lemma212Inputs
 
 public section

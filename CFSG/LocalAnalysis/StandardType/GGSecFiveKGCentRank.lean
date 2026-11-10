@@ -12,7 +12,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveL1OddLeaves
 import CFSG.LocalAnalysis.StandardType.GGStdPosTagData
 import CFSG.LocalAnalysis.StandardType.GGRankOneTags
 import CFSG.LocalAnalysis.StandardType.GGStdPosRankCard
-import Mathlib.Tactic.Group
 
 public section
 

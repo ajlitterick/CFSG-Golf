@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.HN3166.CardBase
 public import Certificates.Kernel.HN3166.Alg
-public import CFSG.Sporadic.HN.CoprimeSimple
 
 @[expose] public section
 

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepLabels
-public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenModel
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3BstarRank
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar
 
 public section
 

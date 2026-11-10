@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowLinTwoAux3
 public import CFSG.LocalAnalysis.StandardType.GGTPNSL6Bridge
-import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
 
 public section
 

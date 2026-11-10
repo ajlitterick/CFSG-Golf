@@ -1,10 +1,8 @@
 module
 
-public import CFSG.Fischer.F4
 public meta import CFSG.Fischer.F4
 public import Certificates.Certificate7057
 public meta import Mathlib
-public import Mathlib
 
 public section
 

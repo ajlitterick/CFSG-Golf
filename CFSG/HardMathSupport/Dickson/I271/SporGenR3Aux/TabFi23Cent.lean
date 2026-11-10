@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi23Pts
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi23Fi22
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.ConstrainedGen
 public import Certificates.Certificate17338
 
 public section

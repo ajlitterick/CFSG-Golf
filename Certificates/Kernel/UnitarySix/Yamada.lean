@@ -4,10 +4,7 @@ module
 public import Certificates.Kernel.UnitarySix.YamadaBase
 
 public import Certificates.Kernel.UnitarySix.Letters
-public import CFSG.Certificates.Kernel.U6Sound3000
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaNativeData
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeDataInputs
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

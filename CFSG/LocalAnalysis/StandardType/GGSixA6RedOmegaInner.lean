@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedDefs
-public import CFSG.LieType.BorelTits.OrthogonalForm
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
 

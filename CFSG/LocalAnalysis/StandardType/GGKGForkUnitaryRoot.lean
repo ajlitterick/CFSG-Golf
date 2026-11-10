@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGSuNsRootGenAsm
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyU
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdBlock
 
 public section

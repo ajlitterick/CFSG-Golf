@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCensusTabs
-import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-import Mathlib.Data.ZMod.Basic
-import Mathlib.Algebra.BigOperators.Fin
 public import CFSG.YGroups.Y443.Native.Hom
 
 public section

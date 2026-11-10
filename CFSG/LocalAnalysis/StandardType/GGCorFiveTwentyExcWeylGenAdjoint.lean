@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylGenRefl
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSylow
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Rank
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesWeyl
 
 public section

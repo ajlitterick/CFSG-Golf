@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6ThreeEndCount
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeHat
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 
 public section
 

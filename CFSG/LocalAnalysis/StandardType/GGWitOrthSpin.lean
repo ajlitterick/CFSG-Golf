@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 
 import CFSG.LocalAnalysis.StandardType.GGFLWReflForm
 import CFSG.ClassicalInvolution.Orders.OrthogonalIndex
-import CFSG.ClassicalGroups.Orthogonal.Basic
-import TauCeti.FieldTheory.SquareClassGroup.Basic
 import TauCeti.Algebra.Group.Units.Basic
 import CFSG.LieType.Universal.SpinOmega.Range
 

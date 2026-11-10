@@ -1,8 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-public import Mathlib.GroupTheory.Index
-public import Mathlib.Data.ZMod.Basic
 public import Mathlib.Algebra.Field.ZMod
 
 public section

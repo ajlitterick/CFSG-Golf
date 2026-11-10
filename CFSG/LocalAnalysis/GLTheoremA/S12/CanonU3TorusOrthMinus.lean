@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3OrthMinus
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3TorusOrthBlock
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3TorusCore
-import CFSG.HardMathSupport.Dickson.SuzukiReeB.Helpers
-import CFSG.HardMathSupport.Lang.Triality.SylowInnerExt
 
 public section
 

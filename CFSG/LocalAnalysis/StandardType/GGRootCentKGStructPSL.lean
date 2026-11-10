@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGStructND
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoPSL
-import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSLRank
-import CFSG.LocalAnalysis.StandardType.GGSixBstarUniqueRootPlaneA
 import CFSG.LocalAnalysis.StandardType.GGRootPlaneOm
-import CFSG.Open.StatedAPI
 import CFSG.GroupTheory.ElemAbelianRank
 import CFSG.LieType.SteinbergBRSemidirectSLEven
 import CFSG.LieType.SteinbergBRSemidirectSL2

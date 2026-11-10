@@ -1,21 +1,8 @@
 module
 
 public import CFSG.Monster.B.TwoA.Amalgam.Flag1Action
-public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 public meta import CFSG.Monster.B.TwoA.Unitary.Planes
 public import Certificates.Certificate3063
-public import Certificates.Certificate3041
-public import Certificates.Certificate3042
-public import Certificates.Certificate3061
-public import Certificates.Certificate3062
-public import Certificates.Certificate3175
-public import Certificates.Certificate3014
-public import Certificates.Certificate3017
-public import Certificates.Certificate3019
-public import Certificates.Certificate3025
-public import Certificates.Certificate3026
-public import Certificates.Certificate3028
-public import Certificates.Certificate16016
 import all CFSG.Fischer.F4
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryTransitivity
 public import CFSG.Monster.B.TwoA.Amalgam.Data

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitExcTags
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClMark
 public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
 
 public section

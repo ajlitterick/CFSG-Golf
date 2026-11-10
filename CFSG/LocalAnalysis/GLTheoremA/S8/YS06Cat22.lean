@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.S8.YS06Cat20
 public import CFSG.LocalAnalysis.GLTheoremA.S8.YS06TablesMathHS
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1017Co1
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1017Ly
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1017ThQ
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1017Co2
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1017Suz

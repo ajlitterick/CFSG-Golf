@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3TPSGN
 public import CFSG.ClassicalInvolution.Q3.Q3TPSLift
 public import CFSG.ClassicalInvolution.Q3.Q3TPSNorm
 public import CFSG.ClassicalInvolution.RouteD.TwinYStatements
-public import CFSG.ClassicalInvolution.WeakCT.DLWeakAgree
 
 public section
 

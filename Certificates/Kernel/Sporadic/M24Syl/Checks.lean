@@ -7,7 +7,6 @@ public import CFSG.Sporadic.Schreier.MathieuSylowAutM24Inputs
 public meta import CFSG.Sporadic.Schreier.MathieuSylowAutM24Inputs
 public meta import CFSG.Sporadic.Schreier.MathieuSylowAutM24Derivs
 public meta import CFSG.Sporadic.Mathieu.M24
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

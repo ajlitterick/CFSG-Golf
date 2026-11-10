@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7A3SmallDefs
 import CFSG.LocalAnalysis.StandardType.GGHdRo7A3Basic
-import Mathlib.Tactic.Module
 
 public section
 

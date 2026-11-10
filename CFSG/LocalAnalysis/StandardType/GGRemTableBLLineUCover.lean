@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUDvd
-public import CFSG.LieType.Steinberg.CentralExt.PSUMultiplier
-public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 
 public section
 

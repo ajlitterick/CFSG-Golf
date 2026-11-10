@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.ChengHeldSec2K
-public import Certificates.Data.ChengHeldPresProps
 
 public section
 

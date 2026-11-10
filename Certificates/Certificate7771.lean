@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Milestones.ASVolI.F48.Rest.U52Inputs
-import Certificates.Kernel.PresLetters.F7771
 import Certificates.Kernel.PresLetters.F7771A
 import CFSG.Certificates.Kernel.Misc.Coset.TableFact
 import CFSG.Certificates.Kernel.Common.ForallChunks

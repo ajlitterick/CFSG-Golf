@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSporKRestFStarNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestOverP
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestTransport
 public import Certificates.Certificate1023006
-public import CFSG.Sporadic.Mathieu.M11
-public import CFSG.Sporadic.Bridge.M11
 
 public section
 

@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.HNSchreier.ThreeCheck
 public meta import CFSG.Sporadic.HNSchreier.ThreeCheck
 public import CFSG.Sporadic.HNOddCore.CCheckInputs
 

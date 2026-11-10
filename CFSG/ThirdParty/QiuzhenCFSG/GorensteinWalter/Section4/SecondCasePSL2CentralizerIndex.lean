@@ -1,10 +1,7 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2QuotientTorusCard
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseFactorization
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.Defs
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

@@ -1,27 +1,15 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResidualGenFrame
 public import CFSG.LocalAnalysis.StandardType.GGResidualRk1Frame
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMember
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameOfMarking
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseOrthFrame
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwoE
 import CFSG.LocalAnalysis.StandardType.GGMemberE7TwoRankOne
-import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRank
-import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrInputs
 import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCube
 import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCubeHolds
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourTBSmall
-import CFSG.LocalAnalysis.StandardType.GGStdSubExist
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryGen
 import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryRk1
-import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanTransfer
 import CFSG.LocalAnalysis.StandardType.GGResidualExcRows
 import CFSG.LocalAnalysis.StandardType.ExcPay.RouteE7Three
 import CFSG.LocalAnalysis.StandardType.ExcPay.TwE6

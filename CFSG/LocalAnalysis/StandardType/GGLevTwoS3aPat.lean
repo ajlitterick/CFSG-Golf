@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS3aSmul
-public import CFSG.LieType.Chevalley.LangRootArithmeticDet
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Orbit
 
 public section

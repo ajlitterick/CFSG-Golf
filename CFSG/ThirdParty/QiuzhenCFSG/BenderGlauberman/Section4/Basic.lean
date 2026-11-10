@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Remark31
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Lemma19
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Lemma19

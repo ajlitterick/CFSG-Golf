@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.He7223.Glue
 public import Certificates.Data.Kernel.He7222.Good
-public import CFSG.Certificates.Kernel.Misc.WordPtsSound
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

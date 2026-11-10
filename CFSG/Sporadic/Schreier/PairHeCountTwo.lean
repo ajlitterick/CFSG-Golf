@@ -4,8 +4,6 @@ module
 public import CFSG.Sporadic.Schreier.PairHeCountTwoBase
 import all CFSG.Sporadic.Schreier.PairHeCountTwoBase
 
-public import CFSG.Sporadic.Schreier.PairHeCheck
-public import Certificates.Data.CFSGNative.PairSchreier.Counts
 public meta import CFSG.Sporadic.Schreier.PairHeCheck
 public meta import CFSG.Sporadic.HeldB.HeBlocks
 public meta import CFSG.Sporadic.HeldB.CertPChainData

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.Universal.SpecialLinearExtras
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideSpTypeGL
-public import Mathlib.FieldTheory.Finite.GaloisField
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 
 public section
 

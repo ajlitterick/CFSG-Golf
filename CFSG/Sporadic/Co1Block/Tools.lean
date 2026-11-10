@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.Co1.Module.InvSpec
 public import CFSG.Sporadic.Co1.Module.TwoBTree
 
 public section

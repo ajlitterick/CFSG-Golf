@@ -8,7 +8,6 @@ import CFSG.LocalAnalysis.StandardType.FS81.S7PCoreConjE8
 import CFSG.LocalAnalysis.StandardType.FS81.S7CentRootThree
 import CFSG.LocalAnalysis.StandardType.FS81.S7PCoreCentEmb
 import CFSG.LocalAnalysis.StandardType.FS81.S7E7InclRange
-import CFSG.GroupTheory.OppositeRadicals
 import CFSG.GroupTheory.PCore.PCoreOfMulEquiv
 import CFSG.LocalAnalysis.StandardType.FS81.RootE8A
 import CFSG.LocalAnalysis.StandardType.FS81.S7AutAt

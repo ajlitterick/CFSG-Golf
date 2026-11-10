@@ -2,22 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankTable
 public import CFSG.Open.GriessAllModelsStatement
-public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.Basic
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankChevSigma
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankChevProd
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankChevSp
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsLie
-import CFSG.GroupTheory.WeirSylow.Symplectic
 public import CFSG.GroupTheory.WeirSylow.Orthogonal
-import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-import CFSG.ClassicalGroups.Orthogonal.Matrix
 import CFSG.Timmesfeld.Orders.ClassicalOmega
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinDBridge
 import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDBridge
 import CFSG.RankThree.PartOne.KF.ClsOmega
-import CFSG.ClassicalGroups.Orthogonal.Models
-import CFSG.LocalAnalysis.SectionRank.EvenCover.Orthogonal
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.WeakClosureHeis.CrossOmega
 import CFSG.LargeExtraspecial.DWFldLinear
 public import Certificates.Kernel.ThCent.Leaves

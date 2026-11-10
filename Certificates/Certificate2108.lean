@@ -3,12 +3,10 @@ module
 
 public import Certificates.Certificate2108Base
 
-public import CFSG.Sporadic.HNSchreier.SylowCheckInputs
 public meta import CFSG.Sporadic.HNSchreier.ThreeCheckBase
 public meta import CFSG.Sporadic.HNSchreier.FALocalCheckBase
 public meta import CFSG.Sporadic.HNSchreier.SylowData
 public import Certificates.Kernel.SporSch.HN.Pt2108
-import CFSG.Sporadic.HNSchreier.OrbitCheckInputs
 
 public section
 

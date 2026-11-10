@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSpFrameIsoCoord
 public import CFSG.LocalAnalysis.StandardType.GGSpFrameClosure
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinWeylRank
 
 public section
 

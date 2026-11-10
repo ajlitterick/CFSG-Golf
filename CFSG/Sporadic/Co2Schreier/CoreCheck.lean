@@ -1,13 +1,10 @@
 
 module
 
-public import CFSG.Sporadic.Co2Schreier.CoreCheckBase
 
 public import CFSG.Sporadic.Co2Schreier.ChainCheck
-public import Std.Data.HashMap
 public meta import CFSG.Sporadic.Co2Schreier.ChainCheck
 public meta import Std.Data.HashMap
-public import CFSG.Sporadic.Co2Schreier.CoreCheckInputs
 public import Certificates.Certificate2051
 
 public section

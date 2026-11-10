@@ -1,14 +1,11 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7AFixedCard
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7TwoCoreSylowIntersection
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalizedKleinFourInvolutionDihedral
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseEvenNormalizedInvolution
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.TwoCoreNormal
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.TwoCoreCentralizerEqualsHhat
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourMapInjective
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CentralizerSup
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

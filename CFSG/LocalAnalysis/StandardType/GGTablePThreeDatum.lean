@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTablePThreeDefs
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentLLocal
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentJLevel
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentKLocal
-import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompDefs
-import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
 
 public section
 

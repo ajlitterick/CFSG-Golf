@@ -2,7 +2,6 @@ module
 
 public import CFSG.Holt.SL6.Recognition
 public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.XFusion
-public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.MatT
 public import CFSG.Goldschmidt.Final
 public import CFSG.Goldschmidt.Statements
 public import CFSG.Goldschmidt.StatementsG4

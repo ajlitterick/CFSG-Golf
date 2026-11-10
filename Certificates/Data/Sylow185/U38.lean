@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.Native.PermEnumeration
 public import Certificates.Data.CFSGNative.Schreier.Check
 public import Certificates.Data.HuppertU38.Data
 

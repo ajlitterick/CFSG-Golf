@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.G2.SeriesP
 import CFSG.LocalAnalysis.EvenBN.GMSK.SL2Facts
-import CFSG.LocalAnalysis.EvenBN.Common.SL2TorusThree
 import CFSG.LocalAnalysis.EvenBN.Common.SL2TorusFour
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.HNSchreier.ThreeBRels
 public import Mathlib.GroupTheory.Sylow
-public import Mathlib.Data.ZMod.QuotientGroup
 
 public section
 

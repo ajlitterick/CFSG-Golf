@@ -2,17 +2,11 @@ module
 
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.F4.Leaf.Action
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.F4.Leaf.LAWords
-public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.Coordinates
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.DetectionF4
-public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Hyp
 public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Frame
-public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Leaf.ScalarTorus
 public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Step3
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.CoordProd
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.DegZero
-public import CFSG.LieType.Chevalley.GraphFixedCoordinateDetection
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import CFSG.RankThree.Chevalley.EvenPinnedRootSL2
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.F4.Frame
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.GroupTheory
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.NormalForm

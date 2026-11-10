@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Contra
 public import CFSG.LocalAnalysis.GL83PartI.I_7_13
 public import CFSG.LocalAnalysis.GLTheoremA.S6.Lemma62AuxComp
-public import CFSG.GroupTheory.FrattiniQuotient
 public import CFSG.LinearAlgebra.SL2CoprimeOrder
 public import CFSG.Assembly.OrderReductions.ElementaryRepresentation
 

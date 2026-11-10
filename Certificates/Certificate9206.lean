@@ -4,9 +4,7 @@ module
 public import Certificates.Certificate9206Base
 import all Certificates.Certificate9206Base
 
-public import Certificates.Data.CFSGNative.Bridge.Fi23GPL
 import Certificates.Kernel.Sporadic.Fi23Br.Rels
-public import CFSG.Sporadic.Fi23.SetupBase
 
 public section
 

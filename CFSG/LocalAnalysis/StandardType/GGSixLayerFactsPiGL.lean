@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartOne.KC.LinearCommutantPiGL
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearSmall
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

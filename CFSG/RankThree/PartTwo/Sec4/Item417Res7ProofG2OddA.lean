@@ -1,13 +1,8 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res7ProofG2OddCommon
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Hom
 public import CFSG.RankThree.PartTwo.Sec11.KS11Lie4ProofSplit
-public import CFSG.LieType.Universal.Unitary.Basic
-public import CFSG.LieType.BorelTits.UnitaryForm
-public import CFSG.Assembly.LowTwoRankDefs
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Torus
-import CFSG.LieType.Steinberg.CentralExt.HermitianBasis
 
 public section
 

@@ -1,11 +1,7 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SRTGeneric
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSL
-import CFSG.LieType.Ree.SuzukiPerfect
-import CFSG.LieType.Ree.SuzukiSimple
 import CFSG.RankThree.PartTwo.Sec4.Census.BridgeSuzuki
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
 import CFSG.StronglyEmbedded.Catalog.Suzuki
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
@@ -32,7 +28,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

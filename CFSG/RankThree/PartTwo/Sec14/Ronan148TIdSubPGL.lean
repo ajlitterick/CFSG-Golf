@@ -3,11 +3,7 @@ module
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdSubType
 import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdSubType2
 import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdSubDet
-import CFSG.RankThree.PartTwo.Sec4.LThreePiRank
 import CFSG.RankThree.PartTwo.Sec4.LThreePiHessian
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseI
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseA
 
 public section
 

@@ -3,8 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7InvolutionsInComponent
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseInvolutionCount
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenInvolutionCountTransport
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

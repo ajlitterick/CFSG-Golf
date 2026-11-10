@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Milestones.ASVolI.I3
-public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.GroupTheory.ConjugatePairSubnormality
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.HardCentral
 

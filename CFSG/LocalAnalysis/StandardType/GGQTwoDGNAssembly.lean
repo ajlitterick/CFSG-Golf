@@ -2,12 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDGen
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDGNUnit
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDGNUnitGen
-public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrG3Aux
-public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrRecAuxModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSU
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDGNOrthReal
 
 public section

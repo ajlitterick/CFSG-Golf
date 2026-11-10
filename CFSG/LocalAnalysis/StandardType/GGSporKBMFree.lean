@@ -5,9 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGSporKB7c
 public import CFSG.LocalAnalysis.StandardType.GGSporKAssemblyK
 public import CFSG.LocalAnalysis.StandardType.GGSporKInnerB
 public import CFSG.LocalAnalysis.StandardType.GGSporKInnerM
-public import CFSG.LocalAnalysis.StandardType.GGSporKOrdersB
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrd7
-public import CFSG.LocalAnalysis.StandardType.GGSporKOrdersM
 public import CFSG.LocalAnalysis.StandardType.GGSporKPPrimeCore
 public import CFSG.LocalAnalysis.StandardType.GGSporKNoLieComp
 public import CFSG.LocalAnalysis.StandardType.GGSporKB3K

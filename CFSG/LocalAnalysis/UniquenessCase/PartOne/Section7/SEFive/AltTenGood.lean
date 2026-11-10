@@ -9,8 +9,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.KInputsSolvableBorel
 import CFSG.LocalAnalysis.UniquenessCase.UC6K35Red2
 import CFSG.RankThree.PartOne.S12.Sec1511SPEFStar
 import CFSG.RankThree.PartOne.CTP.OutEmbed
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierAlternatingOutsideSix
-import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
 import CFSG.LocalAnalysis.AGLEmbeddingD2.AltPerm
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallFamAltPerm
 import CFSG.LocalAnalysis.AGLEmbedding.OneLieReduced
@@ -26,7 +24,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.LocalRank.SelectorCases

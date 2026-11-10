@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerToralFrame
-public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerComp
 public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.U3NormalForm.Classify
-public import CFSG.LocalAnalysis.StandardType.GGNbrGraphD4ProofOut
 public import CFSG.HardMathSupport.Malle.Coordinator.CoverThree.RankTwo
 public import CFSG.HardMathSupport.Malle.Coordinator.CoverThreeNoInner.Basic
 public import CFSG.HardMathSupport.Malle.Coordinator.CoverThreeNoInner.FieldReplace

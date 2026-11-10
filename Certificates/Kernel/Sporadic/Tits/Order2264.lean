@@ -1,12 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.Tits.GroupT2264
-public import CFSG.Certificates.Kernel.Spor.PresCardPG
-public import CFSG.Certificates.Kernel.Spor.IndexTwo
-public import CFSG.Certificates.Kernel.Spor.RawCard
-public import CFSG.Certificates.Kernel.Spor.RawOrbSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

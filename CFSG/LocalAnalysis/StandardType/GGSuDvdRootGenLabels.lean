@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSuDvdRootGenAsm
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylNSRootGen
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyU
 
 public section
 

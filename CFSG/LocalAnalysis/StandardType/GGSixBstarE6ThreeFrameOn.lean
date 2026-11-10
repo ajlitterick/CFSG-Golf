@@ -1,16 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeAutFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNormalizerAut
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNormalizerAutTwoLocal
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNormalizerAutInduces
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesIsogenyE6
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcRestProof
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarModelFrameTransfer
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestDefs
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.LieType.Chevalley.AdjointCenter
 
 public section
 

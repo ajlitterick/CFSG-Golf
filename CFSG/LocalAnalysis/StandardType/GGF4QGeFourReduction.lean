@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourInputs
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePresTags
 public import CFSG.LocalAnalysis.StandardType.GGF4QTwoReduction
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRegionDefs
-public import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveDataResDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylInfDefs
-import CFSG.LocalAnalysis.StandardType.GGSecFiveMaxJoin
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylTorusAut
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeAct
 public import CFSG.LocalAnalysis.StandardType.GGTBTorTransport
 
 public section

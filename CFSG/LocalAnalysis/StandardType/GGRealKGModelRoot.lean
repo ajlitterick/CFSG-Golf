@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealKGSignedRefl
-public import CFSG.LocalAnalysis.StandardType.GGKGForkTransfer
 public import CFSG.LocalAnalysis.StandardType.GGRealKGTorusComponentsDefs
 
 public section

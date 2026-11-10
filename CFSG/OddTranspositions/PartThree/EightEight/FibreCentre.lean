@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Timmesfeld.Bridge.Asc72Basic
 public import CFSG.OddTranspositions.HypothesisC
-public import CFSG.OddTranspositions.Blocks
 
 import CFSG.GroupTheory.InvolutionClassDerived
 import CFSG.OddTranspositions.PartThree.EightEight.Fibres
@@ -10,9 +8,6 @@ import CFSG.OddTranspositions.PartThree.Nine.ThreeSplit
 import CFSG.OddTranspositions.PartFour.LineTransport
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.Timmesfeld.Bridge.Asc72Triangle
 public import CFSG.Timmesfeld.Moufang.Three
 public import CFSG.Timmesfeld.RankOne

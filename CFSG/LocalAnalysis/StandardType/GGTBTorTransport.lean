@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorDefs
 public import CFSG.LocalAnalysis.StandardType.GGF4AutWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBTypeALabel
 
 public section
 

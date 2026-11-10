@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitLBalance
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitLemma410
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitRankOneBranch
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitOddCoreReduction
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitOuterReduction
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitSkeleton
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups
@@ -14,7 +11,6 @@ public import CFSG.ClassicalInvolution.SmallCases.Sporadic.J3CheckInputs
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.Ly
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.LyCert
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.Pattern
 public import CFSG.GH74.Generic.Shapes
 public import CFSG.GH74.Statements
 public import CFSG.Goldschmidt.Statements

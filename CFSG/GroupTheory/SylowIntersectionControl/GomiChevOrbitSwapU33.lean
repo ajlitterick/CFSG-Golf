@@ -1,15 +1,11 @@
 module
 
 public import CFSG.GroupTheory.SylowIntersectionControl.GomiChevOrbitSwapDefs
-public import CFSG.Open.StatedDefs
 public import CFSG.Quasithin.Recognition.CertU33DcPG
 import CFSG.Mathlib.GroupTheory.Automorphism.FixOvergroupsIndexTwo
 import CFSG.LocalAnalysis.StandardType.ChevTwoMarking
 import CFSG.Quasithin.EmptyFaithful.SBc17Ent3
 import CFSG.Quasithin.Recognition.CertR2aBridges
-import CFSG.Quasithin.Recognition.CertU33AutBound
-import CFSG.Quasithin.Recognition.CertU33Phi
-import CFSG.Quasithin.Recognition.CertU33Psu
 import CFSG.GroupTheory.SylowIntersectionControl.GomiChevAtomTransport
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations

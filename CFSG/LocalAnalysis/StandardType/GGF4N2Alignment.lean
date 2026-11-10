@@ -2,15 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2MixedCharts
 public import CFSG.LocalAnalysis.StandardType.GGF4ReflPairFrameOrd
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
 import CFSG.LocalAnalysis.StandardType.GGF4CoxeterSystem
 import CFSG.LocalAnalysis.StandardType.GGF4OrigRep
 import CFSG.LocalAnalysis.StandardType.GGF4ReflLin
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGen
-import CFSG.LocalAnalysis.StandardType.GGRowKFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperRootPerm
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
-import CFSG.GroupTheory.SupCommute
 public import CFSG.LocalAnalysis.StandardType.GGF4FrameData
 
 public section

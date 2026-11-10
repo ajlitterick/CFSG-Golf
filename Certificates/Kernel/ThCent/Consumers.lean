@@ -3,8 +3,6 @@ module
 
 public import Certificates.Kernel.ThCent.ConsumersBase
 
-public import Certificates.Kernel.ThCent.Leaves
-public import Certificates.Kernel.ThCent.Pin
 public import CFSG.Certificates.Kernel.ThCent.PinSound
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSlp
 public import CFSG.Sporadic.Th.CertificateBase1

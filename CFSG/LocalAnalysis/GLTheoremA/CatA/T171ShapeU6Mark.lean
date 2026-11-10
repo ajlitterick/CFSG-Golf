@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I91T1
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172ALayerBase
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.ClassicalGroups.UnitaryFlag.StatedBridge
-public import CFSG.GroupTheory.CyclicSylowNormalOddComplement
 public import CFSG.ClassicalGroups.UnitaryFlag.PointSylow
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.ExcTrialityGe5
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.SporthSymp

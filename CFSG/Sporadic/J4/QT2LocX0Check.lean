@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Sporadic.J4.QT2LocX0Native
 public meta import CFSG.Sporadic.J4.QT2LocX0Native
-public import CFSG.Sporadic.J4.QT2LocX0CheckInputs
 public import Certificates.Certificate4027
 
 public section

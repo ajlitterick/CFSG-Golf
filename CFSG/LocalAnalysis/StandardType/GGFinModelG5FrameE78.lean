@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Defs
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5FrameCore
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Orbit
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5PlainFix

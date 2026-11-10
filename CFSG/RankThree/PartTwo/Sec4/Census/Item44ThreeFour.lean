@@ -4,19 +4,10 @@ public import CFSG.RankThree.PartTwo.Sec4.Census.Item44ThreeRep
 public import CFSG.RankThree.PartTwo.Sec4.Census.Item44ThreeSpInv
 public import CFSG.RankThree.PartTwo.Sec4.Census.Item44ThreeSpFix
 public import CFSG.LinearAlgebra.OddSolvableUnitary.CommutatorForm
-public import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.Walter.W67.CentralExt
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
-import CFSG.RankThree.SubgroupLists.SL2Perfect
-import Mathlib.GroupTheory.NoncommCoprod
-import Mathlib.LinearAlgebra.Matrix.BilinearForm
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.RankThree.PartTwo.Sec4.StatementsCensus
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_4
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.Defs
 
 public section
 

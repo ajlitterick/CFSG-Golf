@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Misc.Perm.J2C3A
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.KF148Sig.J2Data
 import Certificates.Kernel.Misc.Perm.HexCmd
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 meta import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.KF148Sig.J2Data

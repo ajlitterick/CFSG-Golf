@@ -11,7 +11,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Steps444
 public import CFSG.RankThree.PartTwo.Sec4.Census.Item44Basic
 public import CFSG.RankThree.PartTwo.Sec4.Census.CoverSLThree46
 public import CFSG.RankThree.PartTwo.KFacts.KS18OuterHeis
-public import CFSG.RankThree.PartTwo.Sec18.Tools
 public import CFSG.RankThree.PartTwo.Sec4.Item41Narrow
 public import CFSG.RankThree.PartTwo.Sec4.T444.DiagRankI22
 

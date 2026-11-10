@@ -1,25 +1,17 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLCover
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDE6Field
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDTwDFieldHolds
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDTwE6Field
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnit63R
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnitCopTableB
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnitFieldHolds
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5Final
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofFinal
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverOdd
-public import CFSG.LocalAnalysis.StandardType.GGNoTransvectionAutUnit
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinIrredRound
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinTwoTBMain
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinTwoTvMain
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLTvAMain
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63ActDesc
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Main
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitActMain
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdLabel
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvRes
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvSix
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvSixQ2Descent

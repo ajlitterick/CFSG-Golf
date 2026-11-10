@@ -6,7 +6,6 @@ public import Certificates.Data.Kernel.Spor.MulHQ
 public import Certificates.Data.GH74M12RankCheck
 meta import Certificates.Data.GH74M12RankCheck
 meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

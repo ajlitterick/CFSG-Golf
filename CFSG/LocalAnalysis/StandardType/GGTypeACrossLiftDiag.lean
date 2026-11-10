@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagCompat
-public import CFSG.LocalAnalysis.StandardType.GGTypeAEndNode
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-import TauCeti.LinearAlgebra.RootSystem.FiniteType.Irreducible
 import TauCeti.LinearAlgebra.RootSystem.FiniteType.TripleEdge
 
 public section

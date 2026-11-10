@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRTransfer
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenExcTwoFrame
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSLTransfer
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcCoverRows
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
 
 public section
 

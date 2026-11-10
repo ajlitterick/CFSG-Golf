@@ -11,7 +11,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34TwUU
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34TwBounds
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34TwProp41
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34TwProp42
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

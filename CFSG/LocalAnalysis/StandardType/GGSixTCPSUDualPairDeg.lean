@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUDualPair
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUAssembly
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotCatTypeDet
 
 public section
 

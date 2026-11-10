@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YHBridge
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YEEven
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YERank
 
 public section
 

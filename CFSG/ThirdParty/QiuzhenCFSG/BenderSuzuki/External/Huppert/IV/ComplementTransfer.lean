@@ -1,14 +1,7 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.PLengthLemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection8.theorem_8_1
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
-public import Mathlib.GroupTheory.Subgroup.Centralizer
-public import Mathlib.GroupTheory.Sylow
 import Mathlib.GroupTheory.NoncommCoprod
 
 namespace CFSG

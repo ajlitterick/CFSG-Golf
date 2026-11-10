@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourParts
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourExact
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinByType
 
 public section
 

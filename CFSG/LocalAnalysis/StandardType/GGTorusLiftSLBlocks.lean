@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylPlusLiftTorus
 public import CFSG.LieType.SteinbergBRBlockParabolic
 public import CFSG.RankThree.PartOne.KFCL.BlockSL
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
 public import CFSG.GroupTheory.PerfectResidualNodes
 
 public section

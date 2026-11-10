@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenCore
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenInfra
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTwo
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenUniqueMax
 

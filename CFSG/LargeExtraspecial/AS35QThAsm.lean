@@ -2,7 +2,6 @@ module
 
 public import CFSG.LargeExtraspecial.AS35QThCompl
 public import CFSG.LargeExtraspecial.AS35QThPhi
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Fischer.NoF25.Local
 public import CFSG.Goldschmidt.Statements
 public import CFSG.Goldschmidt.StatementsG4

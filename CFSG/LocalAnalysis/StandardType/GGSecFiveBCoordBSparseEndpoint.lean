@@ -5,21 +5,15 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
 public import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJLink
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJCore
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseCoords
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBFixLine
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteJoin
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrAxis
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrType
-import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 import CFSG.LocalAnalysis.StandardType.GGTBRowSignedFrameAux
 import CFSG.LocalAnalysis.StandardType.GGTypeANbrGate
 import CFSG.LocalAnalysis.StandardType.GGSharedInvolution
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
-import CFSG.LocalAnalysis.StandardType.GGPropFiveTwentyOneDefs
 import CFSG.Mathlib.GroupTheory.SymmetricNormalizer
 
 public section

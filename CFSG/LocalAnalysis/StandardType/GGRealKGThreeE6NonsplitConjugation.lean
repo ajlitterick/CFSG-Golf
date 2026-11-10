@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThreeE6NonsplitFrame
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenDefs
-public import CFSG.Assembly.Subnormal
 
 public section
 

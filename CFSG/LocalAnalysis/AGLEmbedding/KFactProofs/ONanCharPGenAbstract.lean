@@ -4,7 +4,6 @@ public import CFSG.LieType.Steinberg.Bruhat
 public import CFSG.LieType.Steinberg.CentralExt.Unipotent
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Statements
 public import CFSG.LocalAnalysis.AGLEmbedding.SporadicBeta
-public import CFSG.Assembly.LowTwoRankDefs
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper

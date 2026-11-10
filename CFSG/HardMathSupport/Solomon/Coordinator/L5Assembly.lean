@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.L5UniFix
-public import CFSG.HardMathSupport.Solomon.Coordinator.L5Count
 public import CFSG.RankThree.PartTwo.KFacts.AutPSL
 
 public section

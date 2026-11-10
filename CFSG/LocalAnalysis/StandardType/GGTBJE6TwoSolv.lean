@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6TwoBase
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallUnitary
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSU
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame.Order216
 
 public section
 

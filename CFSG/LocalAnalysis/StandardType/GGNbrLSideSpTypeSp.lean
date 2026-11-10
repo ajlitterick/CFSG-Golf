@@ -2,14 +2,10 @@ module
 
 public import CFSG.Blueprint.Catalog
 public import CFSG.Foundations.Basic
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.StandardType.GGNbrLSideKitComm
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GCenterQuot
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSp
-import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear
 import CFSG.ClassicalInvolution.Models.SymplecticPairs.RootSp2
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearSmall
 
 public section
 

@@ -1,14 +1,8 @@
 module
 
 public import CFSG.Blueprint.LieModelAPI
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotSetup
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotTorus
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotCatTypeDet
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitF4Label
 public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelLabels
 
 public section
 

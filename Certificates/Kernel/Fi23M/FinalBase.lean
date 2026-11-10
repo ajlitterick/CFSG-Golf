@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.Fi23M.ConjBase
 public import Certificates.Kernel.Fi23M.Action
-public import Certificates.Kernel.Fi23K.Bound
 
 public section
 

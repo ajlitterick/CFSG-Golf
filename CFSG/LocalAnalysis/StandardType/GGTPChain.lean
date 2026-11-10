@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6DepModelShapeDefs
-public import CFSG.LocalAnalysis.StandardType.GGE6DepModelShapeFin
 public import CFSG.LocalAnalysis.StandardType.GGE6DepModelShapeTab
 public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
-import CFSG.LocalAnalysis.StandardType.GGTPChainK
 import CFSG.LocalAnalysis.StandardType.GGTPChainClosureK
 
 public section

@@ -3,7 +3,6 @@ module
 public import CFSG.Foundations.Basic
 public import CFSG.Open.LocalVocabulary
 import CFSG.LocalAnalysis.SectionRank.SQT
-import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

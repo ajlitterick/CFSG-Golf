@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeDefs
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeEigen
-import CFSG.Open.StatedAPI
 import CFSG.HardMathSupport.Curtis.UnitaryLevi.IsotropicNotOrthogonal
 import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P4S55StepH3UAlg
-import CFSG.LinearAlgebra.LinearGroups.UnitaryFourOrder
 import CFSG.LocalAnalysis.ComponentClassification.BurgoyneProjSlice
 import CFSG.RankThree.SubgroupLists.SymplecticTransvections
 

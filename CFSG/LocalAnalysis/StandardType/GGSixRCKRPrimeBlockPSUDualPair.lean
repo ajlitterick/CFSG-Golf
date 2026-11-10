@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGStep
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeGeoFlagBase
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeGeoCard
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeSmall

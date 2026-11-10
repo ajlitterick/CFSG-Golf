@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MShDefs
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MTailRankTE6
 import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.ExcRankMain
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S172AGrp
-import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
 
 public section
 

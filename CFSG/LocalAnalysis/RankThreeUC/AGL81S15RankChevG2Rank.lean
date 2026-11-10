@@ -11,7 +11,6 @@ import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Hom
 import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
 import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 import CFSG.LargeExtraspecial.DWFldLinear
-import CFSG.Open.StatedAPI
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.Fitting.CharacteristicP
@@ -29,7 +28,6 @@ import CFSG.LargeExtraspecial.Types
 import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts
 import CFSG.RankThree.GroupTheory.ClassTwoThree
 import CFSG.RankThree.OrthogonalInvolutions.SuzukiTypes
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Utils
 import CFSG.Timmesfeld.Outcome
 
 public section

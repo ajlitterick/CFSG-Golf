@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.ThSchreier.PlaneSepData
-public import CFSG.Sporadic.Th.FormBase
 public meta import CFSG.Sporadic.ThSchreier.PlaneSepData
 public meta import CFSG.Sporadic.Th.FormBase
 

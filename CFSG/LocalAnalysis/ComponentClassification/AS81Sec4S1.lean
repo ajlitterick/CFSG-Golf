@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec4HeSylowIso
 public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec4Defs
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -1,9 +1,6 @@
 
 module
 
-public import CFSG.Quasithin.Recognition.RuRank3RuGraphDataBase
-public import CFSG.Quasithin.Recognition.RuRank3TitsClsBase
-public import CFSG.Sporadic.Schreier.TitsGraphCheck
 public meta import CFSG.Quasithin.Recognition.RuRank3RuGraphDataBase
 public meta import CFSG.Quasithin.Recognition.RuRank3TitsClsBase
 public meta import CFSG.Quasithin.Recognition.RuRank3TitsSyl

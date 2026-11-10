@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.PermCent.Sp6BTwin
-public import CFSG.Certificates.Kernel.PermCent.CVSound
 public import Certificates.Data.Kernel.PermCent.SplitC
 
 public section

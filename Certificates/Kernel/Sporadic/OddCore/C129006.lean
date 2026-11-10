@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.J3Cent
 public import Certificates.Kernel.Census.J3.Text
 public import Certificates.Data.Kernel.PkPow
-public import Certificates.Data.Kernel.Spor.Prim
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

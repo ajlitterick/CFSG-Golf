@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.Co1Block.TwoBCheckInputs
 public import CFSG.Sporadic.Co1Block.XFix
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBCData
-public import Certificates.Data.CFSGNative.PSL3Four.Basic
 public meta import CFSG.Sporadic.Co1Block.TwoBCheckInputs
 public meta import CFSG.Sporadic.Co1Block.TwoBData
 public meta import CFSG.Sporadic.Co1Block.TwoBCheckDefs

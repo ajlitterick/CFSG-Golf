@@ -1,13 +1,10 @@
 module
 
 public import Certificates.Kernel.Fi23P.Group
-public import Certificates.Kernel.Fi23M.Keys
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Common.Harness
 import Certificates.Kernel.Fi23R.Sound
 import Certificates.Kernel.Fi23P.Neg
-import Mathlib
-public import CFSG.Sporadic.Fi23.Class
 
 public section
 

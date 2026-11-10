@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrOrthRank
-public import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameOfMarking
 public import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameCenter
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourTBSmall
 

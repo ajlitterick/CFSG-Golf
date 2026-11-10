@@ -1,9 +1,6 @@
 module
 
-public import CFSG.RankThree.Co2.Classes
-public import CFSG.RankThree.Co2.Syl
 public import CFSG.RankThree.Co2.CensusCert
-public import CFSG.RankThree.Co2.CrMat
 
 public noncomputable section
 

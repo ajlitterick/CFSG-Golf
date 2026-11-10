@@ -2,13 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesTensor
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIII.Basic
-public import Mathlib.Algebra.Module.StablyFree.Basic
-public import Mathlib.GroupTheory.Nilpotent
-public import Mathlib.LinearAlgebra.Matrix.FiniteDimensional
-public import Mathlib.RingTheory.Coalgebra.IsFrobenius
-public import Mathlib.RingTheory.Etale.Weakly
-public import Mathlib.RingTheory.HopfAlgebra.Basic
-public import Mathlib.RingTheory.TotallySplit
 
 public noncomputable section
 

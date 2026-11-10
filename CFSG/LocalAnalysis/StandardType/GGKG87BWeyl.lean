@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGKG87BLiftFixed
 public import CFSG.LocalAnalysis.StandardType.GGKG87BRadDefs
 
 import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelQ8Kernel
-import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
 
 public section
 

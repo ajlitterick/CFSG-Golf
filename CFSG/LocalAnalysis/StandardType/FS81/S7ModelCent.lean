@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.S7Model
-import CFSG.LocalAnalysis.SeitzReduction.E6PilotNonsplit
-import CFSG.LocalAnalysis.SeitzReduction.E8PilotLeviDescent
-import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBFull
-import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcThreeE8Frame
 
 public section

@@ -3,9 +3,7 @@ module
 public import CFSG.RankThree.PartTwo.Census.Carrier.ReeF4Adjoint
 public import CFSG.Adapters.TauCetiExceptional.FrameworkClosure
 public import CFSG.Adapters.TauCetiExceptional.BigCellPoints
-public import CFSG.Blueprint.ChevalleyWeyl
 public import TauCeti.Algebra.Lie.F4.ShortRoot.Generation
-public import TauCeti.Algebra.Lie.F4.ShortRoot.PrimeField.PointsFunctor
 
 public noncomputable section
 

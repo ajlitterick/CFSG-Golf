@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import Mathlib.GroupTheory.Sylow
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3OmNumerics
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.LieType.Multipliers.ProductKernel

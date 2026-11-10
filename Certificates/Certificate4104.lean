@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.TitsCoverCheck
 import Certificates.Kernel.LocalQT.Cov.C4104A
 import Certificates.Kernel.LocalQT.Cov.C4104B
 import CFSG.Certificates.Kernel.Common.Harness
-import Certificates.Kernel.Misc.Tits.Text
 import CFSG.Certificates.Kernel.LocalQTCovTSound
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.Chevalley.RootCommutator
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -20,8 +17,6 @@ public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.Sporadic.Schreier.TitsOuter
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 
 public section
 

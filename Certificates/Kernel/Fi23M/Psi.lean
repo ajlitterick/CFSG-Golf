@@ -4,12 +4,8 @@ module
 public import Certificates.Kernel.Fi23M.PsiBase
 import all Certificates.Kernel.Fi23M.PsiBase
 
-public import Certificates.Kernel.Fi23M.Stab
 public import Certificates.Certificate9206
-public import CFSG.Sporadic.Fi23.SetupBase
 import Certificates.Kernel.Sporadic.Fi23Br.Rels
-import Mathlib
-public import Certificates.Certificate9206Base
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneSmallImage
 public import CFSG.LocalAnalysis.StandardType.GGNbrBalancePumpup
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneInputs
 
 public section
 

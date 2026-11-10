@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBShape
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBaseThm
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrowC6
 import CFSG.LocalAnalysis.StandardType.GGQTwoDTablePFinal
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthMember
 
 public section

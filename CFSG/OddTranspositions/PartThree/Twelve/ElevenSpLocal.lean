@@ -2,21 +2,16 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenSpConj
 public import CFSG.OddTranspositions.PartFour.LinePolar
-public import CFSG.OddTranspositions.O4CloseReduction
 import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveLocalIso
-import CFSG.OddTranspositions.PartThree.Twelve.SevenForm
 import CFSG.OddTranspositions.O4PairCommSet
 import CFSG.OddTranspositions.PartThree.Twelve.ElevenSpArith
 import CFSG.OddTranspositions.PartThree.Twelve.ElevenSpModelChart
-import CFSG.OddTranspositions.PartThree.Twelve.SevenClasses
 import CFSG.OddTranspositions.PartThree.Twelve.NineSp
-import CFSG.OddTranspositions.PartThree.Twelve.Ten
 import CFSG.OddTranspositions.PartThree.Twelve.TenMarked
 import CFSG.RankThree.PartOne.CTP.SeitzSpClosure
 import CFSG.RankThree.PartOne.KC.SymplecticSubfieldSemilinear
 import CFSG.ClassicalGroups.Alternating.I4SpInvolTwo
 import CFSG.ClassicalGroups.Orthogonal.CharTwoReflectGen
-import CFSG.ClassicalGroups.Orthogonal.Derived
 import CFSG.RankThree.PartOne.S11d.OddAlt
 import CFSG.OddTranspositions.SevenFourEight.SevenSix
 import CFSG.GroupTheory.InvolutionPow

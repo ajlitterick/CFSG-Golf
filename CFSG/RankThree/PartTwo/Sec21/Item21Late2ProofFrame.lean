@@ -2,9 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item21LateProof2119
 public import CFSG.RankThree.PartTwo.Sec6.Statements
-import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
-import CFSG.RankThree.PartTwo.Sec4.LThreePiDiag
-import CFSG.RankThree.PartTwo.Sec4.LThreePiSinger
 import CFSG.RankThree.PartTwo.KFacts.KS222SL3Tools
 import CFSG.RankThree.PartTwo.Sec21.Item21LateProofTypeTwo
 import CFSG.RankThree.PartTwo.Sec13.Item138NMod9
@@ -12,18 +9,12 @@ import CFSG.RankThree.PartTwo.Sec13.Item13Models
 import CFSG.RankThree.PartTwo.Sec19.Step1917EqProofJArith
 import CFSG.RankThree.PartTwo.Sec13.Item138ProofTools
 import CFSG.RankThree.PartTwo.Sec13.Item138ProofPGL
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
 import CFSG.RankThree.PartTwo.Sec6.Item612
 import CFSG.RankThree.PartTwo.Sec6.Item68
 import CFSG.RankThree.PartTwo.Sec13.Item13SetupAt
-import CFSG.RankThree.PartTwo.Sec13.Item13Basic
 import CFSG.RankThree.PartTwo.Sec21.Item222ProofCases
 import CFSG.RankThree.PartTwo.Sec21.Item21Early2ProofModels
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.FinCases
 public import CFSG.Certificates.Kernel.ThDemp.OrbCent
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.BaerSuzuki
 public import CFSG.GroupTheory.HallHigmanPiCore
@@ -33,7 +24,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.RankThree.Asc83Table.Automizer
@@ -43,7 +33,6 @@ public import CFSG.RankThree.PartTwo.Sec7.ThreeTranspositions
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageCompletion
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerPreimages

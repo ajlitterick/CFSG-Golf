@@ -4,7 +4,6 @@ public import Certificates.Data.CFSGNative.Ly.Orbit
 public import Certificates.Data.CFSGNative.Ly.Faith
 public import Certificates.Data.CFSGNative.Ly.Data
 public import Certificates.Data.CFSGNative.Fi23.Slp
-public import Certificates.Data.CFSGNative.Perm.Chain
 public import Certificates.Data.CFSGNative.HN.LevelChain
 
 public section

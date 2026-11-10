@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Census.Carrier.G2Three
 public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Adapters.TauCetiExceptional.Interface
 import CFSG.Certificates.Kernel.G2Three.Tables
-import Certificates.Data.Kernel.G2Three.Defs
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.LocalAnalysis.SectionRank.SubgroupRank
 

@@ -5,9 +5,6 @@ public import Certificates.Kernel.Sporadic.L2.XC1
 public import Certificates.Kernel.Sporadic.L2.XC2
 public import Certificates.Kernel.Sporadic.L2.Text
 public import Certificates.Kernel.Sporadic.OddCore.SuzMGCG
-public import Certificates.Kernel.Sporadic.OddCore.SuzTwCF
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UOuter
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs2
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5Act
 public import CFSG.LocalAnalysis.StandardType.GGTwE6TwoLocalToral
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport

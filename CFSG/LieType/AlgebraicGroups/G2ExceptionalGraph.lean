@@ -4,7 +4,6 @@ public import CFSG.LieType.AlgebraicGroups.G2ExceptionalComorphism
 public import CFSG.LieType.AlgebraicGroups.FrobeniusDiagramRealized
 public import CFSG.LieType.Chevalley.LangG2ClosureExceptional
 public import CFSG.LieType.Chevalley.LangG2Tangent
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

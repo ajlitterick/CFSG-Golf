@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.Adjoint.CertE6
-import Certificates.Certificate113
-import Certificates.Certificate114
-import Certificates.Certificate117
-import Certificates.Certificate118
 
 public section
 

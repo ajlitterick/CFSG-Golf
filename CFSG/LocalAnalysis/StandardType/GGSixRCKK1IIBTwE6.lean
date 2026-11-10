@@ -3,15 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBPair
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongTwE6Datum
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Rad
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotRoots
-public import CFSG.LieType.Steinberg.TwistedE6.Local
-public import CFSG.LieType.Steinberg.TwistedE6.Datum
-public import CFSG.LieType.Steinberg.TwistedE6.Generation
-public import CFSG.LieType.Steinberg.TwistedE6.Weyl
-public import CFSG.LieType.HighestRoot.Gen
-public import CFSG.LieType.HighestRoot.GenBasic
-public import CFSG.LieType.BorelTits.Basic
-public import CFSG.LieType.Chevalley.GraphFixedHighestRoot
 public import CFSG.GH74.Generic.BProg.B3.S3Sec29H
 public import CFSG.GH74.GLS.C3.Layer1.Th2Pump
 

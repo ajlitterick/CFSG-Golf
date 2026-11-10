@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPRowDataDefs
-public import CFSG.Open.StatedAPI
 
 public section
 

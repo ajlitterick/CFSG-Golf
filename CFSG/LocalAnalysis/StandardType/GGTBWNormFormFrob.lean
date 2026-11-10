@@ -2,13 +2,7 @@ module
 
 public import CFSG.LinearAlgebra.FrobeniusIsometryQuadratic
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormLinearFrob
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameCenter
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExc
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRest
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusForms
-public import CFSG.RankThree.Classical.SteinbergBJOrthogonalHighWitt
 public import CFSG.ClassicalGroups.Symplectic.StandardForm
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CReflSteps
 import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthSPerm
-import Mathlib.Tactic
 
 public section
 

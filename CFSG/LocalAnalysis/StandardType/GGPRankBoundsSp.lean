@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSpTwo
 public import CFSG.LocalAnalysis.StandardType.GGPRankBoundsBasic
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenSymplecticNormalForm
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherGeneration
 public import CFSG.RankThree.PartTwo.Sec4.Item413Classical
 import CFSG.HardMathSupport.RichardWeiss.Proving.WCLocalBridge
 public import CFSG.GroupTheory.HallHigmanPiCore

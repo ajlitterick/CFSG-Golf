@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6TwoOriginalOuterAction
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6TwoToralCoords
 public import CFSG.LocalAnalysis.StandardType.GGKGWeylReflOn
 public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenModel
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpAgree
-public import CFSG.LocalAnalysis.StandardType.GGHyperplaneMem
-public import CFSG.LieType.Steinberg.Minuscule.Valid
 
 public section
 

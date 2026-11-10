@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitaryCover
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreU
 public import CFSG.LieType.SeitzGeneration.UnitarySplit

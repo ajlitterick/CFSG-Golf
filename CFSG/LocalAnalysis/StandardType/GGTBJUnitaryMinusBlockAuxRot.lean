@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusBlockAuxStepD
-public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusBlockAuxStepC
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenGen
 public import CFSG.GroupTheory.IsComponentOfMap
 public import CFSG.Literature.GL52Transport

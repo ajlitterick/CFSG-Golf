@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerRest
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.Nilpotent
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.LieType.BorelTits.Basic
-import CFSG.LocalAnalysis.StandardType.GGLemmaThreeThirteenFourteen
 import CFSG.GroupTheory.Fitting.SelfCentralizingComponent
 
 public section

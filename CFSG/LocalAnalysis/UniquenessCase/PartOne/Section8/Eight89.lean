@@ -24,7 +24,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight89KCharProof
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight89G2Five
 public import CFSG.Certificates.Kernel.Spor.PK.Perm.Inv
 public import CFSG.Goldschmidt.Steps.G37Core
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.InndiagLink
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3FATArith
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3G515Core

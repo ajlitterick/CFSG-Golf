@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcFrame
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcRee
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcIdxRee
-public import CFSG.LocalAnalysis.StandardType.GGL45NtExcCentral
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcIsoNoLang
-public import CFSG.Blueprint.ChevalleyRoots
 
 public section
 

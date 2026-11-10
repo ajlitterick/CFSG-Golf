@@ -4,7 +4,6 @@ public import CFSG.Quasithin.H13.L32A76S2f
 public import CFSG.Quasithin.H13.L32A76S2Aut
 public import CFSG.Quasithin.Vol2.Ch1Chief
 public import CFSG.Quasithin.Background.F9Tilde
-public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Geometry
 public import CFSG.Quasithin.EmptyFaithful.Setting

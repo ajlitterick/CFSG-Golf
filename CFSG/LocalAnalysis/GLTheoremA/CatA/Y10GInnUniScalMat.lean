@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Open.StatedDefs
-public import Mathlib.LinearAlgebra.Matrix.Swap
-public import Mathlib.LinearAlgebra.Matrix.Permutation
-public import Mathlib.Data.Matrix.PEquiv
 
 public section
 

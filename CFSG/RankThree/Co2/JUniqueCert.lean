@@ -1,9 +1,6 @@
 module
 
 public import CFSG.RankThree.Co2.Syl
-public import Mathlib.Order.Basic
-public import Mathlib.Data.List.Basic
-public import Std.Data.HashMap
 public import CFSG.RankThree.Co2.JFusion
 public meta import CFSG.RankThree.Co2.Syl
 public meta import CFSG.RankThree.Co2.Rows

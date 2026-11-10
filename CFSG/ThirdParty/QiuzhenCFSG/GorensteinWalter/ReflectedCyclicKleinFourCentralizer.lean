@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralOddRotationCentralizer
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

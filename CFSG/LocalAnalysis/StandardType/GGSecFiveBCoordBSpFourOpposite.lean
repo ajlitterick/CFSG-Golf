@@ -2,14 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpEquiv
-public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.ShortRoot
 import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownComp
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotNeighbourStandard
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofSpFour
 import CFSG.ClassicalInvolution.Models.SymplecticPairs.TypeCShortRoot
-import CFSG.Adapters.SpecialLinearPerfect
 import CFSG.ClassicalGroups.Symplectic.Sp4PlaneGeneration
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrCompare
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofLeviSwap

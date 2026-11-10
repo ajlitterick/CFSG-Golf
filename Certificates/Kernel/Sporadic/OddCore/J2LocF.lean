@@ -6,7 +6,6 @@ public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue3
 meta import Certificates.Kernel.Sporadic.OddCore.J2Loc
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.SmallOddCore.ClassSimple
 
 public section

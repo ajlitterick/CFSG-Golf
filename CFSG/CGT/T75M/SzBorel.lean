@@ -1,7 +1,5 @@
 module
 
-public import CFSG.CGT.Timmesfeld75.BenderInputs4
-public import CFSG.CGT.Timmesfeld75.BenderInputsBasic
 public import CFSG.CGT.T75M.SzData
 
 public section

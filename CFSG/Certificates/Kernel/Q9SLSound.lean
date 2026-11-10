@@ -1,9 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Q9SL.Enc
-import CFSG.GH74.GLS.Stage4.Q9.ModelBaseInputs
-import CFSG.GH74.GLS.Stage4.Q9.ModelBase
-import CFSG.GH74.GLS.Stage4.Q9.TablesInputs
 
 public section
 

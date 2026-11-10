@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LemmaHTriD4
-public import CFSG.GH74.GLS.Stage4.HexModelD4
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionRich
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearSmall
 
 public section

@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Inner
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6NC
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2CoverLift
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ItemThree
-public import CFSG.LieType.Steinberg.TwistedE6.Clause0
-public import CFSG.Adapters.TauCetiExceptional.TwistedTransfer
 
 public section
 

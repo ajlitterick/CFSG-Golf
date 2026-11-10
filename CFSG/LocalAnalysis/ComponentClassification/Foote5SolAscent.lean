@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5SolType
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentralizer
 public import CFSG.LocalAnalysis.ComponentClassification.Sol76Lemma212Proof
 

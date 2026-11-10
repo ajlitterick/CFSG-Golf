@@ -6,10 +6,8 @@ public import Certificates.Kernel.LocalQT.TabA2.C4043S1
 public import Certificates.Kernel.LocalQT.TabA2.C4043S2
 public import Certificates.Kernel.LocalQT.TabA2.C4043S3
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19TabA2CheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import Std.Tactic.BVDecide.Normalize.Bool
 
 public section

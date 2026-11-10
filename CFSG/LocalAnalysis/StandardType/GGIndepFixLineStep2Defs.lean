@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeKFixLineDefs
 public import CFSG.LocalAnalysis.StandardType.GGIndepFixLineStep1
 
 public section

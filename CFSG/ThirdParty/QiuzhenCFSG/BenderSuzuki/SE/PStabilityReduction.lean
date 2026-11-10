@@ -4,7 +4,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.PStability
 import all CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.theorem_6_1
 import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ElementaryAbelianAction
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 
 namespace CFSG
 end CFSG

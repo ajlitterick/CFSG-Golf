@@ -5,8 +5,6 @@ public meta import Certificates.Data.TabCo1ThreeASuzInv
 public import Certificates.Data.Kernel.SuzInvK
 import Certificates.Kernel.SuzPump.PairFacts
 import CFSG.Certificates.Kernel.Misc.ArrEnumSound
-import CFSG.Certificates.Kernel.Misc.ArrEnumOps
-import CFSG.Certificates.Kernel.B3S3KSound
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Misc.ArrBind
 

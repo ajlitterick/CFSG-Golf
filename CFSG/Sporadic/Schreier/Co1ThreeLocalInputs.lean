@@ -5,7 +5,6 @@ public import CFSG.Sporadic.Co1
 public meta import Certificates.Data.CFSGNative.Co1Schreier.Base
 public meta import Certificates.Data.CFSGNative.Co1.Data
 public import CFSG.Sporadic.Co1Base
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

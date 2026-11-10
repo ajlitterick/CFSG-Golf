@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Cent
-public import CFSG.LocalAnalysis.StandardType.FS81.RowCent
 public import CFSG.GroupTheory.PCore.SubgroupCore
 
 public section

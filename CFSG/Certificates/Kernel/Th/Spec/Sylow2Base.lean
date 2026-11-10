@@ -5,8 +5,6 @@ public import CFSG.Certificates.Kernel.Th.Gen.Sylow2
 public import CFSG.Blueprint.NativeSporadic
 import CFSG.Certificates.Kernel.Th.Spec.SylowOrbitBase
 import CFSG.Certificates.Kernel.Th.Spec.FwdSlp
-import CFSG.Certificates.Kernel.Th.Spec.Big
-import CFSG.Certificates.Kernel.Th.Spec.DceMat
 import CFSG.Certificates.Kernel.Th.Max3S.BasicBase
 import CFSG.Certificates.Kernel.J4Hub.FlagSound
 public import CFSG.Certificates.Kernel.Common.LceS
@@ -16,12 +14,8 @@ public import CFSG.Certificates.Kernel.Th.S.OutS
 public import CFSG.Certificates.Kernel.Th.S.TcS
 import CFSG.Certificates.Kernel.Fam.Lin
 import CFSG.Certificates.Kernel.Th.Gen.Max3
-import CFSG.Open.Defs
 import CFSG.Sporadic.Th.Max3.AllConjBase
-import CFSG.Sporadic.Th.Max3.AllConjInputsBase
 import CFSG.Sporadic.Th.Max3.CoreBase
-import CFSG.Sporadic.Th.Max3.InvolutionsBase
-import CFSG.Sporadic.Th.Max3.QuotientBase
 import CFSG.Sporadic.Th.Max3.RelationsBase
 
 @[expose] public section

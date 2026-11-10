@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallRankDefs
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeNineDepL
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeNineDepK
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepLarge
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepMove
 
 public section
 

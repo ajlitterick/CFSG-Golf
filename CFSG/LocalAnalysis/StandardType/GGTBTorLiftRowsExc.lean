@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankE8LiftHolds
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6
 public import CFSG.LocalAnalysis.StandardType.GGKGForkE6PlusLift
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBExcWeyl

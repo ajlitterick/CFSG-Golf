@@ -10,7 +10,6 @@ import all Certificates.Data.Kernel.Census.Packed
 import all CFSG.Certificates.Kernel.Enum.Defs
 import all Init.Data.Nat.Fold
 import all Init.Data.Range.Basic
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.GeneralizedFitting
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

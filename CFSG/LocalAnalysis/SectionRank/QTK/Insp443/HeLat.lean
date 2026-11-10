@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.SectionRank.QTK.Insp443.HeRef
 public import CFSG.Quasithin.Vol2.KGFactC31HeChains
-public import CFSG.Quasithin.Vol2.KGFactC31HeSet
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.Quasithin.Vol2.KGFactC31A7

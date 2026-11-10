@@ -5,7 +5,6 @@ public import CFSG.RankThree.PartOne.S12.InputsBase
 import CFSG.RankThree.PartOne.S10.AmbientTheta
 import CFSG.RankThree.PartOne.KC.PlaneLifting
 import CFSG.RankThree.GroupTheory.SteinbergCEAschbacherGeneratedCores
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

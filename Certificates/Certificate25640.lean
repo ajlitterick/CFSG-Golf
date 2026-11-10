@@ -1,15 +1,7 @@
 module
 
-public import CFSG.Monster.B.Fischer.Fi22Graph
 public import CFSG.Sporadic.FischerOddCore.Fi22Ext
 public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizers
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-import Certificates.Certificate2067
-import Certificates.Certificate3037
-import Certificates.Certificate3039
-import Certificates.Certificate3147
-import Certificates.Certificate3154
-import Certificates.Kernel.Sporadic.Fi22.HypCBGlue
 import Certificates.Kernel.Sporadic.Fi22.HypWSound
 import CFSG.Monster.B.Fischer.Fi22Model
 import Certificates.Kernel.Sporadic.Fi22.C2068

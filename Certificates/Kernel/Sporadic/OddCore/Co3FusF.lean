@@ -3,11 +3,9 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.Co3FusE
 public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue3
-public import Certificates.Kernel.Sporadic.OddCore.Glue
 public import CFSG.Certificates.Kernel.Misc.PairCountSound
 public import CFSG.Certificates.Kernel.Spor.SiftRSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.RawSlSound
 public import CFSG.Sporadic.SmallOddCore.ClassSimple
 

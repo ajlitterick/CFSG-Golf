@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitMaximal
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitInputs
 import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aConjFix
 import CFSG.LocalAnalysis.ComponentClassification.FooteLitRankOneTools

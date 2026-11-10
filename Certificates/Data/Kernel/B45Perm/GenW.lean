@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.LocalQT.Syl
-public import Certificates.Data.Kernel.LocalQT.Word
 
 public section
 

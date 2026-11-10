@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC22K148IdT
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyGL3Graph
 public import CFSG.Milestones.ASVolI.B4Ext.GL4
-import CFSG.HardMathSupport.Meierfrankenfeld.GeneralFF.Bridge
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CGT.Timmesfeld75.Statements

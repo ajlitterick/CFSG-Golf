@@ -5,16 +5,9 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHeCertificate
 public import CFSG.Quasithin.Vol2.KGFactAutSylowM12
 public import CFSG.Quasithin.Vol2.KGFactAutSylowM22
 public import CFSG.Quasithin.Vol2.F134U33Native
-public import CFSG.Quasithin.Vol2.F134Basic
 public import CFSG.Quasithin.EmptyFaithful.S146zYFSJ2
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3TabM12
-public import CFSG.Sporadic.J2
-public import CFSG.Sporadic.He
-public import CFSG.Sporadic.Ru
-public import CFSG.Quasithin.Background.E2TwoProofSporGen
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocTransBase
 import all CFSG.Blueprint.NativeSporadic
 public import CFSG.CharacterTheory.Semidihedral.ElementStructure

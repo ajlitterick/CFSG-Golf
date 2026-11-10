@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
-public import CFSG.Open.GLADefs
-import CFSG.LocalAnalysis.GLTheoremA.Pump
 
 public section
 

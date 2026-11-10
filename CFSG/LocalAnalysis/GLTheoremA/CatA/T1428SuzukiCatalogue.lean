@@ -34,13 +34,10 @@ public import CFSG.Quasithin.Background.A3Components
 public import CFSG.Quasithin.Background.OrderingMax
 public import CFSG.Quasithin.SteinbergBSDihedralPair
 public import CFSG.Quasithin.Vol2.Ch1Local
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Defs
 
 public section

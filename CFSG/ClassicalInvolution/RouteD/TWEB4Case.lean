@@ -1,13 +1,11 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWEClose
-public import CFSG.ClassicalInvolution.RouteD.TWDConfig
 public import CFSG.ClassicalInvolution.RouteD.TWEB4Nodes
 public import CFSG.ClassicalInvolution.RouteD.TWEB4Grp
 public import CFSG.ClassicalInvolution.RouteD.TWEB4Bridge
 public import CFSG.ClassicalInvolution.RouteD.TWEB4Fix
 public import CFSG.ClassicalInvolution.RouteD.TWS7Grp
-public import CFSG.ClassicalInvolution.RouteD.TwinSmallCases
 
 public section
 

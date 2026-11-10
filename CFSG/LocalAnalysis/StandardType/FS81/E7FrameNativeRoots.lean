@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameNative
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameRoots
 public import CFSG.LocalAnalysis.SeitzReduction.EPilotToral
-public import CFSG.LieType.Chevalley.SimpleRootSubgroupStructure
-public import CFSG.LocalAnalysis.PreuniquenessRankFour.CriticalSymplectic
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TreeGen
 public import CFSG.Sporadic.Th.Max3.Core
 
 public noncomputable section

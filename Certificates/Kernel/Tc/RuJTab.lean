@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Ru.JOrb
 public import Certificates.Kernel.SporSch.PairJ3.GenClT
 public import Certificates.Kernel.SporSch.Ru.RowsGen
-public import CFSG.Sporadic.Schreier.RuCheckChainsInputs
 public meta import CFSG.Sporadic.Schreier.RuCheckChainsInputs
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 import CFSG.Certificates.Kernel.Common.Harness

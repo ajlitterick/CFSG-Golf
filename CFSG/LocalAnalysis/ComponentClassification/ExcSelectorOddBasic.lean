@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorOddInner
-public import CFSG.LieType.Chevalley.CoordinateFieldFixedOddComponents
 public import CFSG.LieType.Chevalley.GraphFixedOddComponents
-public import CFSG.LieType.Chevalley.GraphFixedSchreier
 public import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
 public import CFSG.LocalAnalysis.ComponentInitial.SolvableCoreComponents
-public import CFSG.Milestones.OO_odd_order_solvable
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.AlgebraicGroups.OddG2F4E8AllInvolutionComponents
 public import CFSG.LieType.Chevalley.OrthogonalFixedOrbitRankOne
 public import CFSG.LieType.Ree.SmallReeModelSchreier

@@ -1,14 +1,10 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.Open.GriessAllModelsStatement
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15ACoreCoverLinGen
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsLie
 import CFSG.LocalAnalysis.EvenBN.UnitaryFiveTwo.GomiU42Mult
-import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
-import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.Open.StatedAPI
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.Open.Defs
 import CFSG.Blueprint.LieModelAPI

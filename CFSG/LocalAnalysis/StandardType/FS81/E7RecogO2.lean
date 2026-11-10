@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.E7RecogPieces
 public import CFSG.LocalAnalysis.StandardType.FS81.E7CentPieces
 public import CFSG.LocalAnalysis.SeitzReduction.E7PilotQ2OverlapMain
-public import CFSG.LocalAnalysis.SeitzReduction.E7PilotQ2Neighbour
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommLinTransferS3
 public import CFSG.CGT.PushingUpLit.BHS6.SymLocalPerm
 public import CFSG.CGT.PushingUpLit.CGT6.EmbHolTop

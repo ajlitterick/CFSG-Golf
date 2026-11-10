@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.GMS.ASegAmalgamTheta
-public import CFSG.Monster.GMS.ASegTitsTri
 
 public section
 

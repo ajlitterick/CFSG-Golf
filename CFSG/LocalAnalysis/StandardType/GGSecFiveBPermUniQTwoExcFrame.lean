@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperRootRed
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniLFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySixOriginal
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLabelDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

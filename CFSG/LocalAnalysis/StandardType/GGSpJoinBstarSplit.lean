@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 public import CFSG.GroupTheory.ElemAbelianClosure
 

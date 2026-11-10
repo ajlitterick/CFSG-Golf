@@ -2,9 +2,6 @@ module
 
 public import CFSG.Quasithin.SteinbergCAStrictFixedSpaceSum
 public import CFSG.Quasithin.H13.NQCoreWholeModuleTools
-public import CFSG.LieType.Steinberg.Collection
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups
@@ -36,15 +33,9 @@ public import CFSG.Quasithin.Background.B1Basic
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.Background.BlueprintB2Bridge
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Basic
 public import CFSG.Quasithin.H13.J4Order
 public import CFSG.Quasithin.H13.J4OrderBase
-public import CFSG.Quasithin.H13.J4Words
 public import CFSG.Quasithin.H13.NQRigidSeed
 public import CFSG.Quasithin.H13.StatementsL1
 public import CFSG.Quasithin.SteinbergCDOddResidualTools
@@ -55,9 +46,6 @@ public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Schreier.M11
 public import CFSG.Sporadic.Schreier.M22
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.Walter.J1
 
 public section

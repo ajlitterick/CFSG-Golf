@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.DepASmall
 public import CFSG.LocalAnalysis.StandardType.GGDepAThreeDefs
 public import CFSG.LocalAnalysis.StandardType.GGDepASmallNat
 

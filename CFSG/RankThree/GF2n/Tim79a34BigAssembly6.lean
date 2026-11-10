@@ -2,15 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Tim79a34BigIdent
 public import CFSG.RankThree.GF2n.Tim79a34BigEndA
-public import CFSG.RankThree.GF2n.Tim79a34BigAssembly2
-public import CFSG.RankThree.GF2n.Tim79a34BigDelta
-public import CFSG.RankThree.GF2n.Tim79a34BigEpsGe
-public import CFSG.RankThree.GF2n.Tim79a34BigEpsLe
-public import CFSG.RankThree.GF2n.Tim79a34BigEpsCentralizer
-public import CFSG.RankThree.GF2n.Tim79a34BigEpsTwo
-public import CFSG.RankThree.GF2n.Tim79a34BigM12
-public import CFSG.RankThree.GF2n.Tim79a34BigData
-public import CFSG.RankThree.GF2n.Tim79a34BigA9
 
 public section
 

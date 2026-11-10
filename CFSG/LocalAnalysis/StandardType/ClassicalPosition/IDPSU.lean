@@ -1,10 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Universal.Unitary.Extras
-public import CFSG.LieType.BorelTits.UnitaryForm
-public import CFSG.Assembly.Defs
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSUDiag
 public import CFSG.LocalAnalysis.StandardType.UnitaryCenterScalar

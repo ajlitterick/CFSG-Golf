@@ -30,7 +30,6 @@ public import CFSG.Monster.B.TwoA.Sp8.Par1
 public import CFSG.Monster.B.TwoA.Unitary.LinThree
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.YGroups.Y322Central
 public import Certificates.Certificate10005
 public import Certificates.Certificate10006

@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.SporSch.Th.Cent
 public import Certificates.Kernel.SporSch.Th.Row2322
-public import CFSG.Sporadic.ThSchreier.UASpaceInputs
 meta import CFSG.Sporadic.ThSchreier.UASpaceInputs
 import CFSG.Certificates.Kernel.Common.Harness
 

@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_3FinRadList
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15FactsSL3
-public import CFSG.LieType.Simplicity.Classical
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_3FinRadList
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15FactsSL3
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_3FinRadL33Inputs
 public import Certificates.Certificate4056
-public import Certificates.Certificate4145
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_3FinRadical
@@ -28,13 +25,11 @@ public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public meta import CFSG.LocalAnalysis.SectionRank.TitsCover
 public meta import CFSG.Quasithin.Background.A3Components
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public meta import CFSG.Quasithin.Background.A3ComponentsAmbient
 public meta import CFSG.Quasithin.Background.A3Structure38Basic
 public import CFSG.Quasithin.Background.A3Structure38Basic
 public import CFSG.Quasithin.Background.A3Structure39Aut
 public meta import CFSG.Quasithin.Background.A3Structure39Aut
-public import CFSG.Sporadic.J4.Simple
 public meta import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public meta import CFSG.Sporadic.J4Base
@@ -43,8 +38,6 @@ public meta import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
 public meta import CFSG.Sporadic.Mathieu.M24
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section

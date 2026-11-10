@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalOrthIso
-public import Mathlib.LinearAlgebra.QuadraticForm.IsometryEquiv
-public import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
 
 public section
 

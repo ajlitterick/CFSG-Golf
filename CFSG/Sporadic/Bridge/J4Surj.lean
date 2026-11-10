@@ -1,19 +1,12 @@
 module
 
 public import CFSG.Sporadic.J4
-public import CFSG.Sporadic.Bridge.Common
-public import CFSG.Sporadic.Bridge.J4Data
 public import CFSG.Sporadic.Presentation.J4
 public meta import CFSG.Sporadic.Bridge.J4Data
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import CFSG.Sporadic.Bridge.J4SurjInputs
 public import Certificates.Certificate9212
-public import Certificates.Certificate3017
-public import Certificates.Certificate3084
-public import Certificates.Certificate9123
 public import Certificates.Certificate10095
 public import Certificates.Certificate9215
-public import Certificates.Certificate9357
 public meta import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import CFSG.Sporadic.Bridge.TwoGen

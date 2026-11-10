@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166F2Blocks
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166FamA8Two
 
 public section

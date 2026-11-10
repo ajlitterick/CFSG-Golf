@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.PartBHalfSpace
-public import Mathlib.GroupTheory.PGroup
 
 public section
 

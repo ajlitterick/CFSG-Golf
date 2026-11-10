@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanM12E9Data
 public meta import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanM12E9Data
 public meta import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanM12CoverData
 public meta import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanM12HeisData
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanM12CoverData
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanM12ThreeCentralZ2
 import CFSG.Foundations
 import CFSG.GroupTheory.Fitting.CharacteristicP
@@ -20,7 +19,6 @@ import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.RankThree.PartTwo.Sec15.HypR
 import CFSG.RankThree.PartTwo.Sec19.Item194Used

@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGFFP51
 public import CFSG.LocalAnalysis.StandardType.GGFFModelSL
 public import CFSG.LocalAnalysis.StandardType.GGResFFDefs
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.Adapters.StatedSLTwoField
-public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowFWreath
 public import CFSG.LocalAnalysis.StandardType.GGFFModelNDefs
 import CFSG.LocalAnalysis.StandardType.GGFFModelN
 import CFSG.LocalAnalysis.StandardType.GGFFModelSLN

@@ -3,26 +3,13 @@ module
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95UD
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk73ClU4Glue
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95Two
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.IVK.Proofs2.NatModZ
 public import CFSG.GH74.GLS.IVK.Statements.Sec11
 public import CFSG.GH74.GLS.LU.Local.A3Reduce2
 public import CFSG.GH74.GLS.Stage2.Final.Thm4.Core
 public import CFSG.GH74.GLS.Stage2.Local.Statements
 public import CFSG.GroupTheory.Fitting.CoprimeAutomorphisms
-public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGraphFieldArithmetic
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGraphFieldUnitaryData
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBUnitaryBFixed
-public import CFSG.LocalAnalysis.ComponentClassification.GSLitInputs
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
-public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinearSocle
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSLAllInvolutions
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSUFieldOddCore
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrCentralSylowMaximality
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreUnbalancingTriple
-public import CFSG.LocalAnalysis.ComponentInitial.ProjectiveEigenspaceComponent
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.StrongEmbedding
 public import CFSG.Walter.J1
 

@@ -1,9 +1,7 @@
 module
 
-public import CFSG.RankThree.PartOne.SEITZU49.Circ
 public import CFSG.RankThree.PartOne.SEITZU49.Stmt
 public import CFSG.RankThree.PartOne.SEITZU49.Norm
-public import CFSG.RankThree.PartOne.CTP.SeitzU5Span
 
 public section
 

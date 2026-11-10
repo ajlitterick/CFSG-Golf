@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsExcConj
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExc
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCentralizerTUStd
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviSp6
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6SubsystemBruhat
@@ -20,7 +17,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotToralCentralizer
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 
 public section

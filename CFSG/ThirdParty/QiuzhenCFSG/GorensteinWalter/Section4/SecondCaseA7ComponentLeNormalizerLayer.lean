@@ -3,9 +3,7 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7NormalizerSylowNoncyclic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PerfectSubgroupLeTwoResidual
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.QuasisimpleOddCenterNormalAbsorption
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.FUFittingContainment
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

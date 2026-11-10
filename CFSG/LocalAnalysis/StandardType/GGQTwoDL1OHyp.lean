@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOrthFrameCore
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 import CFSG.LocalAnalysis.StandardType.GGOrthFrameModelAux
 
 public section

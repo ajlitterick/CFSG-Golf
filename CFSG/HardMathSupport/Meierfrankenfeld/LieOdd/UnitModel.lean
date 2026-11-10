@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Census.Carrier.SpinBOdd
 public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 public import CFSG.LieType.Steinberg.CentralExt.SUThreeField
-public import CFSG.LieType.Steinberg.CentralExt.PSUMultiplier
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CenterHopf
 public import CFSG.Foundations

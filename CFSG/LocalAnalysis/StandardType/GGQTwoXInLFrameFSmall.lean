@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFDefs
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineL2Line
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiagLinear
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestInner
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeRestMult
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S16Norm
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC4V1Model
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S16RankA
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveShort

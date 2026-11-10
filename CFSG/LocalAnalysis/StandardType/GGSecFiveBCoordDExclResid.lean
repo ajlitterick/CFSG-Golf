@@ -2,20 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclWeyl
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeF4ThreeAux
-public import CFSG.LocalAnalysis.StandardType.GGTBRowCoordFrame
-public import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRankDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclic
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclReal
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclCensus
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineTwDTwo
-import CFSG.LocalAnalysis.StandardType.GGTBRowF4FrameAux
-import CFSG.LocalAnalysis.StandardType.GGTBRowFrame
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenElt
-import CFSG.LocalAnalysis.StandardType.GGF4AutWeylTableB
 
 public section
 

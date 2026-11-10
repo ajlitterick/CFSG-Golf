@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.SpinStabW0Checks
-public import CFSG.RankThree.GF2n.Parrott.SpinXChecks
 public import Mathlib.Data.List.Nodup
 public import Mathlib.Data.Nat.Basic
 public import CFSG.RankThree.GF2n.Parrott.SpinHbadTPack

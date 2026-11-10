@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQSplit
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRegionDefs
 public import CFSG.RankThree.PartOne.S11d.LieComponentLift
 

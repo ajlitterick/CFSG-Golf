@@ -3,11 +3,9 @@ module
 public import Certificates.Kernel.SmithEK.ChecksNL
 public import Certificates.Kernel.SmithEK.GlueNT
 public import Certificates.Kernel.Misc.FischerDelta
-public import CFSG.LargeExtraspecial.SMod20AutPlane
 public import CFSG.LargeExtraspecial.S14SMKTransFp
 public import CFSG.Certificates.Kernel.SmithL6KTSound
 import all CFSG.Fischer.F4
-public import CFSG.Sporadic.Th.Max3.Data
 
 public section
 

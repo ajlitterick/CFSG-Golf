@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Ru4120.T
 public import Certificates.Kernel.VecCert.Ru
-public import Certificates.Data.Kernel.Spor.Prim
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000

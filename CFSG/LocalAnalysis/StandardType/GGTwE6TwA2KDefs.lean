@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResTwA2Defs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 
 public section
 

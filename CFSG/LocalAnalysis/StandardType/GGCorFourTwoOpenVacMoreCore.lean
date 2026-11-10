@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMoreVac
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanks
 
 public section
 

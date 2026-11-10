@@ -42,12 +42,9 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.RelativePairInputs
 public import CFSG.LocalAnalysis.UniquenessCase.UC6C623c
 public import CFSG.LocalAnalysis.UniquenessCase.UC6N588C5
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.Background.G2Relaxed
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S152N11
 public import CFSG.Quasithin.H13.J4Core
 public import CFSG.Quasithin.Vol2.Ch12Sec8NonabHatTen

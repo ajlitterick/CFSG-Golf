@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreLabels
-public import CFSG.LocalAnalysis.StandardType.GGPGLTorality
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBTypeALabel
 
 public section
 

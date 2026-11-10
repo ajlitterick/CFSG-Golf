@@ -3,9 +3,7 @@ module
 
 public import CFSG.Sporadic.Schreier.RuCheckOrbLBBase
 
-public import CFSG.Sporadic.Schreier.RuOrbLDefs
 public meta import CFSG.Sporadic.Schreier.RuOrbLDefs
-public import CFSG.Sporadic.Schreier.RuCheckOrbLBInputs
 public import Certificates.Certificate2255
 
 public section

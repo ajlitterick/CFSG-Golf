@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwoOddFourGroups
-public import Mathlib.GroupTheory.SpecificGroups.Quaternion
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

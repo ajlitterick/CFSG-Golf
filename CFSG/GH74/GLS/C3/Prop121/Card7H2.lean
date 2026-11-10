@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GH74.GLS.C3.Prop121.Card7H1
 public meta import CFSG.GH74.GLS.C3.Prop121.Card7H1
 public meta import Mathlib.Algebra.Group.End
 public meta import Mathlib.GroupTheory.Perm.Sign
@@ -9,9 +8,7 @@ public meta import Mathlib.GroupTheory.Perm.Fin
 public meta import Mathlib.Logic.Equiv.Fin.Basic
 public meta import Mathlib.Logic.Equiv.Option
 public meta import Mathlib.Data.List.FinRange
-public import CFSG.GH74.GLS.C3.Prop121.Card7H2Inputs
 public meta import CFSG.GH74.GLS.C3.Prop121.Card7H2Inputs
-public import Certificates.Certificate5080
 public import Certificates.Certificate5081
 
 public section

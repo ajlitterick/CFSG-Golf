@@ -1,13 +1,10 @@
 module
 
-public import Certificates.Kernel.SporSch.Co2M.Local
 public import CFSG.Certificates.Kernel.SporSch.SpanKSound
-public import CFSG.Monster.B.Co2.PermArr
 public meta import CFSG.Sporadic.Co2Schreier.QCheckInputs
 meta import Certificates.Kernel.SporSch.HN.GenNTree
 import Certificates.Kernel.SporSch.Co2M.Six
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 import all Init.Data.Nat.Fold
 import all Init.Data.Range.Basic
 import all Init.Data.Array.Basic

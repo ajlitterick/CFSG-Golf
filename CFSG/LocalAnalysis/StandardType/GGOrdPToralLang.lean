@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcCore
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwTorus
 public import CFSG.HardMathSupport.Timmesfeld.Steinberg.PrimeCentralizer
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE7Model
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame
 public import CFSG.RankThree.Chevalley.SteinbergBTTrialitySplitPrimePlane
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
@@ -28,13 +26,7 @@ public import CFSG.LocalAnalysis.ComponentClassification.KProper
 public import CFSG.LocalAnalysis.ComponentClassification.LabeledBlockPermutation
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 
 public section
 

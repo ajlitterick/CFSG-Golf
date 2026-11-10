@@ -1,8 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi23FiveInputs
-import Certificates.Certificate9206
-import Certificates.Certificate9111
 import Certificates.Kernel.Fi23Five.Glue
 
 public section

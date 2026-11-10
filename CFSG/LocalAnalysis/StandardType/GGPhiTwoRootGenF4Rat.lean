@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoLSS92Input
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofF4ToralB4
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenLang
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalToral

@@ -1,21 +1,7 @@
 module
 
 public import CFSG.Milestones.ASVolI.A3
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismTransport
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherGraphFieldInvolution
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherFieldInvolution
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherOuterQuotients
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherConjAutInner
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
-public import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
-public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
-public import CFSG.LieType.Universal.Unitary.Comparison
-public import CFSG.LieType.BorelTits.UnitaryForm
-public import CFSG.Open.StatedDefs
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Basic
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.GraphAutomorphism
 
 public section
 

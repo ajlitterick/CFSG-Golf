@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 public import CFSG.LocalAnalysis.StandardType.StarFour.Shape
 public import CFSG.LocalAnalysis.StandardType.GGSL9TwoProj
 public import CFSG.LocalAnalysis.StandardType.UnitaryWeightGram
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 public import CFSG.LieType.SemisimpleCentralizers.HeldSLFacts
 
 public section

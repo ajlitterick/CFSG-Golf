@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.Member
-public import CFSG.Open.StatedDefs
-public import CFSG.LieType.Universal.Symplectic
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticModelOuterTwoPart
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.ClassicalInvolution.Asc77.Lemma310
@@ -26,13 +24,11 @@ public import CFSG.GH74.GLS.IVK.L2.SylowAux
 public import CFSG.GH74.GLS.IVK.L2.Torus
 public import CFSG.GH74.GLS.IVK.L2.TorusGeneral
 public import CFSG.GH74.GLS.IVK.Prod.Basic
-public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogSchreierCases
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSporadicCasesC
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1F3Props
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36SporMult
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverModels
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
 public import CFSG.LocalAnalysis.ComponentClassification.RestrictedStdFamilies
 public import CFSG.LocalAnalysis.ComponentClassification.TBLitCoreBasics
 public import CFSG.LocalAnalysis.ComponentClassification.TBLitStepFour
@@ -43,23 +39,19 @@ public import CFSG.LocalAnalysis.SectionRank.SectionAssemblyBase
 public import CFSG.Monster.B.TwoA.Base.FourNorm
 public import CFSG.Monster.SteinbergMY443SimpleIsomorphism
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B2Thompson
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.Sporadic.HeldB.Common
 public import CFSG.Sporadic.Schreier.LyFixedSet
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Walter.J1
 public import CFSG.YGroups.DCE.MaximalB
 public import CFSG.YGroups.Y443.Native.Parabolic2CheckB
 public import CFSG.YGroups.Y443.Native.Parabolic2CheckW
 public import Certificates.Kernel.J4Count.FixC
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import Certificates.Kernel.SporSch.J4S.NoCP
 
 public section

@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.SymmetricLocalSocleSelector
 public import CFSG.LocalAnalysis.ComponentClassification.SymmetricLocalLinearTwoSocle
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearTwoModelMatrix
 public import CFSG.LocalAnalysis.ComponentClassification.ClassicalModelStatedReverse
-public import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUSp6LagrangianStatements
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 public import CFSG.Blueprint.EvenStandardExact
 import CFSG.LocalAnalysis.ComponentClassification.StandardSubgroupAPI
 import CFSG.Blueprint.LieModelAPI
@@ -19,8 +16,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.NormalizedProductSylow
 public import CFSG.LocalAnalysis.ComponentClassification.TwoActionFixedInvolution
 public import CFSG.LocalAnalysis.ComponentClassification.TwoActionInvariantSylow
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

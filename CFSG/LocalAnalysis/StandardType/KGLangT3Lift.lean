@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.KGLangT3Defs
 public import CFSG.LocalAnalysis.StandardType.KGLangT3Bridge
 public import CFSG.LocalAnalysis.StandardType.KGLangT3Comm
 public import CFSG.LocalAnalysis.StandardType.GGTriD4LineWeylOuter

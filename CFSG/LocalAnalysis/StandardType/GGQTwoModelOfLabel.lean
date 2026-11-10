@@ -1,21 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAssemble
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveInputs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTypeA
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclic
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseNoBL5Aut
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL4546Defs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylNS
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

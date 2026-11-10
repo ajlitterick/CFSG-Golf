@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBPosition
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUAct
-public import CFSG.LieType.CentralExt.CoprimeLift
 
 public section
 

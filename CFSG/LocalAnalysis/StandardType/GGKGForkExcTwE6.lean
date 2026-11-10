@@ -1,15 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwE6Frame
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwCent
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwNorm
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwLat
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwLatSub
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwRootRefl
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwRootJ
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwRootC
-public import CFSG.LocalAnalysis.StandardType.GGKGForkLatticeElt
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFiveLang
 
 public section
 

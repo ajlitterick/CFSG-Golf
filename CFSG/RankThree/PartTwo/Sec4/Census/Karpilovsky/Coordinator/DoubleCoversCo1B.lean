@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoCo1.Co0Cls
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoCo1.Perf
 public import CFSG.Monster.B.Final.PinnedBOrder
 public import CFSG.Monster.SteinbergMBXGeneratedPerfectCover
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Generic.Certificates
@@ -20,9 +18,6 @@ public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.RankThree.PerfectCover.HopfFormula
 public import CFSG.Sporadic.Co1Block.TwoBCent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 
 public section

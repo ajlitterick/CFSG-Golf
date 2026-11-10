@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec14.Item1413Res2Proof1420
 public import CFSG.RankThree.PartTwo.Sec14.Item1413Res4Proof1420
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148QDefs
 import CFSG.RankThree.PartTwo.Sec12.Item128Bar

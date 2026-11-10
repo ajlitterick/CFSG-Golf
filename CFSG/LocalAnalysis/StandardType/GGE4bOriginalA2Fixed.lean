@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelBasic
 public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
 
 public section
 

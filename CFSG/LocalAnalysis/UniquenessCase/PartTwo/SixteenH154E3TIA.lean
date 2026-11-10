@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154Std
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154H5Rows
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenInfra
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTwo
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154LemmaMc
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanBlockCycSmall
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanCaseTwoCMSection

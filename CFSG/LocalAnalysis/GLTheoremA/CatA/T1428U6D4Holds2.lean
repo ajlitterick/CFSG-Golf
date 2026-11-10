@@ -4,11 +4,7 @@ public import CFSG.HardMathSupport.Dickson.Bal207.OrthInnerShape
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthSU38Image
 public import CFSG.HardMathSupport.Dickson.Bal207.SpShape
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.OrthBlocksComp
-public import CFSG.RankThree.PartOne.KC.OrthogonalInnerPlaneDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YHBridge
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityHolds
-public import CFSG.LocalAnalysis.StandardType.GGHypSixD4RankOmega
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinateRegular
 public import CFSG.HardMathSupport.Dickson.Bal207.Glue
 public import CFSG.HardMathSupport.Solomon.Coordinator.I14_20Alt
 public import CFSG.HardMathSupport.Solomon.Coordinator.I271HoldsBase
@@ -38,8 +34,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

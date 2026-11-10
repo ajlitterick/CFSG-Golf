@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWEB6Fix
-public import CFSG.ClassicalInvolution.RouteD.LocalTwinBWeakChain
-public import CFSG.ClassicalInvolution.RouteD.LocalTwinBWeakNodes
 
 public section
 

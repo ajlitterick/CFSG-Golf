@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJSpPlus
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpRankThree
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Bridge
 public import CFSG.LocalAnalysis.StandardType.GGResTwoCells
 
 public section

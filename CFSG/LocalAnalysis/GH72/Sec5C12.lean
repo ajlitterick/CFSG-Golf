@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GH72.Sec5CKbar
-public import CFSG.LocalAnalysis.GH72.A7Local
 public import CFSG.LocalAnalysis.GH72.PGammaL2Field
 public import CFSG.CGT.Foote81L6.Lemma1
 public import CFSG.ClassicalInvolution.NormalQuaternion

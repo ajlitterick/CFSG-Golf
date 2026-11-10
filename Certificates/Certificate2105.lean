@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.HNSchreier.RankCheckInputs
 public meta import CFSG.Sporadic.HNSchreier.InvolCheck
 public meta import CFSG.Sporadic.HNSchreier.RankData
 public meta import CFSG.Sporadic.HNSchreier.FAData

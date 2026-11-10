@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.ONSeven.G17390Defs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.ON7GenData
 public import CFSG.Sporadic.Schreier.ONCheckAuxInputs
 public import Certificates.Kernel.Sporadic.ON.Seven

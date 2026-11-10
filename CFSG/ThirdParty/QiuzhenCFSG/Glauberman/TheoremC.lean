@@ -1,14 +1,9 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremA
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma5_2
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma7_1
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma7_2
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Theorem5_1
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Theorem5_2
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Theorem7_1
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
-public import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.HNCenterFour
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.HNCenterSix
 public import CFSG.Sporadic.HNOddCore.Fusion
-public import CFSG.Sporadic.HNSchreier.Faithful
 
 public section
 

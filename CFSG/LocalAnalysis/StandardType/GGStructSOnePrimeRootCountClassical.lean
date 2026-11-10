@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootCountLevi
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSU
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSp
-public import CFSG.LieType.Universal.Unitary.Comparison
 
 public section
 

@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelCore
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBRes
 import CFSG.LocalAnalysis.StandardType.GGResNonsingF4Three
-import CFSG.LocalAnalysis.StandardType.GGTwE6BadWeyl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMemberNoPair
 import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneHolds
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBFourPermExcCoord

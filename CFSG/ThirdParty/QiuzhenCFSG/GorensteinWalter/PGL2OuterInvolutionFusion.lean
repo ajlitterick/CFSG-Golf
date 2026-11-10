@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralOuterInvolutionConjugacy
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DihedralSylowParameter
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2DihedralSylow
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DerivedSubgroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2InnerAction
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.Basic
 import Mathlib.Tactic

@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.Schreier.M22Data
 public meta import CFSG.Sporadic.Schreier.M22Data
 import Certificates.Kernel.Sporadic.M22Alt.Bridge
-import CFSG.Sporadic.Schreier.ClassSum
 public meta import CFSG.Sporadic.Schreier.ImagePairs
 public import CFSG.Sporadic.Schreier.ImagePairs
 

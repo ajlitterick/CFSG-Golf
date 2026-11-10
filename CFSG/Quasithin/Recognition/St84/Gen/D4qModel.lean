@@ -1,11 +1,9 @@
 module
 
-public import CFSG.Quasithin.EmptyFaithful.S1421F112
 public import CFSG.Quasithin.Vol2.Ch9Sec3FactsF112PfA
 import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsModD4
 import CFSG.Quasithin.Vol2.GoldschmidtF431D4qModel
 public import CFSG.Quasithin.H13.NQCatD4Irred
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6ResidualTriality
 public import CFSG.Quasithin.Vol2.Ch9Sec3FactsF112
 import CFSG.Quasithin.Background.F3
 import CFSG.Quasithin.Recognition.F4Moufang

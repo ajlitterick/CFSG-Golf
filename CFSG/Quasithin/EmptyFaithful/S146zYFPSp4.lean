@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.EmptyFaithful.S146zYCfg
 public import CFSG.Quasithin.EmptyFaithful.S146zYFPSp4Borel
 public import CFSG.Quasithin.Vol2.F134LieSp4
 

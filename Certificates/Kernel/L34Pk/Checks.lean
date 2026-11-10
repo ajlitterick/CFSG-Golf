@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.L34Pk.Data
 public import Certificates.Data.Kernel.L34Pk
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

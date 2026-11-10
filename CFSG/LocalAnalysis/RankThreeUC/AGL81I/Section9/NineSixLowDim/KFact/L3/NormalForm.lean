@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineSixLowDim.KFact.L3.Conj
-import Mathlib.FieldTheory.Finite.Basic
-import Mathlib.LinearAlgebra.Eigenspace.Basic
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic
-import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
 
 public section
 

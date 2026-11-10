@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBE6IndTwistWitness
-public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusSCFive
-public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusSCSeven
 public import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6FiveConjSix
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusTransferCore
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaCenter
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6RankOuter
 
 public noncomputable section
 

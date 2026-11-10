@@ -1,10 +1,8 @@
 module
 
 public import CFSG.Monster.B.Fischer.InducedChecks
-public import CFSG.Monster.B.TwoA.Census.NatCert
 public meta import CFSG.Monster.B.Fischer.InducedChecks
 public meta import CFSG.Monster.B.TwoA.Census.NatCert
-public import CFSG.Monster.B.Fischer.InducedOrbitChecksInputs
 public import Certificates.Certificate3035
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 public import CFSG.Certificates.Kernel.Spor.RawSound

@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBExcAdjoint
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylGenAdjoint
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenModel
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenLift
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMoreExc
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestGen
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestScalar
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExcEvenLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmall
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBWeylOn
 
 public section

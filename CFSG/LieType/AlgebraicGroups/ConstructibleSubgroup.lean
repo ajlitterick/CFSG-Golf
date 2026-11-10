@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.ConstructibleSubgroupGL
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

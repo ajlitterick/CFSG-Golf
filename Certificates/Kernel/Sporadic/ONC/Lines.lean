@@ -8,8 +8,6 @@ import Certificates.Kernel.Sporadic.ONC.T5
 import Certificates.Kernel.Sporadic.ONC.T6
 import Certificates.Kernel.Sporadic.ONC.HdS
 import Certificates.Kernel.Sporadic.ONC.Ln
-import Certificates.Kernel.Sporadic.ON.Gen
-import Mathlib.Tactic.IntervalCases
 
 public section
 

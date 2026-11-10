@@ -2,7 +2,6 @@
 module
 
 public import Certificates.Kernel.F4Planes.E6Rows
-public import Certificates.Kernel.F4Planes.Glue
 public import CFSG.Certificates.Kernel.F4Planes.E6RowSound
 import CFSG.Certificates.Kernel.Common.ForallTree
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Rank1

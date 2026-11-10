@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.KGC31M23.Defs
 public import CFSG.Certificates.Kernel.Common.Each
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Quasithin.Vol2.KGFactC31CosetCheck
 
 public section

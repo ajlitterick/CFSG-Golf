@@ -4,8 +4,6 @@ public import CFSG.RankThree.SubgroupLists.MitchellIsoDickson
 import CFSG.RankThree.SubgroupLists.MitchellIcosa
 import CFSG.RankThree.SubgroupLists.MitchellIcosaSecond
 import CFSG.RankThree.SubgroupLists.MitchellNondegenerate
-import CFSG.RankThree.SubgroupLists.SymplecticInvolutionPairs
-import Mathlib.Tactic.NoncommRing
 
 public section
 

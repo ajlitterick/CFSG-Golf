@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.SporSch.PairJ3Cnt
-public import Certificates.Data.Kernel.SporSch.PairCl
 
 public section
 

@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRootCentNotExcOrthYFusion
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentNotExcOrthYLevi
 public import CFSG.LocalAnalysis.StandardType.GGFusionOrthPlaneComp
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitOmBlk
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOm
 
 public section
 

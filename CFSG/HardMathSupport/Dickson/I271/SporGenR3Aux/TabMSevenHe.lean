@@ -12,7 +12,6 @@ public import Certificates.Certificate17490
 public import Certificates.Certificate17491
 public import Certificates.Certificate17492
 public import Certificates.Certificate17493
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Held
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Held
 import all TauCeti.GroupTheory.Presentation.GroupPresentation
 

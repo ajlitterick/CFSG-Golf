@@ -4,10 +4,8 @@ public import Certificates.Kernel.LocalComp.Sp6J.ClsX
 public import Certificates.Kernel.LocalComp.Sp6J.ClsC
 public import Certificates.Kernel.LocalComp.Sp6J.CntC
 public import Certificates.Kernel.Sporadic.Co3.Sp36
-public import Certificates.Data.Kernel.Child3
 public import Certificates.Data.Kernel.J2Cover
 public import Certificates.Data.Kernel.SporSch.MathieuBT
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

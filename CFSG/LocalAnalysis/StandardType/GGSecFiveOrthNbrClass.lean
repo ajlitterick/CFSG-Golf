@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthSetup
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthALRefl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthSpinor
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarBridge
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosPrimed
 
 public section
 

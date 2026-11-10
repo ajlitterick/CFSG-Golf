@@ -2,11 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec7ModC
 import all CFSG.Fischer.F4
-public import Mathlib.GroupTheory.GroupAction.MultipleTransitivity
-public import Mathlib.RingTheory.Etale.Weakly
-public import Mathlib.RingTheory.TotallySplit
-public import Mathlib.Tactic.Monotonicity.Lemmas
-public import Mathlib.Topology.Sheaves.Presheaf
 public import Std.Tactic.BVDecide.Normalize.Bool
 public import Std.Tactic.BVDecide.Normalize.Prop
 

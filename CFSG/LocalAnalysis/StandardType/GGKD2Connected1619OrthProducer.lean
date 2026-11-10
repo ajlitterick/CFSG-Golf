@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Contracts
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataReindexGroups
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointIsometryRegular
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalEndNode
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 
 public section
 

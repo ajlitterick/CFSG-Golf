@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166FamB
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166FamDFour2
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166LayerDataD4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166F4Model3
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166FamE7
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166FamE8
@@ -11,8 +9,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166TwE6B17
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166FamA5Four2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166FamE6Four3
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166FamA8Two3
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Iso
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Cases
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeBadPlaneToralFrames
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCoreAssembly
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreLang

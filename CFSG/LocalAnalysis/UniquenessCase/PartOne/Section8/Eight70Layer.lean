@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.Steps
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.LayerBasic
 import CFSG.Alternating.Multipliers.OddKernel
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -19,8 +18,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_4
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.Defs
 
 public section
 

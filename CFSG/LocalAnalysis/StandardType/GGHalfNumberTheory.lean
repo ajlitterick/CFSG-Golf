@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfBlockTorus
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 
 public section
 

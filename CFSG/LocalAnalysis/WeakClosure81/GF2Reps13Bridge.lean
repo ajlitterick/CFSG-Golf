@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
-public import CFSG.LocalAnalysis.RankThreeUC.BinaryRepresentations.FixedSpace
-public import CFSG.LocalAnalysis.RankThreeUC.BinaryRepresentations.HyperplaneOrbitBounds
-public import CFSG.RankThree.FFModules.BinaryTransport
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps13BridgeA
 public import CFSG.LocalAnalysis.RankThreeUC.ModuleHypotheses
 public import CFSG.LocalAnalysis.RankThreeUC.Notation

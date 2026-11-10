@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPDefs
 public import CFSG.LocalAnalysis.StandardType.GGE6DepBlockLift
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDet
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LocalAnalysis.SectionRank.BruhatLift

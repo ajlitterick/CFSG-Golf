@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwE6Tor
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwCent
 
 public section
 

@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNComp
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNCmp
 public import CFSG.LieType.SeitzGeneration.HyperCoverUnitary
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNPerm7
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNMono
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
 public import Certificates.Kernel.ThCent.Leaves
 
 public section

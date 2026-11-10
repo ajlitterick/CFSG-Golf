@@ -1,11 +1,9 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.Sporadic.OddCore.TBfsCmd
 public import CFSG.Sporadic.SuzOddCore.FamilyCheckInputs
 meta import CFSG.Sporadic.SuzOddCore.FamilyCheckInputs
-import CFSG.Sporadic.SuzOddCore.Arrays
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2AffineCoordinates
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2InnerAction
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.example_1_3
 
 namespace CFSG
 end CFSG

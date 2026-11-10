@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOKronCore
-public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.ClassicalGroups.Orthogonal.Matrix
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOEAlg

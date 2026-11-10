@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.Phan.PhanDn.FlagResidueJoin
 public import CFSG.ClassicalInvolution.Phan.PhanDn.FlagResidueA
 public import CFSG.ClassicalInvolution.Phan.PhanDn.FlagResidueD
 public import CFSG.ClassicalInvolution.Phan.Geometry.NondegQTwoTriangulable
-import CFSG.Monster.B.GSide.HomotopyLocal
 public import CFSG.ClassicalInvolution.Phan.Geometry.Cycles
 
 public section

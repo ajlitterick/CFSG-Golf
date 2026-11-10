@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Geometry.GeneralizedQuadrangles.Moufang.RootsAbelian
-public import CFSG.Quasithin.Recognition.Stroth.Weiss80Route
 public import CFSG.GH74.GLS.SP.Local.SPLFaith
 public import CFSG.GH74.GLS.SP.Local.SPLRestrict
 

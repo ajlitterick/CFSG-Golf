@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeFAt
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeF1PSp
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeBlockPSpSelfDual
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeBlockPSpSelfDualTwo

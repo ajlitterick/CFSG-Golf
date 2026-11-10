@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpFrameConfig
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 
 public section
 

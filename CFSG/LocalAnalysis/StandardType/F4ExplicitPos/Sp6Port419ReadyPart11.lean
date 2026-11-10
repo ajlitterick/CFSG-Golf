@@ -1,8 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Proving.AutSixBalance
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
-public import CFSG.LocalAnalysis.StandardType.GGSixTCKSpace
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart10
 
 @[expose] public section

@@ -1,9 +1,7 @@
 module
 
-public import Mathlib.Data.Matrix.Mul
 public import Mathlib.Data.Matrix.Basic
 public import Mathlib.Data.ZMod.Basic
-public import Mathlib.Data.Fin.VecNotation
 public import Mathlib.GroupTheory.Perm.Basic
 
 public section

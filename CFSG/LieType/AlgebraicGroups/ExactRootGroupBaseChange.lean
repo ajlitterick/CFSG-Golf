@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.ExactAffineRealization
-public import CFSG.LieType.AlgebraicGroups.PointSurjectivityExtension
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.U4InnU6b
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.U4InnOrd6
-import CFSG.Fischer.F4
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Permutation.FinPackWalk
 public import CFSG.LocalAnalysis.GLTheoremB.S7Decide
 
 public section

@@ -3,14 +3,8 @@ module
 public import CFSG.RankThree.PartTwo.Sec6.Item611FixProof
 public import CFSG.RankThree.PartTwo.Sec6.Item611FixProofE81Cover
 public import CFSG.RankThree.PartTwo.Sec6.Item611Res3ProofTools
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
-import CFSG.RankThree.PartTwo.Sec4.Item413Setup
-import CFSG.RankThree.PartTwo.Sec5.Tools
-import CFSG.RankThree.GroupTheory.ThetaQuotientTransport
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 import CFSG.RankThree.PartOne.S11c.CentralWitness
-import CFSG.RankThree.PartOne.CTP.SeitzToral
-import CFSG.LocalAnalysis.RankThreeEvenClassification.InvariantSylow
 
 public section
 

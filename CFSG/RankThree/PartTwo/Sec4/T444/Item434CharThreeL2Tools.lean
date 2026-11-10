@@ -2,14 +2,9 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434Kit
 public import CFSG.LocalAnalysis.AGLEmbedding.LinTwoFacts
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
 import CFSG.LocalAnalysis.AGLEmbedding.LinTwoAutCard
 import CFSG.RankThree.PartTwo.Sec4.T444.Item434AltPerm
-import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Cardinality
-import CFSG.LocalAnalysis.SectionRank.OddCover.PSL2
 import CFSG.RankThree.PartTwo.Sec5.Tools
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Center
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoPglFaithful
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Permutation.AlternatingAutomorphism

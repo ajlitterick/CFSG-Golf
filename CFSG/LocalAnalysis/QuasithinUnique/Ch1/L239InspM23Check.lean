@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239InspM23Data
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239InspM23Data
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239InspM22Block
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239InspM22Orb
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1PermCheck
 public meta import CFSG.Sporadic.Schreier.M23Gens
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239InspM23CheckInputs
 public import Certificates.Certificate4088
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups

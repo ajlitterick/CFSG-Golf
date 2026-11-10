@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTwoDKleinE
-public import Mathlib.Algebra.Polynomial.Degree.SmallDegree
 public import CFSG.LieType.Chevalley.SignKernelComponentBruhat
 public import CFSG.LieType.Universal.Spin.Chevalley.Odd
 public import CFSG.LieType.Universal.Spin.Twisted.Frame

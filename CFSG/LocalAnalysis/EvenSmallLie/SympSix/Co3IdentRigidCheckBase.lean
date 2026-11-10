@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentCube
 public meta import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentCube
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.Co3Schreier.Basic

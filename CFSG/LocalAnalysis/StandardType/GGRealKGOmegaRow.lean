@@ -1,18 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealKG
-public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLayerGen
 import CFSG.LocalAnalysis.StandardType.GGRealKGOmegaRoot
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExc
 import CFSG.LocalAnalysis.StandardType.GGKGForkOrthRow
 import CFSG.LocalAnalysis.StandardType.GGKGForkLatticeElt
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
 import CFSG.LocalAnalysis.StandardType.GGOutTwoCommInnerHolds
 import CFSG.LocalAnalysis.StandardType.GGKnownInputsNoU6Classical
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma1315b
 import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.P622K3ChevSimple
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Sec13g

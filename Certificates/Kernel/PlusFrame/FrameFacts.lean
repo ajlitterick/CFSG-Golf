@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.PlusFrame.PinChecks
 public import Certificates.Kernel.PlusFrame.Facts
 public import Certificates.Kernel.PlusFactors.Facts
-public import CFSG.Certificates.Kernel.BfsPinBaseSound
-public import CFSG.Certificates.Kernel.BfsPinSetSound
 import all Init.Data.Nat.Fold
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 

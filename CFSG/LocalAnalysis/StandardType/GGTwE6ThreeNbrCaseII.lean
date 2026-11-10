@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrCaseIIDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrTwE6RankDichotomy
 
 public section

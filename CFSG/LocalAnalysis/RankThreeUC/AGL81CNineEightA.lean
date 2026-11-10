@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineSevenA
-import CFSG.LocalAnalysis.AGLEmbedding.EscapeTwoCore
-import CFSG.LocalAnalysis.AGLEmbedding.CharCore
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic49U3.Case1Misc
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.AlmostSimpleBInnerPClosure
 

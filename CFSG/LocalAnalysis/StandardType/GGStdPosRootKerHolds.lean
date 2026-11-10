@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGStdPosRootKerGen
 public import CFSG.LocalAnalysis.StandardType.GGRankOneTags
 public import CFSG.LocalAnalysis.StandardType.GGKGPosTagWeyl
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRank
-public import CFSG.LieType.Steinberg.Minuscule.Form
 public import CFSG.Timmesfeld.ARS.CaseEFrameOf
 public import CFSG.Timmesfeld.ARS.CaseEConfig
 public import CFSG.Timmesfeld.ARS.LinearMain

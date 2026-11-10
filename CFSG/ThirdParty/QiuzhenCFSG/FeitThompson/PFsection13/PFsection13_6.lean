@@ -1,6 +1,5 @@
 module
 
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection3.PFsection3_9
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection13.PFsection13_5
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection8.PFsection8_5_a
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection8.PFsection8_15

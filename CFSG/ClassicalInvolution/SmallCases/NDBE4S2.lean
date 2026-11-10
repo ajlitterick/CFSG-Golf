@@ -1,10 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBE4S
-import CFSG.ClassicalInvolution.Asc77.WP3FrameVertex
-import CFSG.ClassicalInvolution.Asc77.WP3L52Main
 import CFSG.ClassicalInvolution.Asc77.AscT8Basic
-import CFSG.ClassicalInvolution.Asc77.WP3LayerHyp
 import CFSG.ClassicalInvolution.SmallCases.NDB5Sec
 import CFSG.ClassicalInvolution.Asc77.AscT8Setup
 import CFSG.ClassicalInvolution.Asc77.WP2Thm7c

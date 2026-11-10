@@ -2,12 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelBasic
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-import Mathlib.FieldTheory.Finiteness
-import Mathlib.LinearAlgebra.Dual.Lemmas
-import Mathlib.LinearAlgebra.Isomorphisms
-import Mathlib.LinearAlgebra.Quotient.Card
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Module
 
 public section
 

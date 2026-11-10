@@ -1,11 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429CoverLift
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiKind
-public import CFSG.RankThree.PartTwo.KFacts.AutKindsUnique
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.UnitaryThree
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalGroups.Symplectic.Simple
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.LangRootArithmetic
@@ -31,7 +26,6 @@ public import CFSG.RankThree.PartTwo.Sec4.RonanK429Rows
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432Rows
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

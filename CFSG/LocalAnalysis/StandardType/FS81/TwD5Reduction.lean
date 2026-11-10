@@ -1,9 +1,5 @@
 module
 
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Pieces
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Local
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Fus
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5OddCore
 public import CFSG.LocalAnalysis.StandardType.FS81.ThmENineFour
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoBridgeDefs

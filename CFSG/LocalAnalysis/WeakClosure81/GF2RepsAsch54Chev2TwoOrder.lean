@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch54SporOrder
-public import CFSG.Open.StatedDefs
-import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L238BridgeAlt57Sp4
 import CFSG.LocalAnalysis.WeakClosure81.W18ASNineCF
 public import CFSG.Adapters.TauCetiLieModels
@@ -41,31 +39,23 @@ public import CFSG.LocalAnalysis.GLTheoremA.S4.Assembly
 public import CFSG.LocalAnalysis.GLTheoremA.S4.Inputs
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Inputs
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.StandardType.ChevTwoLieModel
 public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly
 public import CFSG.Monster.GMS.S4CohB
 public import CFSG.Monster.GMS.S5Inputs
 public import CFSG.Quasithin.Background.A3Structure319
-public import CFSG.Quasithin.Background.A3Structure36Base
-public import CFSG.Quasithin.Background.A3Structure38Part3
 public import CFSG.Quasithin.Background.F9FiveStruct
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Geometry
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S1421Defs
 public import CFSG.Quasithin.EmptyFaithful.S142Statements
 public import CFSG.Quasithin.H13.A5S1326
@@ -81,7 +71,6 @@ public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.Timmesfeld.Orders.ClassicalLinearThree
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 import CFSG.CharacterTheory.TwoRankLowerBound.NormalComplementCharacterSpace
 import CFSG.LocalAnalysis.ComponentClassification.GSFMMaximal
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeSteps
@@ -98,12 +87,9 @@ import CFSG.Quasithin.Background.B3FourConj
 import CFSG.Quasithin.Background.B69Core
 import CFSG.Quasithin.Background.C4Statement
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E2TwoLieQuotLift
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Uniq
-import CFSG.Quasithin.Background.E4Solv
 import CFSG.Quasithin.Background.F9Sixteen
 import CFSG.Quasithin.Background.FFC7G
 import CFSG.Quasithin.Background.H16TwoM22

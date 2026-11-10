@@ -1,6 +1,5 @@
 module
 
-import CFSG.LocalAnalysis.StandardType.ZS.Basic
 import CFSG.LocalAnalysis.StandardType.ZS.OrthExtCorank
 public import CFSG.LocalAnalysis.StandardType.ZS.ImpExtSetting
 public import CFSG.LocalAnalysis.StandardType.ZS.OrthExtSix

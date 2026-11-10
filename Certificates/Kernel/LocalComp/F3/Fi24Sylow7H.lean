@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.LocalComp.F3.Fi24Sylow7H.P3
-import Certificates.Kernel.LocalQT.Cmd
 import Certificates.Kernel.LocalComp.PartsCmd
 import all CFSG.Blueprint.NativeSporadic
 public meta import Certificates.Data.Kernel.LocalComp.CubParts

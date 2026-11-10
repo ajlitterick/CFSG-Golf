@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P58b3BBlk
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51eOrthPc
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5OddLiePSL3F
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOOrth2
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5OddLieCore
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5OddLiePSL3X
 

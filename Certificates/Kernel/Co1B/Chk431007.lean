@@ -4,13 +4,9 @@ public import Certificates.Kernel.Co1B.Data431007
 public import Certificates.Kernel.Co1B.XB17591
 public import Certificates.Kernel.Co1B.Vecs
 public import Certificates.Kernel.Co1ThreeK.Letters
-public import Certificates.Data.Kernel.Co1BW
-public import Certificates.Data.Kernel.Co1BFix
-public import Certificates.Data.Kernel.Co1BBoundN
 public import Certificates.Data.Kernel.Co1BBoundP
 public import Certificates.Data.Kernel.SporSch.Co1Bfs
 public import Certificates.Data.Co1FiveRank
-public import CFSG.Certificates.Kernel.Lie.CT.Core
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

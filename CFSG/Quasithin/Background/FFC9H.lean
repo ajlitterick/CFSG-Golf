@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Background.FFC4Small1
 public import CFSG.Quasithin.Background.FFC4G2
 public import CFSG.Quasithin.Background.HSp4Model
 public import CFSG.Quasithin.Background.HSL

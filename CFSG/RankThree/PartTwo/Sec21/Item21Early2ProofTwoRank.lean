@@ -1,22 +1,14 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item21Early2ProofModels
-public import CFSG.LocalAnalysis.ComponentClassification.TBLitInputs
-public import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
-public import Certificates.Certificate8093
-public import Certificates.Certificate8095
 public import Certificates.Certificate6103
 public import Certificates.Certificate15042
 public import Certificates.Certificate15043
-public import Certificates.Certificate8023
 public import Certificates.Certificate2082
 public import Certificates.Certificate2168
 public import Certificates.Certificate2177
 public import Certificates.Certificate3084
-public import Certificates.Certificate3017
-public import Certificates.Certificate9123
 public import Certificates.Certificate9215
-public import Certificates.Certificate9250
 public import Certificates.Certificate9251
 public import Certificates.Certificate9252
 public import Certificates.Certificate9253
@@ -34,31 +26,17 @@ public import Certificates.Certificate9264
 public import Certificates.Certificate9265
 public import Certificates.Certificate9266
 public import Certificates.Certificate9267
-public import CFSG.RankThree.PartTwo.Census.DoubleCoverLift
-public import CFSG.RankThree.PartTwo.Sec13.Item135SimpleTwoRank
 public import CFSG.RankThree.PartTwo.Sec13.KS135TwoRankCover
 public import CFSG.RankThree.PartTwo.Sec4.Sporadic.Item414Local
 public import CFSG.RankThree.PartTwo.Sec4.Sporadic.Item415
 public import CFSG.RankThree.PartTwo.Sec21.Item21Early2ProofHe
 public import CFSG.RankThree.PartTwo.Sec21.Item21Early2ProofExc
-import CFSG.RankThree.PartTwo.Census.TransitiveLift
-import CFSG.RankThree.PartTwo.Sec4.Census.DoubleCoverRanks
-import CFSG.RankThree.PartTwo.Sec4.Census.DoubleCoverRanksL34
-import CFSG.RankThree.PartTwo.Sec4.Census.SporadicTwoCoverM23
 public import CFSG.RankThree.PartTwo.Sec4.Census.SporadicTwoCoverJ3
 import CFSG.RankThree.PartTwo.Sec4.Census.TwoCoverCensusResidual
-import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverList
-public import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverModels
 import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverRanks
 import CFSG.RankThree.PartTwo.Sec4.Census.Item44RankTwoX
-import CFSG.RankThree.PartTwo.Sec4.Census.RankOmegaF4
 import CFSG.RankThree.PartTwo.Sec17.Item17HeadProofPrime
-import CFSG.Sporadic.Recognition.HeMultiplierCert
-import CFSG.Sporadic.Recognition.J4Multiplier
-import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicJ4CoverCert
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.Sporadic.GLQ.J4TwoRank
-import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.GroupTheory.BaerSuzuki
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverModels
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiSLOn

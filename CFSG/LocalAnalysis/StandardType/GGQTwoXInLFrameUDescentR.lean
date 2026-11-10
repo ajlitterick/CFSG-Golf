@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniBlock
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1CentUniLift
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorUniLift
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
 import CFSG.LocalAnalysis.StandardType.GGTPNThmULabel
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniPSU2
 

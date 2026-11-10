@@ -1,13 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenDefs
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenGenB
-public import CFSG.RankThree.PartOne.KC.PrimaryDecomposition
-public import Mathlib.Algebra.Polynomial.SpecificDegree
-public import Mathlib.LinearAlgebra.Charpoly.Basic
-public import Mathlib.LinearAlgebra.Eigenspace.Charpoly
-public import Mathlib.FieldTheory.Finite.GaloisField
-public import TauCeti.FieldTheory.Finite.FrobeniusFixed
 
 public section
 

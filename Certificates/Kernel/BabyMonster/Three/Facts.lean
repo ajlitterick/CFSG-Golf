@@ -4,10 +4,7 @@ public import Certificates.Kernel.BabyMonster.Three.Glue
 public import Certificates.Kernel.BabyMonster.Three.Mem
 public import Certificates.Kernel.BabyMonster.Three.Regs
 public import Certificates.Kernel.BabyMonster.Seeds
-public import CFSG.Certificates.Kernel.BabyMonster.PairSound
 public import CFSG.Monster.B.Pinned.Primes.ThreeWords
-public import CFSG.Monster.B.Pinned.Primes.Data
-public import CFSG.Monster.B.Cbar.SimpleBase
 
 public section
 

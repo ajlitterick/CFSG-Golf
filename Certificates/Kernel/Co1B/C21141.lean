@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Co1Patterson.TwistNativeInputs
 public import Certificates.Kernel.Co1B.Twist
 public import Certificates.Kernel.Co1B.Weyl
 import Certificates.Kernel.J4Q.AllN

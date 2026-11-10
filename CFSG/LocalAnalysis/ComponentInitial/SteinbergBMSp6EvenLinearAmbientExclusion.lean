@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBMSp6EvenLinearLayerSelector
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBMSp6EvenLinearAmbientCore
-public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBMSp6EvenLinearAmbientTools
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBMSp6EvenLinearFieldFour
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBMSp6EvenLinearModule
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBMSp6EvenLinearLifts
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 
 public noncomputable section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TD3Frame
 public import CFSG.ClassicalInvolution.Q3.Q3TD3Orth
-public import CFSG.ClassicalInvolution.RouteD.GapsFrZSide
-public import CFSG.ClassicalInvolution.RouteD.GapsToralD
 
 public section
 

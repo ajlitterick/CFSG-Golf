@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Census.PackedConj
-public import Certificates.Data.Kernel.Census.PackedExc
 import CFSG.Certificates.Kernel.Common.JsonGzC
 import CFSG.Certificates.Kernel.Common.Repo
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdSubType
 import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdSubUni
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseA
 
 public section
 

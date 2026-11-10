@@ -1,9 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdNbr
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModel
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverTwo
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModel
 public import CFSG.LocalAnalysis.StandardType.GGWPlusPerm
 public import CFSG.LocalAnalysis.StandardType.GGWPlusUnitAutPerm
 public import CFSG.LocalAnalysis.StandardType.GGWPlusUnitAutModel

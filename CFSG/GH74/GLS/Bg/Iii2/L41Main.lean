@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Bg.Iii2.L41Basic
 public import CFSG.GH74.GLS.Bg.Iii2.L41Comp
-public import CFSG.GH74.GLS.Stage1.Thm2.Recip.Comp
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

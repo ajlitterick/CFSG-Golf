@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4MissedFrame
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2Cross
-import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOrb
-import CFSG.LocalAnalysis.StandardType.GGF4OrigRep
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
-import Mathlib.Tactic.Group
 
 public section
 

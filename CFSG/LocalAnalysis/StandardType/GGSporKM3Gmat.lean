@@ -2,14 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKF1F4At
 public import CFSG.HardMathSupport.Dickson.BMRows.CensusM3
-public import CFSG.HardMathSupport.Dickson.Sec6.Up34SporAux.BM2Census
 public import CFSG.HardMathSupport.MathTwE6.MonsterThreeBComponents
 import CFSG.LocalAnalysis.StandardType.GGSporKCommDataF
 import CFSG.LocalAnalysis.StandardType.GGSporKProdComp
 import CFSG.LocalAnalysis.StandardType.GGSporKCompConj
 import CFSG.LocalAnalysis.StandardType.GGSporKF1F4Conj
 import CFSG.Assembly.LargeEvenGLABridge
-import CFSG.Sporadic.Th.Certificate
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeALocalBase
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeL1Orb
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34SporAux.BMDownMGmat

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Open.StatedDefs
 public import CFSG.Adapters.StatedClassicalSmallOrders
 public import CFSG.Adapters.LieModelSimple
 public import CFSG.GroupTheory.PRankBound

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGA11CohDefs
 public import CFSG.LocalAnalysis.StandardType.GGA11CohWsub
 public import CFSG.LocalAnalysis.StandardType.GGA11CohOvlComp
 public import CFSG.LocalAnalysis.StandardType.GGA11CohCompEq

@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec10.KS1012GL34.Defs
 public import CFSG.RankThree.PartTwo.Sec10.Item1012Res3ProofGL
-public import CFSG.Fischer.F4
 import all CFSG.Fischer.F4
 
 public section

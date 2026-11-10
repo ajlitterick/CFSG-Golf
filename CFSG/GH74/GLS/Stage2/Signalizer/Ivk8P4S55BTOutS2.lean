@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P4S55BTOutS
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87L34Out
-public import CFSG.LocalAnalysis.ComponentInitial.LinearModelOuterTwoPart
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryModelOuterTwoPart
 public import CFSG.RankThree.SteinbergR3ESuzukiFieldSplitting
 public import CFSG.RankThree.PartOne.S11c.Sec66TModelsTw
 public import CFSG.GH74.GLS.IVK.Lifted.GroupAux

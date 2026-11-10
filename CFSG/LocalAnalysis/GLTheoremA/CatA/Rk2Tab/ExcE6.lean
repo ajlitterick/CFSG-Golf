@@ -1,31 +1,14 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2TwAModel
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Num
 public import CFSG.LocalAnalysis.SectionRank.PRankIndex
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.ExcF4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerExcTorus
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.Shared
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.E6InF4Glue
 public import CFSG.HardMathSupport.Lang.AnisoE6.F4InTwistedE6
-public import CFSG.LieType.SeitzGeneration.ExcTorusSylow
-public import CFSG.LieType.SeitzGeneration.ExcTorusRankE6
-public import CFSG.LieType.SeitzGeneration.ExcTorusE6Four
-public import CFSG.LieType.SeitzGeneration.ExcTorusE6Six
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSylow
-public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.UpperReduce
 public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.E6JBoundTw
 public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.E6TwSetup
-public import CFSG.LieType.SeitzGeneration.ExcTorusRankTw
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6NonsplitTorus
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwistedTorus
-public import CFSG.LieType.SeitzGeneration.ExcTorusTwE6Three
-public import CFSG.LieType.SeitzGeneration.ExcTorusTwE6Four
-public import CFSG.LieType.SeitzGeneration.ExcTorusTwE6Eight
-public import CFSG.LieType.SeitzGeneration.ExcTorusTwE6Ten
-public import CFSG.LieType.SeitzGeneration.ExcTorusTwE6Twelve
-public import CFSG.LieType.SeitzGeneration.ExcTorusTwE6Eighteen
-public import CFSG.HardMathSupport.Lang.TwE6Step3.SylowTorusSix
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Frames
 public import CFSG.HardMathSupport.Lang.AnisoE6.CatBridge
 public import CFSG.LieType.Chevalley.ParabolicRadicalsOpposite
@@ -36,13 +19,10 @@ public import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcBruhat
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.Background.F2Equiv
 public import CFSG.Quasithin.Background.G2Relaxed
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S152N11
 public import CFSG.Quasithin.Vol2.Ch12Sec8NonabHatTen
 public import CFSG.RankThree.PartOne.KE.SLnShape

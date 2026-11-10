@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.HeDc.Final
 public import CFSG.Quasithin.H13.LocDblOdd
 public import CFSG.Quasithin.H13.OverSylowDc
-import CFSG.Blueprint.NativeSporadic
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListMain
 public import Certificates.Data.DcRows
 

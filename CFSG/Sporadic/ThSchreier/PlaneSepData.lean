@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.ThSchreier.Transporter
 public meta import CFSG.Sporadic.ThSchreier.Text
-public import CFSG.Sporadic.ThSchreier.PlaneSepDataInputs
 public import Certificates.Certificate2319
-public import Certificates.Certificate1022
 
 public section
 

@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGResXDichotomy
 public import CFSG.LocalAnalysis.StandardType.GGPZNotSevenA8
 public import CFSG.LocalAnalysis.StandardType.GGPZNotSevenE6
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVPComp
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingSymmetric
 
 public section
 

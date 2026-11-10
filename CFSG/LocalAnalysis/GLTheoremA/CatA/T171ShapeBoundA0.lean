@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundA0Field
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundGenKernel
-import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
 import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundGenField
 

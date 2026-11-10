@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10S109A2Ctx
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10S109BGen
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10S109Dg
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10TK0
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10JWb
 
 public section
 

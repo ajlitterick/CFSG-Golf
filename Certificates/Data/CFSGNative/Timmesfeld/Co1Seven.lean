@@ -1,10 +1,6 @@
 module
 
-public import Certificates.Data.CFSGNative.Co1Schreier.Base
-public import Certificates.Data.CFSGNative.Co1.TwoB
 public import Certificates.Data.CFSGNative.Timmesfeld.Co1Five
-public import Std.Data.HashSet
-public import Std.Data.HashMap
 
 public section
 

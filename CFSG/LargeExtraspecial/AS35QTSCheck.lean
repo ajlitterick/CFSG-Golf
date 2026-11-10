@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Certificate21280
-public import Mathlib.Tactic.Basify
-public import Mathlib.Tactic.ENatToNat
 
 public section
 

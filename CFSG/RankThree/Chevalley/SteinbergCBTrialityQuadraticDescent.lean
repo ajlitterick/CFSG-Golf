@@ -3,9 +3,6 @@ module
 public import CFSG.RankThree.Chevalley.SteinbergCBTrialityOpposition
 public import CFSG.LieType.Chevalley.TrialityFullAmbientFixedGroup
 public import CFSG.LieType.Chevalley.DiagramCoordinateFixedStructure
-public import CFSG.LieType.AlgebraicGroups.AllCharacteristicLang
-public import CFSG.GroupTheory.LangNormOneDescent
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupDescent
 public import CFSG.GroupTheory.LocalCores.Fitting
 
 public noncomputable section

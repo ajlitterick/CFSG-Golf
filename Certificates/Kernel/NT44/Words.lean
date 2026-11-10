@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Kernel.NT44.Pack
 public import Certificates.Kernel.NT44.Pack2
-public import Certificates.Data.Kernel.Misc.ConjTab
 public import CFSG.LieType.Multipliers.L34Data
 public import CFSG.Certificates.SchreierChainData
 import CFSG.Certificates.Kernel.Common.Harness

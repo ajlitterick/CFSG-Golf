@@ -5,7 +5,6 @@ public import Certificates.Kernel.LocalComp.Child3Gen
 public import CFSG.Quasithin.Vol2.KGFactC31M24Data
 public meta import Certificates.Kernel.SporSch.Mathieu.M24Data
 public meta import CFSG.Quasithin.Vol2.KGFactC31M24Data
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Quasithin.Vol2.KGFactC31CosetCheck
 public meta import CFSG.Quasithin.Vol2.KGFactC31CosetCheck
 public import CFSG.Quasithin.Vol2.KGFactC31FrameCheck

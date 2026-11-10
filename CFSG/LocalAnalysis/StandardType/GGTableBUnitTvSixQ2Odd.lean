@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Two
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvCore
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLTv
 
 public section
 

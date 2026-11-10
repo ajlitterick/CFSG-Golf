@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Position
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 
 public section
 

@@ -1,21 +1,16 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTWZK
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsBoth
 public import CFSG.LocalAnalysis.StandardType.GGNbrTwE6RankDichotomy
 public import CFSG.LocalAnalysis.StandardType.GGTwE6LocalRankHolds
-public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclicHolds
 
 public import CFSG.LocalAnalysis.StandardType.GGDepED4Weyl
 public import CFSG.LocalAnalysis.StandardType.GGDepED4Automizer
 public import CFSG.LocalAnalysis.StandardType.GGE6DepModelKnownHolds
 
 public import CFSG.LocalAnalysis.StandardType.GGDepED4PrimeJ
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1E6Three
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TwE6Three
-public import CFSG.LocalAnalysis.StandardType.GGD4OddCentKLocal
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentJLevel
-public import CFSG.LocalAnalysis.StandardType.GGGammaHypsK
 
 public section
 

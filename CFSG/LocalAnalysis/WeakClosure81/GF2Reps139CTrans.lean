@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139Defs
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139CTensor
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139CMov
 public import CFSG.LocalAnalysis.WeakClosure81.SixFourteenN3MovedContradictionFinal
 

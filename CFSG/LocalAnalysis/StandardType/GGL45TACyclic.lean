@@ -1,11 +1,9 @@
 module
 
 public import Mathlib.GroupTheory.SpecificGroups.Cyclic.Basic
-public import Mathlib.GroupTheory.Index
 public import Mathlib.Algebra.Ring.GeomSum
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.Push
 
 public section
 

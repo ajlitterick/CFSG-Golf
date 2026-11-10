@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthRigid
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172V2
 public import CFSG.LocalAnalysis.GLTheoremA.S12.Compl123
-import CFSG.LocalAnalysis.GLTheoremA.ExcClubList
 
 public section
 

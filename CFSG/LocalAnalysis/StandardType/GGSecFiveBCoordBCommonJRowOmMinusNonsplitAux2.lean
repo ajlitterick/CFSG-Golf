@@ -2,16 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowOmMinusNonsplitAux1
 import CFSG.LocalAnalysis.StandardType.GGTBJOmAutomizerAux
-import CFSG.LocalAnalysis.StandardType.GGTBJOmBlock
-import CFSG.LocalAnalysis.StandardType.GGTBJOmComp
-import CFSG.LocalAnalysis.StandardType.GGTBJOmFrame
 import CFSG.LocalAnalysis.StandardType.GGTBJOmModelMap
 import CFSG.LocalAnalysis.StandardType.GGResExactTwoOrthFixOmega
-import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaRegular
-import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmSmallBlock
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJCoord
-import CFSG.LocalAnalysis.StandardType.GGHalfCentGroup
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthSmall
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentComp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentPrim

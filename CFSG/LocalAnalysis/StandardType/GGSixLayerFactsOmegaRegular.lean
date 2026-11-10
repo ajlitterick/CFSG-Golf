@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaSplit
 public import CFSG.RankThree.PartOne.KC.OrthogonalRegularCoverage
 public import CFSG.RankThree.PartOne.KC.OrthogonalSupportedScalarElementary
-public import CFSG.RankThree.PartOne.KC.OrthogonalSupportedScalarCentralizer
 public import CFSG.RankThree.PartOne.KC.OrthogonalBinaryDickson
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogQuadraticNormalForms
 public import CFSG.CharacterTheory.Burnside
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel

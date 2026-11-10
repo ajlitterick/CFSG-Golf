@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOrthFrameCore
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
 import CFSG.LocalAnalysis.StandardType.GGTBJOmFrame
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameCharSum
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameLift
 import CFSG.RankThree.PartOne.S11d.OrthCaseH
-import CFSG.RankThree.PartOne.S11d.OrthModels
 import CFSG.RankThree.PartOne.KC.OrthogonalD4WitnessEven
 import CFSG.RankThree.PartOne.KC.OrthogonalD4WitnessOdd
 import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldCentralizer

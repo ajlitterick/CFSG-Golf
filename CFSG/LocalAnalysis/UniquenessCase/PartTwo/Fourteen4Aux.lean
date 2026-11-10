@@ -6,7 +6,6 @@ public import CFSG.Assembly.OrderReductions.PrimePart
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.AlmostSimpleBInnerPClosure
 public import CFSG.Adapters.GeneralizedFitting
 public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIII.Basic
 
 public section

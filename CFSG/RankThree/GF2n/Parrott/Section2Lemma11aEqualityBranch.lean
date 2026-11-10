@@ -1,13 +1,9 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.HPrimeJ1
-public import CFSG.GroupTheory.ABGLocalTools.Basic
 import CFSG.RankThree.GF2n.Parrott.DerivedInterJEqBranch
 import CFSG.RankThree.GF2n.Parrott.MemJOfIndexTwo
-import CFSG.RankThree.GF2n.Parrott.WAction
 import CFSG.RankThree.GF2n.Parrott.QA45SylowFacts
-import CFSG.RankThree.GF2n.Parrott.OrderNineLift
-import Mathlib.GroupTheory.Transfer
 public import CFSG.Blueprint.SourceGeckCorrespondence
 public import CFSG.GF2Type.Aschbacher1976
 public import CFSG.GroupTheory.Fitting.MulEquiv

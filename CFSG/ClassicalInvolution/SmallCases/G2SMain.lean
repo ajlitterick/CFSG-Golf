@@ -3,10 +3,6 @@ module
 public import CFSG.ClassicalInvolution.SmallCases.G2STypeA
 public import CFSG.ClassicalInvolution.SmallCases.G2SMem
 public import CFSG.ClassicalInvolution.SmallCases.G2SRank3
-public import CFSG.ClassicalInvolution.SmallCases.NDBH4R1
-public import CFSG.ClassicalInvolution.ModelFacts.FundNoncentralBridge
-public import CFSG.ClassicalInvolution.RouteD.NoG2D4Shared
-public import CFSG.ClassicalInvolution.Balance.BootstrapFrameFactsTriality
 
 public section
 

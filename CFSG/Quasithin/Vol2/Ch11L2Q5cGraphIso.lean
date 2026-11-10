@@ -6,11 +6,7 @@ public import CFSG.Quasithin.Vol2.Ch5Sec1Thm5114Bridge
 public import CFSG.Quasithin.Vol2.GoldschmidtLem1227EqAbs
 public import CFSG.Quasithin.Vol2.GoldschmidtLem1227EqBasic
 public import CFSG.Quasithin.Vol2.Ch7Rows325
-public import CFSG.Quasithin.Vol2.Ch11L2Q5cUnitary
-public import CFSG.Quasithin.Vol2.KGNatG2Order
-public import CFSG.Quasithin.Vol2.Ch3Sec2Lem328Cases
 public import CFSG.Quasithin.Vol2.Ch3Sec2Lem328
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.WreathAct
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
@@ -28,21 +24,13 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7Iso
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122AProved
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4Quot
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.Open.SplitBNPair
 public import CFSG.Quasithin.Background.A3Structure319
-public import CFSG.Quasithin.Background.A3Structure36A
-public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
-public import CFSG.Quasithin.Background.A3Structure36Base
 public import CFSG.Quasithin.Background.B5FinOut
 public import CFSG.Quasithin.Background.F9FiveStruct
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.InternalSecFF
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S142Statements
 public import CFSG.Quasithin.H13.A5S1326
 public import CFSG.Quasithin.H13.A5Top
@@ -97,7 +85,6 @@ public import CFSG.Walter.PSL2Facts
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

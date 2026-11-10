@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherGraphFieldInvoluti
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
 public import CFSG.LocalAnalysis.ComponentInitial.LinearFieldFourRoots
 public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public noncomputable section
 

@@ -4,11 +4,8 @@ public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R8AXV
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R8AOdd
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.SectionThmD
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6dLayer
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDimToolE1
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7Not9
 public import CFSG.ClassicalInvolution.Q3.TL4Conn264O
-public import CFSG.ClassicalInvolution.Q3.TL4AECoverF
-public import CFSG.ClassicalInvolution.Q3.TL3T39
 public import CFSG.Sporadic.Th.Max3.Core
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23FusE6
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7Cover

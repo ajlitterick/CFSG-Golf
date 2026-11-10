@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.OutStructureOuterLiftLinear
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryDiagonalOuterOrder
 
 public section
 

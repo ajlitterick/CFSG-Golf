@@ -1,11 +1,6 @@
 module
 
-public import Mathlib
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-public import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
 public import CFSG.LocalAnalysis.ComponentClassification.SolvableKernelContainment
-public import CFSG.LocalAnalysis.ComponentClassification.InvolutionDiagonal
-public import CFSG.LocalAnalysis.ComponentClassification.PerfectCentralQuotient
 public import CFSG.LocalAnalysis.ComponentClassification.FixedNormalCentralizer
 
 public section

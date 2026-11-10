@@ -1,14 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLin
-public import CFSG.LocalAnalysis.StandardType.GGQTwoReflLin
 public import CFSG.LocalAnalysis.StandardType.GGQTwoInnerDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoQuandleSym
 public import CFSG.LocalAnalysis.StandardType.GGQTwoQuandleE
 public import CFSG.LocalAnalysis.StandardType.GGReflClosedIndep
 public import CFSG.LocalAnalysis.StandardType.GGForkClassify
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcReflCartan
-public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
 public import TauCeti.LinearAlgebra.RootSystem.FiniteType.TripleEdge
 public import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 public import TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeD.SimpleRoots

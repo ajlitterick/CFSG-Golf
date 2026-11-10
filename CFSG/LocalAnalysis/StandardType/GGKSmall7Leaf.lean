@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKSmall7D6
 public import CFSG.LocalAnalysis.StandardType.GGKSmall7E6
 public import CFSG.LocalAnalysis.StandardType.GGKSmall7Read
-public import CFSG.LocalAnalysis.StandardType.GGDepED4LE3Close
 public import CFSG.LocalAnalysis.StandardType.GGDepED4LE3Up7
-public import CFSG.LocalAnalysis.StandardType.GGE6D4TwoNodeLocalInput
 
 public section
 

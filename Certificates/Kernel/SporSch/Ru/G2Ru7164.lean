@@ -1,11 +1,8 @@
 module
 
-public import CFSG.Quasithin.Vol2.KGFactG2RuInputs
 public meta import CFSG.Quasithin.Vol2.KGFactG2RuInputs
 public import Certificates.Kernel.SporSch.Ru.G2Ru7164K
 public import CFSG.Certificates.Kernel.BfsPinAlg
-import CFSG.Monster.B.Co2.PermArr
-import Mathlib.Tactic.IntervalCases
 
 public section
 

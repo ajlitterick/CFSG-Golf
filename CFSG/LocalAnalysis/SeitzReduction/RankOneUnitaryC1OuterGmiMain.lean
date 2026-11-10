@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.SeitzReduction.RankOneUnitaryC1OuterGmiIdent
 public import CFSG.LocalAnalysis.SeitzReduction.RankOneUnitaryC1OuterGmiLocal
 public import CFSG.LocalAnalysis.SeitzReduction.RankOneUnitaryC1OuterGmgMain
-public import CFSG.LocalAnalysis.SeitzReduction.RankOneU3StarLocal
 public import CFSG.GH74.Uniqueness.Bender.UnitaryDiag
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LieType.Ree.LargeReeInvolutionTwoCentralizers
@@ -62,7 +61,6 @@ public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
 public import CFSG.Sporadic.ThSchreier.KernelAut
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 public import CFSG.YGroups.DCE.MaximalB
 public import CFSG.YGroups.Y443.Native.Parabolic2CheckB

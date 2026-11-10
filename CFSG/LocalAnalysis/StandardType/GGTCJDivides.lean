@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTCJDivDefs
-public import CFSG.LocalAnalysis.StandardType.GGTCJDivLin
 public import CFSG.LocalAnalysis.StandardType.GGTCJDivUni
 public import CFSG.LocalAnalysis.StandardType.GGTCJDivSymp
 public import CFSG.LocalAnalysis.StandardType.GGTCJDivOrth

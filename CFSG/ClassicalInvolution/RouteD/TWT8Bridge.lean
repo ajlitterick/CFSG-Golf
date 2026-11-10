@@ -1,10 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWT8Spin
-public import CFSG.ClassicalInvolution.RouteD.TWEB6Layer
-public import CFSG.ClassicalInvolution.RouteD.TwinYStatements
-public import CFSG.ClassicalInvolution.RouteD.TypeDLocal
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedDLocal
 
 public section
 

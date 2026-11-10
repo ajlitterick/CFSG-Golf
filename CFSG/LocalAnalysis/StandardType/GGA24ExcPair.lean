@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGA24Defs
-public import CFSG.LocalAnalysis.StandardType.GGKacExcB2
 public import CFSG.LocalAnalysis.StandardType.GGTPNExcKacDatum
 public import CFSG.LocalAnalysis.StandardType.GGTPNExcTwoSlices
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUClauses

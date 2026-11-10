@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticCav
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLIDASpComp
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherParabolicData
 
 public section
 

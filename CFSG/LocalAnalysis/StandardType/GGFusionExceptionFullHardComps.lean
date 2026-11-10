@@ -2,20 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFusionExceptionFull
 public import CFSG.LocalAnalysis.StandardType.GGFusionShadowComponents
-import CFSG.Assembly.GL83StatedBridge
 import CFSG.CharacterTheory.Burnside
 import CFSG.GH74.GLS.Stage4.Q9.Rigidity
 import CFSG.GroupTheory.OrderBelowSixtySolvable
-import CFSG.LocalAnalysis.SectionRank.OddCover.DegreeThree
-public import CFSG.LocalAnalysis.StandardType.GGHypThreeSixteenFlatMarking
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatRootCent
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummand
-public import CFSG.ClassicalGroups.Orthogonal.Simple
-public import CFSG.LieType.Universal.SpinOmega.Center
 public import CFSG.Timmesfeld.Orders.ClassicalOmega
-public import CFSG.GroupTheory.Fitting.CharacteristicP
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-public import CFSG.Assembly.Subnormal
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.Steinberg.Classical.SpinFrame
 public import CFSG.LieType.Steinberg.Families
@@ -26,7 +17,6 @@ public import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

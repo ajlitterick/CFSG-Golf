@@ -1,8 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.ToLin
-public import Mathlib.LinearAlgebra.Finsupp.VectorSpace
-public import Mathlib.Algebra.Group.Subgroup.Basic
 
 public noncomputable section
 

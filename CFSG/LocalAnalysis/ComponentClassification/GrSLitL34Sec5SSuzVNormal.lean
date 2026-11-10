@@ -3,15 +3,8 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5SWConfig
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5SKernelClosure
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5SSuzSylowFacts
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitInputs
 public import CFSG.GroupTheory.CoprimeActionSupport.NormalPSubgroupMeetsCenter
-public import CFSG.GroupTheory.QuasisimpleCommutingProductBound
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
-public import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerSemidihedralTwoComponents
 public import CFSG.GroupTheory.Frattini.PSubgroupLift
-public import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalTwistedE6Export
 public import CFSG.ClassicalInvolution.ModelFacts.FundPerfectMain
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover
@@ -93,7 +86,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
 import CFSG.LocalAnalysis.StandardType.GGStdPosE8Core
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSplit
 import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE8
 
 public section

@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatB.U48Dict
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.YS09U42E27
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.YS09U42T
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.A6.PSp43.ThreeC
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Sporadic.ThSchreier.AutCore
 
 public section

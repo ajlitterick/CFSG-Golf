@@ -5,7 +5,6 @@ public import CFSG.LieType.SeitzGeneration.ExcTorusRankF4
 public import CFSG.LieType.SeitzGeneration.ExcTorusRankE7
 public import CFSG.LieType.SeitzGeneration.ExcTorusF4
 public import CFSG.LieType.SeitzGeneration.ExcTorusE7Four
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LieType.Ree.SmallReeModelSchreier
 public import CFSG.LieType.SeitzGeneration.Lift
@@ -17,7 +16,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime

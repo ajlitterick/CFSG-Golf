@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.SupportedNativeLang
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 import CFSG.LieType.AlgebraicGroups.ToralCentralizerComponent
 
 public noncomputable section

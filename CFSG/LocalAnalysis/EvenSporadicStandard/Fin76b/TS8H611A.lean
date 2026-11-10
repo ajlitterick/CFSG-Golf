@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TS8H610E
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.Lemma611Def
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.Lemma611A
 public import CFSG.CharacterTheory.Semidihedral.InvolutionFusion
 public import CFSG.CharacterTheory.Semidihedral.Local.LocalNormalizerQuotients

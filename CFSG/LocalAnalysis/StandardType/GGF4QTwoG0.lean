@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FF81.Defs
 public import CFSG.LocalAnalysis.StandardType.GGF4QTwoReduction
 public import CFSG.LocalAnalysis.StandardType.FF81.Reduction
 public import CFSG.LocalAnalysis.StandardType.FF81.CurtisA2

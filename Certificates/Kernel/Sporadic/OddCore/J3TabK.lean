@@ -1,10 +1,8 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.J3HypSyl
-public import Certificates.Kernel.Misc.Perm.HexCmd
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.J3Inputs
 meta import Certificates.Data.CFSGNative.PSL3Four.Basic
-import CFSG.Certificates.Kernel.Common.Harness
 meta import CFSG.GroupTheory.Fitting.CharacteristicP
 meta import CFSG.GroupTheory.LocalCores.Components
 meta import CFSG.GroupTheory.LocalCores.Fitting

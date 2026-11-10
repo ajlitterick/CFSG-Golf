@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Pair.GenCertK
 public import Certificates.Kernel.SporSch.GenPerms
 public import Certificates.Kernel.SporSch.PairJ3.GenCert
-public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.Sporadic.Schreier.PairHSCertInputs
 meta import CFSG.Sporadic.Schreier.PairHSCertInputs
 import CFSG.Certificates.Kernel.Common.Harness

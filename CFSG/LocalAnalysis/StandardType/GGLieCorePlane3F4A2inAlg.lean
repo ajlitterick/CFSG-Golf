@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGFamLabelAssembly
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RationalA2Part2
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.NativePinFinalPart2
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.JointShapesPart2
-import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.F4LowRankShapes
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleSplit
-import CFSG.Open.StatedAPI
 public import CFSG.LocalAnalysis.StandardType.GGFamAssembly
 
 public section

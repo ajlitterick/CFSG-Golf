@@ -1,31 +1,17 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDCells
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMStabDefs
-public import CFSG.LocalAnalysis.StandardType.GGOrthFrameCore
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixDispY
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixX
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDSelModuleOfB2
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixXTrans
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBShapeQuot
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBaseN
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBaseThm
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDFarSix
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDFarSixChart
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
-import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthBaseLift
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMSel
-import CFSG.LocalAnalysis.StandardType.GGQTwoDRMLin
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixDel
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixStd
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.StandardType.GGQTwoDNbr6Raw
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMFiveSix
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorHolds
 import CFSG.LocalAnalysis.StandardType.GGQTwoDNbr6TwE6
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDSelBases
 
 public section

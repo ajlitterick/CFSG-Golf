@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeFullCentre1585RowTableAHolds
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1625Pieces
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwoDHighCharElem
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialOuterQ2TwoD
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart14
@@ -9,10 +8,7 @@ public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632WeylDatum
 public import CFSG.LocalAnalysis.StandardType.GGFamD4IndexAux
 public import CFSG.LocalAnalysis.StandardType.GGK0LQRecA
 public import CFSG.LocalAnalysis.StandardType.GGK0LQRecD
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 public import CFSG.LocalAnalysis.StandardType.GGK0MarkedComponents
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreKac
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFivePairRigid
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialQ3T
 

@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Data.CFSGNative.PSL3Four.Certificate
 public meta import Certificates.Data.CFSGNative.PSL3Four.Certificate
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19TabA2CheckInputs
 public import Certificates.Certificate4043
 
 public section

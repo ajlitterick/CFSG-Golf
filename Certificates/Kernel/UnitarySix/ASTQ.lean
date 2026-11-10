@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.UnitarySix.ChainArrs
 meta import Certificates.Kernel.UnitarySix.ChainArrs
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

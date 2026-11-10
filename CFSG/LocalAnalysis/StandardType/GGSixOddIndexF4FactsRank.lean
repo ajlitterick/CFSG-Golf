@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4Facts
 public import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4Fixed
 public import CFSG.RankThree.PartOne.K128.ReeShape
 public import CFSG.RankThree.PartOne.BRANCH.RankRee
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Chevalley.C2E6SubsystemBruhat
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LieType.Ree.SmallReeModelSchreier

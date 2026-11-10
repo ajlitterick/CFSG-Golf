@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMOmegaFourMinus
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMOmegaFourPlus
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagOmegaQuasisimple
 public import CFSG.LocalAnalysis.StandardType.GGHalfCentGroup
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogQuadraticNormalForms
 
 public section
 

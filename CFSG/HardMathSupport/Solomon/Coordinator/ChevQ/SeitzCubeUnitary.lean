@@ -1,12 +1,7 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzCubeInner
-public import CFSG.LieType.SeitzGeneration.UnitaryNonabNonPth
-public import CFSG.LieType.SeitzGeneration.UnitaryNonCube
-public import CFSG.LieType.SeitzGeneration.UnitaryONExt
-public import CFSG.LieType.SeitzGeneration.UnitaryNonabArith
 public import CFSG.LieType.SeitzGeneration.UnitaryNonabPlane
-public import CFSG.LieType.SeitzGeneration.UnitaryHeisTensorPair
 public import CFSG.LieType.SeitzGeneration.ExcHigh.Leaves
 
 public section

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGTDAutomizer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalOddPSubgroupSymmetricFour
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveNotLeSymThreePerm
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 
 public section
 

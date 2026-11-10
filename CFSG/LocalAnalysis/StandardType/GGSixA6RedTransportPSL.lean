@@ -1,14 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedLiftComponent
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedPSLRankOne
-public import CFSG.LocalAnalysis.StandardType.GGLinearFusionCyclic
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompBasic
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsSL
 public import CFSG.LocalAnalysis.StandardType.GGE6DepBlockLiftAux
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoDefs
 public import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
 
 public section

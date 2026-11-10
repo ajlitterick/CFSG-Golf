@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlus
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Descent
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeUSixThreeAux
-import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneCoord
 
 public section
 

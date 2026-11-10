@@ -5,11 +5,6 @@ public import CFSG.LieType.Steinberg.CentralExt.PSLSmall
 public import CFSG.LieType.Steinberg.CentralExt.SuzukiMultiplier
 public import CFSG.LieType.Multipliers.Sz8
 public import CFSG.LieType.Simplicity.Classical
-public import CFSG.LieType.Simplicity.Suzuki
-public import CFSG.RankThree.PerfectCover.HopfFormula
-public import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
-public import CFSG.Adapters.LinearSmallCatalog
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
@@ -23,14 +18,9 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

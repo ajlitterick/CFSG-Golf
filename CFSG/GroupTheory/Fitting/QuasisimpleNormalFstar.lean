@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GroupTheory.Fitting.LayerTopBot
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81U4FFDefs
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.General
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X5bGroup
 public import CFSG.Assembly.RankThreeEvenDefs

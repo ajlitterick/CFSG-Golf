@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.FieldTheory.Finite.GaloisField
-public import Mathlib.Algebra.Algebra.ZMod
 
 public section
 

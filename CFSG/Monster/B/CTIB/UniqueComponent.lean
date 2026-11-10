@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.B.CTIB.FourClasses
 public import CFSG.Monster.B.CTIB.Component
-public import CFSG.Monster.B.E6.StandardSimple
 public import CFSG.Monster.B.TwoA.Amalgam.DerivedCoverMain
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Chevalley.C2E6D4NaturalOrthogonal
@@ -29,7 +28,6 @@ public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Monster.B.E6.StdF4Root
 public import CFSG.Monster.B.TwoA.Amalgam.StdIso
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

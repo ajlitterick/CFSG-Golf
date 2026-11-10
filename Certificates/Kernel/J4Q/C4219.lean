@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.J4Q.OrbBase
-public import Certificates.Kernel.J4Q.Mat
 public import Certificates.Kernel.J4Q.AllN
 public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Data.J4Seven.Native

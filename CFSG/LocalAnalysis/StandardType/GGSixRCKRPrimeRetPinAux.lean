@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetIota
-public import CFSG.LieType.Chevalley.RootCommutator
 
 public section
 

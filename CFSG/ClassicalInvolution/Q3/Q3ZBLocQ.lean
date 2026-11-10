@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3ZBLoc
 public import CFSG.ClassicalInvolution.Q3.Q3ZBModelQ
-public import CFSG.ClassicalInvolution.Q3.WeakBalance
 
 public section
 

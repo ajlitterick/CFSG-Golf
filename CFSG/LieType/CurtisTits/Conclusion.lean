@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LieType.Steinberg.Presentation
-public import CFSG.LieType.CurtisTits.Amalgam
 public import CFSG.LieType.CurtisTits.AmalgamPresentation
 public import CFSG.Blueprint.Catalog
-public import CFSG.Open.StatedAPI
 
 public section
 

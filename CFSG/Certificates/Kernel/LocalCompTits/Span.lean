@@ -1,9 +1,7 @@
 module
 
 public import Certificates.Data.Kernel.LocalComp.TitsChain
-public import Certificates.Data.CFSGNative.SectionRank.TitsChain
 import CFSG.Certificates.Kernel.Spor.TBfsSound
-import CFSG.Certificates.Kernel.Common.Loop
 import Init.Data.Range.Lemmas
 import CFSG.Certificates.Kernel.Spor.RawSound
 

@@ -4,11 +4,7 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.BNGenerationO
 import CFSG.LocalAnalysis.UniquenessCase.UC22K108BNConj
 public import CFSG.Open.SplitBNPair
 public import CFSG.Blueprint.Catalog
-import TauCeti.Algebra.Group.Subgroup.Map
 import CFSG.LocalAnalysis.UniquenessCase.UC22K108BigFix
-import CFSG.LocalAnalysis.UniquenessCase.UC22K108BN
-import CFSG.LocalAnalysis.QuasithinUnique.GammaFamiliesBasic
-import CFSG.Milestones.ASVolI.I2
 import CFSG.Milestones.ASVolI.I2BNWeakClosure
 
 public section

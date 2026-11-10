@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenResultsB
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenResults2
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenTwentyThree
 public import CFSG.LocalAnalysis.WeakClosure81.FourteenNine
-public import CFSG.LocalAnalysis.WeakClosure81.SixOne
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsSetting
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846d
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront07

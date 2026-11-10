@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22R847E3SU3G4RankTwo
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSL3LiftUnitaryCover
 import CFSG.ClassicalInvolution.ModelFacts.OddCover.ThreeQ
 import CFSG.LocalAnalysis.UniquenessCase.UC6S846h
-import CFSG.LocalAnalysis.UniquenessCase.UC6Inst
 import CFSG.LocalAnalysis.UniquenessCase.UC7R71Three
 import CFSG.LocalAnalysis.UniquenessCase.UCKPRank1
 import CFSG.LocalAnalysis.UniquenessCase.UCKU3Key
@@ -13,9 +12,7 @@ import CFSG.LocalAnalysis.UniquenessCase.UC22InE229L34U3
 import CFSG.LocalAnalysis.UniquenessCase.UC22InE229ZBU3
 import CFSG.LocalAnalysis.SeitzReduction.RankOneBranches
 import CFSG.LocalAnalysis.SeitzReduction.RankOneHypStarU3
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846d
 import CFSG.LocalAnalysis.UniquenessCase.UCKPSyl3
-import CFSG.LocalAnalysis.UniquenessCase.UCR638
 
 public section
 

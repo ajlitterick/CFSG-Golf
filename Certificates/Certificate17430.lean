@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.BabyMonster.SevenGenFact
-public import CFSG.Blueprint.NativeSporadic
 import Certificates.Kernel.BabyMonster.SevenGen
 import Certificates.Kernel.BabyMonster.SevenMem
 import Certificates.Kernel.BabyMonster.Seeds

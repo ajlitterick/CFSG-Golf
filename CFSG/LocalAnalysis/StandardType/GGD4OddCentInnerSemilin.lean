@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerModel
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaModel
 import CFSG.HardMathSupport.Dickson.Bal207.OrthSU38Torus
-import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
 import CFSG.Adapters.ClassicalCatalogLinearUnitary
 import CFSG.CharacterTheory.CyclicBlocks.Family
 import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
@@ -53,8 +51,6 @@ import CFSG.Quasithin.Background.C2PushThree
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.D2Cyclic
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1

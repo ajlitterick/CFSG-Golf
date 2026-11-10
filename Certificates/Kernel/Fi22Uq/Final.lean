@@ -4,9 +4,7 @@ public import Certificates.Kernel.Fi22Uq.Checks
 public import Certificates.Kernel.Fi22Syl.Final
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.ModelUniqueTabCheck
 public import CFSG.Certificates.Kernel.Spor.RelTR
-import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib.Tactic.IntervalCases
 public import Certificates.Data.CFSGNative.Fi22.Inv
 
 public section

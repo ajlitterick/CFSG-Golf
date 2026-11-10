@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.G2ExceptionalBound
 public import CFSG.LieType.AlgebraicGroups.G2ExceptionalCurves
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.Stmt331F4
 public import CFSG.Quasithin.Vol2.Ch12Sec2Lem7One
-public import CFSG.Quasithin.Vol2.Ch3Sec1Thm311
 
 public section
 namespace CFSG.Quasithin.H13

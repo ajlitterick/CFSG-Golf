@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4A2Defs
 public import CFSG.ClassicalInvolution.Balance.BootstrapExoticD4Sl3
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67Core
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67CoreTools
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4Field
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4OutStage
 

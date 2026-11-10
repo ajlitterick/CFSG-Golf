@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoModel
-import CFSG.Assembly.Subnormal
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.RuCoverRankSection
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.RuOrders
-public import CFSG.LieType.Steinberg.CentralExt.PSUMultiplier
 public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 public import CFSG.LieType.Ree.SuzukiOrder
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
@@ -10,7 +9,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

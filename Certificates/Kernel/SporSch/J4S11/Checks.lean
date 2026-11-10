@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.SporSch.J4S11
 public import Certificates.Data.Kernel.SporSch.J4SRun
 public import Certificates.Data.Kernel.SporSch.J4SBig
 public import Certificates.Data.Kernel.SporSch.J4SPairK
-public import Certificates.Data.Kernel.J4Q.QT2A
 public import Certificates.Kernel.J4Q.MatData
 public import CFSG.Sporadic.Schreier.J4SElevenData
 public meta import CFSG.Sporadic.Schreier.J4SElevenData
@@ -12,7 +11,6 @@ public meta import Certificates.Kernel.SporSch.J4S.Gen
 import CFSG.Certificates.Kernel.Common.Harness
 public meta import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 public meta import CFSG.Open.Defs
-public import CFSG.Sporadic.Th.F2Spec
 public meta import CFSG.Sporadic.Th.F2Spec
 public import Certificates.Kernel.SporSch.J4S.Gen
 

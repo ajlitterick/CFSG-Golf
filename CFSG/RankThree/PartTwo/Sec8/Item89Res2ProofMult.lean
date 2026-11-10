@@ -1,19 +1,8 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec8.Item89Res2ProofJComp
-import CFSG.GH74.Generic.GKFCover
-import CFSG.LieType.Steinberg.CentralExt.MultiplierCongr
-import CFSG.LieType.Steinberg.CentralExt.G2Multiplier
 import CFSG.LieType.Steinberg.CentralExt.GriessGTwoFour
-import CFSG.LieType.Steinberg.CentralExt.GriessReeF4
-import CFSG.LieType.Steinberg.CentralExt.PSpEvenMultiplier
-import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-import CFSG.LieType.Multipliers.Tits
-import CFSG.Alternating.Multipliers.Small
-import CFSG.RankThree.PartTwo.Sec4.Item47CasesEven
-import CFSG.RankThree.PartTwo.Sec4.Item47Bridges
 import CFSG.RankThree.PartTwo.Sec4.Item419ThetaProofTools
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
 public import CFSG.Milestones.CL_LIT_Gorenstein_Walter_L_balance
 public import CFSG.RankThree.PartTwo.Sec4.Item4Res3Proof419
 public import CFSG.RankThree.PartTwo.Sec6.Item612

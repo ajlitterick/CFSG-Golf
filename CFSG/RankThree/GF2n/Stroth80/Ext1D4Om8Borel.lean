@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Stroth80.Ext1D4Datum
 public import CFSG.RankThree.GF2n.Stroth80.SmithEightHolds
 public import CFSG.LieType.D4Small.Om8Datum
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointPlusBorelSplit
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalSplitUnipotent
 public import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613C3Sylow
 public import CFSG.ClassicalGroups.SpecialLinear.InvariantForms
 public import CFSG.ClassicalGroups.SpecialLinear.NaturalDualSum

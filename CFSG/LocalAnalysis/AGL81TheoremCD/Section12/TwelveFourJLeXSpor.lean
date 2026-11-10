@@ -2,19 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeData
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourSteps
-public import CFSG.LocalAnalysis.AGLEmbedding.CZeroDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockRankFree
 public import CFSG.HardMathSupport.Foote.Coordinator.Downstream
 public import CFSG.CGT.PushingUpLit.TwoKHolds
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.BlockB.NineThree
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourJLeXSporBar
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.WeakBlockThree
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.NoXBlockGen
-import CFSG.LocalAnalysis.AGLEmbedding.AscEightFive
-import CFSG.LocalAnalysis.AGLEmbedding.BlockInnerNormalizer
-import CFSG.LocalAnalysis.AGLEmbedding.ResidualFiveOddCore
-import CFSG.LocalAnalysis.RankThreeTheoremC.D2LocalCGT3
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.Helpers
 public import CFSG.CGT.PushingUpLit.BHS6.NestedBasic
 public import CFSG.CGT.PushingUpLit.CGT6.SixFour
 public import CFSG.CGT.PushingUpLit.CGT6.SixSixteen
@@ -26,7 +19,6 @@ public import CFSG.CGT.Timmesfeld75.SimpleAssembly
 public import CFSG.CGT.Timmesfeld75.Step511Card
 public import CFSG.CGT.Timmesfeld75.Step57Reduction
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95J3
-public import CFSG.GH74.GLS.IVK.Proofs2.Stmt111c
 public import CFSG.GH74.Generic.S45.LEvSporFacts
 public import CFSG.HardMathSupport.Cooperstein.AlternatingGeometry.TwoGroupExtension
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.Co2DfsSound
@@ -90,7 +82,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma46d
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36AltPerm
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36MType
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36SporMult
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
 public import CFSG.LocalAnalysis.ComponentClassification.RestrictedStdFamilies
 public import CFSG.LocalAnalysis.ComponentInitial.GL3TwoFixedModelCases
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.CenterAt

@@ -7,7 +7,6 @@ import CFSG.RankThree.PartTwo.Sec20.Item20Res2ProofCases
 import CFSG.RankThree.PartTwo.Sec18.Item182
 import CFSG.RankThree.PartTwo.Sec18.Item189Glue
 import CFSG.RankThree.PartTwo.Sec3.ElemNineAut
-import CFSG.GroupTheory.Fitting.CharacteristicP
 import CFSG.LocalAnalysis.EvenBN.TwoF4.CoprimeProduct
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeAmbientCentralizerGeneration
@@ -44,17 +43,11 @@ import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 import CFSG.Open.SplitBNPair
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.A3Structure312Defs
 import CFSG.Quasithin.Background.B1Basic
 import CFSG.Quasithin.Background.B2FactorizationResidual
 import CFSG.Quasithin.Background.B4Statement
 import CFSG.Quasithin.Background.E1
-import CFSG.Quasithin.Background.E1Sec4
-import CFSG.Quasithin.Background.E1Sec5
-import CFSG.Quasithin.Background.E1Sec8
-import CFSG.Quasithin.Background.E1Solv
-import CFSG.Quasithin.Background.E1Twelve
 import CFSG.Quasithin.H13.StatementsL1
 import CFSG.Quasithin.Vol2.Ch10StatementsE
 import CFSG.Quasithin.Vol2.Ch10StatementsInputs
@@ -81,10 +74,6 @@ import CFSG.Sporadic.Presentation.Co2FusionInputs
 import CFSG.Sporadic.Presentation.McLExactData
 import CFSG.Sporadic.Presentation.McLExactInputs
 import CFSG.StronglyEmbedded
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import CFSG.YGroups.DCE.B433Check
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement

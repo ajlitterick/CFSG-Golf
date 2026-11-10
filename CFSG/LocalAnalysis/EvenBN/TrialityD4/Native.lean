@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.Data
 public import CFSG.Quasithin.Background.SmithB42D4Pure
 public import CFSG.LieType.Chevalley.TrialityCover
-public import CFSG.LieType.Chevalley.EvenTrialityAutomorphismNormalForm
 public import CFSG.LieType.Chevalley.TrialityExactFiniteOrder
 public import CFSG.RankThree.PartOne.Q1327T.Item7D4W
 public import CFSG.LieType.Chevalley.DiagonalFieldActorData

@@ -5,10 +5,6 @@ public import CFSG.Quasithin.H13.L32ACSk10
 public import CFSG.RankThree.PartTwo.KFacts.KS116ProofTorus
 public import CFSG.Quasithin.H13.KGFact22TorSp
 public import CFSG.RankThree.PartTwo.KFacts.AutPSp4Even
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherInvariant
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFourSylow
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalDescentEndpoint
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalFiveStructure
@@ -52,9 +48,6 @@ public import CFSG.RankThree.Asc83Table.PermTables
 public import CFSG.Sporadic.J4.QT2LocProof
 public import CFSG.Sporadic.Schreier.MathieuOddCore
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.Walter.J1
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension

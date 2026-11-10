@@ -2,10 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2TwRational
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2E6Pair
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2F4Data
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcOrthTw
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcOrthAdj
-public import CFSG.ClassicalInvolution.ModelFacts.FundNoncentralMain
 public import CFSG.ClassicalInvolution.Balance.BootstrapExoticE6
 public import CFSG.ClassicalInvolution.Balance.QNineModels
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcF4Main

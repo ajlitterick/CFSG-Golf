@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtCMaxMBound
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtCMaxU33Cen
 public import CFSG.Quasithin.H13.U3U33Fixed
-public import CFSG.Timmesfeld.Final.PSU33
-public import CFSG.Quasithin.Recognition.CertU33Psu
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups
@@ -31,8 +29,6 @@ public import CFSG.Quasithin.Background.E3Gen
 public import CFSG.Quasithin.Background.FLcAutMat
 public import CFSG.Quasithin.EmptyFaithful.FLcMLEGrp
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S1417Glue
 public import CFSG.Quasithin.EmptyFaithful.S1421Defs
 public import CFSG.Quasithin.EmptyFaithful.S151S6B

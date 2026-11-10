@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.W16PFiveTwelveFB
-public import CFSG.LocalAnalysis.WeakClosure81.W16PFiveElevenA
 import CFSG.LocalAnalysis.WeakClosure81.ElevenSevenAlt
 import CFSG.CGT.PushingUpLit.BHS.Offender
 import CFSG.GH74.Defs

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorUniDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorUniScalar
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorUniLift
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorUniMark

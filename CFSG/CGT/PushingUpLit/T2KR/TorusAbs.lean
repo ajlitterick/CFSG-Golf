@@ -1,9 +1,7 @@
 module
 
 public import CFSG.CGT.PushingUpLit.T2KR.TorusSec3
-public import CFSG.CGT.Timmesfeld75.Sec3Basic
 public import CFSG.CGT.Timmesfeld75.BenderInputs6
-public import CFSG.CGT.Timmesfeld75.Targets
 
 public section
 

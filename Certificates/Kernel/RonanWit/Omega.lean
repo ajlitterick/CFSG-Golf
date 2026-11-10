@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.Wit3KSound
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432OmegaData
 public import Certificates.Kernel.OmegaEight.Aut
 import CFSG.Certificates.Kernel.Misc.PermClosSound
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Misc.ArrBind
 public import CFSG.Open.SplitBNPair
 public import CFSG.Quasithin.Vol2.Ch10StatementsE

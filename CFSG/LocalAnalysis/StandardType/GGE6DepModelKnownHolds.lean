@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6DepFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsBoth
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
-public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnit63Holds
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc3
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExcReduction
 

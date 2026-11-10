@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.ParrottLeviExcF4Two
 public import CFSG.LieType.Chevalley.SimplyLacedSubsystemPerfect
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.LieType.Chevalley.LangRootRankOne
-public import CFSG.LinearAlgebra.SL2MinimalFaithfulMatrix
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
-public import CFSG.Blueprint.Catalog
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Generic.Certificates
 public import CFSG.GH74.Statements

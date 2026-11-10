@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneInput
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
-public import CFSG.LieType.Chevalley.OddToralInvolutionComponents
-public import CFSG.ClassicalInvolution.Balance.LocalBalance.Faithful
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcLang
 
 public section

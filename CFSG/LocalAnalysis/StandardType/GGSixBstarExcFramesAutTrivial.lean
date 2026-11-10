@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesCentralize
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesFixedField
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesWeyl
 
 public section
 

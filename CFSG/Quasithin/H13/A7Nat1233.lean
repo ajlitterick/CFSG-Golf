@@ -3,16 +3,9 @@ module
 public import CFSG.Quasithin.H13.A7NatMain
 public import CFSG.Quasithin.H13.A7NatInputs
 public import CFSG.Quasithin.Recognition.CertU33Psu
-public import CFSG.Timmesfeld.Final.PSU33
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 public import CFSG.Quasithin.Background.B1Basic
 public import CFSG.Quasithin.Background.C2Inputs
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 
 public section
 

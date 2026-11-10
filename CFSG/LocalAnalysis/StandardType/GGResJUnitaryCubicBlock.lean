@@ -1,30 +1,14 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfShear
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofOne
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverOdd
 public import CFSG.LocalAnalysis.StandardType.GGF4AutWeyl
 public import CFSG.LocalAnalysis.StandardType.GGResJScalarPairing
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUFrame
 public import CFSG.LocalAnalysis.StandardType.GGResJCubicBlock
-public import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryField
-public import CFSG.LieType.SeitzGeneration.NonabHeisThreeUnitary
-public import CFSG.LocalAnalysis.StandardType.GGResJLineA3
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModel
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModelCoprime
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverTwo
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkTransport
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniData
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265F3UniRec
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1CentUniLift
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorUniScalar
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
 public import CFSG.LocalAnalysis.StandardType.GGL45TGSU
 public import CFSG.LocalAnalysis.StandardType.GGResJUnitaryActorNormalization
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeForm
 public import CFSG.CGT.Timmesfeld75.Form2
 public import CFSG.CGT.Timmesfeld75.Main
 public import CFSG.LargeExtraspecial.S97RZStar

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeDefs
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5LayerMain
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdCodimOne
 import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5ClassPg
 
 public section

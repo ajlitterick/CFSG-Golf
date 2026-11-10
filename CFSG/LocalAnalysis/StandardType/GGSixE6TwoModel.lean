@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixE6A24Centre
-public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 public import CFSG.LocalAnalysis.StandardType.GGHalfBlockTorus
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLevi
 public import CFSG.LocalAnalysis.SeitzReduction.EPilotRoots
-public import CFSG.Timmesfeld.LieEmbed.A5Roots
 
 public section
 

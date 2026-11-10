@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.SlpRel
 public import Certificates.Kernel.Fi23M.Data
 import CFSG.Certificates.Kernel.Common.Repo
 import CFSG.Certificates.Kernel.Common.JsonGz
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

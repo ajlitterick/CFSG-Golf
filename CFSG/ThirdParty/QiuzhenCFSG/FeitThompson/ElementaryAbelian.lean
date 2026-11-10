@@ -1,20 +1,10 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Algebra.Group.Subgroup.Pointwise
-public import Mathlib.Data.Nat.Prime.Defs
-public import Mathlib.GroupTheory.Exponent
-public import Mathlib.GroupTheory.OrderOfElement
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-public import Mathlib.Basic.Logic.Basic
 public import Mathlib.Algebra.Module.ZMod
 
 import Mathlib.Algebra.Field.ZMod
 import Mathlib.Algebra.Module.ZMod
-import Mathlib.Data.ZMod.Defs
 import Mathlib.LinearAlgebra.Basis.VectorSpace
-import Mathlib.Tactic.Basic
 
 namespace CFSG
 end CFSG

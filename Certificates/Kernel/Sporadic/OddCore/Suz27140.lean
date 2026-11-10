@@ -2,9 +2,7 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzDBind
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.SuzDBridgeCheck
-public import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.Open.Defs

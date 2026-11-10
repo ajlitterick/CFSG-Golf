@@ -1,9 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.HNSchreier.PrimCheckBase
-public import CFSG.Sporadic.HNSchreier.LocalData
-public import CFSG.Sporadic.HNSchreier.MaskCheck
 public meta import CFSG.Sporadic.HNSchreier.PrimCheckBase
 public meta import CFSG.Sporadic.HNSchreier.LocalData
 public meta import CFSG.Sporadic.HNSchreier.MaskCheck

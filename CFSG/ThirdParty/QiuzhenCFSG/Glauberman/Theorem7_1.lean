@@ -1,14 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma7_1
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Theorem5_1
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.Index
-public import Mathlib.NumberTheory.Padics.PadicVal.Basic
-public import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

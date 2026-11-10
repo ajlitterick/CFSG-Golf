@@ -2,10 +2,7 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec15.Liebeck155R1T150Lie
 import CFSG.RankThree.PartTwo.Sec4.Ronan148LValid
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinBBridge
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDBridge
 import CFSG.RankThree.PartTwo.Sec8.Hering418Seven
-public import CFSG.Quasithin.EmptyFaithful.S1422Basic
 
 public section
 

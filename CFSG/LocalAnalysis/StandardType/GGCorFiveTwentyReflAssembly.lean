@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflOrbit
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflNbr
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflTypeA
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflSmall

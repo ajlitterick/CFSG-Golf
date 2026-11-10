@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.H13.NQCatA314Gen
 public import CFSG.Quasithin.Background.A312SporJ1
 public import CFSG.Quasithin.Background.A3Structure314Excl
-public import CFSG.Sporadic.J1
 public import CFSG.Quasithin.Background.A3Structure314Defs
 
 public section

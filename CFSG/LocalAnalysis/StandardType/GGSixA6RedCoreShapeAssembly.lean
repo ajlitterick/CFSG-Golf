@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedCoreShapeDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedShapeSUCore
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresAssembly
 
 public section
 

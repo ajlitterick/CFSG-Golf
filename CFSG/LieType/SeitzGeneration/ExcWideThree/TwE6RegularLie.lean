@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6RegularLieCore
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6RegularSA
 
 public noncomputable section
 

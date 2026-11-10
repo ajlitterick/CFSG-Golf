@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverOdd
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1OutUniRank
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.I1015SU6
 

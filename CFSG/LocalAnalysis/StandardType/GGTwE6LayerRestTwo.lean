@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6ToralNonsplit
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitTwE6Label
 public import CFSG.LocalAnalysis.StandardType.GGLayerAbelianInd
 public import CFSG.LocalAnalysis.StandardType.GGLayerSubCoreFamily
-public import CFSG.Adapters.TauCetiExceptional.EvenAll
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
 public import CFSG.HardMathSupport.Meierfrankenfeld.LieOdd.ExcOrderTwisted
 
 public section

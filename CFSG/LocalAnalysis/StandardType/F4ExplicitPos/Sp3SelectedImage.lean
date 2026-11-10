@@ -1,15 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RationalB3Part2
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart29
 public import CFSG.LocalAnalysis.StandardType.GGSelectedModelOfChevalley
-public import CFSG.LocalAnalysis.StandardType.GGRankOneTorus
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.Blueprint.ChevalleyPinnedLemmas
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.AmbientActionPart1
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart26
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSp
-import CFSG.LieType.Steinberg.Classical.Symplectic
 
 public section
 

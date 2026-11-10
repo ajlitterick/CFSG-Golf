@@ -1,9 +1,7 @@
 module
 
-public import Certificates.Kernel.Co2Cls.Final
 public import Certificates.Kernel.Co2Fuse.Counts
 public import CFSG.RankThree.Co2.ClassFacts
-import Mathlib.Tactic.IntervalCases
 
 public section
 

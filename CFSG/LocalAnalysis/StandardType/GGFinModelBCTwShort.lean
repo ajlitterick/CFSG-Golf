@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFinModelBCTwGen
-import CFSG.LieType.Chevalley.ProductInjectivity
-import CFSG.LieType.Chevalley.RootCommutator
 
 public section
 

@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.UnitarySix.Sbar3010Base
 
 public import Certificates.Kernel.UnitarySix.Fix3010
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

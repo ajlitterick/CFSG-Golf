@@ -1,14 +1,8 @@
 module
 public import CFSG.LocalAnalysis.StandardType.GGOriginalTwE6TwoNoncommPairLeaf
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6ToralCoordsHolds
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourExact
-public import CFSG.LocalAnalysis.StandardType.GGResLineJCells
 public import CFSG.LocalAnalysis.StandardType.GGResidualRk1FrameHolds
-import CFSG.LocalAnalysis.StandardType.GGNsq2U62
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylInputHolds
-import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc11R
-import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrHolds
-import CFSG.LocalAnalysis.StandardType.GGTCJHolds
 import CFSG.LocalAnalysis.StandardType.GGResidualRk1ExcTops
 public import Certificates.Certificate27014
 public import Certificates.Certificate27015

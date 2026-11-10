@@ -5,9 +5,7 @@ public import CFSG.Certificates.Kernel.Misc.OrbLoopMem
 public import CFSG.Certificates.Kernel.Misc.ConjWitSound
 public import CFSG.Certificates.Kernel.Misc.EnumBfsMem
 public import CFSG.Certificates.Kernel.Misc.ArrEnumOps
-public import CFSG.Certificates.Kernel.BfsPinSetSound
 public import Certificates.Kernel.Misc.Perm.J2C3B
-import Mathlib.Tactic.Group
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

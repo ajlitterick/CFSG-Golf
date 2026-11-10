@@ -3,9 +3,6 @@ module
 public import CFSG.GH74.GLS.IVK.Proofs2.GHInvQuasi
 public import CFSG.GH74.KGroups.L3EpsFour
 public import CFSG.RankThree.PartOne.S11c.Sec68
-public import CFSG.LocalAnalysis.ComponentClassification.TBLitInputs
-public import CFSG.LieType.CurtisTits.Conclusion
-public import CFSG.LieType.CurtisTits.Recognition
 public import CFSG.LocalAnalysis.QuasithinUnique.Setting
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Supercritical

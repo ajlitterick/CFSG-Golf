@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesSplit
-public import Mathlib.Topology.Sheaves.Presheaf
 
 public section
 

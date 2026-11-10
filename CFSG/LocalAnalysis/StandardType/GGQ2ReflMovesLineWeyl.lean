@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLemmaH4
 import CFSG.LocalAnalysis.StandardType.GGE6DepBlockFrame
 import CFSG.LocalAnalysis.StandardType.GGRCWeylConnected

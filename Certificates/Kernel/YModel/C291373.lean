@@ -1,12 +1,8 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.Fi23IdentInputs
-public import CFSG.YGroups.Model432FInputs
-public import Certificates.Data.CFSGNative.YGroups.ExactCheck
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public import Certificates.Kernel.YModel.Y432F
 public import CFSG.Certificates.Kernel.Bounds.Fi23Alt.Binding
-import CFSG.Certificates.Kernel.Common.Harness
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import CFSG.Sporadic.Presentation.Common
 public import Mathlib

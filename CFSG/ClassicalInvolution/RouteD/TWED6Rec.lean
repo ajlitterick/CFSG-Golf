@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.RouteD.TWED6Lift
 public import CFSG.ClassicalInvolution.RouteD.TWED6Bridge
 public import CFSG.ClassicalInvolution.RouteD.TWEB6Star
 public import CFSG.ClassicalInvolution.RouteD.GapsToralD
-public import CFSG.ClassicalInvolution.RouteD.GapsPatternD
 
 public section
 

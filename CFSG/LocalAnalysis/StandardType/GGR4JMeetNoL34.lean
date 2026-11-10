@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGE6TwoTorus
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetL34
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTwE6
-public import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

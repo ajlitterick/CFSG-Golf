@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.ChevTwo.OppCl.Defs
 public import CFSG.LieType.ChevTwo.OppCl.Toolkit
 
 public section

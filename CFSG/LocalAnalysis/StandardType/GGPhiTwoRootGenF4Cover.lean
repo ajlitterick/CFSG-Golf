@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenF4Sp
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenCover
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenInput
 
 public section
 

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632Frob
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632FrobTw
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1625B1a
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1625B1b
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwConj
 
 public section
 

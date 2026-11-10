@@ -5,7 +5,6 @@ public import Certificates.Kernel.SporSch.J4S.NoCK
 public import Certificates.Kernel.SporSch.J4S.Form
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.SporSch.J4SBfsProved
-import Mathlib.Tactic.IntervalCases
 
 @[expose] public section
 

@@ -1,13 +1,9 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.MinimalCounterexample
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenInvariantOddPSubgroupCertificateDefs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.A7SylowCentralizer
-import Mathlib.GroupTheory.Perm.Centralizer
-import Mathlib.SetTheory.Cardinal.NatCard
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

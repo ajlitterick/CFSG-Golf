@@ -5,11 +5,7 @@ import CFSG.LocalAnalysis.StandardType.GGHdRo7DSideData
 import CFSG.LocalAnalysis.StandardType.GGHdRo7DAJ
 import CFSG.LocalAnalysis.StandardType.GGHdRo7CoprimeSplit
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTransport
-import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-import CFSG.RankThree.PartOne.S11d.LieFieldTransfer
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 import CFSG.GroupTheory.PCore.PCoreOfMulEquiv
 
 public section

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfCore
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesFix
-public import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
-public import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
 
 public section
 

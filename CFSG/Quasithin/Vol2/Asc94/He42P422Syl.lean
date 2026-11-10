@@ -1,8 +1,6 @@
 module
 
-public import Mathlib.GroupTheory.Sylow
 public import Mathlib.GroupTheory.Nilpotent
-public import Mathlib.GroupTheory.PGroup
 
 public section
 

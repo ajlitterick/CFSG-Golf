@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeUnitary2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeRank
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeDelta
-public import CFSG.LocalAnalysis.GLTheoremA.Lemma44
 public import CFSG.LieType.Multipliers.U62Sylow
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011LabUniq
 public import CFSG.LocalAnalysis.GLTheoremA.S11.Inputs16

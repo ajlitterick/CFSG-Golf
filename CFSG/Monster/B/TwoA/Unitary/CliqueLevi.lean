@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.B.TwoA.Unitary.CliqueKernel
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 
 public section
 

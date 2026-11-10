@@ -4,7 +4,6 @@ public import CFSG.LieType.Steinberg.CentralExt.UnitaryField
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2GeoSU
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeGeoCard
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoPSURoot
-public import Mathlib.LinearAlgebra.SesquilinearForm.Basic
 
 public section
 

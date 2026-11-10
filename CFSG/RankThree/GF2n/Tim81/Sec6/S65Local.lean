@@ -1,15 +1,10 @@
 module
 
 public import CFSG.RankThree.GF2n.Tim81.Sec6.Stmts
-import CFSG.RankThree.GF2n.Tim81.Basic
 import CFSG.RankThree.GF2n.Tim78S31
-import CFSG.ThirdParty.BrauerInduction.Background.Group.Basic
 import CFSG.RankThree.GF2n.Tim81.Sec5.S53S55
-import CFSG.CGT.Timmesfeld75.L2Defs
-import CFSG.CGT.Timmesfeld75.L2Aut
 import CFSG.CGT.Timmesfeld75.Sec7OneDihedral
 import CFSG.RankThree.PartTwo.Sec14.Item148Res8ProofSLTwo
-import CFSG.Timmesfeld.Basic
 public import CFSG.CGT.Timmesfeld75.Sec3Basic
 public import CFSG.GroupTheory.CentralizerSup
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
@@ -58,9 +53,7 @@ public import CFSG.Quasithin.Background.A3Structure318Red
 public import CFSG.Quasithin.Background.A3Structure36A
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
 public import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
 public import CFSG.Quasithin.Background.A3Structure36BFrattini
 public import CFSG.Quasithin.Background.A3Structure36BHeisBase
 public import CFSG.Quasithin.Background.A3Structure36BHomocyclic

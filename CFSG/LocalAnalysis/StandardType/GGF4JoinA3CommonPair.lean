@@ -3,21 +3,15 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4H4JBlockUnitary
 public import CFSG.LocalAnalysis.StandardType.GGF4LabelH1
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatJoinF4
-public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
-public import CFSG.LocalAnalysis.StandardType.GGTypeACompatFar
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourEndsA3Uni
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPerm
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux4
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.StandardType.GGF4H4JBlockAux2
 import CFSG.LocalAnalysis.StandardType.GGF4LabelH2
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpJFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpJSwap
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpJBlock
 import CFSG.LocalAnalysis.StandardType.GGStdPosACore
-import CFSG.LocalAnalysis.StandardType.GGSixBstarUniqueToralA
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
 
 public section

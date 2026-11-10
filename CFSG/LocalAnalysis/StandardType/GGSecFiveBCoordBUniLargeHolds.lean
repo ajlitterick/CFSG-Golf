@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBUniLeaves
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBUniFrames
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOm
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOmJoin
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.ExcPay.Defs
 public import CFSG.LocalAnalysis.StandardType.GGLieBridgeTheta
 
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtCore
 import CFSG.LocalAnalysis.StandardType.ExcPay.DatumTwE6
 
 public section

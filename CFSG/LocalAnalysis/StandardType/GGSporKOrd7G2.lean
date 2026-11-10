@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrd7Defs
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenAutomorphisms
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.LieType.Chevalley.GraphFixedF4Canonical
-public import CFSG.LieType.Chevalley.PerfectSimpleRoot
 
 public section
 

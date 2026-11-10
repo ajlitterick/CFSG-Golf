@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStepTwoToralLatIndex
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoToralRestTagsWeyl
-public import CFSG.LocalAnalysis.StandardType.GGExcKnownGroups
 
 public section
 

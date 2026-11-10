@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.J3HypSyl
 public import Certificates.Data.Kernel.Spor.FiveK
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

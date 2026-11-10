@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.ModelFacts.L6CMat
 public import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutMain
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryFourOrder
 
 public section
 

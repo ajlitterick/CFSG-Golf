@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBPositionToral
 public import CFSG.Mathlib.GroupTheory.Automorphism.ConjCommute
-import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

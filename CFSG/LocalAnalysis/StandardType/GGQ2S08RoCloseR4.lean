@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoCloseDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoAbsorbPrime
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoCloseAux
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoCloseAux5
 
 public section

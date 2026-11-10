@@ -1,14 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthSetup
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthNbr
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthALRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthD4Excl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthD4Unreal
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthD4Mark
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthD4Comp
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthRefl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNarrowInputs
 
 public section
 

@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIITwE6LeviRoot
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1ShortTwE6
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIISUSurvivor
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISUActAux
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
 public import CFSG.LocalAnalysis.StandardType.SUCenterOdd
-import CFSG.GroupTheory.PCore.PCoreOfMulEquiv
 
 public section
 

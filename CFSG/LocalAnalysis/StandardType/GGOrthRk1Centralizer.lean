@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Model
 import CFSG.LocalAnalysis.StandardType.GGOrthRk1Iso
 import CFSG.LocalAnalysis.StandardType.GGOrthRk1Theta
 import CFSG.LocalAnalysis.StandardType.GGOrthRk1ModelTwo
-import CFSG.Adapters.SpecialLinearPerfect
 
 public section
 

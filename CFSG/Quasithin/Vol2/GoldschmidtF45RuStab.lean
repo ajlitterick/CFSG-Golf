@@ -1,11 +1,8 @@
 module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF45RuArr
-public import CFSG.Quasithin.Vol2.GoldschmidtF45RuAdj
 public import CFSG.Quasithin.Vol2.GoldschmidtF45RuLayers
 public import CFSG.Quasithin.Background.F3
-public import CFSG.Quasithin.Background.F3Compare
-public import CFSG.Quasithin.Background.F3Geometry
 
 public section
 

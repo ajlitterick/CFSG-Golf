@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Background.RonanF13Bender
 public import CFSG.Quasithin.Background.RonanF13SUMat
 public import CFSG.Quasithin.Background.RonanF13SUSemi
-public import CFSG.Quasithin.Background.RonanF13Finish
 public import CFSG.Quasithin.Background.RonanF13Z3
 public import CFSG.Quasithin.Background.RonanF13CoverAux
 public import CFSG.Quasithin.Background.GoldschmidtRankOneUnitary
@@ -25,10 +24,8 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureTwoCoreGrowthLinearFrobenius
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3StructureFacts
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.F2Equiv
@@ -40,7 +37,6 @@ public import CFSG.Quasithin.EmptyFaithful.S142Statements
 public import CFSG.Quasithin.H13.A5S1326
 public import CFSG.Quasithin.H13.A5Top
 public import CFSG.Quasithin.H13.StatementsL3
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

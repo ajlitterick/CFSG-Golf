@@ -5,7 +5,6 @@ public import CFSG.Monster.B.Fischer.Fi22GraphCheckBase
 public import CFSG.Monster.B.Fischer.Fi22OuterCheckBase
 public import CFSG.Monster.B.Fischer.Fi22OrderCheck
 public import Certificates.Data.CFSGNative.Schreier.Refine
-public import Mathlib.Data.Fintype.Basic
 public meta import CFSG.Monster.B.Fischer.Fi22GraphCheckBase
 public meta import CFSG.Monster.B.Fischer.Fi22OuterCheckBase
 public meta import CFSG.Monster.B.Fischer.Fi22OrderCheck

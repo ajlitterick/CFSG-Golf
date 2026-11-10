@@ -2,11 +2,8 @@
 module
 
 public import Certificates.Kernel.Co1M.D10070
-public import CFSG.Sporadic.Co1.Module.InvFamInputs
 public import Certificates.Kernel.Co1B.C2046
 public import Certificates.Kernel.Co1Cover.Bridge
-public import CFSG.Certificates.Kernel.Co1BWordSound
-public import CFSG.Certificates.Kernel.SortTreeChunks
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

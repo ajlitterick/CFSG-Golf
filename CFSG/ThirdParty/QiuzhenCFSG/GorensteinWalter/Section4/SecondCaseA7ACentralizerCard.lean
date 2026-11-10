@@ -3,14 +3,9 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7OddCoreEqF
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7KleinFourLeTwoCore
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7TwoCoreEquality
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7UInterMCardExactUnconditional
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7AmbientModel
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenOrderThreeSubgroupCentralizerCard
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourQuotientOddKernel
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CentralizerMap
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourExceptionTransport
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27QuotientIndex
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

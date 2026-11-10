@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.MS93.S4A432I
-public import CFSG.LieType.Universal.SpecialLinear
 import CFSG.Quasithin.MS93.S45Vtx
 import CFSG.Quasithin.MS93.S45Path
 

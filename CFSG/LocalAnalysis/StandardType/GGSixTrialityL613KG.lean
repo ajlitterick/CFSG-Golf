@@ -3,11 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613KGDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaFinal
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotNotLongRoot
-public import CFSG.LocalAnalysis.SeitzReduction.PerfectCentralizer
-public import CFSG.Timmesfeld.Orders.ClassicalLinear
-public import CFSG.LieType.CurtisTits.Conclusion
 
 public section
 

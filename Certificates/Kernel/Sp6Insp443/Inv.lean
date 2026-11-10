@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sp6Insp443.Data
 import CFSG.Certificates.Kernel.Common.Each
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Common.Lce
 
 public section

@@ -1,14 +1,10 @@
 module
 
-public import Certificates.Data.TabCo1ThreeDRoot
 public meta import Certificates.Data.TabCo1ThreeDRoot
 public import Certificates.Kernel.Co1B.Chk17592
 public import Certificates.Kernel.Co1B.Lvl17592A
 public import Certificates.Kernel.Co1B.Lvl17592B
 public import Certificates.Kernel.Co1B.C17330
-public import Certificates.Kernel.Co1ThreeK.LettersEq
-import Mathlib.Tactic.IntervalCases
-public import CFSG.Monster.B.TwoA.Par3.Main
 
 public section
 

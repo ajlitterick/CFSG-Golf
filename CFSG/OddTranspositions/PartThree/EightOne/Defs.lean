@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Statements
-public import CFSG.Timmesfeld.Bridge.Asc72Basic
 public import CFSG.Timmesfeld.Bridge.OddTranspDefs
 
 public section

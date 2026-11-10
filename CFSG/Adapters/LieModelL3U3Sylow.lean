@@ -5,9 +5,6 @@ public import CFSG.Blueprint.Catalog
 import CFSG.Adapters.LieModelOrders
 import CFSG.ClassicalInvolution.RouteD.TWRExoticArith
 import CFSG.GH74.GLS.Stage4.T2NumGtIvkExp
-import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 import CFSG.GH74.BNPair.Defs
 import CFSG.GH74.GLS.IVK.L2.F1
@@ -47,9 +44,6 @@ import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 import CFSG.LocalAnalysis.SectionRank.SporadicCover
 import CFSG.Sporadic.M23.M23Group
-import CFSG.Sporadic.Th.F2Spec
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension

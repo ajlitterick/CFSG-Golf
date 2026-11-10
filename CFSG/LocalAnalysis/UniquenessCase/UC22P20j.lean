@@ -3,12 +3,10 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S20
 public import CFSG.Milestones.ASVolI.I2
 import CFSG.RankThree.PartTwo.Sec18.Components
-import CFSG.FeitThompson.OddOrderTheorem
 public import CFSG.CGT.Timmesfeld75.Statements
 import CFSG.RankThree.PartTwo.Late.GammaZero
 import CFSG.RankThree.PartTwo.Sec13.Statements
 import CFSG.RankThree.PartTwo.Sec18.Notation
-import CFSG.RankThree.PartTwo.Sec18.Tools
 
 public section
 

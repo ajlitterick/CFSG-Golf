@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisTw.Weyl
 public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.FiniteCentralizerRegular
-import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
 import CFSG.LieType.Chevalley.OddDiagramFrobeniusFixedDerived
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Malle.SeitzCube.LandingE7
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

@@ -1,11 +1,7 @@
 module
 
 public import CFSG.Quasithin.Background.HMathieuSyl24Inputs
-public import CFSG.Quasithin.Background.HMathieuCentInputs
 public import CFSG.Quasithin.Background.HMathieuCodeMask
-public import CFSG.Quasithin.Background.HMathieuMask
-public import CFSG.Quasithin.Background.HMathieuBits
-public import CFSG.Monster.Code.Basis
 public import Std.Data.HashSet
 public meta import CFSG.Quasithin.Background.HMathieuSyl24Inputs
 public meta import CFSG.Quasithin.Background.HMathieuCentInputs

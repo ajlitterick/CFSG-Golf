@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcModel
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcBruhat
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotCentralizerT
-public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6ClassListBasic
 public import CFSG.LieType.Chevalley.CLSEvenTrialityFourGroup
 
 public section

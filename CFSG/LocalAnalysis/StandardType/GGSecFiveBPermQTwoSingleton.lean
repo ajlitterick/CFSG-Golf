@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoSingletonNative
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoCrossing
 public import CFSG.GroupTheory.GLS2.GroupTheory.Residuals
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLGenerate
-import CFSG.Quasithin.Background.G2SL2
 import CFSG.Quasithin.H13.A5X1367i
 import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineL2Line
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLFrameSwap
@@ -33,16 +32,10 @@ import CFSG.Quasithin.Background.B4Dual
 import CFSG.Quasithin.Background.B5CompB
 import CFSG.Quasithin.Background.B6
 import CFSG.Quasithin.Background.B69Core
-import CFSG.Quasithin.Background.B6Example
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.E2Hyp
 import CFSG.Quasithin.Background.E2SolvTwo
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3OffenderB
-import CFSG.Quasithin.Background.E3Uniq
-import CFSG.Quasithin.Background.E4Solv
 import CFSG.Quasithin.Background.F918C6
 import CFSG.Quasithin.Background.F9Sixteen
 import CFSG.Quasithin.Background.FFC7G
@@ -81,7 +74,6 @@ import CFSG.Sporadic.Schreier.M11
 import CFSG.Sporadic.Schreier.M22
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 import Certificates.Kernel.J4Count.Prim
 
 public section

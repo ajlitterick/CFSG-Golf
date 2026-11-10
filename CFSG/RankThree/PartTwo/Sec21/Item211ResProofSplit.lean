@@ -3,9 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec21.Item211ResProofSplitBloomA
 public import CFSG.RankThree.PartTwo.Sec21.Item211ResProofSplitBloomB
 public import CFSG.RankThree.PartTwo.Sec21.Item211ResProofSplitBloomC
-public import CFSG.RankThree.PartTwo.Toolkit.Bloom
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Chevalley.LangRootArithmetic
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
@@ -14,7 +11,6 @@ public import CFSG.RankThree.PartTwo.Sec4.LThreePiSLOn
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivAsm
-public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMPrimeAsm
-public import CFSG.LocalAnalysis.StandardType.GGQTwoRowDefs
 
 public section
 

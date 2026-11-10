@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK0LQTwist
-public import CFSG.LocalAnalysis.StandardType.GGK0LQRoots
 public import CFSG.LocalAnalysis.StandardType.GGK0LQShape
 public import CFSG.LocalAnalysis.StandardType.GGK0LQLongest
 public import CFSG.LocalAnalysis.StandardType.GGKacTableShapes
-public import CFSG.Sporadic.ThSchreier.GlobalData
 
 public section
 

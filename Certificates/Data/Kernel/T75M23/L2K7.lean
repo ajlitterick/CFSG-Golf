@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.T75M23.P7K
-public import CFSG.CGT.T75M23.L2FInputs7
 
 public section
 

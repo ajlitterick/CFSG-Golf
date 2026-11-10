@@ -5,19 +5,12 @@ public import Certificates.Kernel.Co3T.ChecksH
 public import Certificates.Kernel.Co3T.ChecksC
 public import Certificates.Kernel.Co3T.ChecksT0
 public import CFSG.Certificates.Kernel.Common.ForallTree
-public import CFSG.Certificates.Kernel.B3S3KSound
 public import CFSG.Certificates.Kernel.Misc.ChainTailOrbSound
 public import CFSG.Sporadic.Schreier.Co3Order
 public import CFSG.Certificates.Kernel.Spor.RebuildSound
-public import CFSG.Certificates.Kernel.Spor.TextSound
-public import CFSG.Sporadic.Schreier.Co3Restrict
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co3ThreeInputs
 public meta import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co3ThreeInputs
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Spor.BfsReplay
-import CFSG.Certificates.Kernel.Spor.PcompFacts
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Certificates.Kernel.Spor.RawSiftK
 

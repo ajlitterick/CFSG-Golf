@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE8Three
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE7Three13
 public import CFSG.CGT.Timmesfeld75.Sec5Nine
 public import CFSG.CGT.Timmesfeld75.Sec5Ten

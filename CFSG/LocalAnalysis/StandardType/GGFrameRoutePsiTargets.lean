@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteFSInputs
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteFSEnds
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteNamedInputs
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteA3
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteA3E7
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteG0

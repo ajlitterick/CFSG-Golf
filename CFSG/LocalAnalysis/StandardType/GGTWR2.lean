@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTWSmallADefs
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Count
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepLarge
-public import CFSG.LocalAnalysis.StandardType.GGRowKFrame
 public import CFSG.LocalAnalysis.StandardType.GGTWR3
 import CFSG.LocalAnalysis.StandardType.GGIntCartanDet
 import CFSG.Mathlib.LinearAlgebra.Matrix.DetDualKernel

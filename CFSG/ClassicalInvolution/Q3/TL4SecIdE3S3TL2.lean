@@ -35,7 +35,6 @@ public import CFSG.ClassicalInvolution.Uniform.U3IH8
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentLieAlt
 public import CFSG.Sporadic.J4.QT2LocProof
 public import CFSG.Sporadic.J4.QTOutChar
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2FullSplitTorusFieldFixed
 
 public section
 

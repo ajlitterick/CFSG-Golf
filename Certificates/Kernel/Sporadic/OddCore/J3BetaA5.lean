@@ -4,20 +4,15 @@ public import Certificates.Kernel.Sporadic.OddCore.MulHCmd
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.SporSch.PairJ3.Chain
 public import Certificates.Data.Kernel.Spor.MulHQ
-public import Certificates.Data.Kernel.Spor.Prim
 public import Certificates.Data.Kernel.Spor.Join
 public import Certificates.Data.Kernel.Spor.MulHF
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaA5Check
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaA5Check
 meta import Certificates.Data.CFSGNative.PSL3Four.Basic
 meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-import CFSG.Certificates.Kernel.Common.Harness
 public meta import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaCheck
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 meta import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 meta import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication

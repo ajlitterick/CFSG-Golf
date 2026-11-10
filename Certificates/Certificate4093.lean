@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporM12CheckInputs
 import Certificates.Kernel.LocalQT.Pairs.C4093c0
 import Certificates.Kernel.LocalQT.Pairs.C4093c1
 import Certificates.Kernel.LocalQT.Pairs.C4093c2
-import Certificates.Data.Kernel.LocalQT.Pairs
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.LocalQTPairsSound
 public import CFSG.Sporadic.Schreier.ImagePairs
@@ -23,9 +22,7 @@ import CFSG.Quasithin.Background.A3Structure318Red
 import CFSG.Quasithin.Background.A3Structure36A
 import CFSG.Quasithin.Background.A3Structure36BAction
 import CFSG.Quasithin.Background.A3Structure36BBase
-import CFSG.Quasithin.Background.A3Structure36BCase3Base
 import CFSG.Quasithin.Background.A3Structure36BCasesBase
-import CFSG.Quasithin.Background.A3Structure36BCommonBase
 import CFSG.Quasithin.Background.A3Structure36BFrattini
 import CFSG.Quasithin.Background.A3Structure36BHeisBase
 import CFSG.Quasithin.Background.A3Structure36BHomocyclic
@@ -37,11 +34,6 @@ import CFSG.Quasithin.Background.B1MoreElevenE
 import CFSG.Quasithin.Background.B1MoreNineG
 import CFSG.Quasithin.Background.C2Basic
 import CFSG.Quasithin.Background.E1
-import CFSG.Quasithin.Background.E1Sec4
-import CFSG.Quasithin.Background.E1Sec5
-import CFSG.Quasithin.Background.E1Sec8
-import CFSG.Quasithin.Background.E1Solv
-import CFSG.Quasithin.Background.E1Twelve
 import CFSG.Quasithin.Background.E3Cent
 
 set_option maxRecDepth 100000

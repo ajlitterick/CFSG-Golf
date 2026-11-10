@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmCent
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClSpOne
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmega
 public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotCatTypeDet
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotCatTypeDet
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatTypeDet
-public import CFSG.LocalAnalysis.SeitzReduction.RankOneCatSL2TypeDet
 public import CFSG.RankThree.PartOne.S11d.OrthCaseN
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatAlt

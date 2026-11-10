@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenE7Defs
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeAd
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4ZRootTorus
-public import CFSG.RankThree.PartOne.KE.SigmaCentralizer
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Co1.Module.CoTwoAutOrbit
 public import CFSG.Sporadic.Co2Rank3.AutBound
 public import CFSG.Sporadic.Co1.Module.CoTwoAutGraphLit
 public import Certificates.Certificate10065

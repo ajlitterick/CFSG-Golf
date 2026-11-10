@@ -1,12 +1,7 @@
 module
 
 public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.LinearAlgebra.QuadraticForm.Basic
-public import Mathlib.LinearAlgebra.LinearIndependent.Defs
-public import Mathlib.LinearAlgebra.Span.Defs
-public import Mathlib.LinearAlgebra.Finsupp.LinearCombination
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.Basic
-public import Mathlib.Tactic.Module
 public import Mathlib.Combinatorics.SimpleGraph.Hasse
 
 public section

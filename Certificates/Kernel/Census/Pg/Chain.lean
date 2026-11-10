@@ -1,13 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TS16RWData
 public import Certificates.Data.Kernel.W16Pg
 public import Certificates.Data.Kernel.Misc.ArrEnum
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TS16RWData
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 400000
 set_option maxHeartbeats 0

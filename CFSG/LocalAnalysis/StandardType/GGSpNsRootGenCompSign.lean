@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenDefs
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenDefs
-public import CFSG.Assembly.Defs
 
 public section
 

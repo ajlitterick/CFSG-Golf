@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HNSideFacts.F4Data
 public import CFSG.Sporadic.HNOddCore.QCheckInputs
 public import CFSG.Sporadic.HNOddCore.SCheckInputs
-public import CFSG.Sporadic.HNOddCore.ChainUtil
 public meta import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HNSideFacts.F4Data
 public meta import CFSG.Sporadic.HNOddCore.QCheckInputs
 public meta import CFSG.Sporadic.HNOddCore.SCheckInputs

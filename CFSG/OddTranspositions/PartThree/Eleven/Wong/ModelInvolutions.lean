@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalGroups.Symplectic.PSp45.Model
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4CentU2Five
 public import CFSG.GH74.GLS.IVK.Proofs2.GHInvCent
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Certificates.CosetTableCompactColumns
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
@@ -24,7 +22,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
 public import CFSG.LocalAnalysis.SectionRank.CentralLift
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 public import CFSG.Timmesfeld.Orders.ClassicalLinear
 
 public section

@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoModel
-public import CFSG.LocalAnalysis.StandardType.GGSixE6A24Centre
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviModel
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotMainSetup
 import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.E6Index
 import CFSG.LargeExtraspecial.A2ModOrdCard
-import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExclusion
 public import CFSG.LocalAnalysis.SeitzReduction.EPilotEndGraphBasic
 public import CFSG.LocalAnalysis.SeitzReduction.EPilotEndGraphE6
@@ -21,7 +19,6 @@ import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 import CFSG.LocalAnalysis.SectionRank.SporadicCover
 import CFSG.Sporadic.M23.M23Group
-import CFSG.Sporadic.Th.F2Spec
 
 public section
 

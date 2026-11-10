@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoRu.CentCoverNative
 import Certificates.Kernel.Misc.RuCoverNet.Final7296
-import Certificates.Certificate15025
 public import CFSG.Certificates.CosetTableCompactColumns
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Certificates.SeededRelations

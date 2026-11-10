@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGPiece
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsBasic
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSp
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGSpCent
-import CFSG.LieType.BorelTits.Basic
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3WASAut
-public import CFSG.ClassicalInvolution.RouteD.GapsD4AAmbient
 
 public section
 

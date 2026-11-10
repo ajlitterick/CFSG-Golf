@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLin
 public import CFSG.ClassicalInvolution.Orders.OrthogonalCount
 public import CFSG.LocalAnalysis.ComponentInitial.CLSFourGroupOrthogonalAbelianization
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasThree
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting

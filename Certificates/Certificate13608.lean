@@ -1,9 +1,6 @@
 module
 
-public import CFSG.Sporadic.HNSchreier.LocalOuter
-public import CFSG.Sporadic.HNSchreier.VectorData
 public import Certificates.Kernel.SporSch.HN.C13608
-public import Certificates.Certificate2102
 
 public section
 

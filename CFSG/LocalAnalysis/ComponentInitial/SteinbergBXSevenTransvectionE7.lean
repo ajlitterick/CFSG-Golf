@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticTransvection
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixMaximalElementaryRadicals
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 public import CFSG.LocalAnalysis.ComponentInitial.MonE7Order
 public import CFSG.ClassicalGroups.Alternating.Generation
-public import Certificates.Certificate10093
-public import Certificates.Certificate10097
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverFour
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.Open.GLADefs
 public import CFSG.LocalAnalysis.GLTheoremB.Defs
 
 public section

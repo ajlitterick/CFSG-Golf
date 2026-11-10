@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKG3Coord
-public import CFSG.LocalAnalysis.StandardType.GGKG3Act
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpDefs
 
 public section

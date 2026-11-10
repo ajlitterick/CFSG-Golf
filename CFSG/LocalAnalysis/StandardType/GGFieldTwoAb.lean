@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 public import CFSG.LocalAnalysis.StandardType.GGB36LemmaRT
 public import CFSG.LocalAnalysis.StandardType.GGL45NtRecLinSmall
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4A5Close

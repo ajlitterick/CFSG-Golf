@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMore
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMoreExc
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestExc
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6PerBstar
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldE6
 
 public section
 

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLSplitDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrCaseIIDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrSCFourData
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrA5Excl
 

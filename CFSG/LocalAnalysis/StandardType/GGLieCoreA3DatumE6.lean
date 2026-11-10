@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3GrpWeyl
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3GrpH
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3GrpCarry
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3GrpRat
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3LatticeE6Defs
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3DictPhi
-public import CFSG.HardMathSupport.Timmesfeld.Torality.LangAssembly
 
 public section
 

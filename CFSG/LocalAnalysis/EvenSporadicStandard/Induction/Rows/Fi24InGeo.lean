@@ -3,14 +3,7 @@ module
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.Fi24InGeneric
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.Fi24InLocal39
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.Fi24InPinned
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.Fi24RowEdge
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.Fi24RowUMoves
-public import CFSG.Fischer.Uniq.F23Uniq
-public import CFSG.Sporadic.Fi24.Generate
-public import CFSG.Sporadic.Fi24.Involutions
 public import CFSG.Adapters.GeneralizedFitting
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
 public import CFSG.LocalAnalysis.ComponentClassification.GSLitInputs
 public import CFSG.LocalAnalysis.ComponentClassification.TBLitPropC

@@ -1,26 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.GlobSquareFacts
-public import CFSG.Monster.B.Fischer.PinnedChain
 public import CFSG.Sporadic.FischerOddCore.Fi22Ext
 public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-import Certificates.Certificate2065
-import Certificates.Certificate2066
-import Certificates.Certificate2067
-import Certificates.Certificate2068
-import Certificates.Certificate2069
-import Certificates.Certificate2070
-import Certificates.Certificate2071
-import Certificates.Certificate2073
-import Certificates.Certificate3037
-import Certificates.Certificate3038
-import Certificates.Certificate3039
-import Certificates.Certificate3147
-import Certificates.Certificate3148
-import Certificates.Certificate3150
-import Certificates.Certificate3151
-import Certificates.Certificate3153
-import Certificates.Certificate3154
 import Certificates.Kernel.Sporadic.Fi22.Sq26560Glue
 import CFSG.Fischer.T46Unitary
 import CFSG.Sporadic.FischerOddCore.Fi22AllInv

@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLin
-public import Mathlib.LinearAlgebra.Matrix.BilinearForm
 
 public section
 

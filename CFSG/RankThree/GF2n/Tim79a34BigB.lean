@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.GF2n.Tim79a34BigModel
 public import CFSG.RankThree.GF2n.Tim79a34BigPLocal
 public import CFSG.RankThree.GF2n.Tim79a34BigWCentral
 public import CFSG.RankThree.GF2n.Tim79aCitedSp62

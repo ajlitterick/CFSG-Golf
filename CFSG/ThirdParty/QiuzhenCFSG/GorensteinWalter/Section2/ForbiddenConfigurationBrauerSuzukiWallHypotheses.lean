@@ -7,7 +7,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Hyp12OfHyp11
 import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Lemma22
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma28Helpers
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27Infra
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PreambleHSU
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PreambleInvolutions
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Reflection
 

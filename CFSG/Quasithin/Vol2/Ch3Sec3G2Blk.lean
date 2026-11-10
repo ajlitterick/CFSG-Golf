@@ -1,15 +1,9 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3331E4
-public import CFSG.Quasithin.Vol2.Ch3Sec3Lem338
-public import CFSG.Timmesfeld.Final.PSU33
-public import CFSG.Quasithin.Recognition.CertU33Psu
-public import CFSG.Quasithin.Recognition.CertU33Simple
 public import CFSG.Quasithin.EmptyFaithful.T1515dB
 public import CFSG.Quasithin.Vol2.KGNatVec
-public import CFSG.Quasithin.H13.L1332Inputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L238BridgeAlt57SL
-import CFSG.ClassicalGroups.Unitary.Simple
 public import CFSG.Dihedral.FourgroupCycleControl
 public import CFSG.Dihedral.OriginalCentralizerOddCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore
@@ -21,7 +15,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.EmptyFaithful.S1417Sylow
 public import CFSG.Quasithin.EmptyFaithful.T1515Der

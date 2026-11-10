@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBE7E8
 public import CFSG.LocalAnalysis.StandardType.GGExcFrameLang
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSylow
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.E8.RootTuples
 
 public section

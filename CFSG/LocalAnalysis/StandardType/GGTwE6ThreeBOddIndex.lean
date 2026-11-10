@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6D4GammaLayer
 public import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoE6D4
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleField
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleLang
 public import CFSG.LieType.HighestRoot.CentToralPGroup
 public import CFSG.Quasithin.Vol2.Ch12Sec2Lem16A8Cnt
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotLeviYSplit
-public import CFSG.RankThree.PartOne.KE.ConjRootSpan
 public import CFSG.LieType.HighestRoot.CentTrialityMain
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoOddLieDefs
 public import CFSG.Quasithin.Background.G64SymCase

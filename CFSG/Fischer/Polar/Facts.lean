@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Fischer.Polar.Xi22
-public import CFSG.Fischer.Uniq.PolarFacts
 public import CFSG.Fischer.Uniq.HyperovalFacts
 public import CFSG.Fischer.Uniq.Hyperoval
 

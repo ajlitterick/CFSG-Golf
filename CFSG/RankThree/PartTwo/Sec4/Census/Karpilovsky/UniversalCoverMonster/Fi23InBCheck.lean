@@ -2,7 +2,6 @@ module
 
 public import Certificates.Certificate291200
 public import CFSG.Sporadic.Bridge.Fi23Surj
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 
 public section

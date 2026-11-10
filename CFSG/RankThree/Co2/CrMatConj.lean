@@ -1,8 +1,5 @@
 module
 
-public import CFSG.RankThree.Co2.CrMat
-public import CFSG.RankThree.Co2.CmWords
-public import CFSG.RankThree.Co2.CrBridge
 public import CFSG.RankThree.Co2.ClassesM
 
 public noncomputable section

@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNativeImageDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQSplit
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineClassicalLabel
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmallLabel
 public import CFSG.LocalAnalysis.StandardType.GGOrthNsSgnLabel
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBWeylInfDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveDataResDefs

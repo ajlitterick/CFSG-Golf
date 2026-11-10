@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.FooteMarkedBalanced
 public import CFSG.LocalAnalysis.ComponentClassification.FooteMarkedConjugacy
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups
@@ -11,22 +10,8 @@ public import CFSG.ClassicalInvolution.SmallCases.Sporadic.J3CheckInputs
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.Ly
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.LyCert
 public import CFSG.GH74.E2.CaseIINoComp
-public import CFSG.GH74.GLS.IVK.A7.Glue
-public import CFSG.GH74.GLS.IVK.L2.BN
-public import CFSG.GH74.GLS.IVK.L2.BorelFive
 public import CFSG.GH74.GLS.IVK.L2.Hilbert90Core
-public import CFSG.GH74.GLS.IVK.L2.Lemma113
-public import CFSG.GH74.GLS.IVK.L2.Lemma114
-public import CFSG.GH74.GLS.IVK.L2.Lemma12hc
-public import CFSG.GH74.GLS.IVK.L2.Lemma12ib
-public import CFSG.GH74.GLS.IVK.L2.Lemma12j
-public import CFSG.GH74.GLS.IVK.L2.Lemma13fc
-public import CFSG.GH74.GLS.IVK.L2.Lemma14f
-public import CFSG.GH74.GLS.IVK.L2.Lemma14j
-public import CFSG.GH74.GLS.IVK.L2.Lemma19b
-public import CFSG.GH74.GLS.IVK.Prod.Lemma31
 public import CFSG.GH74.GLS.IVK.Proofs
-public import CFSG.GH74.GLS.IVK.Statements
 public import CFSG.GH74.GLS.Prop27.FromSUKInputs
 public import CFSG.GH74.KGroups.KI5b
 public import CFSG.GH74.QTGen4.DSGen4.Leaf.L34ParabA
@@ -98,7 +83,6 @@ public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.Sporadic.Schreier.TitsOuter
 public import CFSG.Sporadic.SmallOddCore.Co3Aut
 public import CFSG.Sporadic.ThSchreier.Max3Aut
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Timmesfeld.Opposite.Moufang
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Walter.J1Recog

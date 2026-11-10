@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockZ
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmPlaneIsometries
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalLowDimCoverage
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenOrthFixed
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmQTwo
 

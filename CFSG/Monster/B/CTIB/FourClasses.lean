@@ -2,8 +2,6 @@ module
 
 public import CFSG.Monster.B.CTIB.Fusion
 public import CFSG.Monster.B.Co2Catalog
-public import CFSG.Monster.B.Cbar.SylowTwo
-public import CFSG.Monster.B.Final.Assembly
 public import CFSG.Sporadic.Co2Inv
 public import CFSG.Certificates.InvariantMerge
 

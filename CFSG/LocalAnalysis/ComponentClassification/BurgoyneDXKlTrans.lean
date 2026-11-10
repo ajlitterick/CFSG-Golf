@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneDXKlOrth2
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneDXExcTrans
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOEvenModel
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOSliceNF
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOSplitCases
 

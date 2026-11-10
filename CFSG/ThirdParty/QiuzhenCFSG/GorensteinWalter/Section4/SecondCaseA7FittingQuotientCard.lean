@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7K0QuotientCard
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

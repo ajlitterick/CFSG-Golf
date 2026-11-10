@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGAutPSUAux
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofUAut
-public import CFSG.LieType.Universal.Unitary.Clause0
 
 public section
 

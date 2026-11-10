@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundGenBase
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
 public import CFSG.Adapters.StatedSLPerfect
 public import CFSG.RankThree.PartOne.FOC.PSLDecomp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinCore

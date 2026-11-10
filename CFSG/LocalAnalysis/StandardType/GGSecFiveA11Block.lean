@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCompatNbrSomeTypeA
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestLevi
 public import CFSG.LocalAnalysis.StandardType.GGCompatPresentedConj
 
 public section

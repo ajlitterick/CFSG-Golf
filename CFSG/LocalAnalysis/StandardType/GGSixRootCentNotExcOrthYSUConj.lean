@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepair
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepWitt
-public import CFSG.LieType.Steinberg.CentralExt.SUOddFieldThreeLevi
 
 public section
 

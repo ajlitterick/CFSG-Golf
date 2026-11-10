@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmTorusJ
 public import CFSG.LocalAnalysis.StandardType.GGTBJRowGeneric
-public import CFSG.LocalAnalysis.StandardType.GGTBRowR5Defs
-public import CFSG.LocalAnalysis.StandardType.GGTBRowOFrameAux
 public import CFSG.LocalAnalysis.StandardType.GGTBRowOFrame
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBPSL
 

@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC165Bar
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenFieldExtensionNormalizer
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenFieldExtensionStabilizer
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23Unique
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenFiveTen
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenInputs
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846c
 public import CFSG.GH74.GLS.Stage2.Final.ModelOrd
 public import CFSG.LocalAnalysis.AGLEmbedding.JStarReducedDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanCaseTwoCMSection

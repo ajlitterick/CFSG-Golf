@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SpinPlusModel
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofKleinSix
-public import CFSG.LieType.Universal.Spin.Generation.Eichler
-public import CFSG.LieType.Universal.Spin.Chevalley.Plus
-public import CFSG.LieType.Universal.SpecialLinearRoots
-public import CFSG.ClassicalInvolution.ModelFacts.Families
 public import CFSG.ClassicalGroups.Orthogonal.OmegaSiegelRoot
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
 public import CFSG.LieType.Universal.Spin

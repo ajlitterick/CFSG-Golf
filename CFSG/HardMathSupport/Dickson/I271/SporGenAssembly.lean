@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Dickson.I271.SporGen
 public import CFSG.HardMathSupport.Dickson.I271.SporGenRank3
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.Three
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.Co1SevenPair
@@ -11,7 +10,6 @@ public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.Fi24FiveGen
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.HSFive
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.HeFive
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.HeSeven
-public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.J2Five
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.J4ElevenPair
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.MEleven
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.MThirteen
@@ -24,31 +22,6 @@ public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.J3SuzThree
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.Co1FivePair
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.J2FiveStrong
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.ChevStrongD4
-public import CFSG.HardMathSupport.Timmesfeld.Proving.SporadicOuterLeTwo
-public import CFSG.HardMathSupport.Timmesfeld.Coordinator.ScopeBFrontier
-public import CFSG.HardMathSupport.Timmesfeld.Coordinator.SporadicBMData
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Assemble
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1Five
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1Three
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co2Three
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi22
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi23Sylow
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi24Pair
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HNFiveOrders
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HNWitness
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.LyThree
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterElevenFinal
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterThirteenFinal
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.OuterTrivial
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.SuzThree
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThThreeClose
-public import CFSG.HardMathSupport.Solomon.Coordinator.SporOrders
-public import CFSG.LocalAnalysis.AGLEmbedding.Norton.Gen11.Gen
-public import CFSG.LocalAnalysis.AGLEmbedding.Norton.Gen13.Gen
-public import CFSG.LocalAnalysis.AGLEmbedding.Norton.GenD13.Gen
-public import CFSG.RankThree.PartOne.SPOR.OuterM
-public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.TableComplete
-public import CFSG.Sporadic.Bridge.Catalogue
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Rank1
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Generic
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.Co3Shape

@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2251g
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2251f
 import CFSG.LocalAnalysis.UniquenessCase.UC22KBar
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22n
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22ya
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
 import CFSG.RankThree.PartOne.S11c.Simple168
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846d
 public import CFSG.LocalAnalysis.UniquenessCase.UCR638

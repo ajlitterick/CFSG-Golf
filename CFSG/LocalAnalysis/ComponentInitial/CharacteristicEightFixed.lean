@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.ComponentInitial.BlockSylowOrder
 import CFSG.GroupTheory.ElementaryAbelianTransport

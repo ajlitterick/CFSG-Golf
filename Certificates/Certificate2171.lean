@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.Schreier.J4SFormData
 import Certificates.Kernel.SporSch.J4S.Form
-public import CFSG.Sporadic.Schreier.J4SNative
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDefs
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpDescent
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpTwoPart
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 
 public section
 

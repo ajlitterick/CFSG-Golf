@@ -1,12 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.QuadraticForm.Basic
-public import Mathlib.Algebra.CharP.Two
-public import Mathlib.Algebra.CharP.Reduced
-public import Mathlib.GroupTheory.Index
-public import Mathlib.GroupTheory.Perm.Cycle.Type
-public import Mathlib.Algebra.BigOperators.Finprod
-public import Mathlib.Data.Int.ModEq
 
 public section
 

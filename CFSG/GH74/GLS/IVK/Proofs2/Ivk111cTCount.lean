@@ -3,10 +3,6 @@ module
 public import Mathlib.Data.Nat.Choose.Lucas
 public import Mathlib.Data.Nat.Choose.Dvd
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk111cDefs
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Basify
-public import Mathlib.Tactic.ENatToNat
-public import Mathlib.Tactic.ReduceModChar
 
 public section
 

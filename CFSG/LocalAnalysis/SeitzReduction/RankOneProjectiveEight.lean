@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.SeitzReduction.RankOneDegreeEightD8
 public import CFSG.LocalAnalysis.SeitzReduction.RankOneEndingsTransfer
-public import CFSG.GroupTheory.ThompsonIndexTwo
 
 public section
 

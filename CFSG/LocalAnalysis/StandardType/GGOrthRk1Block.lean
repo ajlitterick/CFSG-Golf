@@ -2,16 +2,10 @@ module
 
 public import Mathlib.LinearAlgebra.Determinant
 public import Mathlib.LinearAlgebra.Trace
-public import Mathlib.Algebra.CharP.Defs
 
-import Mathlib.Algebra.CharP.Two
-import Mathlib.Algebra.CharP.Lemmas
 import Mathlib.Algebra.CharP.Algebra
-import Mathlib.LinearAlgebra.Charpoly.ToMatrix
-import Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff
 import Mathlib.LinearAlgebra.Eigenspace.Zero
 import Mathlib.LinearAlgebra.Center
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 
 public section
 

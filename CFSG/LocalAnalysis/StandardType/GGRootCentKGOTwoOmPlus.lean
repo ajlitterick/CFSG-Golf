@@ -11,13 +11,7 @@ import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoOmCent
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoOmCentFour
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGRigid
 import CFSG.LocalAnalysis.StandardType.GGRootNormInner
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSp
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmFrame
 import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaPlusFour
-import CFSG.LieType.Universal.Spin.Datum
-import CFSG.LieType.Universal.SpinOmega.Range
-import CFSG.ClassicalGroups.Orthogonal.Simple
 
 public section
 

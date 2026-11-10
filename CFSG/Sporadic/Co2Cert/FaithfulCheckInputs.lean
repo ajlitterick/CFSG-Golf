@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.Co2Cert.Check
 public import Certificates.Data.CFSGNative.Co2.Data
 public import Certificates.Data.CFSGNative.MonsterB.Max2Tower
-public import Certificates.Data.CFSGNative.HS.SmallF2
 public meta import CFSG.Sporadic.Co2Cert.Check
 public meta import Certificates.Data.CFSGNative.Co2.Data
 public meta import Certificates.Data.CFSGNative.MonsterB.Max2Tower

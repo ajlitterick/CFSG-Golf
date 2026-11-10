@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.ExoticSingleClique
-public import CFSG.ClassicalInvolution.RouteD.ExoticSingleFixed
 public import CFSG.ClassicalInvolution.RouteD.ExoticSingleMinus
 
 public section

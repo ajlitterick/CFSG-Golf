@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestGen
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflTypeA
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTypeA
 
 public section
 

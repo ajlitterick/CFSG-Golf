@@ -1,12 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Universal.Spin.Twisted.Datum
-public import CFSG.ClassicalGroups.Orthogonal.Eichler
-public import CFSG.LieType.Universal.Spin.Generation.Eichler
-public import CFSG.LieType.Universal.Spin.Twisted.Torus
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutDefs
-public import CFSG.LieType.Universal.Spin.Twisted.Unipotent
 
 public section
 

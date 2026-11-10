@@ -11,39 +11,26 @@ import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.O1521b
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.L34NotInvolvedA11
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.K1410aHolds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.K4143NoExtraHolds
-import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.FFGlaubermanNiles
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15GNInputRed
 import CFSG.LocalAnalysis.RankThreeUC.GN15JOutSupGuard
 public import CFSG.LocalAnalysis.RankThreeUC.GN15Solv
 import CFSG.LocalAnalysis.RankThreeUC.GN15Holds
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15P2GlueLocal
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankTwoPerOffenderFinal
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K517_4bOfRankTwoUnitary
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K7145Holds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.A11GammaTwoSet
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CSevenOneOneHolds
-import CFSG.LocalAnalysis.AGL81TheoremCD.RankFour.WitnessFour
 import CFSG.HardMathSupport.Foote.Coordinator.Downstream
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.O89
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.O1517bMain
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.KFactFi22SPEHolds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.SevenThree
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811K1Holds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.FourteenFiveThreeOfInputs
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineFourTwoSigmaGenProof
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.KFactNineFourRankOneAutProof
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.KFactNineFourStronglyEmbeddedProof
-import CFSG.RankThree.PartOne.TCB.SchreierFinal
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineTwelveOneSigmaStrong
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineSixMoreoverProof
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.SevenThreeKFactProof
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.CaseOneFourteenTwo
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.CaseOneFourteenThree
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.O1217SigmaHolds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.K35CentralHolds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.P812Holds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.O98Main
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.K35Holds
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineSevenTwoGen
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K37Main
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.TwelveElevenNineSeven
@@ -54,7 +41,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UC6K332FamOmegaList
 import CFSG.LocalAnalysis.UniquenessCase.UC6K332FamOmegaOuter
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76K332
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76Reduction
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76RankThree
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76G2Max
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76J2
 import CFSG.LocalAnalysis.RankThreeUC.GN15FFOD4JOut
@@ -221,11 +207,9 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenTenCfgOf
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2AltFiveBlock3
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2Families3
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2HSFive3
-import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Cover
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Fusion
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Impure
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Kmax
-import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Port3CoreFree
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Residue3
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2LeavesNarrow3
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2SporDatum3

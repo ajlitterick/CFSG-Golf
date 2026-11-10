@@ -1,31 +1,19 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45E67
-public import CFSG.LocalAnalysis.StandardType.GGL45NtSimp
 public import CFSG.LocalAnalysis.StandardType.GGL45E67Rank
 public import CFSG.LocalAnalysis.StandardType.GGL45E67Inner
 public import CFSG.LocalAnalysis.StandardType.GGL45E67Toral
 public import CFSG.LocalAnalysis.StandardType.GGL45E67Torus
 public import CFSG.LocalAnalysis.StandardType.GGL45E67TorusH
-public import CFSG.LocalAnalysis.StandardType.GGL45NtExcThreePart
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelFrameMap
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeAt
 public import CFSG.LocalAnalysis.StandardType.GGL45E67FrameLang
 public import CFSG.LocalAnalysis.StandardType.GGL45E67FrameExists
 public import CFSG.LocalAnalysis.StandardType.GGL45E67FramePos
 public import CFSG.LocalAnalysis.StandardType.GGL45E67FrameH
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelE6Kernel
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelQ8Kernel
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOther
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagCartan
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestInner
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGL45E67Center
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeTwF4
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcOutdiag
 
 public section

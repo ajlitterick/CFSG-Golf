@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLCore
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLG2N
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLChev
 import CFSG.SignalizerFunctorTheorem.NonLocalExc.Chevalley
-import CFSG.Timmesfeld.Orders.Classical
 
 public section
 

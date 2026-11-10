@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWT4Inv
 public import CFSG.ClassicalInvolution.RouteD.TWT4Vis
-public import CFSG.ClassicalInvolution.RouteD.TWZAct
 
 public section
 

@@ -1,17 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGD4OddCentKnownInputs
-public import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
-public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Torus
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
-public import CFSG.LocalAnalysis.StandardType.GGTwInndiagRootBridge
-public import CFSG.LocalAnalysis.StandardType.GGMarkingAllInduces
-public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCoverMark
-public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralCoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KG7RankSix
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KG7RecipeCore
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KG7Unpack
@@ -37,20 +25,8 @@ import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeTwE6CompAct
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeTwE6Conn
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeTwSmall
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeUniInner
-import CFSG.Quasithin.Background.B1
-import CFSG.Quasithin.Background.B3Q
-import CFSG.Quasithin.Background.B3ThreeModel
-import CFSG.Quasithin.Background.B3ThreeStruct
-import CFSG.Quasithin.Background.G2Omega4PlusModule
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtS143W2CompO
 import CFSG.Quasithin.EmptyFaithful.R3c19B
-import CFSG.Quasithin.EmptyFaithful.S143FF
-import CFSG.Quasithin.EmptyFaithful.S143Final
-import CFSG.Quasithin.EmptyFaithful.S143HD
-import CFSG.Quasithin.EmptyFaithful.S143IG
-import CFSG.Quasithin.EmptyFaithful.S143JB
-import CFSG.Quasithin.EmptyFaithful.S143KO
-import CFSG.Quasithin.EmptyFaithful.S143KP
 import CFSG.Quasithin.EmptyFaithfulMultiple.Lemma15421
 import CFSG.RankThree.PartOne.N143.HighEvenU
 

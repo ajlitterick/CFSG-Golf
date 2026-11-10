@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156Facts
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPBasic
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIBase
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIPComp
 public import CFSG.LocalAnalysis.GLTheoremA.S4.ModCore

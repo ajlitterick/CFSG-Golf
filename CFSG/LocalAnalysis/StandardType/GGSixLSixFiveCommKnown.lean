@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownComp
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveComm
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixFivePumpup
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridge
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenCentJLieKnown
 import CFSG.LocalAnalysis.StandardType.GGSixCtxKnownSupply
 

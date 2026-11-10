@@ -1,17 +1,14 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK1DDefs
 public import CFSG.LocalAnalysis.StandardType.GGK1DKind
 public import CFSG.LocalAnalysis.StandardType.GGK1DWitt
 public import CFSG.LocalAnalysis.StandardType.GGK1DPos
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalDiag
 public import CFSG.LocalAnalysis.StandardType.GGK1CBlFF
 public import CFSG.LocalAnalysis.StandardType.GGK1CBlIdx
 public import CFSG.LocalAnalysis.StandardType.GGK1CBlCl
 public import CFSG.LocalAnalysis.StandardType.GGK1CBlSu
 public import CFSG.LocalAnalysis.StandardType.GGK1CBlSolv
 public import CFSG.CGT.M24R.WrapCtx
-public import CFSG.HardMathSupport.Timmesfeld.OrthogonalGeneration.SmallOmegaSix
 public import CFSG.CGT.T75P.Inputs
 public import CFSG.CGT.Timmesfeld75.Derivations
 public import CFSG.CGT.Timmesfeld75.Sec5One

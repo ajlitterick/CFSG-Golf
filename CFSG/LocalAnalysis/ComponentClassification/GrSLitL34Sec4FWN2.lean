@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4FWN2Model
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Single
 public import CFSG.GroupTheory.ABGLocalTools.OddInvolution
 public import CFSG.LocalAnalysis.ComponentInitial.GroupFusion
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 public import CFSG.LieType.Multipliers.L34Upper
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsBorel

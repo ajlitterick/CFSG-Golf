@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSLRank
-public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRank
 
 public section
 

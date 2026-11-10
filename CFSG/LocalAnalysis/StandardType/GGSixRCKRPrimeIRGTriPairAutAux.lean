@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TriD4BridgeIso
-public import CFSG.LieType.Chevalley.EvenTrialityAutomorphismNormalForm
-public import CFSG.ClassicalInvolution.RouteD.SmallTwinChainX
 public import CFSG.LieType.AschbacherSeitz.RootGroupTransport
-public import CFSG.LieType.Chevalley.GraphFixedCompatibleDiagonal
 
 public section
 

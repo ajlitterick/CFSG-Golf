@@ -1,11 +1,5 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic3
-public import CFSG.GH74.KGroups.Generic5
-public import CFSG.GH74.KGroups.Generic7
-public import CFSG.GH74.KGroups.M11Tables
-public import CFSG.GH74.Generic.Shapes
 public import CFSG.GH74.KGroups.CoverM11Inputs
 import Certificates.Kernel.Misc.KGroups.C5113
 

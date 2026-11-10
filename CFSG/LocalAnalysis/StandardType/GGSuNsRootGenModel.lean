@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSuNsRootGenDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflInner
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeLift
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitaryCover
 
 public section

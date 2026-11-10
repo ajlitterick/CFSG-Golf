@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsSquareProd
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 
 public section
 

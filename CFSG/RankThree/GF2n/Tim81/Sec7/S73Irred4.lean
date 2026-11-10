@@ -5,16 +5,10 @@ public import CFSG.RankThree.GF2n.Tim81.Cited.Sec7
 import CFSG.RankThree.GF2n.Tim81.Sec7.S73Split
 import CFSG.RankThree.GF2n.Tim81.Sec7.S73Swap
 import CFSG.RankThree.GF2n.Tim81.Sec7.S73Base
-import CFSG.RankThree.GF2n.Tim81.Sec7.S73Images
 import CFSG.RankThree.GF2n.Tim81.Sec6.M0Basic
 import CFSG.RankThree.GF2n.Tim81.Sec6.M0Setup
 import CFSG.GroupTheory.SL2PairCommutant
 import CFSG.RankThree.GF2n.Tim81.Sec7.S73Irred4Sec
-import CFSG.Timmesfeld.Bridge.RootStructR2ManySection
-import CFSG.RankThree.GF2n.Tim81.Sec2.NatSumRecog
-import CFSG.CGT.Timmesfeld75.L2Defs
-import CFSG.CGT.Timmesfeld75.WeaklyClosed
-import CFSG.RankThree.GF2n.Tim81.Sec5.SigmaData
 import CFSG.GroupTheory.CoprimeActionSupport.NormalSubgroupSylowJoin
 public import CFSG.CGT.Timmesfeld75.Sec3Basic
 public import CFSG.GroupTheory.CentralizerSup
@@ -64,9 +58,7 @@ public import CFSG.Quasithin.Background.A3Structure318Red
 public import CFSG.Quasithin.Background.A3Structure36A
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
 public import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
 public import CFSG.Quasithin.Background.A3Structure36BFrattini
 public import CFSG.Quasithin.Background.A3Structure36BHeisBase
 public import CFSG.Quasithin.Background.A3Structure36BHomocyclic
@@ -117,7 +109,6 @@ import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Defs
 import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec5.L514.Setup
 import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Projection
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddCenterOfOddQuotientKernel
 import CFSG.Timmesfeld.Moufang.Three
 import CFSG.Timmesfeld.Special.TwoCore
 

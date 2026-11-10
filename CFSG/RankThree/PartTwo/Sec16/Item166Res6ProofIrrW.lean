@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec16.Item16KFactsProofIrr
 public import CFSG.Milestones.CL_LIT_Walter_abelian_Sylow_two_simple
 import CFSG.RankThree.PartTwo.Sec16.Item166Res6ProofE9L
-import CFSG.Walter.J1Props.Facts
-import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -33,7 +31,6 @@ public import CFSG.Monster.AxisCount.HSIdentRec6
 public import CFSG.Monster.AxisCount.HSIdentRec7
 public import CFSG.Monster.AxisCount.HSIdentSmall
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 public import CFSG.RankThree.Asc83Table.PermTables

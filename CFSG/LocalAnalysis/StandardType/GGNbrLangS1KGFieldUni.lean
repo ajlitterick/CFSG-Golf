@@ -4,11 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1KGField
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1Labels
 import CFSG.LocalAnalysis.StandardType.KGLangS1AUniComp
 import CFSG.LocalAnalysis.StandardType.KGLangTorAUniLift
-import CFSG.LocalAnalysis.StandardType.KGLangTorAFields
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSpUUnitary
 import CFSG.LocalAnalysis.StandardType.GGL45TGSU
-import CFSG.ClassicalGroups.Unitary.Simple
 
 public section
 

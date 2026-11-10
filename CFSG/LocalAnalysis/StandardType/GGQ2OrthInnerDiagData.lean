@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2OrthStatements
 import CFSG.LocalAnalysis.StandardType.GGQ2OrthPlaneForm
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusForms
 import CFSG.LocalAnalysis.StandardType.GGFusionShadowOrthogonal
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-import CFSG.Assembly.GL83LieDefs
 import CFSG.ClassicalGroups.Alternating.TransvectionGenerationTwo
 
 public section

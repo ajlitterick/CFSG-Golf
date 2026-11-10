@@ -3,13 +3,9 @@ module
 
 public import Certificates.Certificate2238Base
 
-public import CFSG.Sporadic.Schreier.PairJ3Check
-public import Certificates.Data.CFSGNative.PairSchreier.Preds
 public meta import CFSG.Sporadic.Schreier.PairJ3Check
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.PairSchreier.Preds
-public import CFSG.Sporadic.Schreier.PairJ3CertInputs
-public import CFSG.Sporadic.Schreier.PairJ3CheckInputs
 public meta import CFSG.Sporadic.Schreier.PairJ3Cert
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain

@@ -4,8 +4,6 @@ public import CFSG.Quasithin.EmptyFaithful.T1515gG
 public import CFSG.Quasithin.EmptyFaithful.T1515gF
 public import CFSG.Quasithin.EmptyFaithful.T1515gH
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246A7Rep
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups
@@ -40,8 +38,6 @@ public import CFSG.Quasithin.Background.E3Gen
 public import CFSG.Quasithin.Background.InternalSecData
 public import CFSG.Quasithin.Background.InternalSecIso
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S1417Glue
 public import CFSG.Quasithin.EmptyFaithful.S1421Defs
 public import CFSG.Quasithin.EmptyFaithful.S151cA2
@@ -58,7 +54,6 @@ public import CFSG.Quasithin.Vol2.Ch11SecAFacts04
 public import CFSG.Quasithin.Vol2.Ch11StatementsC
 public import CFSG.Quasithin.Vol2.Ch3Sec1Thm311
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Timmesfeld.Orders.ClassicalLinear
 
 public section

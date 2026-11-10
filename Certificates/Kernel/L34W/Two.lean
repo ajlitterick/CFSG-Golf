@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.L34W.Tabs
 public import Certificates.Data.Kernel.L34W.ModK
 public import Certificates.Data.GrSLitL34Sec5SWIsoCheck
-import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Kernel.L34W.TwoData
 
 public section

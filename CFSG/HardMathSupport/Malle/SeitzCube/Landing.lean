@@ -2,10 +2,7 @@ module
 
 public import CFSG.LieType.SeitzGeneration.HyperExCubeUntw
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.ExcLangNFix
-public import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangInner
-public import CFSG.RankThree.PartOne.KE.A1Untwisted
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

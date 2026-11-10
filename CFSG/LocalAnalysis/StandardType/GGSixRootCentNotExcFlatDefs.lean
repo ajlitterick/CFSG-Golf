@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentNotExcRows
-public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatRootCent
 
 public section
 

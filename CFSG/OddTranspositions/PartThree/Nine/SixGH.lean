@@ -3,14 +3,11 @@ module
 public import CFSG.OddTranspositions.PartThree.Nine.FinalSuzuki
 public import CFSG.LocalAnalysis.OddStandard.Solomon75GH71Defs
 public import CFSG.GH74.Uniqueness.SU.SU5A8
-public import CFSG.GH74.GLS.Classes
 import CFSG.LocalAnalysis.OddStandard.Solomon75GH71Sylow
 import CFSG.RankThree.PartTwo.KFacts.K72List
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
 import CFSG.ThirdParty.OddOrder.Isaacs.PermutationGroups.CycleCommutators
 import CFSG.CGT.PushingUpLit.CGT6.SixFourAlt9
 import CFSG.GH74.QTGen4.U42.L28Nine
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_14
 public import CFSG.LocalAnalysis.OddStandard.Solomon75Inputs
 import CFSG.CharacterTheory.CyclicBlocks.Family
 import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers

@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGWeylCartan
-public import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
-public import CFSG.LieType.RootSystem.Cartan
-public import Mathlib.GroupTheory.Coxeter.Basic
-public import Mathlib.Logic.Relation
-import Mathlib.Tactic.Group
 
 public section
 

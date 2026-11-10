@@ -19,7 +19,6 @@ public import Certificates.Kernel.Co1B.Iota
 public import Certificates.Kernel.SporSch.Co1.Packed
 public import CFSG.Certificates.Kernel.SporSch.Co1CentSound
 public import CFSG.Certificates.Kernel.SporSch.Co1BfsSound
-import Mathlib.Tactic.IntervalCases
 
 public section
 

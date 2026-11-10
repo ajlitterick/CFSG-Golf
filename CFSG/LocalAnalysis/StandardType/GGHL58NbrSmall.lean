@@ -1,15 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepAssembly
-public import CFSG.LocalAnalysis.StandardType.GGTWRowData
 public import CFSG.LocalAnalysis.StandardType.GGTWRowDataL
-public import CFSG.LocalAnalysis.StandardType.GGResXDatumAHLK
-public import CFSG.LocalAnalysis.StandardType.GGHLNbrInput
-public import CFSG.LocalAnalysis.StandardType.GGTWRowGenDefs
-public import CFSG.LocalAnalysis.StandardType.GGResXDatumARankFrom
 public import CFSG.LocalAnalysis.StandardType.GGResXDatumAHLFrom
 public import CFSG.LocalAnalysis.StandardType.GGHL58NbrDerive
-public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGAutomizerLiftTor
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTWSmallADefs
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3NodesKeep
-public import CFSG.LocalAnalysis.StandardType.GGPZCartanRank
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Bridge
 public import CFSG.LocalAnalysis.StandardType.GGDepED4Align
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepLarge

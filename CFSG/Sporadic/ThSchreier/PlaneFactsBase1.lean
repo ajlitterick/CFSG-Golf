@@ -6,24 +6,12 @@ import all CFSG.Sporadic.ThSchreier.PlaneFactsBase
 
 public import CFSG.Sporadic.ThSchreier.GlobalIndexBase1
 public import Certificates.Certificate2317
-public import CFSG.Sporadic.ThSchreier.CentralizerDataInputs
 public meta import CFSG.Sporadic.ThSchreier.Text
-public import CFSG.Sporadic.ThSchreier.GlobalData
-public import CFSG.Sporadic.Th.SimpleBase1
 public meta import CFSG.Sporadic.ThSchreier.Row
 public meta import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
-public import CFSG.Sporadic.ThSchreier.RowInputs
 public meta import Certificates.Data.CFSGNative.Th.Base
-public import CFSG.Sporadic.ThSchreier.UASpaceInputs
 public meta import CFSG.Sporadic.ThSchreier.CentralizerData
 public meta import CFSG.Sporadic.ThSchreier.WordsBase1
-public import Mathlib
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Blueprint.MatrixSeedIdentification
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.Certificates.SchreierStabilizerGenerators
-public import Certificates.Data.CFSGNative.Th.Certificate
-public import CFSG.Sporadic.Th.Max3.Data
 public import CFSG.Sporadic.ThSchreier.CentralizerData
 
 @[expose] public section

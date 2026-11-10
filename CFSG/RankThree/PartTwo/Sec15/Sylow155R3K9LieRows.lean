@@ -2,10 +2,7 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec15.Sylow155R3K9Comp
 import CFSG.RankThree.PartTwo.Sec4.Ronan148LValid
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinBBridge
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDBridge
 import CFSG.RankThree.PartTwo.Sec8.Hering418Seven
-import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 
 public section
 

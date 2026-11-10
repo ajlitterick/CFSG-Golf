@@ -1,14 +1,12 @@
 module
 
 public import CFSG.Sporadic.Schreier.Co3Outer
-public import Mathlib.Data.Matrix.Block
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 public meta import CFSG.Sporadic.Schreier.Co3Outer
 public meta import Mathlib.Data.Matrix.Block
 public meta import CFSG.Sporadic.Schreier.Co3Cert
 public import CFSG.Sporadic.Schreier.Co3Cert
 public meta import Mathlib.GroupTheory.Schreier
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

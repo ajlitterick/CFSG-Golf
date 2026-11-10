@@ -3,27 +3,6 @@ module
 public import CFSG.Monster.B.CTIB.Orbits
 public import CFSG.Monster.B.CTIB.CosetCert
 public import Certificates.Certificate3111
-public import Certificates.Certificate3100
-public import Certificates.Certificate3110
-public import Certificates.Certificate3014
-public import Certificates.Certificate3017
-public import Certificates.Certificate3019
-public import Certificates.Certificate3025
-public import Certificates.Certificate3026
-public import Certificates.Certificate3027
-public import Certificates.Certificate3028
-public import Certificates.Certificate3045
-public import Certificates.Certificate3048
-public import Certificates.Certificate3050
-public import Certificates.Certificate3051
-public import Certificates.Certificate3098
-public import Certificates.Certificate3101
-public import Certificates.Certificate3102
-public import Certificates.Certificate3103
-public import Certificates.Certificate3106
-public import Certificates.Certificate3107
-public import Certificates.Certificate3108
-public import Certificates.Certificate3109
 
 public section
 

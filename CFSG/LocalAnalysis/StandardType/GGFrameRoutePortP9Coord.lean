@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoOmCoord
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
 import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoOmChars
-import CFSG.GroupTheory.WeirSylow.OrthogonalTori
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentTypeSum
 import CFSG.ClassicalGroups.Orthogonal.PolarPairPlane
 

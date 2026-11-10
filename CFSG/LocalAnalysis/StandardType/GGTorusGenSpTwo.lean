@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSC
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSpTwoCent
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSpTwoComp
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeSp
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 
 public section
 

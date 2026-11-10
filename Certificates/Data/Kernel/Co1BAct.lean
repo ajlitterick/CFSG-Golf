@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.M1F2
-public import CFSG.Certificates.Kernel.Enum.Defs
 public import Certificates.Data.Kernel.Spor.Chain
 
 public section

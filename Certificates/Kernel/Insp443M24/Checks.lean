@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Insp443M24.Defs
-import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.Insp443M24.Data
 
 public section

@@ -4,12 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.GGLieCoreStruct
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleField
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleCycle
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcKernelSmall
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerSmall
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame.SmallField
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcChar2
 import CFSG.HardMathSupport.Solomon.Coordinator.L3G515CovQ8
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcFieldG2Eight
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TypeASplit
 import CFSG.Blueprint.LieModelAPI
 import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.PsuGoodAux.Descent
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcSuN

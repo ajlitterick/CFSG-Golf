@@ -2,13 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS03Two
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS03Spor
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM12
-public import CFSG.Sporadic.Mathieu.M12
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterElevenFinal
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterThirteenFinal
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BThirteen
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi24Seven
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThFive
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS03Mod
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS03J4
 public import CFSG.HardMathSupport.Solomon.Coordinator.I23_26Comp
@@ -35,8 +28,6 @@ public import CFSG.Quasithin.Background.A3Structure319
 public import CFSG.Quasithin.Background.C1PackS15212C
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

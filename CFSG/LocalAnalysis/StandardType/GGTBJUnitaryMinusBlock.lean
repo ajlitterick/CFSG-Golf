@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusDefs
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenWeyl
-public import CFSG.LocalAnalysis.StandardType.GGRealKGCoverComp
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusBlockAuxCover
 import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusBlockAuxRot
 

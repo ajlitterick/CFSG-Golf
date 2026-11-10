@@ -1,12 +1,6 @@
 module
 
 public import CFSG.Sporadic.J4.GlobalSpec
-public import CFSG.Perm.ChainSpec
-import Certificates.Data.CFSGNative.J4.Tables
-import Certificates.Data.CFSGNative.J4.Chain
-import Certificates.Data.CFSGNative.J4.Cert
-import Certificates.Data.CFSGNative.Perm.Chain
-import Certificates.Data.CFSGNative.Th.Tables
 
 public section
 

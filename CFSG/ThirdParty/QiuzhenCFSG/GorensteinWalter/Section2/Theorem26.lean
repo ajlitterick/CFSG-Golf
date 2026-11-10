@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem26Core
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem26ComponentTrivial
 
 namespace CFSG

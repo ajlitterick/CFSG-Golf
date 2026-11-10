@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.TL4OmegaAOFD4OC
-public import CFSG.ClassicalInvolution.Q3.TL4OmegaAOFStd
-public import CFSG.ClassicalInvolution.Q3.TL4OmegaAOFL4Aut
 
 public section
 

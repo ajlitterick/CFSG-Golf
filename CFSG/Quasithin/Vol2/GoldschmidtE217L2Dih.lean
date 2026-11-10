@@ -2,7 +2,6 @@ module
 
 public import CFSG.Dihedral.Glauberman.DicksonMaxStructure
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2InvolutionFusion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

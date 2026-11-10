@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.KGLangT3Defs
-public import CFSG.LocalAnalysis.StandardType.GGTriD4LineTransport
 import CFSG.LocalAnalysis.StandardType.GGIOneExcLift
 import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputsModel
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
-import CFSG.LieType.Simplicity.TrialityD4
 
 public section
 

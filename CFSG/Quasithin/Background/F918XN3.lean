@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Background.F918X1
 public import CFSG.Quasithin.Background.F918X4
 public import CFSG.Quasithin.Background.HSp4Rel
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenSymplecticNormalForm
-import CFSG.LieType.Universal.Symplectic
 public import CFSG.Quasithin.Background.B4ModelsIso
 
 public section

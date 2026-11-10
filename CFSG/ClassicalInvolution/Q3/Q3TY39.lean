@@ -1,10 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TY38
-public import CFSG.ClassicalInvolution.Q3.Q3TY33
-public import CFSG.ClassicalInvolution.Q3.Q3TY21
 public import CFSG.ClassicalInvolution.Q3.Q3TY30
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedDDischarge
 
 public section
 

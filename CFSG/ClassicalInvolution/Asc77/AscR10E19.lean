@@ -1,13 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Asc77.AscR10E9
-public import CFSG.ClassicalInvolution.Asc77.AscR10E5
-public import CFSG.ClassicalInvolution.Asc77.AscR10E17
-public import CFSG.ClassicalInvolution.Asc77.AscR10E2
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2TwPair
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2TwMain
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2UnitaryTwMain
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2InterfaceTw
 public import CFSG.ClassicalInvolution.Asc77.AscR10E18
 
 public section

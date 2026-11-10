@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Sporadic.Co2Schreier.Arrays
-public import Certificates.Data.CFSGNative.Schreier.Check
 public import Certificates.Data.CFSGNative.Co3Schreier.Basic
-public import Certificates.Data.CFSGNative.MonsterB.BinarySha
 public meta import CFSG.Sporadic.Co2Schreier.Arrays
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.Co3Schreier.Basic

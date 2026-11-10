@@ -6,8 +6,6 @@ public import Certificates.Kernel.SuzThree13637.HypAux
 public import Certificates.Kernel.SuzThree13637.BindFacts
 public import CFSG.Certificates.Kernel.Spor.PSearchSound
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.SuzThreeBase
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2

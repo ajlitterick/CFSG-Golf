@@ -3,13 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeRootGenFrame
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeRootGenComp
 public import CFSG.LocalAnalysis.StandardType.GGRootGenAvoidCoverTorus
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenRefl
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenCoord
 public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenGen
-public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenRoot
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelRecipeID
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelE6Kernel
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelModule
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenAvoidKG
 
 public section

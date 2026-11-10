@@ -1,17 +1,12 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Ten.Steps
 import CFSG.OddTranspositions.PartThree.Ten.TenTwo
 public import CFSG.OddTranspositions.PartThree.Ten.TenTwoCover
 import CFSG.OddTranspositions.PartThree.Ten.SetupPerfect
 public import CFSG.OddTranspositions.PartThree.Ten.SwapImage
 import CFSG.OddTranspositions.PartThree.Ten.DalphaBlocks
 import CFSG.OddTranspositions.PartThree.EightSeven
-import CFSG.OddTranspositions.PartThree.HalphaCentralizer
-import CFSG.OddTranspositions.BlockGraph
-import CFSG.OddTranspositions.SixEight
 import CFSG.OddTranspositions.TheoremTwo.AalphaNonempty
-public import CFSG.OddTranspositions.HalphaQuotient
 import CFSG.Timmesfeld.Bridge.Asc72ZQuot
 import CFSG.GroupTheory.PCore.SolvableRadical
 

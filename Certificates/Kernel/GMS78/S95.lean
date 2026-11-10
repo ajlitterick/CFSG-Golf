@@ -13,7 +13,6 @@ public import CFSG.Certificates.Kernel.GMS78RuSSound
 public import CFSG.Certificates.Kernel.GMS78RuSCentSound
 public import CFSG.Certificates.Kernel.GMS78RuSGrpSound
 public import CFSG.Certificates.Kernel.GMS78RuSCent16Sound
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.MinusDerived.Checks
 public import CFSG.Certificates.Kernel.BfsPinBaseSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.DerivedCheck
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 public import CFSG.Certificates.Kernel.BfsPinSound

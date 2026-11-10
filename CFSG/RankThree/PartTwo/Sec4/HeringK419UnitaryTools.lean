@@ -5,7 +5,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Item413Setup
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
 public import CFSG.RankThree.PartTwo.Sec4.HeringK419UnitaryComp
 public import CFSG.RankThree.PartTwo.Sec4.Item426A6Setup
-import CFSG.Sporadic.Schreier.J4SSylowBase
 
 public section
 

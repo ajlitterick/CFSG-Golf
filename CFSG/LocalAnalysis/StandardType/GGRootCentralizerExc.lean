@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcConj
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionCyclic
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinberg
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerE7
 public import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
-public import CFSG.LieType.Steinberg.Isogeny.E7
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.Steinberg.CentralExt.F4E8Multiplier
 public import CFSG.LocalAnalysis.ComponentInitial.CentralCoverAbelian

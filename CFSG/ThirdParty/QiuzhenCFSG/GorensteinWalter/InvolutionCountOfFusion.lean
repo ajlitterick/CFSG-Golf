@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-import Mathlib.GroupTheory.GroupAction.CardCommute
 
 namespace CFSG
 end CFSG

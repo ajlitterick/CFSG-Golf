@@ -1,11 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowVQuasi
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusWeylMatrices
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearNative
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalGroups.Symplectic.Simple
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
@@ -31,9 +26,7 @@ public import CFSG.RankThree.PartTwo.Sec4.ProjSLEquiv
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429Rows
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432Rows
 public import CFSG.RankThree.PartTwo.Sec8.Statements
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

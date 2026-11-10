@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Universal.Symplectic
 public import CFSG.LieType.SteinbergBREvenSymplecticThreeRank
-public import CFSG.Open.StatedAPI
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter

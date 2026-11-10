@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qLocCenter
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qLocWeyl
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsModD4
-public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsModD4Perf
-public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8D4Cell
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qLocAut
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qLocRep
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qStructSyl

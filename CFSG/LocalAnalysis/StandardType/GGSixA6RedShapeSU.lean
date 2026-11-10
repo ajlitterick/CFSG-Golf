@@ -1,15 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedShapeSUCore
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedCoreShapeAssembly3
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedCoreShapeHerm
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedCoreShapeAlt
-public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalSpUSUStd
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaFree
-public import CFSG.LieType.Universal.Unitary.Basic
 public import CFSG.LieType.Universal.Unitary.Hermitian
-public import CFSG.LieType.BorelTits.OrthogonalForm
-public import CFSG.LieType.BorelTits.UnitaryForm
 
 public section
 

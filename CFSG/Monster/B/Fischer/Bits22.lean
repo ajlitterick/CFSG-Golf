@@ -1,12 +1,6 @@
 module
 
 public import CFSG.Monster.B.Classical.Derived22Coordinates
-public import Mathlib.Data.LawfulXor.Basic
-public import Mathlib.Data.Nat.Bitwise
-public import Mathlib.GroupTheory.Nilpotent
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
 public import Std.Tactic.BVDecide.Normalize.BitVec
 
 public section

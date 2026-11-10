@@ -12,7 +12,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutOddCore
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.Sporadic.J2
 public import CFSG.Sporadic.SmallOddCore.LocalSpec
-public import CFSG.Sporadic.Th.F2Spec
 meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutOddCore
 meta import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 meta import CFSG.Sporadic.J2

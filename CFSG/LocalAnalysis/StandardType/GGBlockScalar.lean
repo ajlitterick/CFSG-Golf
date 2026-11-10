@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTPNThmRACore
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmRAC1
-public import CFSG.LocalAnalysis.StandardType.GGTPNThmRADescent
-public import CFSG.RankThree.PartOne.KC.PrimaryDecomposition
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LinearBlocks
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearAction
 
 public section
 

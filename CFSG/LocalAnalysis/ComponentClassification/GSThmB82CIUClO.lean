@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7QPUClOModel
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7QPUClOComm
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7QPUClOPc
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB516LeafOX
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCOReduce
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7QPUClOJ
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7QPUClOMin

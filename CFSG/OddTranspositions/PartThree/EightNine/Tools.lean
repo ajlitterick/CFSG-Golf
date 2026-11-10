@@ -26,9 +26,6 @@ import CFSG.OddTranspositions.BlockAction2
 import CFSG.OddTranspositions.CommutatorSize
 import CFSG.OddTranspositions.WidthOne
 import CFSG.Quasithin.Background.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

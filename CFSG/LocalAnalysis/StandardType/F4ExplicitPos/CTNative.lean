@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Quasisimple
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.FixedImage
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 public import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverChevalley
 
 @[expose] public section

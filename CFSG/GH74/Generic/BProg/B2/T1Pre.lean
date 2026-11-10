@@ -1,10 +1,7 @@
 module
 
-public import CFSG.GH74.Generic.BProg.B2.Defs
 public import CFSG.GH74.Generic.BProg.B2.ListedG5
 public import CFSG.GH74.Generic.BProg.B2.T1KleM
-public import CFSG.GH74.GLS.C3.Layer1.BkB2G4Def
-import CFSG.GH74.Generic.BProg.B2.T1Basic
 import CFSG.GH74.Generic.BProg.B2.T1Sylow
 import CFSG.GH74.Generic.BProg.B2.T1Comp
 import CFSG.GH74.Generic.BProg.B2.Thm2Comp
@@ -12,9 +9,6 @@ import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyC2
 import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyC3
 import CFSG.GH74.Generic.BProg.B2.GenConjSU4Proved
 import CFSG.GH74.Generic.BProg.B2.Prop31
-import CFSG.GH74.GLS.IVK.Proofs2.Ivk73G4Sections
-public import CFSG.Sporadic.Th.Simple
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.Asc77.AscT3TypedExactMain
 public import CFSG.ClassicalInvolution.Asc77.AscT3TypedG2GenMax
 public import CFSG.ClassicalInvolution.Asc77.AscT3TypedMain

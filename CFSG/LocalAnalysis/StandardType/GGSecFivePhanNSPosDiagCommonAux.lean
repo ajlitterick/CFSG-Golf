@@ -1,13 +1,8 @@
 module
 
 import Lean
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosRank
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosCommRank
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDiagAux
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
-public import CFSG.ClassicalGroups.Unitary.Finite
 public import CFSG.RankThree.PartOne.S15K.CentralCover
 
 public section

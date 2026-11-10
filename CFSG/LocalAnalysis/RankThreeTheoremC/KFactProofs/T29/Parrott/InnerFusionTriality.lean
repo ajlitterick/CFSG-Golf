@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.Parrott.Inner
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TrialityThree
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.ClassOdd.ThreeD4
 public import CFSG.RankThree.PartTwo.Sec21.LangTwistedProofD4SecIrred
-public import CFSG.RankThree.PartOne.KGD.D4T36Core
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -14,7 +13,6 @@ public import CFSG.ClassicalInvolution.QuaternionStructure
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4TorusFrame
 public import CFSG.Goldschmidt.Steps.G37Core
 public import CFSG.GroupTheory.SteinbergCBFTCores
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.Coordinator.Cover
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.ExceptionsTransport.FamilyProved
 public import CFSG.HardMathSupport.Seitz.G2Noninner.Descent.OddNeThree
@@ -82,7 +80,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly
@@ -95,13 +92,8 @@ public import CFSG.Quasithin.Background.B69Core
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -179,9 +171,6 @@ public import CFSG.Sporadic.Schreier.Fi22Schreier
 public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
 public import Certificates.Kernel.J4Count.Prim
 
 public section

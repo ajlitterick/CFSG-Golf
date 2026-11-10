@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.J27031.M
 public import Certificates.Data.Kernel.LocalQT.BaseT
 public import Certificates.Kernel.Sporadic.J2K.Data
-public import Certificates.Data.Kernel.Spor.PEnum
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicJ2Inputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Foundations
@@ -18,7 +17,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.K1.Interface
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicRep
 public import CFSG.Sporadic.Bridge.J2
 public import CFSG.Sporadic.J2.Simple
-public import CFSG.Sporadic.Th.F2Spec
 public import Certificates.Certificate113
 public import Certificates.Data.Kernel.DcKN
 

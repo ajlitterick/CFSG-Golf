@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSwNormASw
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSwNormD2
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitSingleSFLZOneR
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4End43H
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

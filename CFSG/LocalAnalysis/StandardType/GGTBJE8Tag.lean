@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LangGlue
-public import CFSG.LocalAnalysis.StandardType.GGTBJMaxRankRow
 public import CFSG.LocalAnalysis.StandardType.GGTBJLabelJ
-public import CFSG.LocalAnalysis.StandardType.GGRootGenExcLabels
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflDom
-public import CFSG.LocalAnalysis.StandardType.GGNbrHalfSplitArith
 
 public section
 

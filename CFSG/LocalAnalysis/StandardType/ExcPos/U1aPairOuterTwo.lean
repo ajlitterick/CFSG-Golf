@@ -3,16 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.ExcPos.U1aPairOuterTwoSU
 public import CFSG.LocalAnalysis.StandardType.ExcPos.U1aPairOuterTwoD
 
-public import CFSG.LocalAnalysis.StandardType.GGFamRatCompE6Outer
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcE6
-public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3Pair
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
-public import CFSG.LocalAnalysis.StandardType.GGJ4dKernel24
-public import CFSG.LocalAnalysis.StandardType.GGFamIsolation
-public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Leaf.ThirdLineAuxCore
-public import CFSG.ClassicalInvolution.Balance.LayerGenerationShortAdjoint
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import CFSG.Blueprint.ChevalleyRoots
 
 
 public section

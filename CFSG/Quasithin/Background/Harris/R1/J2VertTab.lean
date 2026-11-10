@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.B.Co2.PermArr
-public import Mathlib.SetTheory.Cardinal.Finite
 public import Mathlib.Algebra.Group.Subgroup.Finite
 public import CFSG.Quasithin.Background.Harris.R1.J2VertCheck
 

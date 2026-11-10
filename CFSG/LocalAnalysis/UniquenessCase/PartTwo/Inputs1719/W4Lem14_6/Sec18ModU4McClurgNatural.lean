@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.U4FF.Disp
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81U4FFDefs
 public import CFSG.HardMathSupport.U4FF.Defs
 
 public section

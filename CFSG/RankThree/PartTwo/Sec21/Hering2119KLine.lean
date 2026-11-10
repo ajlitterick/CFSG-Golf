@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.Hering2119KT
 public import CFSG.RankThree.PartTwo.Sec21.Hering2119KN
-public import CFSG.RankThree.PartTwo.Sec21.Hering2119SShareK
 import all CFSG.RankThree.PartTwo.Sec21.Hering2119SShareK
 import CFSG.RankThree.PartOne.K1214.Basic
 

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
 public import CFSG.LocalAnalysis.WeakClosure81.W18Eight
-public import Certificates.Kernel.Sporadic.Fi22.C3151
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.CyclicBlocks.Family
@@ -47,8 +45,6 @@ public import CFSG.LocalAnalysis.WeakClosure81.W18Solv
 public import CFSG.Mathlib.LinearAlgebra.BilinForm.Determinant
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.Background.RonanE111Defs
 public import CFSG.RankThree.CentralLiftSO.SplitTorusWeyl

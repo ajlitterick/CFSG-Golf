@@ -4,9 +4,6 @@ public import Certificates.Kernel.Fi22Cover.Checks
 public import Certificates.Kernel.Sporadic.Fi22.C2079A
 public import CFSG.HardMathSupport.Solomon.Coordinator.I24_7FiAmb
 public import CFSG.Certificates.Kernel.BfsPinBaseSound
-public import CFSG.Certificates.Kernel.Spor.RawOrbHead
-public import CFSG.RankThree.Native.PermEnumeration
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR3Core
 public import CFSG.HardMathSupport.Solomon.Coordinator.I24_7FiMain
 

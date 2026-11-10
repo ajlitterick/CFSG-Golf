@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4Defs
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4Weyl
-public import CFSG.LieType.Chevalley.KernelComponentRoots
-public import CFSG.LieType.Chevalley.F4FieldTwoEuclid
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4RootsAux
 
 public section

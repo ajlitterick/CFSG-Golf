@@ -2,13 +2,6 @@ module
 
 public import CFSG.LieType.SeitzGeneration.HyperExExcV2
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanCoverE6RankTw
-public import CFSG.LieType.SeitzGeneration.ExcTorusCatTw
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuousTwistedE6
-public import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
-public import CFSG.RankThree.Chevalley.SteinbergBTCanonicalFieldCommon
-public import CFSG.LocalAnalysis.PreuniquenessRankFour.Confinement
-public import CFSG.Quasithin.Background.A3Structure36BPrime
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.RankThree.Chevalley.SteinbergBTTwistedE6ModelCover
 
 public section

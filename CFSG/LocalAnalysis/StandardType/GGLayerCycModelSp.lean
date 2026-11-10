@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelAssembly
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresSp
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicLabels
-public import CFSG.LieType.Universal.Symplectic
 
 public section
 

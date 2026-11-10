@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.SevenSixteenSetup
-public import CFSG.LocalAnalysis.WeakClosure81.SevenKFactsBar
 public import CFSG.LocalAnalysis.WeakClosure81.SevenSevenARank
 
 public section

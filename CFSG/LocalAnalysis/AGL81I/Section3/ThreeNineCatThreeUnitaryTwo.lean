@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D1AlphaListLiftsAlg
-public import CFSG.Open.StatedDefs
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Normalizer
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineCatThreeCover
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-import CFSG.LocalAnalysis.SectionRank.ClassicalOdd.Basic
-import CFSG.LocalAnalysis.SectionRank.SubgroupRank
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE7Data
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Generic
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.Basic
@@ -58,7 +53,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

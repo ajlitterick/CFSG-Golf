@@ -4,8 +4,6 @@ public import CFSG.LieType.Chevalley.CorootCoordinates
 
 public import CFSG.LocalAnalysis.StandardType.GGLangOrbitTwoTorus
 public import CFSG.LocalAnalysis.StandardType.GGLangCorootPair
-public import CFSG.HardMathSupport.Timmesfeld.RootAut.Count
-public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.WeylTorusAct
 
 open Polynomial
 

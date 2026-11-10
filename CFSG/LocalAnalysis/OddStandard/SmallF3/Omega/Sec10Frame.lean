@@ -19,7 +19,6 @@ public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10Ctx
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Standard
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.TypesCplxConj
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.TypesOmegaConj
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Bender1970.S3.Setup
 public import CFSG.Walter.JRFacts
 public import TauCeti.LinearAlgebra.QuadraticForm.Witt.Decomposition

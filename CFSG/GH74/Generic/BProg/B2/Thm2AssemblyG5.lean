@@ -3,14 +3,12 @@ module
 public import CFSG.GH74.Generic.BProg.B2.ListedG5
 public import CFSG.GH74.Generic.BProg.B2.TwoA7G
 public import CFSG.GH74.Generic.BProg.B2.PumpupTwoA7GH
-import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyBasic
 import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyC1
 import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyC3
 import CFSG.GH74.Generic.BProg.B2.TwoSided
 import CFSG.GH74.Generic.BProg.B2.Lemma82
 import CFSG.GH74.Generic.BProg.B2.Lemma83Bar
 import CFSG.GH74.Generic.BProg.B2.Thm2Comp
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.Asc77.AscT3TypedExactMain
 public import CFSG.ClassicalInvolution.Asc77.AscT3TypedG2GenMax
 public import CFSG.ClassicalInvolution.Asc77.AscT3TypedMain

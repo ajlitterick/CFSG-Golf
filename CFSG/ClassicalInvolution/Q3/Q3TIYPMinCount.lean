@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TIYPMinSq
-public import CFSG.ClassicalInvolution.Q3.Q3TY13
-public import CFSG.ClassicalInvolution.Q3.Q3WAComp
 public import CFSG.ClassicalInvolution.Q3.Q3TLKOdd
 public import CFSG.ClassicalInvolution.RouteD.TWZSpinMinus
 public import CFSG.ClassicalInvolution.RouteD.TWT4Rank

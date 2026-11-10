@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylNSRootGen
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySplitRefl
 public import CFSG.LocalAnalysis.StandardType.GGRootGenSpOrthSplitAvoid
 

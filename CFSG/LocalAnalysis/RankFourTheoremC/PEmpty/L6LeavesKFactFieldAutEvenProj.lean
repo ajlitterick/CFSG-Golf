@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKFactFieldAutEvenLinAlg
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKFactFieldAutEvenCentral
 public import CFSG.Open.StatedDefs
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic
 
 public section
 

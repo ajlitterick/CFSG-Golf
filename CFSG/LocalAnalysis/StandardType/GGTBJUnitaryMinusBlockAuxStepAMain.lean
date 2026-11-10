@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusBlockAuxStepC
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenPair
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
 
 public section
 

@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Defs
 public import CFSG.Open.StatedDefs
-import CFSG.ClassicalGroups.Orthogonal.Simple
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointActionBasic
 import CFSG.LocalAnalysis.ComponentInitial.BabyPrereqOrthLinePrimitive
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalPointCount
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaPlusPiecesOrders
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.Assembly.QuasithinDefs
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
@@ -40,15 +35,10 @@ import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotLeviFactPiece
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.G11Stmts
 import CFSG.RankThree.PartOne.KC.OrthogonalAutSemilinearBridge
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M24
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.Walter.JRFacts
 
 public section

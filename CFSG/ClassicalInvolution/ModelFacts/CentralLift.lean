@@ -4,12 +4,7 @@ public import CFSG.ClassicalInvolution.Generic.StepDefs
 public import CFSG.LieType.Steinberg.CentralExt.Families
 public import CFSG.LieType.Steinberg.CentralExt.SpinMinus
 public import CFSG.LieType.Steinberg.CentralExt.UnitaryHigher
-public import CFSG.LieType.Steinberg.CentralExt.PerfectCover
-public import CFSG.LieType.Universal.SpinOmega.Kernel
 public import CFSG.LieType.Chevalley.PerfectSimpleRoot
-public import CFSG.LieType.CentralExt.SL2Lift
-public import CFSG.LieType.Steinberg.TwistedD4.Datum
-public import CFSG.LieType.Steinberg.TwistedD4.RankOne
 public import CFSG.LieType.Steinberg.TwistedD4.Perfect
 public import CFSG.LieType.Steinberg.Classical.SpinFrame
 public import CFSG.LieType.Steinberg.Families
@@ -21,7 +16,6 @@ public import CFSG.LieType.Universal.Spin.Structure
 public import CFSG.LieType.Universal.SpinOmega
 public import CFSG.LieType.Universal.Unitary
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearDescentFixedBasis
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 

@@ -2,9 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.HeT.Tab
 public import Certificates.Kernel.SporSch.GenPerms
-public import Certificates.Kernel.Misc.Perm.HexCmd
-public import CFSG.Certificates.Kernel.Spor.PackWord
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Certificates.Kernel.SporSch.PairHeCntSound
 public import CFSG.Sporadic.Schreier.PairHeClasses
 public import CFSG.Sporadic.HeldB.OuterArithCheckInputs
@@ -13,7 +10,6 @@ public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Sporadic.HeldB.OuterArithCheckInputs
 public meta import CFSG.Sporadic.HeldB.HeBlocks
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

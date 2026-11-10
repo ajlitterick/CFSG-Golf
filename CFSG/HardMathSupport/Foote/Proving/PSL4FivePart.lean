@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 public import CFSG.HardMathSupport.Foote.Proving.OrderSL4
 
 public noncomputable section

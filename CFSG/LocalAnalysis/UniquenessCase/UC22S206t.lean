@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentInitial.KProperPumpUpStatement
 public import CFSG.Yardstones.Mf4cdcdf2e013.Definitions
 import CFSG.LocalAnalysis.UniquenessCase.UC22S206r
 public import CFSG.Blueprint.SourceClassicalTransport

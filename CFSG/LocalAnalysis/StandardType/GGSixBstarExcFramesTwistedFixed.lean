@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwistedField
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesFixedField
-public import CFSG.LieType.Chevalley.OddDiagramFrobeniusFixedDerived
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 
 public section
 

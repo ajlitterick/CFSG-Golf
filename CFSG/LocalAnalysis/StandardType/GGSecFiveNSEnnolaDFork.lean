@@ -8,7 +8,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFivePumpupFork
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpupRoots
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitWeylEquiv
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRoots
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Weyl
 
 public section
 

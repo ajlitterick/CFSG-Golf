@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2A4Refl
 public import CFSG.LocalAnalysis.StandardType.GGQ2HypLin
 public import CFSG.LocalAnalysis.StandardType.GGQ2HypStab
-import Mathlib.Data.Finset.Sum
 
 public section
 

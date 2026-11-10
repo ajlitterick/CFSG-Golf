@@ -4,7 +4,6 @@ public import Certificates.Kernel.J4Q.X0OrbOk
 public import Certificates.Kernel.J4Q.C4014
 public import Certificates.Kernel.J4Q.LocVec
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4Dec2Native
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTriDiag
 public import CFSG.RankThree.PartOne.K133.KillL2
 public import CFSG.RankThree.PartOne.KF.F122D4
-public import CFSG.RankThree.Chevalley.SteinbergCFTrialityCommutingSL2
-public import CFSG.RankThree.PartOne.S15K.SL2Model
-public import CFSG.LieType.Chevalley.TrialityExactFiniteOrder
-public import CFSG.LinearAlgebra.SL2MinimalFaithfulMatrix
 public import CFSG.LieType.Chevalley.EvenTrialityOuterInvolutions
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExclusion
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpSuzukiCentralizer
@@ -21,7 +17,6 @@ public import CFSG.RankThree.PartOne.S11d.OutSymplectic
 public import CFSG.RankThree.PartOne.S11d.OutUnitary
 public import CFSG.RankThree.PartOne.S12.Sec137
 public import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CommutatorNormalizer
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeaves
 public import CFSG.LocalAnalysis.StandardType.GGResSideDatumDefs
 
 public section

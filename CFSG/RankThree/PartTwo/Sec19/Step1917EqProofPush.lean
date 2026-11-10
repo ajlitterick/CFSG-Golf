@@ -6,16 +6,8 @@ import CFSG.RankThree.PartTwo.Sec19.Step1917EqProofArith
 import CFSG.RankThree.PartTwo.Sec19.Step1917StepsOrders
 import CFSG.RankThree.PartTwo.Sec19.Step1917StepsBasic
 import CFSG.RankThree.PartTwo.Sec19.Step1917ProofTools
-import CFSG.RankThree.PartTwo.Sec19.Step1916Proof2Tools
-import CFSG.RankThree.PartTwo.Sec19.Step1918ProofTools
 import CFSG.RankThree.PartTwo.Sec19.Step1911Proof
-import CFSG.RankThree.PartTwo.Sec18.Components
-import CFSG.RankThree.PartTwo.Sec18.Item186a
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
 import CFSG.RankThree.PartOne.S10.AmbientTheta
-import CFSG.RankThree.PartTwo.Late.Item2010
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.GroupTheory.Fitting.CharacteristicP
 public import Certificates.Kernel.ThCent.Leaves
 
 public section

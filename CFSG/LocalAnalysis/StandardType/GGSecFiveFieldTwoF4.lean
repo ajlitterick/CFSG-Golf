@@ -1,25 +1,12 @@
 module
 
-public import CFSG.Timmesfeld.LieEmbed.SpF4
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviSp6
-public import CFSG.LocalAnalysis.StandardType.GGSelectedF2
-public import CFSG.LieType.Steinberg.Classical.Symplectic.RankOne
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotNonsplit
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoInputsEndNode
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoExc
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
 public import CFSG.RankThree.PartTwo.Sec21.FF81F4Syl3
-public import CFSG.RankThree.PartTwo.Sec21.FF81F4Syl3C
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5F4ThreeC
 public import CFSG.GroupTheory.IsComponentOfMap
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotGraphSpinModelF4
 import CFSG.GH74.Generic.S1.Exo.NbLoc
-import CFSG.LieType.Ree.Endo
-import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-import CFSG.LieType.Chevalley.EvenQuadraticGraphFieldDescent
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotGraphSpinModelGen
-public import CFSG.RankThree.PartTwo.Sec21.FF81F4Ord3
 import CFSG.GH74.Generic.S1.Exo.NbDefs
 
 public section

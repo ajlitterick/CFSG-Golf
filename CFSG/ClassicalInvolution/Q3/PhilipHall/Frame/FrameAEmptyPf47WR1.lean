@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf47WModel
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf16Thm3
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf17Inst
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf47WR1Gen
 

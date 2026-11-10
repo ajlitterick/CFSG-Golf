@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermExtCheck
 public import CFSG.Quasithin.Background.HSporLatInputs
-public import CFSG.Sporadic.Schreier.M23Gens
 
 public section
 

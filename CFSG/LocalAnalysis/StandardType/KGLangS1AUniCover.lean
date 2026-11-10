@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangKGInputs
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
 import CFSG.LocalAnalysis.StandardType.KGLangTorAGeneric
 import CFSG.LocalAnalysis.StandardType.GGL45TGSU
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
 
 public section
 

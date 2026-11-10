@@ -2,11 +2,8 @@ module
 
 public import CFSG.Timmesfeld.Transvection.PresSpRoots
 public import CFSG.LieType.Universal.Unitary.Extras
-public import CFSG.LieType.Universal.Unitary.Roots.Levels
-public import CFSG.LieType.Universal.Unitary.Extras.Basic
 public import CFSG.LieType.Universal.Unitary.Extras.Unipotent
 import all CFSG.LieType.Universal.Unitary.Roots
-import Mathlib.Tactic.NoncommRing
 public import CFSG.LieType.Steinberg.Isogeny.Lift
 
 public section

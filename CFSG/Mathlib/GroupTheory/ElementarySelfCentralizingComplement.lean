@@ -2,14 +2,10 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.I_6_8
 public import CFSG.RankThree.Coprime.ThompsonElementaryComplement
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.PLengthLemmas
-public import CFSG.Quasithin.Background.BlueprintB2Thompson
 public import CFSG.Walter.Bender1970.S2.OddFitting
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
 public import CFSG.Walter.Bender1970.S2.Subnormal
 public import CFSG.Walter.Bender1970.S2.TwoSubgroup
 public import CFSG.Walter.PSL2Facts

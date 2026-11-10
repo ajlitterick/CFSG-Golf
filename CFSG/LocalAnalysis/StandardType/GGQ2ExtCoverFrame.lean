@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2InLCoverFrame
-public import CFSG.LocalAnalysis.StandardType.GGQ2NbrD5Frame
-public import CFSG.LocalAnalysis.StandardType.GGQ2AmbModelSplit
 
 public section
 

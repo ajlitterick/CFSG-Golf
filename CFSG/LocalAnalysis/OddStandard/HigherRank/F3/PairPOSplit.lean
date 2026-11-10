@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P54DBBlock
-public import CFSG.Open.StatedDefs
 
 public section
 

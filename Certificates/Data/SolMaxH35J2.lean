@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutData
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutNative
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutData
 public meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutNative
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain

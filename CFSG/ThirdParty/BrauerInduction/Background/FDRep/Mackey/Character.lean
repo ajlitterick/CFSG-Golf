@@ -1,10 +1,8 @@
 module
 
 public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.Mackey.Basic
-public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.Character.Basic
 public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.Character.Orthogonality
 public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.Character.Induced
-public import CFSG.ThirdParty.BrauerInduction.Background.Fintype.Basic
 
 public section
 

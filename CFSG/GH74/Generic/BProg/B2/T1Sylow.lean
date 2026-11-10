@@ -2,9 +2,6 @@ module
 
 public import CFSG.GH74.Generic.BProg.Stage2Defs
 public import CFSG.GH74.GLS.C3.Layer1.St1Iv251
-public import CFSG.GH74.GLS.C3.Layer1.St1RigStep
-import CFSG.GH74.GLS.TwoThin.Rank
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.LU.Ident
 public import CFSG.GH74.Generic.BProg.Theta32
 public import CFSG.GH74.Generic.Gen4LiftJ

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.StarFour.Setup
 public import CFSG.LocalAnalysis.StandardType.StarFour.Assembly
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
 
 public section
 

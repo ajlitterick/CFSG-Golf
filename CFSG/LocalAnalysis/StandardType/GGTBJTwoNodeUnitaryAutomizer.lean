@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeLinearBlock
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitActCore
 public import CFSG.LocalAnalysis.StandardType.GGTDModelUPerm
-public import CFSG.LocalAnalysis.StandardType.GGTBTorDatum
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestDefs
 
 public section
 

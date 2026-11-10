@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenOrbit
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
 import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.GH74.GLS.Stage1.Thm3.Sec7.GrpA
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenComp

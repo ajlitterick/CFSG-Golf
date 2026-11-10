@@ -3,10 +3,7 @@ module
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Criteria
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Parts
 public import CFSG.Sporadic.HNOddCore.OuterFix
-public import CFSG.Sporadic.HNSchreier.Intrinsic
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.TwoFive
-public import CFSG.Sporadic.HNOddCore.InvRow4b
-public import CFSG.GroupTheory.CommutingProductFixedSubgroup
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC

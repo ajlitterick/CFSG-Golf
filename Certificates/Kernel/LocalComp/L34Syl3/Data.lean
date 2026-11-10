@@ -1,7 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.OddCore.PEnumCmd
-public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
 public import Certificates.Kernel.LocalComp.L34Para.Data
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsSylowCertInputs
 meta import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsSylowCertInputs

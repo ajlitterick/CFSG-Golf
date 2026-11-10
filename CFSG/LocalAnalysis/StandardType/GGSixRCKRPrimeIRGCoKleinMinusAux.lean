@@ -1,13 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
-public import CFSG.RankThree.PartOne.CTP.SU4EvenBridge
-public import CFSG.RankThree.PartOne.CTP.SU4EvenField
-public import CFSG.ClassicalInvolution.Models.TwistedPairs.SpinMinus
-public import CFSG.LieType.Universal.Spin.Roots.TypeB
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
-public import CFSG.LocalAnalysis.StandardType.GGInvolutionClassSURoot
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarRestSU
 
 public section
 

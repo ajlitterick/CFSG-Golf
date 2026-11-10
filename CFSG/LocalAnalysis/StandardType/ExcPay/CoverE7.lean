@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 public import CFSG.LocalAnalysis.StandardType.GGPhanCentralQuotient
 
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LieType.Chevalley.AdjointCenter
 import CFSG.LieType.AschbacherSeitz.RootGroupTransport
 import CFSG.HardMathSupport.Meierfrankenfeld.Proving.E7Curtis.E7Arith
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Seitz2313Cover
@@ -39,7 +36,6 @@ import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma55
 import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma58
 import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Inputs
 import CFSG.LocalAnalysis.AGLEmbedding.SporadicBetaSmall
-import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeMax
 import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentralizer
@@ -73,13 +69,8 @@ import CFSG.Quasithin.Background.B69Core
 import CFSG.Quasithin.Background.C1GNSolvConnect
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
-import CFSG.Quasithin.Background.F6CatRecogL2
-import CFSG.Quasithin.Background.F6CatRecogTools2
 import CFSG.Quasithin.Background.F918C6
 import CFSG.Quasithin.Background.FFC7G
 import CFSG.Quasithin.Background.FFC8A
@@ -149,9 +140,6 @@ import CFSG.Sporadic.SuzOddCore.GraphData
 import CFSG.Sporadic.SuzOddCore.SmallActionData
 import CFSG.Timmesfeld.RankOne
 import CFSG.Timmesfeld.Transvection.Statement
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.PSL2Facts
 import CFSG.YGroups.DCE.B433Check
 import Certificates.Kernel.J4Count.Prim
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement

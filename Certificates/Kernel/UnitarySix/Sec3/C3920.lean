@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.UnitarySix.Sec3.K3920Chk
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.EachUnfold
 
 public section

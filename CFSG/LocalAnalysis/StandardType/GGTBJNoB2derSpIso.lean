@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derDefs
-public import CFSG.LocalAnalysis.ComponentInitial.LinearIsometry
 public import CFSG.ClassicalGroups.Symplectic.StandardForm
-import CFSG.LieType.Universal.SymplecticExtras.Matrices
 
 public section
 

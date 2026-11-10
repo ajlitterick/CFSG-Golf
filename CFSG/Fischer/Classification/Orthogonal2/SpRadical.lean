@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Fischer.Classification.Orthogonal2.SpModel
-public import CFSG.LargeExtraspecial.OrthoF2SpRadical
 
 import CFSG.LargeExtraspecial.S4Basic
 public import CFSG.LargeExtraspecial.S2Three

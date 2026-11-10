@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Rad
-public import CFSG.LieType.Steinberg.Minuscule.CertInputs
 
 public section
 

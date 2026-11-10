@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.PhanEChevModel
 public import CFSG.LocalAnalysis.StandardType.PhanEChevConj
 public import CFSG.ClassicalInvolution.WeakCT.Standard
 public import CFSG.ClassicalInvolution.WeakCT.SimplyLaced
-public import CFSG.Timmesfeld.RankTwo.SimplyLaced
 public import CFSG.LieType.Steinberg.CentralExt.SLCentrallyClosed
 public import CFSG.ClassicalInvolution.WeakCT.Main
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -17,8 +15,6 @@ public import CFSG.LieType.Universal.Spin.PlusCT
 public import CFSG.LieType.Universal.Spin.Structure
 public import CFSG.LieType.Universal.SpinOmega
 public import CFSG.LieType.Universal.Unitary
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaPlus
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaMinus
-public import CFSG.LieType.Universal.SpinOmega.Center
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaSec
 
 public section

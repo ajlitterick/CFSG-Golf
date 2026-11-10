@@ -1,17 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGInnLocal
-import CFSG.LocalAnalysis.StandardType.GGTableBRank
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosHolds
 import CFSG.LocalAnalysis.StandardType.GGStdPosLocalConj
 import CFSG.LocalAnalysis.StandardType.GGStdPosAutHolds
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofRed
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagRoot
-import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRank
-import CFSG.LieType.Steinberg.CentralExt.Unipotent
-import Mathlib.Tactic.Group
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineL2Remainder
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverOdd
 
 public section

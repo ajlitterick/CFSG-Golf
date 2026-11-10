@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneLinear
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneTransfer
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerLinearNonsplit
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
 
 public section
 

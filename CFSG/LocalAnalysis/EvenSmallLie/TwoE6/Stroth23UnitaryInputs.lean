@@ -4,7 +4,6 @@ public import CFSG.Monster.B.TwoA.Unitary.Twenty
 public meta import CFSG.Monster.B.TwoA.Unitary.TwentyData
 public meta import CFSG.Monster.B.TwoA.Unitary.TwentyAlg
 public meta import CFSG.Monster.B.TwoA.Unitary.Form
-import CFSG.Fischer.F4
 
 public section
 

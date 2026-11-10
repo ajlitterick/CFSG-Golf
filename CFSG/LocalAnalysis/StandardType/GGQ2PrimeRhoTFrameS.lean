@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTKer
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTFrameCoord
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTFrameKer
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTInner

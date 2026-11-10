@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrLangRegStepZero
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangKGInputs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangAxisOn
 public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherAssembly
 
 public section
 

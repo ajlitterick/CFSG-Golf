@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveDModel2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveLayer
-public import CFSG.LieType.Chevalley.LangRootRankOne
-public import CFSG.LieType.Chevalley.ToralCentralizerBruhat
-public import CFSG.LieType.BorelTits.Basic
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveDModel
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105

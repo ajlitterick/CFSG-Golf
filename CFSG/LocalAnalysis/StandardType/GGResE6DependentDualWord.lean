@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoReflLin
 public import Mathlib.Algebra.Field.ZMod
 public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
-public import Mathlib.LinearAlgebra.StdBasis
-import Mathlib.Tactic.FinCases
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.LinearCombination
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
 public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.Commutator.Basic
 
 public section
 

@@ -3,22 +3,9 @@ module
 public import CFSG.Certificates.Kernel.Th.SoundnessGenBase
 import all CFSG.Certificates.Kernel.Th.SoundnessGenBase
 
-public import CFSG.Certificates.Kernel.Th.Gen.Seed
-public import CFSG.Certificates.Kernel.Th.Gen.Dce
-public import CFSG.Certificates.Kernel.Th.Gen.Sylow2
-public import CFSG.Certificates.Kernel.Th.Gen.Sylow3
-public import CFSG.Certificates.Kernel.Th.Gen.Sylow5
-public import CFSG.Certificates.Kernel.Th.Gen.Sylow7
-public import CFSG.Certificates.Kernel.Th.Gen.Orders
-public import CFSG.Certificates.Kernel.Th.Gen.Fwd
-public import CFSG.Certificates.Kernel.Th.Gen.Gen
-public import CFSG.Certificates.Kernel.Th.Gen.DceStruct
 public import CFSG.Sporadic.Th.KernelInputs
-public import CFSG.Blueprint.NativeSporadic
 import CFSG.Certificates.Kernel.Common.Generalize
-import CFSG.Certificates.Kernel.Th.Spec.Big
 import CFSG.Certificates.Kernel.Th.Spec.Dce
-import CFSG.Certificates.Kernel.Th.Spec.DceHsw
 import CFSG.Certificates.Kernel.Th.Spec.Seed
 import CFSG.Certificates.Kernel.Th.Spec.Orders
 import CFSG.Certificates.Kernel.Th.Spec.GenS

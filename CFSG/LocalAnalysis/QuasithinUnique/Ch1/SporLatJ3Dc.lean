@@ -4,7 +4,6 @@ public import Certificates.Certificate10501
 public import CFSG.Certificates.Kernel.SporLatDcSound
 public import CFSG.Certificates.Kernel.SporLatOmegaSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatO2
-public import CFSG.LocalAnalysis.QuasithinUnique.Defs
 public import CFSG.Sporadic.Schreier.PairJ3Order
 
 set_option maxRecDepth 100000

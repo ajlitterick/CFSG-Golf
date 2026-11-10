@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2MixedBadLine
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
 import CFSG.LocalAnalysis.StandardType.GGF4N2ActualH0
 import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Chain.Order
-import CFSG.Adapters.LieModelOrders
 import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Lemma33
 
 public section

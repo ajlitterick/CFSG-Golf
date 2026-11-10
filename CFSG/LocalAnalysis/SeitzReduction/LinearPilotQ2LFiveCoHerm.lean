@@ -3,14 +3,6 @@ module
 public import CFSG.Fischer.F4
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotQ2LFiveCoGF
 import all CFSG.Fischer.F4
-public import Mathlib.RingTheory.Coalgebra.IsFrobenius
-public import Mathlib.RingTheory.HopfAlgebra.Basic
-public import Mathlib.RingTheory.PiTensorProduct
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Basify
-public import Mathlib.Tactic.ENatToNat
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
 
 public section
 

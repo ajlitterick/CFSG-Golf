@@ -3,10 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3MFODMain
 public import CFSG.ClassicalInvolution.Q3.Q3MFODHyp
 public import CFSG.ClassicalInvolution.Q3.Q3PPWireAll
-public import CFSG.ClassicalInvolution.Q3.Q3TY13
-public import CFSG.ClassicalInvolution.Q3.ModelCenter
-public import CFSG.ClassicalInvolution.ModelFacts.TG3OrthTags
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinStd
 public import CFSG.ClassicalInvolution.AschTight.S19KUni
 public import CFSG.ClassicalInvolution.AschTight.S19KUniFL
 public import CFSG.ClassicalInvolution.Q3.Q3NHMain
@@ -16,7 +12,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3OFSplitTri
 public import CFSG.ClassicalInvolution.Q3.Q3OFUnique
 public import CFSG.ClassicalInvolution.Q3.Q3PPInv
 public import CFSG.ClassicalInvolution.Q3.Q3URDict
-public import CFSG.ClassicalInvolution.Q3.Q3URStd
 
 public section
 

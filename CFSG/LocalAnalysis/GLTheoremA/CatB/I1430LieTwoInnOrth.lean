@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.I1430LieTwoInnDefs
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.GLTheoremA.CatB.I1430LieTwoInnGlue
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxOrthogonal
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.OrthInner
-import CFSG.Adapters.TauCetiLieModels
-import CFSG.Sporadic.FischerOddCore.FischerOuterBasic
-import TauCeti.GroupTheory.DerivedCentralQuotient
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeALocalBase
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeL1Orb
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34SporAux.BMDownMGmat

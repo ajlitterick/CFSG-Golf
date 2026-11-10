@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.Recognition.JankoWongPresTables
 public import CFSG.Sporadic.Recognition.JankoWongPresRelations
 public import CFSG.Sporadic.McL
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

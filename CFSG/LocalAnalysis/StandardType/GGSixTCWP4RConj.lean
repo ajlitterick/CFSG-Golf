@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RC1
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Orbit
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenOrthTwoCent
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFGU2
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorusForm
 
 public section
 

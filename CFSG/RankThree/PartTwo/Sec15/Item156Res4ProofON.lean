@@ -3,16 +3,11 @@ module
 public import CFSG.RankThree.PartTwo.Sec15.Item153Twin3ProofON
 public import CFSG.RankThree.PartTwo.Sec15.Item156Res4ProofCover
 public import CFSG.RankThree.PartTwo.Sec15.Item156Res4ProofInner
-public import CFSG.RankThree.PartTwo.Sec17.RouteForms
-import CFSG.RankThree.PartTwo.Sec15.Item153Twin2ProofON
 import CFSG.RankThree.PartTwo.Sec15.Item1515StepsProofRead
 import CFSG.RankThree.PartTwo.Sec14.Concl142HJPoint
 import CFSG.RankThree.PartTwo.Sec16.Item163Proof
-import CFSG.RankThree.PartTwo.Sec13.Item13Basic
 import CFSG.CharacterTheory.Semidihedral.Principal.CoprimeFixedPointLifting
-import CFSG.LieType.BorelTits.Basic
 import CFSG.GroupTheory.Fitting.CharacteristicP
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.RankThree.PartTwo.KFacts.K412Alternating
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

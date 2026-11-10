@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Assembly
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92PumpupTrivial
 public import CFSG.HardMathSupport.Dickson.Sec6.UpD42Final
-public import CFSG.RankThree.PartOne.TCB.SchreierFinal
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Aux.FamPSL
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Aux.FamPSp
 public import CFSG.HardMathSupport.Dickson.Sec6.Residuals

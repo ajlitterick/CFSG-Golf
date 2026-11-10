@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFTorus2
 public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
 public import CFSG.LieType.SemisimpleCentralizers.HeldCompTrivSU
-public import CFSG.LieType.Universal.Unitary.Clause0
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTFinOrd3
 public import CFSG.ClassicalGroups.SpecialLinear.DiagonalTorusRank
 public import CFSG.GroupTheory.HallHigmanPiCore

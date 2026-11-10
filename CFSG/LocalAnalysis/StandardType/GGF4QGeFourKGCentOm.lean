@@ -1,24 +1,14 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourL1
-public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourKGPos
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2Cross
 import CFSG.LocalAnalysis.StandardType.GGKGCentOmTableB
 import CFSG.LocalAnalysis.StandardType.GGKGCentStdPair
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOmegaMinusTorality
-import CFSG.LocalAnalysis.StandardType.GGF4QGeFourLocalMaps
-import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOrb
 import CFSG.LocalAnalysis.StandardType.GGF4SharedRefl
 import CFSG.LocalAnalysis.StandardType.GGF4CrossMissed
-import CFSG.LocalAnalysis.StandardType.GGF4OrigRep
 import CFSG.LocalAnalysis.StandardType.GGRankOneShared
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk1
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneCard
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
-import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRank
-import CFSG.RankThree.PartOne.CTP.SpinCenterEven
-import Mathlib.Tactic.Group
 
 public section
 

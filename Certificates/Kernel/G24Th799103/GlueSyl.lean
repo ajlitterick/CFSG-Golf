@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.G24Th799103.GlueM
 public import CFSG.RankThree.Asc83Table.E9
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

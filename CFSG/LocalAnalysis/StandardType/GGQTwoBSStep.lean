@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBSDefs
-import CFSG.LocalAnalysis.StandardType.GGQTwoBSStab
 import CFSG.LocalAnalysis.StandardType.GGQTwoBSGen
 import CFSG.LocalAnalysis.StandardType.GGQTwoBSStepTits
 

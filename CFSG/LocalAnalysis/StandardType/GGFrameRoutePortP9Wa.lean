@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
 import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
 
 public section

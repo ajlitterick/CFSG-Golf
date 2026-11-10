@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeOmMinusFrame
-public import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 
 public section
 

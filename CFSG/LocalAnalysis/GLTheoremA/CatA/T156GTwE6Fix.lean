@@ -1,16 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Datum
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Lang
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownE6Descent
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6Torus
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangSz
-public import CFSG.RankThree.Chevalley.SteinbergBTTwistedE6OddField
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
-public import CFSG.LieType.Chevalley.DiagonalFieldActorData
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPCyc
 public import CFSG.GroupTheory.MulAutCongr
-public import CFSG.LocalAnalysis.StandardType.GGFixSub
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixDefs
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32
 public import CFSG.HardMathSupport.Solomon.LocalBalance.PartIInputs

@@ -5,7 +5,6 @@ public import CFSG.OddTranspositions.PartThree.Twelve.EightChart
 public import CFSG.OddTranspositions.PartThree.Twelve.SevenForm
 public import CFSG.OddTranspositions.PartThree.Twelve.Branches
 import CFSG.OddTranspositions.PartThree.Twelve.EightQuadForm
-import CFSG.OddTranspositions.PartThree.Twelve.FourU
 import CFSG.OddTranspositions.PartThree.Nine.Setup
 
 public section

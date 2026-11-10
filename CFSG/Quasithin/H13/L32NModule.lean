@@ -4,9 +4,7 @@ public import CFSG.Quasithin.H13.L32NItems143
 public import CFSG.Quasithin.Recognition.HSTypeModels
 public import CFSG.Quasithin.H13.A6Inputs13_3
 public import CFSG.Quasithin.Vol2.Ch12Sec8OneExist
-public import CFSG.Quasithin.Background.B2Thompson
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNineGroups
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 import CFSG.Quasithin.H13.A6NotU33
 import CFSG.Adapters.StatedClassicalUnitaryOrders
 import CFSG.Quasithin.Background.F420Orders

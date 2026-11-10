@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf47WR1Conj
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf47WR1Ind
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf16Thm3
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinEdgeSecQuot
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf3D8
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf3D8A
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf3Datum

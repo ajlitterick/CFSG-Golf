@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrA
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrLabel
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrRecAuxCore
-public import CFSG.LocalAnalysis.StandardType.GGQTwoJoinDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSExcl
 
 public section
 

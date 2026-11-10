@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenAltProof
 public import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompatDefs
-public import CFSG.LocalAnalysis.StandardType.GGFinModelRoots
-public import CFSG.LocalAnalysis.StandardType.GGFinModelRat
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreDefs
-public import CFSG.LocalAnalysis.StandardType.GGLatRootBridge
 
 public section
 

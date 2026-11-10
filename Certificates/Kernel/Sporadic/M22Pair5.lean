@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.Schreier.M22Data
 public import CFSG.Certificates.Kernel.Spor.PCountWSound
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.EachUnfold
 public import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo

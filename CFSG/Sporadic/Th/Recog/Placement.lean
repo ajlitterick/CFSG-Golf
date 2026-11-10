@@ -5,9 +5,6 @@ public import CFSG.ClassicalInvolution.Solomon73.Commutator
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.U33.ClassBound
 public import CFSG.GH74.GLS.IVK.Proofs2.GHInvCent
 public import CFSG.LocalAnalysis.EvenBN.LinearThree.Excl27G2Facts
-public import Certificates.Certificate320001
-public import Certificates.Certificate320002
-public import Certificates.Certificate320004
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LieType.Chevalley.EvenRootCommutatorF4
 public import CFSG.LieType.SeitzGeneration.Lift
@@ -19,17 +16,13 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.Sporadic.Th.Max3.CentA
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

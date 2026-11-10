@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.Fi22.Certificate
 public import Certificates.Data.CFSGNative.Fi22.Centralizer
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.FiRefineInputs
 public import Certificates.Data.E27.Fi22S0

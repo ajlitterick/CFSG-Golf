@@ -6,13 +6,10 @@ public import Certificates.Kernel.Sporadic.Co3.T
 public import Certificates.Kernel.Sporadic.Co3.M
 public import Certificates.Kernel.Sporadic.Co3.Single
 public import Certificates.Kernel.LocalQT.He4148.Glue
-public import CFSG.Certificates.Kernel.SporSch.CodesImg
 public import CFSG.Certificates.Kernel.LocalCompExcDerivSound
 public import CFSG.Certificates.Kernel.LocalCompExcTextSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.Certificates.Kernel.Spor.RawOrbHead
 public import CFSG.Certificates.Kernel.Child3Reps
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 public import CFSG.Certificates.Kernel.SporSch.MathieuOCSound

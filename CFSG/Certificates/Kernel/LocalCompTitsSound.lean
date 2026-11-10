@@ -1,12 +1,9 @@
 module
 
-public import Certificates.Data.Kernel.LocalComp.Tits
-public import Certificates.Data.Kernel.LocalComp.TitsChain
 public import Certificates.Data.Kernel.LocalComp.TitsBfs
 public import CFSG.Certificates.Kernel.LocalCompTits.Defs
 import CFSG.Certificates.Kernel.LocalCompTits.Orbit
 import CFSG.Certificates.Kernel.LocalCompTits.Basis
-import CFSG.Certificates.Kernel.LocalCompTits.TabP
 import CFSG.Certificates.Kernel.LocalCompTits.Words
 import CFSG.Certificates.Kernel.LocalCompTits.Chain
 import CFSG.Certificates.Kernel.LocalCompTits.Span

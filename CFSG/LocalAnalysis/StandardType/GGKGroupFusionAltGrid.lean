@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionAltSat
-public import Mathlib.GroupTheory.Perm.ViaEmbedding
 
 public section
 

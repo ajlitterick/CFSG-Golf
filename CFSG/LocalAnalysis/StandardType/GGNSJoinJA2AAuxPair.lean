@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosFinal
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylEltOfAutomizer

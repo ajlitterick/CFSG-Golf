@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267BadExcThreeRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSylowE8Five
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoRank
-public import Mathlib.FieldTheory.Finite.Extension
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Uni6
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Blocks7
-public import CFSG.RankThree.Classical.SteinbergBJUnitaryTwoBlock
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Lin7
 public import CFSG.Quasithin.Background.F918Z4c2TI
 public import CFSG.CGT.Timmesfeld75.Forms

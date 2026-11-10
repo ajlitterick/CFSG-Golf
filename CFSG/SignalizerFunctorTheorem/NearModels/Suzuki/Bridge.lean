@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Open.Catalog
 public import CFSG.LieType.BorelTits.Suzuki
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 
 public section
 

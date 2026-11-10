@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1511A
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1511B
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15LiftBasic
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsLie
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15Oracles
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1511C
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K3DvdL3
 import CFSG.CGT.Timmesfeld75.L2Pair

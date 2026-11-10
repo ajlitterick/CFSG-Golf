@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4RestTorus
 public import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4RestLevi
 public import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4ChiefModule
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

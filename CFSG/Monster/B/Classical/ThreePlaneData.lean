@@ -4,14 +4,7 @@ public import CFSG.Monster.B.Classical.PlaneData
 public import CFSG.Monster.B.Cbar.Octads
 public import CFSG.Monster.CodeAut.Perm
 public import CFSG.LinearAlgebra.LinearGroups.FourElementFieldTransport
-public import Mathlib.GroupTheory.SemidirectProduct
 import all CFSG.Fischer.F4
-public import Mathlib.LinearAlgebra.Projectivization.Action
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Basify
-public import Mathlib.Tactic.ENatToNat
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
 
 public section
 

@@ -1,38 +1,14 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBRowFrame
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMemberAux
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeExcPlusAux
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixNbrDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1WeylE
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGResidualRk1Frame
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQSplit
 public import CFSG.LocalAnalysis.StandardType.GGTBRowTwE6Parity
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenOver
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaExcPlusAux2
-import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
-import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeyl
 import CFSG.LocalAnalysis.StandardType.GGNsq2Strict
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrCompare
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-import CFSG.LocalAnalysis.StandardType.GGTwE6BadWeyl
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwoE
 import CFSG.LocalAnalysis.StandardType.GGOrthFrameConcl
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneCard
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourTBSmall
-import CFSG.LocalAnalysis.StandardType.GGTBRowTwE6FrameAux
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwE6
-import CFSG.Sporadic.Schreier.RuElemAut
-import CFSG.LocalAnalysis.StandardType.GGFrameRouteLower
 import CFSG.LocalAnalysis.StandardType.GGTwE6TwoRankOne
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwE6TwoFull
 import CFSG.LocalAnalysis.StandardType.GGFrameTBHolds

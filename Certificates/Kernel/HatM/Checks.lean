@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.HatM.Data
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000
 

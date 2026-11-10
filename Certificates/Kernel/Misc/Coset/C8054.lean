@@ -7,11 +7,6 @@ public import CFSG.Certificates.Kernel.Misc.Coset.ActSound
 public import Certificates.Kernel.Misc.Coset.XQAB
 public import Certificates.Kernel.Misc.Coset.XQC3
 public import Certificates.Kernel.Misc.Coset.XQP.Data
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Timmesfeld.Exceptional.DeepQData
-import CFSG.Timmesfeld.Exceptional.DeepQTabInputs
-import CFSG.Certificates.PresentationLetters
-import CFSG.Certificates.CosetTablePresented
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.GroupTheory.LocalCores.Fitting

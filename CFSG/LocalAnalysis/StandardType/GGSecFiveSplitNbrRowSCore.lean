@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.Blueprint.Catalog
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrCover
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Seitz2313Cover
 import CFSG.ClassicalInvolution.ModelFacts.ClauseZero

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.EvenSporSuz.Cover
 public import Certificates.Kernel.EvenSporSuz.Data
-public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoSuz.CoverCheck
 public import Certificates.Kernel.Bounds.Suz.Route
 public import Certificates.Kernel.LocalComp.SurjGen
 public import Certificates.Data.Kernel.CosetJ.WordsT

@@ -1,12 +1,7 @@
 module
 
-public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Leaf.QuasiAuxBridge
 public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Leaf.QuasiAuxBridge2
 public import CFSG.RankThree.PartOne.KE6.Phi6A2A2
-public import CFSG.RankThree.Classical.SteinbergBYExchangedSL3
-public import CFSG.RankThree.Classical2.TwistedE6Phi3A2A2
-public import CFSG.LieType.Chevalley.GraphFixedCoordinateDetection
-public import CFSG.RankThree.Classical2.SLnRootPermutingFixedGroups
 public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Leaf.QuasiAuxSL3Fix
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Frames
 public import CFSG.LieType.Chevalley.OrdinaryRootHyperplaneGeneration

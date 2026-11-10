@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.StandardType.GGNsq2QuotNorm
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitOrthA
 import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCoxeter
 import CFSG.LocalAnalysis.StandardType.GGTBJTypeBFrameChange
-import TauCeti.GroupTheory.Coxeter.Geometric
 
 public section
 

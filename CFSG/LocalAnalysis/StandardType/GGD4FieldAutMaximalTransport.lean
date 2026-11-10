@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.LocalAnalysis.ComponentClassification.FixedCommutingProduct
 public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 
 public section

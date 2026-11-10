@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcTwE6One8
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcTwE6One3
-public import CFSG.RankThree.SubgroupLists.ExtraspecialCore
 
 public section
 

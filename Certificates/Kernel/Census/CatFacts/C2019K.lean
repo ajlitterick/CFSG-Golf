@@ -2,7 +2,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB81A8PermInputs
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3A8Data
 public import Certificates.Data.Kernel.Census.CatFacts.PkDefs
 
 public section

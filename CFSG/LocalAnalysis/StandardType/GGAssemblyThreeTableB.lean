@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBTypeALabel
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTypeA
-public import CFSG.LocalAnalysis.StandardType.GGInnLocal
-public import CFSG.LocalAnalysis.StandardType.GGPGLTorality
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallSymplectic
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallTypeA
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonal
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeB2der
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeOrthLinear
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNode
 

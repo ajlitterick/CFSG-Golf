@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameCenter
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeSp
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticCover
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeNorm
 
 public section

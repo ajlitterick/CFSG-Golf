@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.L34Scan2
 public import Certificates.Data.Kernel.L34W.Tab42
 public import Certificates.Kernel.LocalComp.L34Para.Data
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsEightsCertInputs
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsLocalCertInputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsBorelCertInputs
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsSylowCertInputs

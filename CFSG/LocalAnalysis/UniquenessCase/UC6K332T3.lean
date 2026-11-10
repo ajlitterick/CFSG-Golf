@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332T2
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S25
 public import CFSG.RankThree.PartOne.CTP.StrongPClassification
 
 public section

@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelData
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelModule
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsBoth
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableBWeylOn
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableBOrderRestOn
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBE6
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeyl
 
 public section
 

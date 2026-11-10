@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveDataResDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGPhanCentralQuotient
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1WeylE
 public import CFSG.ClassicalInvolution.Phan.Assembly
 public import CFSG.ClassicalInvolution.Phan.Universal
 

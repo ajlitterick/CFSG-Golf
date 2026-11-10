@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.AStarSylow
-import CFSG.LocalAnalysis.StandardType.FF81.PropOne.RankBound
-import CFSG.LocalAnalysis.StandardType.FF81.PropOne.LMonomial
-import CFSG.LocalAnalysis.StandardType.FF81.LocalSetupCen
 
 @[expose] public section
 

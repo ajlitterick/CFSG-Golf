@@ -1,14 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBBridge
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTypeA
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMoreExc
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMoreOrth
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoTBMain
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenUnitaryIrred
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMoreSp
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBMain
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBHalf
 
 public section

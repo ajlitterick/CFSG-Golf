@@ -1,9 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.Setup
-public import CFSG.RankThree.PartTwo.Sec21.RudvalisFF81aLiftX
-public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.LiftData
-public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.LMonomial
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.BtDichotomy
 
 @[expose] public section

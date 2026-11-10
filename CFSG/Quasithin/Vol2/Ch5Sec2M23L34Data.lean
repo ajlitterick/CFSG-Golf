@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Quasithin.Recognition.M22UniqueData
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Hexads
 public meta import CFSG.Quasithin.Recognition.M22UniqueData
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Hexads
-public import CFSG.Quasithin.Vol2.Ch5Sec2M23L34DataInputs
 public import Certificates.Certificate7058
 
 public section

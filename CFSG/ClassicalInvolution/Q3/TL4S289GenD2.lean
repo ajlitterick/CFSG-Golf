@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.TL4S289GenD1
-public import CFSG.ClassicalInvolution.Q3.TL4SecIdMu
-public import CFSG.ClassicalInvolution.Q3.Q3AM289S4LShape
 public import CFSG.ClassicalInvolution.Q3.Q3AM289S4LOdd01
 public import CFSG.ClassicalInvolution.Q3.Q3AM289S4LMin01
 

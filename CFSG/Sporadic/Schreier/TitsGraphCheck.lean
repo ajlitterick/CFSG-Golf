@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Sporadic.Schreier.TitsActionCheck
-public import Certificates.Data.CFSGNative.SectionRank.TitsChain
 public meta import CFSG.Sporadic.Schreier.TitsData
 public meta import CFSG.Sporadic.Schreier.TitsArrays
 public meta import CFSG.Sporadic.Schreier.TitsBasic
@@ -11,7 +9,6 @@ public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public meta import Certificates.Data.CFSGNative.SectionRank.TitsChain
-public import CFSG.Sporadic.Schreier.TitsGraphCheckInputs
 public import Certificates.Certificate2265
 
 public section

@@ -9,7 +9,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpField
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBSpCoordFrameFacts
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.ClassicalInvolution.Models.SymplecticPairs.ShortRoot
 
 public section
 

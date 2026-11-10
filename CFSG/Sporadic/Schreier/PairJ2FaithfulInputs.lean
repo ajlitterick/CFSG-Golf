@@ -4,17 +4,9 @@ module
 public import CFSG.Sporadic.Schreier.PairJ2CertBase
 public import CFSG.Sporadic.Schreier.PairAction
 public import CFSG.Sporadic.J2.Setup
-public import CFSG.Blueprint.MatrixSeedIdentification
-public import Mathlib.Data.Fin.VecNotation
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-public import Mathlib.LinearAlgebra.Matrix.ToLin
-public import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
-import CFSG.Blueprint.NativeSporadic
 public meta import CFSG.Sporadic.Schreier.PairJ2CertBase
 public meta import Certificates.Data.CFSGNative.J1.Vec
 public meta import Certificates.Data.CFSGNative.J2.Certificate
-public import CFSG.Sporadic.Schreier.PairJ2CertInputs
 
 public noncomputable section
 

@@ -3,12 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGExcCompSLDefs
 
 import CFSG.LocalAnalysis.GLTheoremA.CatC.RationalTypeAModel
-import CFSG.LocalAnalysis.StandardType.GGCompFieldLieModel
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSL
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSU
 import CFSG.Adapters.CatalogueFieldBridges.UnitarySU
-import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 public import CFSG.LieType.SeitzGeneration.SeitzStatus
 
 public section

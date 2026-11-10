@@ -6,10 +6,8 @@ public import CFSG.Quasithin.Vol2.Ch12Sec5O2P
 public import CFSG.Quasithin.Vol2.KGFactAutSylowM23
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3SporRows
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
 
 public section

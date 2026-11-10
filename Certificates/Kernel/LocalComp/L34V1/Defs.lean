@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.LocalComp.L34V1.Data
 public import Certificates.Kernel.LocalComp.L34RData
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
-public import Certificates.Data.Kernel.L34Scan
 public import Certificates.Data.Kernel.L34Pre
-public import CFSG.Certificates.Kernel.Common.Loop
 
 public section
 

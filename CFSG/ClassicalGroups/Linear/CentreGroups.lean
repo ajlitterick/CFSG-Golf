@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LargeExtraspecial.S4TwoPSL
-public import CFSG.CGT.Timmesfeld75.StdPair
-public import CFSG.Open.StatedAPI
-public import CFSG.Open.StatedDefs
 public import CFSG.CGT.Timmesfeld75.Derivations
 public import CFSG.CGT.Timmesfeld75.Main
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
@@ -17,7 +14,6 @@ public import CFSG.LargeExtraspecial.S4TwoA
 public import CFSG.LargeExtraspecial.S4TwoInput
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 
 public section

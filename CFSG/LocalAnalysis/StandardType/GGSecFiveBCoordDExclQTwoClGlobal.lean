@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclQTwoClDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclReal
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
 import CFSG.LocalAnalysis.StandardType.GGQ2PlaneChainGroups
 import CFSG.LocalAnalysis.StandardType.GGNsq2QuotNorm
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
-import CFSG.LocalAnalysis.StandardType.GGD4OddCentLSide
-import Mathlib.GroupTheory.Perm.Cycle.Type
 
 public section
 

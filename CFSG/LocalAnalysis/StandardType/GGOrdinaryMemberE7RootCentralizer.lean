@@ -7,10 +7,8 @@ public import CFSG.LieType.AlgebraicGroups.RootSL2Centralizer
 public import CFSG.LieType.AlgebraicGroups.ToralCentralizerConnectedComponent
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcE6
 public import CFSG.RankThree.Classical2.SLnFrobeniusFormFixed
-public import CFSG.LieType.AlgebraicGroups.ClosedIdentityComponentFunctorial
 public import CFSG.HardMathSupport.Lang.AnisoE6.ConjRoot
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigid
-public import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.ClassicalInvolution.RouteD.GapsOrthChain
 public import CFSG.ClassicalInvolution.RouteD.MultiModelGlue
@@ -55,9 +53,6 @@ public import CFSG.RankThree.PartOne.KF4.KernelTools
 public import CFSG.RankThree.PartOne.KGD.D4QA1
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public noncomputable section
 

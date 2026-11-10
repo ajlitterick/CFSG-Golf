@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.KGFactG2RuInputs
 public meta import CFSG.Quasithin.Vol2.KGFactG2RuInputs
-import Certificates.Certificate2247
-import Certificates.Certificate2250
 import Certificates.Kernel.SporSch.Ru.G2Ru7163
 
 public section

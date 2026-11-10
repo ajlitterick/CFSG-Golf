@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection12.lemma_12_1_g
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection12.lemma_12_2_a
 public import Mathlib.GroupTheory.Schreier
 

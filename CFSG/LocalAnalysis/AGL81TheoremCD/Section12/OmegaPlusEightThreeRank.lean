@@ -2,8 +2,6 @@ module
 
 public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims1110m
-import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.OmegaFacts
-import CFSG.LocalAnalysis.GLTheoremA.S3.Basic
 
 public section
 

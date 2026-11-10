@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSpDefs
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.B113LieSpCent
-public import CFSG.Open.LocalVocabulary
 public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.SylowOpposition
 public import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
 
 public noncomputable section

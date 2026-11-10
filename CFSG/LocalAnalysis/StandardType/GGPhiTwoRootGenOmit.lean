@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenModel
 public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenRoot
-public import CFSG.LieType.Chevalley.KernelComponentRoots
-public import CFSG.LieType.Chevalley.WeylRoots
 
 public section
 

@@ -1,16 +1,13 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec2Cases
-public import CFSG.Quasithin.Vol2.Ch12Sec2Indec
 public import CFSG.Quasithin.Vol2.Ch12Sec2NatA5
 public import CFSG.Quasithin.Vol2.Ch12Sec2GlueExt
 public import CFSG.Quasithin.Vol2.Ch12Sec2GlueHatA6
 public import CFSG.Quasithin.Vol2.Ch12Sec2GlueIrr
 public import CFSG.Quasithin.Vol2.Ch12Sec2GlueL52
 public import CFSG.Quasithin.H13.VolIA36
-public import CFSG.Quasithin.Vol2.Ch3Sec2Lem322Eight
 public import CFSG.Quasithin.Vol2.Ch12Sec1Setup
-public import CFSG.Quasithin.Background.B1MoreNineD
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.A3A3Perm
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Basic
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Statements

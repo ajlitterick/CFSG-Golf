@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsDLocV
-public import CFSG.Quasithin.Vol2.GoldschmidtF431Loc442Gen
 
 public section
 

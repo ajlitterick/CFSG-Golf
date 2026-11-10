@@ -3,12 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRealKGFiveClassical
 public import CFSG.LocalAnalysis.StandardType.GGRealQFourThree
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937Defs
-import CFSG.LocalAnalysis.StandardType.GGRealKGThreeLin
 import CFSG.LocalAnalysis.StandardType.GGRealKGThreeNs
 import CFSG.LocalAnalysis.StandardType.GGRealKGThreeSplit
 import CFSG.LocalAnalysis.StandardType.GGRealKGThreeU63
-import CFSG.LocalAnalysis.StandardType.GGRealKGThreeUDvd
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySp
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Permutation.FinPackWalk
 public import CFSG.Permutation.FinPackList
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Item310
 public import CFSG.Adapters.TauCetiExceptional.EvenInterface
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinDOdd
 import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDOdd
 import CFSG.Blueprint.SourceClassicalTransport
 import CFSG.Adapters.TauCetiExceptional.EvenBridgeG2
@@ -32,7 +31,6 @@ import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelBorel
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailPolar
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 import CFSG.StronglyEmbedded.ParityCriterion

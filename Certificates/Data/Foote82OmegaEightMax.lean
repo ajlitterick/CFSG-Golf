@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEightMinus.NativeData
-public import Mathlib.Data.Fintype.Card
 
 public section
 

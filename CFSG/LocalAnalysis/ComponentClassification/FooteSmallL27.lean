@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.FooteSmallTransport
-public import CFSG.GH74.KGroups.L27
 public meta import CFSG.LocalAnalysis.ComponentClassification.FooteSmallCheck
 public meta import CFSG.GH74.KGroups.L27
-public import CFSG.LocalAnalysis.ComponentClassification.FooteSmallL27Inputs
 public import Certificates.Certificate2018
-public import Certificates.Certificate5117
 
 public section
 

@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentKLocal
 import CFSG.LocalAnalysis.StandardType.GGTPNTrFlat
 import CFSG.LocalAnalysis.StandardType.GGTPNTrSelfCent
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

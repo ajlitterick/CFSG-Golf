@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeReturnSpecs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierSL
-public import CFSG.LocalAnalysis.StandardType.GGRootDetectSpinPlus
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.RecogD
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeLabelledD
 
 public section

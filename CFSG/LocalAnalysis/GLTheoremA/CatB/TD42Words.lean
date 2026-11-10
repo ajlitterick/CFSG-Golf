@@ -1,7 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec4.T444.Item434D42LinkCheck
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.D4TwoArr
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.TD42Aut
 
 public section

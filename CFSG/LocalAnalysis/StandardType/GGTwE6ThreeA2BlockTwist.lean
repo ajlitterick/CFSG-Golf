@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeA2BlockData
-public import CFSG.HardMathSupport.Timmesfeld.Torality.A2Block
 
 public noncomputable section
 

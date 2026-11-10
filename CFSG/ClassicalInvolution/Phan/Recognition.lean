@@ -2,9 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Phan.Assembly
 public import CFSG.ClassicalInvolution.Phan.NativeModel
-public import CFSG.Open.StatedDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 
 public section
 

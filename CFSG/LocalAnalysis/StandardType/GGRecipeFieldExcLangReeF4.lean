@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangModel
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangSz
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogLargeReeNormalForm
 public import CFSG.RankThree.PartOne.RF4.Descent
-public import CFSG.LieType.Ree.ReeGenericPerfect
 public import CFSG.LieType.Ree.SmallReeModelSchreier
 
 public section

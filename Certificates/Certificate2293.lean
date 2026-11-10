@@ -4,7 +4,6 @@ public import CFSG.Sporadic.SuzOddCore.FamilyCheckInputs
 public meta import CFSG.Sporadic.SuzOddCore.ArraysCheck
 public meta import Certificates.Data.CFSGNative.Schreier.Refine
 public meta import Certificates.Data.CFSGNative.Perm.Chain
-import Certificates.Kernel.Sporadic.OddCore.SuzFamF
 import Certificates.Kernel.Sporadic.OddCore.SuzFamNeg
 
 public section

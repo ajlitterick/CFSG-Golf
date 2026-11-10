@@ -1,12 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Proposition102Exponent
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.Nilpotent
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.CentralizerControl
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.Proposition12
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.proposition_1_10
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 
 namespace CFSG
 end CFSG

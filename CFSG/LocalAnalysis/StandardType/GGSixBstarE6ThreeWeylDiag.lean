@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeDiag
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeFaithful
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeWeylDiagGen
 

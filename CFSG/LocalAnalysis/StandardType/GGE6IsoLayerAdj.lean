@@ -1,9 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeLayerFrame
-public import CFSG.LieType.Universal.SpecialLinear
-public import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 public import CFSG.ClassicalInvolution.WeakCT.StandardPair
 public import CFSG.ClassicalInvolution.WeakCT.TorusAgree
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAut

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.J4.QTRankWitNative
 public meta import CFSG.Sporadic.J4.QTRankWitNative
 public import Certificates.Certificate4026
 

@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTriD4LineKGXThetaQ
 public import CFSG.LocalAnalysis.StandardType.GGTriD4LineKGXThetaH
 import CFSG.GroupTheory.InternalSemidirectEquiv
 import CFSG.RankThree.Chevalley.SteinbergBTCanonicalFieldCommon
-import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
-import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
 import CFSG.LocalAnalysis.StandardType.GGTriD4LineKGXThetaAgree
 import CFSG.LocalAnalysis.StandardType.GGTriD4LineKGXThetaConj
 import CFSG.LocalAnalysis.StandardType.GGTriD4LineKGXThetaEquiv

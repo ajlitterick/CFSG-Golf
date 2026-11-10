@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLinearSemisimple
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSU
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepairBlock
 
 public section

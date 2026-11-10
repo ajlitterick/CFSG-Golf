@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6D5CoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6D5CoreLang
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
 
 public section
 

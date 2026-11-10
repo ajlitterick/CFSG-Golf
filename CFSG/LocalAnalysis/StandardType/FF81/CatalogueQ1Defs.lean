@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Assembly.InCatalog
-public import CFSG.Open.LocalVocabulary
 public import CFSG.Open.StatedDefs
 
 @[expose] public section

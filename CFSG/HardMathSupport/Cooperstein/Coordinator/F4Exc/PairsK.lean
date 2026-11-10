@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.F4Exc.Family
 public import CFSG.Certificates.Kernel.Common.Loop
-import Mathlib.Tactic.Ring
 
 public section
 

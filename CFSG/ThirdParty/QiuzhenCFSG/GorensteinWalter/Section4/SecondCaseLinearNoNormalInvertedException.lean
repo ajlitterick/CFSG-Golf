@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseLinearS0CentralizesU
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma28
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

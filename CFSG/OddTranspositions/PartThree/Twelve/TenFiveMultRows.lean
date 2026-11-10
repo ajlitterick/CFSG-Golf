@@ -1,24 +1,11 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultModels
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultHopf
-public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultDimFive
-public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultDimFiveSpin
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultDimFivePair
-public import CFSG.LieType.Steinberg.CentralExt.PSpMultiplier
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultCover
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultSpinLift
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultSixMinus
-public import CFSG.Open.GriessSchurMultipliersMilestoneDefs
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
-public import CFSG.ClassicalInvolution.WeakCT.SU4SpinMinusBridge
 public import CFSG.LieType.Steinberg.CentralExt.POmegaMinusMultiplier
-public import CFSG.LieType.Steinberg.CentralExt.SpinMinusCentrallyClosed
-public import CFSG.LieType.Universal.SpinOmega.Range
-public import CFSG.LieType.Universal.SpinOmega.Center
-public import CFSG.LieType.Universal.SpinOmega.Kernel
 
 public section
 

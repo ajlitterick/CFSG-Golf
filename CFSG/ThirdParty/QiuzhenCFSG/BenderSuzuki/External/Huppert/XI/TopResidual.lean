@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Residual
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.NormalComplement
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Suzuki.V.theorem_2_10
 

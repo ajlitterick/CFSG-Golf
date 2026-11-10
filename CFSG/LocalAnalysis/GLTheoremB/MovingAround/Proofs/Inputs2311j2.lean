@@ -1,15 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2311j
-public import CFSG.LieType.SeitzGeneration.QuasiHigh5E6CoverTw
-public import CFSG.HardMathSupport.Malle.SeitzCube.E6ThreeD4Lines
-public import CFSG.LieType.SeitzGeneration.ExcHigh.CubePlanes
-public import CFSG.LieType.SeitzGeneration.QuasiHighClassical
-public import CFSG.HardMathSupport.Lang.TwE6Step3.D4LinesMain
-public import CFSG.HardMathSupport.Lang.TwE6Step3.Assembly
-public import CFSG.HardMathSupport.Lang.TwE6Step3.Lines
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.SeitzRest7
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FL4
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FL4Cases
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FL4Kill

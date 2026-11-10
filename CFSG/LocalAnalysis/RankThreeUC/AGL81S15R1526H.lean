@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15LiftDefs
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15Oracles
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1526P0a
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinTransport
-import CFSG.GroupTheory.LocalCores.PrimeSetCore
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Plus.PermData
-public import CFSG.RankThree.Native.PermEnumeration
 
 public section
 

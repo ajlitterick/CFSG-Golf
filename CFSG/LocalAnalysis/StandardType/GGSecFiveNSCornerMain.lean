@@ -2,8 +2,6 @@ module
 
 import Lean
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSCornerDefs
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosCommAux
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosCommCornerLeaf
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosCommCornerLeafB
 
 public section

@@ -1,15 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma1113
-public import CFSG.GroupTheory.ThompsonAxB
-public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma28b
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.Shapes
-public import CFSG.HardMathSupport.Timmesfeld.Proving.GLAPPrimeCoreBasics
 public import CFSG.Assembly.GL83LocalCore
-public import CFSG.LocalAnalysis.GLTheoremB.ComponentTools
-public import CFSG.HardMathSupport.Solomon.Coordinator.I25_3Defs
-public import CFSG.Monster.B.TwoA.Sp8.GenActionHom
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -118,8 +112,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -172,8 +164,6 @@ public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import CFSG.YGroups.DCE.B433Check
 public import CFSG.Yardstones.M67c2c3e09a6b.Definitions

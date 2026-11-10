@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeM3RSDefs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPSL
 
 public section
 

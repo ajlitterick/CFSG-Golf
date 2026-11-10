@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.CosetTablePresented
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.WCheck
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.YoshWord
 

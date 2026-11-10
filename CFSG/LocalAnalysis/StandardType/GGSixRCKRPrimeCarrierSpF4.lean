@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeReturnSpecs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeSpModel
-public import CFSG.LocalAnalysis.StandardType.GGRootDetectCore
-public import CFSG.Adapters.LinearFieldTransport
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierSpF4Cover
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.OddShapesPart2
 public import CFSG.HardMathSupport.Timmesfeld.Steinberg.F4KernelOne

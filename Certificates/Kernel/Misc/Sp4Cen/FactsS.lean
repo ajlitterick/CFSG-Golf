@@ -4,7 +4,6 @@ public import Certificates.Kernel.Misc.Sp4Cen.Checks
 public import CFSG.Certificates.Kernel.Misc.Sp4CenSound
 import CFSG.Certificates.Kernel.LocalQTPermSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Item434SporGenMathieu
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import Certificates.Data.Item434SporGenMathieu
 import CFSG.Certificates.Kernel.Common.Harness

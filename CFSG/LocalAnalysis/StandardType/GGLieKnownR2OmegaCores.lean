@@ -1,18 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLieKnownPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-import CFSG.LieType.Universal.Spin.Generation.Eichler
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
-public import CFSG.LieType.Universal.Spin.Datum
-public import CFSG.LieType.Universal.Spin.Twisted.Datum
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaCoresPlus
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaCoresMinus
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortTransport
 public import CFSG.LocalAnalysis.SeitzReduction.SeitzQ2OddSplitClassical
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages

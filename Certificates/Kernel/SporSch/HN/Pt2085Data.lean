@@ -1,6 +1,5 @@
 module
 
-import CFSG.Certificates.Kernel.Common.HarnessGz
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 

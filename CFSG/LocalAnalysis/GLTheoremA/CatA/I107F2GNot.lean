@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I107F2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I107F2G
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPCanon
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPFieldN
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPCyc
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.InnRank
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TypeTwistedDWeak
 public import CFSG.ClassicalInvolution.Q3.Q3TWWFrameD
-public import CFSG.ClassicalInvolution.WeakCT.SpinMinus6Generated
 public import CFSG.ClassicalInvolution.WeakCT.Standard
 public import CFSG.ClassicalInvolution.Models.TwistedPairs
 

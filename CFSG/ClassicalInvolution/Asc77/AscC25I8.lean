@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Asc77.AscC25V37
 public import CFSG.ClassicalInvolution.Asc77.AscFusionR9
-public import CFSG.ClassicalInvolution.Asc77.ModOApi
 public import CFSG.ClassicalInvolution.Asc77.AscFusionR7
 
 public section

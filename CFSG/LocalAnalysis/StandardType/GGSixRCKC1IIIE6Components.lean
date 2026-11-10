@@ -3,13 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIE6Prime
 public import CFSG.LocalAnalysis.StandardType.GGE6TwoThreeComp
 public import CFSG.LocalAnalysis.StandardType.GGCompListMarked
-import CFSG.LocalAnalysis.StandardType.GGK0MarkedArithmetic
 import CFSG.LocalAnalysis.StandardType.GGLieOddCover
-import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldE6
 import CFSG.LocalAnalysis.StandardType.GGSixFieldFiveTagsRank
-import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
-import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 
 public section
 

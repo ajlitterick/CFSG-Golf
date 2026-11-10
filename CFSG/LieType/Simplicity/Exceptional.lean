@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.CurtisTits.Exceptional
-public import CFSG.LieType.Steinberg.Adjoint.Perfect
 public import CFSG.LieType.Steinberg.G2
 
 public section

@@ -14,8 +14,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge
 import CFSG.LocalAnalysis.UniquenessCase.UC22P21a
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2214a
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2214b
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846d
-import CFSG.LocalAnalysis.UniquenessCase.UCR638
 
 public section
 

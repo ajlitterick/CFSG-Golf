@@ -4,10 +4,8 @@ public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitC3J
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitC3P
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitC3R
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitC3T
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EUCase
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.Sporadic.ThSchreier.Perfect
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups
@@ -27,7 +25,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofComponentLi
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddCentralFixed
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOrthLow
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorOddE6
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EUFour
 public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecLinearHigh
 public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecOrthFact
 public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecPair

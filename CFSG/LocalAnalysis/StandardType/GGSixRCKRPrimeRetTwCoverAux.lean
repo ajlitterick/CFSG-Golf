@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetTwStep
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetAssembly
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairTwCover6Aux1
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetPin
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetComp
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetE6
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviHom
 
 public section
 

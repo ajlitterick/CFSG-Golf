@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.A3Structure38Facts
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotBLiftGomi
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CoprimeAxB
 import CFSG.Quasithin.Vol2.Ch4Sec4L443E4Inner
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
@@ -13,7 +12,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A3NativeBasic
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeBasic
 import CFSG.LocalAnalysis.SectionRank.SectionAssembly

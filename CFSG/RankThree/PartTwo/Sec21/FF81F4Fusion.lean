@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5F4Node
 public import Certificates.Certificate799603
 public import CFSG.RankThree.PartTwo.Sec21.HeringFFLSp6Facts
 public import CFSG.Adapters.LieModelSimple
-public import CFSG.Timmesfeld.Orders.Classical
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcFieldCore
 public import CFSG.LocalAnalysis.EvenBN.Tits.R2.CatalogSp6
 public import CFSG.RankThree.PartOne.S9.Sylow.GlobalRelative
 public import CFSG.RankThree.PartTwo.Sec13.Item135

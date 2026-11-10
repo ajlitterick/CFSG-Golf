@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLTypeA
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeABridge
 public import CFSG.LocalAnalysis.StandardType.GGHyperplaneMem
 
 public section

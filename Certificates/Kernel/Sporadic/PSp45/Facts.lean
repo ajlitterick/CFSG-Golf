@@ -4,11 +4,8 @@ public import Certificates.Kernel.Sporadic.PSp45.Data
 public import Certificates.Kernel.Sporadic.PSp45.Direct
 public import CFSG.Certificates.Kernel.SporSch.MathieuOCSound
 public import CFSG.Certificates.Kernel.Spor.BindList
-public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
-public import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
 public import CFSG.GH74.KGroups.NativeChecks2
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

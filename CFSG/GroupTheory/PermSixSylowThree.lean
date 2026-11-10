@@ -1,8 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import Mathlib.GroupTheory.Commutator.Basic
-import Mathlib.GroupTheory.Sylow
 import Mathlib.GroupTheory.SpecificGroups.Alternating.Centralizer
 import Mathlib.GroupTheory.IsPerfect
 import CFSG.Mathlib.Decide.Bounded

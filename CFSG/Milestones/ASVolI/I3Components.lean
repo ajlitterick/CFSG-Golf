@@ -1,19 +1,14 @@
 module
 
 public import CFSG.Milestones.ASVolI.I3
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.I32Final
-public import CFSG.Quasithin.Background.VolII31
 public import CFSG.Quasithin.Background.VolII31Three
 public import CFSG.LocalAnalysis.SectionRank.AmbientRank
 public import CFSG.Yardstones.Md42047359a2a.Reduction
-public import CFSG.HardMathSupport.Solomon.Coordinator.B2FamAlt
 public import CFSG.HardMathSupport.Solomon.Coordinator.B2LieEven
 public import CFSG.HardMathSupport.Dickson.OddLieB2.Assembly
 public import CFSG.HardMathSupport.Dickson.ElementCaseBp.Main
 public import CFSG.Sporadic.HeldB.AllFixed
 public import CFSG.Adapters.CatalogAgree
-public import CFSG.HardMathSupport.Dickson.OddLieB2.Converter
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A3Native36
 public import CFSG.Quasithin.H13.A5Close1321c
 public import CFSG.CGT.PushingUpLit.CGT6.EmbLift
 public import CFSG.CGT.PushingUpLit.CGT6.SixFour

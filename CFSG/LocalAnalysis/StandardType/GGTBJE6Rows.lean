@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJETypeCells
 public import CFSG.LocalAnalysis.StandardType.GGTwistedLabelModels
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.Mathlib.GroupTheory.QuotCenterCardDvd
-public import CFSG.Timmesfeld.Orders.Classical
-public import CFSG.Timmesfeld.Orders.Exceptional
 public import CFSG.Timmesfeld.Orders.PpdE6D4
 
 public section

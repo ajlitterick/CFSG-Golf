@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.SuzI301K.Data
 public import Certificates.Data.Kernel.SuzI301K
 public import Certificates.Kernel.LocalComp.B0SuzMat
-public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3B0SuzTests
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

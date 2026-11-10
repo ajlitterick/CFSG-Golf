@@ -3,21 +3,12 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Suzuki.V.proposition_1_2
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Suzuki.V.theorem_2_10
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Suzuki.V.theorem_2_27
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Suzuki.VI.formula_1_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Suzuki.VI.theorem_1_8
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_7_Core
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Suzuki.VI.formula_1_15
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Suzuki.VI.definition_2_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Suzuki.VI.proposition_2_8
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Suzuki.VI.proposition_2_9
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.Defs
 public import Mathlib.GroupTheory.SpecificGroups.Quaternion
 import Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.PLengthLemmas
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_9
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection3.PFsection3_5
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection5.PFsection5_9
 import Mathlib.Tactic
 

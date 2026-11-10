@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnitCopField
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenUnitaryIrred
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMore
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusBlockAuxStepAMain
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherRankTwoLevi
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenWeyl
-public import CFSG.RankThree.SteinbergR3ECALinearSplitBlocks
 
 public section
 

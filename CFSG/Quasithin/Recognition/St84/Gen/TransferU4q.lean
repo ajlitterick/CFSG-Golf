@@ -13,8 +13,6 @@ import CFSG.Quasithin.Recognition.St84.Gen.CoprimeLift
 import CFSG.Quasithin.Recognition.St84.Gen.TransferL2Torus
 import CFSG.Quasithin.Recognition.St84.Gen.TreeLLBase
 import CFSG.Quasithin.Recognition.St84.Gen.L2RankOne
-import CFSG.Quasithin.Recognition.St84.TransferNormality
-import CFSG.Quasithin.Recognition.St84.EdgeStabB
 public import CFSG.CharacterTheory.Wreathed.BrauerWongSylowCentralizer
 public import CFSG.CharacterTheory.Wreathed.OddKernelSylowQuotient
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare

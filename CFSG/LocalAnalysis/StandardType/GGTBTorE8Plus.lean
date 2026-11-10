@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorusScalar
 public import CFSG.LocalAnalysis.StandardType.GGTBTorE8Cover
 public import CFSG.LocalAnalysis.StandardType.GGTorusE8Scalar
 public import CFSG.LocalAnalysis.StandardType.GGTorusWeylFrame

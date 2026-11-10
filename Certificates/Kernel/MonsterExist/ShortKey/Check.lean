@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.MonsterExist.ShortKey.Sound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Monster.AxisCount.DenseIndex
 public import CFSG.Monster.B.TwoA.Base.Flags
 public import CFSG.Monster.B.TwoA.Base.Par45A
@@ -11,7 +10,6 @@ public import CFSG.Monster.B.TwoA.Par3.MainBase
 public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 public import CFSG.Open.MonsterY443Defs
 public import CFSG.Sporadic.Co1Base
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

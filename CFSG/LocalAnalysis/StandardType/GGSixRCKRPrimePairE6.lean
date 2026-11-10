@@ -6,11 +6,7 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairPinE6
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairCover
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairFix
 public import CFSG.LocalAnalysis.StandardType.GGLieOddCoverSplit
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRest
 public import CFSG.LocalAnalysis.StandardType.GGExcKGSFFinite
-public import CFSG.ClassicalInvolution.ModelFacts.Models
-public import CFSG.ClassicalInvolution.ModelFacts.WeylTransitive
-public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalAdjoint
 
 public section
 

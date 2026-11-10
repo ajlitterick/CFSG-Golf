@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.TL3T25
-public import CFSG.ClassicalInvolution.AschTight.Sec6GenAPI
 
 public section
 

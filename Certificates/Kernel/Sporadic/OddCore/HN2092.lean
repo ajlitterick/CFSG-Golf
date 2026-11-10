@@ -6,8 +6,6 @@ public import Certificates.Kernel.Sporadic.OddCore.HN2089
 public import CFSG.Certificates.Kernel.Spor.SubOrbSound
 public import CFSG.Certificates.Kernel.Spor.SiftEq
 public import CFSG.Certificates.Kernel.Spor.PWord
-import Mathlib.Tactic.IntervalCases
-import CFSG.Sporadic.Schreier.ONPermArr
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5Node
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5E7
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5E8
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoFusionE7
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoFusionE8
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBHalf
 
 public section

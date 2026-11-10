@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 
 public section
 

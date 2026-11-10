@@ -2,11 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.Collection
 public import CFSG.LieType.Steinberg.PartB
-public import Mathlib.FieldTheory.Finite.Basic
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.Ring
 
 public section
 

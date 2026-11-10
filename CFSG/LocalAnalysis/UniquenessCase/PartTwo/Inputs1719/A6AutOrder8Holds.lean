@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.AltLocal17A6
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_16FactsA6Model
 public import CFSG.LocalAnalysis.EvenBN.Tits.I21LA6Aut
-public import CFSG.LocalAnalysis.EvenBN.Tits.I21Outer
 public import CFSG.Quasithin.H13.A6S1356S6Fr
 public import CFSG.Quasithin.Background.F6ResPGL2
 public import CFSG.CGT.Timmesfeld75.L2Pair

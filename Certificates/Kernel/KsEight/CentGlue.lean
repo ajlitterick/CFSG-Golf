@@ -6,8 +6,6 @@ public import Certificates.Kernel.CU43Aut.SylGlue
 public import Certificates.Kernel.CU43Aut.ModelFacts
 public import CFSG.Certificates.Kernel.Spor.CentBoundPowSound
 public import CFSG.Certificates.Kernel.Spor.PinvSSound
-public import CFSG.Certificates.Kernel.Spor.PackWord
-public import CFSG.Certificates.Kernel.Spor.RecGroup
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TS16RUKsCheck
 public import CFSG.Certificates.Kernel.Spor.BaseMaskSound
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
@@ -26,7 +24,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.Contra
 public import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.FactsB2Inputs
 public import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.S2.OutU43Main
 public import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.Stages
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

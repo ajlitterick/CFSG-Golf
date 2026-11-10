@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.RuIdx2.Glue
 public import Certificates.Kernel.Ru7032.Cover
 import Certificates.Kernel.RuIdx2.X
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Delta5Fin
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Inputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3Cover

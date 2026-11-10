@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJFrameBs
-public import CFSG.LocalAnalysis.StandardType.GGTorCNormalizer
-public import CFSG.LocalAnalysis.StandardType.GGTBJTypeBShape
 public import CFSG.LocalAnalysis.StandardType.GGTBJTypeBFrameBridge
-public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusUnitaryVec
 public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusUnitaryCard
 public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusUnitaryElt
 public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusUnitaryBlock

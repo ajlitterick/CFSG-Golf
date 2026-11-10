@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.OrthD4Reduce
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Orth3FamilyD
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Orth3QPlus
-public import CFSG.RankThree.PartOne.KC.OrthogonalQPlusOneD4
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Orth3Residual
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Reduction
 

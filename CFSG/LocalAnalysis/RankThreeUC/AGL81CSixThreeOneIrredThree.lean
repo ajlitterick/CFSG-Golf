@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CSixThreeOneDefs
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CSixThreeOneBasic
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenListCongr
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenG1
-import CFSG.RankThree.PartTwo.Toolkit.Bloom
 import CFSG.RankThree.PartTwo.KFacts.K74Bloom
 import CFSG.RankThree.PartTwo.Sec4.LThreePiKind
 import CFSG.RankThree.PartOne.S12.LA126

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.Section12.Context
-public import CFSG.LocalAnalysis.RankThreeUC.NormalModules
 import all CFSG.LocalAnalysis.RankThreeUC.NormalModules
 public import CFSG.LocalAnalysis.RankThreeUC.WeakModules
 public import CFSG.LocalAnalysis.RankThreeUC.OddRankOneQuotient.OddRankOneQuotient

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmRank
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmModelNs
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmPlusPlusRaw
-public import CFSG.LocalAnalysis.StandardType.GGTBJR1OmPlusRow
 public import CFSG.LocalAnalysis.StandardType.GGTBJOrthLeftGlue
 
 public section

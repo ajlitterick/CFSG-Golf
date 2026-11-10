@@ -1,8 +1,6 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.ClassFunctionHelpers
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.ClassFunction
 public import Mathlib.GroupTheory.FiniteAbelian.Duality
 public import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
 

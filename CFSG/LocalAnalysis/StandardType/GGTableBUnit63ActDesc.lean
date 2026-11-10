@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Desc
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63ActCore
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitActMain
 

@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBOOddNF
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBOSpin
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBSp4Lift
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBInputs
-public import CFSG.LieType.Steinberg.CentralExt.Families
 public import CFSG.LieType.Steinberg.CentralExt.OrthogonalPerfect
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.Models.LinearPairs
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs
 public import CFSG.ClassicalInvolution.Models.Transfer.Orthogonal.Center

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHypSixD4RankClassRep
-public import CFSG.RankThree.OrthogonalInvolutions.Witt
 
 public section
 

@@ -3,18 +3,12 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelDAssembly
 public import CFSG.LocalAnalysis.StandardType.GGTBTorInnModel
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelDNsFrame
-public import CFSG.LocalAnalysis.StandardType.GGTBTorRelDNsTorus
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelDNsWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelDNsCent
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelDNsNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelDCoverTwo
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExc
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusCentrallyClosed
-public import CFSG.LocalAnalysis.StandardType.GGOmegaPlusCentrallyClosed
-public import CFSG.LocalAnalysis.StandardType.GGTBTorRel
-public import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

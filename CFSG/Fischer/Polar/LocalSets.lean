@@ -4,13 +4,6 @@ module
 public import CFSG.Fischer.Polar.LocalSetsBase
 
 public import CFSG.Fischer.Polar.Lines
-public import CFSG.Fischer.Polar.Search
-public import Certificates.Data.CFSGNative.Fischer.Xi22
-public import Certificates.Data.CFSGNative.Fischer.Polar
-public import Certificates.Data.CFSGNative.F4.T46Simple
-public import CFSG.Fischer.UnitaryAction
-public import Certificates.Data.CFSGNative.Fi22.Local
-public import Certificates.Data.Kernel.Fi22.Orb
 
 public section
 

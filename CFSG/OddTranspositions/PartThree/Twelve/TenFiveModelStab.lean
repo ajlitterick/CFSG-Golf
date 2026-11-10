@@ -2,9 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModelCenter
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModelWalk
-public import CFSG.OddTranspositions.PartThree.Eleven.Five.FiveFormAux
-public import CFSG.OddTranspositions.PartThree.FiveReflectionFischer
-public import CFSG.OddTranspositions.PartFour.Fourteen.TableE1Five
 
 public section
 

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight105KFacts
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.PartOne
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
-public import CFSG.LocalAnalysis.UniquenessCase.UC6R
-public import Certificates.Kernel.Sporadic.Fi22.C3151
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846d
 public import CFSG.LocalAnalysis.UniquenessCase.UCR638
 

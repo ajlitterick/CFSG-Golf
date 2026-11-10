@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCAbs
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCOCent
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLInner
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherLinearModelSchreier
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.ClassicalGroups.Orthogonal.Matrix
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCOBlock

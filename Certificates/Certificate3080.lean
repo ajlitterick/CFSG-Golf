@@ -4,11 +4,8 @@ module
 public import Certificates.Certificate3080Base
 import all Certificates.Certificate3080Base
 
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408PointsInputs
-public import Certificates.Kernel.MonsterB.Orb14GlueBase
 import CFSG.Certificates.Kernel.Common.Harness
 import all CFSG.Fischer.F4
-public import Certificates.Kernel.MonsterB.Orb14Glue
 
 public section
 

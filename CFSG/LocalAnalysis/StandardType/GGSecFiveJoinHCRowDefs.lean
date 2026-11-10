@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveQTwoCompat
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanARowDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveDataResDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1WeylE
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.Weyl3187
 public import CFSG.Certificates.Kernel.LocalCompFrameSound
-public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylFrameData
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

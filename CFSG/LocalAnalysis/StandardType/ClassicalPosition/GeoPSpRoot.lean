@@ -1,9 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Universal.SymplecticExtras
-public import CFSG.Open.StatedDefs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2GeoSp
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.TypeCGeneration
 public import CFSG.Timmesfeld.ARS.CaseMSpPlane

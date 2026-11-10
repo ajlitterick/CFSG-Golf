@@ -4,10 +4,7 @@ public import Certificates.Kernel.Co1M.K66T3
 public import Certificates.Kernel.Co1M.K66T4
 public import Certificates.Kernel.Co1M.K66C
 public import Certificates.Kernel.Co1M.K78L
-public import Certificates.Kernel.Co1M.Orb98280
-public import Certificates.Kernel.Co1Cover.Bridge
 public import CFSG.Sporadic.Co1.Module.CoTwoAutLitInputs
-public import CFSG.Certificates.Kernel.SortTreeSound
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Monster.GMS.Leech.Linear
 public import CFSG.Sporadic.Co1.Module.CoTwoData

@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.OutCycMark
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.OutCycCore
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIAut2
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MITD4
-public import CFSG.LocalAnalysis.StandardType.ChevTwoMarking
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyU
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpModel
 
 public section
 

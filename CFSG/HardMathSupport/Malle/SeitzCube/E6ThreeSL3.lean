@@ -2,9 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Malle.SeitzCube.E6ThreeSL3Data
 public import CFSG.LieType.Steinberg.Classical.SpecialLinear
-public import CFSG.LieType.Chevalley.RootCommutator
-public import CFSG.LinearAlgebra.LinearGroups.Generation
-public import CFSG.LieType.Universal.SpecialLinear
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo

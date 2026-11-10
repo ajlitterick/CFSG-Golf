@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorCNormalizer
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneTorusDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusLocalizeAux2
 
 public section

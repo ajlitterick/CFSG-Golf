@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.EvenSporM22.I22FourDefs
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.LocalQT.Cov.C4101
 public import Certificates.Kernel.EvenSporM22.I22FourWit
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.I22Four

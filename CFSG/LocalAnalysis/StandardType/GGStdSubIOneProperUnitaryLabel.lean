@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperUnitary
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProper
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 
 public section
 

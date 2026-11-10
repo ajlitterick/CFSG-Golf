@@ -2,12 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeLang
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.ExcLangNE6Two
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupDescent
-public import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
-public import CFSG.LieType.Chevalley.PerfectSimpleRoot
-public import CFSG.HardMathSupport.Curtis.UnitaryLevi.ExcSylowN
-public import CFSG.LieType.Chevalley.ChevalleySplitBN
 public import CFSG.LieType.SeitzGeneration.Lift
 public import CFSG.LieType.SeitzGeneration.RegimesExcFamilies
 

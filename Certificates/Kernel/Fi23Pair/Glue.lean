@@ -3,10 +3,7 @@ module
 public import Certificates.Kernel.Fi23Pair.ChkDefs
 public import CFSG.Certificates.Kernel.Fi23Pair.Sound
 public import Certificates.Kernel.Fi23Pump.Glue
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi23Cent
 import Certificates.Kernel.Fi23Pair.Chk
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib
 
 public section
 

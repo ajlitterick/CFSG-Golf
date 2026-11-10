@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2AlignedSylowEscape
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2NormalizerSylowNoncyclic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Reflection
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

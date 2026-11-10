@@ -3,14 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7DDefs
 
 import CFSG.LocalAnalysis.StandardType.GGSCNoTVCyclic
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
 import CFSG.LocalAnalysis.StandardType.GGTPNDefs
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 import CFSG.LocalAnalysis.GLTheoremA.CatB.U42CatAct
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowF8OmRank
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
 import CFSG.GroupTheory.GL52.SylowTools
 import CFSG.LocalAnalysis.GLTheoremA.S10.InputsSetup
 import CFSG.LocalAnalysis.GLTheoremA.S12.Inputs122

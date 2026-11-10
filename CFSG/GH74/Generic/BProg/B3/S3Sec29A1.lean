@@ -1,13 +1,9 @@
 module
 
 public import CFSG.GH74.Generic.BProg.B3.S3Sec29A
-public import CFSG.GH74.GLS.C3.Layer1.Th2Pump
-public import CFSG.GH74.GLS.C3.Layer1.St1PumpCalc
 public import CFSG.GH74.GLS.Bg.Iii2.L41Main
 public import CFSG.GH74.GLS.C3.Layer1.Th2L84Syl
 public import CFSG.GH74.GLS.C3.Layer1.Th2HYStruct
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5bLemma55
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.C3.Layer1.Th2L83Gen
 public import CFSG.GH74.GLS.C3.Layer1.Th2P73
 public import CFSG.GH74.GLS.C3.Layer1.Th2P812

@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFivePumpupDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePrimDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpSameSupp
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpNbr
-import CFSG.LocalAnalysis.StandardType.GGPumpupBalance
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpJoinWeyl
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpComm
 import CFSG.LocalAnalysis.StandardType.GGKGPosRk2

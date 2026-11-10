@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.LocalComp.Weyl3186K
 public import Certificates.Kernel.LocalComp.Weyl3187
 public import CFSG.Certificates.Kernel.LocalCompSPSound
-public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylTData
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

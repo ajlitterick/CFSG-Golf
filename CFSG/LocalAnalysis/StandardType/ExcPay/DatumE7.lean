@@ -5,11 +5,7 @@ import CFSG.LocalAnalysis.StandardType.GGLieCoreToralHolds
 import CFSG.LocalAnalysis.StandardType.GGLieCoreLang
 import CFSG.LocalAnalysis.StandardType.GGLieCoreRatFinite
 import CFSG.LocalAnalysis.StandardType.GGLieCoreA3DictPhi
-import CFSG.RankThree.PartOne.KE.CTLang
 import CFSG.LocalAnalysis.StandardType.GGKGForkExcRootsA
-import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.WeylTorusAct
-import CFSG.LieType.Chevalley.GraphFixedE6DiagonalCubes
-import CFSG.RankThree.Chevalley.G2CyclotomicTori
 
 public section
 

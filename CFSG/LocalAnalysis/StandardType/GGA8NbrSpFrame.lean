@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSpComp
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrInner
 public import CFSG.LocalAnalysis.StandardType.GGRoundFourSmallASpLift
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase

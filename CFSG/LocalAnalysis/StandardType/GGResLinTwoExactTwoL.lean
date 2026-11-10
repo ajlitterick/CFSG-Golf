@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResLinTwoRank78K3
-public import CFSG.LocalAnalysis.StandardType.GGResJOneReflCell
-import CFSG.LocalAnalysis.StandardType.GGResFixedWeylCentralizer
-import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeBLinearNs
-import CFSG.LocalAnalysis.StandardType.GGNbrU63StepTwo
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBReduce
 
 public section
 

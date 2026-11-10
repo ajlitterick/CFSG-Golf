@@ -12,7 +12,6 @@ import CFSG.LocalAnalysis.ComponentClassification.CatalogueUStatement
 import CFSG.LocalAnalysis.ComponentClassification.GSLitType
 import CFSG.LocalAnalysis.ComponentClassification.GSThmB7Basic
 import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog8L4
-import CFSG.Sporadic.Th.F2Spec
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 

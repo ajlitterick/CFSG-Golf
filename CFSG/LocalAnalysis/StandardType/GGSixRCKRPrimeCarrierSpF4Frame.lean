@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierSpF4Torus
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviSp6
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleSplit
-import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.C3AlgebraicPart2
-import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.B3AlgebraicPart3
-import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RationalC3Part2
-import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RationalB3Part1
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.SelectedLiteralPart2
 
 public section

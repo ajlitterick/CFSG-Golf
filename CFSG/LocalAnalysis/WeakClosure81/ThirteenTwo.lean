@@ -8,7 +8,6 @@ public import CFSG.CGT.Timmesfeld75.Cfg214Gen
 public import CFSG.CGT.Timmesfeld75.L2Real
 public import CFSG.Foundations
 public import CFSG.LargeExtraspecial.S9TIXC
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.InvolutionCountingOrderFormula
 public import CFSG.LocalAnalysis.SignalizerFunctor

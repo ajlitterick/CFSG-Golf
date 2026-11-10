@@ -1,8 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.Schreier.Co1OrbEnumCheck
-public import Certificates.Data.CFSGNative.Co1.Data
 public meta import CFSG.Sporadic.Schreier.Co1OrbEnumCheck
 public meta import Certificates.Data.CFSGNative.Co1.Data
 public meta import Certificates.Data.CFSGNative.HS.SmallF2

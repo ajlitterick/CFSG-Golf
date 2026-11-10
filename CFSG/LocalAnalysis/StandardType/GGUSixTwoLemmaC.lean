@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLemmaB
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTransvectionAutAll
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma5_2
 public import TauCeti.Algebra.Group.Subgroup.ZPowers
-public import TauCeti.GroupTheory.Sylow
 
 public section
 

@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusLinIrred
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.LinearInner
 public import CFSG.HardMathSupport.Curtis.Coordinator.PerfThreeGLCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FSeitzB2
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.Adapters.SpecialLinearPerfect
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FFix
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FSeitzB1

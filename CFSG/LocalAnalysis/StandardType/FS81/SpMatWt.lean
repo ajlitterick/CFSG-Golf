@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.N6MainMat
-public import CFSG.LocalAnalysis.StandardType.FS81.WtTwo
 
 public section
 

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.WeakClosure81.SixFourteenN3MovedContradiction
-public import CFSG.LocalAnalysis.WeakClosure81.SixFourteenOmega4UniqueAbstract
 public import CFSG.LocalAnalysis.WeakClosure81.SixFourteenOmega4TransvectionAxisOnly
 
 public section

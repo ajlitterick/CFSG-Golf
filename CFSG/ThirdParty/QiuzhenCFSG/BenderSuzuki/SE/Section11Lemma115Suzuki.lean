@@ -4,9 +4,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.Suzuki
 public import Mathlib.RingTheory.Trace.Basic
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.theorem_3_3
 import Mathlib.FieldTheory.Finite.Trace
-import Mathlib.FieldTheory.Perfect
-import Mathlib.GroupTheory.Coset.Basic
-import Mathlib.LinearAlgebra.Quotient.Card
 
 namespace CFSG
 end CFSG

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamSplitFrameRange
 public import CFSG.LocalAnalysis.StandardType.GGFamUnitaryFrameRange
-public import CFSG.LocalAnalysis.StandardType.GGFamInnerCover
-public import CFSG.LocalAnalysis.StandardType.GGFamTameRangeSpan
 
 public section
 

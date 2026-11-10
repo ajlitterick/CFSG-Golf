@@ -1,45 +1,11 @@
 module
 
-public import CFSG.Assembly.StandardTypeRecognitionDefs
 public import CFSG.Yardstones.M3f9567aba59d.Reduction
 import CFSG.Assembly.E6FourCentHolds
 import CFSG.Assembly.E6FourFieldRigid
 import CFSG.Assembly.E6FourLabelArith
-import CFSG.LocalAnalysis.GLTheoremA.CatA.CentQChar2Index
-import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxLinear
-import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxUnitary
-import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxClassical
-import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxTriality
-import CFSG.LocalAnalysis.StandardType.MarkingDict
 import CFSG.Assembly.E6FourLemma55
-import CFSG.Assembly.E6FourNeighbourFacts
-import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
-import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
-import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCoverMark
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LieType.Chevalley.ExceptionalLargeEvenCoverTorus
-import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotHR6X
-import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
-import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
-import CFSG.LieType.Chevalley.GraphFixedParameterFields
-import CFSG.LocalAnalysis.SectionRank.ClassicalEven.Torus
-import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
-import CFSG.Assembly.E6FourCoverQuot
-import CFSG.Assembly.Subnormal
-import CFSG.LieType.Steinberg.CentralExt.GriessNativeModels
-import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclicHolds
-import CFSG.LieType.Steinberg.CentralExt.PSUMultiplier
-import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyEvenOrthogonal
-import CFSG.GH74.Filter.Orthogonal.EvenEichler
-import CFSG.Timmesfeld.Orders.ClassicalOrthogonal
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointIsometryRegular
-import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
-import CFSG.LieType.Steinberg.CentralExt.GriessClassical
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
-import CFSG.LocalAnalysis.StandardType.GGRoundFourSmallBIsoAssembly
-import CFSG.LocalAnalysis.StandardType.GGInndiagCommRest
-import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExc2
 import CFSG.Yardstones.M3f9567aba59d.Goals
 
 public section

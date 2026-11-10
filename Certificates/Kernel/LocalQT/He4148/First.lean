@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalQT.He4148.Chains
 public import Certificates.Kernel.Sporadic.OddCore.HLF
-public import CFSG.Sporadic.SmallOddCore.ClassSimple
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

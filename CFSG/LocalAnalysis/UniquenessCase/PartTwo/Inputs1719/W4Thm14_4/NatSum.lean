@@ -10,8 +10,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_4.TensorBloc
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC163Nat
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139CTensor
 import CFSG.CGT.PushingUpLit.CGT6.EmbModule.SL2Alt5
-import CFSG.Quasithin.Background.HSL
-import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.Adapters.Certificate43Check
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
@@ -75,7 +73,6 @@ public import CFSG.Quasithin.Background.B5FinOut
 public import CFSG.Quasithin.Background.B6
 public import CFSG.Quasithin.Background.B69Main
 public import CFSG.Quasithin.Background.B69Struct
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E3Gen
 public import CFSG.Quasithin.Background.E3OffenderB
@@ -141,7 +138,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSyl
 public import CFSG.Walter.PSL2Facts
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import Certificates.Kernel.J4Count.Prim
 
 public section

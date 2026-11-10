@@ -1,9 +1,6 @@
 module
 
-public import CFSG.HardMathSupport.Solomon.Coordinator.GFR3J2Inputs
-public import Certificates.Data.Kernel.B3S3K
 public import Certificates.Data.Kernel.GFR3K
-public import Certificates.Data.Kernel.Misc.ChainTail
 public import Certificates.Kernel.B3S3.Gen
 public import Certificates.Kernel.GFR3.J2Chain
 public meta import CFSG.HardMathSupport.Solomon.Coordinator.GFR3J2Inputs

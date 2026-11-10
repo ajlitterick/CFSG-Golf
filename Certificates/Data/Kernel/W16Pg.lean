@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TS16RWDef
-public import CFSG.Certificates.Kernel.Enum.Defs
 public import Certificates.Data.Kernel.Spor.Chain
 public import Mathlib.GroupTheory.Perm.Basic
 public import Mathlib.GroupTheory.SpecificGroups.Dihedral

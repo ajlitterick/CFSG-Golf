@@ -1,21 +1,15 @@
 module
 
 public import CFSG.LocalAnalysis.UniqueFourCatalog.OddClassicalGeneric
-public import CFSG.Yardstones.Mf4cdcdf2e013.Definitions
 public import CFSG.LocalAnalysis.UniqueFourCatalog.Standing4Basic
 public import CFSG.LocalAnalysis.RankThreeUC.CatalogClosureOddLie
-public import CFSG.LocalAnalysis.RankThreeUC.CatalogClosureOddLinTwo
 public import CFSG.RankThree.PartTwo.Census.OddClassical.LinearComponent
 public import CFSG.RankThree.PartTwo.Census.OddClassical.LinearFourThree
-public import CFSG.RankThree.PartOne.SLB4B.ModelL
 public import CFSG.RankThree.PartOne.SLB4B.RankFourL
 public import CFSG.RankThree.Classical2.SLnRootPermutingFixedGroups
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.Adapters.ClassicalCatalogReverse
 public import CFSG.RankThree.PartTwo.Census.OddClassical.SmallThree
 public import CFSG.LocalAnalysis.SectionRank.ClassicalOdd.Basic
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.Foundations
@@ -52,7 +46,6 @@ public import CFSG.RankThree.PartOne.N143.SectionReduce
 public import CFSG.RankThree.PartOne.S9.Sylow.GlobalLemmas
 public import CFSG.RankThree.PartOne.S9.Sylow.GlobalRelative
 public import CFSG.RankThree.PartOne.S9.Sylow.ResidualLocal
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 

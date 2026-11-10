@@ -27,9 +27,7 @@ import Certificates.Kernel.HNLocal.Checks.Sort2
 import Certificates.Kernel.HNLocal.Checks.Sort3
 import CFSG.Certificates.Kernel.J4Hub.BlockSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 import CFSG.Certificates.Kernel.Fam.Lin
-import CFSG.Open.Defs
 
 set_option maxRecDepth 400000
 set_option exponentiation.threshold 120000

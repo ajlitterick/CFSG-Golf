@@ -2,7 +2,6 @@ module
 
 public import CFSG.Assembly.Defs
 public import CFSG.GroupTheory.LocalCores.Components
-public import Mathlib.Algebra.Group.Commutator
 public import CFSG.GroupTheory.LocalCores.Fitting
 
 public section

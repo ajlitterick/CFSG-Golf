@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3TWWKlein
 public import CFSG.ClassicalInvolution.Q3.Q3TWWBElt
 public import CFSG.ClassicalInvolution.Q3.Q3TWWAutB
-public import CFSG.ClassicalInvolution.Q3.Q3ZAutAbs
-public import CFSG.ClassicalInvolution.WeakCT.SimplyLaced
 public import CFSG.CharacterTheory.Semidihedral.ElementStructure
 public import CFSG.ClassicalInvolution.LBalance.Main
 public import CFSG.ClassicalInvolution.Models.LinearFrames.Frame
@@ -28,7 +26,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 
 public section

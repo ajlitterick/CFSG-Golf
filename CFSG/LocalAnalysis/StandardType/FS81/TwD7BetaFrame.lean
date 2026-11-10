@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.FS81.TwD7CentDecomp
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameSeven
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameA5
 public import CFSG.LocalAnalysis.StandardType.FS81.TransferTwD7
-import CFSG.LocalAnalysis.StandardType.FS81.TwD7BetaNormElements
 import CFSG.LocalAnalysis.StandardType.FS81.TwD7BetaOuter
-import CFSG.LocalAnalysis.SeitzReduction.E8PilotAutD
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotHR4Basic
 import CFSG.GroupTheory.InnerCentralizerProjection
 
 public section

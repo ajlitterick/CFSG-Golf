@@ -3,9 +3,7 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeCheckBase
 
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeData
 public meta import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeData
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeDataInputs
 public import Certificates.Certificate3010
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheck
 

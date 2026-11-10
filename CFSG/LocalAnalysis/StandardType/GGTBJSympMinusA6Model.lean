@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derDefs
-public import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneAlt6
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneTorusDefs
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SymplecticFixed
 import all CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar

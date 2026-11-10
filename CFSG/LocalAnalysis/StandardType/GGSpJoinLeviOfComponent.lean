@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinCentralizerLam
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinLeviPlane
-public import CFSG.LieType.Universal.Symplectic
-public import CFSG.Assembly.Subnormal
 
 public section
 

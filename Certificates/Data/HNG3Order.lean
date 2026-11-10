@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.HNSchreier.InvolCheckInputs
-public import CFSG.Sporadic.HNSchreier.SeedsCheckInputs
 public import CFSG.Sporadic.HNSchreier.FAData
 public meta import CFSG.Sporadic.HNSchreier.InvolCheckInputs
 public meta import CFSG.Sporadic.HNSchreier.SeedsCheckInputs

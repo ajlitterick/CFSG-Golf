@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4Order
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotSwapConjGenArith
-public import CFSG.RankThree.Chevalley.SteinbergBNExceptionalCyclotomicExhaustion
 public import CFSG.RankThree.PartOne.KLC.Degenerate
 public import CFSG.Foundations
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
@@ -24,7 +23,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Monster.B.Geometry.CoxeterWords
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime

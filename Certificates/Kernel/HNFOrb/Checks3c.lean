@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.HNFOrb.Data
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.HNFConst
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.EachTrue
 
 set_option maxRecDepth 100000

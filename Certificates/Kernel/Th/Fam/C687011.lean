@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Th.Fam.C687008
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -5,7 +5,6 @@ public import CFSG.ClassicalInvolution.SmallCases.NDBE3SFrame
 public import CFSG.ClassicalInvolution.SmallCases.NDBE2Lift
 import CFSG.ClassicalInvolution.SmallCases.NDB5Sec
 import CFSG.ClassicalInvolution.SmallCases.NDBC7
-import CFSG.ClassicalInvolution.Asc77.WP3FrameLieB
 import CFSG.ClassicalInvolution.AschTight.S1911C8c
 import CFSG.ClassicalInvolution.AschTight.S1911Case2a
 import CFSG.ClassicalInvolution.AschTight.S1911E2c

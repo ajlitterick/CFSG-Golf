@@ -1,24 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResE7LiteralReflectionSupport
-public import CFSG.LocalAnalysis.StandardType.GGResE7LiteralModel
-public import CFSG.LocalAnalysis.StandardType.GGLineStabNormalizes
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
-public import CFSG.LocalAnalysis.StandardType.GGResE6Coordinates
-public import CFSG.LocalAnalysis.StandardType.GGResIBasic
-public import CFSG.Blueprint.Chevalley
-public import CFSG.Assembly.E6FourCentMask
-public import CFSG.Mathlib.Decide.Bounded
-public import CFSG.Mathlib.Decide.Nodup
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Algebra.Module.Basic
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.LinearAlgebra.BilinearForm.Basic
-public import Mathlib.LinearAlgebra.Matrix.Symmetric
-public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
-public import Mathlib.Tactic
-public import CFSG.LocalAnalysis.StandardType.GGResE6ActualInsideSupport
-public import CFSG.LocalAnalysis.StandardType.GGResE6ActualSevenRootSupport
 
 public section
 

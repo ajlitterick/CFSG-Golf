@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGOmTwoP
-import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 import CFSG.LocalAnalysis.ComponentClassification.CatFC.ResidualA8Gen
 import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTM5
-import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTQuot
-import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
 import CFSG.RankThree.PartTwo.Sec4.RonanK429RowFOm8
 import CFSG.Blueprint.LieModelAPI
 import CFSG.GH74.GLS.Balance.SolvAPIDefs
@@ -30,7 +26,6 @@ import CFSG.RankThree.PartTwo.Sec19.Step1914E
 import CFSG.RankThree.PartTwo.Sec20.OneSteps
 import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
 import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
-import CFSG.Walter.J1Props
 
 public section
 

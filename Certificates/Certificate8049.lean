@@ -1,13 +1,10 @@
 module
 
 public import CFSG.CharacterTheory.Semidihedral.ProperSubgroupRegularityCoordVocab
-import CFSG.Sporadic.Mathieu.M11
 meta import CFSG.Sporadic.Mathieu.M11
 meta import CFSG.Blueprint.NativeSporadic
-import CFSG.CharacterTheory.Semidihedral.ProperSubgroupRegularityVocab
 meta import CFSG.CharacterTheory.Semidihedral.ProperSubgroupRegularityVocab
 meta import CFSG.CharacterTheory.Semidihedral.ProperSubgroupRegularityCoordVocab
-import Certificates.Certificate8048
 
 public section
 

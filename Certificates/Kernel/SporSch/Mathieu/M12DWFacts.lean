@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Mathieu.M12DWChecks
 public import Certificates.Kernel.SporSch.Mathieu.M12MFacts
 public import CFSG.Certificates.Kernel.SporSch.MathieuOddGlue
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A

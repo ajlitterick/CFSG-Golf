@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthUnSpecial
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestBstarOddBT
-public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
 
 public section
 

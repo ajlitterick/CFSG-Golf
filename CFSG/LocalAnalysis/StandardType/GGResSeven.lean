@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeaves
 public import CFSG.LocalAnalysis.StandardType.GGResSevenNbr
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
 public import CFSG.LocalAnalysis.StandardType.GGKG3Assembly

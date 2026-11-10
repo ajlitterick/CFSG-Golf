@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixNbrB
 public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMLin
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitNbrB
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGPresentationTypeA
 public import CFSG.LocalAnalysis.StandardType.GGTWPat2Base
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS2bAux
-public import Mathlib.GroupTheory.Perm.ClosureSwap
 
 public section
 

@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueSix
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourTBSmall
-import CFSG.LocalAnalysis.StandardType.GGFrameRouteJoin
-import CFSG.LocalAnalysis.StandardType.GGFrameRouteLower
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP5TwE6
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitMarking
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 
 public section
 

@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4H4ListSpCore
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUSigned
 import CFSG.LocalAnalysis.StandardType.GGKGASp
-import CFSG.LocalAnalysis.StandardType.GGKGAAutomizer
 import CFSG.LocalAnalysis.StandardType.GGTBWNormSymplectic
 
 public section

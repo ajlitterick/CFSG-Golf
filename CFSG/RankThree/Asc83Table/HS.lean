@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.Asc83Table.MatGroup
 public import CFSG.RankThree.Asc83Table.HSCheck
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2Fast
 public import CFSG.Sporadic.HS
 public import Certificates.Kernel.SporSch.J4S.NoCP
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeChar
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourWeylGram
 
 public section

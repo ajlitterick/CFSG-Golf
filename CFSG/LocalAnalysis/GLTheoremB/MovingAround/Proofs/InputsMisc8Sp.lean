@@ -1,15 +1,8 @@
 module
 
 public import CFSG.RankThree.SubgroupLists.SymplecticRegulus
-public import CFSG.RankThree.SubgroupLists.TransvectionRecognition
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 public import CFSG.ClassicalInvolution.Q3.TL4OmegaAOFSpD
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma1211
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherAutomorphismData
-public import CFSG.LocalAnalysis.SignalizerFunctor.TwoPrimeOrderSolvability
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
-public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 public import CFSG.CGT.Timmesfeld75.OddCenter
 public import CFSG.CGT.Timmesfeld75.Sec5FiveEng
 public import CFSG.CGT.Timmesfeld75.Sec5Nine
@@ -43,8 +36,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

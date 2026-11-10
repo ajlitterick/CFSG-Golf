@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.E7CentPieces
-public import CFSG.LocalAnalysis.SeitzReduction.E7PilotPositionLevi
 
 public section
 

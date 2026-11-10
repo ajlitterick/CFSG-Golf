@@ -5,36 +5,18 @@ public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.S629
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.S630
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.S631
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.S622Main
-public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.P65Main
-public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.P65MultiMain
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.P65N2Single
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.SmallRank.ZAction628.Main
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.SmallRank.ZAction629.Main
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.SmallRank.Lemma121
 public import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.InnerActionFinal
-public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.K62Main
-public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.KBlkCycle
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.Main
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L63
-public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L617
-public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.K62BMain
-public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.K713SMain
-public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L617PThree
-public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L618
-public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.S622P65
-public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.P65Coprime
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.P65N2Main
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L618OmegaMain
 public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.PGroupNormalE4
-public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.I291SCMain
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.I291N1Main
-public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.I291N1Mult
-public import CFSG.LocalAnalysis.RankFourTheoremC.InvariantTwo.KFacts.I294K29InnerHolds
-public import CFSG.LocalAnalysis.ComponentClassification.GoldschmidtTDGriess
-public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.TableComplete
-public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.I291P65SC
-public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.I291SCField
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.S622SingleDelta
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.CGT.PushingUp.BenderBridge
@@ -108,7 +90,6 @@ public import CFSG.Quasithin.Background.B5Basic
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.Background.F9FiveStruct
 public import CFSG.Quasithin.Background.F9G2
@@ -118,8 +99,6 @@ public import CFSG.Quasithin.Background.InternalSecAutOn
 public import CFSG.Quasithin.Background.InternalSecB4
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S1421Defs
 public import CFSG.Quasithin.EmptyFaithful.S152N11
 public import CFSG.Quasithin.H13.A5S1326
@@ -154,7 +133,6 @@ public import CFSG.Sporadic.Recognition.HNMultiplier
 public import CFSG.Sporadic.Recognition.LyonsAmalgamModelYAut
 public import CFSG.Sporadic.Recognition.LyonsFinalDist2
 public import CFSG.Sporadic.Suz
-public import CFSG.Walter.J1Props
 
 public section
 

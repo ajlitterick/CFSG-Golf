@@ -1,13 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowF4FrameAux
-public import CFSG.LocalAnalysis.StandardType.GGTBRowCoordFrame
-public import CFSG.LocalAnalysis.StandardType.GGTBRowF4Core
-public import CFSG.LocalAnalysis.StandardType.GGTBRowF4CoreAux
-public import CFSG.LocalAnalysis.StandardType.GGF4AutWeylTableB
-public import CFSG.LocalAnalysis.StandardType.GGF4AutWeylTorus
-public import CFSG.LocalAnalysis.StandardType.GGF4AutWeyl
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeDefs
 public import CFSG.LocalAnalysis.StandardType.GGLargeRowCard
 

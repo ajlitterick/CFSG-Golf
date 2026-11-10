@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieTable3
-public import CFSG.CGT.PushingUpLit.SolKNA.QuatLiePosG2Check
 public import CFSG.RankThree.PartTwo.Census.Carrier.G2Three
 public import Certificates.Certificate77002
 import CFSG.Adapters.TauCetiExceptional.BridgeTransport
@@ -25,9 +24,6 @@ public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.S10.Defs
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import Certificates.Certificate43
 
 public section

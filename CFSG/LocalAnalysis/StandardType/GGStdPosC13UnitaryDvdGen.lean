@@ -1,10 +1,6 @@
 module
 
-public import CFSG.Assembly.GL83LieDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 public import CFSG.LocalAnalysis.StandardType.GGStdPosC13UnitaryDvdRefl
-import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverTwo
 
 public section
 

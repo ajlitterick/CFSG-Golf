@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane
 public import CFSG.LocalAnalysis.StandardType.GGFamF4Assembly
 public import CFSG.LocalAnalysis.StandardType.GGLieBridgeHolds
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3DictPhi
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
 
 import CFSG.LocalAnalysis.StandardType.GGA6GlueTransport
 

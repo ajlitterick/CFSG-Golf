@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfGraphTheta
-public import CFSG.LieType.Steinberg.Minuscule.Datum
-public import CFSG.LieType.Universal.RootData
-public import CFSG.LieType.Steinberg.Presentation
-public import CFSG.LieType.Steinberg.CentralExt.MinusculeCenter
 public import CFSG.LargeExtraspecial.A2ModSLModel
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.CentralSL2Semilinear
-import Mathlib.Algebra.CharP.Two
 
 public section
 

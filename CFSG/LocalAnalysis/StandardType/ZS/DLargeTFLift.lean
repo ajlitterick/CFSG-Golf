@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.StandardType.ZS.ExcMatricesRefl
 import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 import CFSG.LocalAnalysis.StandardType.ZS.ThroughRefl
 import CFSG.LocalAnalysis.StandardType.ZS.NFourRelations
-import Mathlib.RingTheory.ZMod.UnitsCyclic
 import TauCeti.GroupTheory.Sylow
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent

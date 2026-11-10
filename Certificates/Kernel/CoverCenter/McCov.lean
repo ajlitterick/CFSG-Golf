@@ -1,13 +1,8 @@
 module
 
-public import Certificates.Data.Kernel.Bounds.Table
 public import CFSG.Certificates.Kernel.Bounds.McCov.Route
-public import CFSG.Certificates.CosetTablePresented
 import Certificates.Kernel.Bounds.Assemble
 import CFSG.Certificates.Kernel.Bounds.McCov.All
-import CFSG.Certificates.Kernel.Bounds.McCov.T2vK000
-import CFSG.Certificates.Kernel.Bounds.McCov.T2vK001
-import CFSG.Certificates.Kernel.Bounds.McCov.T2vK002
 
 public section
 

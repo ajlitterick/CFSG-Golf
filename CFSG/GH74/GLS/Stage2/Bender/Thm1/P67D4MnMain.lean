@@ -5,7 +5,6 @@ public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnToral
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnV
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnWeyl
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnSubB
-public import CFSG.GH74.GLS.Stage2.OddAut.FixedCore
 public import CFSG.LieType.Chevalley.C2E6RootOperators
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages

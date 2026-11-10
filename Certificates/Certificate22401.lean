@@ -4,17 +4,8 @@ public import CFSG.LocalAnalysis.ComponentClassification.HarrisEndBCertInputs2
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverKernelCentralizers
 public import CFSG.Sporadic.SmallOddCore.LocalSpec
 import Certificates.Kernel.Census.J2V.Facts
-import Certificates.Kernel.Census.J2V.Checks
-import Certificates.Kernel.Census.J2V.Prod
-import Certificates.Kernel.Census.J2V.Idx
-import CFSG.Certificates.Kernel.Common.Harness
-import Certificates.Certificate10019
-import Certificates.Certificate10021
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.Sporadic.J2
-public import CFSG.Sporadic.Th.F2Spec
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 import CFSG.GH74.Generic.S45.LEvSporGen
 import CFSG.GroupTheory.LocalCores.Fitting
@@ -27,7 +18,6 @@ import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

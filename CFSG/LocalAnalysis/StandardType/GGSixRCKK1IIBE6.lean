@@ -2,12 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBPair
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1ILongRootConj
-public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
-public import CFSG.LieType.HighestRoot.Gen
-public import CFSG.LieType.HighestRoot.RootsBasic
-public import CFSG.LocalAnalysis.SeitzReduction.LongRootPairsRoots
-public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalAdjoint
 
 public section
 

@@ -1,8 +1,5 @@
 module
 
-import Mathlib.SetTheory.Cardinal.NatCard
-public import Mathlib.Data.Nat.Prime.Defs
-public import Mathlib.GroupTheory.OrderOfElement
 import Mathlib.GroupTheory.Sylow
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas

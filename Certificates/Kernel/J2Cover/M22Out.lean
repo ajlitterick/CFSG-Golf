@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.J2Cover.M22S
 public import Certificates.Kernel.J2Cover.M22Fold
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

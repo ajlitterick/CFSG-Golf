@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MTailRankTE6
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MShDefs
-public import CFSG.CGT.PushingUpLit.Transport
-public import CFSG.HardMathSupport.Solomon.Coordinator.InndiagProxy
-public import CFSG.LieType.SeitzGeneration.SubfieldPairSUPhan
 public import CFSG.LocalAnalysis.AGLEmbedding.SeitzEqTwo.DescentE
 
 public section

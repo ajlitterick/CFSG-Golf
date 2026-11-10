@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Census.Co3C.Data
 public import Certificates.Kernel.Sporadic.Co3.C
 public import CFSG.Certificates.Kernel.Census.ToMainConj
-public import CFSG.Certificates.Kernel.Census.SiftSound
 public import CFSG.Certificates.Kernel.Census.PidProof
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo3Tests
 import all Certificates.Kernel.Census.Co3C.Data

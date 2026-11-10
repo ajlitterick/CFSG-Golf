@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightLin
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxUnitary
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightBase
 
 public section

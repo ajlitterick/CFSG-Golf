@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import Certificates.Data.CFSGNative.J4.F2
 public import CFSG.Blueprint.NativeSporadic
 

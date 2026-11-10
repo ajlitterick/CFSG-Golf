@@ -1,9 +1,7 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Hyp
-public import CFSG.OddTranspositions.SixNineUnconditional
 public import CFSG.OddTranspositions.PartFour.LineTransport
-public import CFSG.LieType.SteinbergBRMulEquivCores
 
 public section
 

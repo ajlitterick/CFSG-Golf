@@ -1,10 +1,7 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.S16J2K27810
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import Certificates.Kernel.Sporadic.OddCore.J2CnF
-public import Certificates.Kernel.Sporadic.OddCore.CentGlue
-import Mathlib.Tactic.IntervalCases
 
 public section
 

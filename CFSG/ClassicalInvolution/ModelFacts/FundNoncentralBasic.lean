@@ -2,10 +2,8 @@ module
 
 public import CFSG.ClassicalInvolution.ModelFacts.Models
 public import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
-public import CFSG.LieType.Steinberg.BruhatWeyl
 public import CFSG.LieType.CurtisTits.Symplectic
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearDescentFixedBasis
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

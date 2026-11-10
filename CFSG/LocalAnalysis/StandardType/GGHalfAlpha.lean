@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGHalfConj
 public import CFSG.LocalAnalysis.StandardType.GGHalfAlphaPre
 public import CFSG.LocalAnalysis.StandardType.GGHalfAlphaMat
 public import CFSG.LocalAnalysis.StandardType.GGHalfGraphExcl
-public import CFSG.LocalAnalysis.StandardType.GGHalfAux
-public import CFSG.LocalAnalysis.StandardType.GGHalfKnownGroups
-public import CFSG.LocalAnalysis.StandardType.GGHalfSlOnLevi
 
 public section
 

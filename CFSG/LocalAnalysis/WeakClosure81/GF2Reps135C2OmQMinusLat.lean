@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQPlusSigned
-public import Mathlib.Data.ZMod.Basic
 
 public section
 

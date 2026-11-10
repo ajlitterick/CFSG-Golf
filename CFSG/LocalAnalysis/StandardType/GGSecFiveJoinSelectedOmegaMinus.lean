@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelected
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.CompPOmegaMinus
-public import CFSG.RankThree.PartOne.CTP.SpinCenterEven
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoCommon
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatJoinF4
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinGuardedOmega
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualPOmegaMinus
 public import CFSG.LocalAnalysis.StandardType.GGSelectedSiegelPair

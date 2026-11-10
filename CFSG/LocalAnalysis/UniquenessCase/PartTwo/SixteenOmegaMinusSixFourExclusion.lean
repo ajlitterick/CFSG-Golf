@@ -1,13 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1677ThreeDefs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenOmegaMinusSixFourStrong
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenOmegaMinusSixFourThreeCentralizer
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenOmegaMinusSixNaturalField
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenStdSevenDonors
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102R8103
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight106Holds
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102Syl3Holds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102U45KeyHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102SylOddHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102KTypesHolds
@@ -16,7 +13,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102TorusFixHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102AltTenHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102U45AltFiveHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KStrongEmbedded72Holds
-import CFSG.LieType.BorelTits.Basic
 import CFSG.GH74.GLS.IVK.Proofs2.Ivk73G4U3Out
 import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Cfg2
 import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Field

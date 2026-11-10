@@ -2,7 +2,6 @@ module
 
 public import CFSG.GroupTheory.IsSylowOfMapOfKerPrimeNotDvd
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S19
-public import CFSG.RankThree.GroupTheory.ThetaQuotientTransport
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPL
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WS6
 public import CFSG.LocalAnalysis.UniquenessCase.UC6End

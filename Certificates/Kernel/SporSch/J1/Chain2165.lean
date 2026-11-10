@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.J1.Checks
-public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Sporadic.Bridge.J1
 public import CFSG.Monster.B.Mathieu.ChainCheck
 import CFSG.Certificates.Kernel.Common.Harness

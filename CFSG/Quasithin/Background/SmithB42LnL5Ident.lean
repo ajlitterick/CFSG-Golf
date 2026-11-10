@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.SmithB42LnL5Dim
-public import CFSG.Quasithin.Background.SmithB51LnReal
 
 public section
 

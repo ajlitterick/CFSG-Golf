@@ -1,8 +1,6 @@
 module
 
 public import CFSG.GH74.Generic.S3.Main17
-public import CFSG.GH74.Generic.JMaxThin
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

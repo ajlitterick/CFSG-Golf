@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGHdRo7A3Basic
 import CFSG.LocalAnalysis.StandardType.GGHdRo7CLStab
 import CFSG.LocalAnalysis.StandardType.GGHdRo7LNC
 import CFSG.LocalAnalysis.StandardType.GGSCNoTVCyclic
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 import CFSG.GroupTheory.GL52.SylowTools
 

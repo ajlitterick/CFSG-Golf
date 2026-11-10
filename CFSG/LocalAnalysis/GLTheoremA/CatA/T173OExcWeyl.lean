@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LieType.Chevalley.WeylSpace
-public import CFSG.LieType.Chevalley.WeylRootTransport
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcRank
-public import CFSG.Blueprint.ChevalleyRootGroups
 
 public noncomputable section
 

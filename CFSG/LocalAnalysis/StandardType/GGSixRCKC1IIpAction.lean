@@ -2,23 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpLang
 public import CFSG.LocalAnalysis.StandardType.GGLangNormalizer
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGPsiInnerDiagOfMarking
 public import CFSG.LocalAnalysis.StandardType.GGLieOddCover
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeFAt
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphUnitaryLift
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeAssemblyHolds
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeInnAutCore
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgCore
 public import CFSG.LocalAnalysis.GLTheoremA.S10.CatDistinctShapes
-public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRank
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransvOmegaAut
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthInnerField
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridge
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.E6BadLift
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.F151DiagDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeD4ThreeHolds
@@ -26,7 +15,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6KernelExitFacts
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcAdj
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcInnerD4FixMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamChar2
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpModelPairedMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeOrthPairMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpBlock
@@ -44,18 +32,8 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeTwE6CompAct
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeTwE6Conn
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeTwSmall
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeUniInner
-public import CFSG.Quasithin.Background.B3ThreeModel
-public import CFSG.Quasithin.Background.B3ThreeStruct
-public import CFSG.Quasithin.Background.G2Omega4PlusModule
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtS143W2CompO
 public import CFSG.Quasithin.EmptyFaithful.R3c19B
-public import CFSG.Quasithin.EmptyFaithful.S143FF
-public import CFSG.Quasithin.EmptyFaithful.S143Final
-public import CFSG.Quasithin.EmptyFaithful.S143HD
-public import CFSG.Quasithin.EmptyFaithful.S143IG
-public import CFSG.Quasithin.EmptyFaithful.S143JB
-public import CFSG.Quasithin.EmptyFaithful.S143KO
-public import CFSG.Quasithin.EmptyFaithful.S143KP
 public import CFSG.Quasithin.EmptyFaithfulMultiple.Lemma15421
 public import CFSG.RankThree.PartOne.N143.HighEvenU
 

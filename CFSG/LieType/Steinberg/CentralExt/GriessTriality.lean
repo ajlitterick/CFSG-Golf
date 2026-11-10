@@ -2,10 +2,7 @@ module
 
 public import CFSG.LieType.Steinberg.CentralExt.TrialityClosed
 public import CFSG.LieType.Steinberg.CentralExt.GriessExceptional
-public import CFSG.LieType.Steinberg.CentralExt.FieldTwoMultiplier
 public import CFSG.LieType.Chevalley.TrialityFieldTwoCover
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoProjectiveFormulas
 public import CFSG.LocalAnalysis.ComponentClassification.GSLitInputs

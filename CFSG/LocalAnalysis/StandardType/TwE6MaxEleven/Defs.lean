@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.Order.Atoms
 public import CFSG.Assembly.InCatalog
 public import CFSG.Blueprint.NativeSporadic
 

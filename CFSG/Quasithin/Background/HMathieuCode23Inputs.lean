@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Background.HMathieuSyl23
 public import CFSG.Quasithin.Background.HMathieuCodeInvInputs
 public meta import CFSG.Quasithin.Background.HMathieuSyl23
 public meta import CFSG.Quasithin.Background.HMathieuCodeInvInputs

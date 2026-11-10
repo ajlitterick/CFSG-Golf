@@ -5,7 +5,6 @@ public import Mathlib.Data.ZMod.Basic
 public import Mathlib.LinearAlgebra.Pi
 public import Mathlib.Tactic.Abel
 public import Mathlib.Tactic.Group
-public import Mathlib.Tactic.Ring
 
 public section
 

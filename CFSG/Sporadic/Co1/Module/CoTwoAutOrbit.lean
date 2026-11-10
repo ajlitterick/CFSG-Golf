@@ -1,8 +1,5 @@
 module
 
-public import CFSG.Sporadic.Co1.Module.CoTwoPerfect
-public import CFSG.Sporadic.Co1.Module.OddNative
-public import CFSG.Monster.GMS.Leech.Linear
 public import Certificates.Data.CFSGNative.Co1.CoTwoAutData
 public import Certificates.Data.CFSGNative.Co1.CoTwoAutOrbit
 public import CFSG.Sporadic.Co1.Module.CoTwoAutLit

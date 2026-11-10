@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBCRes
-import CFSG.ClassicalInvolution.Balance.BootstrapLayersFuzzyEdge
-import CFSG.ClassicalInvolution.Balance.BootstrapLayersFuzzyConnConj
 
 public section
 

@@ -1,11 +1,8 @@
 module
 
-public import Mathlib.RingTheory.Jacobson.Ring
 public import Mathlib.RingTheory.Spectrum.Prime.Jacobson
 public import Mathlib.RingTheory.TensorProduct.Free
-public import Mathlib.RingTheory.Spectrum.Prime.Topology
 public import Mathlib.FieldTheory.IsAlgClosed.Basic
-public import Mathlib.Topology.JacobsonSpace
 
 public noncomputable section
 

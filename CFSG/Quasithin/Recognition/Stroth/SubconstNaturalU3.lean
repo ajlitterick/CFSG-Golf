@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Recognition.Stroth.LemmaSDegree
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryModelPointStructure
 public import CFSG.Quasithin.Vol2.Ch3E215MC
 public import CFSG.Permutation.UnitaryThreeRecognition.ModelTransport
 public import CFSG.Quasithin.Recognition.Stroth.Weiss80Route

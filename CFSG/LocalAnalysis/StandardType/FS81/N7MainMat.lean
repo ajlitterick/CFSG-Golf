@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.N7MainBasic
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 import CFSG.LocalAnalysis.StandardType.FS81.N7MainMatK
 
 public section

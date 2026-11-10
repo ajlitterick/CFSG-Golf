@@ -6,7 +6,6 @@ public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralSevenProved
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.E7FiveAux.Steinberg
 public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCharE7
-public import CFSG.LieType.Chevalley.EvenCartanRootDiagonals
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Assembly
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.PlanesSetup
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossLin

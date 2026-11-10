@@ -1,12 +1,7 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.lemma_3_1
-import Mathlib.Algebra.Pointwise.Stabilizer
-import Mathlib.Algebra.Polynomial.Roots
 import Mathlib.FieldTheory.Finite.Trace
-import Mathlib.GroupTheory.GroupAction.SubMulAction
-import Mathlib.GroupTheory.Index
-public import Mathlib.GroupTheory.GroupAction.MultipleTransitivity
 public import Mathlib.LinearAlgebra.Projectivization.Action
 public import Mathlib.LinearAlgebra.Projectivization.Cardinality
 

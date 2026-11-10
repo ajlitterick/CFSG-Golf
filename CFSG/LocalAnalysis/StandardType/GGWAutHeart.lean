@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGWAutOrthOdd
 public import CFSG.LocalAnalysis.StandardType.GGWAutEngine
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLin
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoTransfer
 public import CFSG.LocalAnalysis.StandardType.GGRCAbsIrred
-public import CFSG.LocalAnalysis.StandardType.GGRCMonomial
-public import CFSG.LocalAnalysis.StandardType.GGQTwoQuandleE
 
 public section
 

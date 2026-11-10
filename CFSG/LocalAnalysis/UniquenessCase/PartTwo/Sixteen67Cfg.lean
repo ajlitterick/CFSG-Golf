@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen67Wreath
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsWeakClosure
 
 public section
 

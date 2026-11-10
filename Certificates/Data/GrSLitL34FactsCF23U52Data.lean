@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsCF23U52Points
 public import CFSG.Sporadic.SmallOddCore.CentData
-public import Certificates.Data.CFSGNative.Schreier.Check
-public import Mathlib
 
 public section
 

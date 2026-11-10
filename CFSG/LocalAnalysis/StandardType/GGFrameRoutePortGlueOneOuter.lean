@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueOne
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclic
 import CFSG.LocalAnalysis.StandardType.GGRawAutRest
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmega
 import CFSG.GroupTheory.ElementaryAbelianTransport
-import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiagInputs
-import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityHolds
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaModel
 import CFSG.LocalAnalysis.StandardType.GGOuterThreeRankPlusFour
 import CFSG.Mathlib.GroupTheory.CardLeSqOfTower
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsGen

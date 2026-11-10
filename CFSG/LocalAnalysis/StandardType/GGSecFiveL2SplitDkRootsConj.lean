@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRoots
-import Mathlib.Tactic.Group
 
 public section
 

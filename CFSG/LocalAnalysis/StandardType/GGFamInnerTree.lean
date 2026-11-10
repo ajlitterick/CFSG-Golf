@@ -2,27 +2,15 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamInnerCover
 public import CFSG.LocalAnalysis.StandardType.GGFamInnerFiniteRecog
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.KacD
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.KacE
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTwoDMain
-public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Rank1
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Generic
-public import CFSG.ClassicalInvolution.Models.TwistedPairs
-public import CFSG.ClassicalInvolution.WeakCT.SU4SpinMinusBridge
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPReduction
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTwoDChain
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTwoDDatum
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTwoDExport
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTwoDKlein
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTwoDMinus
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.Transfer
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcAssemblyFG
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.LieQ.Derivation
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiag
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.PlanesSetup
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwoDHighDefs
-public import CFSG.RankThree.PartOne.KE.E8D4Family
-public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 
 public section
 

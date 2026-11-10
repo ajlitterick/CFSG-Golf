@@ -3,15 +3,10 @@ module
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.Spor.Numerics
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.Spor.Fi24Cent
 public import Certificates.Data.PairOrbit
-public import CFSG.Sporadic.Th.TableSpec
 public import CFSG.Sporadic.Co1.Module.InvSpec
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi24Classes
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi24Five
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi24ThreeTables
-public import CFSG.Sporadic.Fi24.Simple
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.Sporadic
 public import Certificates.Certificate214036
-public import CFSG.Sporadic.Fi24.PtGraphBridge
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.Certificates.CentralKernel
@@ -77,11 +72,7 @@ public import CFSG.LocalAnalysis.GLTheoremA.S6.InputsAlt72
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicCongruenceCut
 public import CFSG.LocalAnalysis.LargeEvenClassification.TopScalarLiftSquare
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.Monster.AxisCount.HSIdentBaby
 public import CFSG.Monster.AxisCount.HSIdentRec0
 public import CFSG.Monster.AxisCount.HSIdentRec1
@@ -93,19 +84,11 @@ public import CFSG.Monster.AxisCount.HSIdentRec6
 public import CFSG.Monster.AxisCount.HSIdentRec7
 public import CFSG.Monster.AxisCount.HSIdentSmall
 public import CFSG.Quasithin.Background.A3Structure319
-public import CFSG.Quasithin.Background.A3Structure36Base
-public import CFSG.Quasithin.Background.A3Structure38Part3
-public import CFSG.Quasithin.Background.B1MoreElevenE
-public import CFSG.Quasithin.Background.B1MoreNineG
-public import CFSG.Quasithin.Background.B4ModelsAction
-public import CFSG.Quasithin.Background.B4ModelsIso
-public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.Background.F9FiveStruct
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Geometry
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S1421Defs
 public import CFSG.Quasithin.EmptyFaithful.S142Statements
 public import CFSG.Quasithin.H13.A5S1326
@@ -152,7 +135,6 @@ public import Certificates.Certificate6006
 public import Certificates.Certificate9124
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

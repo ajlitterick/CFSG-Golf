@@ -3,9 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2
 import Mathlib.Tactic
-import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
-import Mathlib.FieldTheory.Minpoly.Field
-import Mathlib.LinearAlgebra.Dimension.Free
 
 namespace CFSG
 end CFSG

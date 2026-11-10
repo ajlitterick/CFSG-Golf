@@ -1,19 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestDefs
-public import CFSG.Open.LocalVocabulary
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Fam
-import CFSG.Adapters.LinearCatalog
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.LieType.Multipliers.U42Bridge
-import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTCompD4
-import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTFinOmega
 import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTFinZ
 import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTOmGaps
-import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTQuot
 import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTResGU
-import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 import CFSG.Quasithin.Vol2.Ch11SecQ9aL34A
 import CFSG.Timmesfeld.Orders.ClassicalLinearThree
 import CFSG.Timmesfeld.Orders.ClassicalUnitaryThree
@@ -47,13 +38,7 @@ public import CFSG.LocalAnalysis.GLTheoremA.S3.Inputs
 public import CFSG.LocalAnalysis.GLTheoremA.S4.Inputs
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 import CFSG.LargeExtraspecial.S14Defs
 import CFSG.LargeExtraspecial.S14Inputs
 import CFSG.LocalAnalysis.ComponentClassification.Foote5CoreEven

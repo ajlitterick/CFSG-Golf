@@ -1,11 +1,7 @@
 
 module
 
-public import CFSG.Quasithin.Vol2.GoldschmidtF45RuLocal
-public import CFSG.Quasithin.Vol2.GoldschmidtF45RuLayers
-public import CFSG.Quasithin.Vol2.GoldschmidtF45RuModel
 public import CFSG.Quasithin.Vol2.GoldschmidtF45RuPoly
-public import CFSG.Sporadic.Schreier.TitsActionCheckInputs
 public meta import CFSG.Sporadic.Schreier.TitsData
 public meta import CFSG.Sporadic.Schreier.TitsArrays
 public meta import CFSG.Sporadic.Schreier.TitsBasic
@@ -13,10 +9,7 @@ public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public meta import CFSG.Sporadic.Schreier.TitsCertCheck
-public import CFSG.Sporadic.Schreier.TitsCertCheckInputs
-public import CFSG.Sporadic.Schreier.TitsLocalCheckInputs
 public import Certificates.Kernel.TitsOct.Checks
-public import Certificates.Kernel.Sporadic.Tits.Bind2264
 public import CFSG.Certificates.Kernel.TitsOctSound
 public import CFSG.Certificates.Kernel.Enum.ZCSound
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownDefs
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUStd
-public import CFSG.RankThree.Classical2.SLnRootPermutingFixedGroups
 import CFSG.LocalAnalysis.StandardType.GGTwE6A5KModelTheta
 import CFSG.LocalAnalysis.StandardType.GGTwE6A5KNormSU
 import CFSG.RankThree.Classical2.SLnConjLemmas

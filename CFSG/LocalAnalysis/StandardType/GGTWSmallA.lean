@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTWSmallARow
 public import CFSG.LocalAnalysis.StandardType.GGTWSmallAL
 public import CFSG.LocalAnalysis.StandardType.GGTWSmallAK
-public import CFSG.LocalAnalysis.StandardType.GGTWHLCover
 public import CFSG.LocalAnalysis.StandardType.GGTWKGuard
 
 public section

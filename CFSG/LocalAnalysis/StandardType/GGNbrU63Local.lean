@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5Lift
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5Torus
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5Cover
 
 public section

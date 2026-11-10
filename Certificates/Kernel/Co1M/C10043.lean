@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Sporadic.Co1.Module.Pairs
-public import CFSG.Monster.GMS.Facts.Co1Local
 public import CFSG.Monster.GMS.S365NativeInputs
-public import Certificates.Kernel.Co1M.Orb98280
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Co1.Module.OddFacts
 public import Certificates.Certificate10073Base

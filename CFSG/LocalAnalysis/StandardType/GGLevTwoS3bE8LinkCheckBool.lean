@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS3bMeasure
-import Mathlib.Combinatorics.Colex
 
 public section
 

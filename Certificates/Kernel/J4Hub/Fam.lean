@@ -10,12 +10,7 @@ public import CFSG.Certificates.Kernel.Fam.J4.Checks.O
 public import CFSG.Certificates.Kernel.Fam.J4.Checks.R
 public import CFSG.Certificates.Kernel.Fam.J4.Checks.C
 public import CFSG.Certificates.Kernel.Fam.J4.Checks.F
-public import CFSG.Certificates.Kernel.Fam.J4.Rels
 public import CFSG.Sporadic.J4.Group
-import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Certificates.Kernel.LceSP.Base
-public import CFSG.Sporadic.J4.ParSpec
-public import Certificates.Data.Kernel.LceSTab
 
 public section
 

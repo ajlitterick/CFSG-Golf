@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.LocalQT.Base
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieuInputs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.M23.M23Group
 public import CFSG.Sporadic.Schreier.M23
 

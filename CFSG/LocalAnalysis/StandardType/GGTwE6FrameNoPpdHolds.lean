@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Torus
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FrameCard
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FrameNoPpdBlocks
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FrameNoPpdTorus
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToral
-public import CFSG.LieType.Steinberg.Exceptional.Fields
 
 public section
 

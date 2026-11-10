@@ -1,13 +1,10 @@
 module
 
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 public import Mathlib.GroupTheory.Perm.Cycle.Concrete
-public import Mathlib.Algebra.Order.BigOperators.Group.Finset
 public meta import Mathlib.GroupTheory.SpecificGroups.Alternating
 public meta import Mathlib.GroupTheory.Perm.Sign
 public meta import Mathlib.GroupTheory.Perm.Cycle.Concrete
 public meta import Mathlib.Algebra.Order.BigOperators.Group.Finset
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Aut6Inputs
 public import Certificates.Certificate4035
 
 public section

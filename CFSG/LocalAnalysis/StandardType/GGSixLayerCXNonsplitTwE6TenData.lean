@@ -1,9 +1,7 @@
 module
 
-public import CFSG.RankThree.PartOne.KE.A1TwE6Ten
 public import CFSG.RankThree.PartOne.KLCE.TwE6Frame
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6FiveAd
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitComponentEmbed
 public import CFSG.RankThree.Chevalley.SteinbergBTTwistedCosetDescent
 public import CFSG.RankThree.Lattice.SteinbergBIE6OrderThreeTools
 public import CFSG.RankThree.PartOne.KD4T.Certs

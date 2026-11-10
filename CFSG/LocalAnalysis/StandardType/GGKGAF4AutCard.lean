@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGAF4Defs
-public import CFSG.LocalAnalysis.StandardType.GGF4AutWeyl
-public import CFSG.LocalAnalysis.StandardType.GGF4AutWeylTorus
 public import CFSG.LocalAnalysis.StandardType.GGF4AutWeylTableB
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixPerfect
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflInner
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 
 public section
 

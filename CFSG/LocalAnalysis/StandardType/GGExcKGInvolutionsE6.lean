@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGExcKnownGroups
-public import CFSG.LocalAnalysis.StandardType.GGLatOrth
 public import CFSG.LocalAnalysis.StandardType.GGExcKGInvolutionsLift
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeFrameOn
 public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneClassListE6
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviHom
 
 public section
 

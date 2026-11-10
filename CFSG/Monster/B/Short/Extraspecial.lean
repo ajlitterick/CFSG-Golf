@@ -2,7 +2,6 @@ module
 
 public import CFSG.Foundations.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Extraspecial
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 
 public section
 

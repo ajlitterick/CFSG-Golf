@@ -4,13 +4,10 @@ import all CFSG.LocalAnalysis.StandardType.GGLieKnownR2SUNC
 public import CFSG.LocalAnalysis.StandardType.GGSixLieKnownPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2GeoSU
 public import CFSG.RankThree.GF2n.Tim79aSURootS1
-public import CFSG.Timmesfeld.Transvection.ModelSUGen
 public import CFSG.Timmesfeld.Transvection.ModelSUGeometry
 public import CFSG.Timmesfeld.Transvection.ModelSUTransitiveWitt
-public import CFSG.Timmesfeld.Transvection.ModelRankSU
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Timmesfeld.RankOne
 
 public section

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdBlock
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeUnitary
-public import CFSG.LocalAnalysis.ComponentInitial.TwoPrimeSolvable
 public import CFSG.GH74.E2.U5Component
 
 public section

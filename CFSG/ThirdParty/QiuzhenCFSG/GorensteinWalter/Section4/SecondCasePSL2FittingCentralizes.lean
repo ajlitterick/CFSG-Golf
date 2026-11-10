@@ -1,13 +1,8 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2InnerReflection
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2InvolutionCentralizer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2QuotientTorusCard
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseFittingNormal
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2WeakFittingFieldProjection
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27IndexTwo
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Reflection
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

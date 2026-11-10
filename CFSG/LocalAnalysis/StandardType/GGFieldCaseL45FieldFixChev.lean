@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixModel
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
 
 public section
 

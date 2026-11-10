@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312J2Model
 public import CFSG.Quasithin.Background.A312SporGen
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListFamilies
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListAlt7
 
 public section
 

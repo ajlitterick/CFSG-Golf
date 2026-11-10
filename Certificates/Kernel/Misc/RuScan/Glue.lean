@@ -16,16 +16,11 @@ public import Certificates.Kernel.Misc.RuScan.C8
 public import Certificates.Kernel.Misc.RuScan.L0
 public import Certificates.Kernel.Misc.RuScan.L1
 public import Certificates.Kernel.Misc.RuScan.L8
-public import Certificates.Kernel.SporSch.Ru.Gens
 public import Certificates.Kernel.SporSch.Ru.LFacts
 public import Certificates.Kernel.SporSch.Ru.CNFacts
 public import CFSG.Certificates.Kernel.Misc.RuScanSound
 public import CFSG.Quasithin.Vol2.KGFactC31RuBaseBase
 public import CFSG.Quasithin.Vol2.KGFactC31RuScanData
-public import CFSG.Sporadic.Schreier.RuCheckChains
-public import CFSG.Sporadic.Schreier.RuCheckL
-public import CFSG.Sporadic.Schreier.RuChainSpec
-public import CFSG.Sporadic.Schreier.RuLocalFacts
 import CFSG.Certificates.Kernel.Common.ForallTree
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
@@ -39,18 +34,14 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B2Thompson
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefKBase
 public import CFSG.Sporadic.HeldB.Common
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.Sporadic.Schreier.RuLGroup
 public import CFSG.Sporadic.Schreier.RuPair
 public import CFSG.Sporadic.Schreier.RuSylow
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import Certificates.Certificate43
 
 public section

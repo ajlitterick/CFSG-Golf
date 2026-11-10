@@ -4,7 +4,6 @@ public import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
 public import CFSG.LieType.Chevalley.RootDiagonalTorusWords
 public import CFSG.LieType.Chevalley.LangRootArithmeticDet
 public import CFSG.LocalAnalysis.ComponentInitial.LinearMonomial
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 
 public noncomputable section
 

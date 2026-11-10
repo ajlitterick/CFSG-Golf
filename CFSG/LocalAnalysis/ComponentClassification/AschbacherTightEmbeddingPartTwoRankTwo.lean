@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTightEmbeddingPartTwoPerfectHull
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.ElementaryHull
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.StrongEmbeddingMaximality
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Compat
 
 public section
 

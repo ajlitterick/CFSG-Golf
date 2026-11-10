@@ -8,7 +8,6 @@ public import CFSG.RankThree.PartTwo.Sec19.Step1911Proof
 public import CFSG.RankThree.PartTwo.Sec4.Census.WiringInputs
 public import CFSG.RankThree.PartTwo.Sec4.Item47Bridges
 public import CFSG.RankThree.SteinbergR3ELargeReeOrder
-public import CFSG.Timmesfeld.Orders.Distinct
 import all CFSG.Timmesfeld.Orders.Distinct
 
 public section

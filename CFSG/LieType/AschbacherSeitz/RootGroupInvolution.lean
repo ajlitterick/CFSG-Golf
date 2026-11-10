@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LieType.AschbacherSeitz.RootGroupTransport
-public import CFSG.LieType.Steinberg.TwistedE6.Datum
-public import CFSG.LieType.Steinberg.TwistedE6.Local
-public import CFSG.LieType.Steinberg.Exceptional.Universal
 
 public section
 

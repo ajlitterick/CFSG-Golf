@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Quasithin.Recognition.Stroth.Weiss80Route
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4OctLab
-public import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4OctSys
 public import CFSG.Quasithin.Recognition.Stroth.Weiss80AssemblyFacts
-public import CFSG.Quasithin.Recognition.Stroth.MoufangApartment
 public import CFSG.GH74.GLS.SP.Local.SPLFaith
 public import CFSG.GH74.GLS.SP.Local.SPLRestrict
 

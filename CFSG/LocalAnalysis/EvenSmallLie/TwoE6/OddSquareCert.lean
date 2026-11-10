@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Data.CFSGNative.CTIB.Coset
 public meta import Certificates.Data.CFSGNative.CTIB.Coset
-public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.OddSquareCertInputs
 public import Certificates.Certificate3129
 
 public section

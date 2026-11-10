@@ -1,56 +1,22 @@
 module
 
-public import Mathlib
 public import CFSG.Milestones.ASVolI.A2
-public import CFSG.Quasithin.Background.A3CircleModels
-public import CFSG.Quasithin.Background.A3Structure314Defs
 public import CFSG.Quasithin.Background.A3Structure315Defs
-public import CFSG.Quasithin.Background.A3Structure319Defs
-public import CFSG.Quasithin.Background.A3Structure320Radical
-import CFSG.Quasithin.Background.A3ComponentsCore
-import CFSG.Quasithin.Background.A3ComponentsQuotient
-import CFSG.RankThree.OddKernel.EvenMinimalCover
-import CFSG.RankThree.OddKernel.RankOneQuotients
-import CFSG.LocalAnalysis.SectionRank.SQT
-import CFSG.LocalAnalysis.SectionRank.SubgroupRank
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.ThreeCoverA36
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeLocalNormal
 public import CFSG.Quasithin.Vol2.Ch1Sec3Lem139Holds
 public import CFSG.Quasithin.Vol2.Ch10SecB6Prep
-public import CFSG.LocalAnalysis.SectionRank.AmbientRank
-public import CFSG.Quasithin.Background.A3Structure319
 public import CFSG.Quasithin.Vol2.Ch10SecV1SK
-public import CFSG.Quasithin.H13.A7Nat1236Final
-public import CFSG.LocalAnalysis.SectionRank.QTK.CentreFact.A38Facts
-public import CFSG.Quasithin.Background.A3Structure314
 public import CFSG.Quasithin.H13.NQCatA314Facts
 public import CFSG.RankThree.GroupTheory.SteinbergBMExtraspecialThirtyTwoFive
 public import CFSG.GH74.Uniqueness.Section15GL32
-public import CFSG.LocalAnalysis.ComponentInitial.QuaternionMatrices
 public import CFSG.Quasithin.EmptyFaithful.S1421QA16Cnt
 public import CFSG.Quasithin.EmptyFaithful.S1421QA16Perf
 public import CFSG.Quasithin.Background.A318PFacts2
 public import CFSG.Quasithin.Background.A318PQR2
 public import CFSG.Quasithin.EmptyFaithful.R3c18WD4
-public import CFSG.Quasithin.EmptyFaithful.A38c15Core
-public import CFSG.Quasithin.EmptyFaithful.A38c15Sl3
-public import CFSG.Quasithin.EmptyFaithful.A38c15Gl2
-public import CFSG.Quasithin.EmptyFaithful.A38c15IrrClose
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3Fam
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3Main
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3Final
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.ThreeCoverClassical
-public import CFSG.LocalAnalysis.SectionRank.OddCover.PrimeThree
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.CoverMap
-public import CFSG.LieType.Steinberg.CentralExt.Families
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryHigher
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.LocalAnalysis.SectionRank.AlternatingCover
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115CoverOdd
-public import CFSG.Quasithin.Background.SmithB45M22HatHat
-public import CFSG.Quasithin.Background.A318PHatIrr
-public import CFSG.RankThree.Asc83Table.M22
-public import CFSG.Sporadic.Mathieu.M22
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.ShortRoot
 public import CFSG.GH74.KGroups.L3EpsNoNormalThree

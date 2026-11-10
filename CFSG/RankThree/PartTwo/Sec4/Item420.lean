@@ -10,7 +10,6 @@ public import CFSG.LocalAnalysis.SignalizerFunctor.SurjectiveSylowLifting
 public import CFSG.GroupTheory.ABGDGroups.LinearEmbedding
 public import CFSG.RankThree.OddKernel.SimpleQuotient
 public import CFSG.GroupTheory.FrattiniQuotient
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 
 public section
 

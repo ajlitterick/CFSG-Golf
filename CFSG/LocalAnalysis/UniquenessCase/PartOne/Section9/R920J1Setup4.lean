@@ -2,13 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section9.R920J1Main
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.SEFive.Holds
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.R76Sig
 public import CFSG.LocalAnalysis.UniquenessCase.UC22R82Four
 import CFSG.LocalAnalysis.UniquenessCase.UC7R76Four
 import CFSG.LocalAnalysis.UniquenessCase.UC22S215KF7UseFour
 import CFSG.LocalAnalysis.UniquenessCase.UC6S846h
 import CFSG.LocalAnalysis.UniquenessCase.UC6K332RowsHolds
-import CFSG.LocalAnalysis.UniquenessCase.UC6K332Lists
 import CFSG.LocalAnalysis.UniquenessCase.UC6K332K33
 import CFSG.LocalAnalysis.UniquenessCase.UCK461Holds
 import CFSG.LocalAnalysis.UniquenessCase.UC7P3BadNoStrongHolds
@@ -16,17 +14,8 @@ import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.KInputsSolvableOf
 import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIBA6
 import CFSG.LocalAnalysis.UniquenessCase.UC1K462Holds
 import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
-public import CFSG.Monster.Existence.StdOdd.Defs
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.RankThree.PartOne.CTP.FusionSound
-import CFSG.Sporadic.Bridge.BFusSevenGen
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
-public import CFSG.YGroups.Y443.Native.Swap13Word
 public import CFSG.Adapters.Certificate43Check
 public import CFSG.Adapters.StatedClassicalSmallOrders
 public import CFSG.Blueprint.LieModelAPI
@@ -138,11 +127,9 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.D1Frontier3
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2AltFiveBlock3
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2Families3
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2HSFive3
-import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Cover
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Fusion
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Impure
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Kmax
-import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Port3CoreFree
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Residue3
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2LeavesNarrow3
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2SporDatum3

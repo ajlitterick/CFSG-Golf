@@ -4,7 +4,6 @@ public import Certificates.Kernel.OmegaEight.N3PW
 public import CFSG.Certificates.Kernel.O8N3Sound
 public import Certificates.Kernel.OmegaEight.PnSWEq
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.O8MinusSound
 public import CFSG.Certificates.Kernel.O8NodeSound
 

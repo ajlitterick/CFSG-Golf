@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
 public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndDvdBlock
 public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndDvdComb
 public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndNode

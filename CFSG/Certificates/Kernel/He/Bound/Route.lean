@@ -3,10 +3,7 @@ module
 public import CFSG.Certificates.Kernel.He.Bound.Data.P_Sel
 public import CFSG.Certificates.Kernel.He.Bound.Data.Q_Sel
 public import CFSG.Certificates.Kernel.He.Bound.Data.C_Sel
-public import CFSG.Certificates.Kernel.He.Bound.Lab
-public import CFSG.Certificates.Kernel.Common.LceS
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Certificates.Kernel.Common.Lce
 public import CFSG.Certificates.Kernel.Common.RelNorm
 import CFSG.Certificates.Kernel.He.Bound.Checks.C_H_0
 import CFSG.Certificates.Kernel.He.Bound.Checks.Q

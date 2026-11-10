@@ -2,8 +2,6 @@ module
 
 public import CFSG.Monster.Existence.DLevelConj
 public import CFSG.Monster.B.Final.PairNodes
-public import CFSG.Monster.B.Dyadic.FixedLine
-public import CFSG.Monster.B.Rep4371.ExactActions
 public import CFSG.Monster.B.TwoA.Base.Flags
 public import CFSG.Monster.B.TwoA.Base.Par45A
 public import CFSG.Monster.B.TwoA.Par3.Main
@@ -11,7 +9,6 @@ public import CFSG.Monster.B.TwoA.Par3.MainBase
 public import CFSG.Monster.B.TwoA.Sp8.GenActionHom
 public import CFSG.Open.MonsterY443Defs
 public import CFSG.Sporadic.Co1Base
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

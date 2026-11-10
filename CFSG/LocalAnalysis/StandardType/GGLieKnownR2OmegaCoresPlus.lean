@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2HighestRootLong
 public import CFSG.ClassicalInvolution.ModelFacts.Families
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalSettingW
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalCoreO2
-public import CFSG.LieType.CurtisTits.Spin
-public import CFSG.LieType.Universal.Spin.Generation
 
 public section
 

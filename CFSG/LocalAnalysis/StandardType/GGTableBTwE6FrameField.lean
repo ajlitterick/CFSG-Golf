@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6FrameCore
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveWeylFaithful
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 
 public section
 

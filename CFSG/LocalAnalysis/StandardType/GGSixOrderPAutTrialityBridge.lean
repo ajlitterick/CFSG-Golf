@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityModel
 public import CFSG.LieType.Chevalley.EvenRootCommutatorD4
-public import CFSG.LieType.Chevalley.GraphFixedHighestRoot
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import CFSG.LieType.Universal.SpinClause0
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddEndMat
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinateRegular
 
 public section
 

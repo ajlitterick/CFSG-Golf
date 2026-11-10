@@ -1,14 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKRank
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHS
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKRank
 public meta import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHS
 import all CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHS
 import all CFSG.Blueprint.NativeSporadic
 public import Certificates.Certificate4060
-public import Certificates.Certificate4140
-public import Certificates.Certificate3167
 public meta import CFSG.GroupTheory.PerfectResidualNodes
 public import CFSG.GroupTheory.PerfectResidualNodes
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticTwoKernel
@@ -54,10 +51,7 @@ public import CFSG.Quasithin.Vol2.Ch1Local
 public meta import CFSG.Sporadic.Schreier.J4SSylow
 public import CFSG.Sporadic.Schreier.J4SSylow
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 public meta import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 public import CFSG.Walter.Defs
 public meta import CFSG.Walter.Defs

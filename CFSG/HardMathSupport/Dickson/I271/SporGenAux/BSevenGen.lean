@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.BSevenGenKit
-public import CFSG.Monster.Existence.BabyOrder
 public import Certificates.Certificate17430
 
 public section

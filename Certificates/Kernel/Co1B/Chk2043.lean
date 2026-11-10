@@ -7,7 +7,6 @@ public import Certificates.Kernel.Co1B.Data2043
 public import Certificates.Kernel.Co1Cover.Checks
 public import Certificates.Data.Kernel.Co1BAct
 public import Certificates.Data.Kernel.Co1B
-public import CFSG.Sporadic.Co1Block.PermData
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

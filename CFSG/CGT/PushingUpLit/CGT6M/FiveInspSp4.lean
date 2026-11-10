@@ -1,10 +1,8 @@
 module
 
 public import CFSG.CGT.PushingUpLit.CGT6M.FiveSpAlg
-public import CFSG.CGT.PushingUpLit.CGT6M.FiveInvLA
 public import CFSG.CGT.PushingUpLit.CGT6M.FiveInspCover
 public import CFSG.CGT.PushingUpLit.CGT6M.FiveHeisAlg
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2UnitStatements
 public import CFSG.LocalAnalysis.StandardType.GGQ2UnitDiag
 import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModelCoprime
-import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.Common.Loop
 import Certificates.Kernel.Sporadic.OddCore.RowsCmd
-import Certificates.Kernel.Sporadic.OddCore.PEnumCmd
 import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Data.HSFiveU35Check
 

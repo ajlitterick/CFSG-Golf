@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332Syl
-public import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.Milestones.ASVolI.I2
-public import CFSG.RankThree.PartTwo.Sec4.Statements
-public import CFSG.Blueprint.NativeSporadic
-import CFSG.Sporadic.J2
-import CFSG.LocalAnalysis.SectionRank.Sporadic.J2Local
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic49U3.CenterCard
 
 public section

@@ -3,12 +3,8 @@ module
 public import CFSG.RankThree.PartOne.TCX.Ree.Closure
 import CFSG.RankThree.PartOne.KLR.FrameTorus
 import CFSG.RankThree.PartOne.KE.A1Weyl
-import CFSG.LieType.AlgebraicGroups.ConnectedToralLangFrobenius
 import CFSG.LieType.AlgebraicGroups.ToralTwistSemilinearDatum
 import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyCover
-import CFSG.LieType.AlgebraicGroups.FrobeniusDiagramRealized
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Blueprint.ChevalleyRootArtifact
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Ree.SmallReeModelSchreier
@@ -18,8 +14,6 @@ public import CFSG.RankThree.PartOne.KE.CTMain
 public import CFSG.RankThree.PartOne.KLR.CoreGroup
 public import CFSG.RankThree.PartOne.KLR.FrobTrick
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
 import CFSG.LinearAlgebra.LinearGroups.LinearTwo
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinInteraction
 import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData

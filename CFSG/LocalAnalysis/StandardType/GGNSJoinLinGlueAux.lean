@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyNbrFieldRows
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMember
 
 public section

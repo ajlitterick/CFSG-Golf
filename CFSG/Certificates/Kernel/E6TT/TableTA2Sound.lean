@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.E6TT.NegSound
 public import CFSG.Certificates.Kernel.E6TT.RowKSound
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TableTClasses
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TableTRank
 
 public section

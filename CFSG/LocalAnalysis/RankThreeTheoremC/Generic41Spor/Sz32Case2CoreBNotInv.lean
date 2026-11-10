@@ -8,8 +8,6 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Case2CoreBN1
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Case2CoreBSyl
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.A10Lemma43BComp
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.A10Lemma43BCP
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -43,9 +41,6 @@ public import CFSG.RankThree.PartOne.CTP.StrongPClassification
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.RankThree.PartOne.S8.Statements
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

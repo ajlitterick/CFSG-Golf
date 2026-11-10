@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinearGeom
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinearFaithful
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinearProj
-public import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldLinear
 
 public section
 

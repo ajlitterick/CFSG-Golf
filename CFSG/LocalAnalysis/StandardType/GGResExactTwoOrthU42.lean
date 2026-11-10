@@ -1,16 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmComp
-public import CFSG.Assembly.GL83LieDefs
 import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.SympOrthOrthIdent
 import CFSG.HardMathSupport.Dickson.Bal207.LocalBalClassicalOrthTwoBasic
-import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotMinusEightBasic
 import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveU52Root
-import CFSG.RankThree.PartOne.KC.LinearPlaneBlocks
-import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
-import CFSG.RankThree.PartOne.KC.OrthogonalFactorization
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdSmall
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 
 public section
 

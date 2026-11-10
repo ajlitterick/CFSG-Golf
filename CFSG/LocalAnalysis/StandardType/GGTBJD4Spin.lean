@@ -2,15 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJD4Iso
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentOmFrame
-public import CFSG.Assembly.Subnormal
 import CFSG.LocalAnalysis.StandardType.GGTBJD4Block
 import CFSG.LocalAnalysis.StandardType.GGTBJD4Fixed
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmDich
 import CFSG.LocalAnalysis.StandardType.GGA8NbrOmFrameCore
-import CFSG.LieType.Universal.SpinOmega.Range
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3OrthMinusBlock
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173SplitCent
-import CFSG.RankThree.PartOne.KC.OrthogonalComponentFacts
 
 public section
 

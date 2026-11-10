@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.BorelSelfNormalizer
-public import CFSG.LieType.Chevalley.OppositeBorel
 
 public noncomputable section
 

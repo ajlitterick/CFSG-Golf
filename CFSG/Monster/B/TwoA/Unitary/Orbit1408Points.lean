@@ -1,30 +1,13 @@
 
 module
 
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408PointsBase
 import all CFSG.Monster.B.TwoA.Unitary.Orbit1408PointsBase
 
 public import CFSG.Monster.B.TwoA.Unitary.Semilinear
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Data
 public meta import CFSG.Monster.B.TwoA.Unitary.Orbit1408Data
 public meta import CFSG.Monster.B.TwoA.Unitary.Form
 public meta import CFSG.Monster.B.TwoA.Unitary.PlanesPrelude
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408PointsInputs
 public import Certificates.Certificate3080
-import CFSG.Fischer.F4
-public import CFSG.Monster.B.TwoA.Unitary.OrbitInputs
-public import CFSG.Monster.B.TwoA.Unitary.WStabInputs
-public import CFSG.Monster.B.TwoA.Unitary.Stab891Inputs
-public import CFSG.Monster.B.TwoA.Unitary.BData
-public import CFSG.Monster.B.TwoA.Unitary.PlanesInputs
-public import Certificates.Data.CFSGNative.MonsterB.Short
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import CFSG.Certificates.Kernel.AxisPlane.Orbit
-public import Certificates.Data.Kernel.VisFrame.Gens
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
-public import CFSG.Monster.B.TwoA.Unitary.Bridge
-public import CFSG.Monster.B.TwoA.Unitary.ActionInputs
 
 public noncomputable section
 

@@ -1,13 +1,9 @@
 module
 
-public import CFSG.Quasithin.Recognition.St84.Sp44Data
 public import CFSG.Quasithin.Recognition.St84.Sp44Vertex
 public import CFSG.Quasithin.Recognition.St84.Sp44DC
 public import CFSG.Quasithin.Recognition.CertF6Bridge
 public import CFSG.GH74.QTGen4.DSGen4.L34Generic
-public import CFSG.Quasithin.Vol2.GoldschmidtF431SpModel
-public import CFSG.Quasithin.Vol2.GoldschmidtF431SpBorel
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_7FinSp4
 public import CFSG.Quasithin.Background.F1AmalgamRestrict
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115EvenLie
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.EvenClassical

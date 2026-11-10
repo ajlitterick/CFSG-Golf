@@ -2,13 +2,10 @@ module
 
 public import CFSG.Sporadic.J4.QT2LocMain
 public import CFSG.Sporadic.J4.QT2LocCntProof
-public import CFSG.Sporadic.J4.QTRankProof
-public import CFSG.Sporadic.J4.QTCheck
 public import Certificates.Kernel.J4Q.Orbits
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.J4.QT2LocMainBase
 public import CFSG.Sporadic.J4.QTOutChar
-public import CFSG.Sporadic.J4Base
 
 public section
 

@@ -3,10 +3,6 @@ module
 public import CFSG.LieType.ChevTwo.OppCl.Toolkit
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrdBMRed
 import CFSG.GH74.GLS.IVK.L2.Lemma12
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-public import Mathlib.LinearAlgebra.StdBasis
-public import Mathlib.Data.Fintype.BigOperators
-public import Mathlib.Algebra.BigOperators.Intervals
 import CFSG.GH74.BNPair.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DihedralSylowParameter
 

@@ -7,8 +7,6 @@ public import CFSG.Certificates.Kernel.L34KSnd.Tab
 public import CFSG.Sporadic.SuzOddCore.CTICheckInputs
 import CFSG.Certificates.Kernel.BfsPinSetSound
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Sporadic.SuzOddCore.InvArrays
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import CFSG.Certificates.Kernel.Common.Eval
 meta import CFSG.Milestones.ASVolI.F48.D43.Inputs

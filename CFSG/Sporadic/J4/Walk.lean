@@ -1,13 +1,8 @@
 module
 
-public import Mathlib
 public import CFSG.Sporadic.Th.TableSpec
 public import Certificates.Data.CFSGNative.J4.Cert
 public import CFSG.Sporadic.J4.ParSpec
-import Certificates.Data.CFSGNative.J4.Store
-import Certificates.Data.CFSGNative.J4.Orbit
-import Certificates.Data.CFSGNative.J4.Tables
-import Certificates.Data.CFSGNative.J4.Global
 
 public section
 

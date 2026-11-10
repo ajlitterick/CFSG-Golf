@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalUInner
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalUField
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassical
 

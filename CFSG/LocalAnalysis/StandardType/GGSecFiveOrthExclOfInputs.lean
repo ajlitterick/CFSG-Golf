@@ -1,13 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthSetup
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthType
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthCaseA3
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthCaseA4
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthCaseA5
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthCaseD4
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylF4
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNarrowInputs
 
 public section
 

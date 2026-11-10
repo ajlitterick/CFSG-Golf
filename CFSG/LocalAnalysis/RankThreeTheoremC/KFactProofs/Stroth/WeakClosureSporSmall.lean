@@ -4,18 +4,11 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosur
 public import CFSG.RankThree.Asc83Table.MatGroup
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3Sylow
 import CFSG.LocalAnalysis.SectionRank.Sporadic.HSLocal
-import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2Fast
 import CFSG.LocalAnalysis.SectionRank.Sporadic.HeLocal
 import CFSG.LocalAnalysis.SectionRank.Sporadic.J4Local
 import CFSG.LocalAnalysis.SectionRank.Sporadic.RuLocal
 import CFSG.RankThree.Asc83Table.HS
-import CFSG.Sporadic.Bridge.J3Surj
-import CFSG.Sporadic.HS
-import CFSG.Sporadic.He.Simple
 import CFSG.Sporadic.J1
-import CFSG.Sporadic.J3
-import CFSG.Sporadic.J4
-import CFSG.Sporadic.Ru
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -57,7 +50,6 @@ public import CFSG.Sporadic.Presentation.Co2Fusion
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.YGroups.DCE.B433Check
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement

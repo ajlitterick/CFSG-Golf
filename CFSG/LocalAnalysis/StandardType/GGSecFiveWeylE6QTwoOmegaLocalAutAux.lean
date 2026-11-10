@@ -3,14 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRealKGOmegaFrame
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenCoherent
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenFrame
-public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenTorus
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenWeyl
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenAsmA
-public import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSignedPermCount
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExcEven
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaLocalReflAux
 
 public section

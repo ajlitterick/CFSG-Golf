@@ -2,18 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart7
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart26
-public import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Position
-public import CFSG.LocalAnalysis.StandardType.GGHalfCentGroup
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompNormal
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.GoodRankOne
-public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicRootCenter
-public import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeCartanAdj
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart15
 
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart25
 
 @[expose] public section
 

@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTKer
-public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTLiftComm
-public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeF4CubeScalar
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTFrameKer
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTInner
 

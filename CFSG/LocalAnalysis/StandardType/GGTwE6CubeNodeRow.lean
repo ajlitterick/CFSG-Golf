@@ -3,12 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CubeNodeFinite
 public import CFSG.LocalAnalysis.StandardType.GGTwE6D5CoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Torus
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 import CFSG.LocalAnalysis.StandardType.GGTwE6CubeNodeBound
 import CFSG.LocalAnalysis.StandardType.GGTwE6CubeNodeCoords
 import CFSG.LocalAnalysis.StandardType.GGTwE6EndNodeThreeFrame
 import CFSG.LocalAnalysis.StandardType.GGTwE6RootKillWeyl
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 import TauCeti.GroupTheory.ExponentPrime
 
 public section

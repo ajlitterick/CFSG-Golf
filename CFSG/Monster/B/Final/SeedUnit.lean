@@ -4,7 +4,6 @@ public import CFSG.Monster.B.Final.Basic
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 public import CFSG.Certificates.Kernel.BabyMonster.RegRun
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2Fast
-public import CFSG.Monster.B.Cbar.SimpleBase
 public import CFSG.Monster.B.Max2.Pinned
 public import Certificates.Data.CFSGNative.MonsterB.DyadicFile
 

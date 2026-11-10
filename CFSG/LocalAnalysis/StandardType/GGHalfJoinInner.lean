@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
 public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTransport
 

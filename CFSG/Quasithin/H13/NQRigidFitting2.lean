@@ -5,7 +5,6 @@ public import CFSG.Quasithin.H13.NQBlockRankTwoRigidity
 public import CFSG.GroupTheory.SteinbergBKOddNoncyclicRankTwo
 public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 public import CFSG.GroupTheory.LocalCores.Fitting
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 
 public section
 

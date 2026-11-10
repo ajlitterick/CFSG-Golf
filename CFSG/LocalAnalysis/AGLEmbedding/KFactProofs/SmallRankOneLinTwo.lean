@@ -9,8 +9,6 @@ import CFSG.LocalAnalysis.AGLEmbedding.LinTwoUnipotentCentralizer
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherLargeTorus
 import CFSG.Dihedral.Glauberman.DicksonMaxStructure
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -23,7 +21,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

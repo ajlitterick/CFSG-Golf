@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.SporSch.ClsAll
-public import CFSG.Certificates.Kernel.Spor.RawSound
 public meta import Lean
 public meta import CFSG.Certificates.Kernel.Common.AddThm
 public meta import Certificates.Kernel.Sporadic.RawGen

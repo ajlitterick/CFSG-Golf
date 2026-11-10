@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOrthFrameCore
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1OBlock
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
 
 public section
 

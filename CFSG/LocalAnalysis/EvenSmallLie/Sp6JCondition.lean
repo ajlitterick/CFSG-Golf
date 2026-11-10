@@ -1,14 +1,8 @@
 module
 
-public import CFSG.Sporadic.Schreier.Co3Sp6
-public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizers
-public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixCoverModel
 public meta import CFSG.Sporadic.Schreier.Co3Sp6
 public meta import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizers
-public import CFSG.LocalAnalysis.EvenSmallLie.Sp6JConditionInputs
 public import Certificates.Certificate3088
-public import Certificates.Certificate2152
-public import Certificates.Certificate2161
 
 public section
 

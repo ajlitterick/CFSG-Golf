@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBE6Three
 public import CFSG.LocalAnalysis.StandardType.GGTBRowFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBRowE6Equiv
-public import CFSG.LocalAnalysis.StandardType.GGResSideDatumDefs
-public import CFSG.LocalAnalysis.StandardType.GGPZWeylType
 
 public section
 

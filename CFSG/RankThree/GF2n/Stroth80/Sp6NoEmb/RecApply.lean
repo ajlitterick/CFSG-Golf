@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Stroth80.Sp6NoEmb.Rec
 public import CFSG.RankThree.GF2n.Stroth80.Sp6NoEmb.Slot
-public import Mathlib.RepresentationTheory.Invariants
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesDescent
 import CFSG.ClassicalInvolution.SL2Facts
 public import CFSG.RankThree.GF2n.Stroth80.Sp6NoEmb.Pattern

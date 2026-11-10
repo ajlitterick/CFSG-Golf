@@ -23,7 +23,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3T8P26T01
 public import CFSG.ClassicalInvolution.Q3.Q3T8P26T02
 public import CFSG.ClassicalInvolution.Q3.Q3T8P26TH01
 public import CFSG.ClassicalInvolution.Q3.TA3SOLCore
-public import CFSG.ClassicalInvolution.Q3.TA3SOLCoreRank
 public import CFSG.ClassicalInvolution.Q3.TL3S8Gold
 public import CFSG.ClassicalInvolution.Q3.TL3S8Sd
 public import CFSG.ClassicalInvolution.Q3.TL4E3MuPass

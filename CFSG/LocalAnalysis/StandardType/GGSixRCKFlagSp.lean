@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKFlagCore
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Pairs
 public import CFSG.RankThree.PartOne.K133C.SpForm
 public import CFSG.RankThree.PartOne.K133C.FixedVectors
 public import CFSG.RankThree.PartOne.K133C.LinearPlane

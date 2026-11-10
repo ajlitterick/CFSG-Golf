@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Torus
 public import CFSG.LocalAnalysis.StandardType.GGTwE6NormSmallThreeCount
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelAutT
-import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelTFrame
-import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelLiftT
 
 public section
 

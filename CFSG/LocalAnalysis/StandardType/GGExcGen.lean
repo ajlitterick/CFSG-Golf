@@ -2,12 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcRegimeDefs
 public import CFSG.LocalAnalysis.StandardType.GGB36JExc
-public import CFSG.LocalAnalysis.StandardType.GGKacExcB2
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUKacV2
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUTableExc
 public import CFSG.LocalAnalysis.StandardType.GGK1ScExcFinal
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmULabel
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

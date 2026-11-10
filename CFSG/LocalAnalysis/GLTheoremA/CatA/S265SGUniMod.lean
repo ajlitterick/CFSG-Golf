@@ -1,15 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGResCls
-import CFSG.GroupTheory.ElementaryAbelianTransport
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LayerBridge
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.UnitaryAut
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGEnd
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGMark
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGUniN
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGUniQ2
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGUniS
-import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherUnitary
 
 public section
 

@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcTwoCompList
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNine
 public import CFSG.LocalAnalysis.StandardType.GGB36LemmaRT
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsSeitz3
 public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Adapters.GeneralizedFitting
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
@@ -76,8 +74,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

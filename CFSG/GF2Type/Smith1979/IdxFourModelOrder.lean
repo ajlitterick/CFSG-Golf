@@ -3,8 +3,6 @@ module
 public import CFSG.GF2Type.Smith1979.IdxFourModelChain
 public import Certificates.Certificate17600
 public import Certificates.Certificate17601
-public import CFSG.GF2Type.Smith1979.IdxFourModelDefs
-import Certificates.Data.Kernel.IdxFourChainK
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 import CFSG.Certificates.Kernel.Common.EachTrue
@@ -13,7 +11,6 @@ import CFSG.Certificates.Kernel.IdxFourChainCard
 public import CFSG.Certificates.NativeSchreierCard
 public import CFSG.GF2Type.Smith1979.IdxFourModelBasic
 public import CFSG.GF2Type.Smith1979.IdxFourModelChainInputs
-public import Mathlib.GroupTheory.Schreier
 import Std.Tactic.BVDecide.Normalize.Prop
 
 public section

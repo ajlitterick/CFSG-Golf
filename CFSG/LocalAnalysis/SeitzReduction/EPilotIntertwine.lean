@@ -1,8 +1,6 @@
 module
 
 public import Mathlib.Algebra.Group.Subgroup.Defs
-public import Mathlib.Algebra.Group.Commutator
-public import Mathlib.Data.Set.Image
 public import Mathlib.Tactic.Group
 
 public section

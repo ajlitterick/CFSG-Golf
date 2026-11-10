@@ -1,23 +1,10 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Mathlib.Algebra.Group.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ReflectionQCoreCentralizerOddCore
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27Infra
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27IndexTwo
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.FittingOddCoreEquality
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PreambleInvolutions
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970API
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.FUFittingContainment
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem26
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma28
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CoprimeActionNontrivialTransfer
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Theorem4
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourOfCommutingInvolutions
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.MinimalCounterexample
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.OddPCoresCentralizeFitting
-import Mathlib.GroupTheory.FixedPointFree
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ExistsReflection
 

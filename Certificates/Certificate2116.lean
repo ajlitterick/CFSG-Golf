@@ -4,8 +4,6 @@ public import CFSG.Sporadic.HeldB.OuterArithCheckInputs
 public meta import CFSG.Sporadic.HeldB.AutData
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 import Certificates.Kernel.SporSch.HeT.Out2116
-import CFSG.Sporadic.HeldB.CertPChainData
-import Certificates.Data.CFSGNative.Schreier.Check
 
 public section
 

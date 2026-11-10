@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrG2ThreeKG
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2ThreeOffCore
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2ThreeOffCover
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagCartan
 
 public section
 

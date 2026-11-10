@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5L53C
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CGT.Foote81L6.Lemma1
 public import CFSG.CGT.Stroth77.AmbientSplit
 public import CFSG.CGT.Stroth77.Section223Sylow
@@ -32,7 +31,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ParabolicTrans
 public import CFSG.Mathlib.GroupTheory.ConjCentralizer
 public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.Background.B5Statement
@@ -45,7 +43,6 @@ public import CFSG.RankThree.OddKernel.OddLift
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.TwoSignalizer
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Schreier.J4SBinary
 public import CFSG.Walter.PSL2Facts

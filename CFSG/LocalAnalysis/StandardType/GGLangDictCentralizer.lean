@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangAlgebraic
-public import CFSG.LocalAnalysis.StandardType.GGLangDictChar
 public import CFSG.LocalAnalysis.StandardType.GGLangDictTransport
 public import CFSG.LocalAnalysis.StandardType.GGLangExhaust
 public import CFSG.LocalAnalysis.StandardType.GGLangDetects

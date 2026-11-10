@@ -1,19 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangRatLocalNorm
-public import Certificates.Certificate115
-public import Certificates.Certificate116
 public import Certificates.Certificate1952
 public import Certificates.Certificate13659
 public import Certificates.Certificate13660
 import CFSG.LocalAnalysis.StandardType.GGLangRatNegOne
 import CFSG.LocalAnalysis.StandardType.GGLangRatBCoreA
 import CFSG.LocalAnalysis.StandardType.GGLangRatRouteC
-import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
-import CFSG.HardMathSupport.Timmesfeld.RootAut.Count
-import CFSG.HardMathSupport.Timmesfeld.Proving.SimpleRootsCartan
-import CFSG.LieType.Chevalley.KernelComponentRoots
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
 
 public section
 

@@ -3,10 +3,7 @@ module
 public import CFSG.LieType.AlgebraicGroups.E6GraphCentralizerLangWords
 public import CFSG.LieType.AlgebraicGroups.ToralCentralizerComponent
 public import CFSG.LieType.AlgebraicGroups.ExactAffineRealization
-public import CFSG.LieType.Chevalley.LangAdjointDiagonalLift
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 public import CFSG.LieType.Chevalley.E6ToralGraphInvolution
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

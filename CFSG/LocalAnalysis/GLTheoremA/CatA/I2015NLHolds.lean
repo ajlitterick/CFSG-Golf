@@ -1,16 +1,13 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLTD4NE
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLLinear
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLDerived
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLUnitary
-import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLSymplectic
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLSymplecticB
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLOmega
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLOmegaMinus
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLChev
-import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLTwE6B
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLTwE6C
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLTriD4
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLSuzuki

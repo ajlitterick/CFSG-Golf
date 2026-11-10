@@ -2,18 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpPlusSide
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpRow
-public import CFSG.LocalAnalysis.StandardType.GGTBJLabelSides
 public import CFSG.LocalAnalysis.StandardType.GGTBJFamilyStages
-public import CFSG.LocalAnalysis.StandardType.GGTBJCount
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpCount
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpModelTwo
 public import CFSG.LocalAnalysis.StandardType.GGResHigherFieldI1
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Bridge
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
-public import CFSG.LieType.Steinberg.CentralExt.PSpEvenMultiplier
-public import CFSG.RankThree.PerfectCover.HopfCentralCoversFinite
-public import CFSG.RankThree.PerfectCover.HopfFormula
 
 public section
 

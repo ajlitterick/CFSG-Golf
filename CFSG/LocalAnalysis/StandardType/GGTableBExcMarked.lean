@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcCoverRows
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcMarkedModel
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6MarkedModel
 
 public section

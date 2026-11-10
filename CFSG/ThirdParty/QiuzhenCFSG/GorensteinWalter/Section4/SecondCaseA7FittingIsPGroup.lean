@@ -2,10 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7EquationSix
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ControlCore
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

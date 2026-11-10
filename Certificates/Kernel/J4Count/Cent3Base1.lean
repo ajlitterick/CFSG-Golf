@@ -5,7 +5,6 @@ module
 public import Certificates.Kernel.J4Count.Cent3Checks
 public import Certificates.Kernel.J4Count.FixCEEltBase1
 public import CFSG.Certificates.Kernel.J4FiveSound
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4QuotBase
 
 @[expose] public section
 

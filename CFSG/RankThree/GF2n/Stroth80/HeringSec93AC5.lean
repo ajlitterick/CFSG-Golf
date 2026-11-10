@@ -2,20 +2,8 @@ module
 
 public import CFSG.RankThree.GF2n.Stroth80.HeringSec93AC4
 public import CFSG.RankThree.GF2n.Stroth80.HeringSec93N
-public import CFSG.RankThree.GF2n.Stroth80.HeringSec93XH
-public import CFSG.RankThree.GF2n.Stroth80.HeringSec93TF
-public import CFSG.RankThree.GF2n.Stroth80.HeringSec93TA
 public import CFSG.RankThree.GF2n.Stroth80.HeringSec93TMain
-public import CFSG.RankThree.GF2n.Stroth80.CarterSec93AltStep3
-public import CFSG.CGT.Timmesfeld75.L2Defs
-public import CFSG.RankThree.GF2n.Stroth80.HeringSec9RThree
-public import CFSG.Open.Catalog
-public import CFSG.RankThree.GF2n.Tim77Prop24
 public import CFSG.RankThree.GF2n.Tim77Prop24Inv
-public import CFSG.CGT.T75N.BenderCenter
-public import CFSG.CGT.T75N.UnitaryTwoGen
-public import CFSG.CGT.T75N.OddCycBender
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.GroupTheory.DedekindNormalizer
 public import CFSG.RankThree.GF2n.Stroth80.Core4Frame
 public import CFSG.RankThree.GF2n.Stroth80.Core4StepB

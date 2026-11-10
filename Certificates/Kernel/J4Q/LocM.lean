@@ -4,7 +4,6 @@ public import Certificates.Kernel.J4Q.LocVec
 public import Certificates.Kernel.J4Q.Orbits
 public import Certificates.Kernel.J4Q.LocData
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Sporadic.J4.QTRankWitNative
 
 public section
 

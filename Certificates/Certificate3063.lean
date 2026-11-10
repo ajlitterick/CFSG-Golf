@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Monster.B.TwoA.Unitary.Planes
-public import Certificates.Certificate3124
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Fischer.F4
 
 public section
 

@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldOrthTail
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsOrthKind
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaConjLabels
 public import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldForms
-public import CFSG.RankThree.PartOne.KC.LinearSubfieldInclusion
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2

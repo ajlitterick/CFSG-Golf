@@ -6,9 +6,7 @@ public import CFSG.RankThree.PartOne.KGD.D4QOuter
 public import CFSG.RankThree.PartOne.KGD.G2Abstract
 public import CFSG.RankThree.PartOne.KE.PlaneToral
 public import CFSG.RankThree.PartOne.KE.NativeCyclicF4
-public import CFSG.RankThree.PartOne.KE.Endpoint
 public import CFSG.RankThree.Chevalley.SteinbergCDTrialityTwelveLocalCore
-public import CFSG.RankThree.Chevalley.SteinbergCFTrialityNoninnerDescent
 public import CFSG.LieType.Chevalley.OddExceptionalOuterTwoRank
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField
@@ -20,7 +18,6 @@ public import CFSG.RankThree.PartOne.KE.Basic
 public import CFSG.RankThree.PartOne.KE.NativeCyclicEndpoint
 public import CFSG.RankThree.PartOne.KGD.PlaneBridge
 public import CFSG.RankThree.PartOne.S8.Statements
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public noncomputable section
 

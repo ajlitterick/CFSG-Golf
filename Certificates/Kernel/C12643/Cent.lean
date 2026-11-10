@@ -9,9 +9,6 @@ public import Certificates.Kernel.C12643.CentB5
 public import Certificates.Kernel.C12643.CentB6
 public import Certificates.Kernel.C12643.CentB7
 public import Certificates.Kernel.Misc.Perm.J2Cent
-public import CFSG.Certificates.Kernel.J2CentSound
-public import CFSG.Certificates.Kernel.J2Enum.Group
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

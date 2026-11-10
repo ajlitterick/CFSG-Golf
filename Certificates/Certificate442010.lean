@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.OmegaPkFacts
-import Certificates.Certificate2012
 import Certificates.Kernel.Pk442010.Facts
 
 public section

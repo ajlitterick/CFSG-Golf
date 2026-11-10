@@ -3,15 +3,9 @@ module
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TOddL2
 import CFSG.RankThree.PartTwo.Sec14.Ronan148TLocTheta
 import CFSG.RankThree.PartTwo.KFacts.K72FixL2
-import CFSG.RankThree.PartTwo.KFacts.K72FieldKind
-import CFSG.RankThree.PartTwo.KFacts.K72Centralizer
 import CFSG.RankThree.PartTwo.KFacts.K72List
 import CFSG.RankThree.SubgroupLists.LinearTwoFamily
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Center
-import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 import CFSG.GroupTheory.PCore.SubgroupCore
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
-import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 
 public section
 

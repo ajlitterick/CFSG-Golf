@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSL
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSU
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSp
 

@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.SmallCases.Sporadic.J1
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.J2
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.J3
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.M12
-public import CFSG.ClassicalInvolution.SmallCases.Sporadic.M22
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.M22E8
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.M23
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.McL

@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGQTwoNbrDatumInner
 import CFSG.LocalAnalysis.StandardType.GGQ2PmWHeartA
 import CFSG.LocalAnalysis.StandardType.GGQ2LDatumDims
 import CFSG.LocalAnalysis.StandardType.GGQ2MixedCentreRefl
-import CFSG.LocalAnalysis.StandardType.GGForkClassify
 import CFSG.LocalAnalysis.StandardType.GGPZCartanRank
 import CFSG.LocalAnalysis.StandardType.GGWAutModelNorm
 import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112WeylE7

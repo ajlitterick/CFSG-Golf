@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.NotationBlocks
-public import CFSG.Open.StatedDefs
 public import CFSG.RankThree.Literature.FSmithOrthogonal
 import CFSG.ClassicalGroups.Orthogonal.Matrix
 import CFSG.Timmesfeld.Orders.ClassicalOrthogonal

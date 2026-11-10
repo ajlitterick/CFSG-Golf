@@ -2,7 +2,6 @@ module
 
 import CFSG.Certificates.Kernel.Common.Each
 import CFSG.Certificates.Kernel.Common.ForallChunks
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 public import Certificates.Kernel.ONOut.Data

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.WeakBlockModuleData.ModelBridge
 public import CFSG.Open.StatedDefs
-public import Mathlib.Algebra.CharP.Defs
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 
 public section
 

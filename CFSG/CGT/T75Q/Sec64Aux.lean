@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CGT.Timmesfeld75.Sec3Fpf
-import Mathlib.Tactic.Group
 
 public section
 

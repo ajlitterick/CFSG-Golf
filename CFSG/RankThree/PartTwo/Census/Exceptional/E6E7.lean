@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Census.Exceptional.Minuscule
 public import CFSG.Adapters.TauCetiExceptional.MinusculeE6
 public import CFSG.Adapters.TauCetiExceptional.MinusculeE7
 public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.GraphTwisted
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.AmbientGroup

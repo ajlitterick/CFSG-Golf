@@ -5,7 +5,6 @@ public import CFSG.Sporadic.Bridge.M22
 public import CFSG.Sporadic.Mathieu.M22
 public meta import Certificates.Data.CFSGNative.H13.J4Local
 public meta import CFSG.Quasithin.H13.J4QuotGroup
-import Certificates.Data.CFSGNative.H13.J4Local
 
 public noncomputable section
 

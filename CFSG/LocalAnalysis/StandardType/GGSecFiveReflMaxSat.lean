@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMPrimeInputs
-public import CFSG.LocalAnalysis.StandardType.GGFixedRealizedConfig
-public import CFSG.LocalAnalysis.StandardType.GGCellWitness
 
 public section
 

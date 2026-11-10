@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Helpers
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.ElementaryHull
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Compat
 
 public noncomputable section
 

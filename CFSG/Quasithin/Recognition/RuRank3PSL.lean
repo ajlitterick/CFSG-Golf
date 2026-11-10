@@ -1,19 +1,11 @@
 module
 
-public import Mathlib.LinearAlgebra.Projectivization.Action
-public import Mathlib.LinearAlgebra.Projectivization.Cardinality
-public import Mathlib.Algebra.QuadraticAlgebra.Basic
-public import CFSG.Dihedral.GorensteinWalter.FieldTransport
-public import CFSG.Dihedral.Glauberman.DicksonMaxUp
-public import CFSG.Sporadic.Schreier.RuChainSpec
-public import CFSG.Certificates.NativeSchreierEnum
 public meta import CFSG.Sporadic.Schreier.RuChainSpec
 public meta import CFSG.Sporadic.Schreier.RuCheckChains
 public meta import CFSG.Certificates.NativeSchreierEnum
 public meta import Certificates.Data.CFSGNative.Schreier.Enum3
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Quasithin.Recognition.RuRank3PSLInputs
 public import Certificates.Certificate7044
 
 public section

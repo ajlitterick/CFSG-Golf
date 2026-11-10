@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.HeLoc.TreeCmd
 public import Certificates.Kernel.SporSch.GenPerms
 public import Certificates.Kernel.Misc.Perm.HexCmd
-public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.RankThree.PartOne.KS.HeSevenCheckDefs
 public import CFSG.Certificates.Kernel.Spor.PackWord
 public meta import CFSG.RankThree.PartOne.KS.HeSevenCheckDefs

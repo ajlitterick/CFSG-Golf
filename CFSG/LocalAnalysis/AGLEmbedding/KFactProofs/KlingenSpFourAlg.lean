@@ -1,9 +1,6 @@
 module
 
-public import CFSG.Open.Defs
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.ConstrainedSLAux
-import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Supercritical
 

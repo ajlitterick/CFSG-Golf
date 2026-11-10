@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusFrame
 public import CFSG.LocalAnalysis.StandardType.GGTwE6TorusFrameComp
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusPackage
 

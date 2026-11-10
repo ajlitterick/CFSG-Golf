@@ -10,7 +10,6 @@ import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseE7TwoFrame
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseE8TwoFrame
 import CFSG.LocalAnalysis.StandardType.GGUnitaryTwoBstar
 import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkTwE6
-import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwoAEightE
 
 public section

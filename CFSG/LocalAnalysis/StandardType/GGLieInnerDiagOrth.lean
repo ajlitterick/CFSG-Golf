@@ -2,17 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagDefs
 public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
-public import CFSG.Assembly.GL83LieDefs
 import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagLinear
 import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagOrthPaired
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLIDAOrthFixed
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLIDAUnitaryBridge
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgOrthogonalLie
-import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgOrthogonal
 import CFSG.RankThree.PartOne.S15K.OrthModel
-import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.OrthBlocks
-import CFSG.ClassicalGroups.Orthogonal.Simple
-import CFSG.LocalAnalysis.ComponentClassification.ClassicalModelStatedBridge
 import CFSG.GroupTheory.PCore.SubgroupCore
 
 public section

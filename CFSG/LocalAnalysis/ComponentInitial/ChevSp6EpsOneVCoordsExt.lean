@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneModuleDataCheck
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-import Mathlib.LinearAlgebra.Matrix.Notation
 import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixFusionOrbits
 
 public section

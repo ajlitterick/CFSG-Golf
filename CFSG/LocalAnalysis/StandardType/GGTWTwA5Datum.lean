@@ -1,13 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepAssembly
-public import CFSG.LocalAnalysis.StandardType.GGTWRowData
-public import CFSG.LocalAnalysis.StandardType.GGTWRowDataL
-public import CFSG.LocalAnalysis.StandardType.GGResXDatumAHLK
-public import CFSG.LocalAnalysis.StandardType.GGHLNbrInput
-public import CFSG.LocalAnalysis.StandardType.GGTWRowGenDefs
-public import CFSG.LocalAnalysis.StandardType.GGResXDatumARankFrom
-public import CFSG.LocalAnalysis.StandardType.GGResXDatumAHLFrom
 public import CFSG.LocalAnalysis.StandardType.GGTWTwA5Defs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeU6Type9Basic

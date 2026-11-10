@@ -6,7 +6,6 @@ import CFSG.RankThree.GF2n.Stroth80.Sec117ConfigBasic
 import CFSG.RankThree.OddKernel.OddLift
 import CFSG.Alternating.Multipliers.OddKernel
 import CFSG.LocalAnalysis.StandardType.SUCenterOdd
-import CFSG.LieType.CurtisTits.Recognition
 
 public section
 

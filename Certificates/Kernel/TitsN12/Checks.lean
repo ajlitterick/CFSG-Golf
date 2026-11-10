@@ -8,13 +8,11 @@ public import Certificates.Kernel.Sporadic.Tits.LocJ
 public import Certificates.Kernel.Sporadic.Tits.LocK
 public import Certificates.Kernel.TitsOct.Data
 public import Certificates.Data.Kernel.TitsN12K
-public import CFSG.Certificates.Kernel.Common.JsonGz
 public import CFSG.Certificates.Kernel.Common.Repo
 public meta import CFSG.Sporadic.Schreier.TitsCentralCheckInputs
 public meta import CFSG.Sporadic.Schreier.TitsEnum
 public meta import CFSG.Sporadic.Schreier.TitsActionCheckInputs
 public meta import Certificates.Data.RuF45Geom
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

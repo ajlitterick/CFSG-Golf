@@ -4,15 +4,8 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2CoprimeSylowCycli
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseLinearPerfectCyclicNormalizer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseLinearSylowIntoComplement
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseLinearSemidirectPSL2Complement
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourCentralizerTransport
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalOddPSubgroupSymmetricFour
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DerivedSubgroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2PerfectSubnormal
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2PerfectOfCard
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Cardinality
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeEquiv
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearRingEquiv
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2DefiningPSubgroupCard
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralOddSubgroupNormal
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.SFourNormalizerNoncyclic
@@ -21,8 +14,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalizerSubgroupCyc
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjNormalizerCyclic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjComplement
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourInjectiveMap
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.KleinFour
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

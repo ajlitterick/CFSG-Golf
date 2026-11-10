@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinReflAlgebra
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 public import CFSG.Timmesfeld.ARS.CaseOAWeyl
-public import CFSG.LieType.RootSystem.Positivity
 
 public section
 

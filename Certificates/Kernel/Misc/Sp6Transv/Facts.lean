@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec21.RudvalisFF81Sp6TransvFacts
 public import Certificates.Kernel.Misc.Sp6Transv.Checks
 public import CFSG.Certificates.Kernel.Misc.Sp6TransvKit
 import CFSG.Certificates.Kernel.Misc.PermClosProof
-import CFSG.RankThree.PartTwo.Census.Carrier.G2Three
 
 public section
 

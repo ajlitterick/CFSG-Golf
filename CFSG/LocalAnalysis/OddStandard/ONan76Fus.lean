@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.ONan76Loc
 public import CFSG.LocalAnalysis.OddStandard.ONan76Ext
-import Mathlib.Tactic.Group
 
 public section
 

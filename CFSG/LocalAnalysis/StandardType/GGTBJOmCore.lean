@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerOrth
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusBasic
 public import CFSG.LocalAnalysis.StandardType.GGTBJCoordRefl
 

@@ -1,19 +1,11 @@
 module
 
-public import CFSG.HardMathSupport.Dickson.I271.Support.CyclicData
 public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.PGroupNormalE4
-public import CFSG.LocalAnalysis.RankFourTheoremC.PPointRankFour
-public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
 public import CFSG.RankThree.PartOne.S9.Planes.Basic
-public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.CoverSplit
 public import CFSG.HardMathSupport.Timmesfeld.LieRank.Exc3
-public import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 public import CFSG.RankThree.PartTwo.Sec4.Census.BridgeG2
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Multiplier.Models
 public import CFSG.HardMathSupport.Dickson.I271.Support.CyclicRank
 public import CFSG.Models.Transport
-public import CFSG.HardMathSupport.Timmesfeld.LieRank.G2
-public import CFSG.LocalAnalysis.SectionRank.ExceptionalModels
 public import CFSG.LocalAnalysis.AGLEmbedding.CoverWeakGenData
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.AlphaGrpSound
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.AlphaModSound

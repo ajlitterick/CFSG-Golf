@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.P1L43.FbarGlue
-import Mathlib.Tactic.IntervalCases
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

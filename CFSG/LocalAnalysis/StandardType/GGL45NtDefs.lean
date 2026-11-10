@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45TorusHForms
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
 
 public section
 

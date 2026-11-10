@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorUniScalar
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
 
 public section
 

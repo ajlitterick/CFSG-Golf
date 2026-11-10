@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBClSpQuat
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBClForms
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBClSp
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBFinal

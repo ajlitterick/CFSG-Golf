@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldUniMark
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldUniTw
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldUniLabel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinFldLang
-public import CFSG.LieType.SemisimpleCentralizers.HeldLangPSU
-public import CFSG.LieType.SemisimpleCentralizers.HeldLangUnitFix
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
 public import CFSG.Assembly.GL83StatedBridge
 public import CFSG.Assembly.OpenBridges

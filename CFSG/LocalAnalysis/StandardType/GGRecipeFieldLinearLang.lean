@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinear
-public import Mathlib.FieldTheory.Galois.Basic
-public import Mathlib.RingTheory.Norm.Transitivity
-public import Mathlib.FieldTheory.Finite.GaloisField
-public import Mathlib.FieldTheory.Fixed
 
 public section
 

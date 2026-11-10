@@ -1,27 +1,14 @@
 module
 
-public import CFSG.Monster.Existence.Census.Rigid
-public import CFSG.Monster.B.TwoA.Census.CosetSquares
-public import CFSG.Monster.B.TwoA.Census.CosetEnumBits
-public import CFSG.Monster.B.Cbar.FourGroupSpin
 public import CFSG.Monster.B.Cbar.Fusion
-public import CFSG.Monster.Generated.Centralizer
 public import CFSG.Monster.Visible.Faithful
 public meta import Certificates.Data.CFSGNative.MonsterAxis.Dense
 public meta import CFSG.Monster.Existence.Census.Rigid
 public meta import CFSG.Monster.B.TwoA.Census.CosetSquares
 public meta import CFSG.Monster.B.Rep4371.Model
 public meta import CFSG.Monster.B.TwoA.Census.MonoCert
-public import CFSG.Monster.Existence.Census.TrialityWitnessesInputs
 public import Certificates.Certificate6024
-public import Certificates.Certificate6023
-public import Certificates.Certificate6007
 public import Certificates.Certificate1020
-public import Certificates.Certificate1022
-public import Certificates.Certificate3015
-public import Certificates.Certificate3016
-public import Certificates.Certificate3017
-public import Certificates.Certificate3018
 public import CFSG.Sporadic.ThSchreier.Max3Action
 public import CFSG.Sporadic.Th.Plane
 public import CFSG.Sporadic.ThSchreier.Max3ActionBase1

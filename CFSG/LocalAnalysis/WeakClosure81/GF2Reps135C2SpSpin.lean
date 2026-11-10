@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2SpWeylOrbit
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC8H1Rep
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC8CuClosure
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerActorTransport
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerFinal
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC8Defs

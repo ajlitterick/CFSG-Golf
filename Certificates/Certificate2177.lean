@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2177Base
 
-public import CFSG.Sporadic.Schreier.J4SOrbitsBase
 public meta import CFSG.Sporadic.Schreier.J4SOrbitsBase
 import Certificates.Kernel.SporSch.J4S.Orbits
 

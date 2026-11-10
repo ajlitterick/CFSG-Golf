@@ -5,7 +5,6 @@ public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.Quasithin.Background.A15Dihedral
 public import CFSG.Quasithin.Background.A4Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 public import CFSG.LocalAnalysis.SectionRank.DerivedQuotient
 public import CFSG.Foundations.SteinbergCAGeneratedCoreNodes
 import CFSG.GroupTheory.ElementaryAbelianTransport

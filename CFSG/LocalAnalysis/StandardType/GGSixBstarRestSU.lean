@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarRestDefs
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepair
-public import CFSG.LocalAnalysis.StandardType.GGInvolutionClassSURoot
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalSpUSUWitt
 
 public section

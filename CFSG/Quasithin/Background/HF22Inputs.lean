@@ -2,11 +2,6 @@
 module
 
 public import CFSG.Quasithin.Background.HF166Inputs
-public import CFSG.Quasithin.Background.HMathieuPT24
-public import CFSG.Quasithin.Background.HMathieuPred
-public import CFSG.Quasithin.Background.HMathieuPT24
-public import CFSG.Quasithin.Background.HMathieuPred
-public import CFSG.Monster.Code.Basis
 public import CFSG.Quasithin.Background.HMathieuSyl22Inputs
 public meta import CFSG.Quasithin.Background.HF166Inputs
 public meta import CFSG.Quasithin.Background.HMathieuPT24

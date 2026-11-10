@@ -9,24 +9,12 @@ import CFSG.RankThree.PartTwo.Sec21.FF81Sec36Z
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec43T
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec53
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec54
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection10.lemma_10_12_a
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection10.lemma_10_13_b
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection10.proposition_10_14_d
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection10.theorem_10_1_c
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection10.theorem_10_1_e
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection11.corollary_11_4
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection11.corollary_11_6_b
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection11.theorem_11_7
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection5.theorem_5_5_c_2
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.lemma_6_3_a_2
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.lemma_6_5_b
 import CFSG.LinearAlgebra.LinearGroups.LinearTwo
 import CFSG.LocalAnalysis.ComponentClassification.CatFC.L44CoverTrivial
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueUStatement
 import CFSG.LocalAnalysis.ComponentClassification.GSLitType
 import CFSG.LocalAnalysis.ComponentClassification.GSThmB7Basic
 import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog8L4
-import CFSG.Sporadic.Th.F2Spec
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 

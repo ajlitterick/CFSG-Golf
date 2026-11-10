@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Co1Patterson.AmalgamInnerCore
-public import CFSG.Sporadic.Co1Patterson.AmalgamInnerInputs
 public import CFSG.Sporadic.Co1Patterson.TwistNativeCore
 public import Certificates.Certificate21159
 public import Certificates.Certificate21235
@@ -47,8 +46,6 @@ public import CFSG.Monster.GMS.F1Basic
 public import CFSG.Monster.GMS.NotConj
 public import CFSG.Open.QuasithinDefs
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore

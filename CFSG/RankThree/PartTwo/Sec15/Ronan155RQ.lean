@@ -1,12 +1,9 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec15.Ronan155RDiamond
-public import CFSG.RankThree.PartTwo.Sec15.Item155w2ProofCases
 import CFSG.RankThree.PartTwo.Sec15.Item155w2ProofRQK
 import CFSG.RankThree.PartTwo.Sec15.Item155wProofCorr
 import CFSG.RankThree.PartTwo.Sec15.Item155Proof
-import CFSG.RankThree.PartTwo.Sec15.Item153Claims
-import CFSG.RankThree.PartTwo.Sec15.Item152Proof
 import CFSG.RankThree.PartTwo.Sec14.Item1411StepsProofTools
 import CFSG.RankThree.PartTwo.Sec14.Item14Tools
 import CFSG.RankThree.PartTwo.Sec14.Item147

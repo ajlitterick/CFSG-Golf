@@ -1,18 +1,14 @@
 module
 
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSection
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilySuzukiNormalizer
 public import CFSG.Quasithin.Background.SmithB42D4Main
 public import CFSG.Quasithin.Background.SmithB42F4Main
 public import CFSG.Quasithin.Background.SmithB42Tits
 public import CFSG.RankThree.PartTwo.Census.Carrier.ReeF4Catalog
 public import CFSG.Adapters.TauCetiExceptional.EvenD4
 public import CFSG.RankThree.PartTwo.Sec4.Census.BridgeSuzuki
-public import CFSG.Sporadic.Schreier.TitsOuter
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 public import CFSG.Adapters.TauCetiExceptional.BridgeTransport
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFFamilies
 public import CFSG.HardMathSupport.Cooperstein.Proving.NineThreeTransfer
 public import CFSG.LieType.Chevalley.C2E6SubsystemBruhat

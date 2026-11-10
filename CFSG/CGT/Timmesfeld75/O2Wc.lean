@@ -2,7 +2,6 @@ module
 
 public import CFSG.CGT.Timmesfeld75.O2Core
 public import CFSG.CGT.Timmesfeld75.CentralQuotient
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 public section
 

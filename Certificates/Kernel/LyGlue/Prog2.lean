@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.LyGlue.TabData
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Repo
 
 public section

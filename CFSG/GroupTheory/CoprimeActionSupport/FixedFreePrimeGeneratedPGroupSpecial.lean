@@ -1,7 +1,5 @@
 module
 
-import Mathlib.Tactic.Basic
-import Mathlib.Tactic.Ext
 meta import Lean.Elab.Tactic.NormCast
 public import CFSG.LocalAnalysis.RankThreeUC.Section3.CoprimeSpecialGroups.CommPowPow
 public import CFSG.GroupTheory.CoprimeActionSupport.FixedFreeNormalizerScalarExtension

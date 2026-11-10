@@ -3,7 +3,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M24Clos
 public import CFSG.Quasithin.Background.E2TwoProofSporGen
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24Base
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M24Act
 
 public section

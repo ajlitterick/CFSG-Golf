@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinTwoTBMain
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenLinTwoLabel
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySplitRefl
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordAux
 public import CFSG.GroupTheory.IndexThreeCosets
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaLocalAutAux2

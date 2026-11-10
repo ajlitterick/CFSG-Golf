@@ -44,11 +44,8 @@ public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.General
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S152N11
 public import CFSG.Quasithin.Vol2.Ch12Sec8NonabHatTen
 public import CFSG.RankThree.Lattice.SteinbergBIE6EvenBruhat

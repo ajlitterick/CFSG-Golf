@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TriageSL4Gen
 public import CFSG.ClassicalInvolution.RouteD.TwinSL4BridgeBase
-public import CFSG.ClassicalInvolution.RouteD.SmallTwinChainX
 public import CFSG.ClassicalInvolution.RouteD.GapsPatternD
 public import CFSG.ClassicalInvolution.RouteD.TwinTenNodes
 public import CFSG.ClassicalInvolution.MilestoneAssemblyCore

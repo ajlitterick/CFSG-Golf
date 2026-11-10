@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenBN.U4.CaseOneOuter
 public import CFSG.LocalAnalysis.EvenBN.U4.CaseOneOuterSwap
 public import CFSG.LocalAnalysis.EvenBN.U4.CaseOneEndgame
-public import CFSG.LocalAnalysis.EvenBN.Common.SL2TorusNine
 
 public section
 

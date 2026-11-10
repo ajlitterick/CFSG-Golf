@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGExcCompFieldInput
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidDescent
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimple
 import CFSG.LocalAnalysis.StandardType.GGLangCoroot
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerE8Five

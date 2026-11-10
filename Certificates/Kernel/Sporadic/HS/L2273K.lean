@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.HS.L2273D
 public import Certificates.Kernel.LocalQT.SV.C4126T
 public import Certificates.Data.Kernel.Spor.HSL2273
-public import Certificates.Data.Kernel.Spor.Mathieu
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.SmallOddCore.HSCosetInputs
 

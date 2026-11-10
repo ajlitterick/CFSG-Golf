@@ -7,8 +7,6 @@ public import Certificates.Kernel.Fi22Twist.CjFacts
 public import Certificates.Kernel.Sporadic.Fi22.C2066
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtSylow
 public import CFSG.Certificates.Kernel.Fi22Twist.Q01Sound
-public import CFSG.Certificates.Kernel.Common.ForallTree
-import Mathlib.Tactic.IntervalCases
 
 public section
 

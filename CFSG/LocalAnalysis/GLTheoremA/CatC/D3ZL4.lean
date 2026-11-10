@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZL2
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZL3
-public import CFSG.LieType.Chevalley.ParabolicRadicalLevi
-public import CFSG.LieType.Chevalley.BorelOvergroups
 
 set_option linter.unusedSectionVars false
 

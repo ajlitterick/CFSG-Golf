@@ -1,19 +1,13 @@
 module
 
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Spor
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.Final
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.RuNo65
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.SuzNo65
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.Fi22No65
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.ThNo65
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.Fi23No65
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.Fi24No65
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.ThNo186
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.LyNo186
 public import CFSG.HardMathSupport.Solomon.Coordinator.I14_20Co1
 public import CFSG.Sporadic.Schreier.TitsOuter
-public import CFSG.Sporadic.Schreier.TitsCert
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.P1ThreeSporOrders
 public import CFSG.Open.MonsterY443Finiteness
 public import CFSG.Sporadic.Bridge.Converse
 public import CFSG.RankThree.PartOne.SPOR.OuterSimple
@@ -34,7 +28,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

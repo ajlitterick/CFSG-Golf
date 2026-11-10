@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.LocalComp.BfsGen
 public meta import CFSG.Certificates.Kernel.Common.Tab
 public meta import Lean

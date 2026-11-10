@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264X1ExcF4Red
 public import CFSG.LocalAnalysis.StandardType.GGExcFrameNormIsoF4
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoFusionLang
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Three
 public import CFSG.GroupTheory.PLayer.Transport
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.Down

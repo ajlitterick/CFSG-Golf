@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BFiveAInputs
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BFiveTwoB
 public import CFSG.Monster.B.Final.SeedUnit
 public import Certificates.Certificate13612

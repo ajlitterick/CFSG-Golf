@@ -1,14 +1,7 @@
 module
 
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.Member
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.T81.Coord
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.T81.Defs
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.T81.Plane
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.T81.Cover
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.T81.Decomp
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.T81.Triple
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.T81.TripleApp
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.T81.Diagonal
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.T81.Gen
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.T81.Final
 

@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.Rank
-public import Mathlib.Data.ZMod.Basic
 
 public section
 

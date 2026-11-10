@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJCoordRefl
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpBlock
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticTorus
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenSpGen
 
 public section
 

@@ -1,7 +1,6 @@
 
 module
 
-public import Certificates.Kernel.Sporadic.Co2.FVecs
 public import Certificates.Kernel.Sporadic.Co2.FRows
 public import Certificates.Kernel.SporSch.Co2M.Seeds
 public import CFSG.Certificates.Kernel.SporSch.PosTable

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGOrthKStructDefs
 
 import CFSG.LocalAnalysis.StandardType.StarFour.Dictionary
 import CFSG.LocalAnalysis.ComponentClassification.OddClassSelectorBasic
-import CFSG.Open.StatedAPI
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueUStatement
 import CFSG.LocalAnalysis.ComponentClassification.GSLitInputs

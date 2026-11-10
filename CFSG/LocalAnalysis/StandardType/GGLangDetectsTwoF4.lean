@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangDetectsTwoF4Class
 public import CFSG.LocalAnalysis.StandardType.GGLangDetectsTwoRefl
-import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.F4TwoRoots
-import CFSG.LieType.Chevalley.KernelComponentRoots
 
 public section
 

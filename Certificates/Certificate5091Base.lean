@@ -1,11 +1,6 @@
 
 module
 
-public import CFSG.GH74.GLS.C3.Layer2.FinModelEmb
-public import CFSG.GH74.GLS.C3.Layer2.NumMoved
-public import CFSG.GH74.GLS.C3.Layer2.FinModelCard
-public import Mathlib.Data.List.FinRange
-public import Mathlib.GroupTheory.Perm.Fin
 public import CFSG.GH74.GLS.C3.Prop121.ModelFiveInputs
 import CFSG.GH74.GLS.C3.Prop121.ModelFiveBase
 public meta import CFSG.GH74.GLS.C3.Prop121.ModelFiveBase

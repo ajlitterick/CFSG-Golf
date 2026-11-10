@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LargeExtraspecial.S63CD4Inputs
 public import Certificates.Data.D4HexLinkCheck
 public import Certificates.Data.D4HexLocWords
 

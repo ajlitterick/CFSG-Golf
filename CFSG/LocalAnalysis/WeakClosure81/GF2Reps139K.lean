@@ -1,12 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139Defs
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139C
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139Cliff
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139F
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139E
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139G
-public import CFSG.LocalAnalysis.WeakClosure81.SixFourteenHyp139N3Layer
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps13OneBetaCA
 
 public section

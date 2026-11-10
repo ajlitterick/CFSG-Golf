@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalGraphPlus
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
-public import CFSG.LieType.Universal.Spin.Datum
-public import CFSG.LieType.Universal.Spin.Roots.TypeD
 
 public section
 

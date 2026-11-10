@@ -1,14 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusFrame
 public import CFSG.LocalAnalysis.StandardType.GGTorusLangCoordinates
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusLarge
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcNonsLang
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcNorm
 public import CFSG.LocalAnalysis.StandardType.GGRealKGExcNegJ
 public import CFSG.RankThree.PartOne.KE.E8RootCharacterTorus
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwTorus
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtCore
 
 public noncomputable section
 

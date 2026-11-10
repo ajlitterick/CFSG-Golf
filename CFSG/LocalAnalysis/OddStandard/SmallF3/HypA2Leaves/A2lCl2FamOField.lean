@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOmegaField
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOmegaForms
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOmega
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalFieldFixed
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalFixedTransfer
-public import CFSG.RankThree.Classical.SteinbergBYOrthogonalGates
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestBasic
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestInvQV
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestLevi
 public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalRoots

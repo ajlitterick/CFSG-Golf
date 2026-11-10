@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1CentralCover
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1Transport
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureCyclicOddQuotientLift
 
 public section
 

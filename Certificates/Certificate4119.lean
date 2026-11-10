@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3M24Data
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3Cert2
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3Invo
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3X1
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3Fix
-public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3M24Inputs
 import Certificates.Kernel.LocalQT.Core.C4119g
 import Certificates.Kernel.LocalQT.Core.C4119hexE
@@ -45,20 +41,13 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3StructureBasic
 public import CFSG.Quasithin.Background.B1Basic
 public import CFSG.Quasithin.Background.C1GNInputs
 public import CFSG.Quasithin.Background.C1GNNotation
 public import CFSG.Quasithin.EmptyFaithful.QTKELocal
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2RootGroups
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import Certificates.Certificate43
 public import Certificates.Kernel.LocalQT.Core.C4119ic
 import CFSG.Certificates.Kernel.LocalQTCoreCSound
@@ -75,9 +64,7 @@ import CFSG.Quasithin.Background.A3Structure318Red
 import CFSG.Quasithin.Background.A3Structure36A
 import CFSG.Quasithin.Background.A3Structure36BAction
 import CFSG.Quasithin.Background.A3Structure36BBase
-import CFSG.Quasithin.Background.A3Structure36BCase3Base
 import CFSG.Quasithin.Background.A3Structure36BCasesBase
-import CFSG.Quasithin.Background.A3Structure36BCommonBase
 import CFSG.Quasithin.Background.A3Structure36BFrattini
 import CFSG.Quasithin.Background.A3Structure36BHeisBase
 import CFSG.Quasithin.Background.A3Structure36BHomocyclic
@@ -89,11 +76,6 @@ import CFSG.Quasithin.Background.B1MoreElevenE
 import CFSG.Quasithin.Background.B1MoreNineG
 import CFSG.Quasithin.Background.C2Basic
 import CFSG.Quasithin.Background.E1
-import CFSG.Quasithin.Background.E1Sec4
-import CFSG.Quasithin.Background.E1Sec5
-import CFSG.Quasithin.Background.E1Sec8
-import CFSG.Quasithin.Background.E1Solv
-import CFSG.Quasithin.Background.E1Twelve
 import CFSG.Quasithin.Background.E3Cent
 
 set_option maxRecDepth 100000

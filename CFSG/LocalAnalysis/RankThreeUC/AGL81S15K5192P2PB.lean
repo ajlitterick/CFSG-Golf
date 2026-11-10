@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
-public import CFSG.LieType.BorelTits.Basic
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 
 public section
 

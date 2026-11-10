@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortDefs
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotBlocks
 
 public section

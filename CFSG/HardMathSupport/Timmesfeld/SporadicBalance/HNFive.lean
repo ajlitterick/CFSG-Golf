@@ -6,7 +6,6 @@ public import CFSG.RankThree.PartOne.SPOR.HNPlane
 public import CFSG.RankThree.PartOne.HNB.NativeAssembly
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Criteria
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.WitnessCore
-public import CFSG.Sporadic.HNSchreier.Intrinsic
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2

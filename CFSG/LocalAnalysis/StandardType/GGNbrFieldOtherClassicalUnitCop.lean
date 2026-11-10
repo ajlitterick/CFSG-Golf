@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniGeom
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenUnitaryIrred
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNsWrap
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylIrredLabels
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylRest13Known
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas
 
 public section

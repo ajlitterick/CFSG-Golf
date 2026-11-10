@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDCells
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameCfg
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameModule
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameB
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameRoots

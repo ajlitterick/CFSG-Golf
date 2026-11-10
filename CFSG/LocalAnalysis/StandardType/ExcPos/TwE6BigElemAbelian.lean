@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6UnitaryThree
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6CubeDecomp
-public import CFSG.LieType.Chevalley.E6GraphLeviIntersections
-import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.Open.StatedCenterThree
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.U62ThreeCentDet
 
 public section

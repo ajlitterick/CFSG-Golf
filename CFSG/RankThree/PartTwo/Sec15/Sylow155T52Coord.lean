@@ -6,22 +6,18 @@ import CFSG.RankThree.PartTwo.Toolkit.BloomMonoStd
 import CFSG.RankThree.PartTwo.KFacts.K74Normal
 import CFSG.RankThree.PartTwo.Sec13.Item135CritProofTrans
 public import CFSG.GroupTheory.HallHigmanPiCore
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.Foundations
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.LieType.Chevalley.LangRootArithmetic
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 import CFSG.RankThree.PartTwo.NotationBlocks
 import CFSG.RankThree.PartTwo.Sec8.Pairs
 import CFSG.RankThree.PartTwo.Sec8.Statements
 import CFSG.StronglyEmbedded.ParityCriterion
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

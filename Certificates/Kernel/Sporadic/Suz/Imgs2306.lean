@@ -6,11 +6,8 @@ public import Certificates.Kernel.Bounds.Suz.Binding
 public meta import Certificates.Data.CFSGNative.Bridge.SuzGPL
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import CFSG.Sporadic.SuzOddCore.Arrays
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.Certificates.Kernel.Spor.PresCard
-public import Mathlib
 
 public section
 

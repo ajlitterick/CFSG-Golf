@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialUnitaryOrbit
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreePointwise
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632WeylDatum
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632B1Rows
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24A2CubeClass
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenAsm

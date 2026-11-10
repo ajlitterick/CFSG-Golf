@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.KGFactJ4M3KL
-public import CFSG.Quasithin.Vol2.KGFactJ4M3Core
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtFamJ4M3
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtFamJ4Def
 public import CFSG.Quasithin.EmptyFaithful.Stellmacher.CriticalDistanceGeometry.L3YC.Row17Gen
 
 public section

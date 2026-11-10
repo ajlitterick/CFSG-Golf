@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGRootGenAvoidReflFamily
 public import CFSG.LocalAnalysis.StandardType.GGRootGenAvoidCenterPrime
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwE6Sylow
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6RankOuter
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaCenter
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
-public import CFSG.LieType.SeitzGeneration.ExcTorusCount
 
 public section
 

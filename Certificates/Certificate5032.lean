@@ -3,7 +3,6 @@ module
 public import Certificates.Data.CFSGNative.Filter.HeData
 import CFSG.Certificates.Kernel.OpsLayKSoundP
 import Certificates.Kernel.LocalComp.Fp.He
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 public import CFSG.GH74.Filter.Witness
 

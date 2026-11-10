@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeM3Deg1
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeM3RSHom
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeM3RSFlag
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelPSL
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPSL
 
 public section
 

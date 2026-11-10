@@ -4,7 +4,6 @@ public import CFSG.CGT.PushingUpLit.BHS.FourSixB
 public import CFSG.CGT.PushingUpLit.BHS.FourSymD
 public import CFSG.CGT.PushingUpLit.BHS.FourSymC
 public import CFSG.CGT.PushingUpLit.BHSSym.Coxeter
-public import CFSG.CGT.PushingUpLit.BHSSym.Delta
 public import CFSG.CGT.PushingUpLit.BHSSym.Stabilizer
 
 public section

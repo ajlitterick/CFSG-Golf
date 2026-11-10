@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreLabels
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Aut
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTorus
 
 public section
 

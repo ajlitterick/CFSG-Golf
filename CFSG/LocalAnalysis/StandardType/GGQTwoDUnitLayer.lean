@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDeleteStd
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 import CFSG.LocalAnalysis.StandardType.GGQTwoSU34Aux6
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTwE6
 

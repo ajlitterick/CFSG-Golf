@@ -7,8 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGSignedCoordRefl
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallSpTwoDelta
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperRootPerm
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdLabel
-import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
-import Mathlib.LinearAlgebra.Matrix.BilinearForm
 import CFSG.ClassicalGroups.Symplectic.StandardForm
 import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.GLVecAction
 

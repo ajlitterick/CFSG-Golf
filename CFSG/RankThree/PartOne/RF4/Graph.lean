@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.RF4.Basic
 public import CFSG.LieType.AlgebraicGroups.G2ExceptionalRegularity
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

@@ -4,13 +4,10 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankTable
 public import CFSG.Open.GriessAllModelsStatement
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankChevSigma
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsLie
-import CFSG.GroupTheory.WeirSylow.Symplectic
 import CFSG.GroupTheory.WeirSylow.Orthogonal
 import CFSG.RankThree.PartTwo.Census.Carrier.SpinBBridge
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2Carrier
 import CFSG.RankThree.PartOne.KF.ClsOmega
 import CFSG.LargeExtraspecial.DWFldLinear
-import CFSG.Open.StatedAPI
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations

@@ -1,13 +1,8 @@
 module
 
-public import CFSG.Sporadic.Schreier.Co1SignedMono
-public import CFSG.Sporadic.Schreier.Co1ElemThreeSigned
-public import CFSG.Sporadic.Mathieu.M12
 public meta import CFSG.Sporadic.Schreier.Co1ElemData
 public meta import CFSG.Sporadic.Schreier.Co1ElemThreeData
 public import Certificates.Certificate2146
-public import Certificates.Certificate3086
-public import Certificates.Certificate16017
 
 public section
 

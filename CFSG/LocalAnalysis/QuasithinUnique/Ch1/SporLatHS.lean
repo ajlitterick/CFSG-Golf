@@ -4,18 +4,9 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHSBase
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHSBase
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRows
 import all CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHS
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
-public import Certificates.Data.CFSGNative.SporLat.Build
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHSInputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHSFacts
 public import Certificates.Certificate4102
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBaseVec
-public import CFSG.Sporadic.HS
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHSInputs
-public import Certificates.Data.CFSGNative.HS.Data
 
 public section
 

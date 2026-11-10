@@ -1,7 +1,6 @@
 module
 
 import CFSG.Certificates.Kernel.BabyMonster.Load
-public import CFSG.Certificates.Kernel.BabyMonster.F2
 public import CFSG.Certificates.Kernel.BabyMonster.Render
 public import CFSG.Certificates.Kernel.BabyMonster.Transfer.Data0
 public import CFSG.Certificates.Kernel.BabyMonster.Transfer.Data1

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Defs
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
-import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.JointShapesPart2
-import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.F4LowRankShapes
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.SelectedLiteralPart2
 
 public section

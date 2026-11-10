@@ -1,13 +1,9 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec8.Hering418FU4Blk
-import CFSG.RankThree.PartTwo.Sec4.Item417Res6ProofU4
 import CFSG.RankThree.PartTwo.Sec4.Item419Res2ProofE27
 import CFSG.RankThree.PartTwo.Sec4.Item417Res6ProofSp4
-import CFSG.RankThree.PartOne.KF.UnitaryModel
 import CFSG.RankThree.PartOne.KF.R9Perm
-import CFSG.RankThree.PartOne.KF.UnitaryTorus
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 
 public section
 

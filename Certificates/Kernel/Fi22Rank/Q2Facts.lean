@@ -5,14 +5,10 @@ public import Certificates.Kernel.Fi22Rank.Q2Kill
 public import Certificates.Kernel.Fi22Rank.Q2Text
 public import CFSG.Certificates.Kernel.Fi22Rank.Sound
 public import CFSG.Certificates.Kernel.Fi22Rk.Side
-public import CFSG.Certificates.Kernel.Spor.HexNumsSound
 public import CFSG.Certificates.Kernel.Common.ForallTree
 public import Certificates.Data.Fi22Twist
 public import CFSG.Certificates.Kernel.Spor.RawOrbHead
-public import CFSG.Certificates.Kernel.Spor.PinvSSound
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
-public import CFSG.Open.Defs
 
 public section
 

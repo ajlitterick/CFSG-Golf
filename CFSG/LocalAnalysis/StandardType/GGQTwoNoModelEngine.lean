@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGWAutProp898
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAssemble
-public import CFSG.LocalAnalysis.StandardType.GGQTwoReduction
 
 public section
 

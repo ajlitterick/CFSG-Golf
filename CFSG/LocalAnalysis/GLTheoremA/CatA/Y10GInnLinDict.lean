@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinPieces
 public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.Timmesfeld.Orders.ClassicalLinear
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2

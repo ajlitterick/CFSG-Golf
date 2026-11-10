@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CBlockOrthB
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CBlockLinC
-import CFSG.RankThree.PartOne.KC.OrthogonalQPlusOnePlanes
-import CFSG.RankThree.PartOne.KC.OrthogonalPrimaryPairing
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.Orth3Plane
 import CFSG.GroupTheory.QuasisimpleCenterDivisibility
 
 public section

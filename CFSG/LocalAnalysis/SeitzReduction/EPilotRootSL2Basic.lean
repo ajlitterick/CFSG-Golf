@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.SeitzReduction.EPilotToral
 public import CFSG.LieType.Chevalley.GraphFixedHighestRoot
 public import CFSG.LieType.Chevalley.E7SupportedBruhatTorus
-public import CFSG.LieType.Chevalley.GraphFixedMonomialQuotient
 public import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
 public import CFSG.LieType.Chevalley.C2E6SubsystemBruhat
 

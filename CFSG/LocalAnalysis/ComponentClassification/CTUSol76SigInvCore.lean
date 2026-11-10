@@ -1,10 +1,7 @@
 module
 
-public import CFSG.ClassicalInvolution.Balance.LocalBalance.Faithful
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitLocalBalanceTypes
-public import CFSG.LocalAnalysis.ComponentClassification.Sol76LStruct
 public import CFSG.LocalAnalysis.ComponentClassification.Sol76Lemma212Steps
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

@@ -1,11 +1,8 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3VF4Frame
-public import CFSG.ClassicalInvolution.Q3.Q3VCtMain
 public import CFSG.ClassicalInvolution.Q3.Q3VCtMainSub
-public import CFSG.ClassicalInvolution.WeakCT.DLDiagrams
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofSp4Levi
-public import CFSG.Timmesfeld.RankTwo.LeviData
 public import CFSG.LieType.CurtisTits.Adjoint
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 public import CFSG.LieType.Universal.Spin.Generation

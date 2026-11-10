@@ -1,15 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22f
-public import CFSG.Goldschmidt.BasicG
-import CFSG.Goldschmidt.Steps.G3aBorel
-import CFSG.LocalAnalysis.QuasithinUnique.RankOneRecognitionCover
 import CFSG.GH74.KGroups.CoverEven
 import CFSG.GH74.KGroups.PSL2
 import CFSG.Blueprint.LieModelAPI
-import CFSG.LieType.BorelTits.Suzuki
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-import CFSG.Walter.PSL2Facts.Even
 
 public section
 

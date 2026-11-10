@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148HCensusCover
-public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.L37.Kit
 public import CFSG.RankThree.PartTwo.KFacts.KS12MovesSL
 public import CFSG.RankThree.PartTwo.Sec12.Item128BarProofStatements
 

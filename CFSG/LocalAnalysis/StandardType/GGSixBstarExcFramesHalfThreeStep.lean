@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBWeylImage
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeHat
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeModel
 
 public section
 

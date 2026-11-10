@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.NormalFourGeometry
 public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -3,10 +3,6 @@ module
 public import CFSG.Sporadic.Schreier.J1CountCheckInputs
 public meta import CFSG.Sporadic.Schreier.J1Tables
 public meta import CFSG.Sporadic.Schreier.ClassSum
-import Certificates.Certificate2164
-import Certificates.Certificate2165
-import Certificates.Certificate2166
-import Certificates.Certificate2167
 import CFSG.Sporadic.Schreier.J1Counts
 import CFSG.Literature.GL52Group
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs

@@ -8,7 +8,6 @@ public import CFSG.Certificates.Kernel.Co1.Data.C4_Sel
 public import CFSG.Certificates.Kernel.Co1.Data.M1S_0
 import Certificates.Kernel.Co2.Intro
 import Certificates.Kernel.Co1.FactsC34
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Co1.Checks.Bind
 import CFSG.Certificates.Kernel.Co1.Checks.C3
 import CFSG.Certificates.Kernel.Co1.Checks.C4

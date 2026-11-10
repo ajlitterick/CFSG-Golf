@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-import Mathlib.LinearAlgebra.Matrix.Nondegenerate
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.Tits.Order2264
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

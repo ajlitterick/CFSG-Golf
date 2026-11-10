@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmDiag
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 public import CFSG.RankThree.PartOne.KC.OrthogonalInnerPlaneDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmEigen
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmFour
-import CFSG.ClassicalGroups.Orthogonal.Hyperbolic
-import CFSG.ClassicalGroups.Orthogonal.Models
-import CFSG.GroupTheory.LocalCores.Components
 import CFSG.LieType.SeitzGeneration.OrthNonsplitTools
 public import CFSG.RankThree.PartOne.KC.OrthogonalHighWittFixedSpace
 import CFSG.ClassicalInvolution.Models.SymplecticPairs.ShortRoot

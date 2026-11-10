@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.TabBigKlein
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.TabBigL217
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.TabBigL33
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.TabBigM11
@@ -12,7 +11,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Containment
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6A312Rank2
 public import CFSG.Quasithin.Background.A3Structure312
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
 
 public section
 

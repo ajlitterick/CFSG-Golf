@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6UniqueCompLabel
 public import CFSG.LocalAnalysis.StandardType.GGExcCompSLMarking
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6Bridge
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
-import CFSG.LocalAnalysis.StandardType.GGInndiagCommRestE6
 
 public section
 

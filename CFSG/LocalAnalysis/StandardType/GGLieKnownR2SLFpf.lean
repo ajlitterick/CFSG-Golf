@@ -3,7 +3,6 @@ module
 public import CFSG.LinearAlgebra.RootGroupSL.FpfCommon
 public import CFSG.LinearAlgebra.RootGroupSL.NormalizerX
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2Filtration
-import Mathlib.FieldTheory.Finite.Extension
 public import CFSG.LinearAlgebra.RootGroupSL.FpfArith
 
 public section

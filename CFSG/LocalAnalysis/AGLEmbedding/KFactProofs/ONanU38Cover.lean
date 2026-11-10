@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanU38Vec
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CenterHopf
 public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 public import CFSG.LieType.Steinberg.CentralExt.MultiplierCongr
-public import Mathlib.GroupTheory.Commutator.Basic
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

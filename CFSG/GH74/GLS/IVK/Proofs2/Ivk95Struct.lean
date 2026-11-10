@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma111a
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartOne.SPOR.Co1PlanesData
 public import Certificates.Kernel.Co1Planes.Checks
 public import Certificates.Kernel.Co1ThreeK.GlueCensus
 public import Certificates.Kernel.Co1B.Iota

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelOmCompBasic
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelUCompAlign
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelUCompRoots
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelOmFrame
 
 public section

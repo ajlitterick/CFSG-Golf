@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10TypeDict
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec2FiveInv
 
 public section
 

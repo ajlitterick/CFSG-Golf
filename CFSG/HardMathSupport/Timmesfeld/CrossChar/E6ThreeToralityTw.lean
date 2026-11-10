@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeToralityProof
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwFrob
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
 public import CFSG.LieType.Steinberg.CentralExt.F4E8Multiplier
 public import CFSG.LocalAnalysis.ComponentInitial.CentralCoverAbelian

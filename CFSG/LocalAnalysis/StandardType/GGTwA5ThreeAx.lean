@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeIndep
 public import CFSG.LocalAnalysis.StandardType.GGResXDatumAHL
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 
 public section
 

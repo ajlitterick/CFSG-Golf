@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.AlternatingEightCoverSmallModules
-public import CFSG.LocalAnalysis.StandardType.SpFixedNorm
 public import CFSG.LocalAnalysis.StandardType.SpFixedSpaceDual
-public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 
 public section
 

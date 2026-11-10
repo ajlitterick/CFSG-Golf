@@ -3,7 +3,6 @@ module
 
 public import CFSG.Certificates.Kernel.ThCent.WitSoundBase
 
-public import CFSG.Certificates.Kernel.ThCent.Model
 public import CFSG.Certificates.Kernel.Th.Spec.FwdRel
 import CFSG.Certificates.Kernel.Th.Max3S.Words
 

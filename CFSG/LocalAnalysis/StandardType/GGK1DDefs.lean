@@ -1,14 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1Cover
-public import CFSG.LocalAnalysis.StandardType.GGK1Defs
 public import CFSG.LocalAnalysis.StandardType.GGK1SigmaAbs
-public import CFSG.Assembly.GL83LieDefs
-public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
-public import CFSG.RankThree.PartOne.KC.OrthogonalPrimaryPairing
-public import CFSG.RankThree.PartOne.KC.OrthogonalSupportedBlocks
-public import CFSG.LieType.Universal.SpinOmega.Center
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenIso
 
 public section

@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.ONPv.Facts
 public import Certificates.Kernel.Sporadic.ON2.Assemble
 public import CFSG.Sporadic.Bridge.ONSurj
-public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.AlphaCheck
-public import CFSG.Sporadic.Schreier.ONOuterDefs
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 
 public section

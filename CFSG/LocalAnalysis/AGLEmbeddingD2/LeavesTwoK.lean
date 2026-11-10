@@ -5,26 +5,13 @@ public import CFSG.CGT.PushingUpLit.SolKAb.Residue
 public import CFSG.CGT.PushingUpLit.Statements
 import CFSG.CGT.PushingUpLit.SolKR2.Top
 import CFSG.RankThree.PartOne.S12.SolInputs
-import CFSG.LieType.Steinberg.CentralExt.GriessTwistedE6Two
-import CFSG.LieType.Steinberg.CentralExt.TwistedE6TwoMultiplierRow
 import CFSG.CGT.PushingUpLit.CGT6K1.Contract
 import CFSG.LocalAnalysis.ComponentClassification.GSThmBAschbacherFive
-import CFSG.LocalAnalysis.ComponentClassification.AschbacherKnownGroupFactsAssembly
 import CFSG.RankThree.PartOne.TCB.SchreierFinal
-import CFSG.LocalAnalysis.ComponentClassification.Asc75T4Main
-import CFSG.LocalAnalysis.ComponentClassification.Asc75T4ConjNormFinal
-import CFSG.LocalAnalysis.ComponentClassification.Asc75T4EndGame
-import CFSG.LocalAnalysis.ComponentClassification.Asc75T4RankOne
-import CFSG.LocalAnalysis.ComponentClassification.Asc75Theorem3
-import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem5Final
 import CFSG.CGT.PushingUpLit.K1R.Dispatch
 import CFSG.HardMathSupport.Foote.Coordinator.Final
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltOpen
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltEvenCenter
-import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltGenFusion2
-import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltGenRoot
-import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltGenCent
-import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltFiveEps
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltFiveM12NotTop
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltFiveCaseI
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltGenSmall
@@ -37,29 +24,12 @@ import CFSG.CGT.M24S.Main
 import CFSG.LocalAnalysis.EvenSporadicStandard.Finkelstein77.Lemma25HResidual
 import CFSG.LocalAnalysis.ComponentClassification.HallQ8Main
 import CFSG.CGT.PushingUpLit.C2L.Print55
-import CFSG.CGT.PushingUpLit.LIT.Foote.E1a
-import CFSG.CGT.PushingUpLit.SolomonTimmesfeld
-import CFSG.CGT.PushingUpLit.SolK.TightOrders
-import CFSG.CGT.Timmesfeld75.ListWCCert
-import CFSG.CGT.PushingUpLit.T2KR.Asc78FromThreeS
-import CFSG.CGT.PushingUpLit.A78S4.FromCfg
 import CFSG.CGT.PushingUpLit.A78G0.Top
-import CFSG.CGT.PushingUpLit.SYMB.IHInterface
 import CFSG.CGT.PushingUpLit.SYMB.FiveRigid
 import CFSG.RankThree.PartOne.KEXC.SL2Final
 import CFSG.CGT.PushingUpLit.BHS7.PushUpPerfectTwo
 import CFSG.CGT.PushingUpLit.CGT6.SixFourTail6
-import CFSG.Timmesfeld.Bridge.Asc72ZMain
-import CFSG.CGT.Timmesfeld75.FinalReduced4
-import CFSG.CGT.T75N.BenderCenter
-import CFSG.CGT.T75N.UnitaryTwoGen
-import CFSG.CGT.PushingUpLit.T2K.Bundle
 import CFSG.CGT.PushingUpLit.T2K.BundleHall
-import CFSG.CGT.PushingUpLit.T2K.BundleNonSylow
-import CFSG.CGT.Timmesfeld75.GoldschmidtMilestone
-import CFSG.CGT.PushingUpLit.CGT6.SixSixteenNormal
-import CFSG.CGT.PushingUpLit.CGT6.SixFourSixStep
-import CFSG.CGT.PushingUpLit.CGT6.EmbK
 import CFSG.CGT.PushingUpLit.T2KR.BenderSuzukiHolds
 import CFSG.CGT.PushingUpLit.T2KR.TorusSzSec3
 public import CFSG.Assembly.QuasithinDefs
@@ -133,13 +103,11 @@ public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
 public import CFSG.Sporadic.Ly.OrbitSpec
-public import CFSG.Sporadic.Ly.PrimitiveBase
 public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.ON.ActionBase
 public import CFSG.Sporadic.ON.CertificateBase
 public import CFSG.Sporadic.ON.ChainBase
 public import CFSG.Sporadic.ON.LinesBase
-public import CFSG.Sporadic.ON.PrimitiveBase
 public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Sporadic.Presentation.Co1
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
@@ -161,13 +129,6 @@ public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.Schreier.M23
 public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
-public import CFSG.Sporadic.Th.KernelPlanesBase
-public import CFSG.Sporadic.Th.KernelSimpleBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.Timmesfeld.ARS.CaseEFrame
 public import CFSG.Timmesfeld.ARS.CaseMSU
 public import CFSG.Timmesfeld.ARS.CaseMSpLevi
@@ -187,7 +148,6 @@ import CFSG.GH74.GLS.C3.Layer1.BkIvk73Q
 import CFSG.GH74.GLS.C3.Layer2.L5C19
 import CFSG.GH74.GLS.C3.Layer2.L5C5c
 import CFSG.GH74.GLS.IVK.Proofs2.Ivk95J3
-import CFSG.GH74.GLS.IVK.Proofs2.Stmt111c
 import CFSG.GH74.GLS.LU.Local.A3Reduce2
 import CFSG.GH74.GLS.Stage2.Final.LayerFDerive
 import CFSG.GH74.GLS.Stage2.Final.Thm4.Core
@@ -224,14 +184,10 @@ import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36AltPerm
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36MType
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36SporMult
 import CFSG.LocalAnalysis.ComponentClassification.J2CoverModels
-import CFSG.LocalAnalysis.ComponentClassification.OddSelector
-import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinearSocle
 import CFSG.LocalAnalysis.ComponentClassification.RestrictedStdFamilies
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField
 import CFSG.LocalAnalysis.ComponentInitial.GL3TwoFixedModelCases
-import CFSG.LocalAnalysis.ComponentInitial.ProjectiveEigenspaceComponent
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122AProved
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Block
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Delta5Fin
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Inputs
@@ -299,7 +255,6 @@ import CFSG.RankThree.PartOne.KC.UnitaryLiftBlocks
 import CFSG.RankThree.PartOne.KF.UnitaryModel
 import CFSG.RankThree.PartOne.SPOR.OuterSimple
 import CFSG.RankThree.PartTwo.Census.Classical.EvenUnitary
-import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 import CFSG.Sporadic.Bridge.Catalogue
 import CFSG.Sporadic.HeldB.OuterFixed
@@ -307,7 +262,6 @@ import CFSG.Sporadic.Presentation.Co2Base
 import CFSG.Sporadic.Presentation.Co2Cover
 import CFSG.Sporadic.Presentation.Co2Fusion
 import CFSG.Sporadic.SuzOddCore.SmallActionData
-import CFSG.Walter.J1Props
 import CFSG.Walter.W67.W2Lemma26A
 import CFSG.YGroups.DCE.MaximalB
 import CFSG.YGroups.Y443.Native.Parabolic2CheckB

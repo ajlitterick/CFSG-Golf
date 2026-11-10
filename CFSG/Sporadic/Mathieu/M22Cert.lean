@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.Mathieu.M22
 public meta import Certificates.Data.CFSGNative.Mathieu.M22
 public import Certificates.Certificate3029
 

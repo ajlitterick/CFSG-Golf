@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9SpAmbient
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9SignLin
-public import Mathlib.RingTheory.Trace.Basic
-public import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
 import TauCeti.LinearAlgebra.BilinearForm.Prod
-import CFSG.Quasithin.Vol2.Ch7Prop711Facts
-public import CFSG.LocalAnalysis.StandardType.GGAutomizerEquiv
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9SpCover
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9LinearAmbient
 import CFSG.GH74.E2.DirectProd

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTPNTwA6Defs
 public import CFSG.LocalAnalysis.StandardType.GGTPNExcKacDatum
 public import CFSG.LocalAnalysis.StandardType.GGTPNExcTwoSlices
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGB36JExcE6Core
 public import CFSG.LocalAnalysis.StandardType.GGB36JExcE6Hard
 

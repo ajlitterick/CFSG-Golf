@@ -5,7 +5,6 @@ public import CFSG.LieType.Steinberg.TwistedE6.Clause0
 public import CFSG.LieType.Steinberg.Exceptional.Fields
 public import CFSG.LieType.Chevalley.TwistMapFixed
 public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
-public import CFSG.LieType.CurtisTits.Recognition
 
 public noncomputable section
 

@@ -1,37 +1,21 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970API
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ControlCore
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.OddQCoreCentralized
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.OddPCoresCentralizeFitting
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.FittingCentralizedInvolutionTwoCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.MinimalCounterexample
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PreambleHSU
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PreambleInvolutions
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma21
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma22
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ComplementConjugacy
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Reflection
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ComponentPGL2AmbientCentralizers
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.DihedralCentralizerInvolutionConjugator
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.InvolutionNormalizerInfConjugate
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalizerFixesCentralInvolutionOfLargeDihedralSubgroup
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CentralInvolutionMemLargeDihedralSubgroup
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2DihedralSylow
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DerivedSubgroup
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2InnerAction
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2LowTorusFixedSylow
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2LowReflectedToriCard
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2LowOddCyclicCentralizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralUniqueCentralInvolution
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Center
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeEquiv
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearRingEquiv
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
 
 namespace CFSG
 end CFSG

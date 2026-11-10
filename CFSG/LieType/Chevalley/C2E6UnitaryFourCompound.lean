@@ -2,7 +2,6 @@ module
 
 import all CFSG.Fischer.F4
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourDefs
-public import Mathlib.Tactic.Polynomial.Basic
 
 public noncomputable section
 

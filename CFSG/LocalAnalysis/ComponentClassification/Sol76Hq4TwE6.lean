@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Sol76Hq4O82
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6TwoMultiplierRow
-public import CFSG.LieType.Chevalley.TwistedE6FieldTwoLeviCover
-public import CFSG.LieType.Chevalley.CLSTwistedE6FieldTwoCoverLifts
-public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.Assembly
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.NativeFacts
 public import CFSG.Monster.B.GSide.HInnerFusionI3
-public import CFSG.Monster.B.GSide.EdgeHom
 public import CFSG.LocalAnalysis.ComponentClassification.Sol76Hq4U62
 
 public section

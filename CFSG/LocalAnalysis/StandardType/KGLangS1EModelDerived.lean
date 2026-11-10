@@ -2,15 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.KGLangS1EBridgeFix
 public import CFSG.LocalAnalysis.StandardType.KGLangS1ECover
-public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeMarking
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 
-import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Aut
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagDiag
 import CFSG.LocalAnalysis.StandardType.GGTorusGenE6Cover
 import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitF4Basic
 import CFSG.LocalAnalysis.StandardType.KGLangTorusDatumOfModels
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 
 public section
 

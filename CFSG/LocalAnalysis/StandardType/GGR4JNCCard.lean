@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGR4JNCDefs
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetCard
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHypThreeSixteenFlat
-public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionTop
 
 public section
 

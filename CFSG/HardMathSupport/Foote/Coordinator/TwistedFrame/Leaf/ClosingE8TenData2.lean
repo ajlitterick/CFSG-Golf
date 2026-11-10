@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Leaf.ClosingE8TenData
-public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Frame
 public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Leaf.ClosingE8TenData2K
 
 public section

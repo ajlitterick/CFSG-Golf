@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.UnitarySix.KQFactsBase
 public import Certificates.Kernel.UnitarySix.ASTQ
 public import Certificates.Kernel.UnitarySix.PQ
-import CFSG.Certificates.Kernel.Common.Harness
 
 @[expose] public section
 

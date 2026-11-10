@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcGap
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRMat
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseNoBL5Aut
-public import TauCeti.GroupTheory.DerivedCentralQuotient
 public import CFSG.LocalAnalysis.SeitzReduction.E7PilotFieldNormalizeAutMain
 public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotBLiftAniso
 public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotCatCovers

@@ -88,9 +88,7 @@ public import CFSG.LocalAnalysis.EvenSmallLie.Sp6JCondition
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionNormalTwoFixedPointHull
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionThreePointFullTransport
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4Quot
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C123Alt7
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.Unitary
@@ -106,7 +104,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly
@@ -119,10 +116,8 @@ public import CFSG.Quasithin.Background.C126Split2
 public import CFSG.Quasithin.Background.C1GNC124
 public import CFSG.Quasithin.Background.D14Normal
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.HPairBridge
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithfulMultiple.Inputs2
 public import CFSG.Quasithin.H13.GoldschmidtI51Trans
 public import CFSG.Quasithin.H13.Sp62Over
@@ -164,7 +159,6 @@ public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 import YardstoneContract
 
 public section

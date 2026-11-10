@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LemmaHDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1L5
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 public import CFSG.LocalAnalysis.StandardType.GGInvolutionClassSURoot
-public import CFSG.LieType.Steinberg.BruhatWeyl
 
 public section
 

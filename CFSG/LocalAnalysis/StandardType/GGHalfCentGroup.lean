@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Assembly.LargeEvenDefs
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLCompParts
 
 public section

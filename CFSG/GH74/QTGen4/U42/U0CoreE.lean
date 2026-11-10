@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.QTGen4.U42.U0CoreD
-public import Mathlib.GroupTheory.Index
 public meta import CFSG.GH74.QTGen4.U42.U0CoreD
 public meta import CFSG.Quasithin.H13.A5Setting
 public meta import CFSG.Quasithin.Background.G2A5

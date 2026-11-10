@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.ModHS24
 public import CFSG.Quasithin.EmptyFaithful.ModHM24a
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
 
 public section
 

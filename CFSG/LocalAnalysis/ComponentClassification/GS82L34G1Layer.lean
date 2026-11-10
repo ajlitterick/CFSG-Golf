@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GS82L34G1
 public import CFSG.LocalAnalysis.ComponentClassification.GS82HConfigCtx
-public import CFSG.GH74.GLS.C3.Layer1.Defs
 public import CFSG.GH74.GLS.Stage2.Final.LayerLiftN
 public import CFSG.GH74.Generic.BProg.B1.PilotS1ThreeFacts
-public import CFSG.GH74.Generic.BProg.B1.PilotS3Facts
-public import Mathlib.Algebra.QuadraticAlgebra.Basic
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4TFrameL
 public import CFSG.Sporadic.ThSchreier.Max3Action
 public import CFSG.GH74.GLS.LU.Ident
 public import CFSG.GH74.GLS.Stage12.McLCover
@@ -34,11 +30,9 @@ public import CFSG.LocalAnalysis.ComponentClassification.GS82PumpInputs
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7NoPump
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7OS1U
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7S3g
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82CB10
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82CIA0
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82CIA0Defs
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82CIRed
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82Final
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82FinalA
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82FinalB
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82SecondCentral

@@ -2,17 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcTwE6Defs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACOrthNonFull
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.ClassicalGroups.Orthogonal.Eichler
-public import CFSG.ClassicalGroups.Orthogonal.Hyperbolic
 public import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
 public import CFSG.ClassicalGroups.Orthogonal.OmegaMinus8ThreeLocalRankR
-public import CFSG.RankThree.Classical.SteinbergBJOrthogonalInnerPlane
-public import CFSG.Timmesfeld.Orders.ClassicalOrthogonal
 public import CFSG.GroupTheory.ElemAbelianLiftOddKernel
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.Nilpotent
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 
 public section

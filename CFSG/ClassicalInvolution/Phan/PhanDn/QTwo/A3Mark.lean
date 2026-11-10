@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Phan.PhanDn.QTwo.Defs
 public import CFSG.ClassicalInvolution.Phan.PhanDn.QTwo.NoPSUThree
 public import CFSG.ClassicalInvolution.Phan.PhanDn.QTwo.SUFourRecog
 public import CFSG.ClassicalInvolution.Phan.TorusAgree
@@ -12,9 +11,6 @@ public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D1CaseTwo3DataU
 public import CFSG.RankThree.PartOne.CTP.StrongPClassification
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

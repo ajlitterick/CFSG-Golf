@@ -1,14 +1,7 @@
 module
 
-public import Mathlib
 public import CFSG.ClassicalInvolution.SmallCases.SmallConnP1
 public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootTwinCtx
-public import CFSG.ClassicalInvolution.Asc77.WP3FrameStmt
-public import CFSG.ClassicalInvolution.Asc77.WP3Hyp51
-public import CFSG.ClassicalInvolution.Asc77.WP3LayerPair
-public import CFSG.ClassicalInvolution.Balance.LayerGenerationField
-public import CFSG.ClassicalInvolution.Generic.TypeCSmallSetupFrame
-public import CFSG.ClassicalInvolution.Balance.Theorem5Fuzzy
 
 public section
 

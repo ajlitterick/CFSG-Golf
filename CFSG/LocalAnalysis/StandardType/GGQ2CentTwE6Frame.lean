@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2CentralizerPort
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenFrame
-public import CFSG.LocalAnalysis.StandardType.GGQTwoE6Realization
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACExc
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCavQuotient
 
 public section
 

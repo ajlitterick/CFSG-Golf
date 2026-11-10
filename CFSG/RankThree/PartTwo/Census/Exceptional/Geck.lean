@@ -8,7 +8,6 @@ public import CFSG.Adapters.TauCetiExceptional.GeckG2
 public import CFSG.LieType.Chevalley.LangActualInvolutionReduction
 public import CFSG.LieType.Chevalley.LangStronglyOrthogonalCommute
 public import CFSG.RankThree.Chevalley.EvenPinnedRootSL2
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.GraphTwisted
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.AmbientGroup

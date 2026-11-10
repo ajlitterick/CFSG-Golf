@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenKG
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeRootGenKG
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SplitRootGenKG
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenKG
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenE8Cover
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenE7Final
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenF4KG
@@ -11,21 +10,13 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6PlusRootGenKG
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenF4ThreeKG
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenKG
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Torus
 public import CFSG.LocalAnalysis.StandardType.GGRootGenResQFourL
 public import CFSG.LocalAnalysis.StandardType.GGRootGenResQFourF4Nbr
 public import CFSG.LocalAnalysis.StandardType.GGRootGenResQFourTwE6Nbr
 public import CFSG.LocalAnalysis.StandardType.GGRootGenExcVacuityL
 public import CFSG.LocalAnalysis.StandardType.GGRootGenExcVacuityNbr
 public import CFSG.LocalAnalysis.StandardType.GGRootGenQFourRest
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
-public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
 
 public section
 

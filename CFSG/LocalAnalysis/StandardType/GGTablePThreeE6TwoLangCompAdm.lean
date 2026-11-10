@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabel
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6FrobAdd
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoRatLabelD
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoCentre

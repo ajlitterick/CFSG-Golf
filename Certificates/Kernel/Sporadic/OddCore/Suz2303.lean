@@ -4,11 +4,8 @@ public import Certificates.Kernel.Sporadic.OddCore.Suz2302
 public import Certificates.Kernel.Sporadic.OddCore.SuzInvOdd
 public import Certificates.Kernel.Sporadic.OddCore.PEnumFamGCmd
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue2
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Sporadic.SuzOddCore.OddCoreCheckInputs
 meta import CFSG.Sporadic.SuzOddCore.OddCoreCheckInputs
-import CFSG.Sporadic.SuzOddCore.InvArrays
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.SmallOddCore.ClassSimple
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
 

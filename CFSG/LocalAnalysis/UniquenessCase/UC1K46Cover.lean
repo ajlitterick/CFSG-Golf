@@ -4,17 +4,9 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC1K32
 public import CFSG.LocalAnalysis.UniquenessCase.UC1K462Inputs
 public import CFSG.GH74.Generic.BProg.B2.L2Cover
 public import CFSG.ClassicalInvolution.Q3.TL4SecIdE3S3M
-public import CFSG.GH74.Generic.Context
-public import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
 public import CFSG.GH74.E2.ComponentsShape
 public import CFSG.GH74.Generic.S45.LLift
-public import CFSG.LocalAnalysis.SectionRank.CyclicCenter
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Foundations.SteinbergCADefinitionNodes
-public import CFSG.LieType.Steinberg.CentralExt.PSL2Multiplier
-public import CFSG.LieType.Steinberg.CentralExt.PSLMultiplier
-public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-public import CFSG.LieType.Steinberg.CentralExt.MultiplierCongr
 public import CFSG.LieType.SeitzGeneration.OrthExLift
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.ExcTwistedE6
 public import CFSG.LocalAnalysis.UniquenessCase.UC1S4Defs462

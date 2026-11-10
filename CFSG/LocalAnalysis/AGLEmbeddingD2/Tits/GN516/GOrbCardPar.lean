@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.MinParK
-import Mathlib.Tactic.Group
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
 public import CFSG.Open.Defs

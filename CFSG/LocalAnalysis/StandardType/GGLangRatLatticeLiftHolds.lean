@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLangRatLift
 public import CFSG.LocalAnalysis.StandardType.GGLangRatLatticeSurj
 import CFSG.LocalAnalysis.StandardType.GGLangRatCentreSq
 import CFSG.LocalAnalysis.StandardType.GGLangCoroot
-import CFSG.Blueprint.ChevalleyRoots
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.BigAnyTorus
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
-import CFSG.LieType.Chevalley.KernelComponentRoots
 
 public section
 

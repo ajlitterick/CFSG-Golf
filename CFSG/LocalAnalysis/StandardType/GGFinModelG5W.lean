@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Defs
-public import CFSG.LocalAnalysis.StandardType.GGFinModelG5WeylDict
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Theta
-public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Plain
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Conj
 
 public section

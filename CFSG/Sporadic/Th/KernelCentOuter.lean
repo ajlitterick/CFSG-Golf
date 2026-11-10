@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.Th.KernelCentJ
 public import CFSG.Certificates.Kernel.ThCent.OuterModel
 import CFSG.Certificates.Kernel.Th.Spec.Dce
-import CFSG.Certificates.Kernel.Th.Spec.DceHsw
 
 public section
 

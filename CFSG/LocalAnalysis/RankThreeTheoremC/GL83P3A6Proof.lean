@@ -1,14 +1,8 @@
 module
 
-public import CFSG.Open.Defs
-public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import CFSG.LocalAnalysis.QuasithinUnique.Defs
-public import CFSG.Quasithin.Background.Basic
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Lemma43A6
 import CFSG.LocalAnalysis.GL83PartI.I_28_3_S3
-import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
 import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_3Rest
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.LocalCore
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Lemma43E9R
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Lemma43E9Core
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Lemma43Lift
@@ -23,11 +17,7 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3A6ActProved
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3A6Struct
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3R1P34f
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Lemma43A6Point
-import CFSG.RankThree.PartOne.S9.Planes.Basic
 import CFSG.RankThree.PartTwo.Sec11.Wreath
-import CFSG.LocalAnalysis.AGLEmbedding.Signalizer
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -63,14 +53,12 @@ public import CFSG.RankThree.PartOne.S12.InputsBase
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 import CFSG.Quasithin.Background.D14Normal
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.F1Amalgam
 import CFSG.Quasithin.Background.F2Equiv
 import CFSG.Quasithin.EmptyFaithful.QTKELocal
 import CFSG.Quasithin.EmptyFaithful.S141Statements
 import CFSG.Quasithin.EmptyFaithful.Skeleton
 import CFSG.Quasithin.Recognition.GoldschmidtTripleQuotient
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CommutatorNormalizer
 
 public section

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlock
-public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockZ
 public import CFSG.LocalAnalysis.StandardType.GGTBJTypeDDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExcEven
 
 public section
 

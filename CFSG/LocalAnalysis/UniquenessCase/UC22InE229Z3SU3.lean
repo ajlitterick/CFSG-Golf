@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22InE229Z5U3
 import CFSG.LocalAnalysis.UniquenessCase.UC22InE229B13
 import CFSG.LocalAnalysis.UniquenessCase.UC22InE229Z3Invol
 import CFSG.LocalAnalysis.UniquenessCase.UC6S846h
-public import CFSG.LocalAnalysis.UniquenessCase.UCR638
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.SmallOrth.Orth3GaussBasis
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FHD4OddDef
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FHD4OddLev
 

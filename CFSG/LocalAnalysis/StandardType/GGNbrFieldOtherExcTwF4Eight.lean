@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcTwF4EightCore
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcTwF4Row
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcTwF4WeylThree
-public import CFSG.LieType.Ree.ReeHolds
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapTwF4
-import CFSG.LieType.Multipliers.Tits
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CenterHopf
 
 public section
 

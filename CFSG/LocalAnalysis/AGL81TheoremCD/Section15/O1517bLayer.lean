@@ -9,7 +9,6 @@ import CFSG.Quasithin.Vol2.Ch11SKFIto
 import CFSG.GroupTheory.PGroup.ElemAbelianSq
 import CFSG.GH74.GLS.C3.Layer2.FusionTools
 public import CFSG.GroupTheory.LocalCores.Components
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGSummand
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGSpCent
-import CFSG.Assembly.Subnormal
 
 public section
 

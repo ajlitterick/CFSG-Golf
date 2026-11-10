@@ -2,19 +2,15 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinDefs
-public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LinearBlocks
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinShapeSetup
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinShapeIso
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinCore
 import CFSG.LocalAnalysis.SeitzReduction.LinearPilotSwapFactorNormalTypes
 import CFSG.LocalAnalysis.StandardType.GGPGLToralityEigenspace
 import CFSG.LocalAnalysis.StandardType.GGAutomizerAbelianMatrix
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundGenKernel
-import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicTransfer
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I142TTransfer
-import CFSG.Open.StatedAPI
 import CFSG.Blueprint.LieModelAPI
 import CFSG.Blueprint.OddStandardExact
 import CFSG.HardMathSupport.Dickson.DefCharOuter.Final

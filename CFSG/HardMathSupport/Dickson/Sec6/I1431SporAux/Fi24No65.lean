@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.Fi23No65
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi24FiveInputs
 public meta import Certificates.Data.CFSGNative.Timmesfeld.Fi24Three
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi24Five
 public import Certificates.Certificate17221
@@ -43,7 +42,6 @@ public import CFSG.LieType.Multipliers.U62Bridge
 public import CFSG.LieType.Multipliers.U62Kernel
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LieType.SteinbergBROddSylowCore
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 public import CFSG.LocalAnalysis.ComponentClassification.BlockCentralSylowEquality
 public import CFSG.LocalAnalysis.ComponentClassification.BlockFourFactorSupport
 public import CFSG.LocalAnalysis.ComponentClassification.BlockLargeProductInvolutions
@@ -87,13 +85,8 @@ public import CFSG.Quasithin.Background.B69Core
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -171,7 +164,6 @@ public import CFSG.RankThree.PartTwo.Sec21.Item229Diagram
 public import CFSG.RankThree.PartTwo.Sec21.Item23Tools
 public import CFSG.RankThree.PartTwo.Sec21.Membership
 public import CFSG.RankThree.PartTwo.Sec21.SylowThree
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.PartTwo.Sec4.Item47Diag
 public import CFSG.RankThree.PartTwo.Sec4.Item47LThree
 public import CFSG.RankThree.PartTwo.Sec4.Item47SpFour
@@ -199,10 +191,6 @@ public import CFSG.Sporadic.SchreierLemmas.FrattiniProfile
 public import CFSG.Sporadic.ThSchreier.ThSchreierCase
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 public import CFSG.YGroups.DCE.B433Check
 public import Certificates.Certificate10005
 public import Certificates.Certificate10006
@@ -236,7 +224,6 @@ public import Certificates.Certificate2109
 public import Certificates.Certificate2111
 public import Certificates.Certificate2224
 public import Certificates.Certificate2225
-public import Certificates.Certificate2225Base
 public import Certificates.Certificate2233
 public import Certificates.Certificate2233Base
 public import Certificates.Certificate2234

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFixSub
-public import Mathlib.GroupTheory.Commutator.Basic
 public import Mathlib.GroupTheory.IsPerfect
 
 public section

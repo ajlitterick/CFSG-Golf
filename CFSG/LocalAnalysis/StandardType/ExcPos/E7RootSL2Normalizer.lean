@@ -3,7 +3,6 @@ module
 public import CFSG.LinearAlgebra.LinearGroups.SL2InvolutionPairs
 public import CFSG.LocalAnalysis.StandardType.GGOrdinaryMemberE7RootCentralizer
 public import CFSG.LocalAnalysis.StandardType.GGLieM6cDescent
-public import CFSG.RankThree.Chevalley.EvenPinnedRootSL2
 public import CFSG.LocalAnalysis.StandardType.ExcPos.E6RootPairStabilizer
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.AmbientPairDescentPart1
 

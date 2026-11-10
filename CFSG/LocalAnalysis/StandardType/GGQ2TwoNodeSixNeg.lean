@@ -1,16 +1,7 @@
 module
 
-public import Mathlib.LinearAlgebra.Dual.Defs
-public import Mathlib.Data.ZMod.Basic
 public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
-public import Mathlib.Algebra.Group.Subgroup.Pointwise
 
-import Mathlib.LinearAlgebra.Finsupp.LinearCombination
-import Mathlib.Algebra.Group.Pi.Lemmas
-import Mathlib.Algebra.Group.Subgroup.Finite
-import Mathlib.Algebra.BigOperators.Fin
-import Mathlib.Data.Fin.VecNotation
-import Mathlib.Algebra.Module.Equiv.Basic
 
 public section
 

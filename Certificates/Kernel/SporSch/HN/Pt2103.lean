@@ -5,7 +5,6 @@ public import Certificates.Kernel.SporSch.HN.PtRK
 public import Certificates.Kernel.SporSch.HN.Pt2103K
 public import Certificates.Kernel.SporSch.HN.FixK.P2103
 public import Certificates.Kernel.SporSch.HN.FixK.Spec
-public import Certificates.Kernel.SporSch.HN.ArrStrong
 public import Certificates.Kernel.SporSch.HN.Intr2098
 public import Certificates.Kernel.SporSch.HN.OrbCert
 public import CFSG.Certificates.Kernel.SporSch.HNXPtSound

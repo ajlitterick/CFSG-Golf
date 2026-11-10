@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B42RuData
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1HeArr
-public import CFSG.Sporadic.Schreier.RuArrays
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B42RuData
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1HeArr
 public meta import CFSG.Sporadic.Schreier.RuArrays
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B42RuCheckInputs
 public import Certificates.Certificate4036
 public meta import CFSG.Foundations
 public import CFSG.Foundations

@@ -4,7 +4,6 @@ public import Certificates.Kernel.LocalComp.HeFix
 public import Certificates.Kernel.Sporadic.He.Stab2110
 public import Certificates.Data.SolMaxHeGen
 public meta import Certificates.Data.SolMaxHeGen
-public import Certificates.Kernel.Misc.Perm.HexCmd
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

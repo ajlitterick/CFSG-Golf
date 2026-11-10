@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.He7222.Fib
-public import Certificates.Data.Kernel.Spor.Raw
 
 public section
 

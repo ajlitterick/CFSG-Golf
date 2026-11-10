@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTorsionPSLComp
 public import CFSG.LocalAnalysis.StandardType.GGTorsionNoPSL
 public import CFSG.LocalAnalysis.StandardType.GGTorsionQuotComp
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

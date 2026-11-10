@@ -1,15 +1,7 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M23L34Gen
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M23Core
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M23Blk
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312WordsHat
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312WordsIdx
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312WordsDefs
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBase
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatLat
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M23Norm
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312ExtShapesBase
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

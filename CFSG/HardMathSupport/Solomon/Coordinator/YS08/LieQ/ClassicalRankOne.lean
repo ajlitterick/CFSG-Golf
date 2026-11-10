@@ -1,10 +1,8 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.LieQ.Suzuki
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsStated
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

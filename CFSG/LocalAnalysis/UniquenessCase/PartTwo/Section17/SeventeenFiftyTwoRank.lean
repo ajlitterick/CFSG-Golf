@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFifty
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankBound
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.PRankModPCore
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.U4CartanPlus
-public import CFSG.GroupTheory.CoprimeCentralizerCover
-public import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.GF2Type.Smith1979.IdxFourCoset
 public import CFSG.GroupTheory.PGroup.OmegaComm
 public import CFSG.GroupTheory.SylowNormalElements

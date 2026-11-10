@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
 public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTransport
 
 public section

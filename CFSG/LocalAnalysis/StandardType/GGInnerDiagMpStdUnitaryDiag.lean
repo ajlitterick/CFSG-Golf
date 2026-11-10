@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSUDiag
-public import CFSG.LieType.Universal.Unitary.Roots.Monomial
 
 public section
 

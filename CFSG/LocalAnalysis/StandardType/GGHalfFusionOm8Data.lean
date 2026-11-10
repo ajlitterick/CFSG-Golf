@@ -19,7 +19,6 @@ public import CFSG.RankThree.PartTwo.Sec19.Step1914E
 public import CFSG.RankThree.PartTwo.Sec20.OneSteps
 public import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
 public import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
-public import CFSG.Walter.J1Props
 
 public section
 

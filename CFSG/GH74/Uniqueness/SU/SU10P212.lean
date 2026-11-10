@@ -1,10 +1,8 @@
 module
 
 public import CFSG.GH74.Uniqueness.SU.SU10P212A
-public import CFSG.GH74.Uniqueness.SU.SU10Hyp
 public import CFSG.GH74.Uniqueness.SU.SU10BenderTypes
 public import CFSG.GH74.Uniqueness.SU.SU10Alt
-public import CFSG.GH74.Uniqueness.SU.SU10Z
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldArithmetic
 
 public section

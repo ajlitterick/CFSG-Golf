@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
-public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKCent
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.PlaneTorusConj
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.PlaneTorusEichler

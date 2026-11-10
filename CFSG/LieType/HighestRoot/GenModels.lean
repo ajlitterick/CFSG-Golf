@@ -7,8 +7,6 @@ public import CFSG.ClassicalInvolution.ModelFacts.Models
 public import CFSG.LieType.Steinberg.CentralExt.Families
 public import CFSG.LieType.Steinberg.CentralExt.SpinMinus
 public import CFSG.LieType.Steinberg.CentralExt.UnitaryRootGroups
-public import CFSG.LieType.Steinberg.TwistedE6.Local
-public import CFSG.LieType.Steinberg.TwistedD4.Local
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.Steinberg.Classical.SpinFrame
 public import CFSG.LieType.Steinberg.Families

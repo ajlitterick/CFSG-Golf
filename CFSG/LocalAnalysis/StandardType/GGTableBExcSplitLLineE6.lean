@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLBstarE6
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
 
 public section
 

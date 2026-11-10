@@ -4,9 +4,6 @@ public import Certificates.Kernel.J4M2.Base
 public import Certificates.Kernel.J4M2.KDefs
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4CentCEData
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
-public import CFSG.Open.Defs
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

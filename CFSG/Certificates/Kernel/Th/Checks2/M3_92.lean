@@ -4,12 +4,10 @@ public import CFSG.Certificates.Kernel.Th.S.BigS
 public import CFSG.Certificates.Kernel.Th.S.Data.Sm_const
 public import CFSG.Certificates.Kernel.Th.S.Data.Seed_const
 public import CFSG.Certificates.Kernel.Th.S.Data.M3_const
-import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Data.Kernel.LceSSeg
 public import CFSG.Certificates.Kernel.Bounds.Core3
 import CFSG.Certificates.Kernel.Bounds.LoadRoot
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.EachUnfold
 import CFSG.Certificates.Kernel.Common.RowsUnfold
 
 public section

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityPlanes
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrGraphD4ProofOut
-public import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
-public import CFSG.LieType.BorelTits.Flag
 
 public section
 

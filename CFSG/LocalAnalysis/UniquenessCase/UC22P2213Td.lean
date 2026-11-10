@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S22a
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2213c
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22a
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22l
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22uc
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22ry
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22wb
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ProductComponents

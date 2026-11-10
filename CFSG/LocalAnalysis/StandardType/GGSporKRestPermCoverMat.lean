@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestPermCheckMat
-public import CFSG.LocalAnalysis.StandardType.GGSporKRestPermCover
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestPermCoverPow
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestPermCoverE
 

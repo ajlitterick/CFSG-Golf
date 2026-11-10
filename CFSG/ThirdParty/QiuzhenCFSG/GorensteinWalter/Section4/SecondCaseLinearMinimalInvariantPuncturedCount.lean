@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseLinearEquationElevenBadFiber
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Basic
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

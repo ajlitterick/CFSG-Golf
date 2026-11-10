@@ -1,9 +1,7 @@
 module
 
 public import Certificates.Kernel.Fi23S.Tables
-public import Certificates.Kernel.Fi23M.Keys
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib
 
 public section
 

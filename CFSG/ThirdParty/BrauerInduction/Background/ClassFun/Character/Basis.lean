@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.Character.Basis
-public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.Character.Orthogonality
 public import CFSG.ThirdParty.BrauerInduction.Background.ClassFun.Orthogonality
 public import CFSG.ThirdParty.BrauerInduction.Background.ClassFun.Character.Span
 public import CFSG.ThirdParty.BrauerInduction.Background.ClassFun.ConjClasses

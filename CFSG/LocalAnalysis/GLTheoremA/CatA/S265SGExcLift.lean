@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6
-public import CFSG.Open.GLADefs
-import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwoTorus
-import CFSG.LocalAnalysis.StandardType.GGTableBF4Torus
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLParity
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLTorusBridge
-import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

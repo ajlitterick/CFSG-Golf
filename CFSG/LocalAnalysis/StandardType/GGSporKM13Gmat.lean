@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKF1F4At
-public import CFSG.LocalAnalysis.AGLEmbedding.Norton.MON11_13.D13Core
 import CFSG.LocalAnalysis.StandardType.GGSporKFGen
 import CFSG.LocalAnalysis.StandardType.GGSporKHeis13Conj
 import CFSG.LocalAnalysis.StandardType.GGSporKHeis13Facts
@@ -31,7 +30,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

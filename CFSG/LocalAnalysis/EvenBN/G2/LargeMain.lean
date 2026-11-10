@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.G2.QMain
-public import CFSG.LocalAnalysis.EvenBN.G2.LocalN60
-public import CFSG.Milestones.CL_LIT_Walter_abelian_Sylow_two_simple
 public import CFSG.Yardstones.M41b0c98b3153.Definitions
 
 public section

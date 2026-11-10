@@ -1,13 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMStabDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMBridge
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMStabA
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMStabNorm
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMSel
-import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCoxeter
-import CFSG.LocalAnalysis.StandardType.GGQTwoPThree
 import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.OutAlt8Perm
 import CFSG.LocalAnalysis.StandardType.GGQTwoDCoxEvenOrbit
 import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD

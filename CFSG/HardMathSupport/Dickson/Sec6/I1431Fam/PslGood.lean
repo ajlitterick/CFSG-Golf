@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.Char3
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.PslFam
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.NoE27L3U3
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Aux.Descent
 
 public section
 

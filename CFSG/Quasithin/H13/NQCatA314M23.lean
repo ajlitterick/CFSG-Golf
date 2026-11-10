@@ -3,11 +3,6 @@ module
 public import CFSG.Quasithin.H13.NQCatA314M23Iso
 public import CFSG.Quasithin.H13.NQCatA314M22
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M23Members
-public import CFSG.Sporadic.Mathieu.M23
-public import CFSG.Sporadic.Schreier.M23
-public import CFSG.Assembly.OrderReductions.LinearOrders
-public import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.Quasithin.Background.HSporLatMathieu
 import CFSG.Adapters.StatedClassicalSmallOrders
 public import CFSG.Dihedral.FourgroupCycleControl
 public import CFSG.Dihedral.OriginalCentralizerOddCore

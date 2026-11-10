@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.HexNumsGen
 public import CFSG.Sporadic.FischerOddCore.Fi24R2KCheckInputs
-public import Certificates.Data.CFSGNative.Co3Schreier.Basic
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

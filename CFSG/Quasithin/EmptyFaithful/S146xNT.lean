@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.S146F22
 public import CFSG.Quasithin.EmptyFaithful.S146D5
-public import CFSG.Quasithin.EmptyFaithful.S146C5
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec2Step22ivStd
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalM12
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalQuotNF
 public import CFSG.StandardComponent.AschbacherSeitz.A5NoKProper
 public import CFSG.ClassicalInvolution.Asc77.HypOmegaBasic

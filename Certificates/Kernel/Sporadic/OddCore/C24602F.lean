@@ -2,21 +2,10 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.C24602K
 public import Certificates.Kernel.Sporadic.OddCore.J3BetaA5F
-public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
-public import Certificates.Kernel.SporSch.J3K426.Sift
-public import Certificates.Kernel.SporSch.PairJ3.Check2237
 public import CFSG.Certificates.Kernel.Spor.ConjRunSound
-public import CFSG.Certificates.Kernel.Spor.MulHFSound
-public import CFSG.Certificates.Kernel.Spor.RawOrbHead
 public import CFSG.Certificates.Kernel.ConjKeys
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicJ3
-public import CFSG.Sporadic.SmallOddCore.J3
 public import CFSG.Sporadic.SmallOddCore.J2CentralizerD
-public import CFSG.Sporadic.SmallOddCore.LocalSpec
-public import CFSG.Sporadic.Schreier.PairJ3Order
-public import CFSG.Sporadic.Schreier.PairJ3Pairs
-public import CFSG.Sporadic.Schreier.PairJ3Check
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Misc.RuInvHash
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicGenCensus
 public import CFSG.Monster.Code.Weights

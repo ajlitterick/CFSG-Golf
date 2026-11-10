@@ -4,10 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.GGUSixTwoFixedPointFree
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTorusDiag
 public import CFSG.LargeExtraspecial.OutSix
 public import CFSG.GF2Type.ModelPSU
-public import CFSG.Open.StatedSUFieldChange
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneUModel
 public import CFSG.Assembly.GL83StatedBridge
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Basic
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LargeExtraspecial.BridgeSetting
 public import CFSG.LargeExtraspecial.OrthoF2

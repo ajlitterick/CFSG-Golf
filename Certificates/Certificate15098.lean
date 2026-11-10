@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Sporadic.SuzRecog.C1ModelTests
-import Certificates.Kernel.Sporadic.OddCore.SuzC1BF
-import Certificates.Kernel.Sporadic.OddCore.SuzC1EF
-import Certificates.Kernel.Sporadic.OddCore.SuzC1EV
 import Certificates.Kernel.Sporadic.OddCore.SuzC1EZ
 import Certificates.Kernel.Sporadic.OddCore.SuzC1EL
 

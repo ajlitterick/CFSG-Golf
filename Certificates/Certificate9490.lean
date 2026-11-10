@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Omega8FrameData
 import Certificates.Kernel.O8Frame9490.Elt
 import Certificates.Kernel.O8Frame9490.Psi
-import Certificates.Kernel.O8Frame9490.Defs
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.BfsPinSound
 import CFSG.Certificates.Kernel.Census.SiftSound
@@ -45,7 +44,6 @@ import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 import CFSG.LocalAnalysis.SectionRank.SporadicCover
 import CFSG.Sporadic.M23.M23Group
 import CFSG.Sporadic.SmallOddCore.CheckSpec
-import CFSG.Sporadic.Th.F2Spec
 import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

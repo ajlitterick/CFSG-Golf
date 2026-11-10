@@ -7,13 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTorusMaxSemiE7
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxSemiE8
 import CFSG.LocalAnalysis.StandardType.GGTorusMaxAssemblyLemmas
 import CFSG.LocalAnalysis.StandardType.GGTorusMaxIndexLemma
-import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R16ExcLabel
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
-import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.E78Sylow
-import CFSG.HardMathSupport.Solomon.Coordinator.I14_20LieEnd
-import CFSG.HardMathSupport.Solomon.Coordinator.GFR2FamSpor
 
 public section
 

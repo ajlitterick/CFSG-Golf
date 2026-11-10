@@ -3,12 +3,6 @@ module
 
 public import CFSG.Fischer.Polar.Span
 public import CFSG.Fischer.Polar.CertBase
-public import Certificates.Data.CFSGNative.Fischer.Xi22
-public import Certificates.Data.CFSGNative.Fischer.Polar
-public import Certificates.Data.CFSGNative.F4.T46Simple
-public import CFSG.Fischer.UnitaryAction
-public import Certificates.Data.CFSGNative.Fi22.Local
-public import Certificates.Data.Kernel.Fi22.Orb
 public import CFSG.Fischer.HermitianEquiv
 
 @[expose] public section

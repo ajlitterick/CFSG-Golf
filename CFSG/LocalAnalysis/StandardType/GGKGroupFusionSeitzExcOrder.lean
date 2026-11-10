@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.RankThree.PartOne.S12K.Rigidity
 public import CFSG.RankThree.PartOne.FLM.OrdSmall
-public import CFSG.Timmesfeld.Orders.ClassicalLinear
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

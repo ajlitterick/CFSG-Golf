@@ -2,10 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwLayerShift
 public import CFSG.LieType.Seitz.Defs
-public import CFSG.Open.Defs
-import CFSG.Assembly.Subnormal
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.LieType.Chevalley.SylowOpposition
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
 public import CFSG.LieType.Chevalley.OddTrialityCosetInvolutions
@@ -45,7 +41,6 @@ public import CFSG.RankThree.PartOne.KE6.Tw6A2b
 public import CFSG.RankThree.PartOne.KE6.Tw6Torus
 public import CFSG.RankThree.PartOne.KF4.KernelTools
 public import CFSG.RankThree.PartOne.S8.Statements
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCOneFourTen.Star
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCOneFourTen.CoreBasic
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCOneFourTen.OTwo
 import CFSG.LocalAnalysis.EvenBN.GMSK.SzFacts
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

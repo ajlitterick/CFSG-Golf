@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.J3TabK
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TableE
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Common
 
 public section

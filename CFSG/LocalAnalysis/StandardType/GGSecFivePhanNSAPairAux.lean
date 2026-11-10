@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSADefs
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionLinear
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSUFrame
 public import CFSG.GH74.L5U5.IdentUnitary
-public import CFSG.ClassicalInvolution.Phan.Blocks
-public import CFSG.LocalAnalysis.StandardType.GGPhanSuBridge
 public import CFSG.ClassicalInvolution.WeakCT.Main
 
 public section

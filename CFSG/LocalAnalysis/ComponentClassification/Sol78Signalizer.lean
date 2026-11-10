@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78Main
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueUSporadic
 public import CFSG.Sporadic.SmallOddCore.HSMcL
 public import CFSG.Sporadic.Schreier.LyOddCoreFree
 public import Certificates.Kernel.ThCent.Leaves
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData

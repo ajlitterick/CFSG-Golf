@@ -2,23 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankTwoDefs
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
-public import CFSG.LocalAnalysis.QuasithinUnique.Defs
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankTwoUCases
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankTwoUConj
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankTwoUKFact
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.OrdinaryProofs.GNQuotient
 import CFSG.Certificates.Kernel.LocalCompTits.Span
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
-import CFSG.Quasithin.Background.B4ModelsAction
-import CFSG.Quasithin.Background.B4ModelsIso
-import CFSG.Quasithin.Background.C2Inputs
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

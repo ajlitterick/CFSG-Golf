@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3Rank2Glue
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieDelta5
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieD4Facts
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListD4
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListAlt7Base
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListBender
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3Rank2
@@ -14,8 +13,6 @@ public import CFSG.Quasithin.Background.A3Structure36BCase3
 public import CFSG.Quasithin.Background.A3Structure36BCases
 public import CFSG.Quasithin.Background.A3Structure36BCommon
 public import CFSG.Quasithin.Background.A3Structure36BStar
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 
 public section
 

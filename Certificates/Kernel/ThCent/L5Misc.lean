@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.ThCent.LDefs
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.SliceRange
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanD2CoreDefs
 

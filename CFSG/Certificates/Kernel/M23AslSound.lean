@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.LocalQTDiagKSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermExt
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermExt
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermIso
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermExtCheck
 
 public section
 

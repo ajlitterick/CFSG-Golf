@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRest
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmallLabel
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineClassicalLabel
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmall
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNinePGL
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineTwF4
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineClassical
 

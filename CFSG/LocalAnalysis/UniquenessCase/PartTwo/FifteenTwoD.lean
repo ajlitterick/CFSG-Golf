@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTools
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTwo
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveShort
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenT7Aut
 public import CFSG.Walter.Bender1970.S38.SmallQ

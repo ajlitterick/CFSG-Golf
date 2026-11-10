@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.EmptyFaithful.S14113Layer
 public import CFSG.Quasithin.EmptyFaithful.S146F13
 public import CFSG.Quasithin.EmptyFaithful.S146F16

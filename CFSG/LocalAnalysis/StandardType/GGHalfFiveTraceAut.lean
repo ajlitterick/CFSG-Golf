@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveF4
-public import CFSG.RankThree.PartOne.AUTSL.Interface
 
 public section
 

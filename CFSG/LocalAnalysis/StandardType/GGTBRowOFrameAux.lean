@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowSignedFrameSC
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR5Defs
-public import CFSG.LocalAnalysis.StandardType.GGStdPosC13OrthSigned
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitClassical
 public import CFSG.LocalAnalysis.StandardType.GGKGForkOrthRow
 

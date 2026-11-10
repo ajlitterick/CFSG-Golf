@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264HN3Tools
-public import CFSG.Sporadic.HNSchreier.ThreeCent
-public import CFSG.HardMathSupport.Dickson.I271.Support.EngineKL
-public import CFSG.LocalAnalysis.GLTheoremA.S8.HNAlt12
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.Assembly
 public import CFSG.Holt.H78.Sec4AltSylow
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264RowData

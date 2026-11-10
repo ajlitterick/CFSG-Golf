@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.G2Three.Prim
-public import Certificates.Data.G2ThreeMaxCheck
 public import Certificates.Kernel.G2Three.PrimRec
 public import Certificates.Kernel.G2Three.K7bRec
 import CFSG.Certificates.Kernel.Common.Harness

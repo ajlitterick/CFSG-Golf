@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Blueprint.Chevalley
 public import CFSG.LieType.Chevalley.RootOps.Sparse
 public import CFSG.LieType.Chevalley.WeylRoots
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.CenterCheckFastSteps1

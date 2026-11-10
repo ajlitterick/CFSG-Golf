@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.ExceptionalCatTriality
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.ExceptionalCatTrialityAlgebra
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.B113LieD4
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6ResidualTriality
 public import CFSG.Quasithin.EmptyFaithful.R3c16Cl
 public import CFSG.Quasithin.EmptyFaithful.R3c11Core
 

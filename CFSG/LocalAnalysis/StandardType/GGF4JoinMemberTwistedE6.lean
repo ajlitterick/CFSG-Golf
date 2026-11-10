@@ -1,16 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatJoinF4
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoCommon
-public import CFSG.LocalAnalysis.StandardType.GGSelectedTwistedE6Scalar
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoExcCore
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6U1aRootSub
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitTwE6Tag
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.AltIb.LinLift
 public import CFSG.LocalAnalysis.StandardType.GGSelectedLongExpTwo
-import CFSG.LieType.CurtisTits.TwistedE6
-import CFSG.LieType.Steinberg.TwistedE6.Generation
-import CFSG.ClassicalInvolution.ModelFacts.Families
 
 public section
 

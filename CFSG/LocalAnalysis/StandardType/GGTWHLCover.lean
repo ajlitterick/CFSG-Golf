@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTWSmallADefs
 public import CFSG.LocalAnalysis.StandardType.GGHL58NbrSmall
 public import CFSG.LocalAnalysis.StandardType.GGHL58NbrFrom
 public import CFSG.LocalAnalysis.StandardType.GGTWHLTorRow
-public import CFSG.LocalAnalysis.StandardType.GGTWTwA5Defs
-public import CFSG.LocalAnalysis.StandardType.GGResXDatumARankFrom
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourTBSmall
 
 public section

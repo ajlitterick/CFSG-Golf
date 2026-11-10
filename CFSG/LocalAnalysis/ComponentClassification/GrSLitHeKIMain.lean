@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeKMInvol
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeKPInputs
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsInvCent
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Basic
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitFixedL34
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitFixedHe
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeGS36
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeKDMain

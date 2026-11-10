@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2FixedPointOdd
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2Link
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LinkF4
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2HighestRootNormalizer
 

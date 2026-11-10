@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33C2F
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33C2FExcCN
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33C2FORow
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33C2FURow
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33C2FExc
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33OCOmInv
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33E1All
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33E2
@@ -16,7 +15,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33SRE
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33SRE2TwE6
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33SRAll
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33Ree
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33Alt
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Closed
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Statements

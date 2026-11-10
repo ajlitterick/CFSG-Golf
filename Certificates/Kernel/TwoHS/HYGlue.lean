@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.TwoHS.HYWords
 public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
-public import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.Certificates.Kernel.BfsPinAlg
 
 public section

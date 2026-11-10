@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSpPlaneBlocksTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneBlocks
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Embed
 import CFSG.LocalAnalysis.StandardType.GGSpJoinTwoElemCent
 import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownComp
 import CFSG.LocalAnalysis.StandardType.GGRootCentralizerSUSp
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviRootSL2Sp
-import CFSG.LocalAnalysis.StandardType.GGTorCPlane
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
 import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusBlockAux
 

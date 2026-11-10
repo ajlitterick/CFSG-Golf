@@ -2,32 +2,16 @@ module
 
 public import CFSG.GH74.Generic.BProg.B2.PuL4Inner
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk412
-public import CFSG.GH74.Generic.BProg.B2.PumpupTableBasic
-public import CFSG.GH74.GLS.Stage2.Final.ModelClsFam
-public import CFSG.GH74.GLS.Stage2.Final.ModelIVKGen
-public import CFSG.GH74.GLS.Stage2.Final.ModelE
 public import CFSG.GH74.GLS.Stage2.Final.ModelIVK410
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk412Mat
 public import CFSG.ClassicalInvolution.ModelFacts.G2D4G2Edge
 public import CFSG.GH74.GLS.C3.Layer1.Back112Iv2
 public import CFSG.GH74.GLS.C3.Layer1.Th2Cent5
 public import CFSG.GH74.GLS.C3.Layer1.Thm1P31s
 public import CFSG.GH74.GLS.C3.Layer2.FusionTools
 public import CFSG.GH74.GLS.C3.Layer3.Main
-public import CFSG.GH74.GLS.IVK.L2.BN
-public import CFSG.GH74.GLS.IVK.L2.BorelFive
 public import CFSG.GH74.GLS.IVK.L2.Hilbert90Core
-public import CFSG.GH74.GLS.IVK.L2.Lemma113
-public import CFSG.GH74.GLS.IVK.L2.Lemma114
-public import CFSG.GH74.GLS.IVK.L2.Lemma12ib
-public import CFSG.GH74.GLS.IVK.L2.Lemma12j
-public import CFSG.GH74.GLS.IVK.L2.Lemma13fc
-public import CFSG.GH74.GLS.IVK.L2.Lemma14f
-public import CFSG.GH74.GLS.IVK.L2.Lemma19b
-public import CFSG.GH74.GLS.IVK.Prod.Lemma31
 public import CFSG.GH74.GLS.IVK.Proofs
 public import CFSG.GH74.GLS.IVK.Proofs2.GHInvExcShape
-public import CFSG.GH74.GLS.IVK.Statements
 public import CFSG.GH74.GLS.Stage4.RestP93
 public import CFSG.GH74.GLS.Stage4.RestSetup
 public import CFSG.GH74.Generic.BProg.B1.Assembly2
@@ -63,7 +47,6 @@ public import CFSG.RankThree.PartOne.S9.OddCore.RecognitionBasic
 public import CFSG.Sporadic.Th.Max3.Packet
 public import CFSG.Sporadic.Th.Simple
 public import CFSG.Sporadic.ThSchreier.AutCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Walter.W67.Section5.Lemma57
 
 public section

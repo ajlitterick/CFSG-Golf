@@ -3,42 +3,12 @@ module
 public import CFSG.GH74.Generic.S45.LQSmall
 public import CFSG.GH74.Generic.S45.LBridge
 public import CFSG.LocalAnalysis.ComponentClassification.OddClassSelectorU
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.GH74.Generic.FrontEnd
-public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGraphFieldArithmetic
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGraphFieldUnitaryData
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalFiveStructure
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointActionModels
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointPlusBorelModel
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalScalarSquareField
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixComponentsCover
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalTraceZeroCoordinates
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBProjectiveInvolutionStructure
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticBField
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticBLinear
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticRepresentationOdd
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBUnitaryBFixed
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueUStatement
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorComponents
-public import CFSG.LocalAnalysis.ComponentClassification.GSLitInputs
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
-public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinearSocle
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSLAllInvolutions
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSUFieldOddCore
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrCentralSylowMaximality
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSAContainedSource
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreUnbalancingTriple
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
-public import CFSG.LocalAnalysis.ComponentInitial.ProjectiveEigenspaceComponent
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.QuasithinUnique.Setting
 public import CFSG.Permutation.AlternatingAutomorphism
@@ -57,10 +27,7 @@ public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyChain11
 public import Certificates.Kernel.J4Count.FixC
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import Certificates.Kernel.SporSch.J4S.NoCP
-public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
-public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 
 public section
 

@@ -1,13 +1,9 @@
 module
 
-public import CFSG.Assembly.Defs
-public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.ABGLocalTools.Constraint
-public import CFSG.RankThree.PartTwo.Sec4.Vocabulary
 public import CFSG.RankThree.PartTwo.Sec14.Item148PtResProofA6A6Cent
 import CFSG.RankThree.PartTwo.Sec15.Sylow155CDK3
 import CFSG.RankThree.PartTwo.Sec15.Sylow155CDTest
-import CFSG.RankThree.PartTwo.Sec15.Sylow155B3Q
 import CFSG.RankThree.PartTwo.Sec15.Sylow155B3S
 import CFSG.RankThree.PartTwo.Sec15.Sylow155KA6
 import CFSG.RankThree.PartTwo.Sec15.Sylow155KA6P
@@ -17,15 +13,11 @@ import CFSG.RankThree.PartTwo.Sec15.Sylow155T51Comp
 import CFSG.RankThree.PartTwo.Sec5.Tools
 import CFSG.GroupTheory.PCore.PrimeSetCore
 import CFSG.GroupTheory.QuasisimplePSolvable
-import CFSG.LocalAnalysis.GLTheoremB.Prop95I1921SixFin
 import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_21GenA6
 import CFSG.Quasithin.Vol2.Ch11SKFIto
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83P3A6LayerSolv
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentStepFiveSix
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.OrdinaryProofs.PSolvableClosure
-import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.OrdinaryProofs.QuasisimpleSolvableNormal
-import Mathlib.GroupTheory.PGroup
-import Mathlib.Tactic.Group
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.RankThree.Asc83Table.Automizer

@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.J3Dc.Defs
 public import CFSG.Sporadic.Schreier.PairJ3CertInputs
 import Certificates.Kernel.J3Dc.Final
-import Certificates.Kernel.Census.J3.Text
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

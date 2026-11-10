@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGStructND
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoPSU
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSUDiag
 import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderUOSUFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSUHolds
 

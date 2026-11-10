@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagDefs
 import CFSG.LieType.Universal.Spin.PlusCT
 import CFSG.LieType.Universal.Spin.Generation
-import CFSG.LieType.Universal.Spin.Twisted.Extras
 
 public section
 

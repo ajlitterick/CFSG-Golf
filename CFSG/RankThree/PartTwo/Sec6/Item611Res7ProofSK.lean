@@ -3,19 +3,12 @@ module
 public import CFSG.RankThree.PartTwo.Sec6.Item611Res7ProofKExists
 public import CFSG.RankThree.PartTwo.Sec6.Item611Res7ProofInvol
 import CFSG.RankThree.PartTwo.Sec6.Item611Res3ProofTools
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
-import CFSG.RankThree.PartTwo.Sec6.Item612Basic
 import CFSG.RankThree.PartTwo.Sec11.Item119K
 import CFSG.RankThree.PartTwo.Sec11.FieldCentRigidProof
-import CFSG.RankThree.PartTwo.KFacts.K72FixL2
-import CFSG.RankThree.PartTwo.KFacts.AutKindsUnique
 import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverRanks
-import CFSG.RankThree.GroupTheory.ThetaQuotientTransport
-import CFSG.LocalAnalysis.RankThreeEvenClassification.InvariantSylow
 import CFSG.RankThree.PartTwo.Sec5.Tools
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 import CFSG.RankThree.PartOne.S11c.CentralWitness
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2

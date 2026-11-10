@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSmallKGInputsTwE6Six
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaCenter
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKGAAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGKGARank
 public import CFSG.LocalAnalysis.StandardType.GGKGADefs
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
 
 public section
 

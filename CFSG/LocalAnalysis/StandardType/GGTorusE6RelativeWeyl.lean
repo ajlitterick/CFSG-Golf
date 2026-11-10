@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusWeylFrame
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6SplitFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6SplitNormalizer
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
-public import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
-public import CFSG.LieType.Chevalley.GraphFixedRankOneScalar
-public import CFSG.LieType.Chevalley.GraphFixedRootMonomialQuotient
-public import CFSG.LieType.Chevalley.FoldedWeylIdentification
 public import CFSG.LocalAnalysis.StandardType.GGTBRowF4CoreAux
 
 public noncomputable section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourToral
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Torus
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag

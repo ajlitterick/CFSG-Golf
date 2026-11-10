@@ -1,13 +1,9 @@
 module
 
-public import CFSG.ClassicalInvolution.SmallCases.Sporadic.McLData
-public import Certificates.Data.CFSGNative.Co3Schreier.Orbit
-public import CFSG.ClassicalInvolution.SmallCases.Sporadic.McLCheckInputs
 public import Certificates.Certificate9314
 public meta import CFSG.ClassicalInvolution.SmallCases.Sporadic.McLData
 public meta import Certificates.Data.CFSGNative.Co3Schreier.Orbit
 public meta import Certificates.Data.CFSGNative.Schreier.SetOrbit
-public import Mathlib
 
 public section
 

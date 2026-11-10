@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.GammaFamiliesExtra
-public import CFSG.LocalAnalysis.QuasithinUnique.BenderInterfaces
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115List
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.FusionDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.LocalAnalysis.QuasithinUnique.Setting
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -15,7 +10,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

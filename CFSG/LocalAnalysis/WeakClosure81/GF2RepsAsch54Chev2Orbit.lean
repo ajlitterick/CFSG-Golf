@@ -1,21 +1,13 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch54Chev2TwoDefs
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.MinParK
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.GN516.GOrbSimpleBQModel
 
 import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch54Chev2OrbitFrame
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.GN516.GOrbCore
-import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.GN516.GOrbConn
-import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.GN516.GOrbTree
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.GN516.GOrbCardPar
-import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.MinParS
-import CFSG.Quasithin.Background.A4Defs
-import CFSG.Quasithin.Background.B6Defs
-import CFSG.LieType.TitsSimplicity.Unipotent
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.S3AmalgamBound.MinParRankOne.FaithfulOdd
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.GN516.GOrbCentral
-import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.ChevGenYLevel
 public import CFSG.CGT.PushingUpLit.BHS6.Basic
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.P64AsmRank1
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GeneratorRank
 
 public section
 

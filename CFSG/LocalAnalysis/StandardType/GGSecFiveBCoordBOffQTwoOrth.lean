@@ -1,42 +1,21 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBOffQTwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePermNbrLabelOfJDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited
 public import CFSG.LocalAnalysis.StandardType.GGQTwoOrthFourHomDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBRestLeafDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseCoords
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseLabel
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
-import CFSG.Assembly.LargeEvenDefs
-import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorChart
-public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
-public import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJDefs
-import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorPerm
-import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorRecal
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthogonalBlocks
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSparseEndpoint
 import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameCfg
 import CFSG.LocalAnalysis.StandardType.GGResUnitaryQPlusKProducers
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniLFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOmFrames
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOm
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBQTwoLinDense
-import CFSG.LocalAnalysis.StandardType.GGQTwoSpinEndpoint
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniNbrLabel
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordReflGroup
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniQTwoExcSixCore
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniQTwoExcStd
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniQTwoExcFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveUnitarySixCenterAction
 import CFSG.LocalAnalysis.StandardType.GGSecFiveUnitarySixCentralizer
-import CFSG.LocalAnalysis.StandardType.GGHdRo7DStab
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperRootRed
-import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySixCover
-public import Certificates.Certificate117
 public import Certificates.Certificate4091
 
 public section

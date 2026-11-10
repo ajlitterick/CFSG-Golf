@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBClEmb
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLField
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLUnitary
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofEndOddLieLBlocks
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBFinal
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBInputs
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBTypeInputs

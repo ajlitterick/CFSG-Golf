@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173ODefs
 public import CFSG.RankThree.PartOne.KF.FlagSplit
-public import CFSG.RankThree.PartOne.KC.SymplecticFullCentralizerTransvection
-public import CFSG.LieType.BorelTits.Symplectic
 public import CFSG.LieType.SeitzGeneration.SpHyperRad
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear

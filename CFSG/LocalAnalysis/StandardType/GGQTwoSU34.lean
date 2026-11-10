@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNativeGen
 import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSU
-import CFSG.LocalAnalysis.StandardType.GGQTwoSU34Aux6
 import CFSG.LocalAnalysis.StandardType.GGQTwoSU34Aux7
 
 public section

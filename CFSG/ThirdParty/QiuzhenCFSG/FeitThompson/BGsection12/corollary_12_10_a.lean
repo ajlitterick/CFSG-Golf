@@ -2,7 +2,6 @@ module
 
 public import Mathlib.Algebra.GCDMonoid.FinsetLemmas
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection12.corollary_12_9_b
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Remaining
 
 namespace CFSG
 end CFSG

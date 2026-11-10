@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1512B
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RowStmts
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsLie
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1512A
 
 public section
 

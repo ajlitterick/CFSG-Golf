@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResXDatumARank
 public import CFSG.LocalAnalysis.StandardType.GGHLFrame
-public import CFSG.LocalAnalysis.StandardType.GGResHdRoNarrowDefs
 
 public section
 

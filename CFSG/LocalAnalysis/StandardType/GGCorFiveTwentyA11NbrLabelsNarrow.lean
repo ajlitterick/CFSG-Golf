@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyA11C3D4
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveInputs
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
 
 public section

@@ -3,8 +3,6 @@ module
 public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaPlusPiecesOrders
 import CFSG.RankThree.GF2n.Stroth80.Sec7Levi
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.Assembly.QuasithinDefs
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 import CFSG.ClassicalGroups.Orthogonal.RootGroupSwap
@@ -38,15 +36,10 @@ import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotLeviFactPiece
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.G11Stmts
 import CFSG.RankThree.PartOne.KC.OrthogonalAutSemilinearBridge
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M24
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.Walter.JRFacts
 
 public section

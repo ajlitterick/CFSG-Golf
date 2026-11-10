@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2Rows
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2Cover
 
 public section

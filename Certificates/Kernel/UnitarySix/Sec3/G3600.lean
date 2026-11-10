@@ -4,8 +4,6 @@ public import Certificates.Kernel.UnitarySix.Sec3.G3600Chk
 public import Certificates.Kernel.UnitarySix.Sec3.G3600Tab
 public import Certificates.Kernel.UnitarySix.Sec3.E3600
 public import CFSG.Certificates.Kernel.U6Sec3TabSound
-import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeData
 
 public section
 

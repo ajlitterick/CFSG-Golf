@@ -1,16 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSporKF1F4At
 public import CFSG.LocalAnalysis.StandardType.GGSporKM7Gmat
 public import CFSG.HardMathSupport.Dickson.BMRows.CensusM7
-public import CFSG.Sporadic.Bridge.MonsterModels
-public import CFSG.RankThree.PartOne.SPOR.OuterM
 import CFSG.LocalAnalysis.StandardType.GGSporKBMBridgeZ
 import CFSG.LocalAnalysis.StandardType.GGSporKBMTransportA
 import CFSG.LocalAnalysis.StandardType.GGSporKF1F4Conj
 import CFSG.LocalAnalysis.StandardType.GGSporKCompConj
-import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.Primitive
-import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMSevenRec
 import CFSG.Assembly.LargeEvenGLABridge
 public import CFSG.HardMathSupport.Dickson.I271.SporGenBM
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.A6Leaf
@@ -21,7 +16,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

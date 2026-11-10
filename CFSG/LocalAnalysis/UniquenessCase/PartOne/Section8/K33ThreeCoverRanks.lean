@@ -4,18 +4,11 @@ public import CFSG.Blueprint.LieModelAPI
 public import CFSG.LocalAnalysis.UniquenessCase.UCKInputs2
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15ACoreThree
 public import CFSG.LocalAnalysis.UniquenessCase.Lie.Cover
-public import CFSG.LieType.Steinberg.CentralExt.SLCentrallyClosed
 public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiKind
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
-public import CFSG.LocalAnalysis.SectionRank.CyclicCenter
-public import CFSG.LocalAnalysis.SectionRank.SQTKTransport
 public import CFSG.LocalAnalysis.SectionRank.AmbientRank
-public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma44bOrd
 public import CFSG.RankThree.PartTwo.Census.Carrier.TitsCert
 public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.ExcTits
-public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Sporadic.Schreier.J1QT
 
 public section

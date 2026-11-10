@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.BorelTits.OrthogonalEven
-public import CFSG.Open.StatedDefs
 
 public section
 

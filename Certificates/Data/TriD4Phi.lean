@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.TriD4TwoRow
-public import CFSG.Monster.B.Co2.PermArr
 
 public section
 

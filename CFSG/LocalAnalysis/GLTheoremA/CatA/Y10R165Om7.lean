@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Om6
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Blocks7
 public import CFSG.CGT.Timmesfeld75.Forms
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Om4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Om5

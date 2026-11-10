@@ -1,8 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Nine.SixAEightSetup
-import CFSG.OddTranspositions.PartThree.Nine.FinalNonabelian
-import CFSG.LocalAnalysis.ProperTwoGeneratedCore.ExceptionalEightCoordinates
 
 public section
 

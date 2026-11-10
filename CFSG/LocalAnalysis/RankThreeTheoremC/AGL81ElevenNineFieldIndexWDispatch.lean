@@ -6,11 +6,8 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.BlockFieldIndexFi
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenNineOddInnWSmall
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.BlockFieldIndexFiveTypes
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.BlockFieldIndexFiveInner
-import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.BlockFactsGlue
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenElevenOneLie
 import CFSG.LocalAnalysis.AGLEmbedding.BlockAltSevenPL
-import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsPLType
-import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsSpTwo
 import CFSG.RankThree.OddKernel.FailureReduction
 import CFSG.RankThree.PartTwo.Sec18.Tools
 public import CFSG.Goldschmidt.Statements

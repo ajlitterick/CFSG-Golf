@@ -1,18 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixNbrDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoBridge
-public import CFSG.RankThree.PartOne.TCB.SchreierFinal
 public import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryTwoCell
 public import CFSG.LocalAnalysis.StandardType.GGPairUnitaryTwoOdd
 public import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryTwoSize
 public import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryTwoEven
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceSchreier
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwoAFiveE
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGNsq2U62
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAdapterAux
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSpNsBlock
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameBlock
 public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoProjectiveFormulas
 

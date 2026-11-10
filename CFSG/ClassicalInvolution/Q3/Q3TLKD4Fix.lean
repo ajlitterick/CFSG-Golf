@@ -4,8 +4,6 @@ public import CFSG.ClassicalInvolution.ModelFacts.Orth15RFixLift
 public import CFSG.ClassicalInvolution.Q3.Q3TLKAut
 public import CFSG.ClassicalInvolution.Q3.Q3WALoc
 import CFSG.ClassicalInvolution.ModelFacts.Orth15D4FixTop
-import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalOrthConj
-import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalSpinBridge
 public import CFSG.ClassicalInvolution.Q3.Q3WADict
 
 public section

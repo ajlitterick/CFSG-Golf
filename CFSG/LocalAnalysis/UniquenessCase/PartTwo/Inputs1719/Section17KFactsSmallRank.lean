@@ -1,14 +1,7 @@
 module
 
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.Defs
 public import CFSG.Blueprint.LieModelAPI
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S21a
-public import CFSG.LocalAnalysis.QuasithinUnique.Defs
-public import TauCeti.Algebra.Group.NormalizerQuotient.Basic
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CGT.Timmesfeld75.Statements

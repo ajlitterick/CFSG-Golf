@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.ONanTA3SmallCheckV
 public import CFSG.GH74.KGroups.U33Inputs
-public import CFSG.GH74.KGroups.PermCheck
 
 public section
 

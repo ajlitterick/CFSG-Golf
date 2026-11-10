@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.Co1FiveK.Data
-public import Certificates.Data.Kernel.Co1F2
-public import CFSG.Certificates.Kernel.Enum.Defs
 public import Certificates.Data.CFSGNative.Timmesfeld.Co1Five
 public meta import Certificates.Kernel.SporSch.Co1.GenBfs
 public meta import Certificates.Kernel.Co1FiveK.Data

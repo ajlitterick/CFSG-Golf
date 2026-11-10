@@ -1,20 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2MixedRange
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedRestrict
-public import CFSG.RankThree.PartOne.S11d.OrthLayer
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
-import CFSG.LocalAnalysis.StandardType.GGF4N2ChartCommute
-import CFSG.LocalAnalysis.StandardType.GGF4N2Rank
 import CFSG.LocalAnalysis.StandardType.GGF4N2ActualH0
-import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaRegular
 import CFSG.LocalAnalysis.AGLEmbedding.ThreeCentLieTwoUThree
-import CFSG.LieType.SeitzGeneration.OrthManyRank
-import CFSG.RankThree.CentralLift.ClassicalCenterTrivial
-import CFSG.RankThree.PartOne.KC.OrthogonalSelfDualModel
-import CFSG.RankThree.PartOne.S11d.OrthCyclic
 import CFSG.RankThree.PartOne.S15K.OrthMult
-import CFSG.ClassicalInvolution.WeakCT.Center
 
 public section
 

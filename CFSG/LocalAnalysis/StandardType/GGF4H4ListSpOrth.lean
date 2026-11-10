@@ -1,15 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4H4ListSpCore
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExcEven
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusCore
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusForms
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExc
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExcEvenLabels
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
 import CFSG.LocalAnalysis.StandardType.GGSignedPermCount
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUSigned
 
 public section
 

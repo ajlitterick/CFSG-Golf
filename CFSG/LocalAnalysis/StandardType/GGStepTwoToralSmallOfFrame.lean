@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStepTwoToralSmallOfFrameAux
-public import CFSG.LocalAnalysis.StandardType.GGExcKGToralFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoToralRestTags
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordContrary
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcDiagramAutomorphisms
 

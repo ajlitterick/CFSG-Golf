@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowFrame
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBExcInduced
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Data.Kernel.Misc.HexFlat
-public import CFSG.Sporadic.Schreier.PairHSCertInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.HSCoverCheck
 meta import Certificates.Kernel.Misc.Perm.HexCmd
 import Certificates.Kernel.Misc.Perm.HexCmd

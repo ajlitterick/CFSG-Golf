@@ -2,9 +2,6 @@ module
 
 public import CFSG.Milestones.ASVolI.F48.Rest.G23ModelBase
 
-public import CFSG.RankThree.PartTwo.Census.Carrier.G2Three
-public import CFSG.Quasithin.H13.ModelsG2
-public import Certificates.Certificate7760
 
 @[expose] public section
 

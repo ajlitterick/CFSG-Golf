@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartOne.KC.UnitaryDefiningBridge
 public import CFSG.RankThree.PartOne.KC.UnitaryDefiningSqZero
 public import CFSG.RankThree.PartOne.KC.UnitaryTransvection
-public import CFSG.RankThree.PartOne.KC.UnitaryRegularUnipotent
 
 public section
 

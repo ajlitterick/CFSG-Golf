@@ -1,16 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviSplit
-public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviEnnola
-public import CFSG.LocalAnalysis.StandardType.GGTBTorE7
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE7
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplit
-public import CFSG.LocalAnalysis.StandardType.GGMaxRankJModel
-public import CFSG.HardMathSupport.Meierfrankenfeld.Proving.E7Curtis.E7Arith
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE7
-public import CFSG.LocalAnalysis.StandardType.GGTBJE8Tag
-public import CFSG.LocalAnalysis.StandardType.GGTBJE7LeviCore
-public import CFSG.LocalAnalysis.StandardType.GGTBJE7Levi
 public import CFSG.LocalAnalysis.StandardType.GGTBJE7LeviEnnola
 public import CFSG.LocalAnalysis.StandardType.GGTBJE7LeviSplit
 public import CFSG.LocalAnalysis.StandardType.GGTBJETypeCells

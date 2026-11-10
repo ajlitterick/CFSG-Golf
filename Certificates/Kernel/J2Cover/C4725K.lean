@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.J2Cover.C4725P
 public import Certificates.Kernel.J2Cover.M22Fold
 public import Certificates.Kernel.Misc.Perm.J2C3A
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -1,19 +1,11 @@
 module
 
 public import Certificates.Kernel.Sporadic.RawGenOrb
-public import CFSG.Certificates.Kernel.Spor.RawOrbSound
-public import CFSG.Certificates.NativeSchreierCard
-public import CFSG.RankThree.Native.FiveKit
 public import CFSG.RankThree.PartOne.KS.PKit
-public import CFSG.Sporadic.HeldB.OuterArith
 public import CFSG.Sporadic.HeldB.AutModelCore
 public import CFSG.Sporadic.Schreier.PairChain
-public import CFSG.Certificates.SchreierChainOrderGenerators
-public import CFSG.Certificates.NativeSchreierArrays
-public import CFSG.Sporadic.HeldB.OuterArithCheck
 public import CFSG.RankThree.PartOne.KS.PKitLines
 public import CFSG.Sporadic.He
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

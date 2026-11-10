@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTablePThreeRLeaf
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonL2Holds
 import CFSG.LocalAnalysis.StandardType.GGRawTorusPClassicalTwo
 import CFSG.RankThree.PartTwo.KFacts.K72Omega
-import CFSG.LinearAlgebra.SteinbergBQEvenSL2OddCyclic
 import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.L62Triple
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.K3Core
 

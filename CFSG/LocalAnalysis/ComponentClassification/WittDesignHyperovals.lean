@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignSteiner3
-public import CFSG.Monster.B.Classical.PlaneAut
 public meta import CFSG.Monster.B.Classical.PlaneData
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignHyperovalsInputs
 public import Certificates.Certificate2028
 
 public section

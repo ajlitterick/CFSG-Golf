@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog81X10OrthO
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog81X10OrthField
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOEvenInner
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOFieldNF
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOEvenModel
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneDXDrField
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneDXKlOrth2
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog81X10OrthO2

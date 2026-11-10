@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK2E6D5ActualCountInputs
-public import CFSG.LocalAnalysis.StandardType.GGK2E6OriginalAxes
-public import CFSG.LocalAnalysis.StandardType.GGK2E6D5ActualStabilizer
 public import CFSG.LocalAnalysis.StandardType.GGK2E6D5E6OrbitCount
 public import CFSG.LocalAnalysis.StandardType.GGK2E6E6OriginalOutsideAxisTwo
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux

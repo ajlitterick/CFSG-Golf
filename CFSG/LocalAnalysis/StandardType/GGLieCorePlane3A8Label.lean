@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3Defs
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs2
 import CFSG.LocalAnalysis.StandardType.GGFamLabelKind
 import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestTypeDet
-import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.AltFacts4
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotCatTypeDet
 import CFSG.LocalAnalysis.OddStandard.HigherRank.YamadaG23.Y6F4AR
 import CFSG.Blueprint.OddStandardExact
 import CFSG.HardMathSupport.Timmesfeld.FieldBonus.TFAbModels

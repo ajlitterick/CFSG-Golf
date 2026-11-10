@@ -6,7 +6,6 @@ public import CFSG.Certificates.Kernel.Spor.RawDefs
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeData
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.Stage1Data
 public import CFSG.Open.LocalVocabulary
-public import Certificates.Data.CFSGNative.Co3Schreier.Basic
 
 public section
 

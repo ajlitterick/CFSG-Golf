@@ -2,7 +2,6 @@ module
 
 public import CFSG.Mathlib.GroupTheory.ElementarySelfCentralizingComplement
 public import CFSG.LocalAnalysis.StandardType.GGResIPumpLineTransfer
-public import CFSG.GroupTheory.QuasisimplePSolvable
 
 public section
 

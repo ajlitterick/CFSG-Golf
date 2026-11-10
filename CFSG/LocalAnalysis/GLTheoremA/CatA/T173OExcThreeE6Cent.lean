@@ -1,9 +1,7 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeE6TwoSL6
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcThreeE6Orbit
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeE6TwoBalance
-public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotLayer
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE6Two9
 
 public section

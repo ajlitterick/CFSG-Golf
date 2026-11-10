@@ -2,26 +2,15 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameEndGuard
 public import CFSG.LocalAnalysis.StandardType.GGFrameEndAutomizer
-public import CFSG.LocalAnalysis.StandardType.GGFrameEndModel
 public import CFSG.LocalAnalysis.StandardType.GGFrameEndNum
 public import CFSG.LocalAnalysis.StandardType.GGFrameEndTX
 public import CFSG.LocalAnalysis.StandardType.GGFrameEndTXClosure
-public import CFSG.LocalAnalysis.StandardType.GGFrameModelStep
 public import CFSG.LocalAnalysis.StandardType.GGFrameE78TX
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteJoin
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteJoinTBDefs
 public import CFSG.LocalAnalysis.StandardType.GGFrameTBVacuous
 public import CFSG.LocalAnalysis.StandardType.GGFrameFSxEndsCardJoin
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteLower
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBFixLine
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
 public import CFSG.LocalAnalysis.StandardType.GGSpNbrKGMark
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1WeylE
-public import CFSG.LocalAnalysis.StandardType.GGStdSubExist
-public import CFSG.LocalAnalysis.StandardType.GGCoxReflConv
-public import CFSG.LocalAnalysis.StandardType.GGFrameE78Facts
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxThreaded
 import CFSG.LocalAnalysis.StandardType.GGFrameTBHolds
 import CFSG.LocalAnalysis.StandardType.GGTorusMaxOverProof

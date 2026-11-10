@@ -2,15 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1Frame
 public import CFSG.LocalAnalysis.StandardType.GGTBRowDSignedFrameSC
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
 import CFSG.LocalAnalysis.StandardType.GGHdRo7DFrameOmega
 import CFSG.LocalAnalysis.StandardType.GGHdRo7DFrameTransport
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExc
 import CFSG.LocalAnalysis.StandardType.GGKGForkOrthRow
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallPosWeylSys
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallE8
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallRankDefs

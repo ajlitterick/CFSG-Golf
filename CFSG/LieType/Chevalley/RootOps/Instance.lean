@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.RootOps.Finger
 public import CFSG.LieType.Chevalley.RootOps.Family
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24Inputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4CheckInputs
-public import CFSG.Sporadic.J4.QTRankNative
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBase
 public import Certificates.Data.J4Loc.Native
 
 public section

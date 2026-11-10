@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.Fi24PDc2.Defs
 public import Certificates.Data.Kernel.SporLatDc2Check
 public import CFSG.Sporadic.FischerOddCore.Fi24R2Data
 import Certificates.Kernel.Fi24PDc2.Final
-import Certificates.Kernel.Sporadic.Fi24K.C2077
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

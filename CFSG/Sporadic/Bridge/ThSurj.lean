@@ -2,27 +2,16 @@ module
 
 public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.Certificate
-public import CFSG.Sporadic.Bridge.Common
-public import CFSG.Sporadic.Bridge.ThData
 public import CFSG.Sporadic.Presentation.Th
 public meta import CFSG.Sporadic.Bridge.ThData
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import Certificates.Certificate9131
-public import CFSG.Sporadic.Bridge.ThSurjInputs
 public import Certificates.Certificate9220
-public import Certificates.Certificate1021
-public import Certificates.Certificate1020
-public import Certificates.Certificate1022
 public meta import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import CFSG.Certificates.CosetTableCompactColumns
 public import CFSG.Certificates.CosetTableShort
-public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.Presentation.ThBase
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
 public import CFSG.Sporadic.ThSchreier.KernelAut
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 public import Certificates.Certificate9131Base
 

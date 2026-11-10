@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Vol2.Ch6Sec1Lem19P
 public import CFSG.Quasithin.Background.G6Transvection
 import all CFSG.Quasithin.Background.G6Transvection
 public import CFSG.Quasithin.Background.B1MoreQuot
-public import CFSG.Quasithin.Background.G6Basic
 
 public section
 

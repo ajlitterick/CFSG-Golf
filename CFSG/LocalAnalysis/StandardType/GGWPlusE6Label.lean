@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGWPlusE6
 public import CFSG.LocalAnalysis.StandardType.GGWPlusNarrow3Defs
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeLabel
 
 public section
 

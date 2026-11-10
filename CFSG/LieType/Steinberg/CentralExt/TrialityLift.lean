@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.CentralExt.TrialityTorus
 public import CFSG.LieType.Steinberg.CentralExt.TorusLift
-public import CFSG.LieType.Steinberg.CentralExt.AlternatingPairing
 
 public noncomputable section
 

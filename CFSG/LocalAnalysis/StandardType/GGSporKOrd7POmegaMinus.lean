@@ -3,12 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrd7Defs
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrd7Lift
 public import CFSG.LieType.ChevTwo.OppCl.AutLifts
-public import CFSG.LieType.BorelTits.OrthogonalModels
-public import CFSG.LieType.Universal.Spin.Forms
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalModelAbelianization
 public import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
-public import CFSG.ClassicalGroups.Orthogonal.Matrix
-public import CFSG.ClassicalGroups.Orthogonal.Simple
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalAnisotropicPlaneRegular
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasThree
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting

@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LieType.BorelTits.Twisted
 public import CFSG.LieType.Chevalley.C2E6StdMatrixModel
-public import CFSG.LieType.Chevalley.C2E6NativeF4Building
 public import CFSG.Monster.B.E6.StdF4FiberGroups
-public import CFSG.Monster.B.E6.StdF4Root
 public import CFSG.Monster.B.E6.StdF4WeylPair
 
 public section

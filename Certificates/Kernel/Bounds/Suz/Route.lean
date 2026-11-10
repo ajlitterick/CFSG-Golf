@@ -5,7 +5,6 @@ public import Certificates.Kernel.Bounds.Suz.T1vData
 public import Certificates.Kernel.Bounds.Suz.T2vData
 public import Certificates.Kernel.Bounds.Suz.T3vData
 public import Certificates.Kernel.Bounds.Suz.T4vData
-import CFSG.Certificates.Kernel.Bounds.Load
 
 open CFSG.Certificates
 

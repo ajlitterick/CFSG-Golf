@@ -2,35 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.Solomon75Sec6Fusion
 public import CFSG.LocalAnalysis.OddStandard.Solomon75Sec6Lemma51B
-public import Certificates.Certificate1
-public import Certificates.Certificate2
-public import Certificates.Certificate3
-public import Certificates.Certificate4
-public import Certificates.Certificate5
-public import Certificates.Certificate6
-public import Certificates.Certificate7
-public import Certificates.Certificate8
-public import Certificates.Certificate9
-public import Certificates.Certificate10
-public import Certificates.Certificate11
-public import Certificates.Certificate12
-public import Certificates.Certificate42
-public import Certificates.Certificate43
-public import Certificates.Certificate44
-public import CFSG.Sporadic.Ly.Setup
 import Certificates.Certificate3085Base
-import CFSG.Sporadic.Ly.GenSpecBase
-import Certificates.Certificate3085
 public import Certificates.Certificate6104
 public import Certificates.Certificate6105
 public import Certificates.Certificate6106
-public import Certificates.Certificate3120
 import CFSG.Holt.StarCase.Lemma26Basic
-import CFSG.LocalAnalysis.OddStandard.Solomon75Sec3Lemma33Cover
-import CFSG.LocalAnalysis.OddStandard.Solomon75Sec3Reduce
 import CFSG.LocalAnalysis.OddStandard.Solomon75Sec4GammaHub
 import CFSG.LocalAnalysis.OddStandard.Solomon75Sec5SwapDiagData
-import CFSG.GH74.GLS.Stage1.Thm2.Recip.Comp
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67LyAllInnerThm
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CharacterTheory.CyclicBlocks.Family
@@ -103,10 +81,6 @@ public import CFSG.Sporadic.Recognition.McLASThreeCount
 public import CFSG.Sporadic.Recognition.McLMultiplierMatrix
 public import CFSG.Sporadic.Schreier.LyFixedSet
 public import CFSG.StronglyEmbedded.TheoremSE.BenderLowRank
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

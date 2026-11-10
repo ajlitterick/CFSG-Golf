@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Recognition.F112Crit.BenderRigidDefs
 public import CFSG.Quasithin.Recognition.F112Crit.BenderCartan
 import CFSG.Quasithin.Recognition.F112Crit.BenderTrichotomy
-import CFSG.GH74.Uniqueness.Bender.Aut
 import CFSG.GH74.Uniqueness.Bender.SuzukiAut
 import CFSG.GH74.Uniqueness.Bender.UnitaryOuterRoot
 import CFSG.GH74.Uniqueness.Bender.UnitaryAut

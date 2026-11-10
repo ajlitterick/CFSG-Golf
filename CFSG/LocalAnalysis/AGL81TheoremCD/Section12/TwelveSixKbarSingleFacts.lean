@@ -2,21 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineOne
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenDefs
-public import CFSG.LocalAnalysis.AGLEmbedding.LinTwoCatalog
-public import CFSG.RankThree.PartOne.Census3.Interface
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import CFSG.Foundations.Basic
-public import CFSG.Open.LocalVocabulary
 import CFSG.GF2Type.Smith1979.WidthFourKP.OmegaPlus.Groups.PSL2
 import CFSG.RankThree.PartOne.K159F.SzAbs
 import CFSG.GF2Type.Smith1979.W4AsSurvL28
 import CFSG.HardMathSupport.Dickson.Bal207.LocalBalInner
-import CFSG.RankThree.PartOne.CTP.SeitzExcModels
-import CFSG.LieType.Simplicity.Suzuki
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveOneComp
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22a
-import CFSG.Foundations.SteinbergCADefinitionNodes
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.CGT.Timmesfeld75.Statements
@@ -139,8 +130,6 @@ import CFSG.Quasithin.Background.C2PushThree
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.D2Cyclic
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F7TwoDefs
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2

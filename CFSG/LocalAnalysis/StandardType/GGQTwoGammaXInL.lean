@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAssemble
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112Lin
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLDatum
-public import CFSG.LocalAnalysis.StandardType.GGQTwoAjSetting
-public import CFSG.LocalAnalysis.StandardType.GGQTwoK1Model
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCor81
-public import CFSG.LocalAnalysis.StandardType.GGLineStabNormalizes
 
 public section
 

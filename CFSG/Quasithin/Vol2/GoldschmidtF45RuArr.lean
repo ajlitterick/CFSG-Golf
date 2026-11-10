@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF45RuAdj
 public import CFSG.Quasithin.Vol2.GoldschmidtF45RuGrp
-public import Certificates.Data.RuF45Geom
 
 public section
 

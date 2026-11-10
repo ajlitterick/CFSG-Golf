@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpDefs
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpAgree
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenLabels
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenLift
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

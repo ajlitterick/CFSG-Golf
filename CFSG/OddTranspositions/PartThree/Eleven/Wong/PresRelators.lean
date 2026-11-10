@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.RootRelations
-public import CFSG.OddTranspositions.PartThree.Eleven.Wong.RootTwist
 public import CFSG.ClassicalGroups.Symplectic.PSp45.PresData
 public import CFSG.Certificates.CosetTableCompactColumns
 public import CFSG.Certificates.CosetTableShort

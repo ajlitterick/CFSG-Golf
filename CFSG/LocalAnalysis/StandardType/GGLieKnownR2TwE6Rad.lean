@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Conj
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompDefs
-public import CFSG.LieType.Steinberg.TwistedE6.Clause0
-public import CFSG.LieType.Steinberg.TwistedE6.Unipotent
-public import CFSG.LieType.Steinberg.TwistedE6.Roots
-public import CFSG.LieType.Steinberg.Exceptional.Fields
 public import CFSG.LieType.Steinberg.CentralExt.Unipotent
 
 public section

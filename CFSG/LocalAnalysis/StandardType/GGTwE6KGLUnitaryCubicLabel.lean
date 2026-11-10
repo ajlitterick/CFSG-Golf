@@ -5,9 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLUnitaryCubicAction
 import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherUnitary
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniScal
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniData
 import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphismsCongr
-import CFSG.SignalizerFunctorTheorem.Inheritance.TransportA.Fitting
 
 public section
 

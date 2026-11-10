@@ -2,21 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourOutTransport
 public import CFSG.LocalAnalysis.StandardType.GGTwE6K1LeviDefs
-import CFSG.Assembly.Subnormal
-import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourOutAd
 import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourOutD4
 import CFSG.LocalAnalysis.StandardType.GGMarkingAllInduces
 import CFSG.LocalAnalysis.StandardType.GGOutsideInndiagCriteria
 import CFSG.LocalAnalysis.StandardType.GGInndiagThreeRankTwoLabels
-import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
-import CFSG.LocalAnalysis.StandardType.GGAssemblyFiveDefs
 import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
-import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitMarking
 import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas
-import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
-import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCover
 import CFSG.LocalAnalysis.StandardType.GGTwE6K1LeviMain
 
 public section

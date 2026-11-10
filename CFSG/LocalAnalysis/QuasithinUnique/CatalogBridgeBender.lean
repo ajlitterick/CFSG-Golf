@@ -5,7 +5,6 @@ public import CFSG.Open.Catalog
 import CFSG.StronglyEmbedded.Catalog.Suzuki
 import CFSG.StronglyEmbedded.Catalog.Unitary
 import CFSG.StronglyEmbedded.MatrixGroups.SzModel
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.Comparator.Defs
 import CFSG.Models.BenderSuzuki
 
 public section

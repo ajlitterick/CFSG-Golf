@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Sol76RankOneClassPointed
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitRankOne
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitLBalance
 public import CFSG.Certificates.LiftedSchreierData
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78Functor
@@ -25,7 +24,6 @@ public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
 public import CFSG.Sporadic.Ly.OrbitSpec
-public import CFSG.Sporadic.Ly.PrimitiveBase
 public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyChain11

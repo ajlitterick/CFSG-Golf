@@ -8,7 +8,6 @@ public import CFSG.GroupTheory.CoprimeActionSupport.FaithfulIrreducibleFiniteCen
 public import CFSG.GroupTheory.CoprimeActionSupport.PrimeConjugationImage
 public import CFSG.LargeExtraspecial.RepresentationSupport.ExtraspecialTwoOddAutomizerWidth
 public import CFSG.LargeExtraspecial.RepresentationSupport.ExtraspecialTwoOrderWidth
-public import CFSG.LocalAnalysis.RankThreeUC.Section3.CoprimeSpecialGroups.CommPowPow
 import all CFSG.LocalAnalysis.RankThreeUC.Section3.CoprimeSpecialGroups.CommPowPow
 
 public section

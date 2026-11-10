@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRuleSpFourZero
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympInnerExport
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.SympInner
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelLieSp6Orb
 
 public section

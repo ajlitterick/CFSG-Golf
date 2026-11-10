@@ -3,10 +3,7 @@ module
 public import Certificates.Kernel.Fi22Nfp.Checks
 public import Certificates.Kernel.Fi22Syl.Final
 public import Certificates.Kernel.Fi22Cent.Final
-import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Spor.Loops
-import Mathlib.Tactic.IntervalCases
 public import Certificates.Data.CFSGNative.Fi22.Nfp
 
 public section

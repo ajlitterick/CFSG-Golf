@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.WidthThree
 public import CFSG.OddTranspositions.PartThree.LocalBenderInvolutions
 public import CFSG.OddTranspositions.PartThree.LocalBenderCenter
-import CFSG.GroupTheory.OddCoreQuotient
 
 public section
 

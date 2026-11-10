@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.S9Six
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239ListedW
-public import Certificates.Kernel.J4Count.FixCE
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

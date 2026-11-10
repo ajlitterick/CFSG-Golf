@@ -1,17 +1,10 @@
 module
 
-public import Mathlib
-public import CFSG.Foundations.Basic
-public import CFSG.Open.Defs
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Milestones.ASVolI.I1
-public import CFSG.Milestones.ASVolI.I2
 public import CFSG.Milestones.ASVolI.I3
 public import CFSG.Milestones.ASVolI.I6
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.TightEmbedding
 public import CFSG.ClassicalInvolution.TwoGroupCase.TwoGroupTI
 public import CFSG.ClassicalInvolution.TwoGroupCase.TightPairDihedral
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 public import Certificates.Kernel.Sporadic.Fi22.C3151
 public import Certificates.Kernel.Sporadic.Fi22.C2068
 

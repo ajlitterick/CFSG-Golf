@@ -1,9 +1,7 @@
 module
 
-public import Certificates.Data.Kernel.LocalComp.Tits
 public import CFSG.Certificates.Kernel.LocalCompTits.TabP
 import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Spor.Loops
 import Mathlib.Data.List.Nodup
 
 public section

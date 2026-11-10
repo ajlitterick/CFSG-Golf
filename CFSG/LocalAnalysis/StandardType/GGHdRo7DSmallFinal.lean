@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHdRo7DDefs
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7DSmallDefs
 import CFSG.LocalAnalysis.StandardType.GGHdRo7DNormalizer
 import CFSG.LocalAnalysis.StandardType.GGHdRo7DReduceU

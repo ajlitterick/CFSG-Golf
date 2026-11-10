@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Asc94.TS40g
-public import Certificates.Kernel.J4Count.FixCE
 
 public section
 

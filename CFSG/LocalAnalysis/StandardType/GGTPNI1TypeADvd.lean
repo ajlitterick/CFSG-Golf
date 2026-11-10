@@ -2,21 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNI1TypeAHelp
 public import CFSG.LocalAnalysis.StandardType.GGTPNI1TypeADvdBlock
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
-public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
-public import CFSG.Fischer.Classification.Recognition.Basic
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
-public import CFSG.Quasithin.Background.B69Iso
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LinearBlocks
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.LinearInner
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267GenPlaneClsLinBlock
-public import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.LinUnitLinear
 public import CFSG.GroupTheory.Fitting.LayerProjection
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FSeitzB2
 public import CFSG.GroupTheory.Fitting.LayerContainment
 public import CFSG.LocalAnalysis.ComponentClassification.FittingNilpotence
 

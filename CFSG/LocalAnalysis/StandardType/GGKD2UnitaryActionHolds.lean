@@ -1,11 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKD2UnitaryPieces1615
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUComp
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdNode
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUTwo
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSU
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeU6Type9InnerDiag
 public import CFSG.LocalAnalysis.StandardType.GGKD2UnitaryBlockShape
 
 public section

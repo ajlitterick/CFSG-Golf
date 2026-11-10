@@ -1,15 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.SectionRank.EvenCover.Orthogonal
-import CFSG.LieType.Steinberg.CentralExt.SpinPlusCentrallyClosed
-import CFSG.LieType.Steinberg.CentralExt.SpinMinusCentrallyClosed
 import CFSG.LocalAnalysis.StandardType.GGTwistedLabelModels
 import CFSG.LocalAnalysis.StandardType.GGTBTorRelDCoverTwo
 import CFSG.LocalAnalysis.SectionRank.SporadicCover
 import CFSG.Sporadic.M23.M23Group
-import CFSG.Sporadic.Th.F2Spec
 
 public section
 

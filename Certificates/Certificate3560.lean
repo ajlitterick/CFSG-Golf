@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.SplitCUniqSADefs
 import Certificates.Kernel.OmegaEight.Bridge3560
-import Certificates.Kernel.OmegaEight.Uniq3560P
-import Certificates.Kernel.OmegaEight.Uniq3560M
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.SplitCUniqWDefs
 import CFSG.Certificates.Kernel.BfsPinSound
@@ -48,7 +46,6 @@ import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 import CFSG.LocalAnalysis.SectionRank.SporadicCover
 import CFSG.Sporadic.M23.M23Group
 import CFSG.Sporadic.SmallOddCore.CheckSpec
-import CFSG.Sporadic.Th.F2Spec
 import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

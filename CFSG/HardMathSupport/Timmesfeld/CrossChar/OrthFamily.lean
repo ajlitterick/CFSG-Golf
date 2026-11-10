@@ -2,17 +2,11 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.OrthPlane
 public import CFSG.RankThree.PartOne.KC.OrthogonalInnerPlaneFullCentralizer
-public import CFSG.RankThree.PartOne.KC.OrthogonalFieldDescentSimilarity
 public import CFSG.RankThree.PartOne.KC.OrthogonalInnerPlaneProducts
 public import CFSG.RankThree.PartOne.K133C.InnerPlane
 public import CFSG.LocalAnalysis.RankThreeTheoremC.OutCyclicThreeFamilies
 public import CFSG.RankThree.PartOne.MB3.OddOutOrthogonal
-public import CFSG.RankThree.PartTwo.Census.Carrier.SpinBOdd
-public import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDOdd
 public import CFSG.RankThree.CentralLift.ClassicalCenterTrivial
-public import CFSG.ClassicalGroups.Orthogonal.Simple
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Steinberg.Classical.SpinFrame
 public import CFSG.LieType.Steinberg.Exceptional.E6E7
 public import CFSG.LieType.Steinberg.Families
@@ -33,8 +27,6 @@ public import CFSG.RankThree.PartOne.S11d.OddOutPSL2
 public import CFSG.RankThree.PartOne.S12.Sec137
 public import CFSG.RankThree.PartOne.S12.Sec15FA
 public import CFSG.RankThree.PartOne.S12.Sec15Items
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CommutatorNormalizer
 
 public section

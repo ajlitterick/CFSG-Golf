@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
-public import CFSG.Open.StatedAPI
 
 public section
 

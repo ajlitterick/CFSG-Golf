@@ -1,12 +1,9 @@
 module
 
-public import CFSG.HardMathSupport.Seitz.TrialityEven.Split
-public import CFSG.HardMathSupport.Seitz.TrialityEven.Interface
 public import CFSG.HardMathSupport.Seitz.TrialityEven.ToralQ1All
 public import CFSG.HardMathSupport.Seitz.TrialityEven.MinusDichotomyAll
 public import CFSG.HardMathSupport.Seitz.TrialityEven.FrameRowsEven
 public import CFSG.HardMathSupport.Seitz.TrialityEven.TwistedEven
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Proving.InnerPlanePullback
 
 set_option linter.unusedSectionVars false
 

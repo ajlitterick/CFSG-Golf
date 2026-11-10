@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcOut
-public import CFSG.LieType.Chevalley.E6CanonicalFieldGraphFixed
-public import CFSG.LieType.Chevalley.G2ThreeAutomorphismNormalForm
 
 public section
 

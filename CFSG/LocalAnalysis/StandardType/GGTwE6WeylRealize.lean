@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6TBWeyl
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFiveTw
 public import CFSG.RankThree.PartOne.Q1327T.Item7D4W
-public import CFSG.LieType.Chevalley.FoldedWeylData
-public import CFSG.LieType.Chevalley.GraphFixedBruhatEquivariance
-public import CFSG.RankThree.Classical2.TwistedE6RationalOrder
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerResiduals
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE6
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Reduction

@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.Chevalley.KernelComponentRoots
 import CFSG.LocalAnalysis.StandardType.GGHdRo7ExcLin
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcRootReflectionRelations
 
 public section
 

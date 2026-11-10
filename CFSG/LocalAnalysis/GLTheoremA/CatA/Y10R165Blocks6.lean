@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Blocks5
-public import Mathlib.LinearAlgebra.QuadraticForm.Basic
 
 public noncomputable section
 

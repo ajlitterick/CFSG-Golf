@@ -7,7 +7,6 @@ public meta import CFSG.Sporadic.Schreier.Co3Cert
 public meta import CFSG.Sporadic.Schreier.Co3FaithfulData
 public meta import Certificates.Data.CFSGNative.Co3.Data
 public meta import Mathlib.GroupTheory.Schreier
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

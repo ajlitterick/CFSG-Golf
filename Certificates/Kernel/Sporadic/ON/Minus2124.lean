@@ -6,9 +6,6 @@ public import Certificates.Kernel.Sporadic.ON.Neg
 public import CFSG.Certificates.Kernel.Spor.ONNegSound
 public import CFSG.Certificates.Kernel.Spor.CBTrInv
 public import CFSG.Sporadic.ONOddCore.MinusCheckInputs
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.ON.Setup
 public import CFSG.Sporadic.ON.VecSpec
 

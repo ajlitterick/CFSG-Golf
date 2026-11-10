@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec4MPts
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec4NotConj
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec4Statements
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.Blueprint.RecognitionDefs
 public import CFSG.CGT.Timmesfeld75.L2Pair

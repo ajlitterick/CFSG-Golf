@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVPComp
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingPrime
 
 public section
 

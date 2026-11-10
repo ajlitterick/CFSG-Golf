@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.KGroups.L34Inputs
-public import CFSG.GH74.KGroups.PermCheck
 public meta import CFSG.GH74.KGroups.L34Inputs
 public meta import CFSG.GH74.KGroups.PermCheck
 

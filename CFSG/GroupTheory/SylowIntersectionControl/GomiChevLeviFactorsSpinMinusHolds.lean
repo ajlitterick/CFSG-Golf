@@ -3,10 +3,7 @@ module
 public import CFSG.GroupTheory.SylowIntersectionControl.GomiChevLeviFactorInputs
 import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SpinMinusDBlock
 import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SpinMinusModel
-import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SLChev
 import CFSG.RankThree.PartOne.CTP.SpinCenterEven
-import CFSG.RankThree.PartOne.CTP.SU4EvenBridge
-import CFSG.LocalAnalysis.SectionRank.EvenCover.Unitary
 import CFSG.ClassicalInvolution.ModelFacts.LinearAutLift
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations

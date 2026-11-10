@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheckInputs
-public import CFSG.Monster.B.Fischer.Fi22OuterArrays
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheckInputs
 public meta import CFSG.Monster.B.Fischer.Fi22OuterArrays
 

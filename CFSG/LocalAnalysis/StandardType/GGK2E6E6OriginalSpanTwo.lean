@@ -8,9 +8,6 @@ public import CFSG.LocalAnalysis.StandardType.GGResIBasic
 
 public import CFSG.LocalAnalysis.StandardType.GGK2E6E6DependentD5Span
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixModuleAux
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeABridge
-public import Mathlib.LinearAlgebra.Dimension.OrzechProperty
 
 public section
 

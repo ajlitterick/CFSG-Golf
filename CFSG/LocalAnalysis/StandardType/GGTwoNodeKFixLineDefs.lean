@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMModuleDefs
-public import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 
 public section
 

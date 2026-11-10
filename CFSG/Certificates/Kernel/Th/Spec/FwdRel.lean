@@ -3,11 +3,6 @@ module
 
 public import CFSG.Certificates.Kernel.Th.Spec.FwdRelBase
 
-public import CFSG.Certificates.Kernel.Th.S.BigS
-public import CFSG.Certificates.Kernel.Th.S.OutS
-public import CFSG.Certificates.Kernel.Th.Spec.Big
-public import CFSG.Certificates.Kernel.Th.Spec.DceHsw
-public import CFSG.Sporadic.Bridge.Common
 public import CFSG.Sporadic.Th.ChainBase1
 import CFSG.Certificates.Kernel.Th.Max3S.Words
 public import CFSG.Sporadic.Th.BaseBase1

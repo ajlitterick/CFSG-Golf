@@ -1,11 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeDefs
 public import CFSG.LocalAnalysis.StandardType.GGTorusWeylTypePerm
 public import CFSG.LocalAnalysis.StandardType.GGStdPosC13Unitary
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneUnitaryLabel
 public import CFSG.LocalAnalysis.StandardType.GGStdPosC13UnitaryDvdGen
-public import CFSG.LocalAnalysis.StandardType.GGTDAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGResIICell
 
 public section

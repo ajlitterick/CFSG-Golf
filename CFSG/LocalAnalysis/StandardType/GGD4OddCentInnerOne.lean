@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerDefs
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerBridge
 import CFSG.LocalAnalysis.StandardType.GGOPlusEightTwoTri
-import CFSG.LocalAnalysis.StandardType.GGHypSixD4RankClassConj
 import CFSG.HardMathSupport.Dickson.Bal207.OrthInnerShape
-import CFSG.SignalizerFunctorTheorem.Inheritance.TransportA.Fitting
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinateRegular
 import CFSG.CharacterTheory.CyclicBlocks.Family
 import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
 import CFSG.CharacterTheory.Semidihedral.Principal.PrimeTorusBlockAlignment
@@ -58,8 +55,6 @@ import CFSG.Quasithin.Background.C2PushThree
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.D2Cyclic
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1

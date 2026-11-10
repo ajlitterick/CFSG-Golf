@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
-public import Certificates.Data.CFSGNative.PSL3Four.Certificate
 public meta import Certificates.Data.CFSGNative.PSL3Four.Certificate
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4L34CertInputs
 public import Certificates.Certificate2005
-public import Certificates.Certificate2022
 
 public section
 

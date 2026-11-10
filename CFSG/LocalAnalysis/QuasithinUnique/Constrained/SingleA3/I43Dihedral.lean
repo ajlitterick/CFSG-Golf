@@ -3,7 +3,6 @@ module
 public import CFSG.Dihedral.GorensteinWalter
 public import CFSG.Adapters.LinearFieldTransport
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.SingleA3.I43Dihedral.PrimePowerArith
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.SingleA3.I43Dihedral.GroupLemmas
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.SingleA3.I43Dihedral.CharTwoCentralizer
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.SingleA3.I43Dihedral.PSL2InvolutionCentralizer
 

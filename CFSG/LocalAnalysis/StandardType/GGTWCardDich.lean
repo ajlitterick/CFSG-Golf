@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepAssembly
-public import CFSG.LocalAnalysis.StandardType.GGTWSurvDefs
 public import CFSG.LocalAnalysis.StandardType.GGTWDFalse
 public import CFSG.LocalAnalysis.StandardType.GGTWDCells36Orb
 public import CFSG.LocalAnalysis.StandardType.GGTWLowStmt
 public import CFSG.LocalAnalysis.StandardType.GGTWCoreDefs
-public import CFSG.LocalAnalysis.StandardType.GGRCCaseIIBasic
 public import CFSG.Holt.H78.Sec4Prop46D
 public import CFSG.GH74.Uniqueness.Bender.UnitaryAut
 public import CFSG.Holt.General.Basic

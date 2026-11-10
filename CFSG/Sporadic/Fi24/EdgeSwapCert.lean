@@ -3,11 +3,7 @@ module
 public import CFSG.Sporadic.Fi24.Edge
 public meta import Certificates.Data.CFSGNative.Fi24.Certificate
 public import Certificates.Certificate1017
-public import Certificates.Certificate1016
-public import Certificates.Certificate1018
-public import Certificates.Certificate1019
 public import CFSG.Sporadic.Fi24.Ext
-public import CFSG.Sporadic.Fi24.ExtOuter
 
 public section
 

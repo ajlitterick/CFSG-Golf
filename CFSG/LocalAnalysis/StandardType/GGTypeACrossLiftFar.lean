@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatFarB
-public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCfg
 
 public section
 

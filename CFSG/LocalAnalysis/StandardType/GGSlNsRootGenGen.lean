@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenDefs
-public import CFSG.LinearAlgebra.LinearGroups.Generation
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSLRepCases
 
 public section
 

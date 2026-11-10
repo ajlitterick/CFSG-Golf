@@ -5,11 +5,7 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.Sma
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.ShortRoot
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotOrthSL2
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotThreeBlocks
-import CFSG.LieType.Steinberg.BruhatWeyl
-import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2SpMono
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 import CFSG.LieType.Chevalley.C2E6StandardFixedData
@@ -29,7 +25,6 @@ import CFSG.LocalAnalysis.SeitzReduction.F4PilotHR7Split
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotThreeModel
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.JRFacts
 
 public section

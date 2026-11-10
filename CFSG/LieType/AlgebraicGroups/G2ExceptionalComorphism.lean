@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.FrobeniusDiagramComorphism
 public import CFSG.LieType.AlgebraicGroups.HopfTensorPoints
-public import Mathlib.Algebra.DualNumber
 import TauCeti.RingTheory.TensorProduct.PointSeparation
 import TauCeti.RingTheory.FiniteType.PointSeparation
 

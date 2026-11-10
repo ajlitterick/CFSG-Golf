@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Bounds.Hdr
 public import Certificates.Kernel.HeMult.P3Data
 public import Certificates.Kernel.HeMult.P2Data
 public import Certificates.Kernel.HeMult.P1Data
@@ -8,7 +7,6 @@ public import Certificates.Kernel.HeMult.C3Data
 public import Certificates.Kernel.HeMult.C2Data
 public import Certificates.Kernel.HeMult.C1Data
 public import Certificates.Kernel.HeMult.Words
-import CFSG.Certificates.Kernel.Bounds.Load
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.Open.Defs

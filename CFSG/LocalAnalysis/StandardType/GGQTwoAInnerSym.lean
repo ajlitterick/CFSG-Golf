@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoInnerDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoQuandleSym
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAInnerPhi
 
 public section

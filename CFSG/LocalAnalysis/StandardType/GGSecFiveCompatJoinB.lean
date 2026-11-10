@@ -1,24 +1,16 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrderSixAD
-public import CFSG.LocalAnalysis.StandardType.GGTBRowSpCartan
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelectedSpMember
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinBGuarded
-import CFSG.LocalAnalysis.StandardType.GGF4JoinMemberE6
 import CFSG.LocalAnalysis.StandardType.GGF4JoinMemberE8
-import CFSG.LocalAnalysis.StandardType.GGF4JoinMemberPSL
 import CFSG.LocalAnalysis.StandardType.GGF4JoinMemberPOmegaPlus
 import CFSG.LocalAnalysis.StandardType.GGF4JoinMemberTwistedE6
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelectedF4
-import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelectedPSU
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelectedOmegaMinus
 import CFSG.LocalAnalysis.StandardType.GGSelectedE7Guarded
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLinDefs
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOppSp
 import CFSG.LocalAnalysis.StandardType.GGResQTwoLinearJ
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGFamLabelDefs
-import CFSG.LieType.Universal.SpinClause0
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelectedHolds
 
 public section

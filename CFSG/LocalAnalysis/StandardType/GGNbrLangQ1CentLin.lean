@@ -1,13 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1RLevel
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorLinLift
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorLinMark
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsLin
 import CFSG.LocalAnalysis.StandardType.GGOuterInvAtPSLFieldNoneHolds
 import CFSG.LinearAlgebra.MatrixPlanes
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearAction
 
 public section
 

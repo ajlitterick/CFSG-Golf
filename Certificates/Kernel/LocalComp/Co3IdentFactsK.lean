@@ -2,10 +2,6 @@
 module
 
 public import Certificates.Kernel.LocalComp.Co3IdentElts
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentFactsInputs
-import CFSG.Monster.B.Co2.PermArr
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

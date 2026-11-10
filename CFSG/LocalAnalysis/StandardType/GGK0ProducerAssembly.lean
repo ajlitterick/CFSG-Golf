@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGK0StageDefs
 import CFSG.LocalAnalysis.StandardType.GGK0StageAssembly
 import CFSG.LocalAnalysis.StandardType.GGK0PositionsLeaf
 import CFSG.LocalAnalysis.StandardType.GGK0LCLeaf
-import CFSG.LocalAnalysis.StandardType.GGK0LQ1
 import CFSG.LocalAnalysis.StandardType.GGK0LQ2
-import CFSG.LocalAnalysis.StandardType.GGK0LQ3
 import CFSG.LocalAnalysis.StandardType.GGK0LQ4
 import CFSG.LocalAnalysis.StandardType.GGK0LEA12TwE6
 

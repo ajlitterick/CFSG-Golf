@@ -19,7 +19,6 @@ public import Certificates.Kernel.HNFSub.Chk14
 public import Certificates.Kernel.HNFSub.Base
 public import Certificates.Kernel.HNFSub.Dist
 public import CFSG.Certificates.Kernel.HNFSubSound
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.HNFOrb
 import CFSG.Certificates.Kernel.Common.ForallTree
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Fam.HNSeed.Checks.K

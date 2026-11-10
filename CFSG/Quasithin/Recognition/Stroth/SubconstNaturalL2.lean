@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Recognition.Stroth.LemmaSDegree
 public import CFSG.Quasithin.Vol2.Ch3E215MC
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.LinearModelPointStructure
 public import CFSG.Quasithin.Recognition.Stroth.Weiss80Route
 public import CFSG.Assembly.OrderReductions.CharacterInflation
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure

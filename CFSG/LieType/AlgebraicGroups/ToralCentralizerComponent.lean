@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.ConstructibleSubgroupClosed
 public import CFSG.LieType.AlgebraicGroups.TwistedOrbitSurjectivity
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

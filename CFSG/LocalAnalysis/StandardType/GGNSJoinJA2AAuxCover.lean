@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUBlock
 public import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutMain
 
 public section

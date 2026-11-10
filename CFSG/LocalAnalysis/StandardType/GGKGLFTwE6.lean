@@ -1,16 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixLift
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixLabel
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcFixTwE6
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6PerBstar
-public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeMarking
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6ThreeDefs
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwisted
 
 public section
 

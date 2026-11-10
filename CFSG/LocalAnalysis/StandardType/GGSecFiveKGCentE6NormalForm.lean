@@ -1,10 +1,7 @@
 module
 
 public import CFSG.RankThree.PartOne.KE8F.FamBruhat
-public import CFSG.LieType.Chevalley.ExactNormalFormE
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentE6TwistBruhat
-import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
 import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangCore
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
 public import CFSG.Monster.B.Geometry.CoxeterWords

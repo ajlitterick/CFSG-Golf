@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 public import CFSG.ClassicalGroups.Unitary.Simple
-public import CFSG.ClassicalGroups.Unitary.Finite
 public import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutLift
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.BorelTits.CompleteFlag
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLNormal
-public import Mathlib.FieldTheory.KummerPolynomial
-public import Mathlib.Data.Matrix.Composition
 public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.LieType.Chevalley.RootCommutatorData

@@ -2,10 +2,7 @@ module
 
 public import CFSG.RankThree.PartOne.KF.F132Gen
 public import CFSG.RankThree.PartOne.KFOUT3.KtyGen
-public import CFSG.RankThree.PartOne.KF.U4Ambient
-public import CFSG.RankThree.PartOne.S12.Sec132
 import CFSG.RankThree.PartOne.S12.PerfectOddPrime
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.RankThree.PartOne.N1322.Statements
 public import CFSG.RankThree.PartOne.S12.Sec1322Inputs
 

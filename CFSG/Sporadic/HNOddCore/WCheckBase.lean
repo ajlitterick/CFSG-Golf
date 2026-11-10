@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.HNOddCore.PCheckBase
 public meta import CFSG.Sporadic.HNOddCore.PCheckBase
 public import CFSG.Sporadic.HNOddCore.WCheckInputs
 

@@ -5,13 +5,8 @@ public import Certificates.Kernel.Sporadic.Co3.C
 public import Certificates.Kernel.Sporadic.Co3.M
 public import Certificates.Kernel.Sporadic.Co3.Single
 public import CFSG.Certificates.Kernel.Spor.PrimSound
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentDataInputs
 meta import Certificates.Kernel.LocalComp.Co3IdentArrs
-public import CFSG.Certificates.Kernel.Spor.Loops
-import CFSG.Certificates.Kernel.Common.Loop
 public import CFSG.Certificates.Kernel.Spor.SiftRSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.RawSlSound
 
 public section

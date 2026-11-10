@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.TL4Mdl117Brg
-public import CFSG.ClassicalInvolution.Q3.AE.Models
 public import CFSG.ClassicalInvolution.Q3.TL4Mdl117Pair
 
 public section

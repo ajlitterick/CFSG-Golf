@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGDefs
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5LayerMain
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGFieldAlg
 public import CFSG.LocalAnalysis.StandardType.GGHalfShear
 

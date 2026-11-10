@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec5P517b
-public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec6LemD
 
 public section
 

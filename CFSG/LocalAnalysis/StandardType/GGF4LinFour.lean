@@ -1,18 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofLin
 import CFSG.LocalAnalysis.StandardType.GGTypeAReflOverCoord
-import Mathlib.Algebra.Field.ZMod
-import Mathlib.Algebra.Module.ZMod
-import Mathlib.FieldTheory.Finiteness
-import Mathlib.LinearAlgebra.Dimension.Finite
-import Mathlib.LinearAlgebra.Dimension.Finrank
-import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.SetTheory.Cardinal.NatCard
-import Mathlib.Tactic.Abel
 
 public section
 

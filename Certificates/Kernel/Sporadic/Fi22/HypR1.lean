@@ -8,7 +8,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Fi22Inputs
 public meta import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Fi22Inputs
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 public meta import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public meta import CFSG.GroupTheory.LocalCores.Components
@@ -30,10 +29,7 @@ public meta import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBloc
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Rows
 public meta import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Rows
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public meta import CFSG.Walter.JRFacts
 public import CFSG.Walter.JRFacts

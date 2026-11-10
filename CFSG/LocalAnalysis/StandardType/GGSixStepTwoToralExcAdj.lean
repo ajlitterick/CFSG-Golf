@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoToralRestTagsSplit
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivExcToral
-public import CFSG.LieType.Chevalley.OrthogonalSemilinearFixedCells
 public import CFSG.RankThree.PartOne.K133H.F4Weyl
-public import CFSG.RankThree.Chevalley.SteinbergCAF4SplitPrimeTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Basic
-public import CFSG.LieType.Chevalley.LangRootArithmeticDet
 
 public section
 

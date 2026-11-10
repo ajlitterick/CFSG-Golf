@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2HeartJFrame
 public import CFSG.LocalAnalysis.StandardType.GGQ2HeartJDict
 public import CFSG.LocalAnalysis.StandardType.GGQTwoHeartDict
 public import CFSG.LocalAnalysis.StandardType.GGLangDetectsTwoDispatch
-public import CFSG.RankThree.PartOne.KLR.RootKernel
 
 public section
 

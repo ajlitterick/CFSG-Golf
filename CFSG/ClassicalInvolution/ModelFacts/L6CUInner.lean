@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.ModelFacts.L6CUFrame
 public import CFSG.ClassicalInvolution.ModelFacts.L6CInner
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherInvolutionEigen
-import Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic
 
 public section
 

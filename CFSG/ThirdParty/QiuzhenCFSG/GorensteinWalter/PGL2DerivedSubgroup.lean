@@ -4,7 +4,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2CharacteristicSub
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeEquiv
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.SymmetricFourCommutator
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.example_1_3
-import Mathlib.GroupTheory.GroupAction.ConjAct
 
 namespace CFSG
 end CFSG

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1Defs
-public import CFSG.RankThree.Classical2.TwistedE6RationalOrder
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
 
 public section
 

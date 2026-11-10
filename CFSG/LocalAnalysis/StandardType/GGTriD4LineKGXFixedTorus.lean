@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.EvenTrialityTorusCoordinates
 public import CFSG.RankThree.PartOne.KGD.D4Frame
 import CFSG.LieType.Chevalley.EvenCartanRootDiagonals
 public import CFSG.LieType.Ree.LargeReeSylowOpposition

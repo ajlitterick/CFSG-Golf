@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonSylowNormalizer
-import Mathlib.GroupTheory.GroupAction.ConjAct
-import Mathlib.GroupTheory.Transfer
 
 namespace CFSG
 end CFSG

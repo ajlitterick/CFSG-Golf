@@ -18,9 +18,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrCriticalS
 public import CFSG.LocalAnalysis.RankTwoShapes.UnitaryFourPresentation
 public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Open.GorensteinHaradaSectionalRankFourMilestoneDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public noncomputable section
 

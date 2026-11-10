@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD7QCent
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD7BetaHost
-public import CFSG.LocalAnalysis.StandardType.FS81.TransferTwD7
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD7CentDecomp
 public import CFSG.LocalAnalysis.StandardType.FS81.D6ReflAux
 
 public section

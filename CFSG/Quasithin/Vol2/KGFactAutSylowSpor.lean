@@ -6,11 +6,7 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115SporadicMathieu
 public import CFSG.Sporadic.SmallOddCore.HSAut
-public import CFSG.Sporadic.Schreier.PairHSFaithful
 public import CFSG.Sporadic.Schreier.RuAutInner
-public import CFSG.Sporadic.Schreier.RuIso
-public import CFSG.Sporadic.HS
-public import CFSG.Sporadic.Ru
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
@@ -24,17 +20,11 @@ public import CFSG.Quasithin.Background.A1cA132Action
 public import CFSG.Quasithin.Background.A1cA133Three
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.C1GNNotation
 public import CFSG.Quasithin.Background.C1PackS15212C
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F2Equiv
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Sixteen
@@ -50,7 +40,6 @@ public import CFSG.Sporadic.Schreier.MathieuOddCore
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixC
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import Certificates.Kernel.SporSch.J4S.NoCP
 
 public section

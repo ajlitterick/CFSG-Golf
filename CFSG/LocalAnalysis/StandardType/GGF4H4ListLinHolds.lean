@@ -1,33 +1,14 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4H4ListFamilies
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrLang
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGTBXDatumResRest2Defs
 import CFSG.LocalAnalysis.StandardType.GGF4SmallBook
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTables
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
-import CFSG.LocalAnalysis.StandardType.GGAssemblyFiveDefs
-import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGTBE6
 import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
 import CFSG.LocalAnalysis.StandardType.GGResNonsingularBase
-import CFSG.LocalAnalysis.StandardType.GGTBXDatumResRest2
 import CFSG.LocalAnalysis.StandardType.GGF4H1Coverage
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerCore
 import CFSG.LocalAnalysis.StandardType.GGNbrU63
-import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
 import CFSG.LocalAnalysis.StandardType.GGForkA8NotReflHolds
 import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
-import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
-import CFSG.LocalAnalysis.StandardType.GGSpJoinReflTypeD
-import CFSG.LocalAnalysis.StandardType.GGSpJoinCoxeterCard
-import CFSG.LocalAnalysis.StandardType.GGPZWeylB
 
 public section
 

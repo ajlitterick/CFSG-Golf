@@ -21,11 +21,6 @@ import CFSG.Monster.B.Geometry.CoxeterWords
 import CFSG.Quasithin.Background.B1Basic
 import CFSG.Quasithin.Background.B2FactorizationResidual
 import CFSG.Quasithin.Background.E1
-import CFSG.Quasithin.Background.E1Sec4
-import CFSG.Quasithin.Background.E1Sec5
-import CFSG.Quasithin.Background.E1Sec8
-import CFSG.Quasithin.Background.E1Solv
-import CFSG.Quasithin.Background.E1Twelve
 import CFSG.Quasithin.H13.StatementsL6
 import CFSG.Quasithin.Vol2.Ch10StatementsE
 import CFSG.RankThree.Chevalley.EvenFourCommutingSL2

@@ -2,13 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Thm3Step.S7.TwoOrbit
 public import CFSG.ClassicalInvolution.Q3.Q3EXG2D4Gen
-public import CFSG.ClassicalInvolution.Uniform.U3M11
-public import CFSG.ClassicalInvolution.ModelFacts.FundNoncentralD4
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.ClassicalInvolution.Q3.Q3WAComp
-public import CFSG.ClassicalInvolution.Q3.LieDecomposition
-public import CFSG.ClassicalInvolution.ModelFacts.FundPerfectExc
-public import CFSG.ClassicalInvolution.ModelFacts.WeylTransitive
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf18CaseIB
 public import CFSG.GH74.GLS.Bg.Rank
 public import CFSG.GH74.GLS.IVK.Lifted.GroupAux

@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.HNSchreier.MaskCheck
 public import CFSG.Sporadic.HN.Local.Partitions
 public import CFSG.Sporadic.HN.F5Simple
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

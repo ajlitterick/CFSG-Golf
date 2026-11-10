@@ -5,7 +5,6 @@ public import Certificates.Kernel.Sporadic.SuzInv.Text2
 public import CFSG.Certificates.Kernel.PermToolSound
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 
 set_option maxRecDepth 400000
 public section

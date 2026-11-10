@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotBlocks
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticTorus
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSpBasic
 

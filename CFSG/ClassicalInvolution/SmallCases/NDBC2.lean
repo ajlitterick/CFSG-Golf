@@ -1,11 +1,9 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBC1
-import CFSG.ClassicalInvolution.Asc77.WP3SCUTq
 import CFSG.ClassicalInvolution.Asc77.WP3SCUNGa
 import CFSG.ClassicalInvolution.Asc77.WP3FrameBootTwinSide
 import CFSG.ClassicalInvolution.Asc77.AscE189Lift
-import CFSG.ClassicalInvolution.Balance.BootstrapLayersFuzzyFrames
 import CFSG.ClassicalInvolution.Asc77.WP3ChainVRank3
 import CFSG.ClassicalInvolution.Asc77.WP3ChainVToral
 

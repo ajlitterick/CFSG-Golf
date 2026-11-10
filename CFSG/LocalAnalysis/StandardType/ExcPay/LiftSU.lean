@@ -1,10 +1,8 @@
 module
 
-public import CFSG.ClassicalInvolution.Phan.Defs
 public import CFSG.LocalAnalysis.StandardType.ExcPay.LiftRefl
 import CFSG.LieType.Steinberg.CentralExt.SUOddCover
 import CFSG.LocalAnalysis.StandardType.GGFixedTwoKernelTransport
-import CFSG.LocalAnalysis.StandardType.GGOTwoPrimeMap
 import CFSG.ClassicalInvolution.RouteD.LocalPair
 import CFSG.RankThree.PartOne.CTP.Phan5Cent
 import CFSG.ClassicalInvolution.Phan.Assembly

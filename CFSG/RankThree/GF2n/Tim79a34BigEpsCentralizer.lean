@@ -2,11 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Tim79a34BigEpsLe
 public import CFSG.RankThree.GF2n.Tim79a34SpSchur
-public import CFSG.RankThree.GF2n.Tim79a34BigAlpha
-public import CFSG.RankThree.GF2n.Tim79a34BigDirectTrans
-public import CFSG.RankThree.GF2n.Tim79a34BigRoot
-public import Mathlib.GroupTheory.Perm.Cycle.Type
-public import Mathlib.GroupTheory.SchurZassenhaus
 
 public section
 

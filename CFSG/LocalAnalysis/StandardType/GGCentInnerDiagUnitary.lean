@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagConcl
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDefs
-public import CFSG.LieType.SemisimpleCentralizers.HeldCompTrivSU
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureLieGUDet
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniData
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResU3ThreeSolv
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitarySemi
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagLinear
 public import CFSG.RankThree.GF2n.Stroth80.ClassicalQuasisimple
 public import CFSG.Assembly.OpenBridges

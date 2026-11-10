@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieF4Rel
 public import CFSG.LocalAnalysis.EvenBN.TwoF4.ModelBasic
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LieType.Ree.LargeReeInvolutionTwoCentralizers
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogLargeReeNormalForm
@@ -11,8 +9,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.SectionRank.BruhatLift
 public import CFSG.LocalAnalysis.SectionRank.LargeRee.SLTwo
 public import CFSG.LocalAnalysis.SectionRank.LargeReeCover
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Defs
 
 public section

@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Data.Finite.Defs
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Defs

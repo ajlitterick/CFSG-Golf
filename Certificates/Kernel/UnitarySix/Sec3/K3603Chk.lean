@@ -4,7 +4,6 @@ public import Certificates.Kernel.UnitarySix.Sec3.E3602Chk
 public import Certificates.Kernel.UnitarySix.Sec3.G3602Chk
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaSec3ZElt
 public import Certificates.Data.Kernel.U6.Sec3Coord
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

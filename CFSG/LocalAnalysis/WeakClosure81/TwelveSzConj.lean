@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.TwelveSetting
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.LieType.BorelTits.Suzuki
 import all CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 import all TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.GraphAutomorphism
 public import CFSG.Assembly.QuasithinDefs
@@ -19,16 +17,11 @@ public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.LocalAnalysis.WeakClosure81.TenFive
 public import CFSG.LocalAnalysis.WeakClosure81.Twelve
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure38Facts
 public import CFSG.Quasithin.Background.B2Thompson
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

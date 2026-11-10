@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.Fi23Pair
 public import CFSG.Sporadic.Fi23.S12
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import Mathlib.GroupTheory.Solvable
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingInclusion
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Common
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Closing.Basic

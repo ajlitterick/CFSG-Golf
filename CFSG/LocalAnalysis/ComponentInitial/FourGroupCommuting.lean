@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import Mathlib.Algebra.Group.Subgroup.Basic
-public import Mathlib.Data.Set.Card
-public import Mathlib.GroupTheory.Exponent
 
 public section
 

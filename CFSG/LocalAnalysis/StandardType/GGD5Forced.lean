@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGD5Defs
 public import CFSG.LocalAnalysis.StandardType.GGD5Inputs
 
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosureRefl

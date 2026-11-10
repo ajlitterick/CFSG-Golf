@@ -2,11 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.FF81Defs
 public import CFSG.RankThree.PartTwo.Sec21.FF81P51Core
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import Mathlib.LinearAlgebra.Matrix.ToLin
-public import Mathlib.LinearAlgebra.Dimension.OrzechProperty
-public import Mathlib.FieldTheory.Finiteness
-public import Mathlib.Algebra.Module.ZMod
 public import CFSG.LieType.CurtisTits.Conclusion
 public import CFSG.LieType.Universal.Spin.Roots
 public import CFSG.LieType.Universal.Unitary

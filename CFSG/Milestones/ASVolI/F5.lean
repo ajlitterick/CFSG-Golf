@@ -1,12 +1,5 @@
 module
 
-public import Mathlib
-public import CFSG.Milestones.ASVolI.F4
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.MatrixModelCore
-public import CFSG.Quasithin.Recognition.UniquenessSystemDefs
-public import CFSG.Quasithin.Recognition.UniquenessSystemTriangulation
-public import CFSG.Quasithin.Background.SimsF5Main
 public import CFSG.Quasithin.Background.SimsF5Asm7
 
 public section

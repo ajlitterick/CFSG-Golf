@@ -2,9 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsModD4Trans
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsYamStd
-public import CFSG.LieType.Chevalley.GraphFixedBorelSelfNormalizer
-public import CFSG.LieType.Chevalley.GraphFixedParameterFields
-public import CFSG.LieType.Chevalley.OddTrialityAutomorphismNormalForm
 public import CFSG.Quasithin.Background.A3Structure36BPrime
 public import CFSG.Quasithin.Background.F9FiveStruct
 public import CFSG.Quasithin.Background.F9G2

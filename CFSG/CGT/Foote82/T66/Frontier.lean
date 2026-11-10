@@ -3,16 +3,13 @@ module
 public import CFSG.CGT.Foote82.Leaves
 public import CFSG.CGT.Foote82.T66.CertProofsL13Alt
 public import CFSG.CGT.Foote82.T66.CertProofsBAS
-public import CFSG.CGT.Foote82.T66.CertProofsH1OmegaMinusSix
 public import CFSG.CGT.Foote82.T66.CertProofsOmegaSixNormalizer
-public import CFSG.CGT.Foote82.T66.CertProofsOmegaSixA6Centralizer
 public import CFSG.CGT.Foote82.T66.CertProofsA11
 public import CFSG.CGT.Foote82.T66.ProofCaseIISplit
 public import CFSG.CGT.Foote82.T66.ProofG10
 public import CFSG.CGT.Foote82.T66.ProofCaseIIG2
 public import CFSG.CGT.Foote82.T66.CertProofsBASThreeA6
 public import CFSG.CGT.Foote82.T66.ProofFooteLemma25
-public import CFSG.CGT.Foote82.T66.CertProofsBASOmegaEight
 public import CFSG.CGT.Foote82.T66.ProofCaseIIClasses
 public import CFSG.CGT.Foote82.T66.G8Proof
 public import CFSG.CGT.Foote82.T66.SporadicNoF
@@ -24,9 +21,7 @@ public import CFSG.CGT.Foote82.T66.L24Heart
 public import CFSG.CGT.Foote82.T66.Proof511Two
 public import CFSG.CGT.Foote82.T66.Proof511OneHolds
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBAschbacherFive
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherKnownGroupFactsAssembly
 public import CFSG.Open.CTRankTwoStandardTauCeti
-public import CFSG.RankThree.PartOne.TCB.Final
 public import CFSG.Adapters.WholeGroupLayer
 public import CFSG.CGT.T75P.A8ExclCfg
 public import CFSG.CGT.T75P.Aut
@@ -67,7 +62,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenTriality
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorOddE6
 public import CFSG.LocalAnalysis.ComponentClassification.GSFMMaximal
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB83Outer
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EUFour
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeMax
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeSteps
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma412
@@ -75,7 +69,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma415Inputs
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma46d
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma47Lift
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverModels
-public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinearSocle
 public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentralizer
 public import CFSG.LocalAnalysis.ComponentClassification.RestrictedStdFamilies
 public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecLinearHigh
@@ -120,7 +113,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

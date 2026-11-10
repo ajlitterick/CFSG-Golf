@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2258Base
 
-public import CFSG.Sporadic.Schreier.RuCheckSylowInputs
 public meta import CFSG.Sporadic.Schreier.RuCheckChains
 public meta import CFSG.Sporadic.Schreier.RuEnum
 import Certificates.Kernel.SporSch.Ru.S2258P

@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ICitedHyp111K
 public import CFSG.Quasithin.Vol2.GoldschmidtF431U42Lat2
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransvU42
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommGeneric
-import CFSG.LieType.Multipliers.U42
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CenterHopf
 import CFSG.Quasithin.Vol2.GoldschmidtF431U42Pair2
 import CFSG.Quasithin.Vol2.GoldschmidtF431U42Model

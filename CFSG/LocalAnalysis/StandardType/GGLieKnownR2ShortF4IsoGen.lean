@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LieType.Ree.ExceptionalAutomorphismData
-public import CFSG.LieType.Steinberg.Adjoint.Presentation
 public import CFSG.LieType.Chevalley.G2ThreeAutomorphismNormalForm
-public import CFSG.Blueprint.ChevalleyWeyl
 
 public section
 

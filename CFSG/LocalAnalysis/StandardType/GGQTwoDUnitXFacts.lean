@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitXPair
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitOrthA3
-public import CFSG.LocalAnalysis.StandardType.GGSkeleton
-import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinHC
 
 public section
 

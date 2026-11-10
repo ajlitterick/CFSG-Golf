@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSpProofAut
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinEndMem
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinEndCore
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinEndCompat

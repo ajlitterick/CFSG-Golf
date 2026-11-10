@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofBasic
 public import CFSG.ClassicalInvolution.RouteD.GapsOrthModel
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.ModelFacts.FundPerfectBridge
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover
 public import CFSG.ClassicalInvolution.Models.LinearFrames

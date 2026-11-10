@@ -1,17 +1,9 @@
 module
 
-public import CFSG.Milestones.ASVolI.J4
-public import CFSG.Sporadic.Schreier.RuJ49Facts
 public import CFSG.Milestones.ASVolI.J4Hexagon
 public import CFSG.Sporadic.Schreier.RuJ49Sl2Facts
-public import CFSG.Sporadic.Schreier.RuInvClasses
 public import CFSG.Sporadic.Schreier.RuAutInner
-public import CFSG.Sporadic.Schreier.RuLGroup
-public import CFSG.Sporadic.Schreier.RuIso
-public import CFSG.Quasithin.Recognition.RuTypeJ47k
 public import CFSG.Quasithin.Recognition.RuTypeJ11
-public import CFSG.Quasithin.Vol2.GoldschmidtF45RuCert
-public import CFSG.Quasithin.Vol2.TwoF4F48Cert
 
 public section
 

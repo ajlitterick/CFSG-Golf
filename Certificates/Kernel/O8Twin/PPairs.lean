@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.O8Twin.PChecks
 public import CFSG.Certificates.Kernel.Common.Each
-import CFSG.Certificates.Kernel.Common.Harness
 import all Init.Data.List.SplitOn.Basic
 
 public section

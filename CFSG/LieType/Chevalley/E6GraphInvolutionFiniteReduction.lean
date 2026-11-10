@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.LangFiniteSubfieldCongruence
 public import CFSG.LieType.Chevalley.LangFiniteNormalizerOddIndex
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupDescent
 public import CFSG.LieType.Chevalley.E6ToralGraphInvolution
 
 public noncomputable section

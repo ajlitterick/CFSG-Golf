@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.J4Run
 public import CFSG.Certificates.Kernel.J4.MBSData
-public import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Repo
 
 #kc_repo #kc_decls CFSG.KJ4.RUN "Certificates/Kernel/J4/data/RUN_const.txt" 4881817

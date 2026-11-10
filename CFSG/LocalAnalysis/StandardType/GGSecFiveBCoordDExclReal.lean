@@ -1,16 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclRestDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclWeyl
-public import CFSG.LocalAnalysis.StandardType.GGRealQFourThree
 public import CFSG.LocalAnalysis.StandardType.GGRealKGFiveOffE6
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGCellWitness
-public import CFSG.LocalAnalysis.StandardType.GGSignedCoordConj
 public import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrConj
 import CFSG.LocalAnalysis.StandardType.GGResNbrFixTor
-import CFSG.LocalAnalysis.StandardType.GGFixedRealizedConfig
-import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 import CFSG.LocalAnalysis.StandardType.GGNsq2QuotNorm
 
 public section

@@ -7,12 +7,6 @@ import CFSG.RankThree.PartTwo.Sec13.Item138ProofExists
 import CFSG.RankThree.PartTwo.Sec13.Item136Lift
 import CFSG.RankThree.PartTwo.Sec13.Item13SetupAt
 import CFSG.RankThree.PartTwo.Sec13.Item13Basic
-import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
-import CFSG.RankThree.PartTwo.Sec4.LThreePiMain
-import CFSG.RankThree.PartTwo.Sec4.LThreePiDiag
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseA
-import CFSG.RankThree.PartTwo.Sec4.LThreePiFrob
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 import CFSG.RankThree.Asc83Table.Automizer
 import CFSG.RankThree.PartTwo.Sec11.Data

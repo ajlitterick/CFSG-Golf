@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4Glue
-public import CFSG.Quasithin.Recognition.RuTypeJ47a
-public import CFSG.Quasithin.Recognition.F4Main
 
 public section
 

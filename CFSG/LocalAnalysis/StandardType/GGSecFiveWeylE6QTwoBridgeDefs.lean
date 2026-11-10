@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteFSInputs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-public import CFSG.LargeExtraspecial.BridgeConclusion
 public import CFSG.LargeExtraspecial.S14C12Lit
-public import CFSG.Open.TimmesfeldLargeExtraspecialMilestoneDefs
-public import CFSG.Blueprint.Catalog
 public import CFSG.GroupTheory.GLnTwoSplitting.Transvection
 public import CFSG.LargeExtraspecial.BridgeSetting
 public import CFSG.LargeExtraspecial.OrthoF2

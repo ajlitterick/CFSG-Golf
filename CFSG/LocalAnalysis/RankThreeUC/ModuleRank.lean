@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.WitnessGen
 public import CFSG.GroupTheory.ABGLocalTools.Basic
 import CFSG.GroupTheory.SteinbergBKOddNoncyclicRankTwo
 import CFSG.LocalAnalysis.SectionRank.SQT
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 
 public section
 

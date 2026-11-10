@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Assembly.GL83LieDefs
-public import CFSG.GroupTheory.FixedPointFreeOutsideCentral
-public import CFSG.Fischer.Classification.Basic.Heisenberg
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoHeisenberg
 
 public section

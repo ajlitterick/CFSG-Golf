@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLResidualsUni
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvSixQ2
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Asc94.TS40a
-public import CFSG.Quasithin.Vol2.Asc94.TS39g
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec3.Thm311bAux1
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Lemma27Semisimple
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec3.IntrThm32Back

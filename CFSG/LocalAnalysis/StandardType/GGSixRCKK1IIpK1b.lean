@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIpData
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitAltCore
-public import Mathlib.Data.Fintype.Perm
-public import Mathlib.Data.Finite.Perm
-public import Mathlib.GroupTheory.Perm.Cycle.Type
 
 public section
 

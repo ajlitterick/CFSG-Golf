@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Malle.SeitzCube.E6ThreeKernelData
 public import CFSG.HardMathSupport.Malle.SeitzCube.E6ThreeSL3Torus
-public import CFSG.LieType.Chevalley.ToralCentralizerBruhat
 
 public noncomputable section
 

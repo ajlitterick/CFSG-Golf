@@ -2,15 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6U7Pieces
 public import CFSG.LocalAnalysis.StandardType.ChevTwoLieModel
-public import CFSG.LieType.Chevalley.RootCharacterKernelProduct
-public import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
-public import CFSG.LieType.Chevalley.SignKernelComponentBorel
-public import CFSG.LieType.Chevalley.OrthogonalFixedOrbitMaps
-public import CFSG.LieType.Chevalley.ParabolicRadicalLevi
-public import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import CFSG.Blueprint.ChevalleyPinnedLemmas
-public import CFSG.LieType.AlgebraicGroups.ToralRootCoverAlgebra
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
 
 public section

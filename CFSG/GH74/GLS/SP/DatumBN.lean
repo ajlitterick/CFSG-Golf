@@ -5,7 +5,6 @@ import CFSG.LieType.TitsSimplicity.Core
 public import CFSG.GroupActions.SplitBNPair
 public import CFSG.GH74.BNPair.Basic
 import TauCeti.GroupTheory.SpecificGroups.Dihedral.Basic
-import Mathlib.Tactic.Group
 public import Mathlib.Combinatorics.SimpleGraph.Acyclic
 
 public section

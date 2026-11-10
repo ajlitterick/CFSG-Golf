@@ -1,12 +1,10 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.Mason73.L4OrderTwoPart
 public import CFSG.CharacterTheory.Semidihedral.DefiningCharacteristicDimension
 public import CFSG.CharacterTheory.BrauerLinearThree.CentralizerSylowSemidihedral
 public import CFSG.CharacterTheory.Semidihedral.ElementStructure
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitClassFunctionInner
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2F4Pair
-public import CFSG.ClassicalInvolution.ModelFacts.Models
 public import CFSG.RankThree.PartOne.KF4.F4Traces
-public import CFSG.RankThree.PartOne.KF4.Strings
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E8NonToralTrace
-public import CFSG.ClassicalInvolution.Models.Transfer.Basic
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.ExcResSL2Trace
 public import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 

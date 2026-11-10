@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 public import CFSG.Models.Blueprint
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.Models.Transport

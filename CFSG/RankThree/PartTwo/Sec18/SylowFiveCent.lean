@@ -6,7 +6,6 @@ import CFSG.Models.PGLSimple
 import CFSG.RankThree.PartTwo.KFacts.L34Sections
 public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
 public import CFSG.RankThree.PartTwo.KFacts.AutKinds
-import CFSG.Sporadic.Schreier.J4SSylowBase
 
 public section
 

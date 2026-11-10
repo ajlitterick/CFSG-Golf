@@ -1,19 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR1Defs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwenty
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LocalAnalysis.StandardType.MarkingDict
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrCover
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Seitz2313Cover
 import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
-import CFSG.LieType.Steinberg.CentralExt.MinusculeCentrallyClosed
-import CFSG.LieType.Steinberg.CentralExt.F4E8Multiplier
-import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
 
 public section
 

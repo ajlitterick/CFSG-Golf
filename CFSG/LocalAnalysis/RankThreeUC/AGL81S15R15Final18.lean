@@ -1,15 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15Main2
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RowStmts
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15OraclesCyc
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsGroup
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1515C
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1515D
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1517J
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15LiftCore
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K3DvdL3
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KOutLin
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1511P
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1512D
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1512I
@@ -19,18 +12,13 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R15Rows2
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1521LB4
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1526L5
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K1525dRed
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K421Cut
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K89Sp
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R15Rows1Cyc
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15O1217Sigma
 import CFSG.HardMathSupport.Foote.Coordinator.Downstream
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15CycHat
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K1525dCoreMain
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K21bGeom
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K21bRed
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K421LinHolds
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K421OmData
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K421SpData
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K517ChevGenQFam
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K542Holds
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KParU5Holds
@@ -40,15 +28,9 @@ import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KListI1
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15O1218
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankAlt
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankSmall
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CatalogSchreier
-import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15O1219Sigma
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15A10GenHolds
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankChevResStmt
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K21dStmt
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankChevResMain
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K21dRed
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsLie
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankChevResCore
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K21dRest2
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15ACoreHolds
@@ -59,14 +41,8 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K541Even
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K5192P2
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15F1L3Odd
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15F1U3Odd
-public import CFSG.Monster.Existence.StdOdd.Defs
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
-public import CFSG.YGroups.Y443.Native.Swap13Word
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -142,7 +118,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.D1CaseTwo3ThreeA6Sylow
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D1KlingenIdent
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2KFactLeavesCoreF
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3AutImage
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Cover
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Impure
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3InvTwo
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Kmax
@@ -152,7 +127,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3NoncycFactor
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3TwoEscA
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3TwoEscB
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3TwoLocalI811
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Port3CoreFree
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2SporDatum3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3A6Residues
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3L28PartsS
@@ -199,7 +173,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly
@@ -210,7 +183,6 @@ public import CFSG.Permutation.UnitaryThreeRecognition.Model
 public import CFSG.Quasithin.Background.A3Structure319
 public import CFSG.Quasithin.Background.C1GNA7
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.Background.E6TorusFacts
 public import CFSG.Quasithin.Background.InternalSecIso
@@ -298,7 +270,6 @@ import CFSG.GH74.GLS.C3.Layer1.BkIvk73Q
 import CFSG.GH74.GLS.C3.Layer2.L5C19
 import CFSG.GH74.GLS.C3.Layer2.L5C5c
 import CFSG.GH74.GLS.IVK.Proofs2.Ivk95J3
-import CFSG.GH74.GLS.IVK.Proofs2.Stmt111c
 import CFSG.GH74.GLS.LU.Local.A3Reduce2
 import CFSG.GH74.GLS.Stage2.Final.Thm4.Core
 import CFSG.GH74.Generic.S1.LinFull
@@ -330,10 +301,7 @@ import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36AltPerm
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36MType
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36SporMult
 import CFSG.LocalAnalysis.ComponentClassification.J2CoverModels
-import CFSG.LocalAnalysis.ComponentClassification.OddSelector
-import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinearSocle
 import CFSG.LocalAnalysis.ComponentClassification.RestrictedStdFamilies
-import CFSG.LocalAnalysis.ComponentInitial.ProjectiveEigenspaceComponent
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListFlag5
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Block
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Delta5Fin

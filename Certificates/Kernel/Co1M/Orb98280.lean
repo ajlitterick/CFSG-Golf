@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.VecCert.Co1.A
 public import CFSG.Certificates.Kernel.Co1M.OrbitMem
-public import CFSG.Certificates.Kernel.VecKSound
-public import CFSG.Certificates.Kernel.Spor.RawSound
 public meta import Certificates.Kernel.VecCert.Gen
 import CFSG.Certificates.Kernel.Common.Harness
 

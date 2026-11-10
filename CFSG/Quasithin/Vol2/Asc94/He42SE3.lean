@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Defs
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourExactModel
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
 public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

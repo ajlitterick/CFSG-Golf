@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.EvenBN.U4.Prelim.Semilinear
 public import CFSG.LocalAnalysis.EvenBN.U5.Sec3One4
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public noncomputable section
 

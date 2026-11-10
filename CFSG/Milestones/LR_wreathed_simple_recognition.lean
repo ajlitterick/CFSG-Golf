@@ -1,8 +1,5 @@
 module
 
-public import Mathlib
-public import CFSG.Open.Catalog
-public import CFSG.Open.StatedDefs
 public import CFSG.CharacterTheory.Semidihedral.RecognitionRemaining
 public import CFSG.CharacterTheory.Semidihedral.AllPrimeQDInputs
 public import CFSG.CharacterTheory.Wreathed.OriginalAllPrimeStationaryCoverageProof
@@ -21,10 +18,6 @@ public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNine
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNineInvolutions
 public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

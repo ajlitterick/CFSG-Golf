@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHalfBlockEmbed
 public import CFSG.LocalAnalysis.StandardType.GGHalfBlockPerm
 public import CFSG.LocalAnalysis.StandardType.GGHalfSlOnLevi
 

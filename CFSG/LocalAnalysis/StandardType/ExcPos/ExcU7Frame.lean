@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6U7Pieces
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUStd
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSL
-public import CFSG.RankThree.Classical2.SLnRootAutomorphism
-public import CFSG.RankThree.Classical2.SLnRootPermutingFixedGroups
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE6
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAll
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcSuNHom
 import CFSG.LocalAnalysis.GLTheoremA.CatA.KD147cMat
@@ -70,7 +66,6 @@ import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 import CFSG.Sporadic.Schreier.J4SProfileNode
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import Certificates.Kernel.SporSch.Th.Plane2320
 
 public section

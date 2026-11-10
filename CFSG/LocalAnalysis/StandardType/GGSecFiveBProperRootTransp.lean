@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdBlock
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
 public section
 

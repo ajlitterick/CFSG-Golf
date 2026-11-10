@@ -8,8 +8,6 @@ public import Certificates.Kernel.ONSeven.Words
 public import CFSG.Certificates.Kernel.Spor.ONPvSound
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.Words
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.FixCheck
-public import CFSG.Sporadic.Schreier.ONThreePoint
-import Mathlib.Tactic.FinCases
 
 public section
 

@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResLineJCells
-public import CFSG.LocalAnalysis.StandardType.GGResJPairedBlock
 public import CFSG.LocalAnalysis.StandardType.GGResJA2UnitaryRecognition
 public import CFSG.LocalAnalysis.StandardType.GGResJPairedRankTwo
-import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 import CFSG.HardMathSupport.Curtis.Coordinator.AutBounds
-import CFSG.LocalAnalysis.StandardType.GGResIPumpLineTransfer
 import CFSG.LocalAnalysis.StandardType.GGResJB2derA2
 import CFSG.LocalAnalysis.StandardType.GGResLineJB2Small
 import CFSG.LocalAnalysis.StandardType.GGResJB2OppositeLinear

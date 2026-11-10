@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneProof
 public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneAutRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTriality
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTri
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
 import CFSG.GroupTheory.ElementaryAbelianTransport

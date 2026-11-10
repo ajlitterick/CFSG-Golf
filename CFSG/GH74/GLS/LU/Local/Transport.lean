@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.GLS.LU.Local.Conj
 public import CFSG.GH74.GLS.LU.Local.Core3
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-public import CFSG.LocalAnalysis.ComponentInitial.LocalBMaximalPropagation
 
 public section
 

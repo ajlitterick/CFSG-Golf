@@ -1,8 +1,5 @@
 module
 
-public import Mathlib.RepresentationTheory.Intertwining
-public import Mathlib.RepresentationTheory.Irreducible
-public import Mathlib.Algebra.Module.NatInt
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.SubrepresentationLattice
 

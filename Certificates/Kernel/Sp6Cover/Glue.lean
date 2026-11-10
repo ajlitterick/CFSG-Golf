@@ -4,17 +4,10 @@ public import Certificates.Kernel.Sp6Cover.Small
 public import Certificates.Kernel.Sp6Cover.Class
 public import Certificates.Kernel.Sp6Cover.Group
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.Sp6CoverSpec
-public import CFSG.Certificates.Kernel.Spor.RawSound
 public import CFSG.Certificates.Kernel.Spor.RawCard
 public import CFSG.Certificates.Kernel.Spor.RawOrbHead
-public import CFSG.Certificates.Kernel.Spor.MulHSound
 public import CFSG.Certificates.Kernel.Spor.BaseMaskGlue
-public import CFSG.Certificates.Kernel.Spor.PackWord
-public import CFSG.Certificates.Kernel.Spor.PEnumSound
-public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutTables
-public import CFSG.Sporadic.Schreier.ClassSpec
-public import CFSG.Sporadic.Schreier.ClassSum
 public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
 public import CFSG.Certificates.Kernel.Spor.BaseMaskSound

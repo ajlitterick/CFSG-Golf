@@ -1,13 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.U48Fix
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatTypeDet
 public import CFSG.LargeExtraspecial.A2ModOrdCard
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS09U48
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.Transport
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Goldschmidt.Basic
 public import CFSG.Holt.Fixed
 public import CFSG.LieType.Ree.LargeReeEightTorus

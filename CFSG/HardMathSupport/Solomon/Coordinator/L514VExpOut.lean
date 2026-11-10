@@ -1,14 +1,11 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.CycThree
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-public import CFSG.Open.StatedDefs
 public import CFSG.RankThree.PartTwo.KFacts.AutKinds
 public import CFSG.Quasithin.Background.F918Z4bAut
 public import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.RankThree.PartTwo.KFacts.K72FieldKind
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

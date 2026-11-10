@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorsionDefs
-import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentJLevel
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
-import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
 
 public section
 

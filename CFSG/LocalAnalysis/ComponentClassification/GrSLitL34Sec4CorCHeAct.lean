@@ -1,16 +1,11 @@
 module
 
-public import CFSG.Sporadic.HeldB.OuterCent
-public import CFSG.Sporadic.HeldB.OuterCentCheckInputs
 public meta import CFSG.Sporadic.HeldB.OuterCentAux
 public meta import CFSG.Sporadic.HeldB.OuterArithCheck
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
 import Certificates.Kernel.SporSch.HeT.Q2117
 import Certificates.Kernel.SporSch.HeT.Q22972K
-import CFSG.Certificates.Kernel.SporSch.ChainClsSound
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4CorCHeOut
-public import CFSG.Sporadic.HeldB.OuterFixed
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4CorCHeUniq
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4CorCDiagUniq
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSBFixedLayerNormalizer

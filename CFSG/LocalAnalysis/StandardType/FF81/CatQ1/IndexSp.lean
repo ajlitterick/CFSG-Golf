@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.FieldPSp
-public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2Carrier
-public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeCCarrier
 public import CFSG.RankThree.PartTwo.Census.Carrier.SpinBBridge
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore

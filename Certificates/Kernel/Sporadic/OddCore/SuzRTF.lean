@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.SuzRTC
 public import Certificates.Kernel.Sporadic.OddCore.SuzRTC1
 public import Certificates.Kernel.Sporadic.OddCore.SuzRKZF
-public import Certificates.Kernel.Sporadic.L2.Vtx
 public import Certificates.Kernel.Sporadic.L2.G6
 public import CFSG.Certificates.Kernel.Spor.CEnumSound
 

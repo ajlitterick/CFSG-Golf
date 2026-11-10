@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LieType.Steinberg.TwistedD4.Perfect
-public import CFSG.LieType.Chevalley.TwistHolds
-public import CFSG.LieType.Chevalley.WeylRoots
 public import CFSG.LieType.Simplicity.Torus
 public import CFSG.LieType.Ree.TitsWeyl
-import Mathlib.Tactic.Group
 
 public noncomputable section
 

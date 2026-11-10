@@ -4,7 +4,6 @@ public import Certificates.Kernel.AutJ2Lat.Checks
 public import Certificates.Kernel.J2Dc.IdxG
 public import CFSG.Quasithin.Recognition.GoldschmidtF112RAutJ2LatInputs
 public import CFSG.Certificates.Kernel.S151IdxGAct
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

@@ -5,8 +5,6 @@ public import Certificates.Kernel.J4Loc.TrioAsm
 public import Certificates.Kernel.J4Q.C4024
 public import CFSG.Certificates.Kernel.J4Loc.SubsSound
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Sporadic.J4.QTRankWitNative
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

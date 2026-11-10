@@ -1,17 +1,10 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Eleven.Statements
-public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Hyp
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Pair
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Quandle
-public import CFSG.OddTranspositions.PartThree.EightFive.KBarSetup
 public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.LocalHypC
 public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.ConnLemmas
 public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.Wreath
-public import CFSG.OddTranspositions.BenderMeetsSq
 public import CFSG.OddTranspositions.WidthOne
 public import CFSG.OddTranspositions.TheoremTwo.ImageConnected
-public import CFSG.Timmesfeld.Bridge.Asc72ZMain
 public import TauCeti.Algebra.Group.Subgroup.ZPowers
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.CGT.Timmesfeld75.Targets

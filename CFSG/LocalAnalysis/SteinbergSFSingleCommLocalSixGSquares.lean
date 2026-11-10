@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommLocalSixE
-public import CFSG.Open.StatedAPI
 
 public section
 

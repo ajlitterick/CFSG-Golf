@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
-public import CFSG.LieType.Universal.Unitary.Basic
-public import CFSG.LieType.BorelTits.UnitaryForm
-import Mathlib.LinearAlgebra.Matrix.Notation
 import CFSG.LocalAnalysis.UniquenessCase.UC22S217U38
 import CFSG.LocalAnalysis.UniquenessCase.Lie.SU3Cover
 import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSUTorus

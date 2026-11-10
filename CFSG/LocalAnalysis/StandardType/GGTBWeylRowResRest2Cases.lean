@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBXDatumResRest2Defs
-public import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRankDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitFamilies
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
 
 public section
 

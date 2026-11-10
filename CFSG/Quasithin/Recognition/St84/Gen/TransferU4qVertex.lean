@@ -7,10 +7,8 @@ import CFSG.Quasithin.Recognition.St84.Gen.U4qAmalLocal
 import CFSG.Quasithin.Recognition.St84.Gen.TransferU4qCore
 import CFSG.Quasithin.Recognition.St84.Gen.TransferVertexLift
 import CFSG.Quasithin.Recognition.St84.TransferVertex
-import CFSG.Quasithin.Recognition.St84.TransferNormality
 import CFSG.Quasithin.Recognition.St84.Gen.TreeLLBase
 import CFSG.Quasithin.Recognition.St84.Gen.L2RankOne
-import CFSG.Quasithin.Background.B6Defs
 public import CFSG.CharacterTheory.Wreathed.BrauerWongSylowCentralizer
 public import CFSG.CharacterTheory.Wreathed.OddKernelSylowQuotient
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWZOuter
-public import CFSG.ClassicalInvolution.RouteD.TWZGlobal
 public import CFSG.ClassicalInvolution.RouteD.TWYSp2
 public import CFSG.ClassicalInvolution.RouteD.TWZLinkSp2
 

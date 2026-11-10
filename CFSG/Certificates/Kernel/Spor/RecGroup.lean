@@ -3,10 +3,7 @@ module
 public import CFSG.Certificates.Kernel.Spor.MulHSound
 public import CFSG.Sporadic.Th.TableSpec
 import CFSG.Certificates.Kernel.BfsPinAlg
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Spor.TabWords
-public import Mathlib
 
 public section
 

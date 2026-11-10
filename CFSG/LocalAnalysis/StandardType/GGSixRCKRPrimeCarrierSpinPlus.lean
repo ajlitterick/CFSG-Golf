@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeReturnSpecs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierSpinPlusCover
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierSpinPlusModel
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierA1Action
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcInnerD4FixMain
-import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcCtx
-import CFSG.LocalAnalysis.StandardType.GGRootDetectCore
 import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.Layer
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenAsm
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame.SuN

@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T263GF2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTCompU6
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreSix
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.SeitzReduction.CrossCharCert
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerBridge
 public import CFSG.Goldschmidt.Steps.G310Comp
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSylow

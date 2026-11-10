@@ -4,15 +4,10 @@ public import CFSG.GH74.Generic.BProg.B2.SDCheap
 public import CFSG.GH74.Generic.BProg.B2.SDSmallComp
 public import CFSG.GH74.Generic.BProg.B2.Thm2Assembly
 public import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyC23
-import CFSG.GH74.Generic.BProg.B1.PilotS3
-import CFSG.GH74.Generic.BProg.B2.Lemma82
 import CFSG.GH74.Generic.BProg.B2.Lemma83Bar
 import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyBasic
 import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyG4
 import CFSG.GH74.Generic.BProg.B2.TwoSided
-import CFSG.GH74.Generic.JMaxCongr
-import CFSG.GH74.GLS.C3.Layer1.BackConj
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKSmallDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKSmallChainExc
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKSmallChainTri
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265CDynO2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265CDynE2
 public import CFSG.HardMathSupport.Curtis.Coordinator.SeitzTower.Rest
 public import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderE6Order

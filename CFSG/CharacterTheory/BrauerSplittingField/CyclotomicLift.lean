@@ -4,7 +4,6 @@ public import CFSG.CharacterTheory.BrauerSplittingField.Descent
 public import CFSG.ThirdParty.BrauerInduction.Background.LinearChar.InducedCharacter
 public import Mathlib.RingTheory.WittVector.IsPoly
 public import Mathlib.Tactic.ENatToNat
-public import CFSG.ThirdParty.BrauerInduction.Background.Fintype.Basic
 
 public section
 

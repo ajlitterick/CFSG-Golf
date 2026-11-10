@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.Co2JRank.Facts
 public import Certificates.Kernel.Co2JRank.KReps
 public import Certificates.Kernel.Co2Fuse.Final
-public import CFSG.Certificates.Kernel.Co2Fuse.Sound
 public import CFSG.RankThree.Co2.JConjFacts
-import Mathlib.Tactic.IntervalCases
 
 public section
 

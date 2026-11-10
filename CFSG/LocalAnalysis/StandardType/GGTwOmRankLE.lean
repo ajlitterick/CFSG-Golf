@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestEndRankMinus
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.FongOFRCOrthMinus
 public import CFSG.LieType.SeitzGeneration.StandardTypeOrthModel
 public import CFSG.HardMathSupport.Timmesfeld.LinearRank.ProjRank
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderFamilies
 
 public section

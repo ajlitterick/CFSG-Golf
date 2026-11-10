@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Monster.B.Dyadic.PinnedK
 public import CFSG.Certificates.Kernel.BabyMonster.VStripSound
 public import CFSG.Certificates.Kernel.BabyMonster.NativePair.Data0
 public import CFSG.Certificates.Kernel.BabyMonster.Max2.Data0
@@ -22,7 +21,6 @@ public import CFSG.Monster.B.Dyadic.BridgeK
 public import CFSG.Certificates.Kernel.BabyMonster.Sound
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2Fast
 public import CFSG.Monster.B.Pinned.GeneratorDeterminants
-public import CFSG.Open.Defs
 public import Certificates.Data.CFSGNative.MonsterB.DyadicFile
 public import Certificates.Data.Kernel.BabyMonster.Bridge24
 

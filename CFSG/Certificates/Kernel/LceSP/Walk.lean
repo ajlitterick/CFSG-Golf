@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.LceSP.Base
 import Mathlib.Tactic.Group
-public import Mathlib.Algebra.Group.Subgroup.Defs
 import Mathlib.Algebra.Order.Field.Basic
 import Mathlib.Data.Rat.Cast.Order
 import Mathlib.Tactic.NormNum.Abs

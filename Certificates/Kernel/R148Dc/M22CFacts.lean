@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.R148Dc.M22CBridge
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatJ3Dc
 public import CFSG.RankThree.PartTwo.KFacts.KP4Gen
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

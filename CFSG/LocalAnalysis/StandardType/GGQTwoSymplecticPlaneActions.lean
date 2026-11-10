@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGSpFrame
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBTorus
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotBlocks
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitSpNsDiag
-public import CFSG.LieType.Chevalley.RankOneGaussian
 public import CFSG.Timmesfeld.Orders.Classical
 public import CFSG.Sporadic.Suz.Setup
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover

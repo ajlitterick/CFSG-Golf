@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoD6CardALDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoD6CardALB1
-public import CFSG.LocalAnalysis.StandardType.GGQTwoWDatumTransport
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrDatumInner
 
 public section

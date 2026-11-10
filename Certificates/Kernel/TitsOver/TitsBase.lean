@@ -3,9 +3,7 @@ module
 public import CFSG.Certificates.Kernel.TitsOver.Base
 public import CFSG.LocalAnalysis.StandardType.TitsGeneratorsBase
 public import CFSG.Sporadic.Schreier.PairChain
-public import CFSG.Certificates.NativeSchreierArrays
 public import Certificates.Kernel.MaxD2.TitsD.Data
-public import Certificates.Certificate2264
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -4,19 +4,14 @@ public import CFSG.LocalAnalysis.StandardType.GGLieCoreStruct
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUStd
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralWeyl
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleCycle
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleLang
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame.Order216
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTorality
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeBlock
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.G2LongFrame
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralE7
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralE8
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompE8
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUD4
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE6
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE7
 import CFSG.LocalAnalysis.StandardType.GGIrred937F4BFrames
-import CFSG.RankThree.PartOne.KD4T.Certs
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAut
 public import CFSG.RankThree.PartOne.KE.A1Action
 public import CFSG.RankThree.PartOne.KE.A1Levi

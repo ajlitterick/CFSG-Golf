@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSmallDefs
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestG2
-import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

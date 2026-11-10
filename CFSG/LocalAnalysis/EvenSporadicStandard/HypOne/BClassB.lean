@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.BGeneric
-public import CFSG.Monster.B.Cbar.LocalStructure
 public import CFSG.Monster.B.GSide.TwoBNative
-public import CFSG.Monster.Existence.BabyW2
-public import CFSG.Monster.Existence.DLevelRank
 public import CFSG.Monster.Existence.MilestoneInputs
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Generic
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion

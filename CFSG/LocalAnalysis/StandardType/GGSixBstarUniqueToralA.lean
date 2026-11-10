@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarUniqueRootPlaneA
 public import CFSG.LocalAnalysis.StandardType.GGPGLTorality
 public import CFSG.LocalAnalysis.StandardType.GGHypSixTypeA
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 
 public section
 

@@ -2,12 +2,10 @@ module
 
 public import CFSG.GH74.Generic.GKFFusion
 public import CFSG.GH74.Generic.NativeCerts
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsFp
 public meta import CFSG.GH74.Generic.GKFFusion
 public meta import CFSG.GH74.Generic.NativeCerts
 public meta import Certificates.Data.CFSGNative.Filter.Sec2
 public meta import Certificates.Data.CFSGNative.SectionRank.Fp
-import CFSG.Blueprint.NativeSporadic
 public meta import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GH74.Generic.Shapes

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.GroupTheory.HallHigmanPiCore
 
 public section

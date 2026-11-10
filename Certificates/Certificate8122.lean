@@ -1,9 +1,5 @@
 module
 
-public import CFSG.RankThree.Native.Co3FiveArrays
-public import CFSG.RankThree.Native.ChainCentralizer
-public import CFSG.Sporadic.Schreier.Co3OrderCheck
-public import CFSG.Monster.B.Mathieu.SylowCore
 public import CFSG.RankThree.Native.Co3FiveCheckInputs
 import Certificates.Kernel.Co3Five.Facts
 

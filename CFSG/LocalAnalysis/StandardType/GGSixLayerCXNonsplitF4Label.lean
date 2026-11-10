@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitF4Dvd
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGSLMark
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivExcToral
-public import CFSG.LocalAnalysis.EvenBN.GMSK.TypeDetBender
-public import CFSG.RankThree.PartOne.S12K.Rigidity
 
 public section
 

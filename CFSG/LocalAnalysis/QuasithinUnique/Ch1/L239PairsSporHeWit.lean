@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHeCertificate
 public meta import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHe
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporHeCnt
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHeCertificate
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporHeWitInputs
 public import Certificates.Certificate4090
 
 public section

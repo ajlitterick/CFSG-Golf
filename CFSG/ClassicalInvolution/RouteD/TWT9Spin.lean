@@ -1,15 +1,6 @@
 module
 
-public import CFSG.ClassicalInvolution.RouteD.GapsFrPair
-public import CFSG.ClassicalInvolution.RouteD.TypeDModel
-public import CFSG.ClassicalInvolution.RouteD.TypeDAdapt
-public import CFSG.ClassicalInvolution.RouteD.GapsFrNodes
-public import CFSG.ClassicalInvolution.RouteD.GapsFrIso
 public import CFSG.ClassicalInvolution.RouteD.TWT8Spin
-public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusChain
-public import CFSG.ClassicalInvolution.RouteD.TWT8V
-public import CFSG.ClassicalInvolution.RouteD.TWEB6Bridge
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinFrame
 
 public section
 

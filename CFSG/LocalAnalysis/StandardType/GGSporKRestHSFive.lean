@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSporKLamOrders
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.HSFiveOvergroups
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.HSFiveLocal
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.HSFiveU35
-public import CFSG.RankThree.Native.HSMcLSmall
-public import CFSG.Sporadic.Bridge.HSSurj
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.JStarReducedDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools

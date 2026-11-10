@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.SporSch.RuTreeK
 public import CFSG.Certificates.Kernel.Misc.HexDropSound
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 import all CFSG.Certificates.Kernel.Misc.HexFlatSound
 
 public section

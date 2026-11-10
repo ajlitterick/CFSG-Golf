@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Recognition.F112Crit.BenderLocalOf
 public import CFSG.Quasithin.Recognition.Stroth.Str83G5Track
 
 import CFSG.Quasithin.Recognition.F112Crit.BenderCartanElt
-import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 
 public section
 

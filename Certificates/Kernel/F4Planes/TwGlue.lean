@@ -2,7 +2,6 @@
 module
 
 public import Certificates.Kernel.F4Planes.TwRows
-public import Certificates.Kernel.F4Planes.E6Glue
 public import CFSG.Certificates.Kernel.F4Planes.TwRowSound
 import CFSG.Certificates.Kernel.Common.ForallTree
 import all CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6TwoBase

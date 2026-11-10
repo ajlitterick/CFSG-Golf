@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LargeExtraspecial.AS35WQP45W2Data
-import Certificates.Certificate2012
 import Certificates.Kernel.QP45W.Glue
 import Certificates.Kernel.QP45W.W2Checks
-import CFSG.Certificates.Kernel.PermCent.CVSound
-import Mathlib.Tactic.Group
 public import Certificates.Data.Kernel.PermCent.CV
 
 set_option maxRecDepth 100000

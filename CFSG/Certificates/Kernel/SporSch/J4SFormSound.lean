@@ -2,8 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.SporSch.J4SBigSound
 public import CFSG.Sporadic.Schreier.J4SFormData
-import CFSG.Sporadic.J4.F2Spec
-import CFSG.Sporadic.HS.SmallF2Spec
 
 public section
 

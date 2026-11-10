@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Twelve.EightDescent
 public import CFSG.OddTranspositions.PartThree.Twelve.EightModel
 import CFSG.OddTranspositions.PartThree.Twelve.MarkedEmbedding
-import CFSG.LieType.Steinberg.CentralExt.UnitaryField
 
 public section
 

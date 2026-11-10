@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoRest
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThree
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeSp
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSymplectic
 
 public section

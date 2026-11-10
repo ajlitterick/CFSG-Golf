@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKSmallOrders
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FDynOrders
-import CFSG.LocalAnalysis.GLTheoremA.CatA.MILabel
 
 public section
 

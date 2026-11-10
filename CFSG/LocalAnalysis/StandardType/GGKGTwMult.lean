@@ -1,10 +1,8 @@
 module
 
-public import CFSG.Open.StatedDefs
 import CFSG.LieType.Steinberg.CentralExt.SUCentrallyClosed
 import CFSG.LieType.Steinberg.CentralExt.SL2CentrallyClosed
 import CFSG.LocalAnalysis.SectionRank.EvenCover.Unitary
-import CFSG.LieType.Universal.Unitary.Comparison
 import CFSG.LieType.Multipliers.U42
 public import CFSG.LieType.Multipliers.U42Bridge
 

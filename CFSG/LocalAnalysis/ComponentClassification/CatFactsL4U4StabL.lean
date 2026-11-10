@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4Blocks
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4Cover
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBProjectiveQuadraticField
 public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
 
 public section

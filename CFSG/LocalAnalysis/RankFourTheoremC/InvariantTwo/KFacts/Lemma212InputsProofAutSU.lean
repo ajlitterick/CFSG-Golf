@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherSemilinearAut
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryAutomorphismHyperbolic
-public import CFSG.LieType.BorelTits.UnitaryForm
-public import CFSG.LieType.Universal.Unitary.Basic
-public import CFSG.Open.StatedDefs
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.BorelTits.CompleteFlag
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

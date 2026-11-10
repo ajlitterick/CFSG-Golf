@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommParts
 public import CFSG.LocalAnalysis.EvenBN.Sp4.Main
-public import CFSG.LocalAnalysis.EvenBN.Sp4.SliceSylowBootstrap
 public import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialField
 public import Certificates.Kernel.ThCent.Leaves
 

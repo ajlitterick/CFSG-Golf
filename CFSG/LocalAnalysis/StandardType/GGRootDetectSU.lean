@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectSUDiag
-public import CFSG.LocalAnalysis.StandardType.GGHypSix
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphUnitaryModel
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
-public import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryNorm
-public import CFSG.LieType.Universal.Unitary.Clause0
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalDescentEndpoint

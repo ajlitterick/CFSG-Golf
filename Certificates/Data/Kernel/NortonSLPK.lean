@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.Norton.SLPProd
 public import Certificates.Data.Kernel.KDenseP.Words
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
-public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 public import CFSG.YGroups.DCE.MaximalB
 public import CFSG.YGroups.Y443.Native.AlignB
 public import CFSG.YGroups.Y443.Native.AlignW

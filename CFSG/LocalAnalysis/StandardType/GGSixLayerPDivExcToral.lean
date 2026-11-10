@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixEToral
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivOmega
 public import CFSG.LocalAnalysis.StandardType.GGWeylFamQuotSolvAll
-public import CFSG.LieType.Chevalley.G2FieldFourEvenSimplePairs
 
 public section
 

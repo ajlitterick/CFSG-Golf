@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderPSLRestCore
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderClassicalSL
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionNonsplitRestSL
-public import Mathlib.RingTheory.RootsOfUnity.Complex
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section

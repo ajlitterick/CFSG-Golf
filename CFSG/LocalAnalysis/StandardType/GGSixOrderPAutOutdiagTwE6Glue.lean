@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagExcPpd
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagTwE6Model
 
 public section

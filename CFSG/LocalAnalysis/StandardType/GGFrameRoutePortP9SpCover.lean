@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9Wa
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeSp
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9SpAmbient
 import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusOneData
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRuleSpFinRed

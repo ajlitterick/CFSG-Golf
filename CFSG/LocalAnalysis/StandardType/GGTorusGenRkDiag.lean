@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUAct
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryDvdAct
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBTypeANormal
-public import CFSG.RankThree.PartOne.KF.UnitaryDiag
 
 public section
 

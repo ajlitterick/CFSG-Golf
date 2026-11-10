@@ -2,15 +2,8 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.Basic
 
-import Mathlib.LinearAlgebra.Basis.Basic
-import Mathlib.GroupTheory.SpecificGroups.Cyclic
-import Mathlib.Algebra.Module.Equiv.Basic
-import Mathlib.Algebra.Field.ZMod
 import Mathlib.LinearAlgebra.Eigenspace.Charpoly
-import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
-import Mathlib.FieldTheory.Finite.Basic
 import Mathlib.LinearAlgebra.BilinearForm.TensorProduct
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 
 namespace CFSG
 end CFSG

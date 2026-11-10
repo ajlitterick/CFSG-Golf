@@ -9,7 +9,6 @@ public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDConversePSL
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotSwapLiftSplit
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabelA
 import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PSLCores
-import CFSG.RankThree.Classical2.SLnRootPermutingFixedGroups
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
 public import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
 public import CFSG.RankThree.Classical2.TwistedE6Phi3A2Case

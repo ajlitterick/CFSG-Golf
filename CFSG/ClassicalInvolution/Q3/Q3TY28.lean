@@ -4,8 +4,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3TY17
 public import CFSG.ClassicalInvolution.Q3.Q3TY23
 public import CFSG.ClassicalInvolution.Q3.Q3TY19
 public import CFSG.ClassicalInvolution.Q3.Q3TY10
-public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusNodes
-public import CFSG.ClassicalInvolution.RouteD.GapsFrBNodes
 public import CFSG.ClassicalInvolution.Q3.Q3TCCp
 public import CFSG.ClassicalInvolution.Q3.Q3TY1
 

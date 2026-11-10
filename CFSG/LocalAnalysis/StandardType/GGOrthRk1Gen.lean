@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Defs
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanCharTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1GenComb
-public import CFSG.LocalAnalysis.StandardType.GGOrthRk1GenSupp
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1GenConj
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1GenPhan
 import CFSG.RankThree.PartOne.CTP.PhanBridge
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 
 public section
 

@@ -2,11 +2,8 @@ module
 
 public import Certificates.Data.Kernel.Misc.TitsPrim
 public import Certificates.Data.Kernel.Misc.TitsChain
-public import CFSG.Certificates.Kernel.YModel.TextGenS
-public import Certificates.Kernel.Sporadic.RawGenOrb
 public import Certificates.Kernel.Misc.Tits.Outer8075
 public import Certificates.Kernel.TitsW.Defs
-public import CFSG.Quasithin.Recognition.CertDataTitsSimple
 meta import CFSG.Quasithin.Recognition.CertDataTitsSimple
 meta import CFSG.Sporadic.Schreier.TitsArrays
 meta import Certificates.Data.CFSGNative.YGroups.ExactCheck

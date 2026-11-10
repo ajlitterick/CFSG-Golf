@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartOne.D4RC.Gram
 public import CFSG.RankThree.PartOne.D4RC.LieStd
 public import CFSG.RankThree.PartOne.D4RC.RootLong
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.RankThree.PartOne.D4RC.Fix6
 
 public noncomputable section

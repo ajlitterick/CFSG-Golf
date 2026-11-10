@@ -3,13 +3,8 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22sl
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22sk
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22sc
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22sa
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22si
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22sj
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
-import CFSG.RankThree.PartOne.S12.Sec15Final
-import CFSG.LocalAnalysis.QuasithinUnique.CharTwoInheritance
-import CFSG.Quasithin.Background.A4V
 import CFSG.Quasithin.EmptyFaithful.SBd5Perf
 import CFSG.Quasithin.Background.C118NoOuterAct
 

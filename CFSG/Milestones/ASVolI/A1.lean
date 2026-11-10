@@ -1,58 +1,26 @@
 module
 
-public import Mathlib
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Extraspecial
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Open.Defs
-public import CFSG.Open.GeneralizedFittingSelfCentralizingMilestoneDefs
-public import CFSG.Open.QuasithinDefs
-public import CFSG.LocalAnalysis.SectionRank.NativeKGroup
-public import CFSG.Open.StatedDefs
-public import CFSG.Blueprint.NativeSporadic
 public import CFSG.Quasithin.Background.A1cModuleHomog
 public import CFSG.Quasithin.Background.A1cModuleSub
 public import CFSG.Quasithin.Background.A1bGroups
-public import CFSG.Quasithin.Background.A1cTransfer
-import CFSG.Quasithin.Background.A1a
 import CFSG.Quasithin.Background.A1cModuleHyperplane
-import CFSG.Quasithin.Background.A1cModuleCoprime
 import CFSG.Quasithin.Background.A1aFStar
-import CFSG.Quasithin.Background.A1aFitting
 import CFSG.Quasithin.Background.A15Dihedral
-import CFSG.Quasithin.Background.A1bReduced
-import CFSG.Quasithin.Background.A1bTransvection
 import CFSG.LocalAnalysis.SectionRank.AmbientRank
 import all CFSG.Quasithin.Background.A1bKrullSchmidt
 import CFSG.Quasithin.Background.A1bHyperplane
-import CFSG.Quasithin.Background.A1bPGroups
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
-public import CFSG.Quasithin.Background.A1cA130
 public import CFSG.Quasithin.Background.A1cA131
 public import CFSG.Quasithin.Background.A1cA132
-public import CFSG.Quasithin.Background.A1cA133
-public import CFSG.Quasithin.Background.A1cA133Two
-public import CFSG.Quasithin.Background.A1cA133Three
-public import CFSG.Quasithin.Background.A129One
-public import CFSG.Quasithin.Background.A3Structure36BSL2
-public import CFSG.Quasithin.Background.KnownMultL2
-public import CFSG.Quasithin.Background.DicksonPerfectBasic
-public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.OrdinaryProofs.CyclicSylowNormal
-import CFSG.Quasithin.Background.A1cRank
-import CFSG.LocalAnalysis.SectionRank.SQT
-import CFSG.LocalAnalysis.SectionRank.SubgroupRank
 import CFSG.Quasithin.Background.A1bLemma126
 import CFSG.Quasithin.Vol2.Ch5Sec1L34A126GL2
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.RankThree.PGroups.SolvableFittingSelfCentralizing
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PSubgroupInfNormalNilpotentLePCore
 import CFSG.Quasithin.Background.F6CatDickson
 import CFSG.Quasithin.Vol2.Ch10SecV1L
 import CFSG.Quasithin.Vol2.GoldschmidtA128
-import CFSG.LocalAnalysis.SectionRank.Ccomm.FrattiniAut
 import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.CoprimeOmega
-import CFSG.LocalAnalysis.ComponentClassification.CoprimeAutomorphisms
 public import CFSG.LocalAnalysis.SectionRank.QTK.CentreFact.A38Facts
 public import CFSG.LocalAnalysis.SectionRank.QTK.A134Frob
 public import CFSG.Open.StatedCenterThree
@@ -109,18 +77,14 @@ public import CFSG.Quasithin.Background.A3Structure36BBase
 public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
 public import CFSG.Sporadic.Bridge.BOrder
 public import CFSG.Sporadic.Bridge.BSurjInputs
-public import CFSG.Sporadic.Bridge.LyData
 public import CFSG.Sporadic.Bridge.VecSurj
 public import CFSG.Sporadic.Co3
 public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
 public import CFSG.Sporadic.Ly.OrbitSpec
-public import CFSG.Sporadic.Ly.PrimitiveBase
-public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
 public import CFSG.Sporadic.Presentation.Co3
-public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Presentation.ThBase
 public import CFSG.Sporadic.Schreier.Co1SplitLocalSubgroup
 public import CFSG.Sporadic.Schreier.Co1TernaryM12Cover
@@ -128,11 +92,6 @@ public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
 public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
-public import CFSG.Sporadic.Th.KernelPlanesBase
-public import CFSG.Sporadic.Th.KernelSimpleBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Bender1970.S3.Setup
 public import CFSG.Walter.JRFacts
 public import Certificates.Certificate1
@@ -176,7 +135,6 @@ public import Certificates.Certificate10119Base
 public import Certificates.Certificate10123
 public import Certificates.Certificate10123Base
 public import Certificates.Certificate1016
-public import Certificates.Certificate1016Base
 public import Certificates.Certificate1018
 public import Certificates.Certificate1018Base
 public import Certificates.Certificate102
@@ -273,11 +231,6 @@ import CFSG.Quasithin.Background.B1Basic
 import CFSG.Quasithin.Background.B2FactorizationResidual
 import CFSG.Quasithin.Background.B4Statement
 import CFSG.Quasithin.Background.E1
-import CFSG.Quasithin.Background.E1Sec4
-import CFSG.Quasithin.Background.E1Sec5
-import CFSG.Quasithin.Background.E1Sec8
-import CFSG.Quasithin.Background.E1Solv
-import CFSG.Quasithin.Background.E1Twelve
 import CFSG.Quasithin.H13.StatementsL1
 import CFSG.Quasithin.Vol2.Ch10StatementsE
 import CFSG.Quasithin.Vol2.Ch10StatementsInputs

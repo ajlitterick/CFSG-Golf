@@ -3,9 +3,7 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3E6TRow
 public import CFSG.ClassicalInvolution.Q3.Q3E6TRowOrth
 public import CFSG.ClassicalInvolution.Q3.Q3E8BRowExc
-public import CFSG.ClassicalInvolution.Q3.Q3WAComp
 public import CFSG.ClassicalInvolution.Uniform.U8Final
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6PerpLayerCount
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section

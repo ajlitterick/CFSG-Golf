@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Quasithin.Vol2.KGFactSporLatInputs
 public import CFSG.Quasithin.Vol2.KGFactAutSylowSpor
 public import CFSG.Quasithin.Background.HSporLatMathieu
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatExport
 public import Certificates.Certificate7144
 
 public section

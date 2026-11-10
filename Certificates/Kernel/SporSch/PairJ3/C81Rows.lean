@@ -4,7 +4,6 @@ public import Certificates.Kernel.SporSch.PairJ3.C81Syl
 public import Certificates.Kernel.SporSch.PairJ3.C81Cls0
 public import Certificates.Kernel.SporSch.PairJ3.C81Cls1
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P4S55StepH3L
 public import CFSG.LieType.Steinberg.CentralExt.PSLMultiplier
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A

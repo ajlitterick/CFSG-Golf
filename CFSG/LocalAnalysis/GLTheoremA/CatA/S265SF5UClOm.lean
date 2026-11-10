@@ -1,19 +1,12 @@
 module
 
-public import CFSG.Open.StatedDefs
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 public import CFSG.LocalAnalysis.ComponentClassification.InnAutDerivedD4
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieComp.OrthInnerExport
-import CFSG.HardMathSupport.Lang.Coordinator.D4Bridge.Bridge
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
 import CFSG.LocalAnalysis.ComponentClassification.InnAutDerivedOrthogonal
 import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphismsCongr
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SF5UClOmB
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S267P3OrthFix
 import CFSG.LocalAnalysis.GLTheoremA.CatB.I1430LieTwoInnOrth
-import CFSG.RankThree.PartOne.S11d.LieCentralizerOrth
-import CFSG.SignalizerFunctorTheorem.Inheritance.TransportA.Fitting
-import CFSG.Timmesfeld.Orders.Classical
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.TrialityChar3.Setup
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.Coordinator.Cover
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.ExceptionsTransport.FamilyProved

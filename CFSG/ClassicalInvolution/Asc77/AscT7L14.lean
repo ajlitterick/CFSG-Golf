@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.AscT7L13
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinStd
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Inner
 
 public section

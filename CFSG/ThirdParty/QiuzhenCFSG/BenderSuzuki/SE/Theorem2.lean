@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition53
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Permutation
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section7Final
 
 namespace CFSG

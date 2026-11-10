@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Goldschmidt.Steps.G3aSStar
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 import CFSG.LocalAnalysis.RankThreeCoreUniqueness.LocalCore
 import CFSG.Milestones.OO_odd_order_solvable
 import CFSG.Walter.Bender1970.S3.FStar

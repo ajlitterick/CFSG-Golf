@@ -1,14 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22R8100R
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyFiveFixed
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFiftyOne
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2214Sz
 public import CFSG.GroupTheory.SupMulCommutative
-public import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 public import CFSG.Quasithin.EmptyFaithfulMultiple.Lemma15420Quot
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P2214b
-public import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 public import CFSG.ClassicalGroups.UnitaryFlag.PointSylow
 public import CFSG.GF2Type.Smith1979.IdxFourCoset
 public import CFSG.GroupTheory.PGroup.OmegaComm

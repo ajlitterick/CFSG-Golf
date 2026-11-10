@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoPosCells
-public import CFSG.LocalAnalysis.StandardType.GGQTwoPosInLCells
-public import CFSG.LocalAnalysis.StandardType.GGQTwoAmbModel
 public import CFSG.LocalAnalysis.StandardType.GGD5Defs
 
 public section

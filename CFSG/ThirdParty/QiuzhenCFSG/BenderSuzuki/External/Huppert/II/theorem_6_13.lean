@@ -2,14 +2,7 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_12
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_11
-public import Mathlib.GroupTheory.GroupAction.MultipleTransitivity
-public import Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup
-public import Mathlib.LinearAlgebra.Projectivization.Action
-public import Mathlib.LinearAlgebra.Transvection.Basic
 
-import Mathlib.LinearAlgebra.Matrix.Transvection
-import Mathlib.Algebra.Group.AddChar
-import Mathlib.LinearAlgebra.SpecialLinearGroup
 
 namespace CFSG
 end CFSG

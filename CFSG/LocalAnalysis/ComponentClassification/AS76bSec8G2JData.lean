@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8G2Gamma
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalDichotomy
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8G2Dich
 
 public noncomputable section

@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityHolds
 import CFSG.OddTranspositions.PartFour.ThirteenListExtTrialityOrthFourEquiv
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14LagAssembly
 import CFSG.LocalAnalysis.StandardType.GGRealKGOmegaFrame
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinateRegular
 public import CFSG.CGT.Timmesfeld75.Cfg214Gen
 public import CFSG.LargeExtraspecial.S9TIXC
 public import CFSG.LocalAnalysis.WeakClosure81.SevenElevenInputs

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LargeExtraspecial.S63CD4Rep
 public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import Std.Data.HashMap
 public meta import CFSG.LargeExtraspecial.S63CD4Rep
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 

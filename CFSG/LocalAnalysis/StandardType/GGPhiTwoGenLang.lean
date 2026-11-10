@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenDefs
-public import CFSG.LieType.AlgebraicGroups.KernelRootGroup
 public import CFSG.LieType.AlgebraicGroups.KernelRootDescent
-public import CFSG.LieType.AlgebraicGroups.ToralTwistPinning
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
 
 public section

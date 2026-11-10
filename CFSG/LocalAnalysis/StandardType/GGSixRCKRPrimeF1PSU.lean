@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeDefs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Position
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepACore
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDPSU
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDCommute
-public import CFSG.LieType.Universal.Unitary.Extras
-public import CFSG.LieType.BorelTits.UnitaryForm
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.CompPSU
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
 

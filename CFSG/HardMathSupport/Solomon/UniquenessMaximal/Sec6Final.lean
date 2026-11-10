@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6Interface
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6A63
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6B67
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6D61
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6D62
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6E65
@@ -10,12 +9,7 @@ public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6E66
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6F68
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6HJNormal
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KThirty2
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FCover
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6GInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KL3U3
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KZero
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KNoSLReduce
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KOdd2Fin
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KEvenSLMain
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KI2320Main
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KTypeFinal
@@ -52,8 +46,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

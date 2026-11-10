@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeTriD4FrameE
 public import CFSG.LocalAnalysis.StandardType.GGK0LQD4TwE6
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabelOuterD
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcLang
-public import CFSG.LieType.Chevalley.E7SupportedBruhat
 
 public section
 

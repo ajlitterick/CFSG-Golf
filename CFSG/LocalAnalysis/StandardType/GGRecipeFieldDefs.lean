@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseNoBL5Aut
 public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeMarking
-public import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
 
 public section
 

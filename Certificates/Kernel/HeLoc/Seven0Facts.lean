@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.HeLoc.Seven0K
 public import Certificates.Kernel.HeLoc.SevenQFacts
 public import CFSG.Certificates.Kernel.HeLoc.PTailSound
-public import CFSG.RankThree.PartOne.KS.HeSevenCheckDefs
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.Schreier.PairHeClasses
 
 public section

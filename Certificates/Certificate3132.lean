@@ -1,12 +1,9 @@
 module
 
-public import Certificates.Data.CFSGNative.CTIB.Arith
 public import CFSG.Monster.B.GSide.MuFourOmega
 public import Certificates.Kernel.MonsterB.Orb3132Tree
 public import Certificates.Kernel.MonsterB.Orb3132Inv
-public import CFSG.Certificates.Kernel.MonsterB.QFormSound
 public import CFSG.Certificates.Kernel.MonsterB.CTIBBfsSound
-public import CFSG.Monster.B.TwoA.Unitary.OrbitInputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.Monster.B.Classical.PlaneAut

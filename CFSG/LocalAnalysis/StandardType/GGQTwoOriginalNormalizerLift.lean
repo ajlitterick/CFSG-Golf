@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCoverKernel
 public import CFSG.GroupTheory.ElementaryCyclicProduct
 public import CFSG.GroupTheory.QuasisimpleAutQuotient

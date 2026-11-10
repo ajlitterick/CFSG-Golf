@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutGraph
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaPlusOTwo
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaMinus
-public import CFSG.LieType.Universal.Spin.Twisted.Datum
 
 public section
 

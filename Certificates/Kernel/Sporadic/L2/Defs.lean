@@ -8,8 +8,6 @@ public import Certificates.Kernel.Sporadic.L2.TextI
 public import Certificates.Kernel.Sporadic.L2.Pins
 public import Certificates.Kernel.Sporadic.L2.XCD
 public import Certificates.Kernel.Sporadic.OddCore.SuzWK
-public import Certificates.Kernel.Sporadic.OddCore.SuzTwC
-public import Certificates.Kernel.Sporadic.OddCore.Suz2302
 public import Certificates.Kernel.Sporadic.Q3A.KT
 
 public section

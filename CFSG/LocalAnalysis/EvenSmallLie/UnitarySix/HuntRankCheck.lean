@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.HuntRankData
 public meta import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.HuntRankData
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
 public meta import Certificates.Data.CFSGNative.Th.Tables

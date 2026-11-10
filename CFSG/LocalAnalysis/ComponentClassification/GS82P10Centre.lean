@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GS82HConfigNorm
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinInteraction
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
-public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
-public import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSBSharedCore
 
 public section
 

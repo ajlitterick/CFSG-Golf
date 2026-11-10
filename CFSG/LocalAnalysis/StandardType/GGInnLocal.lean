@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGInnLocalDichotomy
 public import CFSG.LocalAnalysis.StandardType.GGStdSubExist
 public import CFSG.LocalAnalysis.StandardType.GGTableBTypeA
-public import CFSG.LieType.CentralExt.CoprimeLift
 
 public section
 

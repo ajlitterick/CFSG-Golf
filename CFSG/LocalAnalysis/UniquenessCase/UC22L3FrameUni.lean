@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22L3FrameSplit
-import CFSG.LocalAnalysis.UniquenessCase.UC22L3UniBlock
 import CFSG.LocalAnalysis.UniquenessCase.UC22L3UniModel
-import CFSG.LocalAnalysis.UniquenessCase.UC22L3UniAut
-import CFSG.LocalAnalysis.UniquenessCase.UC22L3UniRho
 import CFSG.LocalAnalysis.UniquenessCase.UC22L3UniUnipotent
 import CFSG.LocalAnalysis.UniquenessCase.UC22L3UniLinear
-import CFSG.GH74.KGroups.L3EpsUni
 
 public section
 

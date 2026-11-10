@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC1K43
-public import CFSG.LocalAnalysis.UniquenessCase.UC1K43Ext
 public import CFSG.LocalAnalysis.UniquenessCase.UC1K43Q8
-public import CFSG.LocalAnalysis.UniquenessCase.UC1K462Basic
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K42j
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.Combinatorics.AperiodicCentralInvolution
@@ -43,7 +41,6 @@ public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Timmesfeld.CorollaryBOutcome
 public import Certificates.Kernel.J4Count.FixC
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import Certificates.Kernel.SporSch.J4S.NoCP
 
 public section

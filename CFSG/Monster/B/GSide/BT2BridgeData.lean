@@ -1,15 +1,9 @@
 module
 
-public import CFSG.Monster.B.GSide.BT2MoveList
-public import CFSG.Monster.B.GSide.BT2Block
-public import CFSG.Monster.B.GSide.MuFourOmega
 public meta import CFSG.Monster.B.GSide.BT2MoveList
 public meta import CFSG.Monster.B.GSide.MuFourOmega
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
-public import CFSG.Monster.B.GSide.BT2BridgeDataInputs
-public import CFSG.Monster.B.GSide.BT2BridgeDataWalk
-public import Certificates.Certificate3178
 public import Certificates.Certificate3179
 
 public section

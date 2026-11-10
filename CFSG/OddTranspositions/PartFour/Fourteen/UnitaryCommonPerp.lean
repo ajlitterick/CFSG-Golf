@@ -1,14 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.WeakClosure81.SevenKUnitary
-public import CFSG.ClassicalGroups.Unitary.Generation
-public import CFSG.LocalAnalysis.WeakClosure81.SevenTwelveConfSUTv
 public import CFSG.LocalAnalysis.WeakClosure81.W16Gt2KFactsJ
-import CFSG.Open.StatedAPI
 import CFSG.ClassicalInvolution.Phan.Blocks
 import CFSG.OddTranspositions.PartFour.Fourteen.RootBlockUnitary
-import CFSG.LieType.Steinberg.CentralExt.SUTwo
-import CFSG.LieType.Universal.Unitary.Clause0
 public import CFSG.CGT.Timmesfeld75.Cfg214Gen
 public import CFSG.CGT.Timmesfeld75.Derivations
 public import CFSG.CGT.Timmesfeld75.Form2

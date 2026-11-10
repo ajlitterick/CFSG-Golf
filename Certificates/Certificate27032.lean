@@ -1,9 +1,7 @@
 module
 
-public import Certificates.Data.U52Yamada
 public import CFSG.Certificates.Kernel.EvenBN.F4MatSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.FinCases
 
 public section
 

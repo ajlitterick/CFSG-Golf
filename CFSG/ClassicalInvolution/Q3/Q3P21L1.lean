@@ -1,10 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TLKSp
-public import CFSG.ClassicalInvolution.Q3.Q3TY13
-public import CFSG.ClassicalInvolution.Q3.Q3TCBridge
-public import CFSG.ClassicalInvolution.ModelFacts.TG3OrthTags
-public import CFSG.ClassicalInvolution.ModelFacts.TG3SmallSL
 public import CFSG.ClassicalInvolution.Q3.Q3TIVSm
 
 public section

@@ -2,9 +2,7 @@ module
 
 public import CFSG.YGroups.Chain
 public import CFSG.YGroups.Exact.Model
-public import CFSG.YGroups.Exact.Y332Inputs
 public import Certificates.Certificate10099
-public import Certificates.Data.CFSGNative.YGroups.ExactData
 public meta import CFSG.YGroups.Defs
 public meta import Certificates.Data.CFSGNative.YGroups.ExactCheck
 public meta import Certificates.Data.CFSGNative.YGroups.ExactData

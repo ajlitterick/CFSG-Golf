@@ -2,12 +2,9 @@ module
 
 public import CFSG.SignalizerFunctorTheorem.McBride.Models.Suzuki.Local
 public import CFSG.LocalAnalysis.SectionRank.SuzukiCover
-public import CFSG.LieType.BorelTits.Suzuki
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

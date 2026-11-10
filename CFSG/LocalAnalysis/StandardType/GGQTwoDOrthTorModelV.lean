@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorBlockBase
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorBlockMain
 public import CFSG.ClassicalInvolution.Phan.PhanDn.DiagTorus
-public import CFSG.ClassicalInvolution.Phan.PhanDn.NormForm
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Anisotropic.Plane
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Pairs
 public import CFSG.ClassicalInvolution.Phan.Defs

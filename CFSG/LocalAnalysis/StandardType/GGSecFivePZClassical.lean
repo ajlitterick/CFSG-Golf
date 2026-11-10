@@ -1,16 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePZKnown
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField
 import CFSG.LocalAnalysis.StandardType.GGSecFivePZExc
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsLin
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsSympB
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsOrth
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldLin
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldSymp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldOrth
-import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T263DXQuasi
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.K3.Components
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S267Amb

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Ten.WreathEndgame
-public import CFSG.Timmesfeld.Bridge.Asc72Basic
 import CFSG.OddTranspositions.PartThree.EightEight.WreathNatural
 import CFSG.OddTranspositions.PartThree.Ten.SwapKlein
 import CFSG.Timmesfeld.Bridge.OddLocalCommonBasic

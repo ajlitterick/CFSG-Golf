@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSmallDefs
-import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

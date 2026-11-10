@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.QTGen4.Recog.G23.P7.LeafWrappers
 public import CFSG.GH74.QTGen4.Recog.G23.NativeLetters
-public import CFSG.RankThree.PartTwo.Census.Carrier.G2Three
 public import CFSG.CharacterTheory.Blocks.NormOne
 public import CFSG.CharacterTheory.SteinbergBSExceptionalCharacterTools
 public import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion
@@ -17,10 +16,6 @@ public import CFSG.Quasithin.H13.J4Core
 public import CFSG.Quasithin.H13.J4Order
 public import CFSG.Quasithin.H13.J4OrderBase
 public import CFSG.Sporadic.Schreier.J4SSylow
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

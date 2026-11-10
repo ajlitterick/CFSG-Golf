@@ -1,9 +1,7 @@
 module
 
 public import CFSG.CGT.PushingUpLit.CGT6M.FiveUniAlg
-public import CFSG.CGT.PushingUpLit.CGT6M.FiveInvLA
 public import CFSG.CGT.PushingUpLit.CGT6M.FiveInspCover
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

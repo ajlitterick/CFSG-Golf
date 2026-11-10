@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoTBMain
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6NonsplitThreeHolds
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagCartan
 
 public section
 

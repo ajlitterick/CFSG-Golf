@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSL9TwoModel
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerLinearNonsplit
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLLIDCore
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1FiveLeaf
-public import CFSG.Sporadic.Schreier.Co1Chain
 public import Certificates.Data.TabCo1Kit
 
 public section

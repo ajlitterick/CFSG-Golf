@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.RankThree.PartOne.KC.LinearPlaneMixing
 public import CFSG.RankThree.PartOne.KC.LinearPlaneGeneration
 

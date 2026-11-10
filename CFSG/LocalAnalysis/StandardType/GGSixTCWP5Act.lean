@@ -5,9 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UFrameO
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UE6Disc
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UExc
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs2
-public import CFSG.LocalAnalysis.StandardType.GGTwInndiagRootBridge
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwisted
 
 public section
 

@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.Co1DceSound
 public import CFSG.Certificates.Kernel.Co1.Data.D1S_0
 public import CFSG.Certificates.Kernel.Co1.Data.C7_Sel
 public import Certificates.Kernel.Co2.Join
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Co1.Checks.Bind
 import CFSG.Certificates.Kernel.Co1.Checks.D1S_H_0
 import CFSG.Certificates.Kernel.Co1.Checks.D1S_W_0

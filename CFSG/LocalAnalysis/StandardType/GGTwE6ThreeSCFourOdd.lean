@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeSCFourOddDefs
 
-import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeSCFourOddGroup
 import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeSCFourOddQuot
 import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeSCFourOddAct
 

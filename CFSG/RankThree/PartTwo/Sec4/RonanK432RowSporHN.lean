@@ -2,12 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432Rows
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432Cover
-public import CFSG.Sporadic.HNSchreier.Faithful
-public import CFSG.Sporadic.HNSchreier.ThreeCent
-public import CFSG.Sporadic.HNSchreier.Intrinsic
-public import CFSG.Sporadic.HNSchreier.AltCent
-public import CFSG.Sporadic.HNSchreier.Sylow3
-public import CFSG.Sporadic.HNSchreier.FullAut
 public import CFSG.Open.SplitBNPair
 public import CFSG.Quasithin.Vol2.Ch10StatementsE
 public import CFSG.Quasithin.Vol2.Ch10StatementsInputs

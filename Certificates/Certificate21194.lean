@@ -6,7 +6,6 @@ import Certificates.Kernel.M24R.R3Orb
 import Certificates.Kernel.PresLetters.F21194
 import CFSG.Certificates.Kernel.M24R.R3OrbSound
 import CFSG.Certificates.Kernel.Misc.Coset.TableFact
-import CFSG.Certificates.Kernel.Common.ForallChunks
 public import CFSG.Certificates.Kernel.Misc.Coset.PG
 public import Certificates.Data.Kernel.Bounds.TableFact
 public import Mathlib

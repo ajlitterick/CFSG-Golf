@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.E6TT.RowSound
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoTableTBridge
 
 public section
 

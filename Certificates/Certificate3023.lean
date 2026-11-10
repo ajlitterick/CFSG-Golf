@@ -4,7 +4,6 @@ module
 public import Certificates.Certificate3023Base
 import all Certificates.Certificate3023Base
 
-public import CFSG.Monster.B.TwoA.Census.CosetEnumCheckInputs
 import all CFSG.Monster.B.TwoA.Census.CosetEnumCheckInputs
 
 namespace CertificateChecks.Batch3023

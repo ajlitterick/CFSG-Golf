@@ -1,22 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7QPUCat
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafEvenNoComponent
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafEven
-public import CFSG.LocalAnalysis.ComponentClassification.ClassicalModelStatedReverse
-public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinear
-public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTISymplectic
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSUAlmostSimple
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogOmegaAlmostSimple
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aFStar
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7Inst
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFieldFourWitnesses
-public import CFSG.LocalAnalysis.SectionRank.NativeKGroup
 public import CFSG.RankThree.PartOne.S12.Sec1511SPEFStar
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4Transport
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4Outer
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4TwoComp
 import CFSG.Adapters.StatedPSLTwo
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.GH74.GLS.Classes

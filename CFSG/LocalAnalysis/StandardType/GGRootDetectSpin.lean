@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectCore
-public import CFSG.LieType.Universal.SpinOmega.Center
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldAction
 
 public section
 

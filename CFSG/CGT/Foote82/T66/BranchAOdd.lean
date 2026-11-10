@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115CoverDihedral
 import CFSG.Quasithin.Background.G11Bridge
 import CFSG.CGT.Foote82.T66.Overgroup
 public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

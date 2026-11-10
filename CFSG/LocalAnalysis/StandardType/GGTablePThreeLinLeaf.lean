@@ -1,6 +1,5 @@
 module
 
-import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinDefs
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinShape
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinJNoG2
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinJNoTwA2

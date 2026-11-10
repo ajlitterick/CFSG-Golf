@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallO8mCurtis
 import CFSG.LieType.Steinberg.CurtisDatum.TorusSums
-import CFSG.LieType.Steinberg.CentralExt.TorusLift
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

@@ -7,8 +7,6 @@ import CFSG.LocalAnalysis.StandardType.FS81.S7E7InclRange
 import CFSG.LocalAnalysis.StandardType.FS81.S7ModuleNontrivial
 import CFSG.LocalAnalysis.StandardType.FS81.S7HighRadicalComm
 import CFSG.LocalAnalysis.StandardType.FS81.S7NormalizerW
-import CFSG.LocalAnalysis.SeitzReduction.E7PilotNeighbourLevi
-import Mathlib.Tactic.Group
 
 public section
 

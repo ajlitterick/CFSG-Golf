@@ -1,14 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrKGTwE6ThreeAtDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 public import CFSG.LocalAnalysis.StandardType.GGKG82Defs
 public import CFSG.LocalAnalysis.StandardType.GGKG82Outdiag
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeMarking
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldDefs
-public import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

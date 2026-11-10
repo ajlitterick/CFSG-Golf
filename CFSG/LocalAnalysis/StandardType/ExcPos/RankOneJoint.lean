@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.PacketBasic
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6Base
-public import CFSG.LocalAnalysis.StandardType.ExcPos.RankOneInner
-public import CFSG.LocalAnalysis.StandardType.ExcPos.RankOneWeyl
 public import CFSG.LocalAnalysis.StandardType.ExcPos.RankOneOrbit
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart14
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3BAutCommon
-public import CFSG.LieType.SeitzGeneration.ExcHigh.Product
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.StandardType.GGFamTypeAFrames
 import all CFSG.LocalAnalysis.StandardType.GGJ4dRankTwoBound
 

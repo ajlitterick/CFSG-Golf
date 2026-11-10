@@ -1,11 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGExcCompSLDefs
 public import CFSG.LocalAnalysis.StandardType.GGExcCompSLInner
 public import CFSG.LocalAnalysis.StandardType.GGExcCompSLTypeA
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSL
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSU
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Export
 
 public section
 

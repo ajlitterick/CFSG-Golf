@@ -1,14 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthSetup
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthNbr
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthALRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthAInf
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrd
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthCount
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrWeylA
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNarrowInputs
 
 public section
 

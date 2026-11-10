@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2053Base
 
-public import CFSG.Sporadic.Co2Schreier.KerCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.WitCheck
 public meta import CFSG.Sporadic.Co2Schreier.CoreCheckBase
 import Certificates.Kernel.SporSch.Co2M.KerP

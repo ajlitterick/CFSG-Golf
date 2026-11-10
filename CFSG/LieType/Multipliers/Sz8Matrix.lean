@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Multipliers.Sz8Field
-public import CFSG.Models
 public import CFSG.StronglyEmbedded.Catalog.Suzuki
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure

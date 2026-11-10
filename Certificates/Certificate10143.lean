@@ -2,10 +2,6 @@ module
 
 public import Certificates.Data.ThSevenPerfect
 import Certificates.Kernel.ThCent.Perf7Glue
-import Certificates.Certificate1020
-import Certificates.Certificate1021
-import Certificates.Certificate1022
-import Certificates.Certificate16948
 
 public section
 

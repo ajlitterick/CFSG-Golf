@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4CorCCover
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
-public import CFSG.LocalAnalysis.ComponentInitial.BlockSylowOrder
-public import CFSG.CharacterTheory.Semidihedral.Principal.CoprimeFixedPointLifting
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitGeneral
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCorollaryC

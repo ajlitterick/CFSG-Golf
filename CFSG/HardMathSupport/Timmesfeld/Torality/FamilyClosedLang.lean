@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
 public import CFSG.LieType.AlgebraicGroups.IdentityComponentLang
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyCover
 
 public noncomputable section

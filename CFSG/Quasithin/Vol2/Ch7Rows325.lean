@@ -1,16 +1,10 @@
 module
 
-public import CFSG.Quasithin.Background.AutOnBasics
 public import CFSG.Quasithin.Vol2.Ch7NotFFS7
 public import CFSG.Quasithin.H13.StatementsL4
 public import CFSG.Quasithin.Background.HA7Rec
-public import CFSG.Quasithin.Background.HSp4A6
-public import CFSG.Quasithin.Background.B4ModelsIso
 public import CFSG.Quasithin.Vol2.Ch3Sec2Lem328Iso
-public import CFSG.LocalAnalysis.SectionRank.OddCover.DegreeThree
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixCoverModel
-public import CFSG.Adapters.ProjectiveSpecialLinear
 
 public section
 

@@ -2,16 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.NineteenOneFive
 public import CFSG.LocalAnalysis.WeakClosure81.InFSqPrimeTwoGroup
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22ua
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P21c
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846a
 public import CFSG.RankThree.PartTwo.Sec12.Hering129HBasic
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.ElevenNineBasic
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveTwentyTwo
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveTwentyThree
-public import CFSG.Quasithin.Background.F6Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 public import CFSG.GH74.GLS.Stage2.Final.ModelOrd
 public import CFSG.GroupTheory.SylowNormalizedByPGroup
 public import CFSG.HardMathSupport.Solomon.Coordinator.I14_20Alt

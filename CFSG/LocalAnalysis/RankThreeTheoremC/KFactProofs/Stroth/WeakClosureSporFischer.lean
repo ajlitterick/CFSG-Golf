@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureSporLines
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureSporModule
 public import CFSG.Permutation.SymmetricCoxeter
 import CFSG.HardMathSupport.Foote.E27.SporFi23
@@ -9,13 +8,8 @@ import CFSG.HardMathSupport.Timmesfeld.SporadicRank.Fi24
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Fi22FiveMain
 import CFSG.LocalAnalysis.AGLEmbedding.Norton.MON11_13.Heisenberg
 import CFSG.RankThree.PartOne.CTP.SporadicNoncommFi24
-import CFSG.Sporadic.Bridge.Fi22Surj
-import CFSG.Sporadic.Fi22.Simple
 import CFSG.Sporadic.Fi23.S12
-import CFSG.Sporadic.Fi23.Simple
 import CFSG.Sporadic.Fi24.ExtFi23
-import CFSG.Sporadic.Fi24.Simple
-import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -55,7 +49,6 @@ public import CFSG.Sporadic.Presentation.Co2Fusion
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.YGroups.DCE.B433Check
@@ -64,8 +57,6 @@ public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 import CFSG.Monster.B.Fischer.Fi22Centralizer
 import CFSG.Sporadic.FischerOddCore.Fi22ExtSylow
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

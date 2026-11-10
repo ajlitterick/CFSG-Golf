@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34F3Defs
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec2Step23
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalSpinBridge
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34F2Even2SwapRows
-import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitOrthogonalGeometry
 import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitOrthogonalAction
 import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog516CSpin
 import CFSG.LocalAnalysis.UniquenessCase.UC22FunCountTwo
@@ -28,11 +27,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem3WeakC
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafBasic
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeMax
 public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentralizer
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsE
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsHyp13
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.OddLieFun
@@ -40,14 +34,9 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aF
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846d
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
 public import CFSG.LocalAnalysis.UniquenessCase.UCR638
-public import CFSG.Quasithin.Background.A3Structure318Red
-public import CFSG.Quasithin.Background.A3Structure38Part3
-public import CFSG.Quasithin.Background.C2Inputs
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.RankThree.OrthogonalInvolutions.SuzukiTypes
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

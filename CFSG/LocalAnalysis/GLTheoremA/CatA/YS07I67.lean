@@ -1,29 +1,17 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Inputs95
-public import CFSG.LocalAnalysis.GLTheoremA.S9.Defs
 public import CFSG.LocalAnalysis.GLTheoremA.S4.FullCover.MultLie
 public import CFSG.LocalAnalysis.GLTheoremA.S3.ChevTools
-public import CFSG.LocalAnalysis.GLTheoremA.PComp
-public import CFSG.LocalAnalysis.GLTheoremB.PCompBasics
-public import CFSG.Adapters.TauCetiLieModels
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
-public import CFSG.RankThree.PartTwo.KFacts.L34Aut
 public import CFSG.HardMathSupport.Solomon.Proving.AutSixBalance
 public import CFSG.RankThree.PartTwo.Sec16.Item166StepsProofNoSz
 public import CFSG.RankThree.PartTwo.Sec15.Item15Res8ProofDiagK
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434RemG24
-public import CFSG.LocalAnalysis.EvenSmallLie.GTwoFour.Centralizers
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenG2Two
 public import CFSG.HardMathSupport.Solomon.Coordinator.L514VExpOut
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5CoreExcOut
 public import CFSG.RankThree.PartTwo.KFacts.KP7Suzuki
 public import CFSG.Quasithin.EmptyFaithful.E22PL2Sev
-public import CFSG.RankThree.PartTwo.Sec4.Census.BridgeSuzuki
-public import CFSG.Adapters.TauCetiExceptional.EvenBridgeG2
-public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8G2LeviA2
-public import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2

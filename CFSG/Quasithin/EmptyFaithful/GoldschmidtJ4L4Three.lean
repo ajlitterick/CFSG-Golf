@@ -2,10 +2,7 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4L4Alt8
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4L4Lift
-public import Mathlib.GroupTheory.Solvable
 public import Mathlib.GroupTheory.Nilpotent
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
 
 public section
 

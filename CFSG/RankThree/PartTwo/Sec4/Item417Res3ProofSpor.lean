@@ -1,24 +1,9 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res3ProofAlt
-public import CFSG.RankThree.PartTwo.Sec4.Item417Res3ProofL3
-public import CFSG.RankThree.Asc83Table.M22
 public import CFSG.RankThree.Asc83Table.M23
-public import CFSG.RankThree.Asc83Table.M24
 public import CFSG.RankThree.Asc83Table.HS
-public import CFSG.RankThree.Asc83Table.He
-public import CFSG.RankThree.Asc83Table.Ru
-public import CFSG.RankThree.Asc83Table.J4
-public import CFSG.RankThree.Asc83Table.J3
-public import CFSG.RankThree.PartOne.Mult.Sporadic
-public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SporM11
 public import CFSG.RankThree.PartTwo.Sec4.Item423Res2ProofSporM12
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.Item415
-public import CFSG.RankThree.PartTwo.Sec4.Item47Native
-public import CFSG.Sporadic.J1
-import CFSG.RankThree.PartTwo.Sec14.Item14J2
-import CFSG.RankThree.PartTwo.Sec4.Sporadic.Transport
-import CFSG.RankThree.PartTwo.Sec4.Item413Cases
 public import CFSG.RankThree.Asc83Table.PermTables
 public import CFSG.RankThree.PartTwo.Sec4.Item423Res2ProofSpor
 public import CFSG.RankThree.PartTwo.Sec4.Item423ResProofCensusAlt

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenFrame
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenComp
-public import CFSG.LocalAnalysis.StandardType.GGRootGenAvoidCoverTorus
 public import CFSG.LocalAnalysis.StandardType.GGRootSL2CoverTorus
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FixedComponent
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T263DXQuasi

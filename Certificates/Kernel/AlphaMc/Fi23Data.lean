@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.AlphaGrpK
 public import Certificates.Data.Kernel.AlphaFunK
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.AlphaFi23Data
 public import CFSG.Mathlib.Decide.Nodup

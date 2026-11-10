@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneLinear
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorusFix
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSL
 
 public section
 

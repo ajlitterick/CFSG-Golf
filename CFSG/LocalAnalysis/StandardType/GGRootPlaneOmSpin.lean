@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmLift
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
-public import CFSG.RankThree.OrthogonalInvolutions.Witt
-public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
 public import CFSG.LieType.SeitzGeneration.OrthEvenSingular
 
 public section

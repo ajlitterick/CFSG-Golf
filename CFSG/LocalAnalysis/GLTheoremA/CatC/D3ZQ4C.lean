@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZQ4
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZQ4CRoots
 public import CFSG.LieType.Chevalley.RootCommutator
 

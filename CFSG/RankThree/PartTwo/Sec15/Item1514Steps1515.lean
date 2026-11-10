@@ -3,17 +3,12 @@ module
 public import CFSG.RankThree.PartTwo.Sec15.Item1514StepsTools
 public import CFSG.RankThree.PartTwo.Sec15.HypS
 public import CFSG.RankThree.PartTwo.Sec15.Item157
-import CFSG.RankThree.PartTwo.Sec13.Item131Facts
 import CFSG.RankThree.PartTwo.Sec13.Item133
-import CFSG.RankThree.PartTwo.Sec13.Item133Mono
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
 import CFSG.RankThree.PartTwo.Sec13.Item13SLTwo
-import CFSG.RankThree.PartTwo.Sec13.Item13Prod
-import CFSG.RankThree.PartTwo.Sec13.Item13Theta
 import CFSG.RankThree.PartTwo.Sec13.Item138NMod9
 import CFSG.RankThree.PartTwo.Sec13.Item136PGL
 import CFSG.RankThree.PartTwo.Sec13.Item134SylowBarT
-import CFSG.RankThree.PartTwo.Sec14.Item1446
 import CFSG.RankThree.PartTwo.KFacts.KS14Orders
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField

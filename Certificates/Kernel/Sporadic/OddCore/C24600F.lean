@@ -3,15 +3,8 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.C24600K
 public import Certificates.Kernel.Sporadic.OddCore.J2CnF
 public import CFSG.Certificates.Kernel.ConjKeys
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Sporadic.SmallOddCore.J2
-public import CFSG.Sporadic.SmallOddCore.LocalSpec
 public import CFSG.Sporadic.SmallOddCore.J2CentralizerD
-public import CFSG.Sporadic.Schreier.ClassSpec
-public import CFSG.Sporadic.Schreier.PairJ2Order
-public import CFSG.Sporadic.Schreier.PairJ2Pairs
-public import CFSG.Sporadic.Schreier.PairJ2Check
-public import Certificates.Certificate2280
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

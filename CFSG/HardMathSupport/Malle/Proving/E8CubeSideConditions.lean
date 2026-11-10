@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.Data.ZMod.Basic
 public import Mathlib.Data.Rat.Cast.Order
 public import Mathlib.Tactic.NormNum.Abs
 public import Mathlib.Tactic.NormNum.DivMod

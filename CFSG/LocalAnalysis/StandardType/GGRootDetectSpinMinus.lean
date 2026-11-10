@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectSpinPlus
-public import CFSG.LieType.Universal.Spin.Twisted.Datum
 
 public section
 

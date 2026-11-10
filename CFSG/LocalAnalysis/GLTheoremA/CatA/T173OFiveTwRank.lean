@@ -1,18 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveDModel
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
 public import CFSG.LocalAnalysis.StandardType.GGTwE6LocalRankHolds
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Dvd
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
 public import CFSG.GroupTheory.CommutingElementaryAbelian
-public import CFSG.HardMathSupport.Solomon.LocalBalance.PartIInputs
 public import CFSG.HardMathSupport.Solomon.LocalBalance.ScpQuot
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Interface
 public import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105
 public import CFSG.LocalAnalysis.GLTheoremA.S10.InputsBeta
@@ -39,9 +31,6 @@ public import CFSG.Quasithin.Background.C124B51Hyp
 public import CFSG.Quasithin.Background.C1GNC124
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F420Orders
 public import CFSG.Quasithin.Background.F6Amalgams
 public import CFSG.Quasithin.Background.F6SolvableQuotient

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.HS3850.Q25551
 public import Certificates.Kernel.HS3850.Cover
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.Le4.S6Data
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

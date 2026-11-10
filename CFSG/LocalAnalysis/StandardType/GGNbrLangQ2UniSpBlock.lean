@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniBlockType
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-import CFSG.Timmesfeld.Orders.Distinct
 import CFSG.LocalAnalysis.ComponentInitial.KnownFourGroupDiagonalPump
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
-import CFSG.GroupTheory.ABGDGroups.LinearCentralizers
 import CFSG.GroupTheory.IsComponentOfMap
 import CFSG.GroupTheory.ConjKerCenter
 

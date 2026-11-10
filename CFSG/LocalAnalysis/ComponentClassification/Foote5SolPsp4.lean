@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitTypeRank
 public import CFSG.RankThree.PartOne.S9.OddCore.TorsionCommon
-public import CFSG.Open.StatedAPI
 public import CFSG.LocalAnalysis.QuasithinUnique.Setting
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.Quasithin.Background.Basic

@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxSieveDefs
 public import CFSG.LieType.Chevalley.TwistedE6OuterOrder
-import CFSG.Adapters.TauCetiExceptional.EvenB1
-import CFSG.Adapters.TauCetiExceptional.B1Exceptional
-import CFSG.LieType.Chevalley.TwistedE6NormalForm
 import CFSG.LocalAnalysis.StandardType.GGSporKOrdBMOut
-import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 
 public section
 

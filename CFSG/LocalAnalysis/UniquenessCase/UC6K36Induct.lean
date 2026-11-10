@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC6K36Gen
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.PartOneSixSeven
 import CFSG.LocalAnalysis.UniquenessCase.UC6K36Rank
 import CFSG.LocalAnalysis.UniquenessCase.UC6K36Comp
-import CFSG.Walter.AStar.Subnormal
 
 public section
 

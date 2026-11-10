@@ -3,17 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldCoreDefs
 import CFSG.HardMathSupport.Malle.E27Lie.ExcCross.TwE6Order
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFiveTw
-import CFSG.LieType.Chevalley.AmbientTwistedFrobeniusFixedNormalizer
-import CFSG.LieType.Chevalley.LangRootArithmeticDet
-import CFSG.LieType.Chevalley.ToralCentralizerBruhat
-import CFSG.LieType.Chevalley.WeylNormalizerQuotient
 import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6TwoTorus
 import CFSG.LieType.SeitzGeneration.ExcHighThree.E6InF4Sylow
-import CFSG.LieType.SeitzGeneration.ExcTorusThreeTw
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTorus
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6FiveFix
-import CFSG.RankThree.Chevalley.SteinbergBTE6HighestRootGraph
-import CFSG.RankThree.PartOne.KE.CTLangData
 import CFSG.LieType.SeitzGeneration.ExcHigh.Product
 
 public section

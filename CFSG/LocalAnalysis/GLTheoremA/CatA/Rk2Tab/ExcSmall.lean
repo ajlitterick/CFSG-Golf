@@ -2,16 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2TwAModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I107ArithG2
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Num
 public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Vacuous
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSRT
-public import CFSG.LieType.Ree.SuzukiOrder
 public import CFSG.LieType.ChevTwo.OppositeFixedExcReeModel
 public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Exc.ReeTransport
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcThreeSplit
-public import CFSG.LieType.SeitzGeneration.HyperExReeType
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TrialityThreeRank
-public import CFSG.LieType.Chevalley.OddExceptionalOuterTwoRank
 public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Exc.TrialityFixed
 public import CFSG.HardMathSupport.Lang.E6Descent.FieldAutTwE6
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.Coordinator.Cover

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.D6FrameK6
-public import CFSG.LocalAnalysis.StandardType.FS81.ConstructYD6
-public import CFSG.LocalAnalysis.StandardType.FS81.D6Cent
 public import CFSG.LocalAnalysis.StandardType.FS81.D6RootCore
 public import CFSG.LocalAnalysis.StandardType.FS81.D6Gen
 public import CFSG.LocalAnalysis.StandardType.FS81.RootHostOrth

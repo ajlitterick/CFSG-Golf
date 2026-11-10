@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDegreeParity
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoAdj
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoDualPair
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.HeisenbergDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixTCKSpace
-public import Mathlib.FieldTheory.KummerPolynomial
-public import Mathlib.LinearAlgebra.Matrix.Charpoly.Minpoly
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.HeLoc.FiveLData
-public import CFSG.RankThree.PartOne.KS.PKit
 public meta import CFSG.RankThree.PartOne.KS.HeFiveCheckInputs
 public meta import CFSG.RankThree.PartOne.KS.PKit
 public meta import CFSG.Monster.B.Mathieu.SylowCore

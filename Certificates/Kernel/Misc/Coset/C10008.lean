@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Multipliers.Sz8BridgeInputs
 public import CFSG.Certificates.Kernel.Misc.Coset.PG
 public import Certificates.Kernel.Misc.Coset.XSz8R
 public import Certificates.Kernel.Misc.Coset.C10008M
@@ -12,7 +11,6 @@ public import Certificates.Kernel.Misc.Coset.C10008G4
 public import Certificates.Kernel.Misc.Coset.C10008G5
 public import Certificates.Kernel.Misc.Coset.C10008G6
 public import Certificates.Kernel.Misc.Coset.C10008G7
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

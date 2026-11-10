@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.SectionRank.QTK.A134List0
 public import CFSG.Blueprint.Catalog
 import CFSG.LocalAnalysis.SectionRank.QTK.A134ListSL2
 import CFSG.RankThree.Chevalley.OddRankOneExceptionalModel
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenLongCentralizer
 public import CFSG.LieType.Chevalley.RootCommutatorData
 
 public section

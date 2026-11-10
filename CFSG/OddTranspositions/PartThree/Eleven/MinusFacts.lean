@@ -4,7 +4,6 @@ public import CFSG.OddTranspositions.PartThree.Eleven.Statements
 public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Hyp
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Pair
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Quandle
-public import CFSG.OddTranspositions.PartThree.Eleven.IsomorphismTransport
 public import CFSG.OddTranspositions.PartThree.EightFive.KBarSetup
 import CFSG.Timmesfeld.Bridge.Asc72LocalImage
 public import CFSG.Certificates.CosetTableShort

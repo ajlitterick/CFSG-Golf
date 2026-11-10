@@ -1,53 +1,15 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.ThreeCoverBase
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocal
 public meta import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocal
-public import CFSG.LocalAnalysis.SectionRank.SporadicCatalog
 public import CFSG.LocalAnalysis.SectionRank.SectionAssembly
-import CFSG.Blueprint.NativeSporadic
-public import Certificates.Certificate13
-public import Certificates.Certificate14
-public import Certificates.Certificate15
-public import Certificates.Certificate16
-public import Certificates.Certificate17
-public import Certificates.Certificate18
-public import Certificates.Certificate19
-public import Certificates.Certificate20
-public import Certificates.Certificate21
-public import Certificates.Certificate22
-public import Certificates.Certificate23
-public import Certificates.Certificate24
-public import Certificates.Certificate25
-public import Certificates.Certificate26
-public import Certificates.Certificate27
-public import Certificates.Certificate28
-public import Certificates.Certificate29
-public import Certificates.Certificate30
-public import Certificates.Certificate31
-public import Certificates.Certificate32
-public import Certificates.Certificate33
-public import Certificates.Certificate34
-public import Certificates.Certificate35
-public import Certificates.Certificate36
-public import Certificates.Certificate37
-public import Certificates.Certificate38
-public import Certificates.Certificate39
-public import Certificates.Certificate40
-public import Certificates.Certificate41
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.ThreeCoverSporadicInputs
 public import Certificates.Certificate4103
-public import Certificates.Certificate3120
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public meta import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.SporadicWitnesses
 public meta import CFSG.Open.Defs
 public import CFSG.Sporadic.J4Base
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import Certificates.Certificate43
 public import Certificates.Certificate8026Base
 public meta import Certificates.Certificate8026Base

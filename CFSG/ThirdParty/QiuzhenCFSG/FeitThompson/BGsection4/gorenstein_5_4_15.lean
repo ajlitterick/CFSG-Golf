@@ -1,10 +1,8 @@
 module
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 
 import Mathlib.GroupTheory.Schreier
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Utils
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GeneratorRank
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.proposition_4_6
 
 namespace CFSG

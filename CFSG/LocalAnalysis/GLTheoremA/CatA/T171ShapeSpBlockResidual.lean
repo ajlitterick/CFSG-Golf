@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpBlockInnAut
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInOmGen
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympInnerExport
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.SympInner
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherParabolicData
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3LieCore
-public import CFSG.LocalAnalysis.GLTheoremB.PCompBasics
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBE6IndTwistWitness
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelCentE
 
 public noncomputable section
 

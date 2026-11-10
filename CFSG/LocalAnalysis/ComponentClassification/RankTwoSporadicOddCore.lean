@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicOddCoreBasic
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperOver
-public import CFSG.LocalAnalysis.SectionRank.NativeKGroup
 import CFSG.LocalAnalysis.ComponentClassification.StandardSubgroupAPI
 import CFSG.LocalAnalysis.ComponentClassification.StandardSubgroupMap
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -17,7 +16,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalKGroup
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.ComponentInitial.KProperSubgroup
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

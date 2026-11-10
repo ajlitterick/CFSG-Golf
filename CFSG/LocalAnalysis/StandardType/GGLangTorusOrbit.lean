@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangTorusMem
 public import CFSG.LocalAnalysis.StandardType.GGLangCorootPair
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
 public import CFSG.HardMathSupport.Timmesfeld.RootAut.Count
-public import CFSG.RankThree.PartOne.KE.CTTorus
 
 public section
 

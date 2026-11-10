@@ -3,10 +3,6 @@ module
 
 public import Certificates.Kernel.SporSch.Co1.Full2135Base
 
-public import Certificates.Kernel.SporSch.Co1.FullK
-public import Certificates.Kernel.SporSch.Co1.OrbX2
-public import CFSG.Certificates.Kernel.SporSch.Co1FullSound
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.Schreier.Co1StabFixBase1
 
 public section

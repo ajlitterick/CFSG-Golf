@@ -4,11 +4,9 @@ public import Certificates.Kernel.LyThree.ChecksA
 public import Certificates.Kernel.LyThree.ChecksB
 public import Certificates.Kernel.SporSch.Ly.BS18009
 public import CFSG.Certificates.Kernel.SlpClsSound
-public import CFSG.Sporadic.Ly.Setup
 public import CFSG.Certificates.Kernel.Orders.Ly.Checks.K
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestClasses
 public import CFSG.Sporadic.Recognition.LyonsAS44Cert
-public import CFSG.Sporadic.Recognition.LyonsAS4Quot
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67LyMultThreeAux
 public import CFSG.Sporadic.Suz.Setup
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly

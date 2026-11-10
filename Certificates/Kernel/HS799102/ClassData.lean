@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.PCent
 public import Certificates.Kernel.HS100.ChainData
 public import CFSG.RankThree.PartTwo.Sec21.Holder214ThetaHSData
 meta import CFSG.RankThree.PartTwo.Sec21.Holder214ThetaHSData
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 public import CFSG.RankThree.PartOne.KS.PKit

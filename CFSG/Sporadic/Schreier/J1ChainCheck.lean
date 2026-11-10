@@ -1,12 +1,9 @@
 module
 
-public import CFSG.Sporadic.Schreier.J1CertData
-public import CFSG.Monster.B.Mathieu.ChainCheck
 public meta import CFSG.Sporadic.Schreier.J1CertData
 public meta import CFSG.Monster.B.Mathieu.ChainCheck
 public import Certificates.Certificate2165
 public meta import Mathlib.GroupTheory.Schreier
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.Spor.Raw
 public import Certificates.Data.Kernel.SurjK
 
 public section

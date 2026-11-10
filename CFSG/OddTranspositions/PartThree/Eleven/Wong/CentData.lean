@@ -1,9 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.Hyp
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.GroupTheory.Sylow
 
 public section
 

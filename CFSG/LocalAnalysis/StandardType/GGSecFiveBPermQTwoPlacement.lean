@@ -4,10 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwo
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoFrameDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKCent
 import CFSG.LocalAnalysis.StandardType.GGTypeANbrGate
-import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 import CFSG.LargeExtraspecial.DW37Input
 import CFSG.Quasithin.Background.GoldschmidtS146PGroups
-import CFSG.LocalAnalysis.StandardType.GGLinearSemisimple
 import CFSG.LocalAnalysis.StandardType.GGTypeAFarRealize
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotThreeCoverOddModel
 import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLevi
@@ -74,11 +72,6 @@ import CFSG.Quasithin.Background.B4ModelsAction
 import CFSG.Quasithin.Background.B4ModelsIso
 import CFSG.Quasithin.Background.C2Basic
 import CFSG.Quasithin.Background.E1
-import CFSG.Quasithin.Background.E1Sec4
-import CFSG.Quasithin.Background.E1Sec5
-import CFSG.Quasithin.Background.E1Sec8
-import CFSG.Quasithin.Background.E1Solv
-import CFSG.Quasithin.Background.E1Twelve
 import CFSG.Quasithin.Background.E3Cent
 import CFSG.Quasithin.Background.G11Stmts
 import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof

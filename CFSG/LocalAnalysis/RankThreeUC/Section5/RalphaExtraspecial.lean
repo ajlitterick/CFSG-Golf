@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.RstarSpecial
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.RalphaSpecial
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.CentralImageOrder
-public import CFSG.LocalAnalysis.RankThreeUC.Section3.CoprimeSpecialGroups.CommPowPow
 import all CFSG.LocalAnalysis.RankThreeUC.Section3.CoprimeSpecialGroups.CommPowPow
 
 public section

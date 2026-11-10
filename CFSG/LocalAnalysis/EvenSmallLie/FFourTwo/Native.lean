@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSmallLie.FFourTwo.Model
 public meta import CFSG.LocalAnalysis.EvenSmallLie.FFourTwo.Model
-public import CFSG.LocalAnalysis.EvenSmallLie.FFourTwo.NativeInputs
 public import Certificates.Certificate3087
 
 public section

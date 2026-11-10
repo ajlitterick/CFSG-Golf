@@ -1,19 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueSix
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteJoinDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1WeylE
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-import CFSG.LocalAnalysis.StandardType.GGFrameEndJoin
-import CFSG.LocalAnalysis.StandardType.GGTableBRank
-import CFSG.LocalAnalysis.StandardType.GGSpNbrKGMark
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBWeylInfType
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoRowE
-import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrOfEnnola
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwoE
 
 public section

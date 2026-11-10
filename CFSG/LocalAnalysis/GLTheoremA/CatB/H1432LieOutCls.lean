@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1432ClsSpor
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1432LieForkDefs
 import CFSG.LocalAnalysis.GLTheoremA.CatB.H1432LieRed
 import CFSG.LocalAnalysis.GLTheoremA.CatB.H1432LieOutProof
-import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
-import CFSG.LocalAnalysis.GLTheoremA.CatC.LieComp3
-import CFSG.LocalAnalysis.GLTheoremA.CatC.LieCompHolds
 import CFSG.LocalAnalysis.GLTheoremA.CatA.H1429Inner
 public import CFSG.GH74.GLS.IVK.Proofs2.GHInvExcShape
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeALocalBase

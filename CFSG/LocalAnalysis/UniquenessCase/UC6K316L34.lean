@@ -2,14 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K316Frame
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K36Concl
-public import CFSG.RankThree.PartTwo.KFacts.L34Aut
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.ThreeCoverBase
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearSplit
-public import CFSG.Adapters.LinearCatalog
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-import CFSG.Walter.AStar.Subnormal
-import CFSG.LieType.BorelTits.Basic
-import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 public import CFSG.LocalAnalysis.UniquenessCase.UCKInputs
 
 public section

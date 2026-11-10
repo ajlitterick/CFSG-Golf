@@ -5,15 +5,10 @@ import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.Seven1
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.Seven2
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.Seven5
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.JBasic
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.JLocal
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.JLocalTr
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.JLocalAimg
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.ThmB
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.Six4a
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.Six4b
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellExclTools
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellElem
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellUtil
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellLocal

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallSpSiegel
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallSymplectic
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallTypeA
 
 public section
 

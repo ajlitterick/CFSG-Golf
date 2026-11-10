@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxSieveDefs
-import CFSG.Adapters.TauCetiExceptional.EvenAll
-import CFSG.LieType.Chevalley.OddF4G2AutomorphismNormalForm
-import CFSG.LieType.SeitzGeneration.ExcPlaneModel
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenAutomorphisms
-import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
 import CFSG.LocalAnalysis.StandardType.GGSporKOrdBMOut
 import CFSG.RankThree.PartTwo.Sec13.K135GL12Out
 public import CFSG.LieType.Chevalley.RootCommutatorData

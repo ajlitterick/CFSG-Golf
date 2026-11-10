@@ -1,9 +1,6 @@
 module
 
 public import Mathlib.NumberTheory.LegendreSymbol.QuadraticReciprocity
-public import Mathlib.NumberTheory.LegendreSymbol.Basic
-public import Mathlib.NumberTheory.LegendreSymbol.AddCharacter
-public import Mathlib.Algebra.CharP.Frobenius
 
 public section
 

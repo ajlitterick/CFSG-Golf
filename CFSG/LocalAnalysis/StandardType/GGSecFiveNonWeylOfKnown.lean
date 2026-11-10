@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrPlumb
-public import CFSG.LocalAnalysis.StandardType.GGNbrHalfSplitArith
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableB
-public import CFSG.LocalAnalysis.StandardType.GGFixSub
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 
 public section

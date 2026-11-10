@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.CTIBqBind
 public import CFSG.Certificates.Kernel.CTIBqCore
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.NativeFactsInputs
 public import CFSG.Monster.B.CTIB.HOuter

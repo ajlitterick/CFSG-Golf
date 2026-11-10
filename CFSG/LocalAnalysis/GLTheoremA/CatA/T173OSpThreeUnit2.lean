@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeUnit
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeLin
 
 public section
 

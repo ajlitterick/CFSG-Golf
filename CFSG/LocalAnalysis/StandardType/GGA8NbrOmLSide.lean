@@ -1,15 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGA8NbrCoordSplit
-public import CFSG.LocalAnalysis.StandardType.GGA8NbrGlueB
-public import CFSG.LocalAnalysis.StandardType.GGA8NbrOmDefs
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrOmLift
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrOmFrame
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrOmCompShape
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrOmTwoSub
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrOmSiegel
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrOmZblock
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 
 public section
 

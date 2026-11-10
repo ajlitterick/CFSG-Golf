@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Parrott.OddLiftCentralizer
 public import CFSG.RankThree.GF2n.Parrott.Section4CentreSylow
 public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42Sylow
-public import CFSG.GroupTheory.ConjOrderThree
 public import CFSG.GroupTheory.IsSylowOfMapOfKerPrimeNotDvd
 
 public section

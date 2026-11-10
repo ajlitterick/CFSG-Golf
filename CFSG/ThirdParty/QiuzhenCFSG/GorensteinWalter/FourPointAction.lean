@@ -2,9 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import Mathlib.GroupTheory.SemidirectProduct
-public import Mathlib.GroupTheory.SpecificGroups.KleinFour
-import Mathlib.Algebra.Group.End
-import Mathlib.Algebra.Group.Units.Equiv
 
 namespace CFSG
 end CFSG

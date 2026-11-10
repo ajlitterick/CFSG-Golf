@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Tim78S4Basic
 public import CFSG.RankThree.GF2n.Tim77Prop24
 import CFSG.RankThree.GF2n.Tim77TI
-import CFSG.RankThree.GF2n.Tim78RootType
 import CFSG.RankThree.GF2n.Tim78P215
 import CFSG.RankThree.GF2n.Tim78Involution
 public import CFSG.RankThree.GF2n.Statements

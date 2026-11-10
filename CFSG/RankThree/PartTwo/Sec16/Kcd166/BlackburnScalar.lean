@@ -4,14 +4,8 @@ public import CFSG.RankThree.PartTwo.KFacts.BlackburnScalar
 import CFSG.RankThree.PartTwo.Sec11.SimsR1Blackburn
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GeneratorRank
 import CFSG.GroupTheory.SectionLemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas
-public import Mathlib.Algebra.Group.Action.End
-public import Mathlib.Algebra.Group.Commute.Defs
-public import Mathlib.GroupTheory.Commutator.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.IG109
 public import CFSG.Assembly.InCatalog
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 import CFSG.CharacterTheory.Blocks.Defs
 import CFSG.GH74.GLS.Defs
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.Der62
@@ -30,9 +24,6 @@ import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 import CFSG.LocalAnalysis.SectionRank.Ccomm.Critical
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_6
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

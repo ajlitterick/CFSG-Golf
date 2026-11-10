@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SmithEK.PrRowsA
 public import Certificates.Kernel.SmithEK.PrRowsB
 public import Certificates.Kernel.SmithEK.Span
-public import Certificates.Kernel.SmithEK.TvEq
 public import CFSG.Certificates.Kernel.SmithEK.PrSound
 import CFSG.Certificates.Kernel.Common.ForallTree
 

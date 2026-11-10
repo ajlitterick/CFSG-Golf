@@ -1,13 +1,10 @@
 module
 
-public import CFSG.RankThree.GF2n.Parrott.Section4CentreSylow
 public import CFSG.RankThree.GF2n.Parrott.CaseIIDouble
 public import CFSG.RankThree.GF2n.Parrott.LiftClaimC
 public import CFSG.RankThree.GF2n.Parrott.Section4SpinGlue
-public import CFSG.RankThree.GF2n.Parrott.SpinFixedCardMore
 public import CFSG.RankThree.GF2n.Parrott.SpinConfig
 public import CFSG.RankThree.GF2n.Parrott.ActionQAIdentificationOutsideEquality
-public import CFSG.RankThree.GF2n.Parrott.ActionQAIdentification
 
 public section
 

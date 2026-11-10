@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.SplitTorusPSU
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.CoprimePSU
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdUnitaryDiag
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHyperbolic
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGKGPosLocalHypTw
-import Mathlib.Tactic.Group
 
 public section
 

@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGK1ScMain
 public import CFSG.LocalAnalysis.StandardType.GGFieldTwoTable
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmRACoreUni
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Comp
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 
 public section
 

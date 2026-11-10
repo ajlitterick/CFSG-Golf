@@ -1,8 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Seitz.TrialityEven.Interface
-public import CFSG.RankThree.PartOne.D4RC.Phi6
-public import CFSG.RankThree.PartOne.SEITZ7.D4CentN
 
 set_option linter.unusedSectionVars false
 

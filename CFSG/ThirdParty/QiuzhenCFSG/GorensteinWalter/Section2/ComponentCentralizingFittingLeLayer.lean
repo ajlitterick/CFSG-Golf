@@ -5,7 +5,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.QuasisimpleOfCentralE
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 
 namespace CFSG
 end CFSG

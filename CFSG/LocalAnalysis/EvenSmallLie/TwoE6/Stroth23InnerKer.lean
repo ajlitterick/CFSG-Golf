@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.Stroth23InnerLevi
 public import CFSG.Monster.B.GSide.TriangleData
 public import CFSG.Monster.B.GSide.HSylowBetaRank
 public import CFSG.Monster.B.GSide.EdgeHom
-public import CFSG.Monster.B.TwoA.Amalgam.TriangleCore
 
 public section
 

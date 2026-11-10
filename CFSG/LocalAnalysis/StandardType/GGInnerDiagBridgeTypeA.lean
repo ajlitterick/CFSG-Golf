@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridge
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinear
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_13
-import CFSG.Adapters.SpecialLinearPerfect
 
 public section
 

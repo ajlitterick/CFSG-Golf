@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs3
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsWeakClosure
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Defs
-public import CFSG.RankThree.PartOne.S12.PushingUp
 public import CFSG.CGT.PushingUp.Defs
 public import CFSG.GH74.Defs
 

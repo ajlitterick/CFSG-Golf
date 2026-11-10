@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.BabyMonster.RegRun
 public import Certificates.Kernel.BabyMonster.MemChain
 public meta import Certificates.Kernel.BabyMonster.RegTab
 public import Certificates.Kernel.BabyMonster.RegTab

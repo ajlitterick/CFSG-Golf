@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTWPat2Ends
 public import CFSG.LocalAnalysis.StandardType.GGTWPat2Adj
-public import CFSG.LocalAnalysis.StandardType.GGTwoDepSmallS0
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
 
 public section
 

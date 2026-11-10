@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.EvenBN.Thm49EF6
-public import Certificates.Kernel.Misc.Tits.Text
 public import Certificates.Kernel.SporSch.Tits.Common
 import CFSG.Certificates.Kernel.Common.Harness
 

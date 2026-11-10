@@ -3,18 +3,11 @@ module
 public import CFSG.RankThree.PartTwo.Sec4.Item419Res2Proof
 import CFSG.RankThree.PartTwo.Sec4.Item419Res2ProofCensus
 import CFSG.RankThree.PartTwo.Sec5.Tools
-import CFSG.LieType.Simplicity.Exceptional
-import CFSG.LieType.Simplicity.ReeLargeModel
-import CFSG.Sporadic.Schreier.TitsOuter
-import CFSG.Sporadic.Schreier.TitsIso
 import CFSG.ClassicalGroups.Symplectic.Simple
 import CFSG.RankThree.PartTwo.Sec4.Item47Bridges
 import CFSG.RankThree.PartTwo.Sec19.Step1911Proof
 import CFSG.RankThree.PartOne.S12K.Rigidity
-import CFSG.Timmesfeld.Orders.Exceptional
-import CFSG.GroupTheory.LocalCores.Components
 import CFSG.GroupTheory.ElementaryAbelianTransport
-public import Certificates.Kernel.ThCent.Leaves
 import CFSG.LieType.Ree.LargeReeEightTorus
 import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU
 import CFSG.LocalAnalysis.AGLEmbedding.Extremal

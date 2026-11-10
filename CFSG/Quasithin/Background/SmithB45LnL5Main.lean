@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.SmithB45LnL5Comm
-public import CFSG.Quasithin.Background.SmithB42LnL5Dim
 public import CFSG.Quasithin.Background.SmithB42LnL5Case11
 public import CFSG.Quasithin.Background.SmithB45G2Base
 public import CFSG.Quasithin.Background.SmithB45Families

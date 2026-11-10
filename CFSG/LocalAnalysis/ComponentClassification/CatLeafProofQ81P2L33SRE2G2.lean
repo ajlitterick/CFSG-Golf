@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33E2Open
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33SRE2Tools
-public import CFSG.LieType.Chevalley.ExceptionalG2F4ModelSchreier
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenInvolutions
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenLongCentralizer
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenShortCentralizer
 public import CFSG.ClassicalInvolution.Models.LinearPairs
 public import CFSG.ClassicalInvolution.SubnormalClosure

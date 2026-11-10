@@ -7,7 +7,6 @@ public import Certificates.Kernel.CosetJ.HeImgStr
 public import Certificates.Data.Kernel.PermSLP
 import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Lie.CT.Core
 import all Certificates.Data.HePresData
 
 public section

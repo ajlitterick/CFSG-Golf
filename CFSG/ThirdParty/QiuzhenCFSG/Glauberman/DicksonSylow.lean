@@ -5,7 +5,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonUnipotent
 import Mathlib.Algebra.CharP.CharAndCard
 import Mathlib.Algebra.BigOperators.Ring.Nat
-import Mathlib.FieldTheory.Finite.GaloisField
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.FinTwo
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective

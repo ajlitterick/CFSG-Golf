@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Timmesfeld.Bridge.Asc72Basic
-public import CFSG.Timmesfeld.Bridge.Asc72Triangle
 public import CFSG.Timmesfeld.Bridge.OddTranspDefs
 public import CFSG.OddTranspositions.PartThree.Statements
 
@@ -10,9 +8,6 @@ import CFSG.OddTranspositions.PartThree.EightEight.SecondKind
 import CFSG.Timmesfeld.Bridge.OddTranspSecondKind
 import CFSG.OddTranspositions.PartThree.SixThreeGlobal
 import CFSG.GroupTheory.Commutator.ZPowersInvolution
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

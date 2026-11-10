@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Co2Rank3.CheckInputs
-public import CFSG.Certificates.Kernel.Enum.Defs
 public meta import CFSG.Sporadic.Co2Rank3.CheckInputs
 meta import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import CFSG.Sporadic.Co2Cert.Check

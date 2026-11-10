@@ -9,8 +9,6 @@ public meta import CFSG.Sporadic.Schreier.M23
 public meta import CFSG.Sporadic.Schreier.M23Pinned
 public meta import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
 import Certificates.Kernel.Sporadic.M23Syl.Facts
-import Certificates.Kernel.Sporadic.M23Syl.Checks
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

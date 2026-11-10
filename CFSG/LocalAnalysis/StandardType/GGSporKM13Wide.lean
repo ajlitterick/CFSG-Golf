@@ -2,16 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKF1F4At
 public import CFSG.HardMathSupport.Dickson.BMRows.M13Rows
-public import CFSG.Sporadic.Bridge.MonsterModels
-public import CFSG.RankThree.PartOne.SPOR.OuterM
 import CFSG.LocalAnalysis.StandardType.GGSporKBMBridgeZ
 import CFSG.LocalAnalysis.StandardType.GGSporKBMTransportA
 import CFSG.LocalAnalysis.StandardType.GGSporKF1F4Conj
 import CFSG.LocalAnalysis.StandardType.GGSporKM13Gmat
-import CFSG.HardMathSupport.Dickson.BMRows.M13Shape
-import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.Primitive
 import CFSG.Assembly.LargeEvenGLABridge
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.ThreeKill
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.BMNo65
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.BMNo65Monster

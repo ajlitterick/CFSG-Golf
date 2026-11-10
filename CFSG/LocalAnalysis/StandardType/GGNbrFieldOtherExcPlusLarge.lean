@@ -1,18 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcCover
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixD4
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixLabel
 import CFSG.LocalAnalysis.StandardType.GGNbrKGFieldExcPlusFix
-import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevRecipe
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylRest13Known
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylScIrred
-import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
-import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerIrredF4
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerIrredE7
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerIrredE8

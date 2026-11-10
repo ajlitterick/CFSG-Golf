@@ -11,7 +11,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicTwoFourGenerators
 public import CFSG.LocalAnalysis.LargeEvenClassification.MacWilliamsReduction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstruction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.SubnormalPSubgroupLeQCore
 public import CFSG.Walter.Bender1970.S2
 public import CFSG.Walter.Bender1970.S3.Basic

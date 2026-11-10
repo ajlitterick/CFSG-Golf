@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.LocalL6Three
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.LocalR56
-public import CFSG.LocalAnalysis.EvenBN.TrialityD4.LocalS4Centre
 
 public section
 

@@ -2,10 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42ClassVFusion
 public import CFSG.RankThree.GF2n.Parrott.XAbelian
-public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42ClassVSpin
-public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42ClassV
-public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42Centres
-public import CFSG.RankThree.GF2n.Parrott.Lemma16SecondParagraph
 
 import CFSG.RankThree.GF2n.Parrott.SpinConfig
 

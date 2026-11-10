@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.O8EnumSound
 public meta import Certificates.Kernel.OmegaEight.EnumGen
 public meta import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.N3SplitMinusData
 public meta import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.N3SplitNCData

@@ -5,7 +5,6 @@ import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
 import CFSG.RankThree.PartTwo.Sec18.Item18ResProofTools
 import CFSG.RankThree.PartTwo.Sec18.Item186Act
 public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
-import CFSG.Sporadic.Schreier.J4SSylowBase
 
 public section
 

@@ -6,7 +6,6 @@ public import Certificates.Kernel.Co3Tw.SrchData
 public import Certificates.Kernel.Co3Tw.PairsData
 public import Certificates.Kernel.Sporadic.Co3.C
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

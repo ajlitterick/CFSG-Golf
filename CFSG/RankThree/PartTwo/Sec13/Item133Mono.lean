@@ -1,9 +1,6 @@
 module
 
-public import CFSG.RankThree.PartTwo.Toolkit.BloomMono
 public import CFSG.RankThree.PartTwo.KFacts.K74Bloom
-public import CFSG.RankThree.PartTwo.KFacts.K74Normal
-public import CFSG.RankThree.PartTwo.KFacts.K74Irreducible
 public import CFSG.RankThree.PartTwo.KFacts.K74Plane
 
 public section

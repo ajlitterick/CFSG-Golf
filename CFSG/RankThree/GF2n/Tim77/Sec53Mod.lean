@@ -1,10 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Tim77.InvolAutD
-public import CFSG.RankThree.GF2n.Tim77Prop24
-public import CFSG.RankThree.GF2n.Tim77Prop24TwoD
-public import CFSG.CGT.T75N.BenderCenter
-public import CFSG.CGT.T75N.UnitaryTwoGen
 
 public section
 

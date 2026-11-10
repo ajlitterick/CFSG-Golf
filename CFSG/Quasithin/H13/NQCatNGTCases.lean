@@ -3,9 +3,6 @@ module
 public import CFSG.Quasithin.H13.NQCatNGTRed
 public import CFSG.Quasithin.H13.NQCatNGTOrd
 public import CFSG.Quasithin.H13.NQCatNGTQuasi
-public import CFSG.Quasithin.Background.A1aFStar
-public import CFSG.Quasithin.Background.FFC4Ext
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearNative
 
 public section
 

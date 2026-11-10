@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6OrigCover
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCTGraphTwisted
-import CFSG.LieType.Steinberg.CentralExt.TwistedE6PosLift
 import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelKernelCore
 
 set_option linter.style.haveILetI false

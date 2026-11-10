@@ -1,11 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4GamData
 public meta import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4GamData
 public import Certificates.Kernel.J4M2.C12607Checks
 public import Certificates.Kernel.J4M2.C12608
 public import Certificates.Kernel.SporSch.J4S11.Facts
-public import Certificates.Kernel.SporSch.J4S.RealK
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

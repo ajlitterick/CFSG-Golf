@@ -4,13 +4,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2SplitTorus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2NonsplitTorus
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DeterminantSquare
 import Mathlib.Tactic
-import Mathlib.RingTheory.AdjoinRoot
-import Mathlib.RingTheory.PowerBasis
-import Mathlib.LinearAlgebra.Basis.Defs
-import Mathlib.FieldTheory.Finite.Basic
-import Mathlib.LinearAlgebra.Matrix.ToLin
-import Mathlib.RingTheory.Norm.Basic
-import Mathlib.FieldTheory.KummerPolynomial
 
 namespace CFSG
 end CFSG

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneNine
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoDefs
-public import CFSG.LieType.CurtisTits.Recognition
 
 public section
 

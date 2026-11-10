@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTorsionE67Known
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1ExcInputs
 public import CFSG.LocalAnalysis.StandardType.GGTorsionDatum
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section

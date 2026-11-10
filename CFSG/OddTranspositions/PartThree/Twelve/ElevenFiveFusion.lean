@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveChart
 import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveOverlap
 import CFSG.Mathlib.Algebra.IsSquareMul
-public import CFSG.OddTranspositions.PartThree.Eleven.Five.FiveFormAux
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveNorm
 
 public section

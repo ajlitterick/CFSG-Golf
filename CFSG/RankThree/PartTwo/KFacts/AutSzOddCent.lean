@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.SectionRank.SuzukiCover
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.LocalAnalysis.SectionRank.SporadicCover
 import CFSG.Sporadic.M23.M23Group
-import CFSG.Sporadic.Th.F2Spec
 
 public section
 

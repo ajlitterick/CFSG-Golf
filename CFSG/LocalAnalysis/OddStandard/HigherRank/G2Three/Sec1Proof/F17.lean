@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.LBase
 public import CFSG.GH74.KGroups.L28
-public import CFSG.Adapters.ProjectiveSpecialLinear
 
 public section
 

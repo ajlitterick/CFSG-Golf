@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCaseIIDual
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCaseIIE6
 
 public section

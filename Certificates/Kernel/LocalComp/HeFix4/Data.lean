@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.LocalComp.Child3Gen
-public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldFixFourCheckInputs
 meta import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldFixFourCheckInputs
 meta import CFSG.Sporadic.HeldB.InnerCheckInputs

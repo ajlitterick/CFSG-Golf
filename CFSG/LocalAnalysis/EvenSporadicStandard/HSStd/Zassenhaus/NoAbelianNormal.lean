@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
-public import Mathlib.GroupTheory.PGroup
 import CFSG.Mathlib.GroupTheory.PermCommute
 
 public section

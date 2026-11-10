@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.LyBase.Check
-public import Certificates.Kernel.LyGlue.Hex
 public import Certificates.Kernel.LyBenes.Data
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo

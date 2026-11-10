@@ -4,17 +4,8 @@ public import CFSG.RankThree.PartTwo.Sec14.Ronan148APGLConjLeaves
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentTransport
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentCases
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3TwoLocal
-import CFSG.RankThree.PartTwo.Sec4.LThreePiProj
 import CFSG.RankThree.PartTwo.Sec4.LThreePiProjInner
-import CFSG.RankThree.PartTwo.Sec4.LThreePiMain
-import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseA
 import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofD4
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-import CFSG.Foundations.QuasisimpleMulEquiv
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -23,14 +14,12 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.RankThree.PartTwo.NotationBlocks
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.RankThree.PartTwo.Sec21.LangTwisted2ProofD4
 
 public section

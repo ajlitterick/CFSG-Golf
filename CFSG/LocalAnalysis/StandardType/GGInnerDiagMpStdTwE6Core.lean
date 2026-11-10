@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdE6Core
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMarkingE6Tw
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6Torus
 public import CFSG.LieType.Chevalley.OddF4CosetDescent
 
 public section

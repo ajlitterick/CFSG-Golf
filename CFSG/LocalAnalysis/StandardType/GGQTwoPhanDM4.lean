@@ -3,16 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDSuppliers
 import CFSG.LocalAnalysis.StandardType.GGQTwoPThree
 import CFSG.LocalAnalysis.StandardType.GGSpFrameConfig
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBWeylInfType
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpCount
 public import CFSG.LocalAnalysis.StandardType.GGQ2NoWeylA3Holds
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoEndLabel
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Weyl
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
-import CFSG.LocalAnalysis.StandardType.GGSpJoinReflPairing
 import CFSG.LocalAnalysis.StandardType.GGQTwoPhanDM4Model
 
 public section

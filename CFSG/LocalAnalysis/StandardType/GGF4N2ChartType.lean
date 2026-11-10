@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2ChartQuad
-public import CFSG.ClassicalInvolution.Phan.Defs
 public import CFSG.ClassicalInvolution.WeakCT.Defs
 public import CFSG.ClassicalInvolution.Phan.Blocks
 public import CFSG.LieType.CurtisTits.SpecialLinear

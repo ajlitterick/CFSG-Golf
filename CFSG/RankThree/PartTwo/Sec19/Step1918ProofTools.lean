@@ -5,23 +5,11 @@ public import CFSG.RankThree.PartTwo.Sec19.Step199Proof
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
 import CFSG.RankThree.PartTwo.Sec19.Step1910O2Proof
 import CFSG.RankThree.PartTwo.Sec19.Step1910Proof
-import CFSG.RankThree.PartTwo.Sec19.Step1911EndProof
 import CFSG.RankThree.PartTwo.Sec19.Step198DProof
-import CFSG.RankThree.PartTwo.Sec12.Item123Inputs
-import CFSG.RankThree.PartTwo.Sec13.Item136PGL
 import CFSG.RankThree.PartTwo.Sec13.Item136Lift
-import CFSG.RankThree.PartTwo.Sec4.LThreePiProj
-import CFSG.RankThree.PartTwo.Sec18.Components
-import CFSG.RankThree.PartTwo.Sec18.Item182
-import CFSG.RankThree.PartTwo.Sec18.Tools
-import CFSG.RankThree.PartTwo.Late.Item2010
-import CFSG.RankThree.PartTwo.Late.Uniqueness
-import CFSG.RankThree.PartTwo.Late.GammaZero
 import CFSG.RankThree.PartTwo.Sec6.Item612Plus
 import CFSG.RankThree.PartTwo.KFacts.KS18M12Proof
 import CFSG.RankThree.Theta.ThreeCoreComponentNormalization
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CoprimeQuotientRank
-import CFSG.RankThree.PartTwo.KFacts.AutKinds
 import CFSG.RankThree.PartTwo.Sec19.O2Centralizer
 
 public section

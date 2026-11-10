@@ -5,9 +5,6 @@ public import CFSG.Certificates.Kernel.Th.Gen.Fwd
 public import CFSG.Certificates.Kernel.Th.Spec.FwdSlp
 public import CFSG.Certificates.Kernel.Th.Spec.FwdPlane
 public import CFSG.Certificates.Kernel.Th.Spec.FwdRelBase
-public import CFSG.Sporadic.Th.KernelInputsBase
-public import CFSG.Sporadic.Th.F2Spec
-import CFSG.Certificates.Kernel.Th.Spec.Seed
 import CFSG.Certificates.Kernel.Th.Max3S.BasicBase
 public import CFSG.Certificates.Kernel.Th.S.HswTC
 import CFSG.Certificates.Kernel.Th.Gen.Max3

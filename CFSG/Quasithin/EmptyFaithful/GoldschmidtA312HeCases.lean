@@ -1,13 +1,8 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312WordsHat
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312WordsExtra
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312WordsO2
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
-public import Certificates.Certificate3168
-public import Certificates.Certificate4033
-public import Certificates.Certificate4141
 public import Certificates.Certificate4167
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListBender
 

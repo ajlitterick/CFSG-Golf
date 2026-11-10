@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveTypeALift
 public import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldLinear
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherOuterQuotients
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 
 public section
 

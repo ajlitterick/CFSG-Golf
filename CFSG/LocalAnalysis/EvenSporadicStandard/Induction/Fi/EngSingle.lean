@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Fi.EngDesc4
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

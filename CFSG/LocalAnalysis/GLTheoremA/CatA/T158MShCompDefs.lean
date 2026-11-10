@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MShSetupDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundGenBase
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeWSetup
-import CFSG.LocalAnalysis.GLTheoremA.S9.Lemma94
 public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3LInput
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.LieQ.Derivation
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.KD76c

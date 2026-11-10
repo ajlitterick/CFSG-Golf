@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48RkTwAKnown
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBPosition
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVac
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModel
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitaryCover
 public import CFSG.RankThree.PartOne.KF.SymTorus
-public import CFSG.RankThree.PartOne.KF.UnitaryModel
 public import CFSG.RankThree.PartOne.KF.R9Perm
 public import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 

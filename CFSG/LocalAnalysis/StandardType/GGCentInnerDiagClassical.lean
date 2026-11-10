@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagModel
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSp
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSpin
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
 public import CFSG.LocalAnalysis.StandardType.GGGraphInvInputModelCore
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
 public import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.Orthogonal
 public import CFSG.ClassicalGroups.Symplectic.DiagonalTorusRank
 
 public section

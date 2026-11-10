@@ -3,11 +3,8 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22ta
 public import CFSG.LocalAnalysis.WeakClosure81.EightEightDefs
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveEighteenGen
-import CFSG.LocalAnalysis.WeakClosure81.EightTwelveBridge
 import CFSG.LocalAnalysis.UniquenessCase.UC22Main1
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22qv
-import CFSG.Quasithin.Background.E3Gen
 import CFSG.Quasithin.Background.RonanE111MemE1
 import CFSG.Quasithin.Background.C126NatDMin
 import CFSG.Holt.General.Basic
@@ -36,8 +33,6 @@ import CFSG.Quasithin.Background.RonanE111Ind
 import CFSG.Quasithin.Background.RonanE111Jsub
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
 import CFSG.Quasithin.EmptyFaithful.S14117
-import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-import CFSG.Quasithin.EmptyFaithful.S14117Rank
 import CFSG.Quasithin.EmptyFaithful.S142Statements
 import CFSG.Quasithin.EmptyFaithful.S152N11
 import CFSG.Quasithin.H13.A5S1326

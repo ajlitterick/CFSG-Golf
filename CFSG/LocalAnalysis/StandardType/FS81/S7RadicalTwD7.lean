@@ -1,14 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.SeitzReduction.EPilotCentralizerHigh
-public import CFSG.LocalAnalysis.SeitzReduction.EPilotFusionEntrywise
 public import CFSG.LocalAnalysis.StandardType.FS81.RootE8Defs
 public import CFSG.LocalAnalysis.StandardType.FS81.S7Model
 import CFSG.LocalAnalysis.StandardType.FS81.S7R120
 import CFSG.LocalAnalysis.StandardType.FS81.S7AutAt
 import CFSG.LocalAnalysis.StandardType.FS81.S7ModelIdent
 import CFSG.LocalAnalysis.StandardType.FS81.S7ModelCent
-import CFSG.LocalAnalysis.StandardType.FS81.Realized
 import CFSG.LocalAnalysis.StandardType.FS81.RootD6ModelDefs
 import CFSG.LocalAnalysis.StandardType.FS81.N7MainRecOut
 

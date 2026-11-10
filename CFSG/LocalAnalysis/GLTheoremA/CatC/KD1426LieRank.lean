@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD1426Common
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD2027
 public import CFSG.HardMathSupport.Solomon.LocalBalance.AutL3Dict
 public import CFSG.Quasithin.Background.A318PHeis

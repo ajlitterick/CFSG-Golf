@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderPSLRestSp
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarRestSpFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarRestPlane
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Witt
 
 public section

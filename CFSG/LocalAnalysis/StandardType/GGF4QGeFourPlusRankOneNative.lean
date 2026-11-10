@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourPlusFrame
 public import CFSG.LocalAnalysis.StandardType.GGOTwoPrimeMap
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmSmallBlock
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Orth3Local
-public import CFSG.RankThree.PartOne.S11d.OrthCaseN
-public import CFSG.RankThree.PartOne.KC.OrthogonalEvenMinusExtraction
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SLOrder
 
 public section

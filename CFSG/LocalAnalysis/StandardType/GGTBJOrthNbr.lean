@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJConfigUnpack
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmRank
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmModelNs
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmRow
-public import CFSG.LocalAnalysis.StandardType.GGTBJRowR5O2
-public import CFSG.LocalAnalysis.StandardType.GGTBJR1OmPlusRow
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryDvd
 public import CFSG.LocalAnalysis.StandardType.GGResNonsingularBase
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpPlus
@@ -15,9 +13,7 @@ public import CFSG.ClassicalGroups.Orthogonal.RingEquivDerived
 
 import CFSG.LocalAnalysis.StandardType.GGTBJOrthLeft
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelCore
-import CFSG.LocalAnalysis.StandardType.GGSignedCoordRefl
 public import CFSG.RankThree.PartOne.KC.OrthogonalSplitCompletion
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
 
 public section

@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.Lattice.SteinbergBIListMatrix
 public import CFSG.Certificates.Kernel.Common.Loop
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.Ring
 
 public section
 

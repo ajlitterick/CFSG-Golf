@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExcLabel
-public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoTBMain
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoTBTv
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnit63Holds
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvSixQ2

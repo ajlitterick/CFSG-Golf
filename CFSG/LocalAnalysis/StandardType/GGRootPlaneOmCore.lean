@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRootPlaneOmFrame
 public import CFSG.LocalAnalysis.StandardType.GGRootPlaneOmSpin
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderOmegaOrth
-public import CFSG.RankThree.PartOne.KC.OrthogonalCommutatorBridge
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P58b3LDFour
 
 public section

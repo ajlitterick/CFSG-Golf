@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreCentRaw
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreAmbientRefl
-import CFSG.LieType.Chevalley.RootCharacterConjugation
-import CFSG.LieType.Chevalley.OrthogonalFixedOrbitMaps
-import CFSG.RankThree.Chevalley.SteinbergBIRootSL2Tools
-import Mathlib.GroupTheory.Commutator.Basic
 
 public section
 

@@ -27,7 +27,6 @@ import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface46
 import CFSG.RankThree.PartTwo.Sec6.Item612Core
 import CFSG.RankThree.PartTwo.Sec6.Statements
-import CFSG.Sporadic.Schreier.J4SProfileNode
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

@@ -1,14 +1,11 @@
 module
 
-public import CFSG.Sporadic.FischerOddCore.Fi22CTICheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22SylowCheck
 public import Certificates.Kernel.Sporadic.Fi22.C2064
 public import Certificates.Kernel.Sporadic.Fi22.K2064
 public import CFSG.Sporadic.FischerOddCore.ClosureSearchEq
 public import CFSG.Sporadic.FischerOddCore.CtiSearchSpec
-public import CFSG.Certificates.NativeSchreierCard
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

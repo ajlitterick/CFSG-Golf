@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylRealize
-public import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
 public import CFSG.RankThree.Chevalley.SteinbergBUF4CyclotomicFourDescent
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwistedNormalForm
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeWeylDiagGen
 public import CFSG.LocalAnalysis.StandardType.GGNoTransvectionAutFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLRestField
 public import CFSG.RankThree.Chevalley.SteinbergBNG2QPlusLocalCore
 public import CFSG.RankThree.Chevalley.SteinbergBNF4NativeB2
 public import CFSG.RankThree.Chevalley.SteinbergBUF4B2QuarticDescent

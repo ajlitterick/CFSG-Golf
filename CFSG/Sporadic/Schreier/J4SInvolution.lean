@@ -3,18 +3,9 @@ module
 
 public import CFSG.Sporadic.Schreier.J4SInvolutionBase1
 
-public import CFSG.Sporadic.Schreier.J4SInvCheck
 public import CFSG.Sporadic.Schreier.J4SProfileNode
-public import CFSG.Sporadic.Schreier.J4SLocalNodes
-public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Schreier.J4SCols
-public import CFSG.Sporadic.Schreier.J4SInvData
-public import CFSG.Sporadic.Schreier.J4SOrbits
 public meta import CFSG.Sporadic.Schreier.J4SOrbits
-public import CFSG.Sporadic.Schreier.J4SSylowData
 public meta import CFSG.Sporadic.Schreier.J4SSylowData
-public import CFSG.Sporadic.J4.Local
-public import CFSG.Sporadic.Schreier.J4SSylow
 
 public noncomputable section
 

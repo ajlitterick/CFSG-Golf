@@ -1,15 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Regimes
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1DTransport
-public import CFSG.LocalAnalysis.StandardType.GGE0PSLComp
 public import CFSG.LocalAnalysis.StandardType.GGE0PSUFrame
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestInner
-public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.LieType.SemisimpleCentralizers.HeldSLFacts
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.Unitary
-public import CFSG.LieType.Universal.Unitary.Clause0
 
 public section
 

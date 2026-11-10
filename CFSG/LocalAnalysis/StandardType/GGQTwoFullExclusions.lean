@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCavImage
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCavMarking
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwo
 

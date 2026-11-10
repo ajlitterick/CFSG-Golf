@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 import CFSG.LocalAnalysis.StandardType.ZS.Basic
 import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 import CFSG.LocalAnalysis.StandardType.GGWitExcModelTransfer
-import Mathlib.Algebra.Field.ZMod
-import Mathlib.LinearAlgebra.Determinant
 
 public section
 

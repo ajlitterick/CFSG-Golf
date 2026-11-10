@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdTorality
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdLayer
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeElt
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndDvd
 
 public section
 

@@ -1,12 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedF4ClassDefs
-public import CFSG.HardMathSupport.Dickson.Bal207.FamF42Class
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviSp6
-public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreCent
 public import CFSG.LocalAnalysis.StandardType.GGSixA6F4ClsKilled
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcF4Kernel2
 
 public section

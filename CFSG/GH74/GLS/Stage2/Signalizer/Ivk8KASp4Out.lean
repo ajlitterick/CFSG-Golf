@@ -1,10 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8KASp4Cls
-public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FSp4Out
-public import CFSG.GH74.GLS.IVK.L2.Lemma12
-public import CFSG.RankThree.PartTwo.KFacts.AutPSp4Odd
-public import CFSG.RankThree.Classical.SteinbergBYSymplecticFieldDescent
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4LayerB
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4LayerD
 

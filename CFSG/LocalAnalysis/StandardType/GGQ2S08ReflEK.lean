@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoI1FailGlue
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RestOut
 
 public section

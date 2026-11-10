@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenOmegaMinusSixFour
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenOmegaMinusSixFourFixers
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenOmegaMinusSixFourSingular
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenStdNineTwentyFour
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC165Model
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenFiveTen
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenInputs
 public import CFSG.Adapters.Certificate43Check
 public import CFSG.ClassicalGroups.Orthogonal.DiagonalTorusRankOddMinus
 public import CFSG.ClassicalGroups.SpecialLinear.ComponentBorelQuotient
@@ -24,7 +21,6 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.InndiagLink
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2NonsplitGen.Lift
 public import CFSG.LieType.SeitzGeneration.OuterLinearCat
 public import CFSG.LinearAlgebra.RootGroupSL.SLFacts
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1C3Props
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1S73Props
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1S74Defs
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1Solomon

@@ -3,12 +3,9 @@ module
 public import Certificates.Kernel.StdOdd.Cent7.Checks
 public import Certificates.Kernel.StdOdd.Cent7.Sound
 public import Certificates.Kernel.StdOdd.Cent7.Cent
-public import CFSG.Monster.Existence.StdOdd.Cert.Sylow57
 public import CFSG.Monster.Existence.StdOdd.Cert.Cent7A
 public import CFSG.Monster.Existence.StdOdd.Cert.Cent7B
-import CFSG.Monster.Existence.StdOdd.Cert.Sylow57Data
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

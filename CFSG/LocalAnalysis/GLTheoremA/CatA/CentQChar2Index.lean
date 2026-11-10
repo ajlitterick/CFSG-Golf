@@ -1,21 +1,15 @@
 module
 
 public import CFSG.Adapters.ExceptionalCatalogReverse
-public import CFSG.Adapters.StatedClassicalOrders
 public import CFSG.Adapters.StatedPSLTwoNine
-public import CFSG.Adapters.LinearSmallCatalog
 public import CFSG.Adapters.LieModelSmallOrders
-public import CFSG.GH74.Exceptional.LinearFourTwo
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.Char3Bridge
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
 public import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.Adapters.TauCetiExceptional.EvenAll
 import CFSG.Adapters.TauCetiExceptional.ReeBridge
 import CFSG.StronglyEmbedded.Catalog.Suzuki
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.LieType.Ree.SmallReeModelSchreier
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

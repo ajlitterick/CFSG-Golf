@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenLinTwoNarrowDefs
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenLinTwoLabel
 
 public section

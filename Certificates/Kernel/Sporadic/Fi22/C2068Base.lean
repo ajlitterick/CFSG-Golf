@@ -3,13 +3,9 @@ module
 
 public import Certificates.Kernel.Sporadic.Fi22.T2068
 public import CFSG.Certificates.Kernel.Spor.LevelTrSound
-public import CFSG.Certificates.Kernel.Spor.TextSound
 public import CFSG.Certificates.Kernel.Spor.BaseSep
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtCoverBase
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.FinCases
 
 @[expose] public section
 

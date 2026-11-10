@@ -24,7 +24,6 @@ public import CFSG.Quasithin.EmptyFaithful.Setting
 public import CFSG.Quasithin.EmptyFaithful.SmithD391Decomp
 public import CFSG.Quasithin.EmptyFaithful.SmithD391Twist
 public import CFSG.Sporadic.Schreier.J4SProfileNode
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
 

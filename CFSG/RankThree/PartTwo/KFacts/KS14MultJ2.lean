@@ -1,14 +1,9 @@
 module
 
-public import CFSG.RankThree.PartTwo.KFacts.KS14MultCore
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Gen
 public meta import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Check3
 public meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheck
 public meta import CFSG.RankThree.Native.PermEnumeration
-public import CFSG.RankThree.PartTwo.KFacts.KS14MultJ2Inputs
 public import Certificates.Certificate8166
-public import Certificates.Certificate3139
-public import Certificates.Certificate10019
 
 public section
 

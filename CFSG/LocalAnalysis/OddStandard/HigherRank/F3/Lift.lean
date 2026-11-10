@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.Transfer
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma47Center
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitSchur
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1C3Tools
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
-public import CFSG.Quasithin.Background.A3ComponentsBasic
 public import CFSG.RankThree.PerfectCover.HopfCentralCoversFinite
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.ClassicalInvolution.Asc77.Lemma310
@@ -22,7 +18,6 @@ public import CFSG.ClassicalInvolution.ModelFacts.Orth15Std
 public import CFSG.ClassicalInvolution.Q3.Step
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
 public import CFSG.Foundations
-public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Steinberg.CentralExt.PSL2Multiplier
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogSchreierCases
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSporadicCasesC
@@ -30,7 +25,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1C3Props
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1FourGroup
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36SporMult
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverModels
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
 public import CFSG.LocalAnalysis.ComponentClassification.RestrictedStdFamilies
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
 public import CFSG.LocalAnalysis.SectionRank.LargeRee.SuzukiData
@@ -39,11 +33,9 @@ public import CFSG.LocalAnalysis.SectionRank.SectionAssemblyBase
 public import CFSG.Monster.B.TwoA.Base.FourNorm
 public import CFSG.Monster.SteinbergMY443SimpleIsomorphism
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B2Thompson
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.Sporadic.HeldB.Common
 public import CFSG.Sporadic.Schreier.LyFixedSet
 public import CFSG.Sporadic.Schreier.TitsOther
@@ -54,7 +46,6 @@ public import CFSG.YGroups.Y443.Native.Parabolic2CheckB
 public import CFSG.YGroups.Y443.Native.Parabolic2CheckW
 public import Certificates.Kernel.J4Count.FixC
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import Certificates.Kernel.SporSch.J4S.NoCP
 
 public section

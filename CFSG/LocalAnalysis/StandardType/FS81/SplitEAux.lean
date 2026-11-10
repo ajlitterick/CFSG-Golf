@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteFSInputs
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.GroupTheory.ElemAbelianClosure
 
 public section

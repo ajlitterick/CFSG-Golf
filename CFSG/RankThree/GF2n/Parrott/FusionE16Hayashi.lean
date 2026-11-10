@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.FusionE16Core
-public import CFSG.RankThree.GF2n.Parrott.A1ModelFacts
-public import CFSG.LargeExtraspecial.Setting
 
 public section
 

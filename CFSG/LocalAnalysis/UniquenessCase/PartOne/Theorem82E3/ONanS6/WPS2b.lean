@@ -2,10 +2,7 @@ module
 
 public import CFSG.GroupTheory.SolvableTransport
 public import CFSG.LocalAnalysis.GorensteinLyons.SteinbergBXMovingPlaneKernel
-public import CFSG.LocalAnalysis.GorensteinLyons.SteinbergBXPlaneComponentOrbitRank
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X3A6Orbits
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPS
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WS6
 public import CFSG.LocalAnalysis.GorensteinLyons.SteinbergBXMutualFourRoots
 
 public section

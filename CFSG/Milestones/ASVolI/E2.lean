@@ -1,41 +1,20 @@
 module
 
-public import CFSG.Quasithin.Background.E2SeventeenCore
 public import CFSG.Quasithin.Background.E217Full.Shortcut
-public import CFSG.Quasithin.Background.E2Two
-public import CFSG.Quasithin.Background.E2Three
-public import CFSG.Quasithin.Background.E2Hyp
-public import CFSG.Quasithin.Background.E2Seventeen
 public import CFSG.Quasithin.Background.B682Ambient
-public import CFSG.Quasithin.Background.D2Params
-public import CFSG.Quasithin.Background.E3Defs
-public import CFSG.Quasithin.Background.A3StructureDefs
-public import CFSG.Quasithin.Vol2.Ch6Vocab
 public import CFSG.HardMathSupport.RichardWeiss.Proving.PLType.SpSmall
-public import CFSG.Quasithin.Background.E2SeventeenCore
-public import CFSG.Quasithin.Background.E217Full.Shortcut
 public import CFSG.Quasithin.Background.GoldschmidtE23FourFinal
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtE22NoNProved
 public import CFSG.Quasithin.Vol2.GoldschmidtTD317
 public import CFSG.LocalAnalysis.GorensteinLyons.SteinbergBXSymplecticCentralProduct
 public import CFSG.Quasithin.H13.L32NQ8Pow
-public import CFSG.RankThree.Literature.ThompsonDihedralProduct
 public import CFSG.Quasithin.Vol2.E2SevenFinal
 public import CFSG.Quasithin.Vol2.E2SevenKG4Sq
 public import CFSG.Quasithin.Vol2.E2SevenKG5
-public import CFSG.Quasithin.Vol2.E2SevenKG7Close
 public import CFSG.Quasithin.H13.E22CHolds
 public import CFSG.Quasithin.Background.RonanE27One
-public import CFSG.Quasithin.Background.RonanE211Main
-public import CFSG.Quasithin.Background.E2KGSz8CoverPf
-public import CFSG.Quasithin.Background.E2KGI22OnePf
 public import CFSG.Quasithin.Background.SimsE22Clause
-public import CFSG.Quasithin.Background.SimsE210Parts
 public import CFSG.Quasithin.Background.SimsE210Quot
-public import CFSG.Quasithin.Background.SimsE210Six
-public import CFSG.Quasithin.Background.SimsE29
 public import CFSG.Quasithin.Background.SimsE213
-public import CFSG.Quasithin.Background.SimsE2Dih
 public import CFSG.Quasithin.Background.SimsE215
 public import CFSG.Quasithin.Background.SimsE215Two
 import CFSG.Quasithin.Background.SimsE215KF1Assembly
@@ -47,33 +26,17 @@ import CFSG.Quasithin.Background.SimsE215KF1Paired
 import CFSG.Quasithin.Background.SimsE215KF1OddPaired
 import CFSG.Quasithin.Background.SimsE215KF1Solv
 import CFSG.Quasithin.Background.SimsE215KF1Odd
-import CFSG.Quasithin.Vol2.Ch3E213MOLA10
-import CFSG.Quasithin.Vol2.Ch3E213MOLB10
 public import CFSG.Quasithin.Background.SimsE214
 public import CFSG.Quasithin.Background.SimsE214FourNine
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.C3.Layer1.BackLeaves
 public import CFSG.GH74.GLS.C3.Layer1.Split
 public import CFSG.GH74.GLS.C3.Layer3.Main
-public import CFSG.GH74.GLS.IVK.A7.Glue
-public import CFSG.GH74.GLS.IVK.L2.BN
-public import CFSG.GH74.GLS.IVK.L2.BorelFive
-public import CFSG.GH74.GLS.IVK.L2.Lemma113
-public import CFSG.GH74.GLS.IVK.L2.Lemma114
-public import CFSG.GH74.GLS.IVK.L2.Lemma12ib
-public import CFSG.GH74.GLS.IVK.L2.Lemma12j
-public import CFSG.GH74.GLS.IVK.L2.Lemma12k
-public import CFSG.GH74.GLS.IVK.L2.Lemma14f
-public import CFSG.GH74.GLS.IVK.L2.Lemma14j
-public import CFSG.GH74.GLS.IVK.L2.Lemma19b
-public import CFSG.GH74.GLS.IVK.Prod.Lemma31
 public import CFSG.GH74.GLS.IVK.Proofs
 public import CFSG.GH74.GLS.IVK.Proofs2.C3Ivk102L
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13g
-public import CFSG.GH74.GLS.IVK.Statements
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Closed
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Statements
 public import CFSG.GH74.GLS.Stage1.Thm6.Sec12.Defs
@@ -118,7 +81,6 @@ public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 public import CFSG.RankThree.Classical.SteinbergBJSymplecticSquareZeroCentralizer
 public import CFSG.SignalizerFunctorTheorem.NonLocal.Cross
 public import CFSG.SignalizerFunctorTheorem.NonLocal.SpData
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Walter.W67.W2Lemma26A
 
 public section

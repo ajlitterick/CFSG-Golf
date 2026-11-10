@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6PrimeCentralizers
 public import CFSG.LocalAnalysis.StandardType.GGTwE6Retoralize
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusOrders
 public import CFSG.LocalAnalysis.StandardType.GGTwE6TorusMeetGamma
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeTwE6TwoModel
 
 public section
 

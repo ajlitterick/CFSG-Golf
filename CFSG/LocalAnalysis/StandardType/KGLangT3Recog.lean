@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.KGLangT3Defs
 public import CFSG.LocalAnalysis.StandardType.KGLangT3Bridge
 public import CFSG.LocalAnalysis.StandardType.KGLangT3ShortSL2
 public import CFSG.LocalAnalysis.StandardType.KGLangT3ShortConj
-public import CFSG.LocalAnalysis.StandardType.GGTriD4LineWeylData
 import CFSG.RankThree.PartTwo.Sec11.KS11Lie6Proof
 import CFSG.RankThree.PartTwo.Sec11.KS11Lie6ProofBCent
 

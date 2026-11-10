@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.J2Cover.K21
 public import Certificates.Data.Kernel.J2EnumQ
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

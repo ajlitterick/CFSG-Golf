@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.SectionRank.ExceptionalEvenCover
-public import CFSG.LieType.Steinberg.TwistedD4.Datum
-public import CFSG.LieType.Steinberg.TwistedD4.RankOne
 public import CFSG.LieType.Steinberg.TwistedD4.Quasisimple
-public import CFSG.LieType.Steinberg.TwistedD4.Generation
-public import CFSG.LieType.Chevalley.TwistHolds
 public import CFSG.Assembly.Subnormal
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -23,7 +19,6 @@ public import CFSG.LieType.Universal.Unitary
 public import CFSG.LocalAnalysis.SectionRank.OddCover.CubicKernel
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

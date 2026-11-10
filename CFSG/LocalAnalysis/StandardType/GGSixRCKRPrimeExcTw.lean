@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcFloors
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5Act
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5InnerL
 public import CFSG.LocalAnalysis.StandardType.GGPsiInnerDiagOfMarking
-public import CFSG.LocalAnalysis.StandardType.GGLieBridgeTheta
-public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Torus
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2Inndiag
-public import CFSG.LocalAnalysis.GL83PartI.I_27_9.Count
 
 public section
 

@@ -8,7 +8,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UC22U3Loss0
 import CFSG.LocalAnalysis.UniquenessCase.UCKPRank1
 import CFSG.LocalAnalysis.UniquenessCase.UC22InE229ZBU3
 import CFSG.RankThree.Classical.SteinbergBJCentralCoprimeLift
-import CFSG.Monster.B.TwoA.Base.ElemAut
 
 public section
 

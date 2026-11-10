@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.FieldTheory.IsAlgClosed.Basic
 public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.Simple
 
 public section

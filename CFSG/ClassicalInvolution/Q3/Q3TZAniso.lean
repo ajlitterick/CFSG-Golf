@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWS8Geo3
-public import CFSG.ClassicalGroups.Orthogonal.Derived
 
 public section
 

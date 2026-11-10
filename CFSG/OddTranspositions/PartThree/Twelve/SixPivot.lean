@@ -8,13 +8,10 @@ public import CFSG.OddTranspositions.PartFour.Fourteen.RootBlockSp
 import CFSG.OddTranspositions.PartThree.Twelve.Five
 import CFSG.OddTranspositions.PartThree.Nine.Setup
 import CFSG.ClassicalInvolution.Models.SymplecticPairs.TypeCLayer
-import CFSG.LieType.SteinbergBRMulEquivCores
 import CFSG.OddTranspositions.WidthSylow
 import CFSG.OddTranspositions.TheoremTwo.Assembly
-import CFSG.OddTranspositions.SixNine
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotRecognizeSwap
 import CFSG.LocalAnalysis.EvenSporadicStandard.SolvableRadical
-import CFSG.Quasithin.Background.E1TwoAbs
 import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.SolQuot.Hom
 import CFSG.OddTranspositions.PartFour.Fourteen.SpShapeRigid
 import CFSG.OddTranspositions.PartFour.Fourteen.ShapeTransport

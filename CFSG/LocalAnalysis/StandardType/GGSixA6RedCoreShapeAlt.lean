@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedCoreShapeDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedShapeSUCore
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresAlt
-public import CFSG.LieType.Universal.Symplectic
-public import CFSG.LieType.Universal.SpecialLinear
 public import CFSG.RankThree.GF2n.Stroth80.Sec4Classical
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.RankThree.GF2n.Stroth80.FrobClause
 public import CFSG.RankThree.GF2n.Stroth80.Sec12Stmt
 public import CFSG.RankThree.GF2n.Stroth80.Sec310Nt

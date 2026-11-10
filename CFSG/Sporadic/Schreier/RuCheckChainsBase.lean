@@ -1,8 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.Schreier.RuArrays
-public import CFSG.Certificates.NativeSchreierCard
 public meta import CFSG.Sporadic.Schreier.RuArrays
 public import CFSG.Sporadic.Schreier.RuCheckChainsInputs
 

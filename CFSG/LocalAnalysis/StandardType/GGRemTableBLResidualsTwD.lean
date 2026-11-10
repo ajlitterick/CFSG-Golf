@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2
-public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnitFieldHolds
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitActMain
-public import CFSG.LocalAnalysis.StandardType.GGBstarLIDTwDFieldHolds
 
 public section
 

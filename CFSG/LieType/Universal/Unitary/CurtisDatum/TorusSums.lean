@@ -3,10 +3,8 @@ module
 public import CFSG.LieType.Universal.Unitary.CurtisDatum
 public import CFSG.LieType.Steinberg.CentralExt.SUThree
 public import CFSG.LieType.Universal.Unitary.Extras.Commutator
-public import CFSG.LieType.Universal.Unitary.Extras.RankOneLast
 public import CFSG.LieType.Steinberg.CurtisDatum.TorusSums
 import all CFSG.LieType.Universal.Unitary.Roots
-public import Mathlib.RingTheory.IntegralDomain
 
 public section
 

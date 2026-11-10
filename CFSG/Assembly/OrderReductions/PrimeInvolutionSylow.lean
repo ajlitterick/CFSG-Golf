@@ -1,25 +1,6 @@
 module
 
-public import Mathlib
-public import Mathlib.Algebra.CharP.Lemmas
-public import Mathlib.Algebra.Module.ZMod
-public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
-public import Mathlib.GroupTheory.Frattini
-public import Mathlib.GroupTheory.Subgroup.Center
-public import Mathlib.LinearAlgebra.Determinant
-public import Mathlib.LinearAlgebra.Dimension.Constructions
-public import Mathlib.LinearAlgebra.Dual.Lemmas
-public import Mathlib.LinearAlgebra.Eigenspace.Triangularizable
-public import Mathlib.LinearAlgebra.TensorProduct.Tower
-public import Mathlib.RepresentationTheory.Basic
-public import Mathlib.RepresentationTheory.Irreducible
-public import Mathlib.RingTheory.TensorProduct.Finite
-public import CFSG.Assembly.OrderReductions.FixedPairSylow
-public import CFSG.Assembly.OrderReductions.InvariantSylow
-public import CFSG.Assembly.OrderReductions.FixedConjugator
 public import CFSG.Assembly.OrderReductions.CoprimeFixedSubgroup
-public import CFSG.Assembly.OrderReductions.PrimePart
-public import CFSG.Assembly.OrderReductions.FourGroupGeneration
 public import CFSG.Assembly.OrderReductions.PrimeInvolutionGeneration
 
 public section

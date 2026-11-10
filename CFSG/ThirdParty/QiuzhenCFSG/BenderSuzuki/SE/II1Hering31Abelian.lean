@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_1
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Compat
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Wielandt.SubgroupRectangular
 
 namespace CFSG

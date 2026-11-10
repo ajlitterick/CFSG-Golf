@@ -1,8 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.PresentedGroup
-public import Mathlib.Algebra.CharP.Two
-public import Mathlib.SetTheory.Cardinal.Finite
 public import Mathlib.Tactic.LinearCombination
 public import Mathlib.Algebra.Group.MinimalAxioms
 public import Mathlib.Data.ZMod.Basic

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight56Spine
-public import CFSG.LocalAnalysis.UniquenessCase.UCKInputs
 public import CFSG.LocalAnalysis.UniquenessCase.UCKInputs3
-import CFSG.Foundations.QuasisimpleMulEquiv
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.GroupTheory.CoprimeActionSupport.AbelianEquivalence
 public import CFSG.GroupTheory.CoprimeActionSupport.Geometry

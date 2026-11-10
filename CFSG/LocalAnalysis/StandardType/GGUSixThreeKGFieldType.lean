@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGFieldStruct
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGFieldCase
 

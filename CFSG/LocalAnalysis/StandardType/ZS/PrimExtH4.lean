@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.PrimExtBond
 public import CFSG.LocalAnalysis.StandardType.ZS.PrimExtSetting
-import CFSG.LocalAnalysis.StandardType.ZS.Basic
 import CFSG.LocalAnalysis.StandardType.ZS.BlockSuccRankOne
 import CFSG.LocalAnalysis.StandardType.ZS.PrimExtH3Gen
 

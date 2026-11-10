@@ -1,13 +1,10 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Ten.WreathEndgame
-public import CFSG.OddTranspositions.HypothesisC
-public import CFSG.OddTranspositions.FaithfulBlocks
 public import CFSG.Timmesfeld.Bridge.Asc72Local
 import CFSG.Timmesfeld.Bridge.Asc72BenderInvolution
 import CFSG.Timmesfeld.Bridge.Asc72LocalImage
 import CFSG.OddTranspositions.PartThree.Ten.Assembly
-import CFSG.OddTranspositions.PartThree.Ten.SwapBlocks
 import CFSG.OddTranspositions.PartThree.Ten.SwapKlein
 import CFSG.OddTranspositions.PartThree.EightFive.CaseTwoWreath
 public import CFSG.Timmesfeld.Bridge.Asc72Lift

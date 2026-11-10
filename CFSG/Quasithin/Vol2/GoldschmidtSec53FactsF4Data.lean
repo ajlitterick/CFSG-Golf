@@ -3,12 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsBorAut
 public import CFSG.LieType.Ree.LargeReeFixedGroupSchreier
 public import CFSG.LieType.Ree.LargeReeCenterTrivial
-public import CFSG.LieType.Ree.LargeReeSylowOpposition
-public import CFSG.LieType.Ree.BorelSelfNormalizers
-public import CFSG.LieType.Ree.FixedBruhatDecomposition
-public import CFSG.LieType.Chevalley.BorelStructure
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.Quasithin.EmptyFaithful.S1414Defs
 public import CFSG.Quasithin.EmptyFaithful.S1417Sylow

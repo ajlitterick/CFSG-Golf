@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5RC0Input
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5FrameD
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UFrame
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FDynOrders
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UOuter
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5FrameO
 
 public section

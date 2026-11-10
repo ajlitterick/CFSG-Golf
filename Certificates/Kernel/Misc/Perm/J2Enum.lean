@@ -4,7 +4,6 @@ public import Certificates.Kernel.Misc.Perm.J2EnumK0
 public import Certificates.Kernel.Misc.Perm.J2EnumK1
 public import Certificates.Kernel.Misc.Perm.J2LocK0
 public import Certificates.Kernel.Misc.Perm.J2LocK1
-public import CFSG.Certificates.Kernel.Misc.ArrEnumSound
 public import CFSG.Certificates.Kernel.Misc.EnumBfsOfOK
 import CFSG.Certificates.Kernel.Common.ForallChunks
 import CFSG.Certificates.Kernel.Common.Harness

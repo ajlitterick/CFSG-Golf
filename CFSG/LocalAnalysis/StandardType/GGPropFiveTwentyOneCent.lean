@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPropFiveTwentyOneTypeA
-public import Mathlib.GroupTheory.Perm.ClosureSwap
 
 public section
 

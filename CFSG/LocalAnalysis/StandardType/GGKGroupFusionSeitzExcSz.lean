@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitzExcTits
 public import CFSG.RankThree.PartTwo.Sec4.Census.BridgeSuzuki
-public import CFSG.LieType.Ree.SuzukiOrder
 
 public section
 

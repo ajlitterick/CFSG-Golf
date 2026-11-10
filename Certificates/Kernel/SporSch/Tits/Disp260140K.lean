@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Tits.Inv2266D
-public import Certificates.Data.Kernel.SporSch.TitsCnt
 public import Certificates.Data.SmithB42TitsDisp
 public import Certificates.Kernel.EvenBN.K27580D
 import CFSG.Certificates.Kernel.Common.Harness

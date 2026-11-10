@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Co1.OrbX61
 public import Certificates.Kernel.SporSch.Co1.OrbF2
 public import Certificates.Data.Kernel.SporSch.Co1Stab
-public import Certificates.Data.Kernel.SporSch.Co1Tower
 public import CFSG.Sporadic.Schreier.Co1AutCheckInputs
 public meta import Certificates.Kernel.SporSch.Co1.GenDag
 public meta import Certificates.Kernel.SporSch.Co1.GenTower

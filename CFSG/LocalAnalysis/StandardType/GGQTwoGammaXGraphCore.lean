@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXGraphLinDefs
 import CFSG.LocalAnalysis.StandardType.GGQTwoReflKill
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 
 public section
 

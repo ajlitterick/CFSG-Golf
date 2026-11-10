@@ -3,10 +3,7 @@ module
 public import CFSG.Quasithin.Background.Harris.KFact2d.Defs
 public import CFSG.Quasithin.Vol2.Ch3E213MOLA9
 public import CFSG.LieType.Steinberg.CentralExt.SLCentrallyClosed
-public import CFSG.ClassicalInvolution.ModelFacts.LinearAutMain
-public import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutLift
 public import CFSG.ClassicalInvolution.Q3.Q3WASAut
-public import CFSG.Adapters.SpecialLinearPerfect
 public import CFSG.Quasithin.EmptyFaithful.SzOneV2d
 public import CFSG.Quasithin.Vol2.Ch3E213MOLFacts
 

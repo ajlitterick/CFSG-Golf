@@ -4,38 +4,22 @@ public import Certificates.Certificate291400
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Steps87Four
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R4Holds
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporRestEHolds
-public import Certificates.Certificate9726
-public import Certificates.Certificate17430
-public import Certificates.Certificate431004
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Main74
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporRest
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Steps79
 import CFSG.LocalAnalysis.SectionRank.QTK.A134ListSporA
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.KInputsSolvableHolds
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.SEFive.Holds
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.KGroupProofsA
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.SporadicCoverCenterOddHolds
 import CFSG.LocalAnalysis.UniquenessCase.UC22K108HCore
 import CFSG.LocalAnalysis.UniquenessCase.UC22K108Holds
-import CFSG.LocalAnalysis.UniquenessCase.UC22K331Holds
 import CFSG.LocalAnalysis.UniquenessCase.UC22K331Residue
 import CFSG.LocalAnalysis.UniquenessCase.UC22S206x
 import CFSG.LocalAnalysis.UniquenessCase.UC22S213Setup4
-import CFSG.LocalAnalysis.UniquenessCase.UC22S215KF7UseFour
-import CFSG.LocalAnalysis.UniquenessCase.UC7P3BadNoStrongHolds
 import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIBA6
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Steps80
-public import CFSG.LocalAnalysis.UniquenessCase.UC6K332K33
 import CFSG.LocalAnalysis.UniquenessCase.UC22InE229KThin
 import CFSG.LocalAnalysis.UniquenessCase.UC22R899C5Res
 import CFSG.LocalAnalysis.UniquenessCase.UC22S215Setup4
 import CFSG.LocalAnalysis.UniquenessCase.UC22Sec7Three
 import CFSG.LocalAnalysis.UniquenessCase.UC6R77Three
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Steps81
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332RowsRest
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Steps87
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporRestE
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.KIZHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CartanTorusU7
 import CFSG.LocalAnalysis.UniquenessCase.UC6K332RowsHolds
 import CFSG.LocalAnalysis.UniquenessCase.UCK35wHolds

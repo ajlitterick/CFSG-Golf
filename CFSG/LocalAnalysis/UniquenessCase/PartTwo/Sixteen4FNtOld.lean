@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen4FNtRow
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen4FNtCover
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsModule
 import CFSG.Quasithin.H13.VolIAltCoverG2
-import CFSG.Quasithin.Background.B4ModelsAction
 import CFSG.Quasithin.SteinbergCBI16Faithful
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSp6SmallFinal
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC8H1Eight

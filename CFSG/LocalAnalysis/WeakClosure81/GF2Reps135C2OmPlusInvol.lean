@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmPlusWeyl
 public import CFSG.LieType.Universal.Spin.Action
 public import CFSG.LieType.Universal.Spin.Forms
-public import Mathlib.LinearAlgebra.Matrix.Permutation
 import CFSG.RankThree.OrthogonalInvolutions.OmegaClasses
 import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalOmegaPlusModel
 import CFSG.ClassicalGroups.Orthogonal.RootGroupStabilizerFour

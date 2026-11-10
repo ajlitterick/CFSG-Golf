@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSwNormB8
 import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4Fusion
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSwNormB7
 import CFSG.LieType.Steinberg.Classical.SpinFrame
 import CFSG.LieType.Steinberg.Families

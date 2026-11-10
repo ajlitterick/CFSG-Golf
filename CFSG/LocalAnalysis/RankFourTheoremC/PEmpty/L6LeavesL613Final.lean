@@ -39,7 +39,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank62yDefs
 public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Quasithin.Background.A1cModuleCoprime
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B4ModelsSporadic
 public import CFSG.RankThree.Classical.SteinbergBTHigherUnitaryPrimeSubfield
 public import CFSG.RankThree.PartOne.CTP.StrongPClassification

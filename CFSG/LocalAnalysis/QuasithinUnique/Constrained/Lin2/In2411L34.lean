@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.Open.StatedDefs
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.QuasithinUnique.GammaFamilies
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

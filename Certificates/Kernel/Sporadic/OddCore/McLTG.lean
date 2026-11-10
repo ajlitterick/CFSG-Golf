@@ -17,7 +17,6 @@ public import Certificates.Kernel.Sporadic.OddCore.McLTKC5
 public import Certificates.Kernel.Sporadic.OddCore.McLTKC6
 public import CFSG.Certificates.Kernel.Spor.MulHFSound
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib.Tactic.IntervalCases
 
 public section
 

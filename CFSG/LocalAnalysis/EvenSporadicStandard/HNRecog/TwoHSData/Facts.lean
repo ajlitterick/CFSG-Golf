@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Interface
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.F5Facts
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.InvClasses
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.TableIP
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.TableKP
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.SqClass
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.ElevenP
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.ShapeIITrue
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.ShapeVTrue
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.M11P
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.ShapeK

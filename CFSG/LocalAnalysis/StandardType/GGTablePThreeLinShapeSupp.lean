@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTablePThreeRLeaf
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.LinearInner
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.PrimaryConjScalar
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T263SDLinProj
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeALift
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.ClassicalInvolution.Balance.LocalBalance.Faithful

@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6UniqueCompLabelCat
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6OppLangComp
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoCoset
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6UniqueCompLabel
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabel
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreLang
 
 public section
 

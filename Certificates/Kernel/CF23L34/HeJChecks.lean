@@ -4,7 +4,6 @@ public import Certificates.Kernel.CF23L34.HeJData
 public import Certificates.Kernel.LocalComp.HeFix
 public import Certificates.Data.Kernel.CF23L34.HeJ
 public import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

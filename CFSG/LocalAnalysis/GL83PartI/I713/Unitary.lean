@@ -2,15 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.GL83PartI.I713.Basic
 public import CFSG.LocalAnalysis.GL83PartI.I713.UnitaryDiag
-public import CFSG.Open.StatedDefs
-import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.Quasithin.SteinbergUnitaryOuterPrimeControl
 import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 import CFSG.LieType.BorelTits.CompleteFlag
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.Defs
 
 public section

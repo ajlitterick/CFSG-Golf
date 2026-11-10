@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.Co2Smith.Check
 public import Certificates.Data.CFSGNative.Co2Smith.Spin8
 
 public section

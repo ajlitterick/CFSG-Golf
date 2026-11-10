@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Asc94.HeK2
-public import CFSG.Sporadic.Th.Max3.Core
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGForkIndefLattice
 public import CFSG.LocalAnalysis.StandardType.GGLineStabNormalizes
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepTransfer
 

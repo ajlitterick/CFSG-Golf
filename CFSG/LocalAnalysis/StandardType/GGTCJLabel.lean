@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I142TDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I142TInd
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I142Cyc
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.StandardType.ChevTwoMarking
 public import CFSG.LocalAnalysis.StandardType.GGOutTwoCommInnerHolds
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma1315b
 public import CFSG.Blueprint.OddStandardExact

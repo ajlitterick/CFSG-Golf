@@ -7,7 +7,6 @@ public import Certificates.Kernel.OmegaEight.OrthGens
 public import Certificates.Kernel.OmegaEight.CorrGens
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.ChainSplitTilData
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.ChainSplitConeData
 public import Mathlib
 

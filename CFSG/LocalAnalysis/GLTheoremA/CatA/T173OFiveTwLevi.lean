@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase
 public import CFSG.LocalAnalysis.StandardType.GGTwE6LeviSplit
 public import CFSG.LocalAnalysis.StandardType.GGOddLayerInndiagGlue
 public import CFSG.HardMathSupport.Timmesfeld.Proving.ComponentCentralizer
-public import CFSG.GroupTheory.CentralizerMap
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 public import CFSG.RankThree.PartOne.K159H.O3Norm
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FInputs

@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeData
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeGlue
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Desc
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 public import CFSG.Quasithin.Background.SmithC27RTypeGen
-public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneCoord
 
 public section
 

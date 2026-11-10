@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.L34W.Outer
 public import Certificates.Data.Kernel.L34W.Fix
-import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Kernel.L34W.D1Data
 
 public section

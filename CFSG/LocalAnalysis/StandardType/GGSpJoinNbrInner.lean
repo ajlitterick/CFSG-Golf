@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSp
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
 
 public section
 

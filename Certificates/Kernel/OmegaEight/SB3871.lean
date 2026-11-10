@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.O8.SB
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.SpBranchSAutData
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.SpBranchLike
 public import Mathlib.Data.Nat.Bitwise
 public import Mathlib.GroupTheory.Sylow

@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSL9TwoModel
-public import CFSG.Assembly.Subnormal
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearNative
 public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-public import TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Transvection
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication
 public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter

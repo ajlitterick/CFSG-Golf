@@ -3,17 +3,11 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundNonCommUniBase
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundOther
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeCompDesc
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundGenKernel
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundGenTypeOne
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154UniPsu
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173SplitCent
-public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeGroup
 public import CFSG.RankThree.PartOne.KC.UnitaryRigidityScalar
-public import CFSG.RankThree.PartOne.KC.UnitaryRigidityBlock
-public import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.LinUnitUnitaryBlocks
 public import CFSG.HardMathSupport.Dickson.I271.Support.OuterTransport
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Prop126b
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 public import CFSG.Assembly.OpenBridges
 public import CFSG.HardMathSupport.Dickson.Bal207.Glue
 public import CFSG.HardMathSupport.Dickson.I271.ChevPBal
@@ -44,8 +38,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

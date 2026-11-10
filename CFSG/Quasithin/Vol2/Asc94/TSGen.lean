@@ -1,9 +1,6 @@
 module
 
-public import Mathlib
-public import CFSG.CGT.Timmesfeld75.Defs
 public import CFSG.CGT.Timmesfeld75.PaperSteps
-public import CFSG.Open.LocalVocabulary
 public import CFSG.CGT.Timmesfeld75.Derivations
 public import CFSG.CGT.Timmesfeld75.SimpleCase
 public import CFSG.CGT.Timmesfeld75.Targets

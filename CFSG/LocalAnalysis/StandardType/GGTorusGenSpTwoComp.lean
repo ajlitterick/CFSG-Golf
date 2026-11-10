@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSCDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.SpTwoAux.Centralizer
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSpNsFrame
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.Basic

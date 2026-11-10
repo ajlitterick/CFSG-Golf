@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec5L2G
-public import CFSG.Quasithin.Background.JonesParshallWords
 
 public section
 

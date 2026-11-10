@@ -5,7 +5,6 @@ public import CFSG.GH74.KGroups.M22
 public import CFSG.GH74.KGroups.CoverJ3
 public import CFSG.GH74.E2.CompCertsJ2
 import all CFSG.Blueprint.NativeSporadic
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.Elem3
 import all CFSG.LocalAnalysis.SectionRank.Sporadic.Elem3
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CTUSol76SigInvCore
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

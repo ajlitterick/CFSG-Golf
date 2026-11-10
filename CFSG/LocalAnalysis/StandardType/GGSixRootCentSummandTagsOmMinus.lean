@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmHyp
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmega
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotAnisoEightBasic
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotMinusTenBasic
 
 public section
 

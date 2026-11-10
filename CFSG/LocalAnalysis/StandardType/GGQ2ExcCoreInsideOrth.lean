@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreDefs
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreAmbientRefl
-import CFSG.Blueprint.ChevalleyPinnedLemmas
-import CFSG.LieType.Chevalley.RootCharacterConjugation
-import CFSG.LieType.Chevalley.CorootCoordinates
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.BigAnyQuad
-import CFSG.LieType.Chevalley.RootCommutator
 
 public section
 

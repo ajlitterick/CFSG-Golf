@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.SmallOddCore.J2LocalCheckInputs
-public import CFSG.Sporadic.SmallOddCore.J2DataInputs
 
 public section
 

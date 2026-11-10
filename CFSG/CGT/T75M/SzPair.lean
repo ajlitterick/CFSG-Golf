@@ -2,7 +2,6 @@ module
 
 public import CFSG.CGT.T75M.SzLemma
 public import CFSG.CGT.T75M.SzModule
-public import CFSG.CGT.Timmesfeld75.L2Sylow
 
 public section
 

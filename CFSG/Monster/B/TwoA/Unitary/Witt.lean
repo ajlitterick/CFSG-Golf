@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Monster.B.TwoA.Unitary.WittBase
 import all CFSG.Monster.B.TwoA.Unitary.WittBase
 
 public import CFSG.Monster.B.TwoA.Unitary.Planes

@@ -1,15 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.StatementB
-public import CFSG.Quasithin.Background.B4Models
-public import CFSG.Open.StatedDefs
 
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.Sp
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.SpParabolic
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.LineTransport
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.Adjust
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.FixedLineSp
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22d
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic

@@ -3,21 +3,14 @@ module
 public import CFSG.LocalAnalysis.StandardType.FF81.Defs
 public import CFSG.LocalAnalysis.SeitzReduction.EPilotFusionEntrywise
 public import CFSG.LocalAnalysis.SeitzReduction.LongRootPairsRoots
-public import CFSG.GroupTheory.PCore.Construction
-import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-import CFSG.LieType.Chevalley.AdjointCenter
 import CFSG.LocalAnalysis.SeitzReduction.E8PilotPositionCenter
 import CFSG.LocalAnalysis.StandardType.FF81.RootFusionLin
 import CFSG.LocalAnalysis.StandardType.FF81.RootFusionE6Radical
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 import CFSG.Timmesfeld.Orders.Classical
 import CFSG.RankThree.PartOne.K1214.Basic
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 import CFSG.LieType.Chevalley.C2E6StandardFixedData
 import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
@@ -33,7 +26,6 @@ import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 import CFSG.LocalAnalysis.SectionRank.SporadicCover
 import CFSG.Sporadic.M23.M23Group
-import CFSG.Sporadic.Th.F2Spec
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6DepSetDict
 public import CFSG.LocalAnalysis.StandardType.GGE6DepModelChart
-public import CFSG.LocalAnalysis.StandardType.GGE6DepKnownDefs
 
 public section
 

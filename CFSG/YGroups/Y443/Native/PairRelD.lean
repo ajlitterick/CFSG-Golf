@@ -3,8 +3,6 @@ module
 
 public import CFSG.YGroups.Y443.Native.PairRelDBase
 
-public import CFSG.YGroups.Y443.Native.Words
-public import CFSG.YGroups.Y443.Native.PairRelDInputs
 public import Certificates.Certificate10119
 public meta import CFSG.YGroups.Y443.Native.Words
 public meta import Certificates.Data.CFSGNative.MonsterAxis.Dense

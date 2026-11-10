@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FKCoset
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FKDiag
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FKFam
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FKMult
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FKTri
 public import CFSG.ClassicalInvolution.Q3.TL4OmegaAOFSim
 public import CFSG.ClassicalInvolution.Q3.TL4D4NCOneP
 

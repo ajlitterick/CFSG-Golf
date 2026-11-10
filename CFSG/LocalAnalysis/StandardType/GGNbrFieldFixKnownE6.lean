@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownE6Model
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
 
 public section
 

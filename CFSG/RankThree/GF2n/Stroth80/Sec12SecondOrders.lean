@@ -1,17 +1,8 @@
 module
 
-public import CFSG.RankThree.GF2n.Stroth80.Conclusion
 public import CFSG.RankThree.GF2n.Stroth80.Sec12SecondCfg
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 import CFSG.RankThree.Literature.Stroth80ArtinOrders
-import CFSG.Timmesfeld.Orders.ClassicalOmega
-import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalORigidMinusFacts
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalORigidPlusFacts
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointSchreier
-import CFSG.LieType.Universal.SpinOmega.Center
-import CFSG.LocalAnalysis.SectionRank.EvenCover.Orthogonal
-import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
-import CFSG.ClassicalGroups.Orthogonal.Models
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupSwap
 public import CFSG.RankThree.GF2n.Stroth80.Sec12SubWidth
 public import CFSG.RankThree.GF2n.Stroth80.Sec5NatStmt

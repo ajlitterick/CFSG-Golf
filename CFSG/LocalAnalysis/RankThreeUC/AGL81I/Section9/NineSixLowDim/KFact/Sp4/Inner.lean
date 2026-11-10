@@ -3,15 +3,12 @@ module
 public import CFSG.Open.StatedDefs
 import CFSG.RankThree.PartTwo.KFacts.AutPSp4Odd
 import CFSG.LocalAnalysis.ComponentInitial.SymplecticPerfectCoverOuterPrime
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.LieType.Chevalley.LangRootArithmetic
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 import CFSG.StronglyEmbedded.ParityCriterion
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

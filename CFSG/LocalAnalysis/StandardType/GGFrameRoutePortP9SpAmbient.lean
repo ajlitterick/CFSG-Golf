@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.StandardType.GGAutomizerEquiv
 import CFSG.RankThree.PartTwo.Sec14.Ronan148JInner
 import CFSG.LocalAnalysis.RankThreeTheoremC.ParabCensus.Assembly
 import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.ComponentInitial.SteinbergCBShearAxis
 import CFSG.GH74.E2.DirectProd
 import CFSG.CGT.PushingUpLit.BHS.ThreeEight

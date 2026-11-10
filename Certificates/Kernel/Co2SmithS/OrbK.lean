@@ -4,10 +4,7 @@ public import Certificates.Kernel.Co2SmithS.OrbData
 public import Certificates.Kernel.Co2SmithS.Lets
 public import Certificates.Data.Kernel.Co2SmithS.Orb
 public import Certificates.Data.Kernel.Co2SmithS.Rows
-public import Certificates.Data.Kernel.M1F2
 public import Certificates.Data.Kernel.Co1F2
-public import CFSG.Certificates.Kernel.Enum.Defs
-public import Certificates.Data.CFSGNative.Co2Smith.Check
 import CFSG.Certificates.Kernel.Common.Cover
 
 public section

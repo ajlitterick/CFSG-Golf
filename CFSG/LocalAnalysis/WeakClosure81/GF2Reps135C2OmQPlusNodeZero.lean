@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQPlusInterfaces
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQPlusSingle
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQPlusNonBinary
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQPlusIsoNat

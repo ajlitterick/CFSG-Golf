@@ -1,9 +1,6 @@
 module
 
 public import CFSG.GroupTheory.SteinbergBKSemilinearFixedBasis
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.Algebra.Polynomial.AlgebraMap
-public import Mathlib.FieldTheory.Finite.Basic
 import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryField
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.FixedFieldCard
 public import Mathlib.LinearAlgebra.Dual.Lemmas

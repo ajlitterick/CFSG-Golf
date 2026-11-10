@@ -18,8 +18,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_6
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection5.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
 
 public section

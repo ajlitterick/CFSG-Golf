@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.SEITZ7.D4AB
-public import CFSG.RankThree.PartOne.CTP.SeitzMaxSL2
 
 public section
 

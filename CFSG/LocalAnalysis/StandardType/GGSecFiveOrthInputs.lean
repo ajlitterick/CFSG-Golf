@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBranchInputs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGRealQFour
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 
 public section
 

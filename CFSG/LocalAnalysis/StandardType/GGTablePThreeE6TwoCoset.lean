@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabel
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6FrobAdd
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwFrob
 
 public section
 

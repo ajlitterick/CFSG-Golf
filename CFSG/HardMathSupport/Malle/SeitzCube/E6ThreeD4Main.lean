@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Malle.SeitzCube.E6ThreeD4Torus
-public import CFSG.HardMathSupport.Malle.SeitzCube.E6D4LineTransport
 public import CFSG.HardMathSupport.Foote.Coordinator.AnisoCube.E6ThreeAssembly
 
 public noncomputable section

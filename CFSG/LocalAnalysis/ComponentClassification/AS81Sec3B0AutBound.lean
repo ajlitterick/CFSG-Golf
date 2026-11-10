@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3B0Model
-public import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
 
 public section
 

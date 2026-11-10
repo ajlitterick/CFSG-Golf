@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootLinePSU
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootLineOmM
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootLineTwE6
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LemmaH
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LemmaHBruhat
 
 public section
 

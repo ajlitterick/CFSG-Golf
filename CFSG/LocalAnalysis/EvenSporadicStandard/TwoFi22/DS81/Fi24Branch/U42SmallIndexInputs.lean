@@ -1,8 +1,6 @@
 module
 
-public import Mathlib
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43ModelData
-public import CFSG.GH74.KGroups.PermCheck
 public import CFSG.GH74.KGroups.NativeChecks2
 
 public section

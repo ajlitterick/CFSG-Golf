@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenResults
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenResults2
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThirteenA
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven3SixteenCase
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs3
 
 public section
 

@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLargeFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGResXDichotomyDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixNbrDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimDefs
 import CFSG.LocalAnalysis.StandardType.GGResXDatumLFrame
-import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepFrame
 import CFSG.LocalAnalysis.StandardType.GGDepAConfig
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBarBridge
 

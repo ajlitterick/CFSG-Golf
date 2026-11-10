@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.SporSch.RuEnumSound
 public import CFSG.Certificates.Kernel.BfsPinSound
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.Sporadic.Schreier.RuCheckChainsInputs
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.McLTypeFactsSmall
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
 
 public section

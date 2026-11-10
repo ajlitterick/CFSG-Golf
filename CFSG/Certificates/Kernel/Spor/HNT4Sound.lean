@@ -2,8 +2,6 @@ module
 
 public import Certificates.Data.Kernel.Spor.HNT4
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicHNTests
-public import CFSG.Certificates.Kernel.Spor.PackWord
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.Certificates.Kernel.BfsPinBaseSound
 public import CFSG.Certificates.Kernel.BfsPinAlg
 public import CFSG.Certificates.Kernel.BfsPinSound

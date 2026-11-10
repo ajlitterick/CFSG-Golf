@@ -1,11 +1,9 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Ten.Steps
 public import CFSG.OddTranspositions.PartThree.Ten.WreathEndgame
 public import CFSG.OddTranspositions.HalphaQuotient
 import CFSG.OddTranspositions.PartThree.Ten.SetupPerfect
 import CFSG.OddTranspositions.PartThree.Ten.WreathClass
-import CFSG.OddTranspositions.PartThree.Ten.CentralSymSplit
 public import CFSG.Timmesfeld.Bridge.Asc72Lift
 
 public section

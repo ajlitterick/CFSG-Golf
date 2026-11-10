@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.KFacts.KS14SzSporTools
-import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 
 public section
 

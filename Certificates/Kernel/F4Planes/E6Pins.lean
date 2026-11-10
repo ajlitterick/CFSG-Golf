@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.F4PlanesE6
 public import Certificates.Kernel.F4Planes.Pins
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

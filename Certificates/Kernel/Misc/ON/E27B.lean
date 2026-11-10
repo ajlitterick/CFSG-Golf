@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148DGenInputs
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

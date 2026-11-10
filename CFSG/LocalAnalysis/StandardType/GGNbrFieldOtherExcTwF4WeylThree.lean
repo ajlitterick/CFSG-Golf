@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2LU4Weyl
-public import CFSG.LieType.Ree.FixedSubgroupData
-public import CFSG.LieType.Ree.ReeHolds
 public import CFSG.RankThree.PartOne.SEITZ3.PlaneCount
-import CFSG.LieType.Ree.LargeReeFixedGroupOddCore
 import CFSG.RankThree.PartTwo.Sec19.SeitzG2F4ReeF4Conj
-import CFSG.RankThree.PartTwo.Sec21.ReeF4ThreeLocalProofRank
 import CFSG.RankThree.PartTwo.Sec8.Steps
 
 public section

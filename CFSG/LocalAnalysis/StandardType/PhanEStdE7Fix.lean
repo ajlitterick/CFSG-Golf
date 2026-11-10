@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.PhanEStdE7
 public import CFSG.LocalAnalysis.StandardType.PhanEMinDescent
 public import CFSG.LocalAnalysis.StandardType.PhanEFrobDescent
-public import CFSG.LieType.Steinberg.Minuscule.BruhatExtras
 
 public section
 

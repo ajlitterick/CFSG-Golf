@@ -7,7 +7,6 @@ import CFSG.Certificates.Kernel.Spor.RawSiftK
 import CFSG.Certificates.Kernel.Spor.BaseSep
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 public import CFSG.Certificates.NativeSchreierCard
-public import Mathlib.GroupTheory.Schreier
 public import Std.Data.HashMap
 
 public section

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Chart
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDCoxEven
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDSevenPrelim
 public import CFSG.LocalAnalysis.StandardType.GGQTwoPThree
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 

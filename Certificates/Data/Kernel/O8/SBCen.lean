@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Common.Loop
 public import CFSG.Certificates.Kernel.Enum.Defs
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.SpBranchKillData
 public import Mathlib.Data.Nat.Bitwise

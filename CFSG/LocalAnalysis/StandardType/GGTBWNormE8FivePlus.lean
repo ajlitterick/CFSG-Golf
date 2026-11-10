@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusE8PlusToral
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE8Plus
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxToral
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.E8FiveTwoNorm
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowZDet
 public import CFSG.LocalAnalysis.StandardType.GGL45NtE8Five

@@ -1,29 +1,17 @@
 module
 
 public import CFSG.Timmesfeld.ARS.ExclNSDefs
-public import CFSG.LieType.Universal.Spin.Forms
 public import CFSG.Blueprint.Catalog
 import CFSG.Timmesfeld.RankTwo.LevisMinusN
-import CFSG.Timmesfeld.RankTwo.Presentation
 import CFSG.Timmesfeld.ARS.CaseOANSLSp
 import CFSG.LieType.CurtisTits.Symplectic
-import CFSG.LieType.CurtisTits.Spin
-import CFSG.LieType.CurtisTits.Exceptional
-import CFSG.LieType.Steinberg.G2.Perfect
-import CFSG.LieType.Steinberg.Adjoint.Perfect
-import CFSG.LieType.Steinberg.TwistedD4.RankOne
-import CFSG.LieType.Steinberg.TwistedE6.Local
 import CFSG.LieType.Chevalley.LangFiniteRootCentralizer
 import CFSG.Quasithin.Recognition.CertG2Two
 import CFSG.Quasithin.Vol2.GoldschmidtF431D4qOutFixField
-import CFSG.Timmesfeld.Final.PSU33
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.KlingenSpFourAlg
 public import CFSG.LieType.Universal.Spin.Roots
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.Timmesfeld.ARS.Sec5Maximal
 public import CFSG.Timmesfeld.ARS.Sec5Ten
 public import CFSG.Timmesfeld.RankOne

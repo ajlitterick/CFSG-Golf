@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListM22Data
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3LatSixCheck
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListM22Data
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3LatSixCheck
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3M22DataInputs
 public import Certificates.Certificate4106
 
 public section

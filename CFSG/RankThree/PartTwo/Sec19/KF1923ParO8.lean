@@ -1,15 +1,9 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec19.Item1923Defs
-public import CFSG.Assembly.RankThreeEvenDefs
-public import CFSG.RankThree.PartTwo.Sec19.KF1923ParO8Core
 public import CFSG.RankThree.PartTwo.Sec19.KF1923ParO8Geom
 import CFSG.RankThree.PartTwo.Sec4.RonanK429RowFOm8Model
-import CFSG.RankThree.PartTwo.Sec4.Notation
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelBorel
-import CFSG.ClassicalGroups.Orthogonal.Simple
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-import Mathlib.GroupTheory.SpecificGroups.Alternating
 public import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU
 public import CFSG.LocalAnalysis.AGLEmbedding.Extremal
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant

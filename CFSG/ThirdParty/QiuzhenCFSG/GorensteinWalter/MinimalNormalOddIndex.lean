@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Classification
-import Mathlib.GroupTheory.GroupAction.ConjAct
-import Mathlib.GroupTheory.SpecificGroups.Dihedral
 
 namespace CFSG
 end CFSG

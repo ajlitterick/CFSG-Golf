@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialClosures
 public import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialClosuresLift
 import CFSG.LocalAnalysis.ComponentInitial.SteinbergCCOddNormalCore
 import CFSG.LocalAnalysis.EvenBN.GMSK.SL2Facts
-import CFSG.LocalAnalysis.EvenBN.GMSK.ConsumerSections
 
 public section
 

@@ -8,7 +8,6 @@ public import CFSG.GroupTheory.PCore.FixedSubgroupCore
 public import CFSG.HardMathSupport.Solomon.Coordinator.I19_10FiCover
 public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.I_11_2_StructAct
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264Parts
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27QuotientIndex
 
 public section
 

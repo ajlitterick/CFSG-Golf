@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.TitsN12.Checks
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

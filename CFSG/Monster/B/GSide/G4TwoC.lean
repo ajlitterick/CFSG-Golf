@@ -3,10 +3,7 @@ module
 public import CFSG.Monster.B.GSide.G4Exclusions
 public import CFSG.Monster.B.GSide.TwoCCentralizer
 public import CFSG.Monster.B.GSide.TriangleData
-public import CFSG.Monster.B.CTIB.DistThreeProductFinal
-public import CFSG.Monster.B.CTIB.Rank2168Final
 public import CFSG.Monster.B.TwoA.Amalgam.TypeFourDistFinal
-public import CFSG.Monster.B.Generic.RankFourSpectral
 
 public noncomputable section
 

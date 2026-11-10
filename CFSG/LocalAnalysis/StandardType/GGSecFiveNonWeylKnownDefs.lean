@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclic
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTables
 public import Certificates.Data.A8Nbr476
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.TWDKSound
 public import Certificates.Data.Kernel.DAK
-public import CFSG.LocalAnalysis.StandardType.GGDepASmallNat
 
 public section
 

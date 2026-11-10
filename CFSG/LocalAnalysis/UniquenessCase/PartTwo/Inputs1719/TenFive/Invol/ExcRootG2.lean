@@ -18,11 +18,6 @@ public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CharacteristicPrimeLoca
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Basic
 public import CFSG.Quasithin.Background.B1Basic
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
 

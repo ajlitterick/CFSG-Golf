@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.AutJ2Lat.Facts
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

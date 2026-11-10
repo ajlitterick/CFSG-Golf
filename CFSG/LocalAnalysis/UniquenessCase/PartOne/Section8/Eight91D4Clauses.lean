@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UC6Syl
 import CFSG.CGT.Timmesfeld75.L2Real
 import CFSG.RankThree.PartTwo.Sec12.Item122
 import CFSG.RankThree.PartTwo.Sec12.Hering129LSL3
-import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.ExtraspecialTransport
 import all CFSG.LocalAnalysis.RankThreeUC.SmallClassTwoGroups.IsExtraspecialExpP
 public import CFSG.Blueprint.LieModelAPI

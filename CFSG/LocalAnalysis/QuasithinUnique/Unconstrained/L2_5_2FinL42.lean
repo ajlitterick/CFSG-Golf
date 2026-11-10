@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2FinTbl
 public import CFSG.GH74.Exceptional.LinearFourTwo
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2FinTbl
 public meta import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2FinL42Inputs
 public import Certificates.Certificate4046
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce

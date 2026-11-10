@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.KGC31HS.Defs
 public import Certificates.Kernel.KGC31HS.CosData
-public import Certificates.Kernel.SporSch.Th.GenV4
 public meta import Certificates.Kernel.KGC31HS.Data
 public meta import Certificates.Kernel.Sporadic.RawGen
 import CFSG.Certificates.Kernel.Common.Harness

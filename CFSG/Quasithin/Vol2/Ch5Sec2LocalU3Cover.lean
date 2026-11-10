@@ -3,9 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.Ch5Sec2LocalL2Lie
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.ThreeCoverClassical
 public import CFSG.LieType.Steinberg.CentralExt.SUOddCover
-public import CFSG.LieType.Steinberg.CentralExt.PerfectCover
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Dihedral.FourgroupCycleControl
 public import CFSG.Dihedral.OriginalCentralizerOddCore
 public import CFSG.GroupTheory.PerfectResidualNodes
@@ -64,7 +61,6 @@ public import CFSG.RankThree.Asc83Table.PermTables
 public import CFSG.Sporadic.Schreier.M11
 public import CFSG.Sporadic.Schreier.M22
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

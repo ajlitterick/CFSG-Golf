@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight105KFacts
 import CFSG.GH74.Generic.GKFCover
 import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
@@ -20,8 +19,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.Asc1930
 public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.GH74.GLS.Classes
 import CFSG.GH74.Generic.Certificates
 import CFSG.GH74.Statements

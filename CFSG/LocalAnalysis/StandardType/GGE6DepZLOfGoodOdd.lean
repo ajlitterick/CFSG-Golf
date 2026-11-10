@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLOfGood
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLDescent
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHolds
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6Comm
 public import CFSG.LocalAnalysis.ComponentInitial.GroupAlternatingCoverLift
 

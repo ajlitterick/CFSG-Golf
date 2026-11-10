@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeE6
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwisted
-public import CFSG.LieType.Chevalley.EvenDiagramFixedAmbientCentralizer
 
 public section
 

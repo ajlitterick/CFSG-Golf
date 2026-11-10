@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.TcRes
-public import CFSG.Blueprint.Chevalley
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs2
 
 public section

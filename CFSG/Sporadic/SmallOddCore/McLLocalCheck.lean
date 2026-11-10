@@ -1,13 +1,9 @@
 module
 
-public import CFSG.Sporadic.SmallOddCore.McLData
-public import CFSG.Sporadic.SmallOddCore.ClassSimple
-public import CFSG.Sporadic.SuzOddCore.RestrictDefs
 public meta import CFSG.Sporadic.SmallOddCore.McLData
 public meta import CFSG.Sporadic.SmallOddCore.ClassSimple
 public meta import CFSG.Sporadic.SuzOddCore.RestrictDefs
 public meta import Certificates.Data.CFSGNative.PSL3Four.Basic
-public import CFSG.Sporadic.SmallOddCore.McLLocalCheckInputs
 public import Certificates.Certificate2287
 
 public section

@@ -7,8 +7,6 @@ public import CFSG.Certificates.Kernel.Co1ClosPSound
 public import CFSG.Certificates.Kernel.Co1FiveKSound
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1Three
 public import Certificates.Data.Kernel.Co1FiveL
-import Mathlib.Tactic.IntervalCases
-public import CFSG.Monster.B.TwoA.Par3.Main
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC

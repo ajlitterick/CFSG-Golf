@@ -4,8 +4,6 @@ public import Certificates.Kernel.MinusDerived.A5Checks
 public import Certificates.Kernel.MinusDerived.Facts2
 public import Certificates.Kernel.MinusEnum.TableFacts
 public import CFSG.Certificates.Kernel.Misc.PermWitSound
-public import CFSG.Certificates.Kernel.BfsPinBaseSound
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 
 public section

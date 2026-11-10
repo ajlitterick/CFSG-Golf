@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicRootCenter
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycMAdj
-public import CFSG.LocalAnalysis.StandardType.GGLayerCycMInput
 public import CFSG.LocalAnalysis.ComponentClassification.GoldschmidtTDGriess
 
 public section

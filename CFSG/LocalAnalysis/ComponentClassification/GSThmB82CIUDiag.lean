@@ -8,8 +8,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.AschbacherComponentInvo
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitOddQuotient
 public import CFSG.LocalAnalysis.ComponentClassification.FittingNilpotence
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82CA6
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82CB10
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82Final
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82FinalA
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82FinalB
 

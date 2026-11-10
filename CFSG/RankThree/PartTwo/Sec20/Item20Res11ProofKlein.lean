@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec11.LSSolvableProofKlein
 public import CFSG.RankThree.PartTwo.Sec4.Census.DoubleCoverRanksL34
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
-import CFSG.Sporadic.Schreier.J4SSylowBase
 
 public section
 

@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKG87BSCBridge
-public import CFSG.LieType.Chevalley.TwistedE6NormalFormActors
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCoreDefs
 
 import all CFSG.LocalAnalysis.StandardType.GGKG87BLiftFixedLang
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeA2ConjLift
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeToralityProof
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeE6FourFusion
-import CFSG.LieType.Chevalley.LangFrobeniusFixedDerived
 
 public section
 

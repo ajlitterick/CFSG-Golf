@@ -3,14 +3,7 @@ module
 public import CFSG.Monster.B.Classical.UnitarySixForm
 public import CFSG.Monster.B.TwoA.Unitary.BData
 public import CFSG.Monster.B.TwoA.Unitary.NData
-public import Mathlib.GroupTheory.SemidirectProduct
 import all CFSG.Fischer.F4
-public import Mathlib.Algebra.Order.Ring.Star
-public import Mathlib.RingTheory.PiTensorProduct
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Basify
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
 
 public section
 

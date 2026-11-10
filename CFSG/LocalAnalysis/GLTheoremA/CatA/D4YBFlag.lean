@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHypSixD4RankOmega
-public import CFSG.RankThree.OrthogonalInvolutions.Basic
-public import CFSG.LieType.BorelTits.OrthogonalSingular
-public import CFSG.LieType.BorelTits.Families
-public import CFSG.RankThree.PartOne.AUTSL.OmegaModel
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront08
 import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdRank
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

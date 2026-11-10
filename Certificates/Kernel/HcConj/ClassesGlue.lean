@@ -7,7 +7,6 @@ import all Certificates.Data.Kernel.HcPack
 import all Certificates.Data.Kernel.HcConj
 import all Certificates.Data.G23RecogGlueInputs
 import all Certificates.Data.G23RecogHFactsInputs
-public import Certificates.Data.G23RecogHCharInputs
 import all Certificates.Data.G23RecogHCharInputs
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LargeExtraspecial.S8CBF3D4Root
 public import CFSG.LieType.Chevalley.TrialityFieldTwoRoots
-public import CFSG.LieType.Chevalley.EvenTrialityTraceCommutators
 
 public section
 

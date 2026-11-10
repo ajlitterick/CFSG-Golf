@@ -1,16 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeNormalizer
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6InnerForm
-public import CFSG.Timmesfeld.Orders.ExceptionalTwistedTorus
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6NonsplitThree
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeylTypes
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6Tools
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeyl
 public import CFSG.HardMathSupport.Malle.E27Lie.ExcTwisted.SylowN
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLRestField
-public import CFSG.LieType.Chevalley.DiagonalFieldActorData
 
 public section
 

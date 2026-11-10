@@ -1,20 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoInnerDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoTransport
-public import CFSG.LocalAnalysis.StandardType.GGQTwoS1Transport
-public import CFSG.LocalAnalysis.StandardType.GGQTwoACore
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDCore
-public import CFSG.LocalAnalysis.StandardType.GGQTwoAInnerPhi
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAInnerSym
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAInnerE7
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDInnerPhi
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDInnerE8
-public import CFSG.LocalAnalysis.StandardType.GGQTwoReflOrth
-public import CFSG.LocalAnalysis.StandardType.GGQTwoInvForm
-public import CFSG.LocalAnalysis.StandardType.GGQTwoBCNorm
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDCoord
-public import CFSG.LocalAnalysis.StandardType.GGQTwoThmA
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBridgeHL
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDWeyl
 

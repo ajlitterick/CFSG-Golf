@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.PhanEStdFlip
 public import CFSG.LocalAnalysis.StandardType.PhanEBridgeDefs
-public import CFSG.LieType.Steinberg.PartB
 public import CFSG.ClassicalInvolution.WeakCT.Sides
-public import CFSG.ClassicalInvolution.WeakCT.Torus
 public import CFSG.ClassicalInvolution.WeakCT.Main
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanEDefs
 

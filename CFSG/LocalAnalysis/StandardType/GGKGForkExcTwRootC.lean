@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwRootJ
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwCent
-public import CFSG.LocalAnalysis.StandardType.GGLayerChevAdjoint
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLayerGen
-public import CFSG.LieType.SeitzGeneration.HyperCoverE6
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CatTw
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 
 public section
 

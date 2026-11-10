@@ -1,19 +1,11 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec13.Steps
-public import CFSG.RankThree.PartTwo.Sec8.Groups
-public import CFSG.RankThree.PartTwo.Late.Defs
-public import CFSG.RankThree.GroupTheory.ThetaComponents
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiOn
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WAutInner
 import CFSG.RankThree.PartTwo.Sec13.Item13SetupAt
 import CFSG.RankThree.PartTwo.Sec13.Item138ProofExists
 import CFSG.RankThree.PartTwo.Sec6.Item612Local
-import CFSG.RankThree.PartTwo.Sec4.LThreePiFieldB
-import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -22,14 +14,12 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.RankThree.PartTwo.NotationBlocks
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.RankThree.PartTwo.Sec6.Statements
 
 public section

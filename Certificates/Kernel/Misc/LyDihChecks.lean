@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Ly.BSData
-public import Certificates.Data.Kernel.SporSch.LyMat
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.LyCheck
 import CFSG.Certificates.Kernel.Common.Harness
 

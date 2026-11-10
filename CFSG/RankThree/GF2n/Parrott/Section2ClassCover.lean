@@ -4,7 +4,6 @@ public import CFSG.RankThree.GF2n.Parrott.Lemma13
 public import CFSG.RankThree.GF2n.Parrott.Lemma14
 public import CFSG.RankThree.GF2n.Parrott.Section2Theorem1Assembly
 public import CFSG.RankThree.GF2n.Parrott.QA45InvolutionClasses
-public import CFSG.RankThree.GF2n.Parrott.SylowHFacts
 public import CFSG.Blueprint.SourceGeckCorrespondence
 public import CFSG.GF2Type.Aschbacher1976
 public import CFSG.GroupTheory.Fitting.MulEquiv

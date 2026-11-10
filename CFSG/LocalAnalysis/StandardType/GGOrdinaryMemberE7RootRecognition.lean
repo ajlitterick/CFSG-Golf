@@ -4,13 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenHyper
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenSL
 public import CFSG.LocalAnalysis.StandardType.PhanEStdRootNodes
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusE7
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LieType.SeitzGeneration.ExcTorusCount
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.SplitRootAction
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameCentralizer
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosureNbr
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcE6
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Conjugation
 
 public noncomputable section

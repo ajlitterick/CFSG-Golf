@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.J4.QT2ANative
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4CzCheckInputs
 public import Certificates.Kernel.J4Q.QT2AC
 public import Certificates.Kernel.J4Q.X0

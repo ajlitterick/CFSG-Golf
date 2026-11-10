@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKFGen
 public import CFSG.Monster.B.Pinned.Primes.Extraspecial
-import CFSG.GroupTheory.ABGLocalTools.Basic
-import TauCeti.GroupTheory.Commutator
 
 public section
 

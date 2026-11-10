@@ -2,10 +2,6 @@ module
 
 public import CFSG.CGT.Stroth77.Sections34Assembly
 public import CFSG.CGT.Stroth77.Sections34AssemblyR0
-public import CFSG.CGT.Stroth77.Section43CoreE
-public import CFSG.CGT.Stroth77.Section43CoreIII
-public import CFSG.CGT.Stroth77.Section43CoreIV
-public import CFSG.CGT.Stroth77.Section43Fus
 public import CFSG.CGT.Stroth77.Section43Sc
 public import CFSG.CGT.Stroth77.Section44Facts
 public import CFSG.CGT.Stroth77.Section44FactsII
@@ -31,9 +27,7 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBor
 public import CFSG.Quasithin.Background.A3Structure318Red
 public import CFSG.Quasithin.Background.A3Structure36A
 public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
 public import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
 public import CFSG.Quasithin.Background.A3Structure36BHeisBase
 public import CFSG.Quasithin.Background.A3Structure36BHomocyclic
 public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase

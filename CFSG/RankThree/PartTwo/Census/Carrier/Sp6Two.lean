@@ -4,11 +4,7 @@ public import CFSG.RankThree.PartTwo.Census.Carrier.Sp6TwoCert
 public import CFSG.RankThree.PartTwo.Census.Carrier.G2Three
 public import CFSG.RankThree.PartTwo.Census.Carrier.SpinBBridge
 public import CFSG.RankThree.PartTwo.Census.OddClassical.UnitaryFourThree
-public import CFSG.RankThree.PartTwo.Census.Criteria
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusWeylMatrices
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-import CFSG.Adapters.LinearFieldTransport
-import CFSG.Adapters.RankTwoModelTransports
 import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore

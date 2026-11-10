@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Parrott.Section5LocalSigma
 public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42Steps
 public import CFSG.RankThree.GF2n.Parrott.E27LineCount
-public import CFSG.RankThree.GF2n.Parrott.Section1Fusion
 public import CFSG.GroupTheory.PCore.Transport
 public import CFSG.LocalAnalysis.UniquenessCase.UC6Basic
 

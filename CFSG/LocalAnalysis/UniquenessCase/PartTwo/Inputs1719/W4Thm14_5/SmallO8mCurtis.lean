@@ -1,17 +1,13 @@
 module
 
 public import CFSG.LieType.Steinberg.CurtisDatum
-public import CFSG.LieType.Steinberg.CentralExt.SpinMinusPosLift
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.AbsolutelyIrreducible
 public import CFSG.Quasithin.Background.SmithCurtisMain
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2OmegaPESpinM
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14OmegaOuterMinus
 import CFSG.RankThree.GF2n.Stroth80.Sec5NatScalars
 import CFSG.RankThree.GF2n.Stroth80.Sec78NatIrredOmega
 import CFSG.HardMathSupport.Meierfrankenfeld.PSUScalar.KroneckerFixed
-import CFSG.LieType.Universal.Spin.Twisted.Generation
 import CFSG.HardMathSupport.GuralnickMalle.EndFieldDescent.Converse
-import CFSG.LieType.TitsSimplicity.Descent
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 public import CFSG.ClassicalInvolution.QuaternionStructure

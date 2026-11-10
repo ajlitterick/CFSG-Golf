@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.LinearModelPointStructureBasic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2RootSylow
 public import CFSG.StronglyEmbedded.BenderBorelTransport
 
 public noncomputable section

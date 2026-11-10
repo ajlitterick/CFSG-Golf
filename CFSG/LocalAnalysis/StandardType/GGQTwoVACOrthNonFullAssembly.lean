@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACOrthNonFullGuard
 public import CFSG.LocalAnalysis.StandardType.GGQTwoOrthogonalMovingAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGQTwoOrthogonalFrame
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T263DXA5
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotAnisoEightBasic
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.Quasithin.Background.A3ComponentsQuotient
 public import CFSG.Quasithin.Background.GoldschmidtTDE68Qs
 public import CFSG.LocalAnalysis.EvenBN.Common.CommutatorFixed
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267Amb

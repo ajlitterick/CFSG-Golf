@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.RootIdealNormality
 public import CFSG.LieType.Steinberg.Adjoint.CommAll
-public import CFSG.LieType.Steinberg.Adjoint.Pairs
 
 public noncomputable section
 

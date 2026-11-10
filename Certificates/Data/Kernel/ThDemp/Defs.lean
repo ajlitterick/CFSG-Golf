@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.Th.S.BigS
-public import CFSG.Certificates.Kernel.Common.Loop
 
 public section
 

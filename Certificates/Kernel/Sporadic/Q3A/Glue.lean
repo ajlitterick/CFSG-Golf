@@ -2,14 +2,9 @@ module
 
 public import Certificates.Kernel.Sporadic.Q3A.K0
 public import Certificates.Kernel.Sporadic.OddCore.SuzTwCF
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
-public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Certificates.Kernel.Spor.PackFld
 public import CFSG.Certificates.Kernel.HeFixKFix
 public import CFSG.Certificates.Kernel.PackSetSound
-public import CFSG.Certificates.Kernel.Spor.PrimSound
-public import CFSG.Certificates.Kernel.Spor.PackWord
-public import CFSG.Monster.B.Co2.PermArr
 
 public section
 

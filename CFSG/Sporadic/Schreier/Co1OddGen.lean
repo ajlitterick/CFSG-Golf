@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.Tactic.NormNum.Prime
 public import Mathlib.Tactic.Simproc.Factors
 public import CFSG.GroupTheory.LocalCores.PrimeSetCore
 public import CFSG.FeitThompson.OddOrderTheorem

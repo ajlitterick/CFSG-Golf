@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXGraphLinDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTBCGraphDefs
-import Mathlib.Algebra.Group.TypeTags.Basic
 import CFSG.LocalAnalysis.StandardType.GGQTwoLDatumWeyl
 import CFSG.LocalAnalysis.StandardType.GGQTwoNbrDatumInner
-import CFSG.LocalAnalysis.StandardType.GGQTwoNbrLineStab
-import CFSG.LocalAnalysis.StandardType.GGQTwoCor123
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeABridge
 
 public section
 

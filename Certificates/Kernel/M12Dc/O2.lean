@@ -2,11 +2,7 @@ module
 
 public import Certificates.Kernel.M12Dc.Final
 public import Certificates.Kernel.M12Dc.OtChecks
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRows
-public import CFSG.Certificates.Kernel.SporLatDcSound
 public import CFSG.Quasithin.Vol2.KGFactSporLatInputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatExport
-public import CFSG.Blueprint.NativeSporadic
 
 public section
 

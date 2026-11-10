@@ -2,15 +2,11 @@ module
 
 public import CFSG.RankThree.PartTwo.KFacts.L34Sylow
 public import CFSG.RankThree.PartTwo.KFacts.AutPSL
-public import CFSG.LocalAnalysis.ComponentInitial.CLSFourGroupLinearThreeFour
 import CFSG.RankThree.PartTwo.Sec4.StepsGraphField
 import CFSG.RankThree.Asc83Table.E27
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherFieldInvolution
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherLinearPureGraph
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherGraphFieldInvolution
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 

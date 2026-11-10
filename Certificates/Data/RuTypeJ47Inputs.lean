@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.Recognition.RuRank3Tits13Inputs
 public import CFSG.Quasithin.Recognition.CertDataTitsOuter
-public import CFSG.Sporadic.Schreier.TitsCentralCheckInputs
-public import CFSG.Sporadic.Schreier.TitsActionCheckInputs
 public meta import CFSG.Quasithin.Recognition.RuRank3Tits13Inputs
 public meta import CFSG.Quasithin.Recognition.CertDataTitsOuter
 public meta import CFSG.Sporadic.Schreier.TitsCentralCheckInputs

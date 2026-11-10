@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSuNsRootGenWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSuNsRootGenHyp
 public import CFSG.LocalAnalysis.StandardType.GGSuNsRootGenComp
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenAvoidKG
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyU
 
 public section
 

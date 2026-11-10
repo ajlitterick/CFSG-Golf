@@ -3,9 +3,6 @@ module
 
 public import CFSG.GH74.E2.OuterDichBase
 
-public import CFSG.GH74.E2.FrattiniRank
-public import CFSG.GH74.SectionalRank
-public import CFSG.Dihedral.DisconnectedInvolutionGraph.QuaternionCoordinateEquiv
 public meta import Mathlib
 public import Certificates.Certificate5014
 

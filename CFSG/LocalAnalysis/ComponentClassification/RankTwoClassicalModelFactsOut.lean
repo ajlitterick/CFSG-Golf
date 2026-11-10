@@ -2,14 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalDefs
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExceptionalOut
-public import CFSG.RankThree.PartOne.S11d.OutLinear
-public import CFSG.RankThree.PartOne.S11d.OutUnitary
-public import CFSG.RankThree.PartOne.S11d.OutSymplectic
-public import CFSG.RankThree.PartOne.S11d.OutClassicalTwo
 public import CFSG.RankThree.PartOne.KLC.D4OutCentral
-public import CFSG.RankThree.PartOne.KC.OrthogonalAutSemilinearTags
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LieType.Chevalley.EvenRootCommutatorF4
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
@@ -54,7 +47,6 @@ public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

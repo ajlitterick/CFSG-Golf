@@ -12,10 +12,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
-public import CFSG.Sporadic.HS
-public import CFSG.Sporadic.He.Simple
-public import CFSG.Sporadic.Ru
-public import CFSG.Sporadic.Mathieu.M24
 
 public section
 

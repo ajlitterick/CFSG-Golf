@@ -1,15 +1,9 @@
 module
 
-public import Certificates.Kernel.Multipliers.U43BChain
 public import Certificates.Kernel.Multipliers.U43BAct
-public import Certificates.Kernel.Multipliers.BindListSound
-public import CFSG.Certificates.Kernel.Spor.RawSound
 public import CFSG.Certificates.Kernel.LocalCompUnpack
-public import CFSG.Certificates.Kernel.Misc.Coset.PG
 public import Certificates.Kernel.Misc.Coset.XU43R
 public import CFSG.LieType.Multipliers.U43BridgeInputs
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.LieType.Multipliers.U43Data
 
 public section
 

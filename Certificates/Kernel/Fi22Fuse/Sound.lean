@@ -5,9 +5,7 @@ public import Certificates.Kernel.Fi22Flag.Sound
 public import Certificates.Kernel.Fi22Cent.Facts
 public import CFSG.Sporadic.Fi22.Centralizer
 import Certificates.Kernel.Fi22Fuse.Checks
-import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib
 public import CFSG.Fischer.T46Unitary
 
 public section

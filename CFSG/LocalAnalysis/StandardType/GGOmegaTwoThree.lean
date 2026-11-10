@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 public import CFSG.LocalAnalysis.StandardType.GGTypeAClRA
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRest
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailFinal
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas
 

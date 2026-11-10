@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamIsolation
 public import CFSG.LocalAnalysis.StandardType.GGFamRatComp
-public import CFSG.LocalAnalysis.StandardType.GGExcCompSLDefs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.OuterDispatch
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTypeA
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Certs

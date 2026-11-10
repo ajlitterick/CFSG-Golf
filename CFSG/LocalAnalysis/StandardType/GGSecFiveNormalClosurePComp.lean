@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompPCore
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneSmallImage
 
 public section

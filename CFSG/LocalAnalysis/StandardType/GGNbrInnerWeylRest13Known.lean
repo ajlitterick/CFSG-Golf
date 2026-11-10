@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylComp
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldComp
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlus
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6Split
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 
 public section
 

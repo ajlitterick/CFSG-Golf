@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LieType.BorelTits.UnitaryForm
 public import CFSG.LocalAnalysis.StandardType.UnitaryCenterOrders
-public import Mathlib.GroupTheory.Perm.Cycle.Type
 
 public section
 

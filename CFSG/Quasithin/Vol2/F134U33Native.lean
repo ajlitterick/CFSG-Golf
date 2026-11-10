@@ -1,10 +1,7 @@
 module
 
 public import CFSG.Quasithin.Vol2.F134Overgroup
-public import CFSG.Quasithin.Recognition.CertU33DcPG
-public import CFSG.Quasithin.Recognition.CertU33Psu
 public import CFSG.Quasithin.Recognition.CertU33AutBound
-public import CFSG.Quasithin.Recognition.CertU33Perm
 public import CFSG.Timmesfeld.Final.PSU33
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -30,9 +27,6 @@ public import CFSG.Quasithin.Background.F2Equiv
 public import CFSG.Quasithin.Background.OrderingMax
 public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.Sporadic.J4Base
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec19.SeitzTrialityAB
-public import CFSG.RankThree.PartTwo.Sec19.SeitzTrialityModel
-public import CFSG.RankThree.PartOne.D4RC.Lines
 public import CFSG.RankThree.PartTwo.Sec19.SeitzTrialityTorusFibreAux1
 public import CFSG.RankThree.PartTwo.Sec19.SeitzTrialityTorusFibreAux2
 

@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264SevenSq
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264SporAll
-public import CFSG.LocalAnalysis.GLTheoremA.S8.HNAlt12
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporCo1
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.Co1Seven
-public import CFSG.Sporadic.Schreier.Co1SplitMono
-public import CFSG.Sporadic.Bridge.Co1Surj
 public import Certificates.Certificate10144
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.Assembly
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264RowData

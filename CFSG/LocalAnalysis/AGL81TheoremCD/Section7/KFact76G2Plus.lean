@@ -5,8 +5,6 @@ import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76G2Bruhat
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76G2Gen
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76G2Lin
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76G2RankOne
-import CFSG.LieType.Chevalley.Braid
-import CFSG.LieType.Chevalley.WeylRootTransport
 
 public section
 

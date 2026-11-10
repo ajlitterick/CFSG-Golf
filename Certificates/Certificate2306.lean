@@ -4,7 +4,6 @@ public import CFSG.Sporadic.SuzOddCore.SmallChainCheckInputs
 public meta import CFSG.Sporadic.SuzOddCore.ArraysCheck
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 import Certificates.Kernel.Sporadic.Suz.Order2306
-import Certificates.Certificate9130
 
 public section
 

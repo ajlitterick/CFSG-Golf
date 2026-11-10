@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpAltEightTwo
-import CFSG.LieType.Universal.Symplectic
-import CFSG.Open.StatedAPI
 import CFSG.RankThree.GF2n.Tim79a34CentreSmall
 import CFSG.CGT.T75E.Lemma26
 import CFSG.CGT.Timmesfeld75.Sec3TenCaseA
@@ -38,46 +35,11 @@ import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderInvUnit
 import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoBenderAutE4Unitary
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoBenderONan
-import CFSG.LocalAnalysis.ComponentInitial.PGroupRankOneClassification
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
-import CFSG.Quasithin.Background.A3Structure318Red
-import CFSG.Quasithin.Background.A3Structure36A
-import CFSG.Quasithin.Background.A3Structure36BAction
-import CFSG.Quasithin.Background.A3Structure36BBase
-import CFSG.Quasithin.Background.A3Structure36BCase3Base
-import CFSG.Quasithin.Background.A3Structure36BCasesBase
-import CFSG.Quasithin.Background.A3Structure36BCommonBase
-import CFSG.Quasithin.Background.A3Structure36BFrattini
-import CFSG.Quasithin.Background.A3Structure36BHeisBase
-import CFSG.Quasithin.Background.A3Structure36BHomocyclic
-import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
-import CFSG.Quasithin.Background.A3Structure36BStarBase
-import CFSG.Quasithin.Background.A3Structure36Base
-import CFSG.Quasithin.Background.A3Structure37Base
-import CFSG.Quasithin.Background.A3Structure37Comm
-import CFSG.Quasithin.Background.A3Structure37Frattini
-import CFSG.Quasithin.Background.A3Structure37KeyBase
-import CFSG.Quasithin.Background.A3Structure37Schur
-import CFSG.Quasithin.Background.A3Structure38Part3
-import CFSG.Quasithin.Background.B1MoreElevenE
-import CFSG.Quasithin.Background.B1MoreNineG
-import CFSG.Quasithin.Background.B4ModelsAction
-import CFSG.Quasithin.Background.B4ModelsIso
-import CFSG.Quasithin.Background.C2Basic
-import CFSG.Quasithin.Background.C2Inputs
-import CFSG.Quasithin.Background.E3Cent
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
-import CFSG.Quasithin.Vol2.Ch1Local
 import CFSG.RankThree.GF2n.Tim79aSec2
 import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
 import CFSG.Sporadic.Th.Max3.Involutions
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

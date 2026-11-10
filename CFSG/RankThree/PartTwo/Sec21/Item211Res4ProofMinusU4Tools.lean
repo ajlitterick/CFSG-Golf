@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item211Res4ProofMinusU4Mat
 public import CFSG.RankThree.PartTwo.Sec21.Item211Res4ProofMinusL4
-public import CFSG.GH74.Generic.S3.LyVertSL2
 
 public section
 

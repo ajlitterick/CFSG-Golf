@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGFrameE78Root
 public import CFSG.LocalAnalysis.StandardType.GGFrameEndModel
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortDefs
 public import CFSG.LocalAnalysis.StandardType.GGFrameTBInputs
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeABridge
 
 public section
 

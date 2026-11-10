@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoVACUnit
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCavHeartReduction
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Main
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorUniTor
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUDvdBound
-public import CFSG.LocalAnalysis.StandardType.GGQTwoUnitaryRealization
 public import CFSG.LocalAnalysis.StandardType.GGTPNPCompQuasi
 
 public section

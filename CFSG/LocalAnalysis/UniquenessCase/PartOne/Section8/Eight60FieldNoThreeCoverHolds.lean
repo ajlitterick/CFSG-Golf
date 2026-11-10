@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight60FieldAssembly
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.LieType.Steinberg.CentralExt.PSLMultiplier
 import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-import CFSG.LieType.Steinberg.CentralExt.UnitaryPerfect
-import CFSG.LocalAnalysis.ComponentClassification.Helpers
 import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194Mult
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.CGT.Timmesfeld75.L2Pair

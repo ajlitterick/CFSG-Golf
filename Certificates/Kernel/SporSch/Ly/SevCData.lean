@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Ly.GenSeven
-public import Certificates.Data.Kernel.SporSch.LySeven
 public import CFSG.Certificates.Kernel.SporSch.LySevenSound
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.SporSch.LyMatSound

@@ -1,19 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerLift
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerCover
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2TwAModel
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.LieType.Steinberg.CentralExt.PSLMultiplier
-public import CFSG.LieType.Steinberg.CentralExt.PSLSmall
 public import CFSG.LieType.Steinberg.CentralExt.PSLAlternating
-public import CFSG.LocalAnalysis.SectionRank.ClassicalEven.Torus
-public import CFSG.LocalAnalysis.SectionRank.ClassicalOdd.Linear
-public import CFSG.RankThree.PerfectCover.HopfCover
-public import CFSG.RankThree.PerfectCover.HopfCentralCoversFinite
 public import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194Mult
 public import CFSG.RankThree.PartTwo.Census.Classical.EvenBlocks
-public import CFSG.RankThree.PartTwo.Census.Classical.EvenPrimes
 public import CFSG.Quasithin.SteinbergBYEvenLinearSymplecticTwoThreeControl
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockToralCensusDispatch
 public import CFSG.LocalAnalysis.ComponentInitial.QTNQRLinearUnitaryOuterDerived

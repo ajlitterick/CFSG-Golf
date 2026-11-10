@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Steinberg.Classical.Symplectic.Commutator
 public import CFSG.LieType.Steinberg.Classical.Symplectic.Weyl
 public import CFSG.LieType.Steinberg.Classical.Symplectic.RankOne
 public import CFSG.LieType.Steinberg.Classical.Symplectic.Unipotent

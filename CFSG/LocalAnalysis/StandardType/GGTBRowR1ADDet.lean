@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR1Datum
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLFaithful
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 import CFSG.LocalAnalysis.StandardType.GGResE6DepRank
 import CFSG.LocalAnalysis.StandardType.GGTBRowDCartan
 

@@ -1,9 +1,6 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.EightFive.Defs
 public import CFSG.OddTranspositions.PartThree.EightFive.CaseTwoStatement
-public import CFSG.OddTranspositions.AscTheoremTwo
-public import CFSG.Timmesfeld.Bridge.Asc72Defs
 
 public import Certificates.Certificate1
 public import Certificates.Certificate2
@@ -20,20 +17,6 @@ public import Certificates.Certificate12
 public import Certificates.Certificate42
 public import Certificates.Certificate43
 public import Certificates.Certificate44
-public import Certificates.Certificate82
-public import Certificates.Certificate83
-public import Certificates.Certificate84
-public import Certificates.Certificate85
-public import Certificates.Certificate86
-public import Certificates.Certificate87
-public import Certificates.Certificate88
-public import Certificates.Certificate89
-public import Certificates.Certificate90
-public import Certificates.Certificate91
-public import Certificates.Certificate92
-public import Certificates.Certificate93
-public import Certificates.Certificate94
-public import Certificates.Certificate95
 public import Certificates.Certificate96
 public import Certificates.Certificate97
 public import Certificates.Certificate98
@@ -48,29 +31,6 @@ public import Certificates.Certificate106
 public import Certificates.Certificate107
 public import Certificates.Certificate108
 public import Certificates.Certificate109
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
-public import Certificates.Certificate1000
-public import Certificates.Certificate1001
-public import Certificates.Certificate1002
-public import Certificates.Certificate1003
-public import Certificates.Certificate1004
-public import Certificates.Certificate1005
-public import Certificates.Certificate1006
-public import Certificates.Certificate1007
-public import Certificates.Certificate1008
-public import Certificates.Certificate1009
-public import Certificates.Certificate1010
-public import Certificates.Certificate1011
-public import Certificates.Certificate1012
-public import Certificates.Certificate1013
-public import Certificates.Certificate1014
-public import Certificates.Certificate1015
-public import Certificates.Certificate1016
-public import Certificates.Certificate1017
-public import Certificates.Certificate1018
-public import Certificates.Certificate1019
 public import Certificates.Certificate1022
 public import Certificates.Certificate7023
 public import Certificates.Certificate7059
@@ -79,11 +39,7 @@ public import Certificates.Certificate1089008
 import CFSG.OddTranspositions.PartThree.EightFive.CaseOne
 import CFSG.OddTranspositions.PartThree.EightFive.KBar
 import CFSG.OddTranspositions.PartThree.EightFive.Transitive
-import CFSG.OddTranspositions.PartThree.EightFive.QNotCentralBlocks
-import CFSG.OddTranspositions.PartThree.EightSeven
 import CFSG.OddTranspositions.TheoremTwo.TheoremTwo
-import CFSG.OddTranspositions.SixNineUnconditional
-import CFSG.Timmesfeld.Bridge.Asc72ZMain
 public import CFSG.Certificates.Kernel.Th.Gen.Dce
 public import CFSG.Certificates.Kernel.Th.Gen.DceStruct
 public import CFSG.Certificates.Kernel.Th.Gen.Fwd
@@ -135,23 +91,12 @@ import CFSG.GH74.GLS.C3.Layer1.BackLeaves
 import CFSG.GH74.GLS.C3.Layer1.Split
 import CFSG.GH74.GLS.C3.Layer3.Main
 import CFSG.GH74.GLS.Defs
-import CFSG.GH74.GLS.IVK.A7.Glue
-import CFSG.GH74.GLS.IVK.L2.BN
-import CFSG.GH74.GLS.IVK.L2.BorelFive
-import CFSG.GH74.GLS.IVK.L2.Lemma114
-import CFSG.GH74.GLS.IVK.L2.Lemma12k
-import CFSG.GH74.GLS.IVK.L2.Lemma13fc
-import CFSG.GH74.GLS.IVK.L2.Lemma14f
-import CFSG.GH74.GLS.IVK.L2.Lemma14j
-import CFSG.GH74.GLS.IVK.L2.Lemma19b
 import CFSG.GH74.GLS.IVK.Lifted.Outer14
-import CFSG.GH74.GLS.IVK.Prod.Lemma31
 import CFSG.GH74.GLS.IVK.Proofs
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13e
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13g
-import CFSG.GH74.GLS.IVK.Statements
 import CFSG.GH74.GLS.Stage1.Thm3.Sec4.Prop41
 import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Statements
 import CFSG.GH74.GLS.Stage1.Thm3.Sec6.Closed2
@@ -190,7 +135,6 @@ import CFSG.RankThree.GF2n.Tim79aSec2
 import CFSG.RankThree.GF2n.Tim79aSec23Inputs
 import CFSG.RankThree.GF2n.Tim79aSec23NoSqE1
 import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermProperQTwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermProperPos
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniNbrCell
-public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclic
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermProperQTwoLineTwoOmega
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermProperQTwoSix
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniJLabel

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.HardMathSupport.Malle.E27Lie.ExcCross.E6TwoPack
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSylow
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeModel
-public import CFSG.Blueprint.ChevalleyRoots
 
 public section
 

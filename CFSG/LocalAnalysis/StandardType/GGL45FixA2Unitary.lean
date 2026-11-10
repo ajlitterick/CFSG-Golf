@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Comp
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Mark
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Arith
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Centre
@@ -8,7 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Rank
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2UniField
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2UniFix
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2UniSolv
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45KGForms
 
 public section
 

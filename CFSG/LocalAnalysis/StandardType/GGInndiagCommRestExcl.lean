@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInndiagCommRestCore
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOther
 public import CFSG.LocalAnalysis.StandardType.GGTwistedF4Diag
 public import CFSG.LocalAnalysis.StandardType.GGRawAutRestTri
 public import CFSG.Blueprint.SourceClassicalTransport

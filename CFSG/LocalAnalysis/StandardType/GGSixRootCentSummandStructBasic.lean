@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummand
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinResidual
-public import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-public import CFSG.LieType.BorelTits.Basic
 public import CFSG.Quasithin.Background.A3ComponentsBasic
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingSymmetric
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore

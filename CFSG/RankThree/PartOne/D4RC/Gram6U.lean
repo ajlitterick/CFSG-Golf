@@ -2,9 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.D4RC.Gram6
 import CFSG.RankThree.PartOne.KLCE.A2Model
-import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.ClassicalGroups.Unitary.Transitivity
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 import CFSG.RankThree.PartOne.KD4T.Certs
 import CFSG.RankThree.PartOne.KE.StabGeneral
 import CFSG.RankThree.PartOne.KLCE.Descent

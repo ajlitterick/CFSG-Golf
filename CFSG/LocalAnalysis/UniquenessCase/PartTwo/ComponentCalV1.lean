@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.BarSubComponent
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveShort
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22ui
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22rj
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22nA
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22ud
-public import CFSG.Quasithin.Background.A3ComponentsQuotient
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotQ2LFiveZetMain
 public import CFSG.Quasithin.EmptyFaithful.S146zGDich
 public import CFSG.Goldschmidt75.Comp26
@@ -39,11 +35,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentrali
 public import CFSG.LocalAnalysis.ComponentInitial.GL3TwoFixedModelCases
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentLieAlt
 public import CFSG.LocalAnalysis.SeitzReduction.CrossCharInputs
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotHR4
@@ -71,11 +62,7 @@ public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotUniqueTypeGraph
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs12b
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P21p
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846d
-public import CFSG.Quasithin.Background.A3Structure318Red
-public import CFSG.Quasithin.Background.A3Structure38Part3
-public import CFSG.Quasithin.Background.C2Inputs
 public import CFSG.Quasithin.Background.F9G2
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S1417Sylow
 public import CFSG.Quasithin.EmptyFaithful.S1421L246
 public import CFSG.Quasithin.EmptyFaithful.S143Pre
@@ -106,7 +93,6 @@ public import CFSG.RankThree.PartTwo.Sec6.Item612
 public import CFSG.RankThree.PartTwo.Sec6.Item65Tools
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

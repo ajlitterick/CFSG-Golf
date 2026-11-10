@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Open.StatedDefs
-import Mathlib.GroupTheory.NoncommCoprod
-public import CFSG.Open.Defs
 
 public section
 

@@ -2,13 +2,11 @@
 module
 
 public import CFSG.Sporadic.Schreier.Co3CertBase
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Sporadic.Schreier.Co3CertBase
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Sporadic.Schreier.Co3CertCheckBase
 public import CFSG.Sporadic.Schreier.Co3CertCheckBase
 public meta import Mathlib.GroupTheory.Schreier
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

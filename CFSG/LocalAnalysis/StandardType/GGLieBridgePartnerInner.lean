@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreBridge
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceFive
-public import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompatDefs
-public import CFSG.LocalAnalysis.StandardType.GGFinModelInput
 public import CFSG.LocalAnalysis.StandardType.GGLieBridgeHom
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerE7
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
 
 public section
 

@@ -2,24 +2,12 @@
 module
 
 public import CFSG.Sporadic.ThSchreier.GlobalIndexBase
-public import CFSG.Sporadic.ThSchreier.CentralizerDataInputs
 public meta import CFSG.Sporadic.ThSchreier.Text
-public import CFSG.Sporadic.ThSchreier.GlobalDataBase
-public import CFSG.Sporadic.Th.SimpleBase
 public meta import CFSG.Sporadic.ThSchreier.RowBase
 public meta import CFSG.Sporadic.ThSchreier.LocalOrbitBase
-public import CFSG.Sporadic.ThSchreier.RowInputs
 public meta import Certificates.Data.CFSGNative.Th.Base
-public import CFSG.Sporadic.ThSchreier.UASpaceInputs
 public meta import CFSG.Sporadic.ThSchreier.CentralizerDataBase
 public meta import CFSG.Sporadic.ThSchreier.WordsBase
-public import Mathlib
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Blueprint.MatrixSeedIdentification
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.Certificates.SchreierStabilizerGenerators
-public import Certificates.Data.CFSGNative.Th.Certificate
-public import CFSG.Sporadic.Th.Max3.DataBase
 
 @[expose] public section
 

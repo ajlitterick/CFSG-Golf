@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcEngineSections
-public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 public import CFSG.Adapters.GeneralizedFitting
 public import CFSG.CGT.Timmesfeld75.Sec5Nine
 public import CFSG.CGT.Timmesfeld75.Sec5Ten

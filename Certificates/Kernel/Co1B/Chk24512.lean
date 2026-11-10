@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.Co1B.Dag24512
 public import Certificates.Kernel.Co1B.Dag2047
 public import Certificates.Data.Kernel.SporSch.Co1Stab
-public import Certificates.Data.Kernel.Co1F2
-public import Certificates.Data.Kernel.Co1B
 public import Certificates.Data.Kernel.Co1BW
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoCo1.HypOneInputs
 import CFSG.Certificates.Kernel.Common.Harness

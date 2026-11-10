@@ -1,20 +1,10 @@
 module
 
-public import Mathlib
-public import CFSG.Open.SignalizerFunctorDefs
-public import CFSG.Assembly.LowTwoRankDefs
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeForm
-public import CFSG.SignalizerFunctorTheorem.CatalogBridge.FieldGlue
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.NonLocalizedStatements
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.NearPSU3
 import CFSG.RankThree.Automorphisms.UnitaryCoprime
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryModelOuterTwoPart
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 import CFSG.SignalizerFunctorTheorem.Inheritance.TransportA.NearPSolvable
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.SuzukiBruhatNormalForm
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField

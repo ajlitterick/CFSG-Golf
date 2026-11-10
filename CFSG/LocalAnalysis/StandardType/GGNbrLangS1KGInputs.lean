@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1Labels
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1KGField
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGFixSub
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangKGInputs
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinear
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorARankKG
 public import CFSG.LocalAnalysis.StandardType.GGL45NtClUni
 
 public section

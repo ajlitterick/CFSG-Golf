@@ -1,11 +1,8 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtDatum
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwistedE6Base
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFivePairRigid
-import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiag
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerResiduals
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtCore
@@ -47,7 +44,6 @@ public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerE8Five
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFiveTwRigidLang
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigidModels

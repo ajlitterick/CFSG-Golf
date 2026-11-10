@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeLift
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5F4Orb
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5F4Torus
 

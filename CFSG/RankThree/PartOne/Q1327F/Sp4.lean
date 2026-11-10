@@ -5,11 +5,9 @@ public import CFSG.RankThree.PartOne.Q1327F.PGroup
 public import CFSG.RankThree.PartOne.Q1327F.Unip
 public import CFSG.RankThree.PartOne.Q1327F.Orders
 public import CFSG.RankThree.PartOne.Q1327T.Item7Weights
-public import CFSG.RankThree.PartOne.K133.MaxItems
 public import CFSG.RankThree.PartOne.N143X.EvenSmall
 public import CFSG.RankThree.PartOne.KF.ClsPSp
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2Carrier
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalDescentEndpoint
@@ -58,9 +56,6 @@ public import CFSG.RankThree.PartOne.S12.Sec15FA
 public import CFSG.RankThree.PartOne.S12.Sec15Items
 public import CFSG.RankThree.PartOne.S15K.PSylowOrth
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CommutatorNormalizer
 public import CFSG.Walter.Defs

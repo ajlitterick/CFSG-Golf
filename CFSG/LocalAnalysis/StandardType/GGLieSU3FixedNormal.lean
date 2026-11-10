@@ -4,14 +4,7 @@ public import CFSG.Assembly.GL83LieDefs
 public import CFSG.Assembly.Defs
 
 import CFSG.RankThree.PartOne.KF.R9Levi
-import CFSG.RankThree.PartOne.KF.R9Perm
-import CFSG.RankThree.PartOne.KF.UnitaryDiag
-import CFSG.RankThree.PartOne.KF.UnitaryTorus
-import CFSG.RankThree.PartOne.S10.FiveSuccessorQuasisimple
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdSmall
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-import CFSG.Assembly.Subnormal
-import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 import CFSG.RankThree.PartOne.KF.R9Model
 import CFSG.RankThree.PartOne.KF.R9Plane
 

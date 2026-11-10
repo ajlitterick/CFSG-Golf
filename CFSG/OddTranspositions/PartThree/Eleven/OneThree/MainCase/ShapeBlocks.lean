@@ -1,9 +1,7 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Defs
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Coset
 import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.ShapeLocal
-import CFSG.OddTranspositions.PartThree.EightSeven
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitSingleSFLZOne
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitSingleSFLZOneRConj
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitSingleSFLZOneRDiag
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

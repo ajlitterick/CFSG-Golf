@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalancePumpup
 public import CFSG.LocalAnalysis.StandardType.GGPumpupBalance
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 
 public section
 

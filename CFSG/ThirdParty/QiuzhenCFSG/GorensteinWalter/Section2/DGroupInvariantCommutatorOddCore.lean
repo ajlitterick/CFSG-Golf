@@ -3,11 +3,9 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Classification
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenInvariantOddPSubgroupCentralized
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.InvariantOddPSubgroupCentralizedMulEquiv
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeEquiv
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2InvariantOddPSubgroupCentralized
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2InvariantOddPSubgroupCentralized
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.SFourInvariantOddPSubgroupCentralized
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 import Mathlib.Tactic
 

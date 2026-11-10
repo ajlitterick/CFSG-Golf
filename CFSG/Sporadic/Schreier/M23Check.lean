@@ -3,7 +3,6 @@ module
 
 public import CFSG.Sporadic.Schreier.M23CheckBase
 
-public import CFSG.Sporadic.Schreier.M23Data
 public meta import CFSG.Sporadic.Schreier.M23Data
 public import Certificates.Certificate2196
 public import Certificates.Certificate2196Base

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.BfsPin
-public import CFSG.Certificates.Kernel.Enum.Defs
 public import CFSG.Certificates.Kernel.LocalCompUnpack
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.L34Q8Data
 public import CFSG.Certificates.Kernel.Spor.RawSound

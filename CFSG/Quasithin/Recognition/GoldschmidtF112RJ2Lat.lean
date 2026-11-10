@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312J2Model
 import all CFSG.Quasithin.EmptyFaithful.GoldschmidtA312J2Model
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRows
 public import CFSG.Quasithin.Background.F1Amalgam
 public import Certificates.Certificate40701
 public import CFSG.Quasithin.Background.F2Equiv

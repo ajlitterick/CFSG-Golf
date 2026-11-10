@@ -6,7 +6,6 @@ public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Certificates.Kernel.Bounds.Core3
 public meta import CFSG.Sporadic.Recognition.LyonsAmalgamYData
 public meta import CFSG.Sporadic.Recognition.LyonsAmalgamTrData
-import CFSG.Certificates.Kernel.Bounds.Load
 import CFSG.Certificates.Kernel.Bounds.LoadRoot
 import CFSG.Certificates.Kernel.Common.Repo
 

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.Central
-public import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.GroupTheory.ABGLocalTools.SylowNormalizerGrows
-public import Mathlib.NumberTheory.Padics.PadicVal.Basic
 
 public section
 

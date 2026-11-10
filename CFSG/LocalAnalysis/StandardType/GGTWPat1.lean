@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwoDepSmallS0
 public import CFSG.LocalAnalysis.StandardType.GGTWPatAbs
-public import CFSG.LocalAnalysis.StandardType.GGDepAPattern
-public import CFSG.ClassicalInvolution.ModelFacts.Families
 public import CFSG.Sporadic.Bridge.ONSurj
 
 public section

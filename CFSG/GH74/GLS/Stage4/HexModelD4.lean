@@ -13,7 +13,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Critical
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Timmesfeld.Orders.ClassicalLinear
 
 public noncomputable section

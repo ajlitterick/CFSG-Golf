@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Steinberg.PartB
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 
 public section

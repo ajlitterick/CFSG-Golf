@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.U38Fix.Checks
 public import Certificates.Kernel.U38Q.Glue
 public import Certificates.Data.HuppertU38Fix.Check
-import Mathlib.Tactic.IntervalCases
 
 public section
 

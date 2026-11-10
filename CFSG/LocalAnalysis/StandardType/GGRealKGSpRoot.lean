@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRealKGModelRoot
 public import CFSG.LocalAnalysis.StandardType.GGRealKG
-public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenDefs
-import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenDefs
-import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenDefs
 import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenForm
 import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenPlane
 import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenGen
@@ -19,19 +15,14 @@ import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenComp
 import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenGenA
 import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenGenB
 import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenWeyl
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
-import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
 import CFSG.LocalAnalysis.StandardType.GGKGForkSpRow
 import CFSG.LocalAnalysis.StandardType.GGKGForkLatticeElt
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLayerGen
 import CFSG.LocalAnalysis.StandardType.GGOutTwoCommInnerHolds
 import CFSG.LocalAnalysis.StandardType.GGKnownInputsNoU6Classical
 import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneRank
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma1315b
 import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.P622K3ChevSimple
-import CFSG.ClassicalGroups.Symplectic.StandardForm
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Sec13g
 
 public section

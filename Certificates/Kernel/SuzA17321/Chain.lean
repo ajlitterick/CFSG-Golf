@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Sporadic.IntWordsCmd
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Data.TabSuzA

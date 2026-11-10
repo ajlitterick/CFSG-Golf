@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.BorelTitsConstrained
-public import CFSG.GroupTheory.ThompsonAxB
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.H196Facts
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.RadicalQuot
 

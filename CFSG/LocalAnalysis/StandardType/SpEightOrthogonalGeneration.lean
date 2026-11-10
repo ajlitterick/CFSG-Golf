@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.SpEightTransvections
 public import CFSG.Fischer.Classification.Symplectic.OrthoGen
 public import CFSG.LieType.Universal.Spin
 public import CFSG.LieType.Steinberg.Extras
-public import CFSG.LieType.Universal.SymplecticRoots
 
 public section
 

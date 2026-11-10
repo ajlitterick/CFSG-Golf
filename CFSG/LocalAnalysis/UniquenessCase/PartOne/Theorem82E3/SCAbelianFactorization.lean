@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.A10EndFactsC
 import CFSG.GroupTheory.IsCyclicOfLeOfPRankLeOne
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CyclicSubgroupCharacteristic
 import CFSG.Quasithin.Vol2.KGFactC31NoM22FusBurnside
-import CFSG.LocalAnalysis.UniquenessCase.UC6S19
-import CFSG.GroupTheory.BurnsideNormalComplement
 import CFSG.LocalAnalysis.RankFourTheoremC.PPointFrobenius.CentC
 import CFSG.RankThree.PartOne.ZR7.Cyc
 import CFSG.LocalAnalysis.AGLEmbedding.JStarReducedDefs

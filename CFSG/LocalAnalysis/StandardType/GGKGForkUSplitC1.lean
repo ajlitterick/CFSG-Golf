@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypFrame
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflSp
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Frame
-public import Mathlib.GroupTheory.RegularWreathProduct
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.VisQuot.Monomial
 public import CFSG.Monster.B.TwoA.Census.PermBFS
-public import CFSG.Monster.Code.Basis
 public meta import CFSG.Monster.B.TwoA.Census.PermBFS
 public meta import CFSG.Monster.Code.Basis
 import Mathlib.Data.Nat.Bitwise

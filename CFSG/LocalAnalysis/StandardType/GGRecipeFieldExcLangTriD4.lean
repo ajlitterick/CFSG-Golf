@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangReeF4
-public import CFSG.LieType.Chevalley.EvenTrialityAutomorphismNormalForm
 public import CFSG.LieType.Chevalley.EvenDiagramFixedAmbientCentralizer
 public import CFSG.LieType.Chevalley.DiagramCoordinateFixedStructure
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.Chevalley.EvenCartanRootDiagonals
-public import CFSG.LieType.Chevalley.TwistedE6NormalFormActors
 
 public section
 

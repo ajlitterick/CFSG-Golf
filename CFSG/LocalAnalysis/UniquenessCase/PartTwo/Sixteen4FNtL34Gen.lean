@@ -3,7 +3,6 @@ module
 public import CFSG.Open.StatedDefs
 import CFSG.Open.StatedAPI
 import CFSG.LinearAlgebra.LinearGroups.Generation
-public import Mathlib.LinearAlgebra.Matrix.Notation
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen4FNtL34GenAux1
 
 public section

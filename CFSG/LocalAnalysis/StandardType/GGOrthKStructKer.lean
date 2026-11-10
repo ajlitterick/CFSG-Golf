@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOrthKStructDefs
 import CFSG.LocalAnalysis.StandardType.GGHalfFiveBlockRank
-import CFSG.LocalAnalysis.StandardType.GGHalfFiveRes
 
 public section
 

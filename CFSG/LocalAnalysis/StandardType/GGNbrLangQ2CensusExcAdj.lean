@@ -2,19 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusExcOrbit
 public import CFSG.LocalAnalysis.StandardType.GGExcCompSLCat
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangCore
 import CFSG.LocalAnalysis.StandardType.GGExcCompSLLen
 import CFSG.LocalAnalysis.StandardType.GGInnerD4RALabels
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcAssemblyE
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcAssemblyTw
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.InnerUntw
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTypeA
 import CFSG.LocalAnalysis.StandardType.GGFamLabelAssembly
 import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RFam
 import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsTwAux.RatLayer
-import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcLang
 import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsTwAux.ExcD4Layer
 public import CFSG.LocalAnalysis.StandardType.GGFamAssembly
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivExcToral
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixEMain
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwisted
 
 public section
 

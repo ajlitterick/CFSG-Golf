@@ -2,11 +2,7 @@ module
 
 public import Certificates.Certificate13504Base
 
-public import CFSG.Sporadic.Schreier.Co1ThreeLocal
-public import Certificates.Data.CFSGNative.Solomon.Co1T13
 import Certificates.Kernel.Co1T13K.Glue
-import Certificates.Certificate2043
-import Certificates.Certificate3024
 
 public section
 

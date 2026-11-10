@@ -2,15 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceFive
 public import CFSG.LocalAnalysis.StandardType.GGPhanCentralQuotient
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LocalAnalysis.StandardType.MarkingDict
-import CFSG.LocalAnalysis.StandardType.GGTableBRank
 import CFSG.LocalAnalysis.StandardType.GGTBTorRelE6Cover
-import CFSG.LocalAnalysis.StandardType.GGInnLocal
 public import CFSG.ClassicalInvolution.Phan.Assembly
 public import CFSG.ClassicalInvolution.Phan.Universal
 

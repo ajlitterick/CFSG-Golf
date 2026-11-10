@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Background.AutOnCard
 public import CFSG.Quasithin.H13.L32A76S2i
 public import CFSG.Quasithin.H13.L32A76S2f
 public import CFSG.Quasithin.Vol2.Ch5Sec2LocalLem522NeSteps
-public import CFSG.LocalAnalysis.QuasithinUnique.GammaFamiliesBasic
 public import CFSG.Quasithin.EmptyFaithful.S152He9Y1
 public import CFSG.Quasithin.Vol2.Ch5Sec1Lem5112
 public import CFSG.Quasithin.Vol2.Ch5Sec1Lem5113

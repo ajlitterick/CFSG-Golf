@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoWDatumTransport
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTableBI1
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112K
 
 public section
 

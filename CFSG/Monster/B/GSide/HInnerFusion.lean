@@ -3,7 +3,6 @@ module
 public import CFSG.Monster.B.GSide.HInnerFusionCert
 public import CFSG.Monster.B.CTIB.HInner
 public import CFSG.Monster.B.CTIB.TableSixLength
-public import CFSG.Monster.B.GSide.Setup
 public import CFSG.Monster.B.GSide.FusionBasic
 public import CFSG.Monster.B.CTIB.HOuterCert
 

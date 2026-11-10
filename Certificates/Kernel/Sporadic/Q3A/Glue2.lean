@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.Q3A.Glue
-import Mathlib.Data.Finset.Card
 
 public section
 

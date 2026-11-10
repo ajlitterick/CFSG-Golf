@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.Q3.Sec13End12
 import CFSG.ClassicalInvolution.Q3.Sec13End15A
 import CFSG.ClassicalInvolution.Q3.Sec13EndDETwin
 import CFSG.ClassicalInvolution.Q3.Sec13PerpA3
-import CFSG.ClassicalInvolution.Q3.TL3T25
 import CFSG.ClassicalInvolution.Q3.TL3T28
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.ClassicalInvolution.Asc77.AscE18FromM

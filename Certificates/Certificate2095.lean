@@ -6,7 +6,6 @@ import Certificates.Support.HN2095TreeDecide
 meta import Certificates.Support.HN2095TreeDecide
 import all Init.Data.String.Defs
 import all Init.Data.Nat.Fold
-import CFSG.Sporadic.HNSchreier.OrbitCheck
 meta import CFSG.Sporadic.HNSchreier.ArchCheckInputs
 
 public section

@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeDefs
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplitR
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniDefs
-import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeCompEq
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeComp
-import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeQS
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeNe
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeEigen
-import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeCQ
 import CFSG.RankThree.PartTwo.Sec21.Hering214KEig
 
 public section

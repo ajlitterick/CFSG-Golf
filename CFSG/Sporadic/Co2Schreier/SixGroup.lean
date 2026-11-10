@@ -1,19 +1,10 @@
 module
 
 public import CFSG.Sporadic.Co2Schreier.SixAction
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixCyclicKernel
-public import CFSG.ClassicalGroups.Symplectic.Model
-public import CFSG.ClassicalGroups.Symplectic.Simple
 public import CFSG.GroupTheory.ExtraspecialCentralizerInnerAut
 public meta import CFSG.Sporadic.Co2Schreier.WitCheck
 public import Certificates.Certificate2058
-public import Certificates.Certificate2049
-public import Certificates.Certificate2051
-public import Certificates.Certificate2057
-public import Certificates.Certificate2060
-public import Certificates.Certificate3115
-public import Certificates.Certificate3116
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
@@ -46,14 +37,10 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Sporadic.Co2Schreier.Cores
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

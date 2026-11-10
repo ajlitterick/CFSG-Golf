@@ -1,12 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2DihedralSylow
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralOddRotationCentralizer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.QuotientCenterAutomorphism
-import Mathlib.GroupTheory.SpecificGroups.KleinFour
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

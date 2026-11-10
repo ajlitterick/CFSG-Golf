@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GH72.Sec5FourTools
 public import CFSG.LocalAnalysis.GH72.PGammaL2Local
-public import CFSG.LocalAnalysis.GH72.Sec5Roles
-public import CFSG.LocalAnalysis.GH72.Sec5BarType
 import CFSG.LocalAnalysis.ABGTheoremB.IV1
 public import CFSG.CGT.Foote81L6.Lemma1
 public import CFSG.ClassicalInvolution.NormalQuaternion

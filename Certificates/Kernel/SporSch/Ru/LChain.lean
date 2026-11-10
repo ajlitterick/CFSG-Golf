@@ -8,7 +8,6 @@ public import Certificates.Kernel.SporSch.Ru.LCPF0
 public import Certificates.Kernel.SporSch.Ru.LCPF1
 public import Certificates.Kernel.SporSch.Ru.LCPF2
 public import Certificates.Kernel.SporSch.Ru.LCPF3
-public import CFSG.Sporadic.Schreier.RuCheckLInputs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

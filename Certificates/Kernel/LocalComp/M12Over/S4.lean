@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.LocalComp.M12Over.S2
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -1,7 +1,5 @@
 module
 
-public import Mathlib
-public import CFSG.Assembly.GL83LieDefs
 public import CFSG.Assembly.GL83HalfSplitSection16
 public import CFSG.Open.Defs
 public import CFSG.Open.GeneratedCore

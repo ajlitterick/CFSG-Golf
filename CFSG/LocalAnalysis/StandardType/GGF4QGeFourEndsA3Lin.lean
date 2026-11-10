@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4H4JBlockAux2
 public import CFSG.LocalAnalysis.StandardType.GGResJLinearCubeAutomizer
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagRoot
-import CFSG.LocalAnalysis.StandardType.GGTypeAEndNode
-import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 
 public section
 

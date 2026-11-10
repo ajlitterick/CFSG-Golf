@@ -1,9 +1,6 @@
 module
 
 public import CFSG.RankThree.SubgroupLists.TransvectionRecognition
-public import Mathlib.GroupTheory.IsPerfect
-public import Mathlib.LinearAlgebra.GeneralLinearGroup.Basic
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import CFSG.RankThree.PartOne.KC.AlternatingSymplecticBasis
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.Adjoint.Presentation
-public import CFSG.LieType.HighestRoot.Defs
 public import CFSG.LieType.HighestRoot.RootsBasic
 public import CFSG.LocalAnalysis.SeitzReduction.LongRootPairsRoots
 public import CFSG.LieType.TitsSimplicity.Unipotent

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoBCDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBCZ1
 public import CFSG.LocalAnalysis.StandardType.GGQTwoQuandleSym
 

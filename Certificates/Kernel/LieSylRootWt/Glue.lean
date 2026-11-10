@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.LieSylRootWt
 public import Certificates.Kernel.LieSylRootWt.Checks
 public import CFSG.Certificates.Kernel.LieSylRootWtSound
 public import Mathlib.Tactic.Ring

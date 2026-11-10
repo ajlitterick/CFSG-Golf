@@ -1,16 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1Defs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyNbrFieldRows
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePrimDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneCard
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 public import Certificates.Kernel.ThCent.Leaves
 

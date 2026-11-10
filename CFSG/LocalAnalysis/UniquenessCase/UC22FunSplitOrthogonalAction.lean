@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitOrthogonalGeometry
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34Defs
 import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitOrthogonalBlocks
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec2Kernel
 public import CFSG.HardMathSupport.Cooperstein.AlternatingGeometry.PairBlocks
 import CFSG.HardMathSupport.Cooperstein.AlternatingGeometry.BlockFixOfNormalW
-import CFSG.ClassicalInvolution.Balance.LayerGenerationPairSpinFrame
 import CFSG.ClassicalInvolution.Asc77.AscR10E23
 import CFSG.LocalAnalysis.UniquenessCase.UC22FunCountCommute
 import CFSG.LieType.SeitzGeneration.ExcHigh.SpinFrameToral

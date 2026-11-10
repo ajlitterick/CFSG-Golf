@@ -1,15 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.S3.ChevTools
-public import CFSG.LocalAnalysis.GLTheoremA.S10.Defs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcDataTw
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FixedInv
-import CFSG.LocalAnalysis.GLTheoremA.S9.L94Transport
-import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcompIdx
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiag
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 
 public section
 

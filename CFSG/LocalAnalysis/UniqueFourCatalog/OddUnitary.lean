@@ -1,17 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.UniqueFourCatalog.OddClassicalGeneric
-public import CFSG.Yardstones.Mf4cdcdf2e013.Definitions
 public import CFSG.LocalAnalysis.UniqueFourCatalog.Standing4Basic
 public import CFSG.LocalAnalysis.RankThreeUC.CatalogClosureOddLie
-public import CFSG.RankThree.PartTwo.Census.OddClassical.UnitaryComponent
-public import CFSG.RankThree.PartTwo.Census.OddClassical.LinearComponent
-public import CFSG.RankThree.PartTwo.Census.OddClassical.SmallThree
 public import CFSG.RankThree.PartTwo.Census.OddClassical.UnitaryFourThree
-public import CFSG.RankThree.PartOne.SLB4B.ModelU
 public import CFSG.RankThree.PartOne.SLB4B.RankFourU
-public import CFSG.LieType.Universal.Unitary.Clause0
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 public import CFSG.Adapters.ClassicalCatalogReverse
 public import CFSG.LocalAnalysis.SectionRank.ClassicalOdd.Basic
 public import CFSG.CGT.Timmesfeld75.Statements

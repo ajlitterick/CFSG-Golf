@@ -2,9 +2,7 @@ module
 
 public import Certificates.Kernel.M24Dc.Final
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24Dc
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.EvenClassicalStrong
 public import CFSG.Quasithin.Vol2.Ch8Sec2L822CovP3
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

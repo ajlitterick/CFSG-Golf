@@ -2,23 +2,17 @@ module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3BDeltaOuter
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.NonsplitPlane
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.LinearPlane
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreA
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUProjectivePlaneCoprimeCentral
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3SelL39Out
-public import CFSG.Adapters.LinearCatalog
 public import CFSG.RankThree.PartTwo.KFacts.AutPSL
 public import CFSG.HardMathSupport.Timmesfeld.Balance.Reduction
-import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.Families
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Defs
 
 public section

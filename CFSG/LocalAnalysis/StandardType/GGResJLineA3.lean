@@ -1,19 +1,10 @@
 module
 
-public import CFSG.RankThree.CentralCover.ReflectionRadical
 public import CFSG.Mathlib.LinearAlgebra.BilinForm.FiniteRadical
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ConnectedReflection
 public import CFSG.LocalAnalysis.StandardType.GGLieM6cDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenOver
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeScLift
-public import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
-public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.E6HeisenbergAux.PairAuxSc
 
 public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
-public import CFSG.LocalAnalysis.StandardType.GGResIPumpLineAux
-public import CFSG.LocalAnalysis.StandardType.GGTBTorRest
-public import CFSG.Mathlib.LinearAlgebra.BilinForm.Reflection
 
 public section
 

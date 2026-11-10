@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2FixedPointOdd
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSU
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2GeoSUShort
-public import CFSG.LieType.Universal.Unitary
 
 public section
 

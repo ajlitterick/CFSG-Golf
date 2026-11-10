@@ -5,7 +5,6 @@ public import Certificates.Kernel.UnitarySix.Fix3010Base
 
 public import Certificates.Kernel.UnitarySix.Struct3010
 public import Certificates.Kernel.UnitarySix.Fischer
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

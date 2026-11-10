@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.GLS.SP.SpRoots
 public import CFSG.LieType.Universal.Unitary.Extras
-public import CFSG.LieType.Steinberg.Bruhat
 
 public noncomputable section
 

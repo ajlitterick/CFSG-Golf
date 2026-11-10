@@ -9,8 +9,6 @@ import CFSG.GroupTheory.CenterlessInnerCentralizer
 import CFSG.LocalAnalysis.GLTheoremA.CatC.RationalTypeAModel
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSL
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
 public import CFSG.LieType.SeitzGeneration.SeitzStatus
 
 public section

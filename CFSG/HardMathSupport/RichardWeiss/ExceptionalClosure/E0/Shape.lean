@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.Algebra.Group.Subgroup.Lattice
-public import Mathlib.SetTheory.Cardinal.Finite
 public import Mathlib.Tactic.Group
 public import Mathlib.Algebra.Group.Subgroup.Finite
 public import Mathlib.Tactic.NormNum.Ineq

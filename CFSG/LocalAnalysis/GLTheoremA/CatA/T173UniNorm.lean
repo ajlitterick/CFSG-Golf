@@ -1,20 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173UniCore
-import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusPlane
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabIrrOrthMinusPlane
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelCoordinates
-import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 import CFSG.RankThree.PartOne.S11d.OrthCaseH
 
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentType
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CRankInv
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFour
-import CFSG.ClassicalGroups.Orthogonal.Derived
-import CFSG.RankThree.OrthogonalInvolutions.Dickson
-import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
-import CFSG.RankThree.PartOne.KC.OrthogonalSupportedScalarElementary
-import CFSG.RankThree.PartOne.KC.OrthogonalFixedBlock
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.ShortRoot
 public import CFSG.ClassicalInvolution.Orders.OrthogonalCount
 public import CFSG.Foundations
@@ -39,11 +30,7 @@ public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 import CFSG.GroupTheory.WeirSylow.OrthogonalTypes
-import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
-import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
-import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Interface
 import CFSG.Holt.Fixed
-import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLInner
 import CFSG.LocalAnalysis.ComponentClassification.BurgoyneProjSlice
 import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
@@ -58,7 +45,6 @@ import CFSG.LocalAnalysis.GLTheoremA.S11.InputsCE
 import CFSG.LocalAnalysis.GLTheoremA.S11.InputsElim
 import CFSG.LocalAnalysis.GLTheoremA.S3.Lemma35
 import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
-import CFSG.LocalAnalysis.SignalizerFunctor
 import CFSG.RankThree.PartOne.FOC.CompCommutator
 import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldCentralizer
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent

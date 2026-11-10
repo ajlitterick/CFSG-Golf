@@ -5,9 +5,7 @@ public import Certificates.Kernel.Tc.RuTrees
 public import Certificates.Data.Kernel.TcF
 public import Certificates.Data.Kernel.HeLoc.Tree
 public import Certificates.Data.Kernel.MonsterB.BfsReplay
-public import Certificates.Data.Kernel.Misc.ArrEnum
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.TwistedD4.Defs
 public import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverChevalley
-public import CFSG.LieType.Steinberg.Adjoint.BaseChange
 
 public section
 

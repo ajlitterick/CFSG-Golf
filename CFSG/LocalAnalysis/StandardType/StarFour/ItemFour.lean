@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LinearAlgebra.RootGroupSL.UCasesAbs
-public import CFSG.LinearAlgebra.RootGroupSL.DatumTransport
 public import CFSG.LinearAlgebra.RootGroupSL.Transport
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompDefs
 
 public section
 

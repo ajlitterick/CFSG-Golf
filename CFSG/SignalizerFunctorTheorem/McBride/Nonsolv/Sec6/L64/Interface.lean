@@ -1,9 +1,6 @@
 module
 
-public import Mathlib
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.Basic
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.L62b
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.L64.Step1
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.L64.Quot
 
 public section

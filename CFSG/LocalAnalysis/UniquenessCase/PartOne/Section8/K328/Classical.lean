@@ -8,7 +8,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.K328.Classical.
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.K328.Classical.Row6
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.K328.Classical.Row7
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.K328.Classical.Row8
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.K328.Classical.Bridge
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.K328.Classical.Exists
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusResGroup
 

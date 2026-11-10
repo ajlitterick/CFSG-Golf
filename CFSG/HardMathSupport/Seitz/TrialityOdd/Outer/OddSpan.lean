@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Outer.OddForm
-public import CFSG.RankThree.PartOne.SEITZ8.D4Span
 public import CFSG.RankThree.PartOne.SEITZ8.D4Entry
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Outer.OddComm
 

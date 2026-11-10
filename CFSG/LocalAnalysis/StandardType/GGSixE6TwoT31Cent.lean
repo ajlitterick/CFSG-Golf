@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoT31Diag
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoT31Conj
-import CFSG.LocalAnalysis.StandardType.GGSixE6TwoT31Weyl
 import CFSG.HardMathSupport.Timmesfeld.Steinberg.ToralCentralizerGenerated
-import CFSG.LocalAnalysis.SeitzReduction.E6PilotNonsplit
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoCent
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoLevi
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoNum

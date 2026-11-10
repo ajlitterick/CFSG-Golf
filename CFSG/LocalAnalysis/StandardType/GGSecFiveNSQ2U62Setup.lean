@@ -1,28 +1,14 @@
 module
 
-public import CFSG.Blueprint.Catalog
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveDataResDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
 import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeFrame
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylRest5
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpCount
-import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
-import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofFinal
-import CFSG.LocalAnalysis.StandardType.GGStdSubExist
 import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagRank
 import CFSG.LocalAnalysis.StandardType.GGNsq2Strict
 import CFSG.LocalAnalysis.StandardType.GGAutomizerJoinInduced
-import CFSG.LocalAnalysis.StandardType.GGTBTorDatum
 
 public section
 

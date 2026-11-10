@@ -4,14 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.TwE6MaxEleven.Defs
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi23Fi22
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabSuzA
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabSuzB
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabSuzFuse
-public import CFSG.Sporadic.Fi22.Simple
-public import CFSG.Sporadic.SuzOddCore.Outer
 public import CFSG.Mathlib.GroupTheory.FiniteCentralizerImage
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.CoprimeAction
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GeneratorRank
-public import Mathlib.GroupTheory.PGroup
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeMax
 public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentralizer
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrCriticalStandard

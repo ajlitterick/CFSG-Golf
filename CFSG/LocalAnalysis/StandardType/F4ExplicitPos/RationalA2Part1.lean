@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAut
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.UnitaryPair
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.A2ActualPart4
 

@@ -2,15 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVStruct
 public import CFSG.LocalAnalysis.StandardType.GGOutTwoCommInnerHolds
-public import CFSG.LocalAnalysis.StandardType.ChevTwoMarking
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I142CMain
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I142MClose
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I142TInd
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma1315b
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3LieCore
 public import CFSG.Assembly.LargeEvenGLABridge
-public import CFSG.Dihedral.GorensteinWalter.FieldTransport
-public import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
 public import CFSG.Assembly.OpenBridges
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.ClassicalInvolution.Asc77.AscE184Basic

@@ -1,15 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCaseZeroDataDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxBasic
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxSat
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxFrame
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveMaxJoin
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-public import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
-public import CFSG.LocalAnalysis.StandardType.GGSimplyLacedTits
 
 public section
 

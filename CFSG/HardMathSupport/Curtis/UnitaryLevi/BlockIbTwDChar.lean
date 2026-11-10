@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.PerfThreeOrth.CharSum
-public import CFSG.Open.StatedDefs
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.RankThree.PartOne.KC.OrthogonalBinaryDickson
 public import CFSG.RankThree.PartOne.KC.OrthogonalSelfDualBlock

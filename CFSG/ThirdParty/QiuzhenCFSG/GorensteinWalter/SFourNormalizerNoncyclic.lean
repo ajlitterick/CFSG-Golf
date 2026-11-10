@@ -1,7 +1,6 @@
 module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourSymmetricFourCentralizerOrderThree
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalOddPSubgroupSymmetricFour
-import Mathlib.GroupTheory.Sylow
 import Mathlib.Tactic
 
 namespace CFSG

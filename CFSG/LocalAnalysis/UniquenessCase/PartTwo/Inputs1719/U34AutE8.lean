@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.E3AParamLeTwoClosure
-public import CFSG.Open.GeneralizedFittingSelfCentralizingMilestoneDefs
 public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 

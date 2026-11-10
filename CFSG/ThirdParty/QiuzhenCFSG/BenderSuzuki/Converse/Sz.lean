@@ -2,9 +2,7 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.Converse.PSL2
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.Converse.Lift
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.theorem_3_3
-public import Mathlib.FieldTheory.Finite.GaloisField
 
 namespace CFSG
 end CFSG

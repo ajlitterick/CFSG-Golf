@@ -1,14 +1,10 @@
 module
 
 public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Defs
-public import CFSG.Open.StatedDefs
 public import CFSG.LieType.Universal.SpinOmega.CommutatorEquiv
 public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
 import CFSG.ClassicalInvolution.Phan.PhanDn.NormFormType
-import CFSG.ClassicalInvolution.RouteD.TWYType
-import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 import CFSG.RankThree.GF2n.Stroth80.GriessOrthSmall
-import CFSG.ClassicalGroups.Orthogonal.IsometryConj
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Anisotropic.Plane
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Pairs

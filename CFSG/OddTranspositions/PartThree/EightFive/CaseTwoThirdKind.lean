@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.EightFive.CaseTwoStatement
-public import CFSG.OddTranspositions.HypothesisC
 
 import CFSG.OddTranspositions.PartThree.EightFive.CaseTwoBlocks
 import CFSG.OddTranspositions.PartThree.EightFive.CaseTwoWreath

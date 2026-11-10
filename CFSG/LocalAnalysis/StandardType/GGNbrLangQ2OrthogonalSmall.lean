@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1DSmall
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2LinBlock
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2Toral
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2Res
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangRegKG
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorLinLift
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorLinMark
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CoverData
 

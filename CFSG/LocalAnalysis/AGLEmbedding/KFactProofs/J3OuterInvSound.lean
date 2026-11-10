@@ -1,13 +1,9 @@
 module
 
-public import CFSG.Sporadic.Bridge.TwoGen
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public meta import Certificates.Data.CFSGNative.Bridge.SurjA
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3OuterInvGroup
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3SylowPrim
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3SylowGroup
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting

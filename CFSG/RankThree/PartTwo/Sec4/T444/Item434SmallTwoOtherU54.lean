@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherKitNine
 import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherUTools
 import CFSG.RankThree.PartTwo.Sec4.Item47Unitary
 import CFSG.RankThree.PartTwo.Sec21.Item229Orders
-import CFSG.RankThree.PartTwo.Sec4.T444.Item434AltPerm
 import CFSG.Models.PGLOrders
 public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherDefs

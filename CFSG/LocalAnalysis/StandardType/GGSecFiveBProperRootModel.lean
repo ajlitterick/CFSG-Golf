@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperRoot
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLabelDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperRootRed
-import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
 import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySix
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

@@ -1,10 +1,7 @@
 module
 
 public import CFSG.RankThree.PartOne.K1320X.TwoSub
-public import CFSG.RankThree.PartOne.S12.Facts13
-public import CFSG.RankThree.PartOne.S12.KFTransfer
 public import CFSG.RankThree.PartOne.S13K.ThetaFixed
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LieType.Chevalley.LangRootArithmetic
 public import CFSG.LieType.Chevalley.LangStronglyOrthogonalCommute
 public import CFSG.LieType.Ree.LargeReeEightTorus
@@ -18,7 +15,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Monster.B.Geometry.CoxeterWords
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.RankThree.PartOne.KD4T.Certs
 public import CFSG.RankThree.PartOne.KF.R5Layer
 public import CFSG.RankThree.PartOne.KF.R6Layer

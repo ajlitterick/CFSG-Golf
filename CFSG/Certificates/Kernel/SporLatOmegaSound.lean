@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.SporLatOm
-public import Certificates.Data.CFSGNative.SporLat.Build
 public import Certificates.Data.E68Spor.Chk
 public import CFSG.Certificates.Kernel.E64FSound
 import Init.Internal.Order.While

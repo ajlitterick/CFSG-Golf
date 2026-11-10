@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeIso
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S171Basic
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FDynBridge
@@ -11,17 +10,8 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.I264bA6
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS09U33
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172XLayer
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ExcLabel
-public import CFSG.LocalAnalysis.GLTheoremA.S3.ChevTools
-public import CFSG.LocalAnalysis.GLTheoremA.S9.Basic
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelLieU6Big
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148LComp
-public import CFSG.HardMathSupport.Solomon.Coordinator.I25_3Quasi
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
-public import CFSG.Fischer.Classification.Recognition.Basic
-public import CFSG.GroupTheory.PLayer.Transport
-public import CFSG.Adapters.StatedPSLTwoNine
-public import CFSG.GH74.KGroups.U33
-public import CFSG.Sporadic.Schreier.TitsOuter
 public import CFSG.Quasithin.H13.A5RowsOut
 public import CFSG.GH74.KGroups.L34Aut
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1Final

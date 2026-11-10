@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.AppendixH.H9.H92.QuadRad.EmbeddingIntoHom
-public import CFSG.Quasithin.AppendixH.H9.H92.QuadRad.FixedSpace
 
 public section
 

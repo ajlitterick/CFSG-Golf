@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLCore
-import CFSG.LocalAnalysis.GLTheoremA.CatA.FROmegaMinus
 import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphismsCongr
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaMinus
 import CFSG.SignalizerFunctorTheorem.NonLocal.OrthContract
-import CFSG.SignalizerFunctorTheorem.CatalogBridge.FieldOrthogonal
-import CFSG.HardMathSupport.Lang.Proving.OrthogonalFieldDescentOdd
 
 public section
 

@@ -4,7 +4,6 @@ public import CFSG.OddTranspositions.PartThree.Eleven.Statements
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.RootData
 public import CFSG.ClassicalGroups.Symplectic.PSp45.Pres
 import CFSG.ClassicalGroups.Symplectic.PSp45.Recognition
-import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentBasic
 import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentPsi
 import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentT
 import CFSG.OddTranspositions.PartThree.Eleven.Wong.Dichotomy

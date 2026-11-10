@@ -1,20 +1,8 @@
 module
 
 public import CFSG.RankThree.GF2n.Tim79a34Forms
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.RepEquiv
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ExtendScalars
-public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.FieldTheory.Finiteness
-public import Mathlib.GroupTheory.Commutator.Basic
 public import Mathlib.GroupTheory.IsPerfect
-public import Mathlib.GroupTheory.Solvable
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Centralizer
 public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
-public import Mathlib.RingTheory.Finiteness.Cardinality
-public import Mathlib.LinearAlgebra.Dimension.Constructions
-public import Mathlib.LinearAlgebra.Dimension.Free
-public import Mathlib.LinearAlgebra.TensorProduct.Tower
-public import Mathlib.SetTheory.Cardinal.Finite
 
 public section
 

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265F3Lab
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-public import CFSG.LocalAnalysis.GLTheoremA.S4.FullCover.MultLie
-public import CFSG.Adapters.TauCetiLieModels
-public import CFSG.Models.Blueprint
 
 public section
 

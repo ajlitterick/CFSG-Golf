@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLCore
-import CFSG.LocalAnalysis.GLTheoremA.CatA.FRRee
-import CFSG.LocalAnalysis.GLTheoremA.CatA.MIInn2
-import CFSG.RankThree.PartOne.RF4.Descent
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.NonLocalLargeReeMain
 
 public section

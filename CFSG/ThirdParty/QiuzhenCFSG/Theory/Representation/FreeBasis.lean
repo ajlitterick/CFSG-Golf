@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.GroupAction.Quotient
 public import Mathlib.RepresentationTheory.Equiv
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.RepEquiv
 

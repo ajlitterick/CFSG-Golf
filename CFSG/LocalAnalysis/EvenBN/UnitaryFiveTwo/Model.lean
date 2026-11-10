@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalGroups.UnitaryFlag.OrderSylow
 public import CFSG.Blueprint.Catalog
-public import CFSG.Fischer.F4
 import all CFSG.Fischer.F4
 
 public section

@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.Insp7NumH
 public import CFSG.RankThree.PartTwo.KFacts.AutSz
-public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldFullAutomorphism
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115EvenL2
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.StronglyEmbedded.ParityCriterion

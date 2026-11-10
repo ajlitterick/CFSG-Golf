@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6AdaptOrth
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6AdaptBar
 public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6AdaptSkew
 
 public section

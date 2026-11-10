@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrame
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 import CFSG.LocalAnalysis.StandardType.GGQ2PrimeProp1010
 
 public section

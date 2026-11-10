@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.SporSch.Co3.StabIt
 public import CFSG.Certificates.Kernel.Spor.SiftRSound
 public import CFSG.Certificates.Kernel.Spor.RawAgree
-public import CFSG.Certificates.Kernel.Spor.TextSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 public section

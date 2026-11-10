@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusE7
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusBump
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfSylow
-public import CFSG.LocalAnalysis.StandardType.GGIrred937ExcLang
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfToralDescent
 import CFSG.LocalAnalysis.StandardType.GGExcToralSylow
 
 public section

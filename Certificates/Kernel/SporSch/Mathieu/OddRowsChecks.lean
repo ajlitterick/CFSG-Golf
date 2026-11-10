@@ -7,7 +7,6 @@ public import Certificates.Kernel.SporSch.Mathieu.M12Data
 public import Certificates.Kernel.SporSch.Mathieu.M22Data
 public import Certificates.Kernel.SporSch.Mathieu.M23Data
 public import Certificates.Kernel.SporSch.Mathieu.M24Data
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

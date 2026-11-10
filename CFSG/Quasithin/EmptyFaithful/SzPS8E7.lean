@@ -5,9 +5,6 @@ public import CFSG.Quasithin.EmptyFaithful.SzPS8Frame
 public import CFSG.Quasithin.EmptyFaithful.SzPS8AxA
 public import CFSG.Quasithin.EmptyFaithful.SzPS8A5
 public import CFSG.Quasithin.EmptyFaithful.SzPS8Defs
-public import CFSG.ClassicalInvolution.SubnormalClosure
-public import CFSG.Adapters.GeneralizedFitting
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.Asc75T4Bridge
 public import CFSG.LocalAnalysis.ComponentClassification.Asc75T4Class
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherComponentInvolutionFitting

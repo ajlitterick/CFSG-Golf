@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.InvolutionsN1Cert
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.Stroth22Dihedral
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.CoverUniqueFinal
-public import CFSG.Monster.B.GSide.HInnerFusionI3
 
 public section
 

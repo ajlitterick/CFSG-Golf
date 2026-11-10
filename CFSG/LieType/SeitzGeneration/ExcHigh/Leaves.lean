@@ -2,16 +2,12 @@ module
 
 public import CFSG.LieType.SeitzGeneration.ExcHigh.CubeClasses
 public import CFSG.LieType.SeitzGeneration.ExcHigh.F4One
-public import CFSG.LieType.SeitzGeneration.ExcHigh.F4Two
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E7Seven
-public import CFSG.LieType.SeitzGeneration.ExcHigh.E7Low
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E7TwoLowEven
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E8One
-public import CFSG.LieType.SeitzGeneration.ExcHigh.E8TwoLow
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E8Four
 public import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6One
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.RouteWJPlacement
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Coordinator.Phi6RouteWStarProved
 public import CFSG.ClassicalInvolution.RouteD.GapsOrthChain
 public import CFSG.ClassicalInvolution.RouteD.MultiModelGlue
 public import CFSG.ClassicalInvolution.RouteD.MultiStarStd

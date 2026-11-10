@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CyclicOrderThreeAutomorphism
 
-import Mathlib.Tactic.Group
 
 namespace CFSG
 end CFSG

@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylScIrred
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitaryCover
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreU
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHyperbolic
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
 
 public section
 

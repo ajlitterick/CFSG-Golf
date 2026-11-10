@@ -4,7 +4,6 @@ public import Certificates.Kernel.E27Spor.Fi24OrbChecksA
 public import Certificates.Kernel.E27Spor.Fi24OrbChecksB
 public import CFSG.Certificates.Kernel.E27Spor.OrbRec
 public import CFSG.Certificates.Kernel.Common.ForallTree
-public import CFSG.Open.Defs
 
 public section
 

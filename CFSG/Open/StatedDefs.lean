@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.Blueprint.NativeSporadic
 public import CFSG.Open.MatrixModelCore
 

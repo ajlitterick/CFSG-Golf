@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTDModelLiftTwo
 public import CFSG.LocalAnalysis.StandardType.GGRootGenAvoidInduced
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 public import CFSG.RankThree.PartOne.SRC.RankOneAux
 
 public section

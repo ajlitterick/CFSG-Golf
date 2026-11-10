@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedCoreShapeDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresLinear
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedShapeSUCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GCenterQuot
 

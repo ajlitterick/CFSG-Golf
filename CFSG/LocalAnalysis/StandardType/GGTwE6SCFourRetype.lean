@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourToral
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Torus
 import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourWeylKernel
 import CFSG.LocalAnalysis.StandardType.GGTwE6LangRetype
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Blueprint.ChevalleyRootArtifact
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Arith

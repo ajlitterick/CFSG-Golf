@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGA8NbrOmDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmBlock
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSp
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrOmFrameCore
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinateRegular
 
 public section
 

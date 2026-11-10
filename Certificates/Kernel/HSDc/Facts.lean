@@ -2,19 +2,10 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHSFacts
-import Certificates.Kernel.HSDc.Final
 import Certificates.Kernel.HSQuot.Final
-import Certificates.Kernel.HSA312.Struct
-import Certificates.Kernel.HSA312.Y1
 import Certificates.Kernel.HSA312.Y2
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHSDc
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHSBase
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHSKInputs
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatIncl
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsPCore
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsMemBase
-import CFSG.Quasithin.Background.A312SporHSKInputs
 import CFSG.Quasithin.Background.A312SporHSBase
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHSBase
 import all CFSG.Blueprint.NativeSporadic

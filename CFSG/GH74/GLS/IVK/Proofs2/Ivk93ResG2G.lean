@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93ResG2
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93OneCls
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Cls
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93L4G
 
 public section

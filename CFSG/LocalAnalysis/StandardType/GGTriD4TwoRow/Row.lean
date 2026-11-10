@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTriD4TwoRow.Bridge
 public import CFSG.LocalAnalysis.StandardType.GGTriD4TwoRow.Sylow
 public import CFSG.LocalAnalysis.StandardType.GGTriD4TwoRow.FieldComp
 public import CFSG.LocalAnalysis.StandardType.GGIrred937CompLemmas
-public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputsModel
 public import CFSG.Mathlib.GroupTheory.SylowConj
 
 public section

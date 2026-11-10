@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenWeyl
-public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalSpUSUGen
 public import CFSG.LieType.SeitzGeneration.UnitarySplit
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenTypeABlock
 

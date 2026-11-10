@@ -1,13 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwRootJ
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwRootC
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwLat2
 public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenDefs
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267BadExcFldTwo
-public import CFSG.LieType.Chevalley.CLSOddE7RationalEightGroup
-public import CFSG.LieType.HighestRoot.CentChevalley
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.H81Facts
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267BadExcFldModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267BadExcHR2

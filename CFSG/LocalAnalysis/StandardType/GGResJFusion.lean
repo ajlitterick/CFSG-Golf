@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResJTwA5Sylow
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-import CFSG.GroupTheory.ConjTransport
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKD291NilpGrp
 
 public section

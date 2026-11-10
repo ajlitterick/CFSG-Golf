@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSUOrder
 public import CFSG.RankThree.PartOne.KF.ClsSUUpper
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotBlocks
-public import CFSG.ClassicalInvolution.Phan.Defs
-public import CFSG.Open.StatedAPI
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual

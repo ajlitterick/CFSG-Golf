@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.BabyMonster.RegPow
-public import CFSG.Certificates.Kernel.BabyMonster.FourSound
 public meta import Certificates.Kernel.BabyMonster.RegTab
 public import Certificates.Kernel.BabyMonster.RegTab
 

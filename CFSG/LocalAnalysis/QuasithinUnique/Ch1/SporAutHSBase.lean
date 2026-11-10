@@ -3,18 +3,14 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporAutLocal
 public import CFSG.Sporadic.Schreier.PairHSPairs
-public import CFSG.Sporadic.Schreier.PairHSCertInputs
-public import CFSG.Sporadic.Schreier.PairHSCheckInputs
 public meta import CFSG.Sporadic.Schreier.PairHSCert
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Sporadic.Schreier.PairHSFaithfulInputs
 public meta import CFSG.Sporadic.Schreier.PairF2Sep
 public meta import Certificates.Data.CFSGNative.HS.Data
 public meta import Certificates.Data.CFSGNative.HS.SmallF2
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporAutHSInputs
-public import Certificates.Data.CFSGNative.HS.Data
 import CFSG.Sporadic.Schreier.Co3ChainUtil
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -24,7 +20,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 @[expose] public noncomputable section

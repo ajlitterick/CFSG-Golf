@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWZSpinB
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinStd
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthWitt
 public import CFSG.ClassicalInvolution.Asc77.AscIHHelp
 public import CFSG.ClassicalInvolution.Asc77.AscIHThm2
 public import CFSG.ClassicalInvolution.Asc77.AscIHWitness

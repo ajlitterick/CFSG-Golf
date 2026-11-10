@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcRedT
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcRedG
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcChev
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

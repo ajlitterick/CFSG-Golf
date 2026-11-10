@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.MonsterAxis.Fi23Sp8
 public meta import Certificates.Data.CFSGNative.MonsterAxis.Fi23Sp8
 public import Certificates.Certificate6062
 

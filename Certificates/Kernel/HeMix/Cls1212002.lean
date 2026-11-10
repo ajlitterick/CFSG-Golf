@@ -4,7 +4,6 @@ public import Certificates.Kernel.SporSch.HeT.X2114
 public import Certificates.Kernel.LocalComp.Child3Gen
 public import Certificates.Data.Kernel.KGC31PB
 public import Certificates.Data.Kernel.J2Cover
-public import Certificates.Data.Kernel.Child3
 public import Certificates.Data.HeldMixedInvolution
 public meta import Certificates.Kernel.SporSch.Mathieu.Gen
 public meta import CFSG.Sporadic.HeldB.InnerData

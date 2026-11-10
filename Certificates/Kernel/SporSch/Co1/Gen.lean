@@ -1,11 +1,9 @@
 module
 
 public import Certificates.Kernel.SporSch.Co1.GenK
-public import Certificates.Kernel.SporSch.Co1.Split
 public import CFSG.Certificates.Kernel.SporSch.Co1StabSound
 public import CFSG.Certificates.Kernel.SporSch.Co1GenBSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.Schreier.Co1StabCheckInputs
 
 public section

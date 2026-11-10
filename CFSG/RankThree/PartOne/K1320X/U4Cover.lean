@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.PartOne.K1320X.U4Model
 public import CFSG.RankThree.PartOne.K1320X.Row6Img
 public import CFSG.RankThree.PartOne.K1320.UThree
-public import CFSG.RankThree.PartOne.S13K.KFLiftRows
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CharacterTheory.Semidihedral.ElementStructure
 public import CFSG.ClassicalInvolution.WeakCT.TwistedE6Basic
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField
@@ -19,7 +17,6 @@ public import CFSG.RankThree.PartOne.KFOUT3.Cocycle
 public import CFSG.RankThree.PartOne.S12.Sec136Pair
 public import CFSG.RankThree.PartOne.S12.Sec136Setup
 public import CFSG.Sporadic.ThSchreier.AutCore
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

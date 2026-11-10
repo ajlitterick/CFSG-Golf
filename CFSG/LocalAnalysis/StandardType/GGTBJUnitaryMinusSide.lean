@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusDefs
-public import CFSG.LocalAnalysis.StandardType.GGResSideDatumDefs
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
 import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusBlock
 import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusWeyl
 import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusWAux

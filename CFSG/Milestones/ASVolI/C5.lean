@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtC58NSProved
-public import CFSG.Quasithin.EmptyFaithfulMultiple.TheoremEB51
 public import CFSG.Milestones.ASVolI.C1
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGForkUnitaryDvdModel
 public import CFSG.LocalAnalysis.StandardType.GGKGForkUnitaryDvdRoot
 
 public section

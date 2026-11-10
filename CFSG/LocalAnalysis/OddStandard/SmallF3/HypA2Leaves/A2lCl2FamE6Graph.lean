@@ -1,16 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamE6Fix
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE6GraphRational
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE6C4Fixed
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE6F4Fixed
-public import CFSG.LocalAnalysis.SteinbergCEOddResidualE6GraphCore
-public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorOddE6Graph
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE6GraphMain
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE7TwistMain
 public import CFSG.LocalAnalysis.SteinbergCEOddResidualE6Graph
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE6Inner
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

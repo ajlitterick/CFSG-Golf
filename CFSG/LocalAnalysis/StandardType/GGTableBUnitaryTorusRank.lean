@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdCent
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryDvdAct
 public import CFSG.LocalAnalysis.StandardType.GGTBJSuDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBRowPermFrameAux
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
 
 public section
 

@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1CollinearShort
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1Transport
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIISpSurvivor
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIISpBlock
 public import CFSG.ClassicalGroups.Symplectic.ShortRootLineElt
-public import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2GeoSp
 
 public section
 

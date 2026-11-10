@@ -3,11 +3,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1FiveBaseBase
 
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1FiveLeaf
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1FiveKit
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.AbelianSylow
-public import CFSG.Sporadic.Schreier.Co1ThreeLocal
-public import Certificates.Data.CFSGNative.Timmesfeld.Co1Five
 public import Certificates.Certificate13671
 
 public section

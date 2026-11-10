@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelAbelianLift
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsT
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP10E6Real
 public import CFSG.LocalAnalysis.StandardType.GGKGTwModelDiag

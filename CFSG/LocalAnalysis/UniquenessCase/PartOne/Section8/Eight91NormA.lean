@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight91Defs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KStrongEmbedded72Holds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102Quot
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankBound
-import CFSG.Adapters.StatedClassicalSmallOrders
-import CFSG.Adapters.LieModelSimple
 public import CFSG.CGT.PushingUpLit.CGT6.SixFourCoreSL
 public import CFSG.CGT.PushingUpLit.Glue.NineContentGlue
 public import CFSG.CGT.PushingUpLit.NineContent

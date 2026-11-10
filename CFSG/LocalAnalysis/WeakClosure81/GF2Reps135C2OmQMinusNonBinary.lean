@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusTwoCoord
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusNFWeyl
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQBinaryDigit
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusWeightRank
-import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusTorus
-import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusPlane
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusWeights
 public import CFSG.HardMathSupport.GuralnickMalle.EndFieldDescent.Basic
 public import CFSG.HardMathSupport.Meierfrankenfeld.GeneralFF.OffenderBasic

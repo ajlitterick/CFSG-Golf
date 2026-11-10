@@ -5,7 +5,6 @@ public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312J2Conj
 public import CFSG.Quasithin.Background.E2TwoProofSporJ2
 public import CFSG.Sporadic.SmallOddCore.J2Local
 public import CFSG.GH74.Generic.S45.LSporWit
-public import CFSG.Blueprint.NativeSporadic
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.GH74.Generic.FrontEnd

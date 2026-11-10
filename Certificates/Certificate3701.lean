@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaN2FlagCert
 meta import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaN2FlagData
-import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaN2FlagData
 import Certificates.Kernel.UnitarySix.FlagW
 public import Mathlib
 meta import Mathlib

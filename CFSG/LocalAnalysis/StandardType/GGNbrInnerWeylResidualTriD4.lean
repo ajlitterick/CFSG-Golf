@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylClauseFive
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylCompDefs
 
 public section

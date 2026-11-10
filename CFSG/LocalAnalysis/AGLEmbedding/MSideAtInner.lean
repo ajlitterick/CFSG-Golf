@@ -1,5 +1,4 @@
 module
 
-public import CFSG.LocalAnalysis.AGLEmbedding.MSideAtBlocks
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVNormalThreeDiag
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVNormalCount

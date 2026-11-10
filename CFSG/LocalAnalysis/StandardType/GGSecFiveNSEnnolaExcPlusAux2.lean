@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusHolds
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
 
 public section
 

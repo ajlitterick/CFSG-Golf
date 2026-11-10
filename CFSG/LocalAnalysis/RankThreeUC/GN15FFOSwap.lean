@@ -1,11 +1,8 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 public import CFSG.RankThree.FFModules.Offenders
 
 import CFSG.HardMathSupport.Meierfrankenfeld.GeneralFF.OffenderBasic
-import Mathlib.GroupTheory.PGroup
-import Mathlib.LinearAlgebra.Dual.Lemmas
 public import Mathlib.RepresentationTheory.Irreducible
 
 public section

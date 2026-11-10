@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpModel
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameCenter
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalSpSC
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneRank
 
 public section

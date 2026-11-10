@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpBlockAnDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpBlockAnFixed
-public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3Bridge
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenLift
 
 public section

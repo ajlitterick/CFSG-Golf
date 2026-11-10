@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4RealStd
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InputsReal
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InvClsZ4
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4EndT
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsCenterBase
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsStandard

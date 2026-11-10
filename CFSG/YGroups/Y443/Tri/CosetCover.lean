@@ -5,7 +5,6 @@ public import CFSG.YGroups.Y443.Native.Surjective
 public import CFSG.YGroups.Y443.Tri.Parabolic2
 public import CFSG.Monster.AxisCount.BabyCoverSpec
 public import CFSG.Sporadic.Co1Base
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.YGroups.Y443.Native.AlignB
 public import CFSG.YGroups.Y443.Native.AlignW
 public import CFSG.YGroups.Y443.Native.CosetData

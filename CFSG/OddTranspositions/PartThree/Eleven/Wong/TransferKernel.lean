@@ -1,14 +1,7 @@
 module
 
 public import CFSG.CharacterTheory.Semidihedral.PrimeResidual
-public import Mathlib.GroupTheory.Focal
-public import Mathlib.GroupTheory.Sylow
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GWLemma21
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 
 public section
 

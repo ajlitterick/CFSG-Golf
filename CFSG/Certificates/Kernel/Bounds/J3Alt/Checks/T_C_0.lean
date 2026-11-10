@@ -1,7 +1,5 @@
 module
 
-import CFSG.Certificates.Kernel.Common.LceS
-import CFSG.Certificates.Kernel.Common.LabF
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Repo
 import CFSG.Certificates.Kernel.Bounds.J3Alt.Data.T_Sel

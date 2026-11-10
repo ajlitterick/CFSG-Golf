@@ -4,10 +4,8 @@ import Lean
 public import CFSG.LocalAnalysis.StandardType.GGNsq2NbrFrame
 public import CFSG.LocalAnalysis.StandardType.GGNsq2NbrBlock
 public import CFSG.LocalAnalysis.StandardType.GGNsq2NbrTransport
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 import CFSG.LocalAnalysis.StandardType.GGNsq2QuotCover
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
-import CFSG.ClassicalGroups.Unitary.Finite
 
 public section
 

@@ -4,7 +4,6 @@ public import CFSG.Quasithin.EmptyFaithful.R3c17G
 public import CFSG.Quasithin.EmptyFaithful.R3c17E
 public import CFSG.Quasithin.EmptyFaithful.R3c17F
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.B113LieG2
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalDescentEndpoint
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalFiveStructure

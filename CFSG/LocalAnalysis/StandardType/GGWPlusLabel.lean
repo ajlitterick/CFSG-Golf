@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGWPlusPSL
 public import CFSG.LocalAnalysis.StandardType.GGWPlusTransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeADvd
-public import CFSG.LocalAnalysis.StandardType.GGPGLTorality
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVac
 
 public section

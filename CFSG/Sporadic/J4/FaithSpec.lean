@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Sporadic.J4.Action
-import Certificates.Data.CFSGNative.J4.F2
-import Certificates.Data.CFSGNative.J4.Faithful
 
 public section
 

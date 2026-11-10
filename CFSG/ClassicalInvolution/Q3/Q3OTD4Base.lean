@@ -2,12 +2,9 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3OTBase
 public import CFSG.ClassicalInvolution.Q3.Q3OTInn
-public import CFSG.ClassicalInvolution.Q3.Q3OTKlein
 public import CFSG.ClassicalInvolution.Q3.Q3TLKD4Fix
 public import CFSG.ClassicalInvolution.Q3.Q3TD3R4Ord
 public import CFSG.ClassicalInvolution.Q3.Q3TJD4
-public import CFSG.ClassicalInvolution.Q3.Q3TSetup
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinStd
 public import CFSG.ClassicalInvolution.Q3.Q3TIRed
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofOLevi
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalDefs
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofLeviInner
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofONoInv
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofOTheta

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotHR4Basic
-public import CFSG.LieType.Chevalley.E6CanonicalFieldGraphFixed
 
 public section
 

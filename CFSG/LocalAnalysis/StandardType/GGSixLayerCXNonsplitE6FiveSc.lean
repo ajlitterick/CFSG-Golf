@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6FiveAd
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitCentralMarking
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6Cover
 
 public section
 

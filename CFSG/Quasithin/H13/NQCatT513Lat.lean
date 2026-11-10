@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Quasithin.H13.NQCatT513Hall
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCore
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Wreathed.SmallerRecognitionOriginalFieldQuaternionConjugation
 public import CFSG.Dihedral.FourgroupCycleControl
 public import CFSG.Dihedral.OriginalCentralizerOddCore

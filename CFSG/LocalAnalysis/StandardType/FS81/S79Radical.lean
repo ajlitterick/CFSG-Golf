@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.Defs
 import CFSG.LocalAnalysis.StandardType.FS81.S7Coprime
 import CFSG.GroupTheory.CommutingProductFixedSubgroup
-import CFSG.LieType.BorelTits.Basic
 
 public section
 

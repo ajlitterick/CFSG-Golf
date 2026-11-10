@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalExcOpp
 public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalTwisted
 public import CFSG.LieType.Chevalley.FixedRootCentralizerGeneration
 public import CFSG.LieType.Chevalley.GraphFixedParabolicNormalizer
-public import CFSG.LieType.Chevalley.GraphFixedSylowOpposition
-public import CFSG.LieType.Chevalley.GraphFixedRootBruhat
-public import CFSG.LieType.Chevalley.GraphFixedParabolicIntersection
 
 public section
 

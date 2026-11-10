@@ -5,7 +5,6 @@ public import CFSG.GH74.KGroups.L33
 public meta import CFSG.GH74.GLS.Prop27.LocBal
 public meta import CFSG.GH74.KGroups.L33
 public import Certificates.Certificate5096
-public import Certificates.Certificate5120
 public meta import CFSG.Assembly.BalancedOddCoreCompletion
 public import CFSG.Assembly.BalancedOddCoreCompletion
 public meta import CFSG.Assembly.CompletedOddCoreElimination

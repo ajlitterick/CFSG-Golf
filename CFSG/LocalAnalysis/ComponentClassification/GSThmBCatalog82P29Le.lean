@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog82P29Lb
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4StabL
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Tim77.Sec3Basic
-import CFSG.Timmesfeld.RootInvolutions.RootInvolutionSetting
 import CFSG.CGT.Timmesfeld75.Sec3Thirteen
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupSwap
 public import CFSG.LocalAnalysis.RankThreeUC.Asc1930

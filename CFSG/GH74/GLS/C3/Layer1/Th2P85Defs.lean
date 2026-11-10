@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.C3.Layer1.EvenMax
-public import CFSG.GH74.GLS.TwoThin.Struct
 public import CFSG.GH74.GLS.C3.Layer1.Th2Main
 public import CFSG.LocalAnalysis.ComponentClassification.ClassicalModelStatedBridge
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 import CFSG.LocalAnalysis.StandardType.GGSpJoinReflPairing
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 
 public section
 

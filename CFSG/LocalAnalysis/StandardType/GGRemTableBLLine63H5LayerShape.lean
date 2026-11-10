@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5LayerFrame
-public import CFSG.RankThree.PartOne.KF.UnitaryDiag
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeLift
 
 public section
 

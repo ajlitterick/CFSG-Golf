@@ -1,19 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeDefs
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplitR
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniModel
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniRank
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeNe
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeEigen
-import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryHermitian
 import CFSG.Quasithin.EmptyFaithful.R3cBase
-import CFSG.Open.LocalVocabulary
-import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.Assembly.GL83StatedBridge
-import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-import CFSG.LocalAnalysis.StandardType.GGSUNonsplitTwoBlockRestrict
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
 import CFSG.LocalAnalysis.StandardType.GGHermTools
 import CFSG.LocalAnalysis.StandardType.GGSUNonsplitTwoBlockPiece
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
@@ -25,7 +17,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 public import CFSG.Sporadic.HeldB.Common
 public import CFSG.Sporadic.Schreier.RuPair

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.ProductCommute
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.ProductN1Layer
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.QTwoProduct
-public import CFSG.LocalAnalysis.EvenBN.TrialityD4.FieldCaseSylow
 
 public section
 

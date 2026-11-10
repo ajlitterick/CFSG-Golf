@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.AutA6Types
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.AutA6FiveK
 
 public section

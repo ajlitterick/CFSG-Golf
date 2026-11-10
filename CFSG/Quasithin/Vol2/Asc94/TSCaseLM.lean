@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Asc94.TS39a
-public import CFSG.Quasithin.Vol2.Asc94.TSFrame
 public import CFSG.CGT.M24S.WCOfCentralizer
 public import CFSG.CGT.M24S.Defs
 public import CFSG.CGT.T75P.Inputs

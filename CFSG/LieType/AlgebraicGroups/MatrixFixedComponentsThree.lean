@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.MatrixFixedPoints
-public import CFSG.LieType.AlgebraicGroups.ReductiveFixedComponentsThree
-public import CFSG.LieType.AlgebraicGroups.FixedComponentSmooth
-public import CFSG.Open.LocalVocabulary
 
 public noncomputable section
 

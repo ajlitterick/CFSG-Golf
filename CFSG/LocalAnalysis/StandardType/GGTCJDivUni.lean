@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTCJDivDefs
 public import CFSG.LocalAnalysis.StandardType.GGTCJDivLin
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniScal

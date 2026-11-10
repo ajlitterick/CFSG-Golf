@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSwZOne
 import CFSG.LocalAnalysis.ComponentClassification.CatLeafAlt
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

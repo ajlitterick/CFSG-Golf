@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.Sp62Pk
 public import Certificates.Data.Kernel.Sp62W.Defs
 public import Certificates.Kernel.KS228Sp62.Rec
 public import CFSG.Certificates.Kernel.Common.Each

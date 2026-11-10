@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Certificates.Kernel.Orders.Mat
 public import Certificates.Data.Kernel.Spor.VOrb
-public import Certificates.Data.Kernel.Spor.PEnum
 public import Certificates.Data.Kernel.SporSch.LyMat
 
 public section

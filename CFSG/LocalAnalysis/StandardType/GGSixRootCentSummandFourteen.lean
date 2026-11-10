@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandBasic
-import CFSG.GroupTheory.LocalCores.Components
 
 public section
 

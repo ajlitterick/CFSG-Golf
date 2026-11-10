@@ -1,12 +1,7 @@
 module
 
-public import CFSG.Quasithin.Background.HSporLatInputs
 public import CFSG.Quasithin.Background.HNPrimeHall
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieu
-public import CFSG.Quasithin.Background.HSporLatM12Sg
-public import CFSG.Quasithin.Background.HSporLatM22Sg
-public import CFSG.Quasithin.Background.HSporLatM23Sg
 public import Certificates.Certificate7116
 public import Certificates.Certificate7117
 public import Certificates.Certificate7118
@@ -26,20 +21,11 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B1Basic
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.HFF
 public import CFSG.Quasithin.Background.HSL3Inner
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import Certificates.Certificate43
 
 public section

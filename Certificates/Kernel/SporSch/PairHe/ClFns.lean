@@ -5,7 +5,6 @@ public import Certificates.Kernel.SporSch.PairHe.ClDataB
 public import Certificates.Kernel.SporSch.PairHe.ClDataJ
 public import Certificates.Kernel.Sporadic.He.Chain2112
 public import Certificates.Kernel.SporSch.PairJ3.GenClT
-public import CFSG.Certificates.Kernel.SporSch.PairClTSound
 public import CFSG.Sporadic.Schreier.PairHeCheckInputs
 
 public section

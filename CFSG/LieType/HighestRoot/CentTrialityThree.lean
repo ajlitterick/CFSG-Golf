@@ -6,7 +6,6 @@ public import CFSG.LieType.HighestRoot.CentTrialityFixed
 public import CFSG.LieType.Steinberg.TwistedD4.Perfect
 public import CFSG.LieType.HighestRoot.CentChevalleyInner
 public import CFSG.LieType.HighestRoot.CentIsogeny
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
 public import CFSG.GroupTheory.LocalCores.Fitting
 

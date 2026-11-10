@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeConjAux
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceSix
 public import CFSG.LocalAnalysis.StandardType.GGOTwoStarFrame
 public import CFSG.Blueprint.LieModelAPI
 

@@ -1,13 +1,10 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec4.Statements
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma25
 public import CFSG.LocalAnalysis.SectionRank.QTK.CentreFact.Small
 public import CFSG.LieType.SeitzGeneration.UnitaryHyperDiag
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.Parrott.Basic
 public import Certificates.Kernel.ThCent.Leaves
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.ShortRoot
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
@@ -34,17 +31,7 @@ public import CFSG.RankThree.PartOne.S8.Statements
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.StronglyEmbedded
 public import CFSG.StronglyEmbedded.BenderNormalSeries
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 
 public section
 

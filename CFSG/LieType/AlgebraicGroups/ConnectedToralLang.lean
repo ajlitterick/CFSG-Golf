@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.ConnectedToralLangFrobenius
 public import CFSG.LieType.AlgebraicGroups.ToralCentralizerIdentity
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

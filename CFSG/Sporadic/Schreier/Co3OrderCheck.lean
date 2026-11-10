@@ -1,10 +1,8 @@
 module
 
 public import CFSG.Sporadic.Schreier.Co3Cert
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Sporadic.Schreier.Co3Cert
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.Schreier.Co3OrderCheckInputs
 public import Certificates.Certificate2158
 
 public section

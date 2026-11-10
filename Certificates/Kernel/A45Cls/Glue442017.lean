@@ -4,7 +4,6 @@ public import Certificates.Data.OmegaSwap
 public import Certificates.Kernel.A45Cls.Check442017
 public import Certificates.Kernel.A45Cls.Glue218b
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
-public import CFSG.GH74.KGroups.PermCheck
 
 set_option maxRecDepth 400000
 

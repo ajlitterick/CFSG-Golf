@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.SectionRank.QTK.List
-public import CFSG.Open.StatedDefs
 public import CFSG.Sporadic.Mathieu.M11
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M22
 public import CFSG.Sporadic.Schreier.M23
-public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.Sporadic.J1
 public import CFSG.Sporadic.J2
 public import CFSG.Sporadic.J3
@@ -14,10 +12,7 @@ public import CFSG.Sporadic.HS
 public import CFSG.Sporadic.He
 public import CFSG.Sporadic.McL.Simple
 public import CFSG.Sporadic.Ru
-public import CFSG.Sporadic.J4
 public import CFSG.Sporadic.Bridge.J4Surj
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 public import CFSG.Sporadic.M23.M23Group
 
 public section

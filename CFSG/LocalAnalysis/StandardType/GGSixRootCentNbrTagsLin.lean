@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentNbr
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandStructPSL
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSU
 public import CFSG.LocalAnalysis.StandardType.GGPRankBoundsSUOuter
 
 public section

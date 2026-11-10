@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Balance
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.GLTheoremB.UniqInputs
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Defs
 

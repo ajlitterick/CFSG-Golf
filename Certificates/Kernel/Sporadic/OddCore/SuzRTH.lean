@@ -1,10 +1,7 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzRTF
-public import Certificates.Kernel.Sporadic.L2.G4
-public import CFSG.Sporadic.SuzRecog.LevelTwoCoverCheck
 meta import CFSG.Sporadic.SuzRecog.LevelTwoCoverCheck
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

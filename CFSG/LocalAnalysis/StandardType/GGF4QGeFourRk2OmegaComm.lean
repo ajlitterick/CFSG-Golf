@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4PairRootLeviTransport
-public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourKGPos
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2Cross
-import CFSG.ClassicalInvolution.WeakCT.TwistedSpinModel
-import Mathlib.Tactic.Group
 
 public section
 

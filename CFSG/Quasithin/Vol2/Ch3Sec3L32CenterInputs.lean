@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3327
-public import CFSG.Quasithin.Vol2.Ch3Sec3UniqueMax
 public import CFSG.GH74.KGroups.L27
 public meta import CFSG.GH74.KGroups.L27
 public import CFSG.CGT.Timmesfeld75.L2Pair
@@ -29,7 +28,6 @@ public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B5FinOut
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.F9FiveStruct
@@ -47,10 +45,6 @@ public import CFSG.Quasithin.H13.StatementsL3
 public import CFSG.Quasithin.Recognition.GoldschmidtTripleQuotient
 public import CFSG.Quasithin.Vol2.Ch1Faithful
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem338Fac
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 public import CFSG.Timmesfeld.Orders.ClassicalLinear
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement

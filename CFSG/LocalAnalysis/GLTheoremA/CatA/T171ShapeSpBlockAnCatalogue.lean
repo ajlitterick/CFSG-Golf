@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInOmGen
 public import CFSG.Adapters.CatalogueFieldBridges.Linear
 public import CFSG.Adapters.CatalogueFieldBridges.UnitarySU
 public import CFSG.HardMathSupport.Curtis.UnitaryLevi.RankTwoTwistedA
-public import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryField
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 public import CFSG.CGT.PushingUp.BenderBridge
 public import CFSG.CGT.PushingUp.BlockOrder
 public import CFSG.CGT.PushingUpLit.BHS.SymNatOrbitsSL

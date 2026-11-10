@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNI1
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndNode
 public import CFSG.LieType.SemisimpleCentralizers.HeldSLFacts
 
 public section

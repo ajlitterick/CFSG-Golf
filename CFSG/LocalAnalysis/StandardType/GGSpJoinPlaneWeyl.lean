@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneTorusDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBSp
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBLevi
 
 public section
 

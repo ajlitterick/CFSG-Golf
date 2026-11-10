@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGExcReflTBWeylDatum
 public import CFSG.LocalAnalysis.StandardType.GGExcReflTBWeylDatumOfWeyl
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGTwE6BadLabelParity
 public import CFSG.LocalAnalysis.StandardType.GGTwE6BadTbHyp
-public import CFSG.LocalAnalysis.StandardType.GGTwE6BadWeyl
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplit
 
 public section

@@ -1,8 +1,6 @@
 module
 
-public import Mathlib
 public import CFSG.ClassicalInvolution.SmallCases.Hat2A7S25N3
-public import CFSG.ClassicalInvolution.SmallCases.Hat2A7Witness
 public import CFSG.ClassicalInvolution.Asc77.AscC25I10
 public import CFSG.ClassicalInvolution.Asc77.AscFusionR11
 public import CFSG.ClassicalInvolution.Asc77.AscT7QFinal

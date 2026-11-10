@@ -11,7 +11,6 @@ public import CFSG.Sporadic.Schreier.RuDefs
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.RawSound
 public import CFSG.Sporadic.Schreier.RuEnum
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

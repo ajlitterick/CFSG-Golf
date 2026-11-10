@@ -5,7 +5,6 @@ import CFSG.LieType.SemisimpleCentralizers.OrderThree.CenterQuot
 import CFSG.LieType.SemisimpleCentralizers.HeldLangU64Ord
 import CFSG.HardMathSupport.Dickson.Bal207.OrthSU38Comp
 public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-import CFSG.RankThree.PartOne.K159.RowFourType
 import CFSG.ClassicalInvolution.RouteD.TWYType
 public import CFSG.Timmesfeld.Orders.Bang
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T1428CensusArith
@@ -35,21 +34,8 @@ import CFSG.LocalAnalysis.GLTheoremA.S4S.KData
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122AProved
 import CFSG.Milestones.CL_LIT_Gorenstein_Walter_L_balance
 import CFSG.Open.SplitBNPair
-import CFSG.Quasithin.Background.B1
-import CFSG.Quasithin.Background.B3Q
-import CFSG.Quasithin.Background.B3ThreeModel
-import CFSG.Quasithin.Background.B3ThreeStruct
-import CFSG.Quasithin.Background.G2Omega4PlusModule
 import CFSG.Quasithin.Background.InternalSecIso
 import CFSG.Quasithin.EmptyFaithful.Insp7NumA
-import CFSG.Quasithin.EmptyFaithful.S143FF
-import CFSG.Quasithin.EmptyFaithful.S143Final
-import CFSG.Quasithin.EmptyFaithful.S143HD
-import CFSG.Quasithin.EmptyFaithful.S143IG
-import CFSG.Quasithin.EmptyFaithful.S143JB
-import CFSG.Quasithin.EmptyFaithful.S143KO
-import CFSG.Quasithin.EmptyFaithful.S143KP
-import CFSG.Quasithin.Recognition.GoldschmidtTripleQuotient
 import CFSG.Quasithin.Vol2.Ch10SecD33
 import CFSG.Quasithin.Vol2.Ch10SecDClA
 import CFSG.Quasithin.Vol2.Ch10StatementsInputsAS

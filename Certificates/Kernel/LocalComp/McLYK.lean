@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.LocalComp.McLYW
 public import CFSG.Certificates.Kernel.BfsPinSound
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 
 set_option maxRecDepth 400000
 

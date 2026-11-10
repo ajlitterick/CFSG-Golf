@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.Co2Schreier.OrbitCheck
 public meta import CFSG.Sporadic.Co2Schreier.OrbitCheck
 public import Certificates.Kernel.SporSch.Co2S.ItBind
-public import Certificates.Certificate3115
-public import Certificates.Certificate3117
 
 public section
 

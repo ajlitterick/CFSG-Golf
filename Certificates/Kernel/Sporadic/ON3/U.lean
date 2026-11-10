@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.ON3.Small
 public import Certificates.Kernel.Sporadic.ON3.Data2
 public import CFSG.Certificates.Kernel.Spor.ChainFKSound
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.ChainKSound
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3URTransfer
-public import CFSG.ClassicalInvolution.Q3.Q3URStd
 
 public section
 

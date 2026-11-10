@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5L57E
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CGT.M24S.Defs
 public import CFSG.CGT.T75P.Inputs
 public import CFSG.CGT.Timmesfeld75.Derivations

@@ -1,28 +1,8 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Definitions
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonExceptionalF9SL3
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma3_4
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma5_3
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma6_1
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma6_2
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma6_3Step7
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma63Step8
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma63MinimalBadEquiv
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.PStableIso
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.pStability
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.QdSLPCore
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.QdMulEquivOfComplement
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2ProjectiveLine
-public import Mathlib.GroupTheory.SemidirectProduct
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.LinearAlgebra.GeneralLinearGroup.Basic
-public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.Algebra.Group.Equiv.TypeTags
-public import Mathlib.GroupTheory.QuotientGroup.Basic
 public import Mathlib.Tactic
 
 import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.InvolvedQuotient

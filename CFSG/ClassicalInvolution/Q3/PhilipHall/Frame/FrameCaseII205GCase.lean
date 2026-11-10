@@ -1,18 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameCaseII205GMain
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf2
-public import CFSG.ClassicalInvolution.Q3.Q3T6DExact
-public import CFSG.ClassicalInvolution.SmallCases.NDBG1
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.InductionBridge.FrameCore
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameCaseII205A
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameCaseII205Defs
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameCaseII207Cent
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameCaseII2010Final
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf3S204
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf3S208
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf36Outer
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf19Thm3A
 
 public section
 

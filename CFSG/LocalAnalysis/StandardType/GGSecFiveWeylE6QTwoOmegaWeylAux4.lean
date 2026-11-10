@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaWeylAux3
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOrbit
-public import CFSG.LocalAnalysis.StandardType.GGE6IsoOrbit
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoModelAux
 
 public section
 

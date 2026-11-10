@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.MS93.S4A441Main
 public import CFSG.Quasithin.MS93.S4A44FcWStmt
 import CFSG.Quasithin.MS93.S4A44Lin
-import CFSG.Quasithin.MS93.S46Ker
-import CFSG.Quasithin.MS93.S46I464Lin
 import CFSG.Quasithin.MS93.S4A432I
 import CFSG.Quasithin.MS93.S4A441N
 

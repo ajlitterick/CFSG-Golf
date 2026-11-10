@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
-public import Mathlib.RingTheory.Trace.Defs
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.LocalAnalysis.SectionRank.SignLines
 

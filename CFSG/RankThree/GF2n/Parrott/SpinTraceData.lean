@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.GF2n.Parrott.SpinWords
 public import CFSG.RankThree.GF2n.Parrott.SylowH
 public import CFSG.RankThree.GF2n.Parrott.SpinForms
 public import CFSG.RankThree.GF2n.Parrott.SpinPack45

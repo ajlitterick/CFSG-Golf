@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenDefs
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenTorus
-public import CFSG.Assembly.Defs
-public import TauCeti.LinearAlgebra.Matrix.Diagonal
 
 public section
 

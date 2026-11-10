@@ -2,24 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinDefs
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniModel
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplitR
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniDefs
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeBridge
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.UnitaryFieldType
-import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.PsuHBlocks
 import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.SPLCellUniBlock
 import CFSG.LieType.SeitzGeneration.UnitaryNonCubeAlgebra
 import CFSG.Assembly.GL83StatedBridge
-import CFSG.Assembly.Subnormal
 import CFSG.HardMathSupport.Curtis.UnitaryLevi.RankTwoTwistedA
-import CFSG.RankThree.PartOne.KC.UnitaryPrimaryDual
-import CFSG.RankThree.PartOne.KC.UnitaryPrimaryAlgebra
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
-import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusUnitaryBasic
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3UniTorusDiag
-import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 import CFSG.HardMathSupport.Curtis.UnitaryLevi.CoverTransportE
 import CFSG.HardMathSupport.Curtis.UnitaryLevi.LiftedData
 import CFSG.HardMathSupport.Curtis.UnitaryLevi.UnitaryBlockCommute
@@ -28,7 +17,6 @@ import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryDiag
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryFamily
 import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusTwistedAKit
 import CFSG.RankThree.PartOne.Census3.Assembly
-import CFSG.RankThree.PartOne.FOC.Assemble
 import CFSG.RankThree.PartOne.FOC.CentralQuot
 import CFSG.RankThree.PartOne.FOC.ListBridge
 import CFSG.RankThree.PartOne.FOC.PSUModel

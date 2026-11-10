@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCavImage
 public import CFSG.LocalAnalysis.StandardType.GGExcMaxToral
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCavMarking
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCavQuotient
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTypeALift
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcData
 
 public noncomputable section

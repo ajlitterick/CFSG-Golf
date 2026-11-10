@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.SuzRecog.RootTwistChecks
-import Certificates.Kernel.Sporadic.OddCore.SuzRKZF
 import Certificates.Kernel.Sporadic.OddCore.SuzRTG
 import Certificates.Kernel.Sporadic.OddCore.SuzRTH
 

@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P58b3BA4
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7QPUClOComm
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOThreeTools
-public import CFSG.GroupTheory.ConjugatePairSubnormality
-public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.Stroth21
-public import CFSG.Monster.B.TwoA.Sp8.Par1Center
-public import CFSG.Monster.B.TwoA.Unitary.Twenty
-public import CFSG.Monster.B.TwoA.Amalgam.CentralExt
 public import CFSG.Monster.B.GSide.HSylowCenter
 public import CFSG.LocalAnalysis.ComponentInitial.Finkelstein1977Commuting
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 
 public section

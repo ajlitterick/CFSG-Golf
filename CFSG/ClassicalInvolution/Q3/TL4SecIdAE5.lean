@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.TL4SecIdAE5A
-public import CFSG.ClassicalInvolution.Q3.TL4ConnDefs
 public import CFSG.ClassicalInvolution.Q3.TL3T23
 
 public section

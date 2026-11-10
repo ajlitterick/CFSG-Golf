@@ -1,9 +1,7 @@
 module
 
-public import Certificates.Data.GrSLitL34FactsCF23SuzCheck
 public import Certificates.Data.GrSLitL34SuzStdOddCtrlGenCheck
 public import Certificates.Data.Kernel.Misc.ArrEnum
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.Sporadic.Suz.Text2306
 meta import Certificates.Data.GrSLitL34FactsCF23SuzCheck
 

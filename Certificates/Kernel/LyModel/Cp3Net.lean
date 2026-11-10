@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.LyBenes.Data
-public import CFSG.Sporadic.Recognition.LyonsModelInputs
 
 public section
 

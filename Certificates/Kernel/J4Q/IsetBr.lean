@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.J4Q.IsetChk
 public import Certificates.Kernel.J4Q.ListAux
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.J4Q.RepConjClos
 public import CFSG.Certificates.Kernel.J4Q.RepPack
 public import Certificates.Kernel.J4Q.X0Orb

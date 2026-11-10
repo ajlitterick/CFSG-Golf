@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import Mathlib.GroupTheory.Perm.Fin
 import CFSG.Mathlib.Decide.Bounded
 
 public section

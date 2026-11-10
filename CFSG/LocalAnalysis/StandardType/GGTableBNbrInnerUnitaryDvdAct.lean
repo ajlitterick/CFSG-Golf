@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModel
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCentral
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerTypeADvdCent
 public import CFSG.LocalAnalysis.StandardType.GGTDCentFour
 
 public section

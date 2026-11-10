@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Orders.Cert
 public import Certificates.Data.Kernel.Spor.WordProg
 
 public section

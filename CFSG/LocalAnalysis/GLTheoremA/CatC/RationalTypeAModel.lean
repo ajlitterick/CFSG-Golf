@@ -1,17 +1,8 @@
 module
 
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TypeA
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTypeA
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcData
-public import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24EvenClass
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAll
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Export
-public import CFSG.Open.StatedDefs
-public import CFSG.CharacterTheory.Burnside
 public import CFSG.Goldschmidt.Steps.G37Core
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.Basic
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcPlumb
@@ -33,49 +24,22 @@ public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma28b
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma55
 public import CFSG.LieType.SeitzGeneration.ClassicalSeitzStatus
 public import CFSG.LieType.SeitzGeneration.ClassicalNonabAssembly
-public import CFSG.LieType.SeitzGeneration.OrthManyMaster
 public import CFSG.LieType.SeitzGeneration.ExcSeitzStatus
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwistedE6Kernel
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwistedE6Corner
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.D4FieldPlanes
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.D4GraphFieldPlanes
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.D4F2Final
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.Assembly
-public import CFSG.LieType.SeitzGeneration.ExcHighThree.RegularSolvable
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.TriOddOpen
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.TriOddYCase
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.TriOddGType
-public import CFSG.LieType.SeitzGeneration.ExcHighThree.E6InF4Assemble
-public import CFSG.LieType.SeitzGeneration.ExcHighThree.F4Two
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.KillsRootF4
-public import CFSG.LieType.SeitzGeneration.ExcHighThree.E6InF4FrameTransport
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.E6InF4TransportFacts
-public import CFSG.LieType.SeitzGeneration.ExcHighThree.E6Two
-public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4AtTwo
-public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwKillsRoot
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.DiagRegular
-public import CFSG.LieType.SeitzGeneration.ExcHigh.E8Cube
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E8Frame
-public import CFSG.LieType.SeitzGeneration.ExcHigh.E8Levi
-public import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6TwoD4
-public import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6SU6Cover
 public import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6FiveMain
-public import CFSG.LieType.SeitzGeneration.ExcHigh.E7TwoSevenLang
-public import CFSG.LieType.SeitzGeneration.ExcHigh.E7TwoSevenDescent
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E7TorusFrame
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E7SevenWeyl
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E7SplitTorus
-public import CFSG.LieType.SeitzGeneration.ExcHigh.E8FiveMain
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E8FiveA4Closing
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E8FrameDatum
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E7FrameDatum
-public import CFSG.LieType.SeitzGeneration.ExcHigh.E8Layer
-public import CFSG.LieType.SeitzGeneration.ExcHigh.E8Layer6
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E8TwLayer
-public import CFSG.LieType.SeitzGeneration.ExcHighThree.ConjOneProof
-public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwConjMain
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwContTwo
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.TriOddBClose
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.ClosingMinus.Escape.Final
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2Split.Glue
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.PlanesTwo.Glue
@@ -84,8 +48,6 @@ public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.PlanesTw
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2Nonsplit.Sylow
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2NonsplitGen.Closing
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2NonsplitGen.Top
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.D4TwMaximal
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.D4TwMaxTwo
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.D4TwF2Entry
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.E6InnerIsoFrame
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.E6HeisDescent
@@ -230,10 +192,6 @@ public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -279,7 +237,6 @@ public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3330
 public import CFSG.Quasithin.Vol2.Ch9KGFFQR
 public import CFSG.Quasithin.Vol2.Ch9KGFFQRCase
 public import CFSG.RankThree.Chevalley.SteinbergCFEvenF4PointwiseInner
-public import CFSG.Walter.J1Props
 public import Certificates.Kernel.J4Count.Prim
 
 public section

@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.ModelFacts.TG3Small
 public import CFSG.ClassicalInvolution.ModelFacts.TG3VacPSL
 public import CFSG.ClassicalInvolution.ModelFacts.TG3SmallSLGen
 public import CFSG.ClassicalInvolution.ModelFacts.TG3F3
-public import CFSG.ClassicalInvolution.Models.Transfer.Linear
 
 public section
 

@@ -1,14 +1,10 @@
 module
 
-public import CFSG.RankThree.PartTwo.Census.Sporadic.Fi22W4Data
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF3
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.Seed.Fi22
 public meta import CFSG.RankThree.PartTwo.Census.Sporadic.Fi22W4Data
 public meta import Certificates.Data.CFSGNative.SectionRank.F3
 import all CFSG.Blueprint.NativeSporadic
 public import Certificates.Certificate8156
-public import Certificates.Certificate1005
-public import Certificates.Certificate9205
 public meta import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 

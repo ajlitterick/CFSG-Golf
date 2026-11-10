@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.Balance.LayerGenerationPairFinalTw
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationShortTwistedE6Frame
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE6Main
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE7Main
-public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Main
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcF4Main
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationPairBoot
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationPairFinal

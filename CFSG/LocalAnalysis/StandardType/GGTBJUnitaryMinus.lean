@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJLabelSides
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusSmall
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusCover
 import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusSide

@@ -2,26 +2,17 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.UseInputOfCases
 public import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
-public import CFSG.Fischer.Classification.Orthogonal3.Model
-public import CFSG.Fischer.Classification.PartIII.Beta.Forms
-public import CFSG.Fischer.Classification.Unitary.Model
 import CFSG.Fischer.Classification.Final
 import CFSG.Fischer.Classification.PartII.O2G.ThreeFinal
-import CFSG.Fischer.Classification.Orthogonal2.SpModel
 import CFSG.Fischer.Classification.Orthogonal2.LocalData
-import CFSG.Fischer.Classification.PartIII.Beta.Transport
-import CFSG.Fischer.Classification.PartIII.Beta.Iso
-import CFSG.LocalAnalysis.StandardType.ZS.ReflHyp
 import CFSG.LocalAnalysis.StandardType.ZS.DThreeTwo
 import CFSG.LocalAnalysis.StandardType.ZS.DThreeExc
 import CFSG.LocalAnalysis.StandardType.ZS.DThreeTernary
 import CFSG.LocalAnalysis.StandardType.ZS.DThreeWeyl
 import CFSG.LocalAnalysis.StandardType.ZS.DThreeTernaryThree
 import CFSG.LocalAnalysis.StandardType.ZS.DThreeTernaryReverse
-import CFSG.LocalAnalysis.StandardType.ZS.DThreeObstruction
 import CFSG.LocalAnalysis.StandardType.ZS.DThreeUnitary
 import CFSG.LocalAnalysis.StandardType.ZS.DThreeFischerType
-import CFSG.LocalAnalysis.StandardType.ZS.DThreeTransport
 import CFSG.Fischer.Assembly
 import CFSG.Fischer.Classification.Milestone
 import CFSG.Fischer.NoF25.Local

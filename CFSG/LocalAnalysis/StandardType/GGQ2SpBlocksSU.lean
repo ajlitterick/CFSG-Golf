@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDefs
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureLieGUDet
-public import CFSG.GroupTheory.WeirSylow.UnitaryBridge
-public import CFSG.Assembly.Defs
 public import CFSG.Assembly.LargeEvenDefs
 import CFSG.Assembly.GL83StatedBridge
-import CFSG.LieType.Universal.Unitary.Clause0
 import CFSG.LieType.SemisimpleCentralizers.HeldCompTrivSU
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResU3ThreeSolv
 import CFSG.GroupTheory.HallHigmanPiCore

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.RawGenSchO
-public import CFSG.Certificates.Kernel.Spor.RawSch4OSound
 public import CFSG.Certificates.Kernel.Spor.RawSchOSound
 public meta import Certificates.Kernel.Sporadic.RawGenSchO
 public meta import CFSG.Certificates.Kernel.Common.Tab

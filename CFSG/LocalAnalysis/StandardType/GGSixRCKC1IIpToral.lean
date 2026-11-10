@@ -3,12 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGA6GlueToral
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreE6NonToralHolds
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeConfigID
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIpIso
-public import CFSG.LocalAnalysis.StandardType.ChevTwoMarking
-public import CFSG.LocalAnalysis.StandardType.GGLinearSemisimple
-public import CFSG.LocalAnalysis.ComponentInitial.FixedComponentCorrespondence
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-public import CFSG.LocalAnalysis.StandardType.AlternatingEightNormalizerAction
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIField
 
 public section

@@ -3,11 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveDataSpSpTwo
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneCharts
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrCompare
 import CFSG.ClassicalInvolution.WeakCT.SpSpGlue
-import CFSG.Assembly.Subnormal
 
 public section
 

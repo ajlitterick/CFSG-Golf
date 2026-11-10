@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerTypeADvdModel
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUAct
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryDvdAct
-public import Mathlib.RingTheory.RootsOfUnity.Basic
 
 public section
 

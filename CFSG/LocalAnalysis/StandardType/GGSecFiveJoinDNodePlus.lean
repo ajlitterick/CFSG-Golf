@@ -3,13 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinDMarked
 public import CFSG.LocalAnalysis.StandardType.GGStdPosDTorus
 public import CFSG.LocalAnalysis.StandardType.GGRankOneSl2
-public import CFSG.LieType.Universal.Spin.Generation.Eichler
-public import CFSG.LieType.Universal.SpinOmega.Range
-public import CFSG.LieType.Universal.SpinOmega.Kernel
-public import CFSG.LieType.Steinberg.Classical.SpinFrame.Weyl
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431D4Aux.OrthL2.Witt
 import CFSG.ClassicalInvolution.Phan.PhanDn.NodeEichler
-import CFSG.RankThree.PartOne.CTP.PhanBridge
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.RankThree.PartOne.KC.OrthogonalD4WitnessEven
 public import CFSG.RankThree.PartOne.KC.OrthogonalD4WitnessOdd

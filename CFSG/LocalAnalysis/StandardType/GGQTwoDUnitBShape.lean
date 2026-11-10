@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBase
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBShapeA2
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBShapeB2
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBShapeM2
 

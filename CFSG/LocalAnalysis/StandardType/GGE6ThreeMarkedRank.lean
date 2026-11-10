@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCoverComponent
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreePointwise
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4NoD4Table
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeRowCover1585Holds
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632RatOpp
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632RatOne
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632B1Rows
 
 public section

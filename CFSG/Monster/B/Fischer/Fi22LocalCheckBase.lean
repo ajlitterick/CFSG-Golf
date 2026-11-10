@@ -5,7 +5,6 @@ public import CFSG.Monster.B.Fischer.Fi22OuterCheckBase
 public import CFSG.Monster.B.Fischer.Fi22OrderCheck
 public meta import CFSG.Monster.B.Fischer.Fi22OuterCheckBase
 public meta import CFSG.Monster.B.Fischer.Fi22OrderCheck
-public import CFSG.Monster.B.Fischer.Fi22OuterArrays
 
 @[expose] public section
 

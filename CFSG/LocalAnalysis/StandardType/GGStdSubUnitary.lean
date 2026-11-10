@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1JInputs
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreCl
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
-import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatTypeDet
 import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotCatTypeDet
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I91T5
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitarySixThreeCases

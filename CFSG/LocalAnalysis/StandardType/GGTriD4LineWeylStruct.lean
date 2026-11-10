@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTriD4LineWeylData
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
-public import CFSG.LieType.Chevalley.EvenTrialityAutomorphismNormalForm
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTriality
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneAutRank
 import CFSG.LocalAnalysis.StandardType.GGL45FixA2Arith
-import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

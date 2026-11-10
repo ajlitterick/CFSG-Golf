@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightD4Tri
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightUni
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.F4InnerComp
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.ExcResOutF4
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthSU38Image
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.CompSLOB
 

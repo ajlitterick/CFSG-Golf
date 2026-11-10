@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 public import CFSG.LocalAnalysis.StandardType.ZS.ReflHyp
 public import CFSG.LocalAnalysis.StandardType.ZS.DThreeTransport
 public import CFSG.LocalAnalysis.StandardType.ZS.DThreeObstruction
@@ -10,8 +9,6 @@ public import CFSG.LocalAnalysis.StandardType.ZS.DThreeTernaryOrder
 public import CFSG.LocalAnalysis.StandardType.GGZSKModelIso
 public import CFSG.LocalAnalysis.StandardType.GGWitSlpmConjAux
 import all CFSG.LocalAnalysis.StandardType.GGZSHallSoicherInputs
-public import CFSG.Fischer.Classification.Orthogonal3.Model
-public import CFSG.Fischer.Classification.PartIII.Beta.Forms
 public import CFSG.LocalAnalysis.StandardType.GGWitSlpm
 
 public section

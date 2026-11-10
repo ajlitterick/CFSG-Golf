@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LieType.Chevalley.WeylRoots
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLFaithful
-public import Mathlib.Data.Matrix.Mul
-public import Mathlib.Data.List.GetD
 
 public section
 

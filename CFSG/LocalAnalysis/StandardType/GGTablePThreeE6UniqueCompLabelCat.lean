@@ -2,23 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6UniqueCompLabel
 public import CFSG.LocalAnalysis.StandardType.GGExcCompSLCat
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.Untw
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.TwE6
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcMonomial
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcAssemblyE
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcAssemblyTw
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
-public import CFSG.LieType.SeitzGeneration.ExcPlaneModel
-public import CFSG.LieType.SeitzGeneration.ExcTorusCatTw
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
-public import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExc
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExcTw2
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangCore
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Certs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.Transfer
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiag
@@ -28,13 +17,8 @@ public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidNorm
 public import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
 public import CFSG.RankThree.PartOne.KE.E7FiveBlock
 public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
-import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TwE6
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialPoly
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.OuterField
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidField
-import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaPlusIota
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphUnitaryNormal
 import CFSG.LocalAnalysis.SeitzReduction.LinearPilotQ2RowNeighbour
@@ -56,7 +40,6 @@ import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2RowOmegaClass
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2RowOmegaUnitaryRows
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2RowUnitaryCover
 import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotInvolutionTwoPartEvenInner
-import CFSG.RankThree.PartOne.KE.E8D4Family
 import CFSG.RankThree.PartOne.KEXC.Basic
 import CFSG.RankThree.PartOne.TCX.Ree.Perm
 

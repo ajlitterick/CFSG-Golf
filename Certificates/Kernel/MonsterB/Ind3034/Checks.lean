@@ -4,7 +4,6 @@ module
 public import Certificates.Data.Kernel.Ind3034K
 public import Certificates.Kernel.MonsterB.IndOrbData
 public import Certificates.Kernel.MonsterB.IndTransData
-public import Certificates.Kernel.MonsterB.Diag3031Data
 public import Certificates.Kernel.MonsterB.Ind3034.Data
 import CFSG.Certificates.Kernel.Common.Harness
 

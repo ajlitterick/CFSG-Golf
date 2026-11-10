@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Cases
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166TwA5Eight9
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerSymplecticOrth
-public import CFSG.Open.StatedSUFieldChange
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-public import CFSG.SignalizerFunctorTheorem.NearModels.Unitary.Basic
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcAction
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15ACoreArith
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15ACorePerm

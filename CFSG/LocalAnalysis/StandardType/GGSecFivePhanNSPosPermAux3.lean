@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
-public import CFSG.ClassicalGroups.Unitary.Perfect
-public import CFSG.Assembly.GL83StatedBridge
 public import CFSG.LocalAnalysis.StandardType.GGL45TGSU
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCentral
-public import CFSG.RankThree.PartOne.S15K.CentralCover
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154UniMark
 
 public section

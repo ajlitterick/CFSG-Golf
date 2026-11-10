@@ -6,13 +6,8 @@ import Certificates.Kernel.Fi22Rk.ChecksConj
 import Certificates.Kernel.Fi22Rk.ChecksStab
 import Certificates.Kernel.Fi22Rk.ChecksTau
 import Certificates.Kernel.Fi22Nfp.Final
-import Certificates.Kernel.Fi22Core.OrbData
-import Certificates.Kernel.Fi22Cent.Final
 import CFSG.Certificates.Kernel.Fi22Rk.Uniq
-import CFSG.Certificates.Kernel.Spor.HexNumsSound
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp
-import Certificates.Kernel.Sporadic.ON.Gen
-import Mathlib.Tactic.IntervalCases
 import CFSG.Sporadic.FischerOddCore.LabelSpec
 
 #kon_join CertificateChecks.KernelFi22Rk.K.lay0All CertificateChecks.KernelFi22Rk.K.lay0 16

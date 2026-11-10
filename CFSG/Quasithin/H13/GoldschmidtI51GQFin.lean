@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.H13.Sp62S6Over
 public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.Quasithin.H13.GoldschmidtI51GQFinK
 

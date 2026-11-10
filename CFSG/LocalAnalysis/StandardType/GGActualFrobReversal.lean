@@ -1,10 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFinModelExists
-public import CFSG.LocalAnalysis.StandardType.GGFinModelInput
-public import CFSG.LocalAnalysis.StandardType.GGFinModelTorusMem
-public import CFSG.LocalAnalysis.StandardType.GGFinModelEps
-public import CFSG.RankThree.PartOne.KF4.A2Frame
 public import CFSG.LocalAnalysis.StandardType.GGResidualA2Pair
 
 public section

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylB
 public import CFSG.LieType.Steinberg.CentralExt.PSpEvenMultiplier
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticModelOuterTwoPart
-public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixCoverModel
 public import CFSG.LieType.Steinberg.CentralExt.F4E8Multiplier
 public import CFSG.LieType.Steinberg.CentralExt.PSpMultiplier
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoProjectiveFormulas

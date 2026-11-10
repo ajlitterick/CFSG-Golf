@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.Families
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcFieldCore
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.DiagField
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.LieOuterFamilies
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Families
 
 public section

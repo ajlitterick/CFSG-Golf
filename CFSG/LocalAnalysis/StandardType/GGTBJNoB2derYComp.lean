@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGFixSub
 import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
 import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derCentB
 import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derExistsY
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 
 public section
 

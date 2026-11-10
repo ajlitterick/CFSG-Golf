@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmBHyp
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7Basic
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7NPDiag
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Fixed
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4CorCDiagCover
-public import CFSG.ClassicalInvolution.LBalance.Main
-public import CFSG.FeitThompson.OddOrderTheorem
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitGeneral
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCorollaryC
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitFixedHe

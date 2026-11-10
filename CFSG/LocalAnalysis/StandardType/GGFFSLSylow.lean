@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGFFModelDefs
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowFWreath
 import CFSG.RankThree.PartTwo.Sec4.RonanK429RowFLin
-import CFSG.RankThree.PartTwo.Sec4.T444.Item434AltPerm
 import CFSG.RankThree.PartTwo.Sec5.Tools
 import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherLinearOuterOrder

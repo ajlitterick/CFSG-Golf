@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAmbOrbitBridge
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAmbPlane
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCell
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveInputs
-public import CFSG.LocalAnalysis.StandardType.GGLineStabNormalizes
 
 public section
 

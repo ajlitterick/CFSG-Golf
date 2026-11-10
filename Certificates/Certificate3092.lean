@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentBridgeInputs
 import Certificates.Kernel.LocalComp.Co3SurjK
-import Certificates.Kernel.LocalComp.Co3SurjChecks
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

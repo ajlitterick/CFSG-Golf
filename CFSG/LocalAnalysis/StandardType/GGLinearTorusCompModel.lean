@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompBlock
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotRootSL2Aut
-public import CFSG.LieType.Universal.SpecialLinear
 
 public section
 

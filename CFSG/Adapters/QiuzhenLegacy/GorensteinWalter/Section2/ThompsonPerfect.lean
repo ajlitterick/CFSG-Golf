@@ -3,7 +3,6 @@ module
 public import Mathlib.GroupTheory.PGroup
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ComplementConjugacy
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 
 public section
 

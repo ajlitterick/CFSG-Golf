@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Stage2.Local.P27M12Basic
 public import CFSG.GH74.GLS.Stage2.Local.Prop27Br
-public import CFSG.GH74.GLS.Stage2.Local.Ctx0
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB58Section
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB58SubBasic
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCentral

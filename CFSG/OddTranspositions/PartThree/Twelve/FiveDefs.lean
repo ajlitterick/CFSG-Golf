@@ -1,6 +1,5 @@
 module
 
-public import CFSG.OddTranspositions.HypothesisC
 public import CFSG.OddTranspositions.PartFour.LinePolar
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.AschbacherCanonicalRemaining

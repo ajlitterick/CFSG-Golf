@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResSideDatumDefs
 public import CFSG.LocalAnalysis.StandardType.GGRCWeylConnected
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 public import TauCeti.Combinatorics.SimpleGraph.BranchComponents
 public import CFSG.YGroups.Y443.Native.Hom
 

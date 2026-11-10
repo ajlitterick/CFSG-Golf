@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6SplitRootGen
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6SplitCoverComm
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6Label
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSLTransfer
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcCoverRows
 
 public section
 

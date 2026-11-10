@@ -4,8 +4,6 @@ public import CFSG.LieType.AlgebraicGroups.SeminaireExp3
 public import CFSG.LieType.AlgebraicGroups.ConnectedToralLangFrobenius
 public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningFrobenius
 public import CFSG.LieType.Chevalley.C2E6SubsystemBruhatDefs
-public import CFSG.LieType.Chevalley.TwistMap
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

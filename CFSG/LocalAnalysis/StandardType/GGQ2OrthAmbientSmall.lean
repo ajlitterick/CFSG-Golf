@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2OrthPlaneForm
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthType
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 public import CFSG.Quasithin.Background.SzG11G94Solv
 public import CFSG.ClassicalInvolution.Orders.OrthogonalIndex
 

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.Sp6J.Data
 public import Certificates.Data.Kernel.SporSch.SliceK
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

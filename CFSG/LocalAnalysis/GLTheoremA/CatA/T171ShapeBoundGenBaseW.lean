@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundGenBase
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeWSetup
 
 public section
 

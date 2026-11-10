@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.HypC
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineOne
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineNineConseq
-public import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockDefs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGLHyp111Config
 
 public section

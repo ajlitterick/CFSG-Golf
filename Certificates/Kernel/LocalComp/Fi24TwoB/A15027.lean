@@ -2,9 +2,7 @@ module
 
 public import Certificates.Kernel.LocalComp.Fi24TwoB.Ch15027
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicFi24TwoBK
-public import CFSG.Certificates.Kernel.BfsPinSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.GeneralizedFitting
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

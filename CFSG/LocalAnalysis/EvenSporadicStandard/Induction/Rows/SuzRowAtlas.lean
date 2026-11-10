@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.SuzPinned
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.PinnedPair
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.SuzONStage3
 public import CFSG.RankThree.GroupTheory.SteinbergBYCentralCoverRank
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BlockFourFactorSupport
 public import CFSG.LocalAnalysis.ComponentClassification.BlockLargeProductInvolutions
 public import CFSG.LocalAnalysis.ComponentClassification.BlockMovedFactorSylowCentral

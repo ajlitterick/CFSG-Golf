@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcCoverRows
-public import CFSG.LocalAnalysis.StandardType.GGCoverRkCoprimeNarrow17Defs
 
 public section
 

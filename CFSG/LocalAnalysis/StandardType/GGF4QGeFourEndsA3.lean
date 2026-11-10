@@ -1,16 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourEnds
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRestOriginalWeyl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBMaxToPair
 import CFSG.LocalAnalysis.StandardType.GGF4TypeCards
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrWeylA
-import CFSG.LocalAnalysis.StandardType.GGSpJoinCoxeterCard
-import CFSG.LocalAnalysis.StandardType.GGSpFrameCoxeterCard
-import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD
-import CFSG.LocalAnalysis.StandardType.GGLargeRowCard
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeABridge
 import CFSG.LocalAnalysis.StandardType.GGAutomizerJoinInduced
 
 public section

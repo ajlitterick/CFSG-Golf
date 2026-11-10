@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldDefs
 public import CFSG.LocalAnalysis.StandardType.GGHypSixTypeA
 public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
 
 public section
 

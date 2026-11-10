@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC15TFrame
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven10NatRank
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven3FourteenSmall
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightV1CardO
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenFourteenNGAlt
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenFourteenNGLn
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenFourteenNGOmega

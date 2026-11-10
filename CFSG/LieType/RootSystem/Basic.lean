@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.Coxeter.Basic
-public import TauCeti.LinearAlgebra.RootSystem.FiniteType.Basic
 public import TauCeti.LinearAlgebra.RootSystem.Coxeter.Matrix
 
 public section

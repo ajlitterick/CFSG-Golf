@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LieType.SpinGeom.Law
 public import CFSG.LieType.SpinGeom.Mem
-public import CFSG.LieType.Sp6Spin.Model
-public import CFSG.Open.StatedAPI
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalSplitSubspaceCount
 
 public section
 

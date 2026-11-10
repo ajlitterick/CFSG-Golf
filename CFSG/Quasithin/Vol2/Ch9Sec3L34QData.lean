@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Fischer.F4
-public import Mathlib.Algebra.Order.Ring.Star
 
 public section
 

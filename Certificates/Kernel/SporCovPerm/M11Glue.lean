@@ -6,9 +6,6 @@ public import CFSG.Certificates.Kernel.SporCov.PCl
 public import CFSG.Sporadic.Mathieu.M11
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestM11Abs
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestMaxPair
-public import Mathlib.Algebra.Group.Pointwise.Finset.Scalar
-public import Mathlib.GroupTheory.GroupAction.Quotient
-import Mathlib
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.Quasithin.Background.E1Solv
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51eOrthPc
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P58bOLieComp
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

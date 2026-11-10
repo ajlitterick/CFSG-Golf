@@ -2,14 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1432LieForkDefs
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.ExcTriThree
-public import CFSG.HardMathSupport.Dickson.Sec6.I923Aux.Split
 import CFSG.LocalAnalysis.GLTheoremA.CatB.H1432LieForkBase
 import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.ExcTriClassA
-import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.TriD4Aux.G2Class
-import CFSG.LieType.Chevalley.AdjointCenter
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
-import CFSG.RankThree.Chevalley.ExceptionalModelOrderThree
-import CFSG.RankThree.PartOne.KGD.D4T36Core
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.TrialityChar3.Setup
 public import CFSG.HardMathSupport.Dickson.I271.ChevPBal
 public import CFSG.HardMathSupport.Dickson.I271.I202Full

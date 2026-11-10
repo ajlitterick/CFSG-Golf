@@ -1,7 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.OddCore.PEnumCmd
-public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
 public import Certificates.Kernel.Sporadic.OddCore.HL
 public import Certificates.Kernel.LocalComp.L34RData
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldFixIsoCheckInputs

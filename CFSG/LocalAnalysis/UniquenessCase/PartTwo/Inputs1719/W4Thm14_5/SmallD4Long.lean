@@ -3,22 +3,14 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallD4Perp
 public import CFSG.Quasithin.Background.SmithB42D4Inv
 import CFSG.Quasithin.Background.SmithB42D4Main
-import CFSG.Quasithin.Background.SmithB42D4Gen
-import CFSG.Quasithin.Background.SmithB42D4Weyl
-import CFSG.Quasithin.Background.FixVLattice
-import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
-import CFSG.LieType.Chevalley.TrialityExactFiniteOrder
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 public import CFSG.Quasithin.Background.H16TwoM22
 public import CFSG.Quasithin.Background.RonanH143Main
 public import CFSG.Quasithin.Background.RonanH154Vocab
 public import CFSG.Quasithin.Background.RonanH155Vocab
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

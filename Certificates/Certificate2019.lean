@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2019Base
 
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB81A8PermInputs
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3A8Data
 import Certificates.Kernel.Census.CatFacts.C2019
 

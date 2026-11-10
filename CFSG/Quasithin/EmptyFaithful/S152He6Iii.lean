@@ -6,7 +6,6 @@ public import CFSG.Quasithin.EmptyFaithful.S152L27Insp
 public import CFSG.Quasithin.EmptyFaithful.S152He5Defs
 public import CFSG.Quasithin.EmptyFaithful.S152NBasic
 public import CFSG.Quasithin.EmptyFaithful.S146xThreeA
-public import CFSG.Quasithin.Vol2.Ch1Comm
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyStatements
 public import CFSG.Quasithin.Background.B1More13Defs
@@ -18,7 +17,6 @@ public import CFSG.Quasithin.Background.B69Cent
 public import CFSG.Quasithin.Background.B69Main
 public import CFSG.Quasithin.Background.B69Stab
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.InternalSecAutOn
 public import CFSG.Quasithin.Background.InternalSecB4
 public import CFSG.Quasithin.Background.InternalSecISec
@@ -30,7 +28,6 @@ public import CFSG.Quasithin.EmptyFaithfulMultiple.TheoremE
 public import CFSG.Quasithin.Vol2.Ch3Sec1Lem319Aux
 public import CFSG.Quasithin.Vol2.Ch3zGood
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Defs
 
 public section

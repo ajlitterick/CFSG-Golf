@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcEndNode
 public import CFSG.LocalAnalysis.SeitzReduction.E7PilotQ2Neighbour
 public import CFSG.LocalAnalysis.SeitzReduction.E8PilotLeviNonsplit

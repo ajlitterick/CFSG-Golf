@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Misc.YamakiAutM
-public import Certificates.Data.Kernel.Misc.YamakiA0
 
 public section
 

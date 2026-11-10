@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.BRowAbstract
 public import CFSG.Monster.B.CTIB.SylowCenter
-public import CFSG.Monster.B.CTIB.CoreCensus
-public import CFSG.Monster.B.CTIB.FourClasses
 public import CFSG.Monster.Existence.BabyTableIVOf
 public import CFSG.Monster.Existence.BabyW3Classes
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Common

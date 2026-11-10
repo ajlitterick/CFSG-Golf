@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P58b3LE7
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51QX7
-public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE7Levi
-public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE7Descent
-public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE7Rank1
-public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLeviToral
 public import CFSG.ClassicalInvolution.ModelFacts.E7ModelSylow
 public import CFSG.ClassicalInvolution.ModelFacts.E7ModelRoots
 public import CFSG.GH74.GLS.IVK.Proofs2.NatModGrp
@@ -25,7 +21,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1S73Props
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78Functor
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78Maximal
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B2Thompson
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase

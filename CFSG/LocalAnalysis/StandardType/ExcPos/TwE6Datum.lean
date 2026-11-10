@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3DictPhi
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
-public import CFSG.RankThree.Classical2.TwistedE6RationalOrder
 
 public section
 

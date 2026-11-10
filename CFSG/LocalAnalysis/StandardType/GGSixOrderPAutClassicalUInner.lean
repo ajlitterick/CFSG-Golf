@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutDefs
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSU
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeLift
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSUDiag
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepFrame
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryDvdFrame
 
 public section

@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBMain
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBE7E8
 public import CFSG.LocalAnalysis.StandardType.GGExcFrameLang
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoFusionE7
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoFusionE8
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE7
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE8
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxCount
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxFixedRoot
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxToral

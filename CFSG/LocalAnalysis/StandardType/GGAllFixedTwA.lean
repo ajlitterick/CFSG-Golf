@@ -2,14 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedA8Seven
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdUnitary
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiag
 public import CFSG.LieType.SemisimpleCentralizers.UnitCentralizerSolvable
-public import CFSG.RankThree.Coprime.ThompsonElementaryComplement
-public import CFSG.GroupTheory.FixedCentralQuotientFamily
-public import Mathlib.GroupTheory.SemidirectProduct
 
 public section
 

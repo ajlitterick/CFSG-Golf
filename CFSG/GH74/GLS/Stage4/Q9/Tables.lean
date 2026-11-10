@@ -1,13 +1,9 @@
 module
 
-public import CFSG.GH74.GLS.Stage4.Q9.ModelBase
-public import CFSG.CharacterTheory.PSL2Table
 public meta import CFSG.GH74.GLS.Stage4.Q9.ModelBase
 public meta import CFSG.CharacterTheory.PSL2Table.Basic
 public meta import Mathlib
-public import CFSG.GH74.GLS.Stage4.Q9.TablesInputs
 public meta import CFSG.GH74.GLS.Stage4.Q9.TablesInputs
-public import Certificates.Certificate5100
 public import Certificates.Certificate5102
 
 public section

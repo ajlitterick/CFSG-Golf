@@ -4,14 +4,8 @@ public import CFSG.RankThree.PartTwo.Sec15.Item1514Steps1518
 public import CFSG.RankThree.PartTwo.Sec13.Item135Simple
 import CFSG.RankThree.PartTwo.Sec19.Step1913
 import CFSG.RankThree.PartTwo.KFacts.KS18MultProof
-import CFSG.RankThree.PartTwo.Sec14.Item1411
-import CFSG.RankThree.PartTwo.Sec13.Item13Basic
-import CFSG.RankThree.PartTwo.Sec13.Item13Prod
-import CFSG.RankThree.PartTwo.Sec13.Item13Theta
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec13.Item136Pair
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
-import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.RankThree.PartTwo.Sec13.Item135
 import CFSG.Certificates.WordSubgroupRel
 import CFSG.LieType.Multipliers.ProductKernel

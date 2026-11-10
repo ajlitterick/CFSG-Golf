@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4Defs
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import CFSG.LieType.Chevalley.RootCharacterKernelProduct
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 public import CFSG.LieType.AlgebraicGroups.ToralRootCover
-public import CFSG.Open.Defs
-public import CFSG.LocalAnalysis.SectionRank.LocalDet
 
 public section
 

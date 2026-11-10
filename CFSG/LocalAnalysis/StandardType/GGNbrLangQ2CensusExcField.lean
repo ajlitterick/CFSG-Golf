@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusExcAdj
 import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelRecipeID
 import CFSG.LocalAnalysis.StandardType.GGE6InnerDiagBoundThreeProof3
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
 
 public section
 

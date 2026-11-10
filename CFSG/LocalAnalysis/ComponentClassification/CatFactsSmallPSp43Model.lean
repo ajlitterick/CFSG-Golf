@@ -1,11 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallModelConj
-public import CFSG.GH74.KGroups.NativeChecks2
-public import CFSG.GH74.Exceptional.UnitaryFourTwo
-public import CFSG.GH74.Generic.Context
-public import CFSG.Adapters.RankTwoModelTransports
-public import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 public meta import CFSG.GH74.KGroups.NativeChecks2
 public meta import CFSG.Fischer.Classification.PartIII.Beta.Data
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43ModelInputs

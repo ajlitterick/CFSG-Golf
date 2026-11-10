@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-import CFSG.LieType.Chevalley.AdjointCenter
 import CFSG.Adapters.TauCetiExceptional.BridgeTransport
-import CFSG.LieType.Steinberg.Isogeny.E6
 import CFSG.ClassicalInvolution.ModelFacts.ChevAutLift
 import CFSG.LieType.Steinberg.CentralExt.MinusculeCenter
 

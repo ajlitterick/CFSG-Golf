@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWZSu4V
 public import CFSG.ClassicalInvolution.RouteD.TWZLinkSu4
-public import CFSG.ClassicalInvolution.RouteD.TWSReduce
-public import CFSG.ClassicalInvolution.RouteD.TWYSp2
 public import CFSG.ClassicalInvolution.RouteD.TWZSmall
 
 public section

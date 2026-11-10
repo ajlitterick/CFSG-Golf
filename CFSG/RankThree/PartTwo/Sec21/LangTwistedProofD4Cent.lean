@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.LangTwistedProofD4
 public import CFSG.LieType.AlgebraicGroups.E6GraphCentralizerLang
-public import CFSG.LieType.Chevalley.LangRootArithmeticDet
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
@@ -29,7 +27,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B2Thompson
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase

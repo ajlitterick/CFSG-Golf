@@ -8,11 +8,9 @@ public import Certificates.Kernel.D42Tri.RhoHs0
 public import Certificates.Kernel.D42Tri.RhoHs1
 public import Certificates.Kernel.OmegaEight.Bridge3009
 public import CFSG.HardMathSupport.Dickson.Bal207.D42TriInputs
-public import CFSG.Certificates.Kernel.Spor.MulHSound
 public import CFSG.Certificates.Kernel.Spor.MulHFSound
 public import CFSG.Certificates.Kernel.Spor.BaseMaskGlue
 import CFSG.Certificates.Kernel.Common.ForallTree
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Census.SiftSound
 public import CFSG.Certificates.Kernel.Spor.BaseMaskSound
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -46,7 +44,6 @@ public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Sporadic.M23.M23Group
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.Sporadic.Th.F2Spec
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

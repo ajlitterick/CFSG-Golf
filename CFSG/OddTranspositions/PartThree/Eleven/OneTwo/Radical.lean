@@ -1,17 +1,10 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Eleven.Statements
-public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Hyp
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Pair
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Quandle
-public import CFSG.OddTranspositions.PartThree.EightFive.KBarSetup
 public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.Hyp
 public import CFSG.GH74.Generic.BProg.B2.L2Cover
 public import CFSG.ClassicalInvolution.SL2Facts
-public import CFSG.LieType.Steinberg.CentralExt.PSL2Multiplier
 public import CFSG.GroupTheory.CentralExtensionPerfectPreimage
 public import CFSG.OddTranspositions.PartThree.Eleven.GroupLemmas
-public import TauCeti.GroupTheory.DerivedCentralQuotient
 
 public section
 

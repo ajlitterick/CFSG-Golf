@@ -1,10 +1,8 @@
 module
 
-public import CFSG.RankThree.Native.LyFiveArrays
 public meta import CFSG.Monster.B.Fischer.InducedData
 public meta import CFSG.RankThree.Native.LyFiveArrays
 public meta import CFSG.RankThree.Native.LyFiveData
-public import CFSG.RankThree.Native.LyFiveImagesInputs
 public import Certificates.Certificate8131
 
 public section

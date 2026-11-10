@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.AllCharacteristicLang
 public import CFSG.LieType.AlgebraicGroups.G2ExceptionalRegularity
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

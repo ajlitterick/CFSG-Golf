@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPZWeylType
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
-public import CFSG.LocalAnalysis.StandardType.GGRCTypeADet
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormQuotTransvection
 
 public section

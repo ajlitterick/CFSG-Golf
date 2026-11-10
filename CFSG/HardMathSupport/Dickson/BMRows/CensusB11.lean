@@ -4,8 +4,6 @@ public import CFSG.HardMathSupport.Dickson.BMRows.CensusB11Elems
 public import CFSG.HardMathSupport.Dickson.BMRows.CensusB11Bender
 public import CFSG.HardMathSupport.Dickson.BMRows.CensusB11TwoB
 public import CFSG.HardMathSupport.Dickson.BMRows.CensusB11TwoA
-public import CFSG.Monster.Existence.BabyOrder
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.FixedFreeRank
 public import CFSG.Monster.GMS.BabyReduce
 public import CFSG.Monster.GMS.Facts.Section4
 

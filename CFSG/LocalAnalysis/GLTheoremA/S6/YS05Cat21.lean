@@ -5,9 +5,6 @@ public import CFSG.HardMathSupport.Dickson.BMRows.M11Rows
 public import CFSG.HardMathSupport.Dickson.BMRows.M11Holds
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I264bRes2
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3PBorMain
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3IInnerHolds
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ITitsD4
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3IField
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1422Char2Of
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanChevOuterD42Spec
 public import CFSG.Quasithin.Recognition.CertTrialityCheckInputs

@@ -2,15 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicFi24Census
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicFi23Model
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicSLP
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo2Pair
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo2Roots
-public import Certificates.Certificate1012
-public import Certificates.Certificate1013
-public import Certificates.Certificate1014
-public import Certificates.Certificate1016
-public import Certificates.Certificate1018
-public import Certificates.Certificate1019
 
 public section
 

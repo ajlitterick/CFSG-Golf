@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.SchreierChainOrderMembership
-public import Mathlib.Algebra.BigOperators.Fin
 
 public noncomputable section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperUnique
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrCompare
-import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordReflGroup
 
 public section

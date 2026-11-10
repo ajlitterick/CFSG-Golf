@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Tits8074.Glue
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

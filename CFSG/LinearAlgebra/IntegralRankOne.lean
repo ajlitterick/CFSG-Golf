@@ -1,10 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.Rank
-public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-public import Mathlib.Algebra.GCDMonoid.Finset
-import Mathlib.Tactic.Push
-import Mathlib.Tactic.Ring
 
 public noncomputable section
 

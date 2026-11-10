@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoFrameDefs
 public import CFSG.LocalAnalysis.StandardType.FF81.OverlapLinear
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoKBlocks
 import CFSG.LocalAnalysis.StandardType.GGSixBstarRestSL
-import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
-import CFSG.ClassicalInvolution.Phan.Blocks
 
 public section
 

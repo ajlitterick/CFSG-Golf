@@ -5,7 +5,6 @@ public import CFSG.Sporadic.Th.KernelPlanesBase
 
 public import CFSG.Sporadic.Th.KernelCentralizerBase1
 public import CFSG.Sporadic.ThSchreier.GlobalData
-public import CFSG.Sporadic.ThSchreier.LocalData
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicBCommDefs
 public import CFSG.RankThree.Asc83Table.MatCert
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2Fast
-public import CFSG.Open.Defs
 
 public section
 

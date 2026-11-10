@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeSNFinal
 public import CFSG.RankThree.PartTwo.Sec21.HoltCatalog
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeSNAlt
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeSNBender
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

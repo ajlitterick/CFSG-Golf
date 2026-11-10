@@ -1,10 +1,7 @@
 module
 
-public import CFSG.RankThree.GF2n.Tim79aSec2O2
 public import CFSG.RankThree.GF2n.Tim79aSec22Ti
 public import CFSG.RankThree.GF2n.Tim77Prop24Roots
-public import CFSG.RankThree.GF2n.Tim77TI
-public import CFSG.CGT.Timmesfeld75.Sec3Thirteen
 public import CFSG.GroupTheory.PCore.Transport
 public import CFSG.LargeExtraspecial.S9TIXC
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
@@ -24,25 +21,18 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryRootAutomorphism
 public import CFSG.Open.SplitBNPair
 public import CFSG.Permutation.BurnsideSchur
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B2FactorizationOffender
 public import CFSG.Quasithin.Background.B2FactorizationR2
 public import CFSG.Quasithin.Background.B2FactorizationResidual
 public import CFSG.Quasithin.Background.B2FactorizationSum
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.H13.StatementsL1
 public import CFSG.Quasithin.Vol2.Ch10StatementsE
 public import CFSG.Quasithin.Vol2.Ch10StatementsInputs
 public import CFSG.Quasithin.Vol2.Ch10StatementsInputsAS2
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Basic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Timmesfeld.Moufang.Three

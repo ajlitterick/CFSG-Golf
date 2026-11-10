@@ -4,9 +4,6 @@ public import CFSG.LieType.AlgebraicGroups.FrobeniusDiagramComorphism
 public import CFSG.LieType.AlgebraicGroups.ExactAffineRealization
 public import CFSG.LieType.AlgebraicGroups.TwistedOrbitSurjectivity
 public import CFSG.LieType.Chevalley.E6CanonicalFieldGraphFixed
-public import CFSG.LieType.Chevalley.GraphFixedData
-public import CFSG.LieType.Chevalley.ExactNormalFormE
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

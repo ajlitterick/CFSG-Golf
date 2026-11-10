@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcRelOneAt
-import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
-import CFSG.RankThree.PartOne.KE.CTTorusFixed
-import CFSG.RankThree.PartOne.KE.CTLang
 
 public section
 

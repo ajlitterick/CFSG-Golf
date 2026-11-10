@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinear
 public import CFSG.LocalAnalysis.StandardType.KGLangS1ALinTypeDet
 public import CFSG.LocalAnalysis.StandardType.KGLangS1ALinTransfer
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearAction
 import CFSG.LocalAnalysis.SeitzReduction.LinearPilotGlobalNormalSubfield
 
 public section

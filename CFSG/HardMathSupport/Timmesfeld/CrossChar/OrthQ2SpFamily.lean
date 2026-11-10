@@ -2,9 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.OrthQ2Cover
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.OrthQ2SpComm
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SymplecticOrder
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SymplecticPlane
-public import CFSG.RankThree.PartOne.KC.SymplecticIsotypicFixed
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SymplecticFamily
 
 public section

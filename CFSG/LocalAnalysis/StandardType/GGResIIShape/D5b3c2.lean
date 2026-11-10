@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResIIShapeOK
-public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
 import TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeD.SimpleRoots
 
 public section

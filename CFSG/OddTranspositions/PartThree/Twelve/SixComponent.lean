@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Twelve.SixPivot
 public import CFSG.OddTranspositions.PartThree.CommSetConj
 import CFSG.OddTranspositions.PartThree.SixThreeGlobal
-import CFSG.OddTranspositions.PartTwoSec6
 import CFSG.Goldschmidt75.OddCore
 import CFSG.OddTranspositions.PartThree.Twelve.Five
 import CFSG.OddTranspositions.PartFour.Fourteen.ShapeTransport

@@ -2,16 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection5.PFsection5_7
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection5.PFsection5_3
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection5.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_1
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_4
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_5
-import Mathlib.Algebra.MvPolynomial.Equiv
-import Mathlib.FieldTheory.IsAlgClosed.Classification
-import Mathlib.NumberTheory.NumberField.Cyclotomic.Basic
-import Mathlib.NumberTheory.NumberField.Cyclotomic.Galois
-import Mathlib.RingTheory.AlgebraicIndependent.Adjoin
-import Mathlib.RingTheory.RootsOfUnity.Complex
 
 namespace CFSG
 end CFSG

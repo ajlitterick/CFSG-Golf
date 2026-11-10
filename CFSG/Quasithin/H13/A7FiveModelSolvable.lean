@@ -4,8 +4,6 @@ public import CFSG.Quasithin.H13.Statements
 public import CFSG.GroupTheory.OrderBelowSixtySolvable
 public import CFSG.CharacterTheory.Burnside
 public import CFSG.LieType.SteinbergBRAltFiveGL3TwoRank
-public import CFSG.LieType.SteinbergBRAutGL32
-public import CFSG.LieType.Steinberg.CentralExt.Model
 public import CFSG.Timmesfeld.Orders.ClassicalLinear
 public import CFSG.Timmesfeld.Final.PSU33
 public import CFSG.Quasithin.Recognition.CertU33Psu
@@ -26,7 +24,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyBasic
 public import CFSG.LocalAnalysis.SectionRank.CentralLift
 public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.Quasithin.Background.F2Equiv
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

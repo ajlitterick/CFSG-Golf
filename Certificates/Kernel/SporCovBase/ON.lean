@@ -2,12 +2,8 @@ module
 
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
-public import Certificates.Data.Kernel.SporCov.Defs
 public import Certificates.Data.Kernel.SporCov.PCl
-public import Certificates.Data.Kernel.SporCov.Census
 public import Certificates.Data.Kernel.SporCov.BaseKit
-public import Certificates.Data.Kernel.Spor.ONK
 public import Certificates.Kernel.Sporadic.ON2.Data
 
 #kc_repo #kc_json_gz CFSG.KD.SporCovBase.ON.F3 "Certificates/Kernel/SporCovBase/data/on3.json.gz" 9707

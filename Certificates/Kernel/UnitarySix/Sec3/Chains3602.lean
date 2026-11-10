@@ -12,7 +12,6 @@ public import Certificates.Kernel.UnitarySix.Sec3.CA3s2
 public import Certificates.Kernel.UnitarySix.Sec3.CA3s3
 public import Certificates.Kernel.UnitarySix.Sec3.CA3s4
 public import CFSG.Certificates.Kernel.U6Sec3ElemSound
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Certificates.Kernel.Spor.RawSlSound
 public import CFSG.Certificates.Kernel.Spor.SiftEq

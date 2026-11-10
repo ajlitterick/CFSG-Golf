@@ -6,8 +6,6 @@ public import Certificates.Kernel.LyThree.Facts
 public import Certificates.Kernel.SporSch.Ly.FiveLanes
 public import CFSG.Certificates.Kernel.SlpClsPcSound
 public import CFSG.RankThree.PartOne.KS.LyFiveCore
-public import CFSG.LocalAnalysis.StandardType.GGSporKRestClasses
-public import CFSG.Sporadic.Suz.Setup
 
 public section
 

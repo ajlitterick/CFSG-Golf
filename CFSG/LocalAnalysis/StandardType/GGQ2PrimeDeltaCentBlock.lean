@@ -1,9 +1,6 @@
 module
 
-public import CFSG.Fischer.Unitary
-public import CFSG.Open.StatedDefs
 public import CFSG.RankThree.PartOne.KP.Fi22Unitary
-import CFSG.Fischer.F4
 
 public section
 

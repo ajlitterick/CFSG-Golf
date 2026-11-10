@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitOmNsFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitOmNsComp
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitOmInv
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitSpNsFrame
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorusField
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

@@ -1,13 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK1DDefs
-public import CFSG.LocalAnalysis.StandardType.GGK1DMult
-public import CFSG.LocalAnalysis.StandardType.GGK1DWitt
-public import CFSG.LocalAnalysis.StandardType.GGK1DBlocks
-public import CFSG.LocalAnalysis.StandardType.GGK1DFamily
-public import CFSG.LocalAnalysis.StandardType.GGK1DKind
 public import CFSG.LocalAnalysis.StandardType.GGK1DComp
-public import CFSG.LocalAnalysis.StandardType.GGK1DCentreless
 public import CFSG.LocalAnalysis.StandardType.GGK1DDvd
 public import CFSG.LocalAnalysis.StandardType.GGK1DCenter
 public import CFSG.LocalAnalysis.StandardType.GGK1DValid

@@ -5,12 +5,10 @@ public import Certificates.Kernel.Co2Chain.He12636Cnt
 public import Certificates.Kernel.Co2Chain.He12635
 public import Certificates.Kernel.SporSch.HeT.CntGlue
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThetaSpor.HeThreeSmall
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThetaSpor.HeThreeInputs
 public meta import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThetaSpor.HeThreeInputs
 public meta import CFSG.Sporadic.HeldB.HeBlocks
 public meta import Certificates.Data.CFSGNative.HeldB.Tests
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

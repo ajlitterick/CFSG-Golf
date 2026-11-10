@@ -1,15 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20o
-public import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
-import CFSG.Alternating.Multipliers.OddKernel
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankAlt
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15ACoreCoverUni
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15ACoreMatUni
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsLie
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.RankThree.PerfectCover.HopfFormula
 
 public section
 

@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.GL83PartI.I_24_3.Main
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KI2320Main
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3BSL34Sylow
-public import CFSG.LocalAnalysis.GLTheoremB.AutL34Bound
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.S3AmalgamBound.L34Exp3
-public import CFSG.CGT.Timmesfeld75.MultPrime
 public import CFSG.CGT.Timmesfeld75.OddCenter
 public import CFSG.CGT.Timmesfeld75.Sec5FiveEng
 public import CFSG.CGT.Timmesfeld75.Sec5Nine
@@ -46,8 +44,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

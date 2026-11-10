@@ -1,7 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CriticalSubgroupLemmas
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.PLengthLemmas
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.FocalSubgroup
@@ -16,15 +14,10 @@ public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.ActionTriviali
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.CoprimeAction
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.CyclicSylow
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.Core
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Faithful
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.NormalSubgroups
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.OmegaFrattini
-public import Mathlib.GroupTheory.SpecificGroups.ZGroup
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Core
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.BaerCore
 
 namespace CFSG
 end CFSG

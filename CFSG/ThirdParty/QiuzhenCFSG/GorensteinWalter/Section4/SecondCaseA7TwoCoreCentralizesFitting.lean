@@ -1,10 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7EquationSix
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.CentralizerCondition
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.Proposition12
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

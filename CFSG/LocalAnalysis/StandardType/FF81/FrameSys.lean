@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FF81.Defs
 public import CFSG.LocalAnalysis.StandardType.FF81.FrameMat
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionLinear
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGraphAction
 import CFSG.ClassicalInvolution.WeakCT.AutExtend
 import CFSG.ClassicalInvolution.WeakCT.Standard
 import CFSG.ClassicalInvolution.Q3.TL4D1ML32B

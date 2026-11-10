@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcNorm
-public import CFSG.LocalAnalysis.StandardType.GGKGForkTransfer
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylReflectionOfFixedPoints
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcRootRefl1
 
 public section

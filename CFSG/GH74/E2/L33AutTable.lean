@@ -1,14 +1,10 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.E2.Q8C2Check
 public import CFSG.GH74.E2.Shapes
-public import CFSG.GH74.KGroups.L33
 public meta import Mathlib
 public meta import CFSG.GH74.E2.Q8C2Check
 public meta import CFSG.GH74.KGroups.L33
 public import Certificates.Certificate5011
-public import Certificates.Certificate5120
 public import CFSG.GH74.SectionalRank
 public import CFSG.GH74.Statements
 public import CFSG.LieType.CurtisTits.Conclusion

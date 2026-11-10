@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Conj
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaThreeSix
 
 public section

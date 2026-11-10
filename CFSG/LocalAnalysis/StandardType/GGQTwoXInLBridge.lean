@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGPumpupBalance
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
-public import CFSG.LocalAnalysis.ComponentClassification.CentralExtensions
 public import Certificates.Kernel.ThCent.Leaves
 
 public section

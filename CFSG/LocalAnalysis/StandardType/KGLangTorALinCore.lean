@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.KGLangTorALinLift
 import CFSG.LocalAnalysis.StandardType.KGLangTorALangElt
 import CFSG.LocalAnalysis.StandardType.GGPGLToralityMain
-import CFSG.LocalAnalysis.StandardType.GGNbrLangTypeATorus
 import CFSG.LocalAnalysis.StandardType.GGNbrLangTypeAFrame
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeALift
 
 public section
 

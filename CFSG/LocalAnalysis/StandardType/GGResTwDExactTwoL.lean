@@ -1,16 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResTwoCells
-public import CFSG.LocalAnalysis.StandardType.GGResTwDInverter
 public import CFSG.LocalAnalysis.StandardType.GGTBJOrthLeft
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreOrth
 public import CFSG.LocalAnalysis.StandardType.GGResExcSplitExactTwoL
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourTBSmall
 public import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameOfMarking
-public import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameCenter
 public import CFSG.LocalAnalysis.StandardType.GGOrthFrameTwoLocal
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseOrthFrame
-public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeCent
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLayerGen
 import CFSG.Quasithin.EmptyFaithful.E111RFacts
 

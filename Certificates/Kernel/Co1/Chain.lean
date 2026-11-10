@@ -6,7 +6,6 @@ public import CFSG.Certificates.Kernel.Co1.Data.C1_Sel
 public import CFSG.Certificates.Kernel.Co1.Data.C2_Sel
 public import Certificates.Data.Kernel.BindRange
 public import Mathlib.Tactic.IntervalCases
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Co1.Checks.Bind
 
 public section

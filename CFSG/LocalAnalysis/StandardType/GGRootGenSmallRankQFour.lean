@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourDom
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRankExc
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflDom
 
 public section
 

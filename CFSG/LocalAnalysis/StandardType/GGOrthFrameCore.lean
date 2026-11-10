@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrame
 public import CFSG.LocalAnalysis.StandardType.GGOrthFrameTransport
 public import CFSG.LocalAnalysis.StandardType.GGOrthFrameModel
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.StandardType.GGOrthRk1FieldTwo
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
 

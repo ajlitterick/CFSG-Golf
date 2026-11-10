@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.TitsSimplicity.Core
 public import CFSG.LieType.TitsSimplicity.Indecomposable
 public import CFSG.LieType.TitsSimplicity.Unipotent
-public import CFSG.Foundations.Basic
 
 public section
 

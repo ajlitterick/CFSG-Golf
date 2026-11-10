@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Misc.Coset.Mem
-public import Certificates.Data.Kernel.Bounds.Table
 public import CFSG.Certificates.Kernel.CosetBounds
 
 public section

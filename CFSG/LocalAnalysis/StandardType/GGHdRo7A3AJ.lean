@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7A3Basic
-import CFSG.LocalAnalysis.StandardType.GGRCWeylConnected
 import CFSG.Quasithin.Background.F918V3T3A
 
 public section

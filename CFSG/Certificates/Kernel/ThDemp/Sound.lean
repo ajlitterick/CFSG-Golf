@@ -4,8 +4,6 @@ module
 public import CFSG.Certificates.Kernel.ThDemp.SoundBase
 import all CFSG.Certificates.Kernel.ThDemp.SoundBase
 
-public import Certificates.Data.Kernel.ThDemp.Defs
-public import CFSG.Certificates.Kernel.ThDemp.Chain
 public import CFSG.Certificates.Kernel.Th.Spec.FwdRel
 import CFSG.Certificates.Kernel.Th.Spec.FwdSlp
 

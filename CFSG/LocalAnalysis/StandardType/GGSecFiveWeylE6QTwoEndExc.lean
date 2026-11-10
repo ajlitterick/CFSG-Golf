@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoEndFacts
-public import CFSG.LocalAnalysis.StandardType.GGNbrLang
-public import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRankDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6BadWeyl
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteCard
 public import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRank

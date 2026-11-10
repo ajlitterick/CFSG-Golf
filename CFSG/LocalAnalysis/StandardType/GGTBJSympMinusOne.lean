@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusOneData
 public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusCenter
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2der
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GSympLabel
 import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derExistsY
 
 public section

@@ -4,8 +4,6 @@ public import CFSG.Quasithin.Recognition.St84.EdgeStabB
 public import CFSG.Quasithin.Recognition.St84.Track
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec8P1Arc
 public import CFSG.Quasithin.Recognition.St84.Singularity
-public import CFSG.Quasithin.Recognition.St84.Gold26
-public import CFSG.Quasithin.Recognition.St84.L2Group
 public import CFSG.GroupTheory.SolvableHallNodes
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 

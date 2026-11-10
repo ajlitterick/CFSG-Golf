@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.FieldPOmegaOdd
 public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.FieldPOmegaPlus
 public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.FieldPOmegaMinus
 public import CFSG.RankThree.PartTwo.Census.Carrier.SpinBOdd
-public import CFSG.RankThree.PartTwo.Census.Carrier.SpinDOdd
 public import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDOdd
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface

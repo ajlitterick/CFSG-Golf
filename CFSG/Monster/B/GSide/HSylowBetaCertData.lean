@@ -1,9 +1,6 @@
 module
 
-public import CFSG.Monster.B.CTIB.HInnerCensus
-public import CFSG.Monster.B.CTIB.Rank2158Witness
 public meta import CFSG.Monster.B.CTIB.HInnerCert
-public import CFSG.Monster.B.GSide.HSylowBetaCertDataInputs
 public import Certificates.Certificate3137
 
 public section

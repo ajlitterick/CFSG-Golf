@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.SmithB45TorD4
-public import CFSG.Quasithin.Background.SmithB42D4Main
-public import CFSG.LocalAnalysis.SectionRank.TrialityEvenCover
 
 public section
 

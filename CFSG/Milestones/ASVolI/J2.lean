@@ -1,31 +1,9 @@
 module
 
-public import Mathlib
-public import CFSG.Foundations.Basic
-public import CFSG.Open.Defs
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Blueprint.Catalog
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.Milestones.ASVolI.I1
-public import CFSG.Milestones.ASVolI.I2
-public import CFSG.Milestones.ASVolI.I3
-public import CFSG.Milestones.ASVolI.I6
-public import CFSG.Milestones.ASVolI.I7
 public import CFSG.Milestones.ASVolI.I8
-public import CFSG.Milestones.ASVolI.J1
 public import CFSG.Quasithin.Background.ASVolIRu.Bridge
 public import CFSG.Quasithin.Background.ASVolIRu.StUnique
-public import CFSG.Quasithin.Recognition.RuTypeJ29f
 public import CFSG.Quasithin.Recognition.RuTypeJ210d
-public import CFSG.SignalizerFunctorTheorem.NearModels.Suzuki.Bridge
-public import CFSG.Quasithin.Recognition.RuTypeJ24
-public import CFSG.Quasithin.Recognition.RuTypeJ25
-public import CFSG.Quasithin.Recognition.RuTypeJ26b
-public import CFSG.Quasithin.Recognition.RuTypeNorm2
-public import CFSG.Quasithin.Recognition.RuTypeJ23d
-public import CFSG.LieType.BorelTits.Basic
-public import CFSG.GroupTheory.SuzukiTwoGroupsBasic
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
 public import CFSG.CharacterTheory.Semidihedral.Principal.PrimeTorusBlockAlignment

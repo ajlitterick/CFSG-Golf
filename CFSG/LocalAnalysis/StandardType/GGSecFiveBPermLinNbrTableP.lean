@@ -2,21 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLinNbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpLFrameMp
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoPlacement
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 import CFSG.LocalAnalysis.StandardType.GGClassicalCentralImageLabel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseRows
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelCore
-import CFSG.LocalAnalysis.StandardType.GGTBE6
-import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflDom
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
-import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagLin
-import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagRoot
 import CFSG.LocalAnalysis.StandardType.GGTypeAFarRealize
 import CFSG.LocalAnalysis.StandardType.GGF4H4Psl64Holds
 import CFSG.LocalAnalysis.StandardType.GGF4H4JBlockAux1

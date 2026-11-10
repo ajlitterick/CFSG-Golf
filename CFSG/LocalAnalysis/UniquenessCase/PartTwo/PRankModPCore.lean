@@ -1,9 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.LocalAnalysis.SectionRank.SubgroupRank
-public import CFSG.GroupTheory.PGroup.RankTwoCommute
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846b
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRank
 public import CFSG.Adapters.StatedClassicalSmallOrders
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple

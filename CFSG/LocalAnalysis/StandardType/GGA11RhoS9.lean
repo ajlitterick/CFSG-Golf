@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGA11Defs
-public import CFSG.LocalAnalysis.StandardType.GGPropFiveTwentyOneCent
 
 public section
 

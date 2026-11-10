@@ -6,7 +6,6 @@ public import CFSG.Certificates.Kernel.SporSch.OddWitSound
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87F3Spec
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67SporSpec
 public import CFSG.Certificates.Kernel.SporSch.ChainKClassEq
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Schreier.J4SOrder
 public import CFSG.Sporadic.Th.KernelPlanes
 public import CFSG.Sporadic.Th.Local

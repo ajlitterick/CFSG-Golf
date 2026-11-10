@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCount
 public import CFSG.LocalAnalysis.StandardType.GGPGLToralityMatrix
 public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-public import CFSG.ClassicalGroups.UnitaryFlag.HyperbolicData
 
 public section
 

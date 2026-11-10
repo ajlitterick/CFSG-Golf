@@ -1,8 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk111cDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ExtendScalars
-public import Mathlib.RepresentationTheory.Irreducible
 
 public section
 

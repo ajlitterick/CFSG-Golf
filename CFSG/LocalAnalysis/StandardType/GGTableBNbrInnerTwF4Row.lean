@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRound13Label
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRestCore
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanks
 import CFSG.LocalAnalysis.StandardType.GGTwF4SUThreeRank
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerE6TwoRows
 

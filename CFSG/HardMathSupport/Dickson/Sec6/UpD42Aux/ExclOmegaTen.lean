@@ -2,15 +2,7 @@ module
 
 public import CFSG.HardMathSupport.Dickson.Sec6.UpD42Aux.ExclOmegaBlocks
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Om7
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Blocks5
-public import CFSG.LargeExtraspecial.OrthoF2Basic
 public import CFSG.LargeExtraspecial.A2ModSLModel
-public import CFSG.RankThree.PartOne.S15K.FamilyForms
-public import CFSG.RankThree.PartOne.KC.OrthogonalD4WitnessLayer
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmas
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-public import CFSG.RankThree.PartOne.K159.RowFourFixed
-public import CFSG.RankThree.PartOne.LIT.RankAbstract
 public import CFSG.LinearAlgebra.QuadraticPieceDihedral
 public import CFSG.ClassicalInvolution.Q3.Q3PlanParams
 public import CFSG.Goldschmidt.Steps.G37Core

@@ -5,76 +5,17 @@ public import CFSG.RankThree.PartTwo.Sec4.Census.Item44Gaps
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface46
 public import CFSG.RankThree.PartTwo.Sec4.Census.Lift46
 import CFSG.RankThree.Classical2.TwoLocalRankCoprimeQuotient
-import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.LocalAnalysis.RankThreeEvenClassification.Helpers
 import CFSG.GroupTheory.ABGLocalTools.OddOrderLocal
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
-import CFSG.GroupTheory.LocalCores.Fitting
-import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.LieType.Chevalley.LangRootArithmetic
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-public import Mathlib.Algebra.Algebra.Subalgebra.Basic
-public import Mathlib.Algebra.BigOperators.Field
-public import Mathlib.Algebra.BigOperators.Group.Finset.Lemmas
-public import Mathlib.Algebra.CharP.Frobenius
-public import Mathlib.Algebra.CharP.Lemmas
-public import Mathlib.Algebra.Field.Basic
-public import Mathlib.Algebra.Module.Card
-public import Mathlib.Algebra.Polynomial.BigOperators
-public import Mathlib.Algebra.Polynomial.Roots
-public import Mathlib.Algebra.Ring.Commute
-public import Mathlib.Data.Fin.Tuple.Basic
-public import Mathlib.Data.Fin.Tuple.Sort
-public import Mathlib.Data.Fintype.Perm
-public import Mathlib.Data.Int.GCD
-public import Mathlib.Data.Matrix.Basis
-public import Mathlib.Data.Nat.Factorization.Basic
-public import Mathlib.FieldTheory.IsAlgClosed.Basic
-public import Mathlib.GroupTheory.GroupAction.Basic
-public import Mathlib.GroupTheory.GroupAction.Defs
-public import Mathlib.GroupTheory.SpecificGroups.Quaternion
-public import Mathlib.LinearAlgebra.Basis.Fin
-public import Mathlib.LinearAlgebra.Center
-public import Mathlib.LinearAlgebra.Dimension.Constructions
-public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-public import Mathlib.LinearAlgebra.Matrix.Basis
-public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-public import Mathlib.LinearAlgebra.Matrix.Transvection
-public import Mathlib.LinearAlgebra.Projectivization.Basic
-import Mathlib.LinearAlgebra.Quotient.Basic
-public import Mathlib.LinearAlgebra.Span.Basic
-public import Mathlib.LinearAlgebra.StdBasis
-import Mathlib.LinearAlgebra.TensorProduct.Basic
-import Mathlib.LinearAlgebra.TensorProduct.Free
-public import Mathlib.LinearAlgebra.TensorProduct.Tower
-public import Mathlib.Order.Atoms
-public import Mathlib.Order.KrullDimension
-public import Mathlib.Order.Preorder.Finite
-public import Mathlib.RingTheory.IntegralDomain
-public import Mathlib.RingTheory.RootsOfUnity.Basic
-import Mathlib.RingTheory.RootsOfUnity.Complex
-public import Mathlib.RingTheory.TensorProduct.Finite
-public import Mathlib.Tactic
-public import Mathlib.Tactic.Linarith
-public import Mathlib.Tactic.Module
-public import Mathlib.Tactic.Positivity
-public import TauCeti.Algebra.Group.Subgroup.Map
-public import TauCeti.GroupTheory.DerivedCentralQuotient
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Basic
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Symplectic.Levi
-public import TauCeti.LinearAlgebra.SymplecticGroup
 
 public section
 

@@ -5,7 +5,6 @@ public import Certificates.Kernel.Census.M22II.T
 public import Certificates.Kernel.Census.M22II.L0
 public import Certificates.Kernel.Census.M22II.L1
 public import CFSG.Certificates.Kernel.Census.PackedLProof
-public import CFSG.Certificates.Kernel.Census.SoundProof
 public import CFSG.Certificates.Kernel.Census.XsProof
 public import CFSG.Certificates.Kernel.Common.ForallChunks
 public import CFSG.Certificates.Kernel.Census.ToMainExc

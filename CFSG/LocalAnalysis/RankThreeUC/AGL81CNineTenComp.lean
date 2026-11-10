@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInner
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenThree
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CZBridge
-import CFSG.GroupTheory.LocalCores.Layer
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenCF
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenG1
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenLayer

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Ru.C2248
-public import Certificates.Kernel.SporSch.Ru.C2253
 public meta import CFSG.Quasithin.H13.L32ARuU1Inputs
 import all Init.Data.Nat.Fold
 import CFSG.Certificates.Kernel.Common.Harness

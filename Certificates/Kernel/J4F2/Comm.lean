@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Background.F7TwoInvSporJ4Inputs
 public import Certificates.Data.SmithB45ExcJ4C11
 public import Certificates.Kernel.J4Q.MaskRep
 import CFSG.Certificates.Kernel.Common.Harness
-public import Certificates.Kernel.J4Q.QTBase
 
 public section
 

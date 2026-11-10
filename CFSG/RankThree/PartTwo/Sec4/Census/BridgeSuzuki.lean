@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Blueprint.Catalog
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Index
 import CFSG.StronglyEmbedded.Catalog.Suzuki
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure

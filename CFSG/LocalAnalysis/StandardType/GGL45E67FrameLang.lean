@@ -1,21 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelTSpec
-public import CFSG.RankThree.PartOne.KE.CTLang
-public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Torus
-public import CFSG.LieType.AlgebraicGroups.FrobeniusDiagramRealized
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoShadow
-public import CFSG.RankThree.PartOne.Q1327T.Item7D4W
-public import CFSG.LieType.Chevalley.E6GraphMonomialToral
-public import CFSG.HardMathSupport.Lang.E6Descent.RankTwistedE6
-public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27DiagTorus
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
 public import CFSG.Quasithin.H13.NQSetupFieldPowerG2
-public import CFSG.LieType.Chevalley.GraphFixedData
-public import CFSG.LieType.Chevalley.GraphFixedBruhatEquivariance
-public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Normalizer
-public import CFSG.LieType.Chevalley.Canonical
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -57,7 +44,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

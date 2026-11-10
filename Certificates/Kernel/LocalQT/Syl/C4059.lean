@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.LocalQTSyl24Sound
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M24CheckInputs
 public import Certificates.Kernel.LocalQT.Syl.D4059
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.LocalQTSylSound
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

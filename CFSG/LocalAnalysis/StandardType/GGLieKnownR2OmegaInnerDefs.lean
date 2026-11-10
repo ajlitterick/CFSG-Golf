@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Universal.Spin.Action
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldAction
 
 public section
 

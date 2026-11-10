@@ -2,9 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.FF81Am6LSideRoots
 public import CFSG.RankThree.PartTwo.Sec21.FF81Am6A2Chain
-public import CFSG.RankThree.PartTwo.Sec21.FF81Am6Lv
-public import CFSG.LargeExtraspecial.A2ModFrCMat
-public import CFSG.RankThree.Chevalley.SteinbergBNF4NativeA2
 public import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderBoundAll
 public import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderE6Order
 public import CFSG.LargeExtraspecial.A2ModCfg

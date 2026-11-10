@@ -2,16 +2,7 @@
 module
 
 public import Certificates.Data.TwoF4LieCheck
-public import CFSG.Sporadic.Schreier.TitsActionCheckInputs
-public import CFSG.Sporadic.Schreier.TitsCentralCheckInputs
-public import CFSG.Sporadic.Schreier.TitsAction
-public import Mathlib.Logic.Relation
-public import CFSG.Monster.B.Co2.PermArr
-public import Mathlib.GroupTheory.Perm.Basic
-public import Mathlib.SetTheory.Cardinal.Finite
 public import CFSG.Quasithin.Vol2.GoldschmidtF45RuArr
-public import CFSG.Quasithin.Vol2.GoldschmidtF45RuModel
-public import CFSG.Quasithin.Recognition.RuTypeJ47Cert
 
 @[expose] public section
 

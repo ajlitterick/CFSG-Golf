@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsDim
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsDiag
 public import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
-public import Mathlib.LinearAlgebra.Projection
-public import Mathlib.Algebra.CharP.Lemmas
-public import Mathlib.Algebra.CharP.Algebra
 
 public section
 

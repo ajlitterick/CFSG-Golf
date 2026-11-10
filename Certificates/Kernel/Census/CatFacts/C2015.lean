@@ -1,13 +1,11 @@
 
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3P45Inputs
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallArrChecks
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3Gen
 public meta import CFSG.GH74.KGroups.Checks3
 public import Certificates.Data.Kernel.Census.CatFacts.C2015Scan
-import CFSG.Certificates.Kernel.Census.CatFacts.PkEnum
 import CFSG.Certificates.Kernel.Census.CatFacts.PkWordSound
 import CFSG.Certificates.Kernel.Census.CatFacts.ArrPerm
 import CFSG.Certificates.Kernel.Census.CatFacts.FixFive

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Multipliers.Sz8Bridge
-public import Mathlib.GroupTheory.SpecificGroups.KleinFour
-public import CFSG.LieType.Multipliers.Sz8Inputs
 public import Certificates.Certificate10007
 public meta import CFSG.LieType.Multipliers.Sz8Bridge
 

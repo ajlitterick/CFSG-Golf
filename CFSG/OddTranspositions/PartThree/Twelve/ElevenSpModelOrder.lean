@@ -8,7 +8,6 @@ import CFSG.ClassicalInvolution.SmallOrth.Orth3Block
 import CFSG.RankThree.PartOne.KC.OrthogonalNormPlaneFactors
 import CFSG.ClassicalInvolution.ModelFacts.MF15Sign
 import CFSG.ClassicalGroups.Orthogonal.OmegaSiegelRoot
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogQuadraticNormalForms
 import CFSG.ClassicalInvolution.ModelFacts.MF15Sq
 import CFSG.ClassicalInvolution.Models.LinearPairs
 import CFSG.ClassicalInvolution.Models.OrthogonalPairs

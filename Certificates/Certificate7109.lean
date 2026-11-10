@@ -1,9 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
-public import Mathlib.Data.ZMod.Defs
-public import Mathlib.SetTheory.Cardinal.Finite
 import CFSG.Certificates.Kernel.C7109.Glue
 import Certificates.Kernel.C7109.Checks
 

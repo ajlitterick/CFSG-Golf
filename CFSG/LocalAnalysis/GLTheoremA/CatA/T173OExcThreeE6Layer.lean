@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OConj
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5E6A5
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5E6D4
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5E6Iso
-public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotLayer
 public import CFSG.Assembly.LargeEvenGLABridge
 public import CFSG.Assembly.OpenBridges
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBaseIso

@@ -5,8 +5,6 @@ public import CFSG.Sporadic.HNSchreier.LevelInputs
 public meta import CFSG.Sporadic.HNSchreier.OrbitCheck
 public meta import Certificates.Data.CFSGNative.ONSchreier.Vectors
 import Certificates.Kernel.HN3166.Card
-import Certificates.Certificate9114
-import Certificates.Certificate9208
 
 public section
 

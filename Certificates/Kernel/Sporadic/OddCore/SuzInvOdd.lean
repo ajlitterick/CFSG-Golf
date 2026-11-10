@@ -10,7 +10,6 @@ public import CFSG.Certificates.Kernel.Spor.Loops
 meta import CFSG.Sporadic.SuzOddCore.InvArrays
 import all CFSG.Sporadic.SuzOddCore.InvArrays
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 meta import CFSG.Sporadic.SuzOddCore.Arrays
 
 public section

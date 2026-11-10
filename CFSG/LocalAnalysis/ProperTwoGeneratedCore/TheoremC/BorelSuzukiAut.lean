@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.TheoremC.BorelSuzukiRoot
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiLayerKernel
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
 public import CFSG.LieType.Ree.SuzukiSimple
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.StronglyEmbedded.ParityCriterion

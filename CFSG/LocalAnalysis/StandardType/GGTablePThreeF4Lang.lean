@@ -19,8 +19,6 @@ import CFSG.Quasithin.Background.A3Structure314Defs
 import CFSG.Quasithin.Background.C1PackS15212C
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1
 import CFSG.Quasithin.EmptyFaithful.Gold14610F618StructFieldExt

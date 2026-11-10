@@ -1,27 +1,10 @@
 module
 
 public import CFSG.Certificates.Kernel.BabyMonster.SevenGenFact
-public import CFSG.Certificates.Kernel.BabyMonster.PairSound
 public import CFSG.Certificates.Kernel.BabyMonster.Seeds.All
 public import CFSG.Certificates.Kernel.BabyMonster.Seven.All
 public import CFSG.Certificates.Kernel.BabyMonster.SevenGen.All
 public import Certificates.Kernel.BabyMonster.Chain2
-public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check0
-public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check1
-public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check2
-public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check3
-public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check4
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check0
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check1
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check10
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check2
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check3
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check4
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check5
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check6
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check7
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check8
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check9
 
 public section
 

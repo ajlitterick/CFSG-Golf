@@ -1,33 +1,18 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1677ThreeDefs
 
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.ExceptionalComponentCover
 import CFSG.LocalAnalysis.UniquenessCase.UC22P20p
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC165ExclDirect
 import CFSG.Quasithin.H13.A5W1622q
-import CFSG.LieType.Steinberg.CentralExt.SL2CentrallyClosed
-import CFSG.LocalAnalysis.SectionRank.EvenCover.Symplectic
-import CFSG.LocalAnalysis.SectionRank.EvenCover.Orthogonal
-import CFSG.LocalAnalysis.SectionRank.EvenCover.Unitary
 import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194SU
 import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194OmegaTorus
 import CFSG.RankThree.GF2n.Stroth80.GriessOrthSmall
 import CFSG.GroupTheory.WeirSylow.CrossRankForms
 import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
-import CFSG.LieType.Universal.SpinOmega.Center
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCentral
-import CFSG.GroupTheory.LocalCores.Components
 import CFSG.LocalAnalysis.AGLEmbedding.RankTools
 import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVNormalThreeDiag
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.Helpers
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.LocalAnalysis.SectionRank.SubgroupRank
-import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.LocalAnalysis.SectionRank.ClassicalOdd.Basic
-import CFSG.RankThree.PartTwo.Sec11.Item116R1Comp
-import CFSG.Quasithin.Background.F918V5GComp
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightRowCtx
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P21a
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2214a

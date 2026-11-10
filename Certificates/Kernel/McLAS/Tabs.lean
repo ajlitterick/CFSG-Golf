@@ -1,11 +1,9 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.Spor.Loops
-public import CFSG.Sporadic.Recognition.McLASData
 public import CFSG.Sporadic.Recognition.LyonsAS44McLData
 public import CFSG.Sporadic.Recognition.McLASThreeLocalData
 public import CFSG.Sporadic.Recognition.LyonsLocalMcLInputs

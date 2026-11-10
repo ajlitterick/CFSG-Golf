@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGQ2LinBlocksBasic
 import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksIdem
 import CFSG.LocalAnalysis.StandardType.GGTorCPlane
 import CFSG.GroupTheory.F4ModuleFromOperator
-import CFSG.GroupTheory.CentralizerMap
 
 public section
 

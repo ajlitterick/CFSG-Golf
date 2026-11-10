@@ -2,13 +2,9 @@ module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenD5SpinCoords
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenD5TorusGen
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleSplit
-public import CFSG.HardMathSupport.Timmesfeld.LinearRank.ProjRank
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicRootCenter
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcW
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart14
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenAsm
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TwE6

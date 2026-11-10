@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.M24Three.Recs
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.SliceRange
 
 set_option maxRecDepth 400000

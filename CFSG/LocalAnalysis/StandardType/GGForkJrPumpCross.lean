@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpCrossLattice
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpCrossReal
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpFork
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpDefs
 
 public section
 

@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepTwoK
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepFrame
 public import CFSG.LocalAnalysis.StandardType.GGRowKSide
-public import CFSG.LocalAnalysis.StandardType.GGRowKFrame
 
 public section
 

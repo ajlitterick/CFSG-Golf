@@ -1,11 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwenty
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenOver
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenWeylLift
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBLift
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.J3.Simple
 public import CFSG.Sporadic.J3.Cert
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

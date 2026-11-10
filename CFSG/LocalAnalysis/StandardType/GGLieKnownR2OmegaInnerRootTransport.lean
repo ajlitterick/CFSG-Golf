@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaInnerDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialitySpin
-public import CFSG.LieType.Universal.Spin.Datum
 
 public section
 

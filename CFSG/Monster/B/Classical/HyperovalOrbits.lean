@@ -3,9 +3,6 @@ module
 public import CFSG.Monster.B.Classical.Hyperoval
 import all CFSG.Fischer.F4
 public import CFSG.Monster.B.Classical.PlaneAut
-public import Mathlib.LinearAlgebra.Projectivization.Action
-public import Mathlib.Tactic.Monotonicity.Lemmas
-public import Mathlib.Topology.Sheaves.Presheaf
 
 public section
 

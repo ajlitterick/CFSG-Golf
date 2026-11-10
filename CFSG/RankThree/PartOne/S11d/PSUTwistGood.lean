@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.S11d.PSUTwistD
-public import CFSG.RankThree.PartOne.S11d.LieGoodConclusion
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

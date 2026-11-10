@@ -1,14 +1,9 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Algebra.Group.Subgroup.Defs
 public import Mathlib.Data.Finite.Defs
 public import Mathlib.Data.Nat.Prime.Defs
 public import Mathlib.GroupTheory.Index
 
-import Mathlib.SetTheory.Cardinal.NatCard
-import Mathlib.Algebra.Group.Subgroup.Lattice
-import Mathlib.Algebra.Group.Subgroup.Finite
 
 namespace CFSG
 end CFSG

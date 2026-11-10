@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613C3Conj
 public import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613C3Layer
 
 public section

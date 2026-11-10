@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGL45E67Toral
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeNonToralEmbed
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeNonToralClauses
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToral
 
 public section
 

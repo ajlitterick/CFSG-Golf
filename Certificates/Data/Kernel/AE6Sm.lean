@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.AE6FN
-public import Certificates.Data.AE6ModelSmall
 
 public section
 

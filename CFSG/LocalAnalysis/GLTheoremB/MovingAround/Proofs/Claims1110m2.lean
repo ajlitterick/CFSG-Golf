@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims1110m
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsL33
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.SympAut
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympInnerExport
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympInnerExport
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.OrthFieldExport
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieComp.OrthFieldExport
 import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootCountOmega
 

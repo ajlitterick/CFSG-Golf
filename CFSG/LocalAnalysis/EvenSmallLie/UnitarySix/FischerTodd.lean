@@ -2,22 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.FischerPoints
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.MathieuExtTodd
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
 public import Certificates.Certificate3001
-public import Certificates.Certificate1003
-public import Certificates.Certificate2035
-public import Certificates.Certificate2195
-public import Certificates.Certificate3029
-public import Certificates.Certificate3180
-public import Certificates.Certificate1002
-public import Certificates.Certificate1009
-public import Certificates.Certificate3010
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Supercritical
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 public import Certificates.Data.CFSGNative.Fischer.Xi22
 

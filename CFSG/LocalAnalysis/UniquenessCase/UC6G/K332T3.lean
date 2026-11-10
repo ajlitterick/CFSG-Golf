@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC6G.S25
 public import CFSG.LocalAnalysis.UniquenessCase.UC6G.N588E1
-public import CFSG.LocalAnalysis.UniquenessCase.UC6K332T2
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332T3
 public import CFSG.LocalAnalysis.UniquenessCase.UC6G.N588D1
 public import CFSG.LocalAnalysis.UniquenessCase.UC6G.S9

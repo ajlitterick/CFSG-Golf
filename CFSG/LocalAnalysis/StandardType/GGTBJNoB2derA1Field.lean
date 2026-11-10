@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derA1
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derA6
 public import CFSG.LocalAnalysis.StandardType.GGTCJDatum
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSp
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympInnerExport
 
 public section
 

@@ -3,13 +3,9 @@ module
 
 public import CFSG.Sporadic.SuzOddCore.CertChainCheckBase
 
-public import CFSG.Sporadic.SuzOddCore.ArraysCheck
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import Certificates.Data.CFSGNative.Perm.Chain
 public meta import CFSG.Sporadic.SuzOddCore.ArraysCheck
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.Perm.Chain
-public import CFSG.Sporadic.SuzOddCore.CertChainCheckInputs
 public import Certificates.Certificate2292
 
 public section

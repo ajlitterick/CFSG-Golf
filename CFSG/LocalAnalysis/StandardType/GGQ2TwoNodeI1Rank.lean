@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySides
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08TwoNodeBasics
 public import CFSG.LocalAnalysis.StandardType.GGQTwoK1OfI1
-public import CFSG.LocalAnalysis.StandardType.GGQTwoTableBI1
 public import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeRestDefs
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimUnitary
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup
 
 public section

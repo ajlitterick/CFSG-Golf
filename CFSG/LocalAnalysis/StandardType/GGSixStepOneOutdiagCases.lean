@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiagInputs
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompKd
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompCentre
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveInputs
 
 public section
 

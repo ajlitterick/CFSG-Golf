@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSmallDefs
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTwF4
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestBasic
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 import CFSG.LocalAnalysis.StandardType.GGL45FixA2Arith
-import CFSG.LieType.Ree.LargeReeCenterTrivial
 import CFSG.RankThree.PartTwo.Sec21.ReeF4ThreeLocalProofRank
 import CFSG.RankThree.Lattice.SteinbergBIOrbitQuotFull
 import CFSG.RankThree.PartOne.BRANCH.RankRee

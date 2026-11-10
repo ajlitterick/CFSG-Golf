@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKM5Comm
 public import CFSG.LocalAnalysis.StandardType.GGSporKM5Sylow
-import CFSG.LocalAnalysis.StandardType.GGSporKCommDataF
 import CFSG.LocalAnalysis.StandardType.GGSporKCommDataSylow
 
 public section

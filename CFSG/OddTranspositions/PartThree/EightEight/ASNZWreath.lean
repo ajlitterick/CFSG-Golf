@@ -2,16 +2,12 @@ module
 
 public import CFSG.OddTranspositions.PartThree.EightEight.ASNZAlmostSimple
 
-import CFSG.LieType.CurtisTits.Recognition
 import CFSG.OddTranspositions.BenderMeetsSq
 import CFSG.OddTranspositions.PartThree.EightEight.ASNZRadical
 import CFSG.OddTranspositions.PartThree.EightEight.WreathNatural
 import CFSG.OddTranspositions.PartThree.OddTranspClosure
-import CFSG.OddTranspositions.PartThree.Ten.SetupQ
 import CFSG.OddTranspositions.PartThree.Ten.TenTwoCover
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent.Radical
-import CFSG.Timmesfeld.Bridge.Asc72Bender
-import CFSG.Timmesfeld.Bridge.Asc72Lift
 import CFSG.Timmesfeld.Bridge.OddLocalRootCore
 import CFSG.Timmesfeld.Bridge.OddTranspBasic
 

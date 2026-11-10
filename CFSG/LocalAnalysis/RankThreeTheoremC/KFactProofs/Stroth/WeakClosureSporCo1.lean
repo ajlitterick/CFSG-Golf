@@ -1,18 +1,14 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureSporLines
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureSporHeis
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureSporModule
 public import CFSG.Sporadic.Co1Block.Perm
-public import Certificates.Certificate2043
-public import Certificates.Certificate3024
 public import Certificates.Certificate9596
 public import Certificates.Certificate13696
 public import Certificates.Certificate14987
 import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1SevenBase
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.AlphaRowCo1Three
 import CFSG.RankThree.PartOne.KS.Co1ScalCheck
-import CFSG.Sporadic.Co1
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -51,7 +47,6 @@ public import CFSG.Sporadic.Presentation.Co2Fusion
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.YGroups.DCE.B433Check

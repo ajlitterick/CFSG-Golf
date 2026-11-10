@@ -1,16 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMBlockCore
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogQuadraticNormalForms
-public import CFSG.RankThree.PartOne.S11d.LieCentralizerPOmega
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotTorusLayer
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.Orthogonal
-public import CFSG.LieType.Universal.SpinOmega.Kernel
-public import CFSG.LieType.Universal.SpinOmega.Range
 public import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
-public import CFSG.ClassicalInvolution.WeakCT.SpinMinus6Generated
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 
 public section

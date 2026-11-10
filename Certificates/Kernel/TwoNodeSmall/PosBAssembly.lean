@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.TwoNodeSmall.PosBKSound
 import Certificates.Kernel.TwoNodeSmall.PosBChecks
 import Certificates.Kernel.TwoNodeSmall.PosBOrd
-import CFSG.Certificates.Kernel.Common.ForallChunks
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallRankDefs
 public import Certificates.Kernel.TwoNodeSmall.PosBData
 

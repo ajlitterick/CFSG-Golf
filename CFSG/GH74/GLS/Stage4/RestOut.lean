@@ -11,10 +11,6 @@ public import CFSG.GH74.Bender
 public import CFSG.GH74.GLS.Stage4.LocalAssembly
 public import CFSG.GH74.Statements
 public import CFSG.LieType.Steinberg.G2
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

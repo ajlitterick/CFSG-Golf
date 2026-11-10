@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
 import CFSG.LocalAnalysis.StandardType.GGNSJoinJA2AAuxBlock
 import CFSG.LocalAnalysis.StandardType.GGNSJoinJA2AAuxPair

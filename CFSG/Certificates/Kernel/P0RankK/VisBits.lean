@@ -4,8 +4,6 @@ public import Certificates.Data.Kernel.P0Vis
 public import CFSG.Certificates.Kernel.LceSP.Popcount
 public import CFSG.Monster.B.TwoA.Sp8.P0RankWalk
 import Mathlib.Tactic.IntervalCases
-public import CFSG.Certificates.Kernel.LceSP.Base
-public import Mathlib.Algebra.BigOperators.Group.Finset.Piecewise
 public import Mathlib.Data.Nat.Bitwise
 
 public section

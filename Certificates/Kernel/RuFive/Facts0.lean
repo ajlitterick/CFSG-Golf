@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.RuFive.FactsQ
 public import Certificates.Kernel.RuFive.K0
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

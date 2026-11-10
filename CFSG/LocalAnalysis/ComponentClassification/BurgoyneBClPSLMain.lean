@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBClPSL
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBClGraph
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBClField
 
 public noncomputable section

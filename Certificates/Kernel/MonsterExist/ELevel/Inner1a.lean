@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.MonsterExist.ELevel.Sound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Monster.Existence.ELevelNativeInputs
 public import Certificates.Kernel.MonsterExist.ELevel.Data
 

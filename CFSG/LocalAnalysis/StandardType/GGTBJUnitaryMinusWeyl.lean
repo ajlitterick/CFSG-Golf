@@ -4,10 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusDefs
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinSignedPermGen
 public import CFSG.LocalAnalysis.StandardType.GGRealKGUSplitRoot
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusWAux
 import CFSG.LocalAnalysis.StandardType.GGRealKGCoverComp
-import CFSG.RankThree.PartOne.S9.Planes.Basic
 
 public section
 

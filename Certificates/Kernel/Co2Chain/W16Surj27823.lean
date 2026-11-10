@@ -15,7 +15,6 @@ import all Init.Data.List.Basic
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.RawSound
 public meta import Mathlib
-public import Mathlib
 
 namespace CertificateChecks.KernelCo2Chain.W16
 

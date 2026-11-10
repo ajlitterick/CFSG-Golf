@@ -1,15 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniModel
-import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeDefs
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeEigen
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeNe
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeComp
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
 import CFSG.RankThree.PartOne.KF.LayerModelRow
 import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatTypeDet
 import CFSG.LocalAnalysis.GLTheoremA.CatA.YS05NonIso
-import CFSG.GH74.KGH
 import CFSG.RankThree.PartTwo.Sec21.Hering214KEig
 import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatAlt
 

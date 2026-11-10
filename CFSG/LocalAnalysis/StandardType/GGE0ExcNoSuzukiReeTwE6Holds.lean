@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0ExcNoSuzukiReeAt
-public import CFSG.LocalAnalysis.StandardType.GGCompFieldCatalogue
 public import CFSG.LocalAnalysis.StandardType.GGE0ChevStMarking
 
 public section

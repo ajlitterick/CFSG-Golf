@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2ExcCommon
 public import CFSG.Quasithin.Background.SmithB45D4
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2D4Index
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2D4OuterAct
-import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2Ctx
-import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135Ctx
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.CyclicBlocks.Family

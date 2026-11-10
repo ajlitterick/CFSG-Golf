@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcKGSFAssembly
 public import CFSG.LocalAnalysis.StandardType.GGExcKGToralFrameOfSF
-public import CFSG.LocalAnalysis.StandardType.GGExcKGToralFrame
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.NineTenBranches
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeNineStatements
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeData
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeTenAtQuotKer
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeNineApplyInputs

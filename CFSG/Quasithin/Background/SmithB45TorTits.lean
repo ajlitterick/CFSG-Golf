@@ -2,14 +2,7 @@ module
 
 public import CFSG.Quasithin.Background.SmithB45TorLift
 public import CFSG.Quasithin.Background.SmithB42Tits
-public import Certificates.Certificate2263
-public import Certificates.Certificate2264
-public import Certificates.Certificate2266
-public import Certificates.Certificate2268
-public import Certificates.Certificate260140
 public import Certificates.Certificate260420
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.LieType.Chevalley.RootCommutator
 public import CFSG.LieType.Ree.SuzukiSimple
@@ -29,18 +22,12 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureSylowA
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureSylowAssemblyProper
 public import CFSG.Milestones.CL_LIT_SQTK_simple_list
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure312Iso
 public import CFSG.Quasithin.Background.B1MoreElevenD
 public import CFSG.Quasithin.Background.B1MoreElevenF
 public import CFSG.Quasithin.Background.B1MoreNineG
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Geometry

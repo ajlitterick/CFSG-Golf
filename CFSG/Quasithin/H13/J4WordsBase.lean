@@ -1,9 +1,6 @@
 
 module
 
-public import CFSG.Quasithin.H13.J4Defs
-public import CFSG.Quasithin.H13.J4ChainSpec
-public import Certificates.Data.CFSGNative.H13.J4Elems
 public meta import Certificates.Data.CFSGNative.H13.J4Elems
 public meta import Certificates.Data.CFSGNative.J4.Cert
 import all Certificates.Data.CFSGNative.H13.J4Elems

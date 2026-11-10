@@ -3,25 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeShapeLeaves
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierA1
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierA1Cover
-import CFSG.Timmesfeld.ARS.CaseOALevi
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimple
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleSplit
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleRankOne
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.GoodRankOne
-import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcCtx
-import CFSG.Blueprint.ChevalleyRootGroups
-import CFSG.LieType.Chevalley.BruhatCellFactorization
-import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
-import CFSG.LieType.Chevalley.LangRootRankOne
-import CFSG.LieType.Chevalley.RankOneGaussian
-import CFSG.LieType.Chevalley.GraphFixedRankOneImage
-import CFSG.LieType.HighestRoot.CentChevalley
-import CFSG.LieType.AlgebraicGroups.ToralTwistSemilinearDatum
-import CFSG.RankThree.Chevalley.SteinbergBIRootSL2Tools
-import CFSG.RankThree.Chevalley.EvenPinnedRootSL2
-import CFSG.LinearAlgebra.LinearGroups.Perfect
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotSwapLiftSplit
 import CFSG.RankThree.PartOne.S13K.Row1At
 import CFSG.CGT.PushingUpLit.BHS6.ThreeEightSL2
 import CFSG.CGT.PushingUpLit.BHS.ThreeEight

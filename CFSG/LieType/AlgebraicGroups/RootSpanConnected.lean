@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.SupportedNativeLang
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
-public import CFSG.LieType.AlgebraicGroups.RootWordBruhatCover
-public import CFSG.Blueprint.ChevalleyPinnedLemmas
-public import CFSG.LieType.AlgebraicGroups.ConstructibleSubgroupGL
 
 public section
 

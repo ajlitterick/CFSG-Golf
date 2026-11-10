@@ -1,12 +1,7 @@
 module
 
-public import CFSG.GH74.QTGen4.Finite4
 public import CFSG.Quasithin.H13.A5W1618p
-public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.A5S1326
-public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.A5X1367d
-public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.A5Y1367b
 public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.A5Y1367c
-public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.StatementsL2
 
 public section
 

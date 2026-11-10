@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.Spor.ONK
 public import Certificates.Data.Kernel.Spor.PEnum
 public import CFSG.Certificates.Kernel.Orders.Mat
-public import Certificates.Data.CFSGNative.Th.Tables
 
 public section
 

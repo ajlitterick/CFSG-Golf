@@ -2,14 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExtExcCert
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExtCoverAssembly
-public import CFSG.LocalAnalysis.StandardType.GGQ2NbrD5Frame
 public import CFSG.LocalAnalysis.StandardType.GGQ2NbrD5Gamma
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExtD5Bridge
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExtPlane
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExtUnitFull
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExtUnitHeart
-public import CFSG.LocalAnalysis.StandardType.GGQ2FrameSmall
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

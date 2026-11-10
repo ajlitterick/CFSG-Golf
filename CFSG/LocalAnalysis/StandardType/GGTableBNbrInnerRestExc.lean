@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerF4
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSylow
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestExc
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Basic
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Aut
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTorus
 
 public section
 

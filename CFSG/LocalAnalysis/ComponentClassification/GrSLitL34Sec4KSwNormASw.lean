@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSwNormA
-import CFSG.LocalAnalysis.ComponentClassification.GrSLitSol25
-import CFSG.LocalAnalysis.ComponentClassification.GrSLitGWBridge
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4End43H
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4FWEq
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSwFusIEnd
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSwSwitch

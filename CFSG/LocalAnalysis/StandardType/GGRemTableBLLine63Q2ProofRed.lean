@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofLift
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCover
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Two
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineL2Cover
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 
 public section
 

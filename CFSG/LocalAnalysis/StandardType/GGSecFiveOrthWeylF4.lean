@@ -1,14 +1,8 @@
 module
 
-public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.LinearAlgebra.QuadraticForm.Basic
-public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.Basic
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthF4Model
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthCount
 public import CFSG.Monster.B.Geometry.F4Weyl
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarBridge
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 public import CFSG.Monster.B.Geometry.CoxeterWords

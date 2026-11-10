@@ -1,16 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoAdj
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.ReducedAlgebra
 public import CFSG.LieType.Universal.Catalog
-public import CFSG.LieType.Universal.Unitary.Extras
-public import CFSG.LieType.BorelTits.UnitaryForm
-public import CFSG.Open.StatedDefs
-public import CFSG.LieType.Universal.Spin.Datum
-public import CFSG.LieType.Universal.Spin.Twisted.Datum
-public import Mathlib.LinearAlgebra.SymplecticGroup
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 public import CFSG.Assembly.Subnormal
 public import CFSG.LieType.Universal.Spin.Roots
 public import CFSG.LieType.Universal.Unitary

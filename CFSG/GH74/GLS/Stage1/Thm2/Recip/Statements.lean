@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.Bg.Statements
-public import CFSG.GH74.GLS.Pattern
 public import CFSG.GH74.GLS.Stage1.Thm6.Prelude
 
 public section

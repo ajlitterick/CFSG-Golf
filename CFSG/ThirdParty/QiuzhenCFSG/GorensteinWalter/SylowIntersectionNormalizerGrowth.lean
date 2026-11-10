@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.Nilpotent
-public import Mathlib.GroupTheory.Sylow
 
 namespace CFSG
 end CFSG

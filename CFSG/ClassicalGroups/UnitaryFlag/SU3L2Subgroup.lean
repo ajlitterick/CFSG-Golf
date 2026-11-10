@@ -2,24 +2,16 @@ module
 
 public import CFSG.ClassicalGroups.UnitaryFlag.InvolutionCenters
 public import CFSG.ClassicalGroups.UnitaryFlag.SU3NonisotropicStabilizer
-public import CFSG.Open.LocalVocabulary
 import CFSG.GH74.KGroups.CoverEven
 import CFSG.StronglyEmbedded.PSL2Facts
 import CFSG.CGT.Timmesfeld75.L2Pair
-import CFSG.Timmesfeld.Bridge.Asc72Bender
-import CFSG.ClassicalGroups.UnitaryFlag.LineSU2
 import CFSG.GroupTheory.SteinbergCBCEPrism
 import CFSG.GroupTheory.ElementaryAbelianTransport
-import Mathlib.GroupTheory.Sylow
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommModel3UnitaryGen
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.GH74.GLS.Classes
 import CFSG.GH74.Statements
 import CFSG.LieType.CurtisTits.Conclusion
 import CFSG.StronglyEmbedded.ParityCriterion
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

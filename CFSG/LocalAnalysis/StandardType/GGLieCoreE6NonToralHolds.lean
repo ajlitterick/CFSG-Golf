@@ -1,19 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneDichotomy
-public import CFSG.LocalAnalysis.StandardType.GGNTPlaneTable
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneConn
 public import CFSG.LocalAnalysis.StandardType.E6FieldNoneMixedFinal
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxToral
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcLang
 public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.WeylTorusAct
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.GroupTheory.PerfectCentralQuotient
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreE6NonToral
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneModFiveA2
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneModFiveD4
-public import CFSG.Blueprint.Catalog
-public import CFSG.GH74.Exceptional.LinearFourTwo
 
 public section
 

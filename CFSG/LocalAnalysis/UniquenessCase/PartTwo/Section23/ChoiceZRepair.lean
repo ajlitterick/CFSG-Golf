@@ -60,8 +60,6 @@ import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.FFC4Res
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1
 import CFSG.Quasithin.Background.InternalSecFF

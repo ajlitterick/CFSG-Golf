@@ -13,16 +13,13 @@ import CFSG.LocalAnalysis.SectionRank.AmbientRank
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.SCFixedAxes
 public import CFSG.LocalAnalysis.UniquenessCase.UC22InS3
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.KInputs
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.KInputsSolvable
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.CaseTwoGamma
 import CFSG.GroupTheory.PRankLeOfSylowLe
 import CFSG.GroupTheory.ElemAbelianRank
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineFive
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CoreEmbedding
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.PerfectOvergroup
 import CFSG.LocalAnalysis.UniquenessCase.UC1K341Reduce
-import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeAmbientCentralizerGeneration
 import CFSG.GroupTheory.PCore.SubgroupCore
 import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 import CFSG.CGT.PushingUpLit.BHS.SymNatDefs

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootKernelCount
-public import CFSG.Blueprint.ChevalleyRootArtifact
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBS1Plus
-public import CFSG.ClassicalInvolution.SmallCases.NDBStmt
 import CFSG.ClassicalInvolution.Asc77.AscIH8Small
 import CFSG.ClassicalInvolution.Asc77.TwinLookup
 

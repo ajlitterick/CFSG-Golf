@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Monster.B.TwoA.Base.FrameBase
 import all CFSG.Monster.B.TwoA.Base.FrameBase
 public import CFSG.Monster.B.TwoA.Base.WAct
 

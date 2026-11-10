@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Yardstones.M3f9567aba59d.TableBL
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLCover
 public import CFSG.LocalAnalysis.StandardType.FF81.Defs
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Norm
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrCoordC3
@@ -98,14 +97,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixLieKnownPosNoPSLDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4Chief
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LeavesIRG
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LeavesN7
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryFour
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1Transport
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIISpBlock
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIFixedUnitaryBlock
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryOrthBlock
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryRecognition
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIINativeLinear
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIINativeSp
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIPSpField
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIE6
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIE8Prime

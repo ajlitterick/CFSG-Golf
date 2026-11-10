@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGE6DepKGramOne
 public import CFSG.LocalAnalysis.StandardType.GGE6DepKMa
 public import CFSG.LocalAnalysis.StandardType.GGE6DepKGenTransport
 public import CFSG.LocalAnalysis.StandardType.GGE6DepKNoTv
-public import CFSG.LocalAnalysis.StandardType.GGE6DepKRefl
 public import CFSG.LocalAnalysis.StandardType.GGE6DepExtractK
 public import CFSG.LocalAnalysis.StandardType.GGE6DepKClassForm
 

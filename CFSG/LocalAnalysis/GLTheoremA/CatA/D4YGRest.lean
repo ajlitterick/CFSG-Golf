@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YGIso
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YFAut
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YERest
-public import CFSG.LocalAnalysis.StandardType.GGNbrGraphD4ProofOut
-public import CFSG.RankThree.PartOne.KFOUT3.Galois
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoIVDefs
 
 public section

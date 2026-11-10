@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Ly3085.Omega.Data
 public import Certificates.Kernel.Ly3085.Omega.O1Data
 public import Certificates.Kernel.Ly3085.Omega.FibData
 public import Certificates.Kernel.Ly3085.Omega.SwData

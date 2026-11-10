@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.J4M2.C12607Checks
-public import Certificates.Data.Kernel.SporSch.J4SBig
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4JSData
 public meta import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4JSData
 public meta import Certificates.Kernel.SporSch.J4S.Gen

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Sp4TwoNatTorus
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.MultNatCoords
 public import CFSG.Quasithin.Background.HMultNorm
-public import CFSG.Quasithin.Background.HTransport
 public import CFSG.Quasithin.Background.HSp4Model
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic

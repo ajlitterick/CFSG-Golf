@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GH74.GLS.C3.Prop121.Card7H1Inputs
 public import CFSG.GH74.GLS.C3.Prop121.Card7SylInputs
 meta import CFSG.GH74.GLS.C3.Prop121.Card7H1Inputs
 meta import CFSG.GH74.GLS.C3.Prop121.Card7SylInputs

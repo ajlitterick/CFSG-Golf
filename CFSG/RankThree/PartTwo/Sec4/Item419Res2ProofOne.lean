@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Item419Res2ProofUnitary
-import CFSG.RankThree.PartTwo.Sec4.Item419Res2ProofTools
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

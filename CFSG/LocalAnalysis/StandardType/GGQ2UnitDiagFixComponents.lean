@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2UnitRealizationStatements
 import CFSG.LocalAnalysis.StandardType.GGQ2UnitDiag
 import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUTwo
 import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSU
-import CFSG.ClassicalGroups.Unitary.Simple
-import CFSG.ClassicalGroups.Unitary.Perfect
 
 public section
 

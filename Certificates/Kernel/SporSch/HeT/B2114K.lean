@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.HeT.B2114P
-public import Certificates.Kernel.SporSch.Ru.RowsGen
 public import CFSG.Certificates.Kernel.Spor.WordChunkSound
 import CFSG.Certificates.Kernel.Common.Harness
 

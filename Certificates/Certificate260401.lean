@@ -2,8 +2,6 @@ module
 
 public import Certificates.Data.SmithB45MatGen
 import Certificates.Kernel.B45.C260401K
-import Certificates.Data.Kernel.B45Perm.GenW
-import CFSG.Certificates.Kernel.Common.Harness
 import Certificates.Kernel.LocalQT.Syl.C4059
 import Certificates.Kernel.LocalQT.Syl.C4037
 import Certificates.Kernel.LocalQT.Syl.C4057

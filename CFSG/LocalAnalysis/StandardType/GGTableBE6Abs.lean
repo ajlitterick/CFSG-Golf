@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBRepAbstract
 public import CFSG.LocalAnalysis.StandardType.GGTableBMarkedTransfer
 public import CFSG.LocalAnalysis.StandardType.GGTableBPositionToralExc
 public import CFSG.LocalAnalysis.StandardType.GGStdPosE6ThreeDiag
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangModel
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagE6Toral
 
 public section

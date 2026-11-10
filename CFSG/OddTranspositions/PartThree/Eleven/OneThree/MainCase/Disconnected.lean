@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Orbit
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Bridge
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Bender
-public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.TheoremTwo
 import CFSG.OddTranspositions.PartThree.EightEight.ThirdKind
 import CFSG.OddTranspositions.PartFour.SeventeenTwo
 

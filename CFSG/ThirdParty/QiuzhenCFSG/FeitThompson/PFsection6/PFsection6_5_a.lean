@@ -1,7 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.PFsection6_1
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.PFsection6_4
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.lemma_3_2_b
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities

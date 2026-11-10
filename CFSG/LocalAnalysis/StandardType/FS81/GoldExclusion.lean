@@ -6,9 +6,6 @@ import CFSG.LocalAnalysis.StandardType.FS81.GoldLayerSylow
 import CFSG.LocalAnalysis.StandardType.FS81.GoldExclusionOdd
 import CFSG.LocalAnalysis.StandardType.FS81.GoldExclusionTr
 import CFSG.LocalAnalysis.StandardType.FS81.GoldExclusionCase
-import CFSG.Goldschmidt.OddCore
-import CFSG.Goldschmidt.Setup
-import CFSG.Goldschmidt.StrongClosure
 public import CFSG.Goldschmidt.Statements
 public import CFSG.Goldschmidt.StatementsG4
 public import CFSG.Goldschmidt.StatementsH
@@ -28,7 +25,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstructi
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
 public import CFSG.LocalAnalysis.RankTwoShapes.AlperinFusion
 public import CFSG.Sporadic.Bridge.M11CheckInputs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 public import Certificates.Certificate1
 public import Certificates.Certificate10

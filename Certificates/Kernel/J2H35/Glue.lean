@@ -1,11 +1,8 @@
 module
 
 public import Certificates.Data.SolMaxH35J2
-public import CFSG.Certificates.Kernel.Spor.RawDefs
 public import Certificates.Kernel.J2Cover.AutChains
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.Spor.RawOrbHead
-import CFSG.Certificates.Kernel.BfsPinUnpack
 import CFSG.Certificates.Kernel.BfsPinAlg
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp

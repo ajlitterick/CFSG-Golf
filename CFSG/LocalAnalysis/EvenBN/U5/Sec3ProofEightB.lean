@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.U5.CaseBSharedParts
-public import CFSG.LocalAnalysis.EvenBN.U5.Sec3EThree
 public import CFSG.LocalAnalysis.EvenBN.U5.Sec3B6Two
 public import CFSG.LocalAnalysis.EvenBN.U5.ModelParabolic
 public import CFSG.LocalAnalysis.EvenBN.U5.ModelParabolicTwo

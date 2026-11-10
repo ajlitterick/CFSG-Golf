@@ -4,11 +4,8 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Blocks7
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Sp3
 public import CFSG.LieType.BorelTits.HeldFlagSp
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.RankFineSp
-public import CFSG.LargeExtraspecial.O62Basic
-public import CFSG.LargeExtraspecial.DWFldSymplectic
 public import CFSG.CGT.PushingUpLit.CGT6.EmbFourSevenWeilJoint
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172AExistGL
-public import CFSG.Walter.Bender1970.S2.PGroup
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.ClassicalInvolution.Asc77.AscE184Basic
 public import CFSG.ClassicalInvolution.Asc77.AscE184Graph

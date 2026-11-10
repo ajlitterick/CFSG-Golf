@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBXDatumOfTor
 public import CFSG.LocalAnalysis.StandardType.GGTBTorCartan
 
 public section

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitTorus
-import CFSG.LocalAnalysis.StandardType.GGLangCorootPair
-import CFSG.LocalAnalysis.StandardType.GGQTwoRationalWeyl
 import CFSG.LocalAnalysis.StandardType.GGNTPlaneTableOrbits
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.M1F2
-public import Certificates.Data.CFSGNative.SectionRank.Elem3
 public import Certificates.Data.CFSGNative.Filter.Sec2
 public import Certificates.Data.KFCub2
 

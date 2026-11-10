@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenHomocyclic
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivExcToral
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExc
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcCent
-public import CFSG.LocalAnalysis.StandardType.GGL45NtExcG2Three
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRTransfer
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSLTransfer
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcCoverRows
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE6
 public import CFSG.LieType.Chevalley.ParabolicSylowSubsystem
 
 public section

@@ -4,12 +4,7 @@ module
 public import Certificates.Certificate2061Base
 public meta import CFSG.Sporadic.Co2Schreier.SylowCheckBase
 public meta import CFSG.Sporadic.Co2Schreier.CoreCheckBase
-import Certificates.Kernel.SporSch.Co2M.ThirdFinalBase
-import CFSG.Sporadic.Co2Schreier.ThirdOrderBase
-import CFSG.Sporadic.Co2Schreier.CoresBase
-import CFSG.Sporadic.Co2Schreier.KernelBase
 
-public import CFSG.Sporadic.Co2Schreier.ThirdCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.WitCheck
 public meta import CFSG.Sporadic.Co2Schreier.SylowCheck
 public meta import CFSG.Sporadic.Co2Schreier.CoreCheck
@@ -17,19 +12,9 @@ public meta import CFSG.Sporadic.Co2Cert.FaithfulCheck
 import Certificates.Kernel.SporSch.Co2M.ThirdFinal
 import Certificates.Kernel.SporSch.Co2M.ThE
 import Certificates.Kernel.SporSch.Co2M.Neg2061
-import CFSG.Sporadic.Co2Schreier.ChainCheckInputs
 meta import CFSG.Sporadic.Co2Schreier.Arrays
 meta import Certificates.Data.CFSGNative.Schreier.Check
-import CFSG.Sporadic.Co2Schreier.TextCheckInputs
 meta import CFSG.Sporadic.Co2Schreier.Text
-import CFSG.Sporadic.Co2Schreier.ThirdOrderBase1
-import CFSG.Sporadic.Co2Schreier.Action
-import CFSG.Sporadic.Co2Schreier.Cores
-import CFSG.Sporadic.Co2Schreier.Kernel
-import CFSG.Sporadic.Co2Schreier.SylowLemmas
-import CFSG.Sporadic.Schreier.RuSylowB
-import CFSG.Sporadic.Co2Cert.CheckInputs
-import CFSG.Sporadic.Co2Cert.OrderCheckInputs
 public import CFSG.Assembly.Defs
 
 public section

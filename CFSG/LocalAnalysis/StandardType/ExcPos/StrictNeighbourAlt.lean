@@ -3,17 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.ExcPos.StrictNeighbour
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.ExcPosFinite
 import CFSG.Milestones.ASVolI.A3OddFacts
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312J2Perf
 import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusAltEight
-import CFSG.LocalAnalysis.ComponentClassification.SymmetricLocalLinearFourTwo
-import Mathlib.GroupTheory.IsPerfect
 import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 import CFSG.Quasithin.Vol2.Ch5Sec1L34FiveA7
 import CFSG.Quasithin.Vol2.Ch6Sec1Lem4SpA
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.PSL2Facts
-import CFSG.Walter.W67.Statements
 
 public section
 

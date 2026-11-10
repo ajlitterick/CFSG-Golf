@@ -5,12 +5,9 @@ public import CFSG.LocalAnalysis.StandardType.GGFinModelRat
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangPow
 import CFSG.LocalAnalysis.StandardType.GGK0KacRow
 import CFSG.LocalAnalysis.StandardType.GGK0LangModel
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
 import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeE6
 import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangInj
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangModel
 import CFSG.LocalAnalysis.StandardType.GGFinModelEps
-import CFSG.LocalAnalysis.StandardType.MarkingChevalley
 
 public section
 

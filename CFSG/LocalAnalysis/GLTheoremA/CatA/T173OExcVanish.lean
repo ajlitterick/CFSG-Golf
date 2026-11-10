@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcLayer
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcWeyl
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OConj
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerExcTorus
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestExc
 public import CFSG.LocalAnalysis.GLTheoremA.S12.Diag
 public import CFSG.LocalAnalysis.GLTheoremA.S9.ClosingB
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBaseIso

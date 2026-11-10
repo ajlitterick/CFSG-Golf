@@ -1,13 +1,10 @@
 module
 
-public import CFSG.LieType.SeitzGeneration.ExcTorusE6Three
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentE6Roots
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvAtE6OddLemmas
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoSevenSylow
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.ExcLangNGenTorus
 public import CFSG.LieType.SeitzGeneration.SpBlockPlanes
-public import CFSG.LieType.SeitzGeneration.ExcParabolicModel
-public import CFSG.LieType.Chevalley.GraphFixedE6DiagonalCubes
 public import CFSG.LocalAnalysis.StandardType.GGFinModelEps
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.ExcLangNTorus
 

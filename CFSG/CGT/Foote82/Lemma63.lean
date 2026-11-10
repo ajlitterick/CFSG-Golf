@@ -1,15 +1,10 @@
 module
 
 public import CFSG.CGT.Foote82.SetupLayer
-import CFSG.GroupTheory.LocalCores.Layer
-import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
-import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdComp
-import CFSG.FeitThompson.OddOrderTheorem
 import CFSG.Quasithin.Background.G11Basic
 import CFSG.Quasithin.Background.VolII31
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

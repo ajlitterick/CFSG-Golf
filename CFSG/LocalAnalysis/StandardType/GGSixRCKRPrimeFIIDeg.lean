@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRG
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeM3PSL
-public import CFSG.LieType.Universal.SpecialLinearExtras
-public import CFSG.Assembly.OrderReductions.LinearOrders
-public import CFSG.RankThree.PartOne.S11c.Sec66TGroup
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3TypeDet
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGStep
 import CFSG.LocalAnalysis.StandardType.GGSixTCPSUDualPair
 import CFSG.Quasithin.EmptyFaithful.S151TBTyp

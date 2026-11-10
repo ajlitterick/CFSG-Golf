@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec11.KS11Lie4ProofG2Minus
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.UnitaryEmbedding.PairNormalForm
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenWeyl
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Pairs
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6SubsystemBruhat
@@ -22,7 +21,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.F4PilotXiCaseLTorus
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.RankThree.PartOne.KE.A1Centralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 
 public section

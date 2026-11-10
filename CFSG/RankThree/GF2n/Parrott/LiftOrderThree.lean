@@ -2,9 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.LocalData
 public import CFSG.GroupTheory.CentralizerQuotientCard
-public import CFSG.RankThree.GF2n.Parrott.PSp43Model
-public import Certificates.Certificate946005
-public import Certificates.Certificate2012
 
 public section
 

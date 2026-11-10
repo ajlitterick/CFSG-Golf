@@ -4,12 +4,7 @@ public import CFSG.OddTranspositions.PartThree.Twelve.Three
 public import CFSG.OddTranspositions.PartFour.Fourteen.RootBlockSp
 public import CFSG.OddTranspositions.PartFour.Fourteen.RootBlockUnitary
 import CFSG.OddTranspositions.PartFour.SpLineCount
-import CFSG.LocalAnalysis.WeakClosure81.EightSixBorelSpNormal
 import CFSG.RankThree.PartOne.KC.SymplecticFullRankTwo
-import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
-import CFSG.ClassicalGroups.Unitary.Transitivity
-import CFSG.LocalAnalysis.WeakClosure81.W16Gt2KFactsI
-import CFSG.LieType.Steinberg.CentralExt.UnitaryField
 import CFSG.OddTranspositions.WidthSylow
 public import CFSG.CGT.Timmesfeld75.Cfg214Gen
 public import CFSG.CGT.Timmesfeld75.Derivations

@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2278Base
 
-public import CFSG.Sporadic.SmallOddCore.J2CheckInputs
 public meta import CFSG.Sporadic.SmallOddCore.J2Data
 public meta import CFSG.Sporadic.Schreier.PairJ2Check
 import Certificates.Kernel.Sporadic.OddCore.J2CnF

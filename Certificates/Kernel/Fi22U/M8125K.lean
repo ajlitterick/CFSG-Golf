@@ -7,7 +7,6 @@ public import Certificates.Kernel.Sporadic.Fi22.R3150M
 public import Certificates.Kernel.Sporadic.Fi22.F1OuterS
 public import Certificates.Kernel.Sporadic.Fi22.F1OuterT
 public import Certificates.Data.Kernel.Fi22U.Restrict
-public import Certificates.Data.Kernel.Spor.Prim
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Leaves2
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Alt2
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Mathieu2
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93M122
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93J12
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93J22
@@ -36,14 +34,8 @@ public import CFSG.GH74.Generic.S1.TLeafA
 public import CFSG.GH74.Generic.S1.TLeafBar
 public import CFSG.GH74.Generic.S45.LEvSporFacts
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4Cover
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 public import CFSG.LocalAnalysis.ComponentClassification.OddClassSelectorU
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
-public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinearSocle
 public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecPair
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSLAllInvolutions
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSUFieldOddCore
-public import CFSG.LocalAnalysis.ComponentInitial.ProjectiveEigenspaceComponent
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentLieAlt
 public import CFSG.RankThree.PartOne.KS.Plane
 

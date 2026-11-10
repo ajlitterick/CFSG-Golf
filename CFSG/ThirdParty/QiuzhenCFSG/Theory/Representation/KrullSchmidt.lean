@@ -2,10 +2,8 @@ module
 
 public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
 import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.LinearAlgebra.Projection
 public import Mathlib.RingTheory.Artinian.Module
 public import Mathlib.RingTheory.LocalRing.Basic
-public import Mathlib.RingTheory.Nilpotent.Basic
 
 namespace CFSG
 end CFSG

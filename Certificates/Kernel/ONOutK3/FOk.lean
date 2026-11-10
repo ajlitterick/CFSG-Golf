@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.ONOutK3.Cover
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

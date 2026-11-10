@@ -5,7 +5,6 @@ public meta import CFSG.Sporadic.GLQ.RegisterProgram
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2
 public meta import Certificates.Data.CFSGNative.SectionRank.F2
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4Action
-import CFSG.Blueprint.NativeSporadic
 public meta import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 public meta import CFSG.Open.Defs
 

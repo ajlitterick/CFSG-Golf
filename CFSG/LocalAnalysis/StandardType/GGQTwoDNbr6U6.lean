@@ -3,8 +3,6 @@ module
 import Lean
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbr6Defs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrEsu
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrU6
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrUnit
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAdapterAux
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar

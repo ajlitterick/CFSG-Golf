@@ -1,25 +1,14 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExcHypIITwistedE6TwoWit
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExceptionalStep83PairE6Tests
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExceptionalStep83PairReduce
 public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6Classes
-public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6ClassesCheck
-public import CFSG.Blueprint.Catalog
 public import CFSG.LieType.Chevalley.C2E6StandardLevi
-public import Certificates.Certificate3951
 public import Certificates.Certificate15074
-import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6Rigidity
-import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6Two
-import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6ClassList
 import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6CascadeFinal
 import CFSG.LargeExtraspecial.S14C12E6Center
 import CFSG.LieType.Chevalley.OddExceptionalOuterTwoRank
 import CFSG.LieType.Chevalley.TwistedE6FieldTwoCyclicKernel
-import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
-import CFSG.LieType.Chevalley.GraphFixedOrbitCollection
-import CFSG.LieType.Chevalley.ProductInjectivity
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogRigidityRadical
 public import CFSG.Sporadic.Schreier.J4SFive
 public import CFSG.LieType.Chevalley.C2E6ExactRootRestrictions
 public import CFSG.LieType.Chevalley.C2E6StandardFixedBorelOrder

@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusLangCoordinates
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusE7
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusLarge
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcNonsLang
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcNorm
 public import CFSG.LocalAnalysis.StandardType.GGRealKGExcNegJ
 
 public noncomputable section

@@ -3,14 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxWielandt
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxNormalP
 public import CFSG.Walter.J1.Tools
-public import CFSG.Open.LocalVocabulary
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
 import CFSG.FeitThompson.OddOrderTheorem
 public import CFSG.Dihedral.DisconnectedInvolutionGraph.CoprimeFixedSylow
 public import CFSG.LocalAnalysis.GorensteinLyons.SteinbergCHWeakCoreMinimalNormalFactors
-import Mathlib.GroupTheory.Perm.Cycle.Type
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.GroupTheory.LocalCores.Layer
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -28,7 +24,6 @@ public import CFSG.LocalAnalysis.SectionRank.NativeKGroup
 public import CFSG.RankThree.GroupTheory.SteinbergBYRelativeCores
 public import CFSG.RankThree.GroupTheory.SteinbergCDRankOneAutPrimes
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

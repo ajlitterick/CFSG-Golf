@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUNbr
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUInnerDiag
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSULeaves
 public import CFSG.LocalAnalysis.StandardType.GGSixTCMarkDict

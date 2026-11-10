@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcKGToralFrame
 public import CFSG.LocalAnalysis.StandardType.GGStepTwoToralLemmaI
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 public import CFSG.LinearAlgebra.CoprimeActions.PermutationFunctionFixedDimension
 public import CFSG.LocalAnalysis.StandardType.GGLatPerpRefl
 public import CFSG.LocalAnalysis.StandardType.GGLatPermExc

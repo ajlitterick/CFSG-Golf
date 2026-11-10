@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenNineBTrans
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs2
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTwo
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenKbar
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs15
 
 public section
 

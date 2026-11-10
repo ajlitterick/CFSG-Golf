@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.Defs
-public import Mathlib.Algebra.BigOperators.Fin
 
 public section
 

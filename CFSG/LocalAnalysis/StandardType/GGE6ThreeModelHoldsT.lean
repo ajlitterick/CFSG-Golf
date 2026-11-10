@@ -1,13 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHolds
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelTFrame
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelCentT
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelModuleMT
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelAutT
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelCoverOne
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Cover
-public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Recipe
 
 public noncomputable section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFamRatComp
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4ULang
 public import CFSG.LocalAnalysis.StandardType.GGLangFamily
 

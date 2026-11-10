@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangKGInputs
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseNoBL5Aut
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclic
-public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeMarking
 import CFSG.LocalAnalysis.StandardType.GGNbrLangRegStepZero
-import CFSG.LocalAnalysis.StandardType.GGNbrLangTypeALift
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5L511R
-public import CFSG.LocalAnalysis.ComponentClassification.Foote5InputsE
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitTwoSub
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LieType.SteinbergBROddSylowCore
 public import CFSG.LieType.SteinbergBRSmallAltSylow
 

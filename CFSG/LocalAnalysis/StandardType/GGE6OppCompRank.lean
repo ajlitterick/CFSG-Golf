@@ -1,17 +1,11 @@
 module
 
-public import CFSG.Assembly.GL83LieDefs
 public import CFSG.LocalAnalysis.StandardType.GGK1ScFinal
-public import CFSG.LocalAnalysis.StandardType.GGKacK1
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 public import CFSG.LocalAnalysis.StandardType.GGTwistedLabelModels
-public import CFSG.LocalAnalysis.SectionRank.ClassicalEven.Linear
-public import CFSG.LocalAnalysis.SectionRank.ClassicalEven.Orthogonal
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.TightPairAndPureRank.Agl418Block
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank65Plane
 public import CFSG.RankThree.PartTwo.Sec21.HeringFFLLiftP
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank614Defs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank614PrimeDefs
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpStatements
-public import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalNormalizers
 
 public section
 

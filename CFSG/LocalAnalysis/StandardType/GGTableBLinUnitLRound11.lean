@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLLID
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLLinePSL
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyElevenDefs
 
 public section

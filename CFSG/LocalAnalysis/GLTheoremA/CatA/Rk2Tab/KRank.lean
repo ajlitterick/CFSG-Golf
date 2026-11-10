@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.ClassicalModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.ExcE6Cover
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.ExcE7
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.ExcE8
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.ExcF4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.ExcSmall
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.Derived
 public import CFSG.CGT.PushingUpLit.CGT6.SixFour

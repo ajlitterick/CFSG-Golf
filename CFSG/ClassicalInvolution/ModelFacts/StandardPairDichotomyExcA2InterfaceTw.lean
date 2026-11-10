@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Interface
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2TwPair
 
 public section

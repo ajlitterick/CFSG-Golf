@@ -7,23 +7,12 @@ public import CFSG.LocalAnalysis.StandardType.GGE6DepKNoTv
 public import CFSG.LocalAnalysis.StandardType.GGKOnlyE6Normalization
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
 public import CFSG.LocalAnalysis.StandardType.GGLineStabNormalizes
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 public import CFSG.LocalAnalysis.StandardType.GGResE6Coordinates
 public import CFSG.LocalAnalysis.StandardType.GGResIBasic
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS09I133Small
 public import CFSG.Quasithin.Background.SmithB45HatA6Out
 public import CFSG.Sporadic.Co2Smith.Transport
-public import CFSG.Blueprint.Chevalley
-public import CFSG.Assembly.E6FourCentMask
 public import CFSG.Mathlib.Decide.Bounded
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Algebra.Module.Basic
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.LinearAlgebra.BilinearForm.Basic
-public import Mathlib.LinearAlgebra.Matrix.Symmetric
-public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
-public import Mathlib.Tactic
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoCartan
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma27
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma512
 public import CFSG.LargeExtraspecial.OfFStar
@@ -35,10 +24,6 @@ public import CFSG.Quasithin.Background.SmithB42Alt7Ctx
 public import CFSG.Quasithin.Background.SmithB42Alt7Model
 public import CFSG.Quasithin.Vol2.Ch5Sec1L34FiveA7
 public import CFSG.Quasithin.Vol2.Ch6Sec1Lem4SpA
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 public import Certificates.Kernel.J4Count.Cent11Base
 public import Certificates.Kernel.J4Count.Fix11
 

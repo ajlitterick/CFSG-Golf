@@ -1,29 +1,11 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.PermCheck
-public import CFSG.CharacterTheory.Burnside
-public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutFusion
-public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizers
-public import CFSG.LocalAnalysis.ComponentClassification.M12CoverLiftClasses
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM12
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM12Check
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM12Data
 public meta import CFSG.GH74.KGroups.PermCheck
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM12Data
 public meta import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizerData
 public meta import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutFixedData
-public import CFSG.GH74.KGroups.TwoM12CheckInputs
 public meta import CFSG.GH74.KGroups.TwoM12CheckInputs
-public import Certificates.Certificate2193
-public import Certificates.Certificate2194
-public import Certificates.Certificate2200
-public import Certificates.Certificate3086
 public import Certificates.Certificate5131
-public import Certificates.Certificate10024
-public import Certificates.Certificate11003
-public import Certificates.Certificate11004
 
 public section
 

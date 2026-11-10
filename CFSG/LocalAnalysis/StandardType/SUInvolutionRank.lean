@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGInvolutionClassSU
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectSUDiag
-public import Mathlib.LinearAlgebra.Matrix.Rank
 
 public section
 

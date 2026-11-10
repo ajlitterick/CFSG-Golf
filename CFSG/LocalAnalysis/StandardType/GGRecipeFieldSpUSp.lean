@@ -4,12 +4,10 @@ public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSpUNorm
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherOuterQuotient
 import CFSG.RankThree.PartTwo.KFacts.AutPSpOrderThree
 import CFSG.RankThree.Classical.SemilinearFixedBasis
-import TauCeti.LinearAlgebra.BilinearForm.SymplecticBasis
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherBruhat
 public import CFSG.Open.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 
 public section

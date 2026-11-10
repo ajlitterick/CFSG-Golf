@@ -1,9 +1,6 @@
 module
 
-public import Mathlib.Algebra.Algebra.Subalgebra.Lattice
 public import Mathlib.Algebra.Group.Pointwise.Set.Card
-public import Mathlib.Algebra.Group.Subgroup.Pointwise
-public import Mathlib.GroupTheory.OrderOfElement
 public import Mathlib.Data.ZMod.QuotientGroup
 public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 import Mathlib.Tactic.LinearCombination

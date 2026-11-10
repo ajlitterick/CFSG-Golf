@@ -9,7 +9,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GSYard02PSp4
 public import CFSG.LocalAnalysis.ComponentClassification.GSYard02SmallEven
 public import CFSG.LocalAnalysis.ComponentClassification.GSYard02Alt
 public import CFSG.LocalAnalysis.ComponentClassification.GSYard02J1
-public import CFSG.LocalAnalysis.ComponentClassification.GSYard02M12
 public import CFSG.LocalAnalysis.ComponentClassification.GSYard02M22
 public import CFSG.LocalAnalysis.ComponentClassification.GSYard02M23
 public import CFSG.LocalAnalysis.ComponentClassification.GSYard02Ly

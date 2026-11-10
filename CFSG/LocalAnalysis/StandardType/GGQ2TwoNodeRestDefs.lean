@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTableBNbr
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGSkeleton
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08TwoNodeBasics
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112K
 

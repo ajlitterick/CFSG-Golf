@@ -4,7 +4,6 @@ public import Certificates.Kernel.ThFive.Check
 public import CFSG.Certificates.Kernel.ThFive.Sound
 public import CFSG.Certificates.Kernel.ThFive.PGroup
 public import Certificates.Kernel.ThCent.Consumers
-public import CFSG.LocalAnalysis.StandardType.GGSporKRestClosure
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestClassesCl
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestClasses
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThFive

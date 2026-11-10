@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.SignKernelComponentBruhat
 public import CFSG.LieType.Chevalley.SignKernelComponentPerfect
-public import CFSG.LieType.Chevalley.OppositeBorel
 public import CFSG.LieType.TitsSimplicity.Simplicity
 
 public noncomputable section

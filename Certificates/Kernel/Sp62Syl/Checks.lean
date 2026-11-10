@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sp62Syl.Data
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Sp62LocalData
 import CFSG.Certificates.Kernel.Common.EachTrue
 import CFSG.Certificates.Kernel.Common.ForallChunks
 

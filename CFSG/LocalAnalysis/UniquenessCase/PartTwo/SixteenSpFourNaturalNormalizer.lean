@@ -4,12 +4,7 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenFieldExtensionFix
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenMod
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenNaturalTransitiveTI
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightF8Pred
-public import CFSG.Quasithin.Vol2.KGNatCoord
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154E3MixedL3AA
-public import CFSG.Quasithin.Background.HStandard
-public import CFSG.Quasithin.Background.D2Basic
-public import CFSG.Open.StatedDefs
-public import CFSG.RankThree.GF2n.Stroth80.Sec5NatScalars
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CenterHopf
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16b
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven3Close16CoverR119

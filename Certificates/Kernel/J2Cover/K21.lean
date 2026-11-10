@@ -8,8 +8,6 @@ public import Certificates.Kernel.J2Cover.KerReps
 public import Certificates.Kernel.LocalComp.Child3Lemmas
 public import Certificates.Kernel.LocalComp.BlockGen
 meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutData
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckBase
 
 public section

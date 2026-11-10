@@ -3,12 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieInnGood
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxLinear
 public import CFSG.LinearAlgebra.MatrixPlanes
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.NonsplitPlane
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.NonsplitBlocks
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.LinearGen
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.DiagSplitTransvection
-public import CFSG.LieType.Steinberg.CentralExt.LinearPerfect
-public import CFSG.RankThree.PartOne.S9.Planes.Basic
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec5.Thm53AuxA3
 import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6FiveDiag
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSL

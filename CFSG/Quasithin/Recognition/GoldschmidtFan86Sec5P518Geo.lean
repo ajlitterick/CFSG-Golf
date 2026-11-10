@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec5P518Ctx
-public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec8P1Z2Loc
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec5StmtB
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec6P62Core
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec6P62Hyp

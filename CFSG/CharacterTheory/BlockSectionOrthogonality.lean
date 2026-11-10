@@ -2,7 +2,6 @@ module
 
 public import CFSG.CharacterTheory.BlockSectionOrthogonality.Helpers
 public import CFSG.CharacterTheory.BlockSectionOrthogonality.BlockAtoms
-public import CFSG.CharacterTheory.BlockSectionOrthogonality.BlockOrthogonality
 
 public section
 

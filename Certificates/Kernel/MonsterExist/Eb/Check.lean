@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.MonsterExist.Eb.Sound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGIOneExcLift
 public import CFSG.LocalAnalysis.StandardType.GGIOneExcRootAs
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDTwE6Field
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
 
 public section
 

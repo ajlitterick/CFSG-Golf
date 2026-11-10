@@ -40,7 +40,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Ronan148RH1Move
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148RH1Transfer
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowA9
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item4443SLUsed
-public import CFSG.Walter.J1Props
 
 public section
 

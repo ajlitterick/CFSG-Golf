@@ -7,12 +7,6 @@ import CFSG.LocalAnalysis.RankFourTheoremC.PPointExoticSigSzCore
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSz32Local
 import CFSG.RankThree.SteinbergR3ESuzukiFieldSplitting
 import CFSG.RankThree.PartOne.KP.SporadicDefs
-import CFSG.RankThree.PartOne.CTP.SeitzExcModels
-import CFSG.RankThree.PartOne.K159.AutSzIso
-import CFSG.RankThree.PartOne.K159.AutSzAbs
-import CFSG.LieType.Ree.SuzukiSimple
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma114Models
-import CFSG.StronglyEmbedded.Catalog.Suzuki
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.GroupTheory.LocalCores.Layer
@@ -39,7 +33,6 @@ public import CFSG.RankThree.PartOne.CTP.StrongPClassification
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.RankThree.PartOne.S8.Statements
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools

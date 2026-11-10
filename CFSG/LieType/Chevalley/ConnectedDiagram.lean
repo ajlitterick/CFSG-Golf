@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.WeylExchange
-public import Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected
 
 public section
 

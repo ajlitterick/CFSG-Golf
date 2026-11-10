@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGExcLeviRankBase
 public import CFSG.LocalAnalysis.StandardType.GGExcLeviRankA
 public import CFSG.LocalAnalysis.StandardType.GGExcLeviRankD
 public import CFSG.LocalAnalysis.StandardType.GGExcLeviRankE
-public import CFSG.LocalAnalysis.StandardType.GGExcLeviRankProp
 public import CFSG.LocalAnalysis.StandardType.GGExcKGBorelTitsLevi
 
 public section

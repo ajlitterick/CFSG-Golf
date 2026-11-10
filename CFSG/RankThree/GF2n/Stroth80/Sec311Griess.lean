@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Stroth80.Sec311Cover
-public import CFSG.Open.StatedDefs
 
 public section
 

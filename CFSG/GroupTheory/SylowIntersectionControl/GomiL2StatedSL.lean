@@ -8,7 +8,6 @@ import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3SelL39Out
 import CFSG.LocalAnalysis.QuasithinUnique.CatalogBridgeLinear
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_14
-import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.Fitting.CharacteristicP
@@ -21,7 +20,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenDefs
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TenFifteenBlockNormal
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenTenClaimOrbit
 public import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockBasic
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTriD4LineKGXDefs
-public import CFSG.LieType.Chevalley.TwistedE6NormalFormActors
 public import CFSG.RankThree.PartOne.KGD.D4Frame
 public import CFSG.LieType.Ree.LargeReeSylowOpposition
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo

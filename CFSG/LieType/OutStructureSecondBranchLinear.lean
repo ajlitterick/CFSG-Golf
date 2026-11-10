@@ -10,7 +10,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.ClassicalModelStatedBri
 public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherRigidity
 public import CFSG.LocalAnalysis.RankTwoShapes.UnitaryFour.Bridge
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentNotExcFlatDefs
 public import CFSG.LocalAnalysis.StandardType.GGRCSShadowSmall
 public import CFSG.LocalAnalysis.StandardType.GGRCSShadowSpRigid
 public import CFSG.LocalAnalysis.StandardType.GGRCSShadowAlt

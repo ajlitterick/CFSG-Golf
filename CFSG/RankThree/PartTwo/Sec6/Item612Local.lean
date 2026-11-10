@@ -6,7 +6,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Statements
 import CFSG.GroupTheory.LocalCores.Components
 import CFSG.GroupTheory.PerfectResidualNodes
 import CFSG.RankThree.PartTwo.Sec5.Tools
-import CFSG.LocalAnalysis.RankThreeEvenClassification.InvariantSylow
 import CFSG.LocalAnalysis.RankThreeEvenClassification.InvariantSylowContainment
 
 public section

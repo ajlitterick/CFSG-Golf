@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorusE8Scalar
 public import CFSG.LocalAnalysis.StandardType.GGExcMinusCompField
 public import CFSG.LocalAnalysis.StandardType.GGTBTorE8Plus
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots

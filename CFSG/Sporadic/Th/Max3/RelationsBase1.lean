@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.Th.Max3.RelationsBase
 import all CFSG.Sporadic.Th.Max3.RelationsBase
 
 public import CFSG.Sporadic.Th.Max3.Data

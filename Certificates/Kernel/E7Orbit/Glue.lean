@@ -1,9 +1,5 @@
 module
 
-public import Certificates.Data.OmegaSevenMax.Defs
-public import Certificates.Data.OmegaSevenMax.RootCodes
-public import Mathlib.Data.Fin.VecNotation
-public import Mathlib.Data.Fintype.Card
 public import Certificates.Kernel.E7Orbit.Nodes
 public import Certificates.Kernel.E7Orbit.Gens
 public import CFSG.Certificates.Kernel.E7Orbit.Forest
@@ -11,8 +7,6 @@ public import CFSG.Certificates.Kernel.E7Orbit.Vec
 import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.E7RootSetFacts
 import CFSG.Certificates.Kernel.Common.ForallTree
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.PackSetSound
-import Mathlib.Tactic.FinCases
 import Mathlib.Tactic.Ring
 public import Certificates.Certificate709545Base
 public import Mathlib.GroupTheory.Perm.Basic

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestLift
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperUnitary
-public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepairBlock
 
 public section
 

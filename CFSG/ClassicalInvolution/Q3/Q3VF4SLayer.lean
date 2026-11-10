@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3VF4SRelabel
 public import CFSG.ClassicalInvolution.Q3.Q3E8BCent
-public import CFSG.ClassicalInvolution.Q3.Q3WAPow
-public import CFSG.ClassicalInvolution.RouteD.TypeF4PatternLayer
 
 public section
 

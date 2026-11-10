@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs295c
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.S3AmalgamBound.OvergroupA5
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.OrdinaryProofs.PSolvableClosure
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LinearAut
-public import CFSG.RankThree.PartOne.KC.LinearCommutantBlocks
-public import CFSG.RankThree.PartOne.KC.LinearPlaneCore
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 public import CFSG.Goldschmidt.Steps.G37Core
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.InndiagLink
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3FATArith
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3G515Core
@@ -41,8 +36,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.WeakClosureThree.LieCr
 public import CFSG.Quasithin.Background.A3Structure314
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.E2Statements
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
 public import CFSG.Quasithin.EmptyFaithful.Insp9Cases4
@@ -78,7 +71,6 @@ public import CFSG.RankThree.PartOne.N143.SecRankHard
 public import CFSG.RankThree.PartOne.N143.SectionCenter
 public import CFSG.RankThree.PartTwo.KFacts.K71OddChar
 public import CFSG.Sporadic.Schreier.Fi22Schreier
-public import CFSG.Walter.J1Props
 public import Certificates.Kernel.J4Count.Prim
 
 public section

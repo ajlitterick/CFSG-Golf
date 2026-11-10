@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrame
 public import CFSG.LocalAnalysis.StandardType.GGQTwoRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLDefs
 import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivLinkLift
-import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordFullAux
 import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordFullAux2
 import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordFullW
 

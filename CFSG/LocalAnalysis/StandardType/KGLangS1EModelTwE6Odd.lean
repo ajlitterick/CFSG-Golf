@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.KGLangS1EBridgeFix
 public import CFSG.LocalAnalysis.StandardType.KGLangS1ECover
 public import CFSG.LocalAnalysis.StandardType.KGLangS1ENormalFormTwE6Diag
-public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
 import CFSG.LocalAnalysis.StandardType.KGLangS1EModelDerived
-import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
-import CFSG.LieType.Chevalley.TrialityFullAmbientFixedGroup
 import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Dvd
 
 public section

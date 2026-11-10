@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Contracts
-public import CFSG.LocalAnalysis.ComponentClassification.LocalComponents
 public import CFSG.LieType.SemisimpleCentralizers.HeldLinearComponents
 
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.TableIZ
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HaradaModel.WordSub
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.InvClasses
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HaradaModel.Enum
 
 public section

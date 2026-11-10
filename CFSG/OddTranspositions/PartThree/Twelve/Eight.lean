@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Twelve.EightModel
 public import CFSG.OddTranspositions.PartThree.Twelve.SixComponent
 import CFSG.OddTranspositions.PartThree.Twelve.Six
-import CFSG.OddTranspositions.PartThree.Twelve.Four
 import CFSG.OddTranspositions.PartThree.Twelve.FourU
 import CFSG.OddTranspositions.SevenFourEight.SevenSix
 import CFSG.ClassicalInvolution.Asc77.AscSCH19

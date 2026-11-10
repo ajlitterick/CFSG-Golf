@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineSixLowDim.KFact.L3.Defs
-public import CFSG.RepresentationTheory.UniqueVectorOrbitTwisting
 public import CFSG.Foundations.Basic
 public import CFSG.RankThree.SubgroupLists.SchurCommutant
 

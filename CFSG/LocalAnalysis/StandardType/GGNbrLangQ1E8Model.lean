@@ -1,18 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangTorusInnerDiagLie
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcW
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcMonomial
-public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcConn
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwSmallThreeTwE6
-public import CFSG.LieType.SemisimpleCentralizers.HeldSLFacts
-public import CFSG.RankThree.Chevalley.G2F4FiniteFieldFixedMatrices
-public import CFSG.RankThree.PartOne.KE.E8RootCharacterTorus
-public import CFSG.LieType.Steinberg.Adjoint.Perfect
-public import CFSG.LieType.Chevalley.LangFiniteRootCentralizer
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
-public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangCore
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.BigAnyQuad
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWT6B2
 public import CFSG.ClassicalInvolution.RouteD.TWT4Clos
-public import CFSG.ClassicalInvolution.ModelFacts.G2D4Block
 
 public section
 

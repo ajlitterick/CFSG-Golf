@@ -4,8 +4,6 @@ public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BSevenLocalElems
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BSevenLocalThreeB
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BSevenLocalCover
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BSevenCensus
-public import CFSG.Monster.Existence.MilestoneInputs
-public import CFSG.Monster.Existence.BabyTableIVOf
 
 public section
 

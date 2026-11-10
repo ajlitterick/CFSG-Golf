@@ -1,23 +1,15 @@
 module
 
 public import CFSG.Milestones.CL_LIT_GH74_sectional_two_rank_four
-public import CFSG.LocalAnalysis.ComponentClassification.GSLitInputs
-public import CFSG.LocalAnalysis.OddStandard.ChildL34
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34OddLieStd
-public import CFSG.LocalAnalysis.OddStandard.L34SeitzSimple
 public import CFSG.LocalAnalysis.OddStandard.Seitz77Proved
-public import CFSG.LocalAnalysis.OddStandard.L34EvenSylow
 public import CFSG.LocalAnalysis.OddStandard.ChengHeldFinalHyp
-public import CFSG.LocalAnalysis.OddStandard.ONanEndConsumer
 public import CFSG.LocalAnalysis.OddStandard.ONanB2Mirror
 public import CFSG.LocalAnalysis.OddStandard.RouteWStdONan
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitONanBalStageU
-public import CFSG.Goldschmidt.Final
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Open
 public import CFSG.LocalAnalysis.ComponentClassification.GMS78Open
 public import CFSG.LocalAnalysis.ComponentClassification.GMS78Sec5RuH1Final
-public import CFSG.Sporadic.SuzRecog.MixedCell
-public import CFSG.Sporadic.SuzRecog.SuzLeaf
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoRu.HypOne
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.L34Size
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma37

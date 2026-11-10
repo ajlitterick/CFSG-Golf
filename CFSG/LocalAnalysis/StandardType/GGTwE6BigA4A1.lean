@@ -6,7 +6,6 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.TwE6UniqA1
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreKac
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentrePerm
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.ExactSU
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
 import CFSG.LocalAnalysis.GLTheoremA.CatA.KD147cMat
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreLang
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.KacDAll

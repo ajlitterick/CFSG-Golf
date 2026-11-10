@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.SectionRank.Monster
 public meta import CFSG.YGroups.Defs
 public meta import Certificates.Data.CFSGNative.YGroups.Check
 public import Certificates.Certificate3174
-public import Certificates.Certificate10093
-public import CFSG.Open.Defs
 public import CFSG.YGroups.Bound
 public meta import Mathlib
 

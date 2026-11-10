@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTransvection
-public import CFSG.Open.LocalVocabulary
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotTransvectionCore
 public import CFSG.ClassicalInvolution.Asc77.AscSCH19
 public import CFSG.RankThree.GF2n.Smith81.S81U6Iso

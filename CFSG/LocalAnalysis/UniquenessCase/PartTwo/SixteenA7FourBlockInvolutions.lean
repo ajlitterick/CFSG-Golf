@@ -1,18 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenA7FourBlocks
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenFiveTen
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTools
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTwo
 public import CFSG.Quasithin.Background.B1ChiefCount
-public import CFSG.Quasithin.Background.AutSubConj
-public import CFSG.Quasithin.Background.D2Basic
-public import CFSG.Quasithin.Background.D2Involutions
-public import CFSG.Quasithin.Background.Module
 public import CFSG.Quasithin.Background.SmithD321Ext
-public import CFSG.Quasithin.Background.B1Restrict
-public import CFSG.Quasithin.Background.FFC5Two
-public import CFSG.Quasithin.Background.FFC6P
 public import CFSG.Quasithin.EmptyFaithful.SzF53MConj
 public import CFSG.Quasithin.H13.A7Nat1233ModAbs
 public import CFSG.Quasithin.Vol2.Ch10SecQ3CK8E

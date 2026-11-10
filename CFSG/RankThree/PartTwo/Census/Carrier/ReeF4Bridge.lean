@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Census.Carrier.ReeF4Index
 public import CFSG.RankThree.PartTwo.Census.Carrier.ReeF4Local
 public import CFSG.RankThree.PartTwo.Census.Carrier.TitsCert
 public import CFSG.RankThree.PartTwo.Census.Criteria
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.AmbientGroup
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Classification

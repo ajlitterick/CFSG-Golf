@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLieLayerModel
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycMRestTwo
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.LieCompHolds
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Main
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SRTReeF4
-public import CFSG.Assembly.InCatalogConverse
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.ClassicalInvolution.Asc77.AscE184Basic
 public import CFSG.ClassicalInvolution.Asc77.AscE184Graph

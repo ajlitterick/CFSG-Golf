@@ -1,11 +1,7 @@
 module
 
 public import CFSG.HardMathSupport.Foote.Coordinator.AnisoCube.E6Three
-public import CFSG.LieType.Chevalley.OrdinaryRootHyperplaneGeneration
-public import CFSG.LieType.SeitzGeneration.ExcParabolicUntw
 public import CFSG.LieType.SeitzGeneration.UnitaryHyperDiag
-public import CFSG.LieType.Simplicity.Exceptional
-public import CFSG.LocalAnalysis.PreuniquenessRankFour.Confinement
 public import CFSG.HardMathSupport.Malle.SeitzCube.E6ThreeSL3
 public import CFSG.HardMathSupport.Malle.SeitzCube.E7High
 public import CFSG.LieType.SeitzGeneration.NonabHeisThreeCore

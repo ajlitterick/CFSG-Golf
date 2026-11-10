@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGWPlusTwE6Quot
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelFrame
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsT
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 
 public section
 

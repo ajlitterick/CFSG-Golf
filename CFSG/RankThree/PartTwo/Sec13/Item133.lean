@@ -5,9 +5,6 @@ public import CFSG.RankThree.PartTwo.Sec13.Item131Facts
 import CFSG.RankThree.PartTwo.Sec13.Item132
 import CFSG.RankThree.PartTwo.Sec13.Naturality
 import CFSG.Milestones.AT_alternating_automorphism_permutation
-import CFSG.RankThree.LocalRank.SolvablePrimeComplementCore
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Chevalley.LangRootArithmetic
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
@@ -16,7 +13,6 @@ public import CFSG.RankThree.PartTwo.Sec11.Data
 public import CFSG.RankThree.PartTwo.Sec6.Statements
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.Permutation.AlternatingAutomorphism
 
 public section

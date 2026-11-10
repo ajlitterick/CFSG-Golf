@@ -5,9 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJLinearCorank
 import CFSG.LocalAnalysis.StandardType.GGTBJR1LinCount
 import CFSG.LocalAnalysis.StandardType.GGTBJR1LinRefl
 import CFSG.LocalAnalysis.StandardType.GGTBJR1OmPlusRow
-import CFSG.LocalAnalysis.StandardType.GGTBJRowR4Narrow
 import CFSG.LocalAnalysis.StandardType.GGTBRowR1Parity
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 
 public section
 

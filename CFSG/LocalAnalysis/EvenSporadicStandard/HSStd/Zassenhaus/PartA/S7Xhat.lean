@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.PartA.S7Lam
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.PartA.S7Catalog
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.PartA.S7Dihedral
-public import CFSG.Sporadic.SmallOddCore.HSAut
-public import CFSG.Sporadic.Schreier.PairHSFaithful
-public import Mathlib.GroupTheory.Transfer
 
 public section
 

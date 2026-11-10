@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalOddPSubgroupCentralized
 
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.theorem_1_13
 import Mathlib.Tactic
 
 namespace CFSG

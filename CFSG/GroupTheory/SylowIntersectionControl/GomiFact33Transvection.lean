@@ -2,7 +2,6 @@ module
 
 public import CFSG.CGT.PushingUpLit.BHS.FourSymA
 public import CFSG.GH74.GLS.Basic
-import CFSG.Timmesfeld.Basic
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1G47Trv
 
 public section

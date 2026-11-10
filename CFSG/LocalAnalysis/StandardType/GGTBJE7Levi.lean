@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviEnnola
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE7
-public import CFSG.LocalAnalysis.StandardType.GGTBJE7LeviCore
 public import CFSG.LocalAnalysis.StandardType.GGTBJE7LeviClass
 public import CFSG.LocalAnalysis.StandardType.GGTBJE7LeviDatum
 

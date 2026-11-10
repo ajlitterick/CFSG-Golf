@@ -3,18 +3,11 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniLFrame
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBUni
-import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitary
-import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA2
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryRankThreeCover
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOmKFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBSpCoordFrameFacts
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Models
-import CFSG.Assembly.Subnormal
 
 public section
 

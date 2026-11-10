@@ -2,20 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniBlockType
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
-import CFSG.GroupTheory.ABGDGroups.LinearCentralizers
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2OmegaSelect
 import CFSG.GroupTheory.IsComponentOfMap
 import CFSG.GroupTheory.ConjKerCenter
-import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Label
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
 import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
-import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatTypeDet
-import CFSG.Timmesfeld.Orders.Distinct
-import CFSG.Timmesfeld.Orders.Classical
 
 public section
 

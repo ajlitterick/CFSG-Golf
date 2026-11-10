@@ -4,7 +4,6 @@ public import CFSG.Quasithin.H13.U3ElemNine
 public import CFSG.Quasithin.H13.U3FrameKernel
 public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.LocalAnalysis.QuasithinUnique.QTKECore
-public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SubnormalCore
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper

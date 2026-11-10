@@ -46,8 +46,6 @@ import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryRootAutomorphism
 import CFSG.LocalAnalysis.SignalizerFunctor
 import CFSG.Milestones.CL_LIT_Goldschmidt_strongly_closed_abelian_models
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M12
 import CFSG.Sporadic.Mathieu.M24

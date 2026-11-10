@@ -1,23 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4H4ListFamilies
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTables
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
-import CFSG.LocalAnalysis.StandardType.GGAssemblyFiveDefs
 import CFSG.LocalAnalysis.StandardType.GGExclNoIso
 import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
 import CFSG.LocalAnalysis.StandardType.GGRootGenSmallRankQFour
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTwF4
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestG2
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTri
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTwF4
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallTits
 import CFSG.LocalAnalysis.StandardType.GGTwF4SUThreeRank
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmall
-import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestVac
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsOrder
 
 public section

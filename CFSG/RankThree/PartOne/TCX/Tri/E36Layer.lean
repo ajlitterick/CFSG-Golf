@@ -2,14 +2,10 @@ module
 
 public import CFSG.RankThree.PartOne.TCX.Tri.E36Frame
 public import CFSG.RankThree.PartOne.TCX.Tri.AnTw
-public import CFSG.RankThree.PartOne.TCX.Tri.Skeleton
 public import CFSG.RankThree.PartOne.TCX.Tri.Frame
 public import CFSG.RankThree.PartOne.TCX.Tri.E2A1
 public import CFSG.RankThree.PartOne.KLCE.A2Sector
-public import CFSG.RankThree.PartOne.KGD.D4T36Family
-public import CFSG.RankThree.PartOne.KGD.D4QPerX
 public import CFSG.RankThree.PartOne.KGD.D4T36Core
-public import CFSG.RankThree.PartOne.TCX.Tri.LayerField
 public import CFSG.RankThree.PartOne.KD4T.Certs
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Supercritical

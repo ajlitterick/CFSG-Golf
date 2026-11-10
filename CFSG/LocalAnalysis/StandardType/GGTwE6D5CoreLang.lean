@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6D5CoreSpin
-public import CFSG.LocalAnalysis.StandardType.GGTwE6D5CoreKerTorus
 public import CFSG.LocalAnalysis.StandardType.GGTwE6D5CoreTorus
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenD5Lang
 public import CFSG.Blueprint.OddStandardExact

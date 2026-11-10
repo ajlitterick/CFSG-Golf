@@ -1,15 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusRootGenAvoidModel
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpModel
-public import CFSG.LieType.Steinberg.CentralExt.PSpEvenMultiplier
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticDiag
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotLeviFactGL
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotRecognizePieces
 import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotQ2FieldDataWeyl
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearNative
-import CFSG.Assembly.Subnormal
-import CFSG.LieType.Universal.Symplectic
 import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLevi
 import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenTriality
 import CFSG.LocalAnalysis.ComponentInitial.CLSFourGroupLinearThreeFour

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.MonsterDefs
 public import CFSG.Assembly.LowTwoRankDefs
 public import CFSG.Monster.Existence.Compat.U62Center
 public import Certificates.Certificate3166Base

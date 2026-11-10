@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5Trans
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

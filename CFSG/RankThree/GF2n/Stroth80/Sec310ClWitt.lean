@@ -2,9 +2,7 @@ module
 
 public import CFSG.ClassicalGroups.Symplectic.StandardForm
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogQuadraticNormalForms
-public import CFSG.Open.StatedDefs
 public import CFSG.RankThree.GF2n.Stroth80.Sec310ClDefs
-public import TauCeti.LinearAlgebra.BilinearForm.SymplecticBasis
 public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Basis
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting

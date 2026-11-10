@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGA11NbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGA11TorusModel
-public import CFSG.LocalAnalysis.StandardType.GGA11GraphAut
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrTorusNorm
 public import CFSG.LocalAnalysis.StandardType.GGSL9TwoProj
 public import CFSG.GroupTheory.QuasisimpleCommutingProductBound

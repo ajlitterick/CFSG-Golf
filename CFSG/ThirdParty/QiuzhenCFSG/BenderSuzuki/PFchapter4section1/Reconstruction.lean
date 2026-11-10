@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter4section1.claim_H1
-public import Mathlib.GroupTheory.Complement
 
 namespace CFSG
 end CFSG

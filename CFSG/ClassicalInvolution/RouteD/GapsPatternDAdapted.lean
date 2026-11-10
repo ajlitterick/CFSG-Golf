@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.RouteD.GapsPatternDMain
 public import CFSG.ClassicalInvolution.RouteD.GapsPatternD5
 
 public section

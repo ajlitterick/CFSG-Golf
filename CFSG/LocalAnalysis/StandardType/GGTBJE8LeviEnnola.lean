@@ -7,8 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviEnnDatum
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviClass
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviStab
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8Tag
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
-public import CFSG.LocalAnalysis.StandardType.GGTBJE8LangGlue
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GTriLab
 
 public section

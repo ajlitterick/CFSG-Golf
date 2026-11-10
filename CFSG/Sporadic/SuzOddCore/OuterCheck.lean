@@ -1,10 +1,8 @@
 module
 
-public import CFSG.Sporadic.SuzOddCore.GraphArraysCheck
 public import CFSG.Sporadic.SuzOddCore.CertChainCheck
 public meta import CFSG.Sporadic.SuzOddCore.GraphArraysCheck
 public meta import CFSG.Sporadic.SuzOddCore.CertChainCheck
-public import CFSG.Sporadic.SuzOddCore.OuterCheckInputs
 public import Certificates.Certificate2304
 
 public section

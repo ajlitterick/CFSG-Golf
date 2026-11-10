@@ -3,14 +3,9 @@ module
 public import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalLevi
 public import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalDefs
 
-import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalBorel
 import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalVertexTwoModel
 import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalVertexTwoLocal
-import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalVertexTwoCoord
 import CFSG.Quasithin.Recognition.St84.Gen.L2SectionHall
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCalculus
-import CFSG.LieType.Chevalley.SylowOpposition
-import CFSG.LieType.Chevalley.RankOneGaussian
 
 public section
 

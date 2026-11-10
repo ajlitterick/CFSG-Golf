@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.GH74.GLS.IVK.Defs2
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import Mathlib.GroupTheory.SpecificGroups.Quaternion
 
 public section
 

@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneUnitary
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneTransfer
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCentral
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHyperbolic
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofUCommute
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofUBlocks
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofUnitary

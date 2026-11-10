@@ -2,9 +2,6 @@ module
 
 public import CFSG.GH74.Generic.BProg.B1.Stage3aSD
 public import CFSG.GH74.Generic.BProg.Stage2QSProof
-import CFSG.GH74.Generic.BProg.Stage2QSProofAbs
-import CFSG.GH74.Generic.BProg.B1.PilotS3
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

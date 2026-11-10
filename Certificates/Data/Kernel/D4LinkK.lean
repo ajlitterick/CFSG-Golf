@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Enum.Defs
 public import CFSG.Certificates.Kernel.Lie.CT.Core
 public import Certificates.Data.Kernel.Spor.Chain
 

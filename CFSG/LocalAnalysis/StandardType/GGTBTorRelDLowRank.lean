@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRel
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineClassical
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwDThree
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVac
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeVac
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
-public import CFSG.LocalAnalysis.StandardType.Marking
 
 @[expose] public section
 

@@ -1,10 +1,6 @@
 module
 
-public import CFSG.Quasithin.Recognition.Stroth.Weiss80Route
 public import CFSG.Quasithin.Recognition.Stroth.RootGroupRegular
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma5_2
-public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.OrderOfElement
 
 public section
 

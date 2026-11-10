@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTDModelU
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModel
 public import CFSG.LocalAnalysis.StandardType.GGTDLabels
 public import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeDescent

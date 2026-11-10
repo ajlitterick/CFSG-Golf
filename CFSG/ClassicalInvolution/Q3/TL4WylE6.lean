@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.TL4WylE
 public import CFSG.ClassicalInvolution.Q3.TL4SecClqLie
-public import CFSG.ClassicalInvolution.Q3.Q3T8P26P01
-public import CFSG.ClassicalInvolution.Q3.Q3T8P26P02
 public import CFSG.ClassicalInvolution.Asc77.AscC22N5
 public import CFSG.ClassicalInvolution.Asc77.AscC5O12
 public import CFSG.ClassicalInvolution.Asc77.AscC5OM21
@@ -63,7 +61,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.RankTwoFoundation
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.AppCCases
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Basic
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2pFactsPSL2More
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 
 public section
 

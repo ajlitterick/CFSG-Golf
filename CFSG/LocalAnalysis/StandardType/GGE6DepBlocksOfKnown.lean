@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGE6DepKnownData
 public import CFSG.LocalAnalysis.StandardType.GGE6DepPairBlock
 public import CFSG.LocalAnalysis.StandardType.GGE6DepKFive
 public import CFSG.LocalAnalysis.StandardType.GGE6DepBlocksOfPairs
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 
 public section
 

@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.ThCentU.Checks
 public import CFSG.Certificates.Kernel.ThCentU.Group
 public import Certificates.Kernel.ThCent.Leaf3C
-public import Certificates.Kernel.ThCent.Consumers
 public import Certificates.Certificate17306
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSlp
 import CFSG.Certificates.Kernel.Common.ForallTree
 
 public section

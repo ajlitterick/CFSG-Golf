@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBSL4Main
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBSp4Main
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBSL4
 
 public noncomputable section

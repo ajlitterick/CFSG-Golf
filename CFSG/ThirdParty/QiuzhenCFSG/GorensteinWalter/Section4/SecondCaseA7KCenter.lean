@@ -3,9 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7UNotLeM
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7FixedSubgroupsEq
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CentralizerSetupOddCoreNormal
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.Core
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

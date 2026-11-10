@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyEvenOrthPlane
 public import CFSG.Assembly.LowTwoRankDefs
 public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

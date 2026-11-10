@@ -4,12 +4,10 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePS
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseFittingInterLeCentralizerFitting
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseFittingNormal
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ImageDihedralSylowOddKernel
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalCenterlessDihedral
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.CyclicTwoCoreASevenNormalizerLayerEquality
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2NormalExtension
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PureSemilinear
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.QuotientCenterAutomorphism
-public import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

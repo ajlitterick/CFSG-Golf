@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcU2Excl
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcReal
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154RealE6
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265CDynE
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExc2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FDynExc
 
 public section

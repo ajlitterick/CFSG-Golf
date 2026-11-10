@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public import Certificates.Certificate3025
 public import CFSG.Certificates.NativeSchreierCard

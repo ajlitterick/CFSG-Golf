@@ -5,8 +5,6 @@ public import CFSG.GH74.Generic.S3.LyDiagB
 public import CFSG.GH74.Generic.S3.LyDiagC
 public import CFSG.GH74.Generic.S3.LyDiagD
 public import CFSG.GH74.Generic.S3.LyTrans
-public import CFSG.GH74.Generic.Lifting
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.Bg.Rank
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.HSFiveCaseTwoTools
 

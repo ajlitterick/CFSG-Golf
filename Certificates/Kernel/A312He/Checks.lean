@@ -8,7 +8,6 @@ public import Certificates.Data.Kernel.A312HeK
 public import Certificates.Data.Kernel.LocalQT.PermW
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HeInputs
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 set_option maxHeartbeats 0

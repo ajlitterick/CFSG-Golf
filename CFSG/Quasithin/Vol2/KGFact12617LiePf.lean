@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Vol2.KGFact12617LieSp
 public import CFSG.Quasithin.Vol2.KGFact12617LieG2
 public import CFSG.Quasithin.Vol2.KGFact12617Lie
 public import CFSG.Quasithin.Vol2.KGFact12618Lie
-public import CFSG.Quasithin.Vol2.KGNatG2Order
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 public import CFSG.Quasithin.Vol2.KGFact12617
 

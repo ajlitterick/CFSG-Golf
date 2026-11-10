@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.M23Dc.Final
 public import CFSG.Quasithin.Background.HSporLatM23Sg
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

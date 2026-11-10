@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsFp
 public import Certificates.Data.CFSGNative.SectionRank.HeLocal
 public meta import Certificates.Data.CFSGNative.SectionRank.HeLocal
-import CFSG.Blueprint.NativeSporadic
 public import Certificates.Certificate8019
-public import CFSG.Open.Defs
 
 public section
 

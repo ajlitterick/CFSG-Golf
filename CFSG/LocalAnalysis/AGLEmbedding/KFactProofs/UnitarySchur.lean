@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.AGLEmbedding.UnitaryFacts
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CenterHopf
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.UnitaryModel
 import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -29,7 +27,6 @@ public import CFSG.RankThree.PartOne.CTP.StrongPSylow
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
 import CFSG.Permutation.UnitaryThreeRecognition.Model
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

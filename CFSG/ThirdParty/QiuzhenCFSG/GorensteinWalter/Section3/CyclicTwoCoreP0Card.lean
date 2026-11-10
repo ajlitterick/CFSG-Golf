@@ -1,11 +1,9 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.CyclicTwoCoreMFactorization
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourExceptionTransport
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenKleinFourCentralizerThreePart
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourQuotientOddKernel
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CentralizerMap
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPropFourOneThompson
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveInputs
 
 public section
 

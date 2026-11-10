@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionLinearWitness
 public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndDvdBlock
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeTypeA
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
 
 public section
 

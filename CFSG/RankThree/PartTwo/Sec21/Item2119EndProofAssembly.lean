@@ -1,7 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec21.Item2119EndProofDefs
-public import CFSG.RankThree.PartTwo.Sec21.Item215
 public import CFSG.RankThree.PartTwo.Sec21.Item2119EndProofTools
 
 public section

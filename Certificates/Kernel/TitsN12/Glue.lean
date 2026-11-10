@@ -1,19 +1,10 @@
 module
 
-public import Certificates.Kernel.TitsN12.Checks
 public import Certificates.Kernel.TitsN12.Walk
-public import CFSG.Certificates.Kernel.Spor.PcompFacts
-public import CFSG.Certificates.Kernel.Spor.SiftRSound
 public import CFSG.Certificates.Kernel.TitsN12Sound
-public import Certificates.Kernel.SporSch.Tits.Help
 public import Certificates.Kernel.SporSch.Tits.Inv2266
 public import Certificates.Kernel.TitsOct.Glue
-public import Certificates.Certificate2263
-public import CFSG.Sporadic.Schreier.TitsCentral
-public import CFSG.Certificates.Kernel.SporSch.TitsCntSound
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawSiftK
-import Mathlib.Tactic.IntervalCases
 public import Certificates.Certificate7050Base
 
 public section

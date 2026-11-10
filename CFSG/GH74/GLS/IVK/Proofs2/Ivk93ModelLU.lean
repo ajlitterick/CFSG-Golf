@@ -1,10 +1,8 @@
 module
 
 public import CFSG.GH74.GLS.Stage2.Final.ModelLUMain
-public import CFSG.GH74.GLS.LU.Local.Conj
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Cfg
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Nu
-public import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.GH74.GLS.LU.Local.A3Reduce2
 public import CFSG.GH74.GLS.SP.Consistency
 public import CFSG.GH74.GLS.SP.Generic

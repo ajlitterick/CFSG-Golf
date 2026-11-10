@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSUExc
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Steinberg.Isogeny.TwistedE6
 
 public section
 

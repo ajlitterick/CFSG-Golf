@@ -2,9 +2,7 @@ module
 
 public import Certificates.Kernel.Sporadic.Fi22.Q450106K
 public import Certificates.Kernel.Sporadic.Fi22.Perf450108
-public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.Fi24Branch.Fi22TwoBBlocksCheck
 public meta import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.Fi24Branch.Fi22TwoBBlocksCheck
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -2,20 +2,16 @@
 module
 
 public import CFSG.Certificates.Kernel.Th.Gen.Ts
-public import CFSG.Sporadic.ThSchreier.LocalOrbitInputs
 public meta import CFSG.Sporadic.ThSchreier.WordsBase
 public meta import CFSG.Sporadic.ThSchreier.LocalDataBase
 public import CFSG.Sporadic.ThSchreier.TwoCentralizerInputs
 public meta import CFSG.Sporadic.ThSchreier.OrbitCheck819Base
 public meta import CFSG.Sporadic.Th.Max3.PacketBase
 import CFSG.Certificates.Kernel.Common.Generalize
-import CFSG.Certificates.Kernel.Th.Spec.Big
 import CFSG.Certificates.Kernel.Th.Spec.Loops
 import CFSG.Certificates.Kernel.Th.Spec.Parse
-import CFSG.Certificates.Kernel.Th.Spec.Seed
 import CFSG.Certificates.Kernel.Th.Spec.Ts2313Base
 import CFSG.Certificates.Kernel.Th.Spec.Ts2324Base
-import CFSG.Certificates.Kernel.Th.Spec.TsLeaves
 public import CFSG.Certificates.Kernel.Common.LceS
 public import CFSG.Certificates.Kernel.Common.RelNorm
 public import CFSG.Certificates.Kernel.Th.S.HswTC

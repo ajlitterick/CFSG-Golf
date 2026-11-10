@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.AlgebraicGroups.ZariskiPoints
 public import CFSG.LieType.AlgebraicGroups.InnerTwistDifferential
 public import Mathlib.RingTheory.HopfAlgebra.Quotient
-public import Mathlib.RingTheory.Ideal.Quotient.Nilpotent
 import TauCeti.Algebra.AlgebraicGroup.HopfIdeal.Points.Vanishing
 import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 

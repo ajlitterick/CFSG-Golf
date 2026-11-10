@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallFix
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallLeaf
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallLift
-public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusSmallPattern
-public import CFSG.ClassicalInvolution.ModelFacts.FundNoncentralBridge
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallCases
 
 public section

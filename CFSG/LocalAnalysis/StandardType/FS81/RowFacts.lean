@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.RankThree.PartOne.KE.E7FourFinal
-public import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductionsIIOut
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBHalf
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductionsIVOut
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductionsIII
 public import CFSG.LocalAnalysis.AGLEmbedding.J3MSideDefs

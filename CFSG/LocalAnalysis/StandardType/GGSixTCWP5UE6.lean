@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5Model
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5Inner
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5UFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UE6
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UExc
 
 public section
 

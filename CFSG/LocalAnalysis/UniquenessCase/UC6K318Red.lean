@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.ElementaryAut
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.RankThree.PartTwo.ExponentPrimeSmallRank
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer

@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UC22P22rc
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22uh
 import CFSG.GroupTheory.LocalCores.FittingNormal
 import CFSG.LocalAnalysis.SectionRank.TwoGenerators
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

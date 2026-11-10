@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.KGFactSporLatInputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatExport
-public import CFSG.Blueprint.NativeSporadic
-public import Certificates.Certificate2197
 public import Certificates.Certificate4075
 import Certificates.Kernel.M23Dc.O2
 

@@ -5,7 +5,6 @@ public import CFSG.Monster.B.Fischer.Fi22OrderCheckInputs
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckInputs
 public import Certificates.Data.Fi22TwistData
 public import CFSG.Certificates.NativeSchreierCard
-public import Mathlib.GroupTheory.Schreier
 public import Std.Data.HashMap
 
 public section

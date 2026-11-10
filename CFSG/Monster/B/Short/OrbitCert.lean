@@ -3,7 +3,6 @@ module
 
 public import CFSG.Monster.B.Short.OrbitCertBase
 
-public import Certificates.Data.CFSGNative.MonsterB.Short
 public meta import Certificates.Data.CFSGNative.MonsterB.Short
 public import Certificates.Certificate3014
 public import Certificates.Certificate3014Base

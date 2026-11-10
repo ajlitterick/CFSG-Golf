@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagUnitary
 
 public section

@@ -4,7 +4,6 @@ public import Certificates.Kernel.J4Q.Mat
 public import Certificates.Kernel.J4Q.FormInvData
 public import CFSG.Certificates.Kernel.J4Q.RepQT2B
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Sporadic.J4.QTRankWitNative
 
 public section
 

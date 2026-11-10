@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.BorelTits.UnitaryForm
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPairOrbits
 public import CFSG.LieType.BorelTits.CompleteFlag
 

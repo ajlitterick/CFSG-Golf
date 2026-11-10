@@ -3,13 +3,9 @@ module
 public import CFSG.OddTranspositions.PartThree.LocalBenderBasic
 public import CFSG.GroupTheory.PCore.SolvableRadical
 public import CFSG.GroupTheory.OddCoreQuotient
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Comparator.Defs
-public import CFSG.Timmesfeld.Bridge.OddTranspDefs
 
-import CFSG.Timmesfeld.Bridge.Asc72Central
 import CFSG.Timmesfeld.Bridge.Asc72ElemCompQuot
 import CFSG.CGT.Timmesfeld75.SimpleAssembly
-import CFSG.GroupTheory.ABGLocalTools.Constraint
 public import CFSG.OddTranspositions.O4PairTenWidth
 public import CFSG.OddTranspositions.Width
 public import CFSG.Walter.Defs

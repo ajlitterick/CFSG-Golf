@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Certificates.CosetTablePresented
-public import CFSG.LocalAnalysis.StandardType.GGZSNFourInputs
 public import Certificates.Certificate709543
 import all CFSG.LocalAnalysis.StandardType.GGZSHallSoicherBound
 public import Mathlib

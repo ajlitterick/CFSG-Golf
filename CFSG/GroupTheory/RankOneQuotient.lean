@@ -2,12 +2,8 @@ module
 
 public import CFSG.Timmesfeld.RankOne.Defs
 public import CFSG.CGT.Timmesfeld75.L2Defs
-import CFSG.Timmesfeld.RankOne.Lift
 import CFSG.Timmesfeld.Opposite.Moufang
 import CFSG.GroupTheory.CardMapInfKer
-import CFSG.CGT.Timmesfeld75.Sec3TwelveAlg
-import CFSG.CGT.Timmesfeld75.NormalClosure
-import CFSG.RankThree.GF2n.Tim77Prop24TwoL2
 import CFSG.RankThree.GF2n.Tim81.Sec2.SL2Sec5
 import CFSG.Timmesfeld.RankOne
 

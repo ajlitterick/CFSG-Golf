@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Asc94.He42SE4
-public import CFSG.Quasithin.Vol2.Asc94.HeM2
 
 public section
 

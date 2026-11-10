@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfZpowers
-public import CFSG.LocalAnalysis.StandardType.GGHalfSlOnLevi
-public import CFSG.LocalAnalysis.StandardType.GGHalfBlockPerm
 
 public section
 

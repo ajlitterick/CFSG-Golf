@@ -1,23 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResTwoSettledDefs
 public import CFSG.LocalAnalysis.StandardType.GGResTwoCensusLabelL
 public import CFSG.LocalAnalysis.StandardType.GGResExact2SpSplit
-public import CFSG.LocalAnalysis.StandardType.GGResSingularAExactTwo
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepCardSix
-public import CFSG.LocalAnalysis.StandardType.GGResUnitaryExactTwo
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SUFinal
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CFinal
-public import CFSG.LocalAnalysis.StandardType.GGResSmallSpExactTwo
-public import CFSG.LocalAnalysis.StandardType.GGResF4ExactTwo
 public import CFSG.LocalAnalysis.StandardType.GGResExactTwoOrthHolds
-public import CFSG.LocalAnalysis.StandardType.GGRootGenSmallRankQFour
-public import CFSG.LocalAnalysis.StandardType.GGTBXDatumResRest2
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRankExc
-public import CFSG.LocalAnalysis.StandardType.GGResSeven
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGResLinTwoExactTwoL
-import CFSG.LocalAnalysis.StandardType.GGResExcSplitExactTwoL
 import CFSG.LocalAnalysis.StandardType.GGResF4SplitExactTwoL
 
 public section

@@ -2,8 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SpModel
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SLOb
-public import CFSG.LieType.Universal.SymplecticExtras
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Embed
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.SquareSymplectic
 public import CFSG.Adapters.ClassicalCatalogLinearUnitary
 public import CFSG.CharacterTheory.Semidihedral.Principal.PrimeOrderSylowColumn

@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrModel
 import CFSG.RankThree.PartOne.S11d.OutClassicalTwo
 import CFSG.RankThree.PartOne.S11d.OutSymplectic
 import CFSG.RankThree.PartOne.S11d.OutUnitary
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 import CFSG.RankThree.PartOne.N143.Inspect613Even
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3Q8Psl2

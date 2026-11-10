@@ -1,13 +1,9 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultDimFive
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherProjective
 public import CFSG.ClassicalInvolution.Asc77.AscC5OM1
 public import CFSG.RankThree.SubgroupLists.SymplecticInvolutions
-public import CFSG.LieType.Steinberg.CentralExt.SpCentrallyClosed
 public import CFSG.LieType.Steinberg.CentralExt.PSpMultiplier
-public import CFSG.LieType.Steinberg.CentralExt.POmegaOddMultiplier
-public import CFSG.GH74.Filter.Orthogonal.OddReflections
 public import CFSG.ClassicalInvolution.Asc77.AscC25W15
 
 public section

@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenBN.G2.AutomorphismsTable
 public import CFSG.LocalAnalysis.ComponentClassification.StandardRecognitionKernel
 public import CFSG.GroupTheory.QuasisimpleCommutingProductBound
-public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import CFSG.Assembly.Reduction
-public import CFSG.Open.StandardComponentRecognitionMilestoneDefs
-import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExclusion
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpWedge

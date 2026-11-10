@@ -1,26 +1,12 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterFour
-public import CFSG.Open.StatedDefs
-public import CFSG.Blueprint.Catalog
-public import CFSG.LieType.Chevalley.ExactNormalFormE
 public import CFSG.HardMathSupport.Foote.ModuleExclusions.FieldCube.UnitaryStd
 public import CFSG.RankThree.PartTwo.Sec19.Item19Res6ProofUnitaryRank
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27D4Field
-public import CFSG.HardMathSupport.Lang.Coordinator.D4Bridge.Bridge
-public import CFSG.Adapters.TauCetiExceptional.EvenAll
-public import CFSG.Timmesfeld.Orders.Exceptional
-public import CFSG.LocalAnalysis.EvenSmallLie.CatalogOrdersLie
-public import CFSG.Adapters.TauCetiLieModels
 public import CFSG.Adapters.LieModelOrders
 public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Exc.FixPlaneUntw
-public import CFSG.LieType.SeitzGeneration.ExcOuterLeOne.FixedGroup
-public import CFSG.LieType.Chevalley.EvenCanonicalFieldCentralizer
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Multiplier.Models
 public import CFSG.HardMathSupport.Foote.FamilyReduction.ClassicalFive
-public import CFSG.RankThree.PartOne.CTP.SeitzField
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.D4TrialityAux.FieldA
 public import CFSG.CGT.PushingUpLit.CGT6.SixFour
 public import CFSG.CGT.PushingUpLit.CGT6.SixSixteen
@@ -59,8 +45,6 @@ public import CFSG.Quasithin.Background.C1PackS15212C
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -104,9 +88,6 @@ public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3329
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3330
 public import CFSG.RankThree.PartTwo.KFacts.K72OutL2
 public import CFSG.RankThree.PartTwo.Sec14.Item148Steps
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
 
 public section
 

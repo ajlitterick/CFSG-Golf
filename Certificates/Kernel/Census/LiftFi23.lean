@@ -5,7 +5,6 @@ public import Certificates.Data.Fi23Lift
 public import Certificates.Kernel.LocalComp.F3.Fi23
 public import Certificates.Kernel.LocalComp.LaySnapsChunksF
 public import CFSG.Certificates.Kernel.Common.Each
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 

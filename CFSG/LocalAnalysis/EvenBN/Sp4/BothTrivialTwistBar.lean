@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.SteinbergSFBothTrivialClosureSetupBase
 public import CFSG.LocalAnalysis.EvenBN.Common.NaturalModule
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

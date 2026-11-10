@@ -1,16 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Position
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualPOmegaMinus
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualTwoPOmegaMinus
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelDualPairPOmegaMinus
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoRootConversePOmegaMinus
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockRankDvd
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepACore
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDPOmegaMinus
-public import CFSG.LieType.Universal.Spin.Twisted.Datum
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.CompPOmegaMinus
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2POmegaPosDefs
 

@@ -15,10 +15,8 @@ public import CFSG.Certificates.Kernel.Orders.J4.Checks.S11
 public import CFSG.Certificates.Kernel.Orders.J4.Checks.O
 public import CFSG.Certificates.Kernel.J4Hub.SlpChain
 import CFSG.Certificates.Kernel.Common.ForallChunks
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.J4Hub.PcSound
 import CFSG.Certificates.Kernel.J4Hub.FlagSound
-import CFSG.Open.Defs
 
 public section
 

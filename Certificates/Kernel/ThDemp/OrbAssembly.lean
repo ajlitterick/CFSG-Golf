@@ -4,10 +4,6 @@ module
 public import Certificates.Kernel.ThDemp.OrbAssemblyBase
 
 public import CFSG.Certificates.Kernel.ThDemp.OrbBound
-public import CFSG.Sporadic.Th.Setup
-public import Certificates.Kernel.ThDemp.Data
-public import Certificates.Kernel.ThDemp.OrbData
-public import Certificates.Kernel.ThDemp.OrbFam
 import Certificates.Kernel.ThDemp.Assembly
 import Certificates.Kernel.ThDemp.OrbInv
 import Certificates.Kernel.ThDemp.OrbB0
@@ -25,7 +21,6 @@ import Certificates.Kernel.ThDemp.OrbQ
 import Certificates.Kernel.ThDemp.OrbE
 import CFSG.Certificates.Kernel.Common.ForallTree
 public import CFSG.Certificates.Kernel.ThDemp.ChainEx
-public import CFSG.Certificates.Kernel.ThDemp.OrbUnfold
 
 public section
 

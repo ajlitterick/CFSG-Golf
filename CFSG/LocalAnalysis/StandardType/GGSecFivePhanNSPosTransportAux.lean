@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
-public import CFSG.LieType.Universal.Unitary.Comparison
 public import CFSG.LieType.Universal.Unitary.Hermitian
-public import CFSG.LieType.BorelTits.UnitaryForm
 
 public section
 

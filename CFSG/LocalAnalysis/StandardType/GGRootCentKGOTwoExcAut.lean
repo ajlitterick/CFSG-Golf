@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Blueprint.Chevalley
 public import CFSG.LieType.Chevalley.E6CanonicalFieldGraphFixed
 import CFSG.LieType.Chevalley.EvenE7E8AutomorphismNormalForm
 import CFSG.LocalAnalysis.ComponentInitial.ThreeFactorFactor
@@ -14,7 +13,6 @@ import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

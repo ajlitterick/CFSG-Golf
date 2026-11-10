@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitNbr
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBlock
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45
 import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitNbrBA
 

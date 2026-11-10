@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derDefs
-import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRuleSpRank
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTwE6
-import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeSp
 
 public section
 

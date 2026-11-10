@@ -1,14 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentCard
-public import CFSG.Sporadic.Bridge.VecSurj
-public import CFSG.Sporadic.Co3
 public meta import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentDefs
 public meta import Certificates.Data.CFSGNative.Bridge.SurjD
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentBridgeInputs
 public import Certificates.Certificate3092
-public import Certificates.Certificate3090
-public import Certificates.Certificate3091
 import all CFSG.Blueprint.NativeSporadic
 
 public section

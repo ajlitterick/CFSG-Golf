@@ -5,9 +5,7 @@ public import CFSG.RankThree.PartTwo.Sec21.FF79Sec3D
 public import CFSG.RankThree.PartTwo.Sec21.FF79Sec3L2B
 public import CFSG.RankThree.PartTwo.Sec21.FF79Sec3Norm
 public import CFSG.RankThree.PartTwo.Sec21.FF79Lemma13b
-public import CFSG.RankThree.PartTwo.Sec21.FF79KTypeLnHolds
 public import CFSG.RankThree.PartTwo.Sec21.FF79GL33
-public import CFSG.RankThree.PartTwo.Sec21.FF79KTypeLnCenter
 public import CFSG.RankThree.PartTwo.Sec21.FF79ThmAAssembly
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalSplitSylow
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeSylow

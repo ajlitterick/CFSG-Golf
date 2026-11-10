@@ -1,8 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.HNOddCore.QCheck
-public import Std.Data.HashMap
 public meta import CFSG.Sporadic.HNOddCore.QCheck
 public meta import Std.Data.HashMap
 public import CFSG.Sporadic.HNOddCore.PCheckInputs

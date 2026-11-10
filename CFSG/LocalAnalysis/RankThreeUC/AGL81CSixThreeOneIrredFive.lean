@@ -1,17 +1,13 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CSixThreeOneDefs
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CSixThreeOneBasic
 public import CFSG.RankThree.SubgroupLists.OrthogonalForms
-public import CFSG.Open.StatedDefs
 import CFSG.RankThree.PartOne.KF.BloomClose
 import CFSG.RankThree.PartOne.S12.LA126
 import CFSG.RankThree.PartOne.KF.F1322OmegaIdx
 import CFSG.RankThree.PartOne.KF.F1322OmegaSeven
 import CFSG.RankThree.PartTwo.Sec4.LThreePiKind
 import CFSG.Quasithin.EmptyFaithful.A38c15IrrBasic
-import CFSG.RankThree.PartOne.LIT.OrthogonalTransport
-import CFSG.Open.StatedAPI
 import CFSG.LieType.SteinbergBRTwoRankBound
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 import CFSG.RankThree.PartOne.S12.BaseNodes

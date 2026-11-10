@@ -4,8 +4,6 @@ public import CFSG.Quasithin.Background.F7TwoInv2F4Z
 public import CFSG.Quasithin.Background.F7TwoInv2F4T
 public import CFSG.Quasithin.Background.F7TwoInvSQTKFam
 public import CFSG.Quasithin.Background.F7TwoInvSeed
-public import CFSG.LieType.Ree.LargeReeInvolutionFusion
-public import CFSG.LieType.Ree.LargeReeCenterTrivial
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogLargeReeModel
 
 public section

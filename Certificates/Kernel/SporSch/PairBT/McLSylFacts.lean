@@ -3,15 +3,10 @@ module
 public import Certificates.Kernel.SporSch.PairBT.McLSylChk
 public import Certificates.Kernel.SporSch.PairBT.McLSylZ1
 public import Certificates.Kernel.SporSch.PairBT.McLSylZ2
-public import CFSG.Sporadic.Schreier.PairMcLCheck
-public import Certificates.Data.CFSGNative.PairSchreier.Counts
 public meta import CFSG.Sporadic.Schreier.PairMcLCheck
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.PairSchreier.Counts
-public import CFSG.Sporadic.Schreier.PairMcLTotal2Inputs
-public import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

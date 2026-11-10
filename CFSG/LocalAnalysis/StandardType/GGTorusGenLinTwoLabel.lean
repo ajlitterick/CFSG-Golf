@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenLinTwo
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRTransfer
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSLTransfer
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineL2Cover
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeTorus
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenModel
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherConjAutInner
 

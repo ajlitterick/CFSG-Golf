@@ -3,11 +3,6 @@ module
 public import CFSG.Sporadic.Co2Smith.GlC0QuotCheck
 public import CFSG.Sporadic.Co2Smith.GlC0JkInputs
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
-import Certificates.Kernel.Co2Smith.Mark
-import Certificates.Data.Kernel.Co2Smith.Rows
-import Mathlib.Logic.Equiv.Defs
-import Certificates.Data.Kernel.Census.CatFacts.PkDefs
-import Certificates.Kernel.Co2Smith.LettersData
 import Certificates.Kernel.Co2Smith.JkData
 import CFSG.Certificates.Kernel.Census.CatFacts.PkEnum
 public import Certificates.Certificate21165

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalDefs
 public import CFSG.LocalAnalysis.ABGTheoremB.Basic
-public import Mathlib.GroupTheory.Frattini
 
 public section
 

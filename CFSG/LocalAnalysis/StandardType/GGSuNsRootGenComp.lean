@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSuNsRootGenDefs
 public import CFSG.LocalAnalysis.StandardType.GGSuNsRootGenBlock
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepairBlock
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeElt
 public import CFSG.LieType.SeitzGeneration.UnitaryBlocksNe
 
 public section

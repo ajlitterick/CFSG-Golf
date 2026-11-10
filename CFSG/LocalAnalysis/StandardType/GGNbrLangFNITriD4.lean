@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIRows
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIExcTw
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.RootTw
 
 public section
 

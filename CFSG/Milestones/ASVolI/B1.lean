@@ -1,33 +1,10 @@
 module
 
-public import CFSG.Quasithin.Background.B1Basic
-public import CFSG.Quasithin.Background.B1NaturalL2
-public import CFSG.Quasithin.Background.A1cModuleDefs
-public import CFSG.Quasithin.Background.Basic
-public import CFSG.Quasithin.Background.B6Defs
-public import CFSG.Quasithin.Background.B4Models
-public import CFSG.Quasithin.Background.A3StructureDefs
-public import CFSG.Quasithin.Background.TwoReduced
-public import CFSG.LocalAnalysis.QuasithinUnique.Defs
-public import CFSG.Open.QuasithinDefs
-public import CFSG.LocalAnalysis.SectionRank.NativeKGroup
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.Core
-public import CFSG.Quasithin.Background.B1MoreTen
-public import CFSG.Quasithin.Background.B1MoreElevenD
 public import CFSG.Quasithin.Background.StabSubBasics
-public import CFSG.Quasithin.Background.B1Restrict
-public import CFSG.Quasithin.Background.B1MoreSeven
-public import CFSG.Quasithin.Background.B1MoreChief
 public import CFSG.Quasithin.Background.B15P4Layer2Final
-public import CFSG.Quasithin.Background.B1More8
 public import CFSG.Quasithin.Background.F918Z8g
 public import CFSG.Quasithin.Background.B1MoreEleven
-public import CFSG.Quasithin.Background.B1MoreIrr
-public import CFSG.Quasithin.Background.A4Defs
-public import CFSG.Quasithin.Background.B1Solvable
-public import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 public import CFSG.Quasithin.Background.B1MoreTwelve
-public import CFSG.Quasithin.Background.G2
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts
@@ -45,16 +22,12 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Monster.Code.Weights
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B15P4LayerDict
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.EmptyFaithful.Setting
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

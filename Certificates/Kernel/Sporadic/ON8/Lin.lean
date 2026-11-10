@@ -1,13 +1,9 @@
 module
 
 public import Certificates.Kernel.Sporadic.ON8.Defs
-public import Certificates.Kernel.Sporadic.ON3.Elements
-public import Certificates.Kernel.Sporadic.ON.Final
 public import CFSG.Certificates.Kernel.Spor.ONLinWords
 public import CFSG.Certificates.Kernel.Spor.ImgEnumSound
 public import CFSG.Sporadic.Schreier.ONCheckR3EInputs
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import Certificates.Kernel.Sporadic.ON5.Defs
 
 public section

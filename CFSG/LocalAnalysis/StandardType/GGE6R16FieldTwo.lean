@@ -1,7 +1,5 @@
 module
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialOuterQ2D4
 public import CFSG.LocalAnalysis.StandardType.GGE6R16OppFieldTwo
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeFullCentre1585RowTableBHolds
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreePointwise
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632B1Rows
 

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineClassicalLabel
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmallLabel
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQSplit
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
 
 public section
 

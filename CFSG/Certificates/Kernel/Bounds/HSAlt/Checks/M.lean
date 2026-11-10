@@ -4,7 +4,6 @@ import CFSG.Certificates.Kernel.Bounds.Core3
 import CFSG.Certificates.Kernel.Bounds.LoadRoot
 import CFSG.Certificates.Kernel.Common.Repo
 import CFSG.Certificates.Kernel.Common.EachUnfold
-import CFSG.Certificates.Kernel.Common.HOrb
 import CFSG.Certificates.Kernel.Bounds.HSAlt.Data.M
 import CFSG.Certificates.Kernel.Bounds.HSAlt.Rels
 import CFSG.Certificates.Kernel.Bounds.HSAlt.Pair

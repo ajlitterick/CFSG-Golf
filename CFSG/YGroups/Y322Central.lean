@@ -3,8 +3,6 @@ module
 public import CFSG.YGroups.Exact.Y321
 public import CFSG.YGroups.Exact.Y322
 public import CFSG.YGroups.Y322Central.Transitive
-public import Certificates.Data.CFSGNative.YGroups.Y322CentralData
-public import CFSG.YGroups.Y322CentralInputs
 public import Certificates.Certificate10103
 public meta import CFSG.YGroups.Defs
 public meta import CFSG.YGroups.Exact.Y322

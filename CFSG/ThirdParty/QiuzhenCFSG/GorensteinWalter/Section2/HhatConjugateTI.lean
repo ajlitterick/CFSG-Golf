@@ -1,10 +1,7 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma22
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma25
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem26
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalizerEqOfNontrivialNormalInCoatom
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

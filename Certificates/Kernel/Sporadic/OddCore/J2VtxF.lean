@@ -2,11 +2,8 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.J2VtxK
 public import Certificates.Kernel.Sporadic.OddCore.J2CnF
-public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
-public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
 public import CFSG.Certificates.Kernel.HSPinned.PairBfsSim
 public import CFSG.Certificates.Kernel.Common.ForallChunks
-import Mathlib.Tactic.IntervalCases
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

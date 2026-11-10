@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdPair
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdDelta
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperUnitary
 
 public section
 

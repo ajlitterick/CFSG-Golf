@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6RawFrame
 public import CFSG.LocalAnalysis.StandardType.GGTwE6A3StepUnitary
 public import CFSG.LocalAnalysis.StandardType.GGTwE6A3PairLayer
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTorus
-public import CFSG.LocalAnalysis.StandardType.GGLangRatComp
 
 public section
 

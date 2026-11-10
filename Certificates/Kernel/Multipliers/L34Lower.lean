@@ -9,15 +9,9 @@ public import CFSG.Certificates.Kernel.Bounds.L34Alt.Checks.P3
 public import CFSG.Certificates.Kernel.Bounds.L34Alt.Checks.F4a
 public import CFSG.Certificates.Kernel.Bounds.L34Alt.Checks.F4b
 public import CFSG.LieType.Multipliers.L34Data
-public import CFSG.Certificates.CosetTableOrders
-import CFSG.LieType.Multipliers.CoverWords
-import CFSG.Certificates.PresentationLetters
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Open.Defs
-public import Mathlib.Algebra.Group.MinimalAxioms
-public import Mathlib.GroupTheory.FreeGroup.Basic
-public import Mathlib.RepresentationTheory.Homological.GroupHomology.LowDegree
 
 public section
 

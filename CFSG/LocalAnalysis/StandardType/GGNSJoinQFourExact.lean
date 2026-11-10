@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanLocal
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourRows
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourUniOrd
 
 public section

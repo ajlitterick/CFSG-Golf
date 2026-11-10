@@ -1,11 +1,8 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.FrobeniusKernel
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection5.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Remaining
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.SharpNearField
 import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.InducedIrreducible
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.theorem_7_14
@@ -13,7 +10,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.theorem_7_15
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_7_Mackey
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.PFsection6_8
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.Nilpotent
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.BrauerPermutation
 
 namespace CFSG
 end CFSG

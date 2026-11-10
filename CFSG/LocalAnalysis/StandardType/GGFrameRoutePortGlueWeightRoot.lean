@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGFrameE78Refl
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.E7RootSetStab
 import all CFSG.LocalAnalysis.StandardType.GGFrameE78Refl
-import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
 
 public section
 

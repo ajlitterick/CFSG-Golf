@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFinModelInput
 public import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompatDefs
 
 public section

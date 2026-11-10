@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
-public import CFSG.LocalAnalysis.StandardType.GGSixTCKSpace
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart9
 
 @[expose] public section

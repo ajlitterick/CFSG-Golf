@@ -9,10 +9,8 @@ public import Certificates.Kernel.TwoHS.HarCE6
 public import Certificates.Kernel.TwoHS.HarCE7
 public import Certificates.Kernel.TwoHS.HarCK2
 public import Certificates.Kernel.TwoHS.HYOpsGlue
-public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
 public import CFSG.Certificates.Kernel.Common.ForallChunks
 public import CFSG.Certificates.Kernel.Spor.PEnumBSound
-public import CFSG.Certificates.Kernel.Spor.HKeyUSound
 public import CFSG.Certificates.Kernel.Spor.MulHFSound
 public import CFSG.Certificates.Kernel.Spor.PEnumCSound
 public import CFSG.Certificates.Kernel.Misc.RuInvHash

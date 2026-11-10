@@ -1,11 +1,7 @@
 
 module
 
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNFiveCertBase
 
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNFiveCertInputs
-public import CFSG.Sporadic.HNSchreier.ThreeCent
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNFiveKer
 public import Certificates.Certificate17381
 
 public section

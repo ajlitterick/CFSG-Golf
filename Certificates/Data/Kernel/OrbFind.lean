@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.ConjOrb
 public import Certificates.Data.Kernel.BfsPinKeys
-public import Certificates.Data.Kernel.Spor.Chain
 
 public section
 

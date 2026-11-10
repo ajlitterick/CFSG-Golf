@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpNbrApriori
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinReflFrames
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinReflAlgebra
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinReflPairing
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinReflTypeA
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinReflTypeD
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinReflTypeE
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveInputs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSpProofJoin
 
 public section
 

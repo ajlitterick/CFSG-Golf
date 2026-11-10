@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinberg
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergE6Root
 public import CFSG.LieType.Chevalley.E6FieldGraphFieldPointwiseCentralizer
-public import CFSG.LieType.Chevalley.GraphFixedF4Canonical
 
 public section
 

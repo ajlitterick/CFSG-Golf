@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.J2Sig12648
 public import Certificates.Kernel.J2Sig12648.Data
 public import Certificates.Kernel.Misc.Perm.J2EnumData
-public import Certificates.Data.Kernel.Misc.PermClos
 import CFSG.Certificates.Kernel.Common.Each
 import CFSG.Certificates.Kernel.Common.ForallChunks
 import CFSG.Certificates.Kernel.Common.Harness

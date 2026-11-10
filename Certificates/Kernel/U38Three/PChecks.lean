@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.U38Three.PData
 public import Certificates.Data.Kernel.U38ThreeK
-public import Certificates.Data.Kernel.U38QK
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

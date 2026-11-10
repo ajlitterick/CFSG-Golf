@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6Arith
 public import CFSG.RankThree.PartOne.KE.CTCasesE6Eight
 public import CFSG.RankThree.PartOne.KE.CTCasesE6Nine
 public import CFSG.RankThree.PartOne.KE.CTCasesE6Twelve
-public import CFSG.RankThree.PartOne.KE.CTMain
 
 public section
 

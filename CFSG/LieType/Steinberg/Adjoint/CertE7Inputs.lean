@@ -5,7 +5,6 @@ public import CFSG.LieType.Steinberg.Adjoint.CertE7Pairs
 public import CFSG.LieType.Steinberg.Adjoint.Brackets
 public import CFSG.LieType.Steinberg.Adjoint.CertPinned
 public import CFSG.LieType.Steinberg.Adjoint.Pairs
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.NoTransvE7
 public import CFSG.LocalAnalysis.StandardType.FS81.CanonPos
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxStruct
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeylTypes
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoBstar
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneMarking
 
 public section
 

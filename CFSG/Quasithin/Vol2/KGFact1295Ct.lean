@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.KGFact1297SL
 public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverHigher
-public import CFSG.Quasithin.Background.A4Defs
 public import CFSG.LocalAnalysis.ComponentInitial.CentralCoverAbelian
 
 public section

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeOrthAsmCases
-import CFSG.LocalAnalysis.ComponentClassification.InnAutDerived
-import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphismsCongr
 import CFSG.HardMathSupport.Dickson.BMRows.CensusShape
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeIndAutInv
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Loc

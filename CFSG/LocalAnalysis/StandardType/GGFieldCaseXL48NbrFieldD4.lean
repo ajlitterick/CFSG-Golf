@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaPlus
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityHolds
 public import CFSG.LocalAnalysis.StandardType.GGRoundFourSmallBIso
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
-public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 
 public section
 

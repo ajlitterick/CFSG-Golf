@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootBasic
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsExcTwE6
-public import CFSG.LieType.ChevTwo.Layered
-public import CFSG.GH74.Generic.Context
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotPositionPerfect
 public import CFSG.HardMathSupport.Curtis.Coordinator.AnisoE7.A5LayerSurj
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
 public import CFSG.RankThree.PartOne.KA5L.Final
 
 public section

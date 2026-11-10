@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcData
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Datum
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTriD4Conj
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTriDiag
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
 
 public section

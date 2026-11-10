@@ -2,16 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinByType
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixNbrDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGTwA5TwoMemberSize
 import CFSG.LocalAnalysis.StandardType.GGNsq2Strict
 import CFSG.LocalAnalysis.StandardType.GGNsq2Rank
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
-import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
-import CFSG.LocalAnalysis.StandardType.GGTDAutomizer
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKG87BRadInner
 public import CFSG.LocalAnalysis.StandardType.GGKG87BRad
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwisted
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.Co2I301.Inputs
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo2Cent
-public import CFSG.Sporadic.Co2Schreier.Centralizers
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC

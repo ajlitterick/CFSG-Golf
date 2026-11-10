@@ -7,7 +7,6 @@ public import Certificates.Kernel.Sporadic.Fi24G2d.Final
 public import CFSG.Certificates.Kernel.Spor.Fi24G2eSound
 import Certificates.Kernel.Sporadic.Fi24G2e.OW
 import Certificates.Kernel.Sporadic.Fi24G2e.CL
-import Mathlib.Tactic.Group
 
 public section
 

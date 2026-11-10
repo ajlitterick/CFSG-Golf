@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.StatementsOmeg
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOm.Isometry
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23c.OmegaPlusFour
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23c.SylowLine
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23c.Transfer
 public import CFSG.GroupTheory.GL52.Basic
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.StatementsComponents
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.StatementsOmegaK

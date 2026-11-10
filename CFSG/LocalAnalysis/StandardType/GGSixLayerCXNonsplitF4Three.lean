@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitF4Basic
 public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenCyclotomicThree
 public import CFSG.RankThree.Chevalley.SteinbergCAF4CyclotomicThreeSixActors
 public import CFSG.RankThree.PartOne.D4RC.RxOrder
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinInteraction
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154E3SL24CoverCA
 public import CFSG.Milestones.ASVolI.I2Natural
-public import CFSG.Quasithin.H13.VolII16Restrict
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154E3Fix
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154H5Rows
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154Table

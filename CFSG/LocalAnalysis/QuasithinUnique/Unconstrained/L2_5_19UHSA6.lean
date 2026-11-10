@@ -1,17 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19UHSClass
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19UHSData
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19UHSData
 public meta import CFSG.Sporadic.Schreier.PairHSCheck
 public meta import CFSG.Sporadic.Schreier.PairHSCert
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
-public import Certificates.Certificate2219
-public import Certificates.Certificate2220
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19UHSA6Inputs
 public import Certificates.Certificate4066
-public import Certificates.Certificate4081
-public import Certificates.Certificate2218
 
 public noncomputable section
 

@@ -1,13 +1,10 @@
 module
 
 public import CFSG.GH74.GLS.Stage4.T2F1LocFA
-public import CFSG.GH74.GLS.Stage4.T2Coord
 public import CFSG.GH74.GLS.Stage4.RestX2Q1
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2TorusCentralizer
 public import CFSG.Adapters.QiuzhenLegacy.GorensteinWalter.PGL2TorusCentralizer
 public import CFSG.GH74.GLS.Stage4.T2SL2B
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2NonsplitTorus
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2SplitTorus
 
 public section
 

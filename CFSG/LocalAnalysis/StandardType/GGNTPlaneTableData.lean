@@ -1,10 +1,6 @@
 module
 
 public import CFSG.Blueprint.Chevalley
-public import Mathlib.Algebra.BigOperators.Fin
-public import Mathlib.Algebra.Group.Submonoid.Membership
-public import Mathlib.Data.Matrix.Mul
-public import Mathlib.Data.ZMod.Basic
 
 public section
 

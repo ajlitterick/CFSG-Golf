@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.QTGen4.Recog.G23.HLettersF
 public import CFSG.GH74.QTGen4.Recog.G23.HLettersI
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.Data.ZMod.Basic
 public meta import Mathlib.Data.ZMod.Defs
 public meta import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 

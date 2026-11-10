@@ -5,7 +5,6 @@ public import Certificates.Kernel.EvenBN.CNt
 public import CFSG.Quasithin.Recognition.RuRank3TitsClsInputs
 public meta import CFSG.Quasithin.Recognition.RuRank3TitsClsInputs
 public meta import Certificates.Kernel.Sporadic.RawGen
-import Certificates.Kernel.Misc.Perm.HexCmd
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000

@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSignedPermEvenSupport
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepLabels
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
 public import CFSG.LocalAnalysis.StandardType.GGE6DepNormalizerOfConj
-public import CFSG.LocalAnalysis.StandardType.GGHdRo7CoprimeSplit
-public import CFSG.LocalAnalysis.StandardType.GGF4NbrAutReflKGReduce
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
-public import CFSG.LocalAnalysis.StandardType.GGSignedPermCount
 
 public section
 

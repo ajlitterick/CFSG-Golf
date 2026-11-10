@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Monster.B.TwoA.Sp8.LiftsBase
-public import CFSG.Monster.Visible.SignCompat.Triality
 public meta import CFSG.Monster.B.Rep4371.Model
 
 public noncomputable section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67LyMultThreeAux
 public import CFSG.Sporadic.Recognition.LyonsLocalPerfect
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
 public import CFSG.CharacterTheory.Semidihedral.Principal.PrimeTorusBlockAlignment
@@ -42,10 +41,6 @@ public import CFSG.Sporadic.Recognition.McLMultiplierMatrix
 public import CFSG.Sporadic.Schreier.J4SSylow
 public import CFSG.Sporadic.Schreier.LyFixedSet
 public import CFSG.StronglyEmbedded.TheoremSE.BenderLowRank
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

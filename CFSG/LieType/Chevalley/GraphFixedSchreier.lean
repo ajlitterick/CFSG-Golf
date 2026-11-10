@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LieType.Chevalley.GraphFixedIntrinsicPairs
-public import CFSG.LieType.Chevalley.GraphFixedRankOneImage
 public import CFSG.LieType.Chevalley.GraphFixedSimplePairs
-public import CFSG.LieType.Chevalley.GraphFixedSylowOpposition
 public import CFSG.LocalAnalysis.ComponentInitial.ScalarSemilinearNormalizer
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.KleinFour
 
 public noncomputable section
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLVac
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenOrth
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestCenter
-public import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
 
 public section
 

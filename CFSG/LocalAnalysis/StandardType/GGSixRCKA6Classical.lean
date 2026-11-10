@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedAssembly
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKDefs
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceFive
 
 public section
 

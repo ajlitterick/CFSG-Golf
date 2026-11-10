@@ -1,18 +1,10 @@
 module
 
-public import CFSG.Sporadic.Schreier.MathieuSylowAutMain
-public import CFSG.Sporadic.Schreier.M22
-public import CFSG.Monster.B.Mathieu.M22Check
-public import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
 public meta import CFSG.Sporadic.Schreier.MathieuSylowAutMain
 public meta import CFSG.Sporadic.Schreier.M22
 public meta import CFSG.Monster.B.Mathieu.M22Check
 public meta import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
-public import CFSG.Sporadic.Schreier.MathieuSylowAutM22Inputs
-public import CFSG.Sporadic.Schreier.MathieuSylowAutM22Derivs
 public import Certificates.Certificate2208
-public import Certificates.Certificate2195
-public import Certificates.Certificate3157
 
 public section
 

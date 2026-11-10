@@ -3,9 +3,6 @@ module
 public import Mathlib.GroupTheory.FiniteAbelian.Duality
 public import Mathlib.LinearAlgebra.FreeModule.Finite.CardQuotient
 public import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
-public import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
-public import Mathlib.LinearAlgebra.Matrix.Nondegenerate
-public import Mathlib.LinearAlgebra.Matrix.Trace
 public import TauCeti.Algebra.BigOperators.ZPow
 public import TauCeti.LinearAlgebra.Matrix.CharpolyFinTwo
 public import TauCeti.LinearAlgebra.Matrix.Trace.FinTwo

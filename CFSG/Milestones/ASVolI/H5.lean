@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.Milestones.ASVolI.H1
 public import CFSG.Quasithin.Background.HSL3Pair
 public import CFSG.Quasithin.H13.VolIH5

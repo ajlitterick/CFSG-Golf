@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Co1Block.TwoBCheckInputs
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.Co1PinData
 public meta import CFSG.Sporadic.Co1Block.TwoBCheckInputs
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain

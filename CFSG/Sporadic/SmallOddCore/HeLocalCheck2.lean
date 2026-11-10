@@ -1,11 +1,8 @@
 module
 
-public import CFSG.Sporadic.HeldB.InnerCheck
-public import CFSG.Sporadic.SmallOddCore.ClassSimple
 public meta import CFSG.Sporadic.HeldB.InnerCheck
 public meta import CFSG.Sporadic.SmallOddCore.ClassSimple
 public meta import Certificates.Data.CFSGNative.PSL3Four.Basic
-public import CFSG.Sporadic.SmallOddCore.HeLocalCheck2Inputs
 public import Certificates.Certificate2276
 
 public section

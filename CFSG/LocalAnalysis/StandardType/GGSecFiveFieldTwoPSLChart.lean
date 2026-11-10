@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSelPSUChart
 public import CFSG.LocalAnalysis.StandardType.GGCompatNbrSomeTypeA
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelPSL
-import Mathlib.Tactic.NoncommRing
 
 public section
 

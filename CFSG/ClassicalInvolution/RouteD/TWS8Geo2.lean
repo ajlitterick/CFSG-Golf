@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWS8Geo1
-public import CFSG.ClassicalInvolution.Asc77.AscE189OrthV
-public import CFSG.ClassicalGroups.Orthogonal.Restrict
 
 public section
 

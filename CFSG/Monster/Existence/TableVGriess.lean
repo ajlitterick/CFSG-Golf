@@ -3,13 +3,7 @@ module
 public import CFSG.Monster.Existence.TwoPoint.ShapeOneHC
 public import CFSG.Monster.Existence.TwoPoint.EvenShapes
 public import CFSG.Monster.Existence.BabyOrder
-public import CFSG.Monster.Existence.TwoPointTwoB
-public import CFSG.Monster.GMS.BabyCover
 public import CFSG.Monster.GMS.TableVOfCentralizer
-public import CFSG.Sporadic.Co2
-import Mathlib.Tactic.Group
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Monster.Existence.TwoPoint.Fi23ConjBase
 public import CFSG.Monster.Existence.TwoPoint.Fi23MiscBase
 public import CFSG.Monster.Existence.TwoPoint.Fi23Rels0Base

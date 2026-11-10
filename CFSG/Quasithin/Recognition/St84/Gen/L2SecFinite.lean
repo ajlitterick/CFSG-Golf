@@ -5,7 +5,6 @@ public import CFSG.Quasithin.Recognition.St84.Gen.S1ThirteenDim
 
 import CFSG.Quasithin.Recognition.St84.Sec6BaumannS3
 import CFSG.Quasithin.Vol2.Ch10SecKRPb
-import CFSG.Quasithin.Recognition.GoldschmidtF112RAutJ2
 public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeLocalNormal
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4Dec2Core
@@ -15,7 +14,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_21FinDS
 public import CFSG.Quasithin.Background.C1PackS15212C
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F7TwoFix
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2

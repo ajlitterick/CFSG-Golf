@@ -1,61 +1,27 @@
 module
 
-public import CFSG.LocalAnalysis.EvenBN.U5.Setting
 public import CFSG.LocalAnalysis.EvenBN.U5.CaseBInputs
 public import CFSG.LocalAnalysis.EvenBN.UnitaryFiveTwo.Sec4Gomi
-public import CFSG.LocalAnalysis.EvenBN.Sp4.Main
 public import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialCases
 public import CFSG.LocalAnalysis.EvenBN.G2.Main
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.Main
 public import CFSG.LocalAnalysis.EvenBN.Tits.Main
-public import CFSG.LocalAnalysis.EvenBN.Tits.Sec4Nine
 public import CFSG.LocalAnalysis.EvenBN.Tits.Sec5Statement
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.LocalAnalysis.EvenBN.UnitaryFiveTwo.Sec5KEight
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaEndDefs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L238BridgeAlt57SL
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L238BridgeAlt57Sp4
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerNilp
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerQuad
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotBLiftGomi
-public import CFSG.Quasithin.Background.A3Structure318Red
-public import CFSG.Quasithin.Background.A3Structure36A
-public import CFSG.Quasithin.Background.A3Structure36BAction
-public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
-public import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
-public import CFSG.Quasithin.Background.A3Structure36BFrattini
-public import CFSG.Quasithin.Background.A3Structure36BHeisBase
-public import CFSG.Quasithin.Background.A3Structure36BHomocyclic
-public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
-public import CFSG.Quasithin.Background.A3Structure36BStarBase
-public import CFSG.Quasithin.Background.A3Structure36Base
-public import CFSG.Quasithin.Background.A3Structure38Part3
-public import CFSG.Quasithin.Background.B1MoreNineG
-public import CFSG.Quasithin.Background.C2Basic
-public import CFSG.Quasithin.Background.C2Inputs
-public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
-public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.Background.F6Basic
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 public import CFSG.Quasithin.Recognition.CertTitsAmalgamLocal
 public import CFSG.Quasithin.Recognition.CertTwoLocalPair
 public import CFSG.Quasithin.Recognition.GoldschmidtTripleQuotient
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

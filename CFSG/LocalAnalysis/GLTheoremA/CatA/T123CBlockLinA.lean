@@ -1,11 +1,9 @@
 module
 
-public import CFSG.RankThree.PartOne.KC.LinearPlaneBlocks
 public import CFSG.RankThree.PartOne.KC.ExactLiftingGeneric
 public import CFSG.RankThree.PartOne.KC.LinearPlaneCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearSmall
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

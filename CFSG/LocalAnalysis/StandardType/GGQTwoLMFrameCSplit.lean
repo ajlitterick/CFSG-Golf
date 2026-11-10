@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameCBase
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameCCard
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNRegimeDefs
 public import CFSG.LocalAnalysis.StandardType.GGK0ExcB3
-public import CFSG.LocalAnalysis.StandardType.GGExcTwoCompList
 public import CFSG.LocalAnalysis.StandardType.GGK0CompREMult
 
 public section

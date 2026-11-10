@@ -4,7 +4,6 @@ public import Certificates.Kernel.RouteP.Lines.Defs
 public import CFSG.Certificates.Kernel.Common.IntWords
 public meta import Certificates.Data.Kernel.RouteP.TextSlp
 public import Certificates.Kernel.RouteP.Text.Facts
-public import Mathlib
 
 public section
 

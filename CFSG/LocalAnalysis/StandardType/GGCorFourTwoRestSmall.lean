@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoRestTwo
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanks
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallTits
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwDThree
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestVac
 
 public section

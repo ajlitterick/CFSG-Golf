@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.CurtisDatum
-public import CFSG.LieType.Steinberg.Classical.SpinPlus
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRestSpinPlus
 public import CFSG.Quasithin.Background.SmithCurtisMain
 

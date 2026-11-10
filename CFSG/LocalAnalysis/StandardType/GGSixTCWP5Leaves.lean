@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5Defs
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5Inputs
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5RC0Input
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5UE6
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5Lower
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5Upper

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.K32TableMathieuData
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.K32TableMathieuData
 public import Certificates.Certificate4121
 public import CFSG.Sporadic.M23.M23Group

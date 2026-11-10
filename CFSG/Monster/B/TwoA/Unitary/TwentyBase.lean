@@ -3,19 +3,8 @@ module
 
 public import CFSG.Monster.B.TwoA.Unitary.SemilinearBase
 public import CFSG.Monster.B.TwoA.Unitary.TwentyAlg
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.AbsolutelyIrreducible
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.JacobsonDensity
 public meta import CFSG.Monster.B.TwoA.Unitary.TwentyData
 public import Certificates.Certificate3083
-public import CFSG.Monster.B.TwoA.Unitary.TwentyAlgInputs
-public import Certificates.Data.CFSGNative.MonsterB.Short
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import CFSG.Certificates.Kernel.AxisPlane.Orbit
-public import Certificates.Data.Kernel.VisFrame.Gens
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
-public import CFSG.Monster.B.TwoA.Unitary.Bridge
-public import CFSG.Monster.B.TwoA.Unitary.ActionInputs
 
 @[expose] public noncomputable section
 

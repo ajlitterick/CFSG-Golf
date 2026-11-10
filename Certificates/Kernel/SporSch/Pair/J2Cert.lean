@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.SporSch.Pair.J2Faith
 public import Certificates.Kernel.SporSch.Pair.GenSyl
 public import CFSG.Certificates.Kernel.SporSch.PairSylEnc
-public import CFSG.Sporadic.Schreier.PairJ2CertInputs
 meta import CFSG.Sporadic.Schreier.PairJ2CertInputs
 import CFSG.Certificates.Kernel.Common.Harness
 

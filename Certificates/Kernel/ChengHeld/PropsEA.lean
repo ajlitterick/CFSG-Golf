@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.ChengHeld.PropsAut
 public import Certificates.Data.Kernel.ChengHeldEAK
 meta import Certificates.Data.ChengHeldSec2Facts
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Bounds.Core3
 import CFSG.Certificates.Kernel.Bounds.Load
 

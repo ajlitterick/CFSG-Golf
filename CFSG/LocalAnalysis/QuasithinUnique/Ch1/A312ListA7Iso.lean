@@ -4,13 +4,7 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7IsoBase
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7Lattice
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListL3
-public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7Lattice
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7Enc
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7LatticeInputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7IsoInputs
 public import Certificates.Certificate4082
 
 public section

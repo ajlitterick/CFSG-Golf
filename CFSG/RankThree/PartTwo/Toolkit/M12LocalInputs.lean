@@ -11,7 +11,6 @@ public import CFSG.CharacterTheory.Blocks.Defs
 public import CFSG.GH74.M12.Reductions
 public meta import CFSG.GH74.M12.Reductions
 public meta import CFSG.Open.Defs
-public import CFSG.Open.Defs
 
 public section
 

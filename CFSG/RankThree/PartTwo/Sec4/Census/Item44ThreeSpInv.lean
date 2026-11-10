@@ -4,11 +4,8 @@ public import CFSG.RankThree.SubgroupLists.SymplecticInvolutions
 import CFSG.Adapters.Involutions
 import CFSG.CharacterTheory.Burnside
 import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 
 public section
 

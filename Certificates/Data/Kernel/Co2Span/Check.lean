@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.Co2Smith.Rows
 public import Certificates.Data.CFSGNative.HS.SmallF2
-public import CFSG.Certificates.Kernel.Common.Loop
 
 public section
 

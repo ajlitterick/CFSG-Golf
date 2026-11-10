@@ -5,16 +5,12 @@ public import CFSG.ClassicalInvolution.Balance.LayerGenerationHybrid
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationPairSpinPlus
 public import CFSG.ClassicalInvolution.Generic.TypeCSmallRecognitionProof
 public import CFSG.ClassicalInvolution.MilestoneAssemblyWired4
-public import CFSG.ClassicalInvolution.ModelFacts.CommutingFundamentalAll
 public import CFSG.ClassicalInvolution.Q3.Remaining
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofExcLayerTwisted
 public import CFSG.ClassicalInvolution.RouteD.GapsToralB
 public import CFSG.ClassicalInvolution.RouteD.GapsToralDSmall
 public import CFSG.ClassicalInvolution.RouteD.MultiModelGlue
-public import CFSG.ClassicalInvolution.RouteD.MultiStarModel
 public import CFSG.ClassicalInvolution.RouteD.TwinTenNodes
 public import CFSG.ClassicalInvolution.RouteD.TypeEPatternExclWired
-public import CFSG.ClassicalInvolution.RouteD.TypeEPatternWired
 public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6PerpTable
 public import CFSG.ClassicalInvolution.SmallCases.ConnectedA2FactsKG2Dichotomy
 public import CFSG.ClassicalInvolution.SmallCases.DisconnectedInputs

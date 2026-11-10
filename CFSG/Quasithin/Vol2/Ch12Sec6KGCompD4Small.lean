@@ -2,15 +2,8 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec6KGCompLie2BigD4
 public import CFSG.Quasithin.Vol2.Ch12Sec6KGCompLie2TwoAsm
-public import CFSG.Quasithin.Vol2.Ch12Sec6KGCompAlt
-public import CFSG.Quasithin.Vol2.Ch12Sec6KGCompOdd
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8D4D0
-public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8D4Classes
-public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8D4Comm
-public import CFSG.LieType.Chevalley.EvenTrialityAutomorphismNormalForm
-public import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
 public import CFSG.LocalAnalysis.EvenBN.Common.SL2Module
-public import CFSG.LinearAlgebra.SL2MinimalFaithfulMatrix
 import CFSG.Timmesfeld.Orders.Exceptional
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactsFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.SporadicData

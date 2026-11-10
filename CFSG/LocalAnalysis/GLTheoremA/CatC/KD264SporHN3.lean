@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264HN3Alt
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264SporAll
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD1426SporKleinU
-public import CFSG.Sporadic.HNSchreier.Intrinsic
-public import CFSG.Sporadic.Bridge.HNSurj
-public import CFSG.Sporadic.HN
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD1426Parts
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD1426SporCore
 

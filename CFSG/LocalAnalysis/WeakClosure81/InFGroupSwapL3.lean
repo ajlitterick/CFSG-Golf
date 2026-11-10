@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.WeakClosure81.InFGroupSwapL3Member
 public import CFSG.LocalAnalysis.WeakClosure81.SwapsParabolicsDiagram
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
 import CFSG.Quasithin.Vol2.Ch11SecOE7P
-import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch5EF
-import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch5Bridge
 import CFSG.LocalAnalysis.WeakClosure81.InFGroupAlmostSimple
 import CFSG.LocalAnalysis.WeakClosure81.InFOneSylow
 import all CFSG.LocalAnalysis.WeakClosure81.InFGroupSwapSp4Model
@@ -37,14 +35,9 @@ public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNineInvolutions
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListFlag
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellAut
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellThompson
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyP2
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19Defs
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2
 public import CFSG.LocalAnalysis.SectionRank.QTK.CentreFact.Bounded
@@ -54,15 +47,9 @@ public import CFSG.LocalAnalysis.SectionRank.QTK.OddOrth
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S20b
 public import CFSG.Mathlib.LinearAlgebra.BilinForm.Determinant
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
-public import CFSG.Quasithin.Background.A3Structure318Red
-public import CFSG.Quasithin.Background.A3Structure38Part3
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
-public import CFSG.Quasithin.Background.C2Inputs
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtRk2ParMain
 public import CFSG.Quasithin.EmptyFaithful.SzN15Good
 public import CFSG.Quasithin.H13.QRCBenderAmbient
@@ -87,7 +74,6 @@ public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 import CFSG.GH74.GLS.Defs
 import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Closed
 import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Statements

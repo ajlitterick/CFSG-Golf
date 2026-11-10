@@ -4,12 +4,7 @@ public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.I291R3ExRank
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover.SL3Basic
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover.SU3Basic
 public import CFSG.LocalAnalysis.AGLEmbedding.LinTwoFacts
-public import CFSG.LocalAnalysis.AGLEmbedding.LinTwoCatalog
 public import CFSG.LocalAnalysis.RankFourTheoremC.InvariantTwo.KFacts.I294CrossRank
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.LieType.Universal.Unitary.Comparison
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryField
-public import CFSG.Open.StatedDefs
 
 public section
 

@@ -3,13 +3,10 @@ module
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95Alt
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95Sp4
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95Exc
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95Bender
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95Abel
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95Mathieu
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95M12
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95J2
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95J3
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95L3U3
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95FamL2
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95FamL34
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95FamL4

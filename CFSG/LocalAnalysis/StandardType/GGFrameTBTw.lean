@@ -6,11 +6,9 @@ import CFSG.LocalAnalysis.StandardType.GGFrameClassicalNum
 import CFSG.LocalAnalysis.StandardType.GGFrameClassicalAut
 import CFSG.LocalAnalysis.StandardType.GGStdPosC24Signed
 import CFSG.LocalAnalysis.StandardType.GGRootGenAvoidReflModel
-import CFSG.LocalAnalysis.StandardType.GGTableB
 import CFSG.LocalAnalysis.StandardType.GGTwAutHolds
 import CFSG.LocalAnalysis.StandardType.GGTwOmPlusHolds
 import CFSG.LocalAnalysis.StandardType.GGKGForkLinNsB
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
 import CFSG.LocalAnalysis.AGLEmbedding.BlockParabThreeLeviTransfer
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabPrimeTwo
 

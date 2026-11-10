@@ -1,10 +1,7 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434D42LinkCheck
-public import CFSG.Open.LocalVocabulary
 import CFSG.Certificates.Kernel.HTD42Glue
-import Certificates.Certificate9415
-import Certificates.Kernel.D4Plane.Checks
 import Certificates.Kernel.HTD42.Checks
 public import CFSG.RankThree.PartOne.KS.PKit
 public import CFSG.RankThree.PartOne.KS.PKitLines

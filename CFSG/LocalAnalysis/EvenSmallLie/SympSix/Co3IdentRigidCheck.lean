@@ -3,11 +3,9 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentRigidCheckBase
 
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentCube
 public meta import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentCube
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.Co3Schreier.Basic
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentRigidCheckInputs
 public import Certificates.Certificate3096
 
 public section

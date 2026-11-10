@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_3.Statement
-public import CFSG.Quasithin.Background.D2Coprime
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenLin
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic

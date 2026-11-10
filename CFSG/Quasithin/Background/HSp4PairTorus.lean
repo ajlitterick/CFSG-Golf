@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.HSp4PairNPrime
 public import CFSG.Quasithin.Background.HSp4Bridge
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherSylow
 
 public section
 

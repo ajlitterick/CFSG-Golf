@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeGeoFlag
-public import Mathlib.LinearAlgebra.SesquilinearForm.Basic
-public import Mathlib.RingTheory.Trace.Basic
-public import Mathlib.FieldTheory.Finite.GaloisField
 
 public section
 

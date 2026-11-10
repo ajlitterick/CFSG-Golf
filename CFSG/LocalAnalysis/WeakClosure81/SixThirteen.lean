@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.WeakClosure81.SixTen
 public import CFSG.LocalAnalysis.WeakClosure81.SixFiveA
-public import CFSG.LocalAnalysis.WeakClosure81.FourteenSix
 public import CFSG.LocalAnalysis.WeakClosure81.FourteenNine
 public import CFSG.Quasithin.Background.E6Nine
 

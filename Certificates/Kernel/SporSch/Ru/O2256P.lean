@@ -5,7 +5,6 @@ public import Certificates.Kernel.SporSch.Ru.O2256
 public import Certificates.Kernel.SporSch.Ru.C2253P
 public import CFSG.Certificates.Kernel.SporSch.RuOrbSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

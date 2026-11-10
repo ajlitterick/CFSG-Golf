@@ -3,12 +3,7 @@ module
 
 public import Certificates.Kernel.J4Count.PrimBase
 
-public import Certificates.Kernel.J4Count.PrimData
 public import Certificates.Kernel.J4Count.FixCEElt
-public import Certificates.Kernel.J4Count.HOrder
-public import Certificates.Kernel.J4Hub.Card
-public import CFSG.Sporadic.J4.Simple
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

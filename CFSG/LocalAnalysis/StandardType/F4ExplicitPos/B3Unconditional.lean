@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.B3FaithfulPart2
-public import CFSG.LieType.Chevalley.NativeHolds
 
 @[expose] public section
 

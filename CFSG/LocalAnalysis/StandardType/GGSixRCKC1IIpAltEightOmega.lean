@@ -1,15 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpSLOrder
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpAltEightTwo
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpAltEightSU
 import CFSG.RankThree.GF2n.Smith81.InspKOmegaCard
-import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotGlobalGen
-import CFSG.RankThree.PartOne.CTP.SpinCenterEven
 import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SpinPlusModel
-import CFSG.RankThree.PartOne.CTP.SU4EvenBridge
 import CFSG.LieType.Universal.Spin
 import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofComponentLift
 import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddCentralFixed

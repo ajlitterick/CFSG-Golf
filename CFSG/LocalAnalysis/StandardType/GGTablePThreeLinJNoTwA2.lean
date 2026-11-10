@@ -5,11 +5,7 @@ import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnExcLabel
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Label
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinPLab
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinPieces
-import CFSG.LocalAnalysis.GLTheoremA.S11.InputsElim
 import CFSG.Assembly.GL83StatedBridge
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.RankThree.PartOne.CTP.SeitzMaxSL2
 
 public section

@@ -6,7 +6,6 @@ public meta import Lean
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Common.Tab
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

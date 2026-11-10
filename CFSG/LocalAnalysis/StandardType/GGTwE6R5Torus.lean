@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Torus
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelLangTorus
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelLiftT
 import TauCeti.Algebra.Group.Coprime
 
 public section

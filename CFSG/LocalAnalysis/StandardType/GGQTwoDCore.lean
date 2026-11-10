@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBCZ1
-public import Mathlib.Tactic.Abel
-public import Mathlib.Tactic.IntervalCases
-public import Mathlib.Tactic.Module
-public import Mathlib.Tactic.NormNum
 
 public section
 

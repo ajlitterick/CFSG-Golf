@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartOne.KE.E6TwFourData
 public import CFSG.RankThree.PartOne.KE.E6TwFourFinal
 public import CFSG.RankThree.Classical2.TwistedE6Phi3Centralizer
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.E6FourAux.R3TwActor

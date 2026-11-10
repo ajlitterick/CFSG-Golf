@@ -2,25 +2,16 @@ module
 
 public import CFSG.ClassicalInvolution.SmallCases.NobqBender
 public import CFSG.StronglyEmbedded.BenderUnitaryBorel
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryCoverRootData
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryRootAutomorphismCoord
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_10_4
 public import CFSG.ClassicalInvolution.SmallCases.NobqOut
-public import CFSG.StronglyEmbedded.BenderBinaryHermitian
-public import CFSG.StronglyEmbedded.MatrixGroups.PSU3Model
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryDiagonalOuterOrder
-public import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
 public import CFSG.LocalAnalysis.RankTwoShapes.UnitaryFour.Bridge
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.SignalizerFunctorTheorem.NearModels.Unitary.Basic
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.Models
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

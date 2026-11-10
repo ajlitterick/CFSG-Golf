@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Uniform.U5Comp
 public import CFSG.ClassicalInvolution.Uniform.U5Three
-public import CFSG.ClassicalInvolution.Q3.OddCentralizerModels
 public import CFSG.ClassicalInvolution.Q3.M11Kernel
 public import CFSG.ClassicalInvolution.Q3.ModelOddCentralizerGaussUnitary
 public import CFSG.LocalAnalysis.RankTwoShapes.UnitaryFour.Bridge

@@ -1,12 +1,10 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.FF81Am6LSideRoots
-public import CFSG.RankThree.PartTwo.Sec21.FF81Am6Props
 public import CFSG.RankThree.PartTwo.Sec21.RudvalisFF81Sp6Transv
 public import CFSG.RankThree.PartTwo.Sec21.FF81Sp6LeviRed
 public import CFSG.RankThree.PartTwo.Sec21.HeringFFLKE9
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec43T
-import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.EvenBN.Tits.R2.CatalogSp6
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
 public import CFSG.LocalAnalysis.SectionRank.LargeRee.SuzukiData
@@ -16,7 +14,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.RankThree.PartOne.S9.Sylow.GlobalRelative
 public import CFSG.RankThree.PartTwo.Late.GammaZero
 public import CFSG.RankThree.PartTwo.Sec11.Theorem1134
@@ -24,7 +21,6 @@ public import CFSG.RankThree.PartTwo.Sec13.Item135
 public import CFSG.RankThree.PartTwo.Sec13.Item135Simple
 public import CFSG.RankThree.PartTwo.Sec13.Item135SimpleReduce
 public import CFSG.RankThree.PartTwo.Sec18.Notation
-public import CFSG.RankThree.PartTwo.Sec18.Tools
 public import CFSG.RankThree.PartTwo.Sec21.Commute33
 public import CFSG.RankThree.PartTwo.Sec21.FF81Sp6LeviNorm
 public import CFSG.RankThree.PartTwo.Sec21.Item21Early3ProofExists

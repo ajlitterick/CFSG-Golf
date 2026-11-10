@@ -6,8 +6,6 @@ public import Certificates.Kernel.Sporadic.OddCore.ON2123
 public import Certificates.Kernel.Sporadic.OddCore.ONLitCmd
 public import Certificates.Kernel.Misc.Perm.HexCmd
 meta import CFSG.Sporadic.ONOddCore.LiftCheckInputs
-import CFSG.Certificates.Kernel.Misc.KernelRfl
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.ONOddCore.LiftCheckInputs
 
 public section

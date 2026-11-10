@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalGraphPlus
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalGraphMinus
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalInnerSp
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalFieldSp
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyFiveDefs
 

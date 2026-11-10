@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWYRankOdd
 public import CFSG.ClassicalInvolution.RouteD.TWYRankEven
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2Model
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinModels
 
 public section
 

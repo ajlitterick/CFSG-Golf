@@ -7,8 +7,6 @@ public meta import CFSG.Sporadic.HeldB.HeBlocks
 public meta import Certificates.Data.CFSGNative.HeldB.Tests
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 import Certificates.Kernel.Co2Chain.He12636S
-import CFSG.Sporadic.HeldB.CertPChainData
-import Certificates.Data.CFSGNative.Schreier.Check
 
 public section
 

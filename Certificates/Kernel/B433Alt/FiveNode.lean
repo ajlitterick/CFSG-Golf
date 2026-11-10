@@ -4,7 +4,6 @@ public import Certificates.Kernel.B433Alt.FiveSem
 public import Certificates.Kernel.B433Alt.FiveC
 public import Certificates.Kernel.B433Alt.Chains
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBFiveCentSyl
-public import CFSG.Certificates.Kernel.Common.ForallTree
 public import CFSG.YGroups.Model233F
 
 set_option maxRecDepth 100000

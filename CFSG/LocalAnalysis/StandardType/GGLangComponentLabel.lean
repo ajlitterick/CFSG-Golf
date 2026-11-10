@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelAssembly
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs2
 public import CFSG.LocalAnalysis.StandardType.GGFinModelRat
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RFam
 import CFSG.LocalAnalysis.StandardType.GGSixRCKU33Transport
-import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcLang
 import CFSG.HardMathSupport.Curtis.Coordinator.SeitzTower.Rest
 import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderE6Order
 import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUProjectivePlaneFieldRoot

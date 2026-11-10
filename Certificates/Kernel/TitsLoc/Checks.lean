@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.TitsLoc.Data
 public import Certificates.Kernel.TwoF4Lie.Checks
 public import Certificates.Data.Kernel.TitsLocK
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

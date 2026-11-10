@@ -1,14 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeDefs
-import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwisted
 import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagTwE6Model
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwistedTorus
 import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdTwE6
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneRank
-import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
-import CFSG.GroupTheory.CenterlessInnerCentralizer
-import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.Cover
 import CFSG.HardMathSupport.Dickson.I271.SporGen
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.NoComp

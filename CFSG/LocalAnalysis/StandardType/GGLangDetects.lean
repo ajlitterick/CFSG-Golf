@@ -1,9 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialOuter
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidDescent
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
 public import CFSG.LocalAnalysis.StandardType.GGLatDefs
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerE8Five
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerResiduals
@@ -57,7 +54,6 @@ public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.Th.Max3.Core
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

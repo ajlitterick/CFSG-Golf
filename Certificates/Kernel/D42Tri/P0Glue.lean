@@ -1,23 +1,14 @@
 module
 
-public import Certificates.Kernel.D42Tri.P0Chk
 public import Certificates.Kernel.D42Tri.P0K2N
 public import Certificates.Kernel.D42Tri.T2Glue
 public import CFSG.Certificates.Kernel.Spor.RecGroup
-public import CFSG.Certificates.Kernel.Spor.PackWord
-public import CFSG.Certificates.Kernel.Spor.SiftEq
-public import CFSG.HardMathSupport.Dickson.Bal207.D42TriInputs
-public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeModel
 public import CFSG.Sporadic.SmallOddCore.LocalSpec
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.Group
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 public import CFSG.ClassicalInvolution.SmallCases.NobqLists
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Generic
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 
 public section

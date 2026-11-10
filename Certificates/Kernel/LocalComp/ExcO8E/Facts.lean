@@ -1,12 +1,8 @@
 module
 
 public import Certificates.Kernel.LocalComp.ExcO8E.Bind
-public import Certificates.Kernel.LocalComp.ExcO8E.DataSE
-public import Certificates.Kernel.LocalComp.ExcO8E.Data48
-public import Certificates.Kernel.LocalComp.ExcO8E.Data16
 public import Certificates.Kernel.LocalComp.ExcO8E.Derivs
 public import CFSG.Certificates.Kernel.LocalCompExcTextSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.Certificates.Kernel.Spor.RawOrbHead
 public import CFSG.Certificates.Kernel.Child3Reps
 public import Certificates.Kernel.LocalComp.ExcO8E.REa
@@ -14,7 +10,6 @@ public import Certificates.Kernel.LocalComp.ExcO8E.REb
 public import Certificates.Kernel.LocalComp.ExcO8E.R48s
 public import Certificates.Kernel.LocalComp.ExcO8E.R16s
 public import Certificates.Kernel.LocalComp.SliceJoin
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 public section

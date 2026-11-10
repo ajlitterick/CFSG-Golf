@@ -5,7 +5,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralNormalSubgroup
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_4
-import Mathlib.GroupTheory.SpecificGroups.Cyclic
 import Mathlib.Tactic
 
 namespace CFSG

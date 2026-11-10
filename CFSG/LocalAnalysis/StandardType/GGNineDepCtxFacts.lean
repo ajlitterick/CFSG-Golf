@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNineDepCtx
 public import CFSG.LocalAnalysis.StandardType.GGExtCtx
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 public import CFSG.LocalAnalysis.StandardType.GGPZWeylType
 public import CFSG.LocalAnalysis.StandardType.GGLargeDepNoImprim
-import CFSG.LocalAnalysis.StandardType.GGNineDepRestrictAux
 import CFSG.LocalAnalysis.StandardType.GGNineDepNegLift
 import CFSG.LocalAnalysis.StandardType.GGResIBasic
 import CFSG.LocalAnalysis.StandardType.GGLargeDepNoSymPerm

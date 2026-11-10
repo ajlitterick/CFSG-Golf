@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.Background.Harris.KFact2d.F3L3
 public import CFSG.Quasithin.Background.Harris.KFact2d.F3U3
 public import CFSG.ClassicalInvolution.Q3.Q3WASAut
-public import CFSG.Adapters.SpecialLinearPerfect
-public import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutLift
 
 public section
 

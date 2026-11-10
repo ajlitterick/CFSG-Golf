@@ -1,30 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResE6ActualSevenRootSupport
-public import CFSG.LocalAnalysis.StandardType.GGLineStabNormalizes
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
-public import CFSG.LocalAnalysis.StandardType.GGResE6Coordinates
-public import CFSG.LocalAnalysis.StandardType.GGResIBasic
-public import CFSG.Blueprint.Chevalley
-public import CFSG.Assembly.E6FourCentMask
-public import CFSG.Mathlib.Decide.Bounded
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Algebra.Module.Basic
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.LinearAlgebra.BilinearForm.Basic
-public import Mathlib.LinearAlgebra.Matrix.Symmetric
-public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
-public import Mathlib.Tactic
-public import CFSG.LocalAnalysis.StandardType.GGResE6ActualSevenRootSupport
-public import CFSG.LocalAnalysis.StandardType.GGAutomizerJoinInduced
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-public import Mathlib.LinearAlgebra.Reflection
-public import CFSG.LocalAnalysis.StandardType.GGTableBBstar
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcReflLinear
-public import Mathlib.LinearAlgebra.Dual.Lemmas
-public import CFSG.LocalAnalysis.StandardType.GGE6DepKNoTv
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoCartan
 
 
 public section

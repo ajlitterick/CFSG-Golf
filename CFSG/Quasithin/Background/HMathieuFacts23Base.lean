@@ -3,27 +3,7 @@ module
 
 public import CFSG.Quasithin.Background.HMathieuFacts22Base
 public import CFSG.Quasithin.Background.HMathieuSyl23Odd
-public import CFSG.Sporadic.Schreier.M23Data
-public import CFSG.Sporadic.Schreier.M23PinnedInputs
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM23Data
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM23Data
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import CFSG.Quasithin.Background.HMathieuCentInputs
-public import CFSG.Quasithin.Background.HMathieuMask
-public import CFSG.Quasithin.Background.HMathieuNormInputs
-public import CFSG.Quasithin.Background.HMathieuCent
-public import CFSG.Monster.B.TwoA.Base.M22
-public import CFSG.Monster.CodeAut.Bridge
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM22
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM23
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM24
-public import CFSG.Sporadic.Schreier.M22
-public import CFSG.Sporadic.Schreier.M23
-public import CFSG.Sporadic.Schreier.M24
-public import CFSG.Quasithin.Background.HMathieuSyl23Inputs
-public import CFSG.Quasithin.Background.HMathieuPT24
-public import CFSG.Quasithin.Background.HMathieuPred
-public import CFSG.Quasithin.Background.HMathieuSyl23
 
 @[expose] public section
 

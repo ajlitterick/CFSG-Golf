@@ -2,14 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNRegimeDefs
 public import CFSG.LocalAnalysis.StandardType.GGB36JNonExc
-public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangWeylRestVac
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanks
 public import CFSG.LocalAnalysis.StandardType.GGTwF4SUThreeRank
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneRank
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRankExc
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRank
 
 public section
 

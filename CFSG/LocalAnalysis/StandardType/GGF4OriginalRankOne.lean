@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGOriginalRankOne
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOrb
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2Cross
 import CFSG.LocalAnalysis.StandardType.GGKGPosSpStd
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
-import Mathlib.Tactic.Group
 
 public section
 

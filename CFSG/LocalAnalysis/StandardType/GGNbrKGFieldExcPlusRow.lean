@@ -4,11 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937Defs
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylRest13Known
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylScIrred
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitFive
-import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVacOther
 
 public section

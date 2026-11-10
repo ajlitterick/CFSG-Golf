@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.FF81Am6A2
-public import CFSG.RankThree.PartTwo.Sec21.FF81Am6Family
 public import CFSG.RankThree.PartTwo.Sec21.FF81Defs
 public import CFSG.RankThree.PartTwo.Sec21.HoltCatalog
 

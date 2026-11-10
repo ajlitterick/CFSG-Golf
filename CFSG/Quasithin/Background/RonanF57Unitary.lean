@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 public import CFSG.LieType.BorelTits.CompleteFlag
 

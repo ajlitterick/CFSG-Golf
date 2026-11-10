@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.CompactA2Pair
 public import CFSG.LocalAnalysis.StandardType.GGOrthFrameTransport
 public import CFSG.LocalAnalysis.StandardType.GGFixedTwoKernelTransport
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerSUBasic
-public import CFSG.RankThree.PartOne.KE.E8TwoA2Family
 public import CFSG.LocalAnalysis.StandardType.GGFinModelIndex
 public import CFSG.LocalAnalysis.StandardType.GGFamCentralizerTwoPower
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSAPairAux2

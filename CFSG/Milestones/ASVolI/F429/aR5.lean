@@ -4,7 +4,6 @@ public import CFSG.Milestones.ASVolI.F429.aR5Gen
 public import CFSG.Milestones.ASVolI.F429.Defs
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsU4
 public import CFSG.Quasithin.H13.U4ParOuterO2
-import CFSG.Milestones.ASVolI.F4
 public import CFSG.Milestones.ASVolI.F429.aC4Gen
 public import CFSG.Milestones.ASVolI.F429.aC7Gen
 public import CFSG.Milestones.ASVolI.F429.aOddGen

@@ -1,23 +1,17 @@
 module
 
 public import CFSG.GH74.GLS.Stage1.Thm4.Defs
-public import CFSG.GH74.GLS.Basic
 
-import CFSG.GH74.GLS.NT44.RigidFamily
 import CFSG.GH74.GLS.NT44.RigidPump
 import CFSG.GH74.GLS.NT44.RigidCoverage
 import CFSG.GH74.GLS.NT44.RigidPumpExistence
 import CFSG.GH74.GLS.NT44.RigidCenterSylow
 import CFSG.GH74.GLS.Stage1.Thm4.P92Basic
 import CFSG.GH74.GLS.Bg.Pu5.ZStructBasic
-import CFSG.GH74.GLS.C3.Layer1.St1PumpCalc
-import CFSG.GH74.GLS.C3.Layer1.St1RigGen
 import CFSG.GH74.GLS.C3.Layer1.Th2Pump
 import CFSG.GH74.GLS.NT44.RigidCenterInclusion
 import CFSG.GH74.GLS.NT44.RigidCentralInvolution
 public import Certificates.Kernel.ThCent.Leaves
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Blocks.Defs
 public import CFSG.GH74.GLS.Defs
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Closed
@@ -42,9 +36,7 @@ public import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Critical
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.GH74.GLS.Bg.Iii2.CMAux
 import CFSG.GH74.GLS.Bg.Iii2.CMPU
 import CFSG.GH74.GLS.Bg.Iii2.ExtBasic

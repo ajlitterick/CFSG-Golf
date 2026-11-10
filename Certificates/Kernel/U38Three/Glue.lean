@@ -4,7 +4,6 @@ public import Certificates.Kernel.U38Three.Checks
 public import Certificates.Kernel.U38Three.PChecks
 public import Certificates.Kernel.U38Fix.Glue
 public import CFSG.Certificates.Kernel.U38ThreeSound
-import Mathlib.Tactic.IntervalCases
 
 public section
 

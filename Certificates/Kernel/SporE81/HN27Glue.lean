@@ -1,10 +1,8 @@
 module
 
 public import Certificates.Kernel.SporE81.HN27Checks
-public import Certificates.Kernel.SporSch.HN.Pt2108
 public import Certificates.Kernel.SporSch.HN.Pt2085
 public import CFSG.Sporadic.HNSchreier.Sylow3
-public import CFSG.Assembly.Defs
 
 public section
 

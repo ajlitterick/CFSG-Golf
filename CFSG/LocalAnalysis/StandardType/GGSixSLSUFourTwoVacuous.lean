@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootPlaneOm
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarUniqueRootPlaneA
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalUInner
 public import CFSG.HardMathSupport.Timmesfeld.LinearRank.ProjRank
 public import CFSG.LieType.SteinbergBRSemidirectSLEven
-public import CFSG.ClassicalInvolution.Phan.CenterScalars
-public import CFSG.Open.StatedAPI
 public import CFSG.GroupTheory.ElemAbelianRank
 public import CFSG.LieType.SteinbergBRSemidirectSL2
 

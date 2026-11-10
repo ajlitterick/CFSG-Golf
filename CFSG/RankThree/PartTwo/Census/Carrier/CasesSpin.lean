@@ -2,10 +2,7 @@ module
 
 public import CFSG.RankThree.PartTwo.Census.CarrierCases
 import CFSG.RankThree.PartTwo.Census.Carrier.G2Prime
-import CFSG.RankThree.PartTwo.Census.Carrier.G2Three
 import CFSG.RankThree.PartTwo.Census.Carrier.ReeG2One
-public import CFSG.RankThree.PartTwo.Census.Carrier.SpinBBridge
-public import CFSG.RankThree.PartTwo.Census.Carrier.SpinDBridge
 public import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDBridge
 public import CFSG.RankThree.PartTwo.Census.Carrier.Sp6Two
 public import CFSG.LieType.Universal.Spin.Roots

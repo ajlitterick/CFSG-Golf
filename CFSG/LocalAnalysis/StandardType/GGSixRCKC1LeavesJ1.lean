@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpRecDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeShapeLeaves
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeEnvelopePieces
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeNonclassicalSpecs
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcRelOneAt
 
 public section
 

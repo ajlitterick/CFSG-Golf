@@ -1,12 +1,8 @@
 module
 
 public import CFSG.GF2Type.Smith1979.CaseI25Split
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
 public import CFSG.LocalAnalysis.StandardType.GGFusionExceptionFull
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestBstar
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeSp
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
 public import CFSG.Sporadic.Co1Patterson.SettingOmega
 public import CFSG.LargeExtraspecial.BridgeSetting
 public import CFSG.LargeExtraspecial.S111ADisj

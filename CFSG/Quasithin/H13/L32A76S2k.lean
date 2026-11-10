@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.H13.L32A76S2j
 public import CFSG.Quasithin.H13.A5W1617b
-public import CFSG.Quasithin.Vol2.Ch1Chief
 public import CFSG.CharacterTheory.Wreathed.SmallerRecognitionOriginalFieldQuaternionConjugation
 public import CFSG.Goldschmidt.Statements
 public import CFSG.Goldschmidt.StatementsG

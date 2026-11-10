@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDGNOrthNorm
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthPaths
 public import CFSG.LocalAnalysis.StandardType.GGUnitaryTwoResidual
-public import CFSG.ClassicalInvolution.Balance.StrongPowSuBlocks
 
 public section
 

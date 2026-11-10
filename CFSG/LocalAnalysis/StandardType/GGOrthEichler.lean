@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOrthEichlerPlane
 public import CFSG.LocalAnalysis.StandardType.GGQ2EichlerDefs
-public import CFSG.LocalAnalysis.StandardType.GGWAutDefs
 public import CFSG.LocalAnalysis.StandardType.GGWAutOrthCosets
 
 public section

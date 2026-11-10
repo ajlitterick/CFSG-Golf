@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialSlice
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialSwap
 import CFSG.LocalAnalysis.EvenBN.Sp4.OneAxisNormalizer
-import CFSG.LocalAnalysis.EvenBN.GMSK.ConsumerSections
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldFullAutomorphism
 import CFSG.GroupTheory.ABGLocalTools.PStabilityCoreGW
 import CFSG.CharacterTheory.Blocks.BrauerInduction

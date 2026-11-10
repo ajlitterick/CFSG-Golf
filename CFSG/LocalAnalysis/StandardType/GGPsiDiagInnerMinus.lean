@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinusTorus
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAssembly
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeInner
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.SLTwo
-public import CFSG.LieType.Universal.SpinOmega.Center
 public import CFSG.RankThree.PartOne.CTP.SU4EvenBridge
 public import CFSG.LargeExtraspecial.S4CEOmegaSpin
 public import CFSG.Timmesfeld.Transvection.ModelSUFour
@@ -19,7 +17,6 @@ public import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

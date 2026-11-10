@@ -7,7 +7,6 @@ public import Certificates.Kernel.Misc.ArgCharsFun
 public import Certificates.Data.S7TwinO8
 public meta import Certificates.Kernel.O8Twin.Chain
 public meta import Certificates.Data.S7TwinO8
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

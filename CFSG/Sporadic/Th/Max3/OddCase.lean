@@ -1,29 +1,16 @@
 module
 
 public import CFSG.Sporadic.Th.Max3.CentA
-public import CFSG.Sporadic.Th.KernelCentralizer
-public import CFSG.Sporadic.Th.Max3.Quotient
 public import CFSG.GroupTheory.OddSquareSwap
 public import CFSG.LocalAnalysis.ZStar
-public import CFSG.Sporadic.Th.Max3.OddCaseInputs
 public import Certificates.Certificate9014
-public import Certificates.Certificate1020
-public import Certificates.Certificate1021
-public import Certificates.Certificate1022
-public import Certificates.Certificate10091
-public import Certificates.Certificate10092
-public import Certificates.Certificate9013
-public import Certificates.Certificate10088
-public import Certificates.Certificate10089
 public meta import CFSG.Sporadic.Th.Max3.Relations
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
 public import CFSG.Sporadic.ThSchreier.KernelAut
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 
 public section

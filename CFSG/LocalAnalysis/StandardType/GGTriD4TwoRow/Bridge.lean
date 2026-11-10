@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTriD4TwoRow.Model
 public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanChevOuterD42Link
 public import CFSG.HardMathSupport.Malle.SeitzCube.D4LayerBridgeCat
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuousTriality
 public import CFSG.HardMathSupport.Seitz.TrialityEven.TwoThree
 public import CFSG.HardMathSupport.Dickson.Bal207.Fam3D42Inner
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434D42Outer
@@ -54,8 +52,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

@@ -1,7 +1,6 @@
 module
 
 import Lean
-public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited
 public import CFSG.LocalAnalysis.StandardType.GGNsq2QuotNorm
 public import CFSG.LocalAnalysis.StandardType.GGNsq2MemberQuotPos
 import CFSG.LocalAnalysis.StandardType.GGNsq2QuotCover

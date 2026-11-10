@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusDefs
 import CFSG.LocalAnalysis.StandardType.GGExcFieldRankE6
-import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
-import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwoTorus
-import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeBstar
-import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeIndex
 import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelRecipeID
-import CFSG.LieType.Chevalley.OrdinaryEOuterOrder
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6Three
 
 public section
 

@@ -1,14 +1,11 @@
 module
 
 public import CFSG.Sporadic.Th.Setup
-public import Certificates.Certificate1022
 import Certificates.Kernel.ThDemp.OrbAssembly
 import CFSG.Sporadic.Th.Certificate
-import Certificates.Certificate1021
 import CFSG.Sporadic.Th.CertificateBase
 import CFSG.Sporadic.Th.CertificateBase1
 import CFSG.Sporadic.ThSchreier.KernelAut
-import CFSG.Sporadic.ThSchreier.KernelAutBase
 import CFSG.Sporadic.ThSchreier.KernelAutBase1
 
 public section

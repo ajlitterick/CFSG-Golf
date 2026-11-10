@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2182Base
 
-public import CFSG.Sporadic.Schreier.J4SSylowData
 public meta import CFSG.Sporadic.Schreier.J4SSylowData
 import Certificates.Kernel.SporSch.J4S.Five
 

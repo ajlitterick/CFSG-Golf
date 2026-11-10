@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec10.Item1012Res2Proof
-public import CFSG.Fischer.F4
 import all CFSG.Fischer.F4
 
 public section

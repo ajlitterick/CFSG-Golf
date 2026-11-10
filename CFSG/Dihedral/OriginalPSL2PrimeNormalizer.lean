@@ -4,7 +4,6 @@ public import CFSG.Dihedral.OriginalASevenPrimeNormalizer
 public import CFSG.Dihedral.NormalizerSylowLifting
 public import CFSG.Dihedral.GorensteinWalter.PSL2OddCentralizerTransport
 import all CFSG.Dihedral.BlueprintDefs
-public import CFSG.Dihedral.PrimeClassPartition
 
 public noncomputable section
 

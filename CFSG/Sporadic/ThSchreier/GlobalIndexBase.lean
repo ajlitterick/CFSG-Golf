@@ -3,17 +3,8 @@ module
 
 public import CFSG.Sporadic.ThSchreier.GlobalTransportBase
 public import CFSG.Sporadic.ThSchreier.ScanCheck
-public import Mathlib
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Blueprint.MatrixSeedIdentification
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.Certificates.SchreierStabilizerGenerators
-public import Certificates.Data.CFSGNative.Th.Certificate
-public import CFSG.Sporadic.ThSchreier.GlobalDataBase
-public import CFSG.Sporadic.Th.SimpleBase
 public meta import CFSG.Sporadic.ThSchreier.RowBase
 public meta import CFSG.Sporadic.ThSchreier.LocalOrbitBase
-public import CFSG.Sporadic.ThSchreier.RowInputs
 public meta import Certificates.Data.CFSGNative.Th.Base
 
 @[expose] public section

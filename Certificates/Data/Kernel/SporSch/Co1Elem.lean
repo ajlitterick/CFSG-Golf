@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.SporSch.Co1Mat
 public import Certificates.Data.Kernel.Spor.Co2Shape
-public import Certificates.Data.Kernel.Spor.Mathieu
 
 public section
 

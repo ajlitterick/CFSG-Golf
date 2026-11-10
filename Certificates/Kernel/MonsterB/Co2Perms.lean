@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.Spor.RawSound
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Certificates.Kernel.MonsterB.Co2PermSound
-public import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public meta import Certificates.Kernel.Sporadic.RawGen
 import Certificates.Kernel.Misc.Perm.HexCmd

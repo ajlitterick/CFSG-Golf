@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 import CFSG.LocalAnalysis.StandardType.GGNbrReflGenOver
 import CFSG.LocalAnalysis.StandardType.GGNbrTransvectionDichotomy

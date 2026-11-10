@@ -1,15 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentDS81OddFam
-public import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentDS81OddProj
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCOType
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCOPc
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCOReduce
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51eOrthSign
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51QOFam
 public import CFSG.RankThree.PartOne.S11d.LieCentralizerBlock
 public import CFSG.GH74.Generic.S1.TQ3BarVert
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.ClassicalInvolution.Models.LinearPairs
 public import CFSG.GH74.GLS.TwoThin.ClassCongr
@@ -43,7 +38,6 @@ public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyChain11
 public import Certificates.Kernel.J4Count.FixC
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import Certificates.Kernel.SporSch.J4S.NoCP
 
 public noncomputable section

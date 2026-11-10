@@ -1,9 +1,7 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSlp
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.PairConj
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThThree
-public import CFSG.Sporadic.Th.Max3.AllConjFinal
 public import Certificates.Certificate16949
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThCentSound
 public import CFSG.Assembly.QuasithinDefs

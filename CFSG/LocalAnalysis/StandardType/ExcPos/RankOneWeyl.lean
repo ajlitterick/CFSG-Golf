@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.CharTwoWeylLifts
-public import CFSG.LieType.Chevalley.GraphFixedCoordinateDetection
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoFixedRootMono
 
 public noncomputable section

@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetIota
-public import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcDiagramAutomorphisms
 public import CFSG.LocalAnalysis.StandardType.GGFamTrivialRoots
-public import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
 
 public section
 

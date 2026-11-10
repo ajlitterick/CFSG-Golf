@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.KGC31M22.Defs
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

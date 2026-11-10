@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePresOfPsiFacts
-public import CFSG.LocalAnalysis.StandardType.GGPresentationWeyl
 public import CFSG.LieType.HighestRoot.GenBasic
 
 public section

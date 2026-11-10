@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.Co1Cen2BD
 public import Certificates.Data.Kernel.Co1BTri
-public import CFSG.Certificates.Kernel.Enum.Defs
 public meta import Certificates.Kernel.Co1B.GenTri2045
 
 public section

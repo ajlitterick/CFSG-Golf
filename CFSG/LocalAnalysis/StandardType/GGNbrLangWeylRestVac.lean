@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangRest
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestTwE6
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestSz
 public import CFSG.LocalAnalysis.StandardType.GGRawAutRest
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRestVac
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNine
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominatorCyclic
 

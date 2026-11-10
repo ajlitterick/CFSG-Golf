@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight5xAShared
 public import CFSG.GroupTheory.CoprimeActionSupport.NormalSubgroupSylowJoin
-public import CFSG.LocalAnalysis.RankThreeUC.SmallClassTwoGroups.IsExtraspecialExpP
 import all CFSG.LocalAnalysis.RankThreeUC.SmallClassTwoGroups.IsExtraspecialExpP
 import CFSG.GroupTheory.SylowIntersectionControl.Basic
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811CoordsLift

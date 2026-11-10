@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.B.CTIB.Rank2158Witness
 public import CFSG.Monster.B.TwoA.Amalgam.NativeChain
-public import CFSG.Monster.B.TwoA.Amalgam.DistTwoInst
 public import CFSG.Monster.B.CTIB.Rep4371Main
 
 public section

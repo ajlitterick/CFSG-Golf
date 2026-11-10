@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesWeyl
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
 
 public section
 

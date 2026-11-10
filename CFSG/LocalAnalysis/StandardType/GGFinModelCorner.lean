@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFinModelExists
-public import CFSG.LocalAnalysis.StandardType.GGFinModelIndex
 public import CFSG.LocalAnalysis.StandardType.GGFinModelCornerModel
-import CFSG.RankThree.PartOne.S11c.G2Torus
 
 public section
 

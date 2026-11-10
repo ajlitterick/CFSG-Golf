@@ -1,15 +1,9 @@
 module
 
-public import CFSG.GH74.KGroups.CoverJ3Check
-public import CFSG.GH74.KGroups.CoverE16
-public import CFSG.GH74.KGroups.CoverRank
-public import CFSG.GH74.KGroups.Generic5
-public import CFSG.GH74.Generic.Shapes
 public meta import CFSG.GH74.KGroups.CoverJ3Check
 public meta import Certificates.Data.CFSGNative.Filter.Sec2
 public meta import Certificates.Data.CFSGNative.SectionRank.F2
 import all CFSG.Blueprint.NativeSporadic
-public import CFSG.GH74.KGroups.CoverJ3Inputs
 public meta import CFSG.GH74.KGroups.CoverJ3Inputs
 public import Certificates.Certificate5111
 

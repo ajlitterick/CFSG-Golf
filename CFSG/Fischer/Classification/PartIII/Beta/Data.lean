@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Fischer.F4
-public import Mathlib.GroupTheory.Nilpotent
 
 public section
 

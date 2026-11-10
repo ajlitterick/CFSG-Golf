@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.Model1520GlueModels
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.Model1520GlueSp
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.Model1520GlueSL
-public import CFSG.ClassicalInvolution.Q3.LieSystem
-public import CFSG.ClassicalInvolution.ModelFacts.TG3Common
 
 public section
 

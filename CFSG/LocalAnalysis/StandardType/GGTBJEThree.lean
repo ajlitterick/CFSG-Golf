@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflDom
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpPlus
-public import CFSG.LocalAnalysis.StandardType.GGTBJFamilyStages
 
 public section
 

@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJSpCore
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpModel
 public import CFSG.LocalAnalysis.StandardType.GGTBJLift
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenLift
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenSymplecticNormalForm
-public import CFSG.RankThree.CentralCover.SteinbergBNLinearTorus
 
 public section
 

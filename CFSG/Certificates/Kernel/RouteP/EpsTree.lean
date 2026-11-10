@@ -2,8 +2,6 @@ module
 
 public import CFSG.Sporadic.Th.TableSpec
 public import Certificates.Data.RouteP.Objects
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.ReduceModChar
 
 public section
 

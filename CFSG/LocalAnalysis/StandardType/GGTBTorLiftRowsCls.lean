@@ -3,17 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGTorusLiftSLBlocks
 public import CFSG.LocalAnalysis.StandardType.GGCRNOrthNs
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalUnitHypLift
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalSpLift
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailFinal
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRest
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBPSL
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
-public import CFSG.LocalAnalysis.StandardType.GGTableB
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.L5.WBfs
-public import Certificates.Data.Kernel.PermCent.CV
 public import CFSG.GH74.GLS.C3.Layer2.L5C3bInputs
 
 public section

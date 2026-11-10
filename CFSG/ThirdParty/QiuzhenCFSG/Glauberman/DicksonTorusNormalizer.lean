@@ -1,9 +1,7 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonPSL2Partition
-public import Mathlib.GroupTheory.SpecificGroups.Dihedral
 public import Mathlib.GroupTheory.SchurZassenhaus
-import Mathlib.GroupTheory.Transfer
 
 namespace CFSG
 end CFSG

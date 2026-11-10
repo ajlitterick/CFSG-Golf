@@ -5,7 +5,6 @@ import CFSG.Walter.PSL2Facts.Even
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.NearPSL2
 import CFSG.LinearAlgebra.LinearGroups.TameProjectiveSubgroups
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Cardinality
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
 
 public section
 

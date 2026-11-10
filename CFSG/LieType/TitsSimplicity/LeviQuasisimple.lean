@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.TitsSimplicity.LeviBruhat
 public import CFSG.LieType.TitsSimplicity.LeviCT
 public import CFSG.LieType.TitsSimplicity.LeviSteinberg
-import Mathlib.Data.Finset.Sort
 
 public section
 

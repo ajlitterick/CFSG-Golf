@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2KSideField
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2KSidePSL
-public import CFSG.LocalAnalysis.StandardType.GGNbrG2ThreeOffCard
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2ThreeOffCover
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTriD4Three
 

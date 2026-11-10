@@ -1,23 +1,11 @@
 module
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3Order
 
-import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcompIdx
-import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
 import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011LabUniq
-import CFSG.LocalAnalysis.StandardType.GGTableBOrthRest
 import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailFinal
-import CFSG.LocalAnalysis.EvenBN.Common.CommutatorFixed
-import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105
-import CFSG.LocalAnalysis.GLTheoremA.S10.InputsBeta
-import CFSG.LocalAnalysis.GLTheoremA.S10.InputsSetup
-import CFSG.LocalAnalysis.GLTheoremA.S12.Bridge
-import CFSG.LocalAnalysis.GLTheoremA.S12.Prop123
-import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
-import CFSG.LocalAnalysis.GLTheoremB.Lemma911Proof
 import CFSG.Quasithin.EmptyFaithful.S146zYFacts
 import CFSG.Quasithin.EmptyFaithful.S146zYRes
 import CFSG.Quasithin.H13.NQCoreP134Main
-import CFSG.Quasithin.Vol2.Ch1Sec3E9Inputs
 
 public section
 

@@ -1,10 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.ToLin
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.LinearAlgebra.Center
-public import Mathlib.LinearAlgebra.Dimension.RankNullity
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 public import CFSG.Open.StatedDefs
 public import CFSG.CGT.PushingUpLit.CGT6M.FiveLocal
 

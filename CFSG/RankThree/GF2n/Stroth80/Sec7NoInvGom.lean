@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Stroth80.Sec7Levi
 public import CFSG.RankThree.GF2n.Stroth80.Sl2Commuting
 public import CFSG.RankThree.GF2n.Stroth80.Sec79OmegaFixed
-public import CFSG.ClassicalGroups.Orthogonal.StatedOmegaTransport
-public import Mathlib.Algebra.Group.End
 public import CFSG.CGT.Timmesfeld75.Forms
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFInputs
 public import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU
@@ -33,8 +31,6 @@ public import CFSG.Quasithin.Background.A3Components
 public import CFSG.Quasithin.Background.A3Structure312Facts
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.C1GNBlockLemmas
 public import CFSG.Quasithin.Background.C1GNInputs
 public import CFSG.Quasithin.Background.C1GNNotation
@@ -58,8 +54,6 @@ public import CFSG.RankThree.GF2n.Tim79Mod
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Schreier.M11
 public import CFSG.Sporadic.Schreier.M22
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 
 public section

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitF4Three
 public import CFSG.RankThree.Chevalley.SteinbergBUF4CyclotomicSix
-public import CFSG.RankThree.Chevalley.SteinbergBUF4A2Sextic
-public import CFSG.LieType.Universal.Unitary.Comparison
 
 public section
 

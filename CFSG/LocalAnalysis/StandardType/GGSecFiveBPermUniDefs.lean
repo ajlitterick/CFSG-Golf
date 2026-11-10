@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOffSpCaseDefs
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofRed
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineL2Remainder
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverOdd
 
 public section

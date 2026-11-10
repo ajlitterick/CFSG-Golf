@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcRERegimeDefs
-public import CFSG.LocalAnalysis.StandardType.GGKacExcB2
-public import CFSG.LocalAnalysis.StandardType.GGKacK0V2
 
 public section
 

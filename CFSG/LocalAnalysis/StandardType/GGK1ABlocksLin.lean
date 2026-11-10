@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1ADefs
 public import CFSG.RankThree.SteinbergR3ECALinearPrimaryBlocks
-public import CFSG.RankThree.PartOne.KC.LinearPlaneBlocks
 public import CFSG.LocalAnalysis.StandardType.GGK1CBlFF
 public import CFSG.LocalAnalysis.StandardType.GGK1CBlIdx
-public import CFSG.Assembly.Subnormal
-public import CFSG.Adapters.ProjectiveSpecialLinear
 
 public section
 

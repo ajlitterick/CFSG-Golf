@@ -3,10 +3,6 @@ module
 public import CFSG.HardMathSupport.Lang.AnisoE6.F4GraphFixed
 public import CFSG.RankThree.Classical2.TwistedE6RationalOrder
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotXiCaseLM2
-public import CFSG.LieType.Chevalley.E6ToralGraphInvolution
-public import Mathlib.FieldTheory.AlgebraicClosure
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Pairs
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -31,9 +27,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.F4PilotXiCaseLTorus
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Open.QuasithinDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 
 public section

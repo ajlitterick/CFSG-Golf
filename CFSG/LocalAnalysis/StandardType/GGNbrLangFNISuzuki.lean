@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIRows
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIRestr
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOne
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIVacTwisted
 public import CFSG.GroupTheory.CenterlessInnerCentralizer
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSCSuzukiOddCore
-public import CFSG.FeitThompson.OddOrderTheorem
 public import CFSG.GroupTheory.PCore.SubgroupCore
 
 public section

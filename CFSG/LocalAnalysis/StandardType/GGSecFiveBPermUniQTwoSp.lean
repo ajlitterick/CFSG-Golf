@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniDefs
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneBlocks
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneCharts
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniSpChart

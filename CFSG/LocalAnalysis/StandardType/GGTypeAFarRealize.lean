@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofGlueSwap
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagLin
 public import CFSG.LocalAnalysis.StandardType.GGLinearSemisimple
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenLift
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenTypeABlock
 public import CFSG.LocalAnalysis.ComponentClassification.OddClassSelectorOrthLift
 public import TauCeti.GroupTheory.PGroup

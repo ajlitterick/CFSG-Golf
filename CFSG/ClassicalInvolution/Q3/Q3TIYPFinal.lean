@@ -5,7 +5,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3TIYPOutAll
 public import CFSG.ClassicalInvolution.Q3.Q3TIYPMinGlue
 public import CFSG.ClassicalInvolution.Q3.Q3TIYSmall
 public import CFSG.ClassicalInvolution.Q3.Q3URDict
-public import CFSG.ClassicalInvolution.Q3.Q3URStd
 
 public section
 

@@ -3,7 +3,6 @@ module
 
 public import CFSG.Sporadic.Schreier.J4SInvCheckBase
 
-public import CFSG.Sporadic.Schreier.J4SInvData
 public meta import CFSG.Sporadic.Schreier.J4SInvData
 public import Certificates.Certificate2172
 

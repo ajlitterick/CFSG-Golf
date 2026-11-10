@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0PSUFrame
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDPSU
-public import CFSG.LieType.Universal.Unitary.Comparison
-public import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
 
 public section
 

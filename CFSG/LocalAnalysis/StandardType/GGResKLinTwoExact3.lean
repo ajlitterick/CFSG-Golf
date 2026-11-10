@@ -1,31 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeBLinearNs
-public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclicHolds
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Holds
-public import CFSG.LocalAnalysis.StandardType.GGResJTwA5Sylow
 public import CFSG.LocalAnalysis.StandardType.GGResJTwE6Lagrange
-public import CFSG.LocalAnalysis.StandardType.GGResNonsingularBase
-public import CFSG.LocalAnalysis.StandardType.GGResJFusion
 public import CFSG.LocalAnalysis.StandardType.GGResJOneReflCell
-public import CFSG.LocalAnalysis.StandardType.GGResJOpenLabel
 public import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
-public import CFSG.LocalAnalysis.StandardType.GGTBE6
-public import CFSG.LocalAnalysis.StandardType.GGTCJHolds
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceSchreier
-public import CFSG.RankThree.PartOne.TCB.SchreierFinal
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthKSLOrder
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGResJThreeDvd
-public import CFSG.LocalAnalysis.StandardType.GGPZWeylType
-public import CFSG.LocalAnalysis.StandardType.GGPZWeylB
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySp
-public import CFSG.LocalAnalysis.StandardType.GGTWLowStmt
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
-import Mathlib.Tactic.IntervalCases
 
 public section
 

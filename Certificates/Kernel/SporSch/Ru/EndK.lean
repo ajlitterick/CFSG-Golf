@@ -4,8 +4,6 @@ public import Certificates.Kernel.SporSch.Ru.EndChecks
 public import Certificates.Kernel.SporSch.Ru.EndChain
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicRuEndK
 public import CFSG.Certificates.Kernel.SporSch.ChainKClasses
-public import CFSG.Certificates.Kernel.Spor.RawSound
-import Mathlib.Tactic.IntervalCases
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 

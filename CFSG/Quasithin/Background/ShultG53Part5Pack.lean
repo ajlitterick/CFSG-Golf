@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Background.ShultG53TotPack
 public import CFSG.Quasithin.Background.ShultG53IdentPack
 public import CFSG.Quasithin.Background.ShultG53Layers
 

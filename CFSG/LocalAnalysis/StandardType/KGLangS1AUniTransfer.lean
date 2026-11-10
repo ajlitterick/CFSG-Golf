@@ -1,14 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsUni
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniSub
 import CFSG.LocalAnalysis.StandardType.KGLangTorAUniLift
-import CFSG.Open.StatedSUFieldChange
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
-import CFSG.LocalAnalysis.GLTheoremA.CatA.FQMat
-import CFSG.Assembly.GL83StatedBridge
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2
 import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011U64Types
 import CFSG.LocalAnalysis.GLTheoremA.S11.Inputs119

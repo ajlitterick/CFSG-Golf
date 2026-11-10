@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.Chevalley.SimpleBruhatMultiplication
 public import CFSG.LieType.Chevalley.BorelWeylGeneration
 public import CFSG.LieType.Chevalley.BorelWeylIntersection
-public import Mathlib.GroupTheory.DoubleCoset
 
 public noncomputable section
 

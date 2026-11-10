@@ -1,9 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.CTP.LinearModel
-public import CFSG.LieType.Steinberg.CentralExt.SUThree
-public import CFSG.ClassicalGroups.Unitary.Form
-public import CFSG.ClassicalInvolution.Phan.Blocks
 public import CFSG.LieType.CurtisTits.SpecialLinear
 
 public section

@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedClDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedShapeOrthMat
-public import CFSG.LieType.BorelTits.OrthogonalForm
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaDefs
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P54DBBlock
 
 public section

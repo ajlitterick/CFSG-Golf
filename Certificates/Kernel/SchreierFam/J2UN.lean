@@ -4,16 +4,12 @@ public import CFSG.ClassicalInvolution.SmallCases.Sporadic.J2Inputs
 public import Certificates.Kernel.J2Cover.AutChains
 public import Certificates.Data.Kernel.SchreierFam.J2UN
 public import Certificates.Data.Kernel.SchreierFam.All3
-public import Certificates.Data.Kernel.Misc.ArrEnum
-public import Certificates.Data.Kernel.Spor.Prim
-public import Certificates.Kernel.Sporadic.RawGen
 public meta import CFSG.ClassicalInvolution.SmallCases.Sporadic.J2Inputs
 public meta import Certificates.Data.Kernel.SchreierFam.J2UN
 public meta import CFSG.ClassicalInvolution.SmallCases.Sporadic.J2Data
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 import Init.Data.String.Basic
 import Init.Data.String.Defs
 import Init.Data.ByteArray.Basic
@@ -30,7 +26,6 @@ public meta import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolution
 public import CFSG.Sporadic.J2
 public meta import CFSG.Sporadic.J2
 public meta import CFSG.Sporadic.Th.F2Spec
-public import CFSG.Sporadic.Th.F2Spec
 
 set_option maxRecDepth 400000
 set_option maxHeartbeats 0

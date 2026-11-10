@@ -2,19 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenSL
 public import CFSG.HardMathSupport.C14IdxDet
-public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.E8FourAux.Lift
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigidTools
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.GoodRoot
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeCartanAdj
-public import CFSG.RankThree.PartOne.Q1327T.Item7D4W
-public import CFSG.RankThree.Chevalley.SteinbergBTTrialitySplitPrimePlane
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompChain
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenConj
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenInput
 public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenDefs
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267BadExcFldTwo
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcIdxRee
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcRee
 public import CFSG.RankThree.PartOne.KE6.Phi3Arith

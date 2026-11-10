@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.McL.Model
-public import CFSG.Certificates.Kernel.McL.Sub
 public import CFSG.Certificates.Kernel.McL.RangeX
 public import CFSG.Certificates.Kernel.Schur.Pack
 import CFSG.Certificates.Kernel.Common.Harness

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.BabyMonster.CTIB.CosetQAlg
 public import Certificates.Kernel.BabyMonster.CTIB.CosetQStep
 public import Certificates.Kernel.BabyMonster.CTIB.CosetQData
 public import Certificates.Data.CFSGNative.CTIB.Lift

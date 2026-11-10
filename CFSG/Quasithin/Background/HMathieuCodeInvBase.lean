@@ -1,11 +1,6 @@
 
 module
 
-public import CFSG.Quasithin.Background.HMathieuCodeMask
-public import CFSG.Quasithin.Background.HMathieuSyl22
-public import CFSG.Quasithin.Background.HMathieuSyl23
-public import CFSG.Quasithin.Background.HMathieuSyl24
-public import CFSG.Quasithin.Background.HMathieuFacts24Base
 public meta import CFSG.Quasithin.Background.HMathieuCodeMask
 public meta import CFSG.Quasithin.Background.HMathieuSyl22
 public meta import CFSG.Quasithin.Background.HMathieuSyl23
@@ -13,13 +8,6 @@ public meta import CFSG.Quasithin.Background.HMathieuSyl24
 public meta import CFSG.Quasithin.Background.HMathieuFacts24Base
 public meta import CFSG.Monster.Code.Basis
 public import CFSG.Quasithin.Background.HMathieuCodeInvInputs
-public import CFSG.Quasithin.Background.HMathieuSyl22Inputs
-public import CFSG.Quasithin.Background.HMathieuPT24
-public import CFSG.Quasithin.Background.HMathieuPred
-public import CFSG.Quasithin.Background.HMathieuSyl23Inputs
-public import CFSG.Quasithin.Background.HMathieuSyl24Inputs
-public import CFSG.Quasithin.Background.HMathieuAvoid
-public import CFSG.Quasithin.Background.HMathieuEnumAll
 
 @[expose] public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRDisp
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPRows
-public import CFSG.LocalAnalysis.GLTheoremA.S3.ChevTools
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQ
 
 public section

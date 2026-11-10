@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrGraphD4Proof
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45KGProper
-import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

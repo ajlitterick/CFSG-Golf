@@ -2,23 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4SmallContracts
 public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-public import CFSG.LocalAnalysis.StandardType.GGInndiagCommRestExcl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 public import CFSG.RankThree.PartTwo.Sec8.Hering88FModel
 public import CFSG.RankThree.PartTwo.Sec12.Hering129LG2
 public import CFSG.RankThree.PartTwo.Sec12.Hering129KRes
-public import CFSG.RankThree.PartTwo.Sec11.KS11Lie4ProofG2
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk47eOmega
-public import CFSG.LieType.Chevalley.ExceptionalG2F4ModelSchreier
 public import CFSG.Quasithin.H13.A5W1620Tc
 public import CFSG.HardMathSupport.Solomon.Proving.SU3CentreScalars
-public import CFSG.Quasithin.Background.A1aFStar
 public import CFSG.ClassicalInvolution.Q3.Q3B2
 public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CanonicalLocalObstruction
-public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.PerfectResiduals
-public import CFSG.Foundations.QuasisimpleMulEquiv
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 public import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
 public import CFSG.ClassicalInvolution.Q3.Q3UMain
 public import CFSG.ClassicalInvolution.Q3.Q3UTight

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxDefs
 public import CFSG.LieType.Chevalley.KernelComponentRoots
 public import CFSG.LieType.Chevalley.LangRootArithmeticDet
-public import Mathlib.Tactic.NoncommRing
-public import Mathlib.Tactic.Abel
 
 public section
 

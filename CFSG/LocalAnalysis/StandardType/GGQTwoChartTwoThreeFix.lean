@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoChartDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoChartTwoThreeCent
 public import CFSG.LocalAnalysis.StandardType.GGQTwoChartTwoThreeBlk
 import CFSG.LocalAnalysis.StandardType.GGQTwoChartTwoThreeSym
 

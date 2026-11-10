@@ -6,7 +6,6 @@ public import Certificates.Kernel.Sporadic.RawGen
 public meta import Certificates.Data.GrSLitL34FactsCF23U52Data
 import CFSG.Certificates.Kernel.Common.Harness
 import all CFSG.Fischer.F4
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 400000
 set_option maxHeartbeats 0

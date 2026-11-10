@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusDefs
 
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockUniBlocks
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphUnitaryModel
 import CFSG.Quasithin.EmptyFaithful.S151TBTyp
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7Iso
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122AProved
@@ -26,8 +25,6 @@ import CFSG.Quasithin.Background.E3Gen
 import CFSG.Quasithin.Background.InternalSecB51
 import CFSG.Quasithin.Background.InternalSecFF
 import CFSG.Quasithin.EmptyFaithful.S14117
-import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-import CFSG.Quasithin.EmptyFaithful.S14117Rank
 import CFSG.Quasithin.EmptyFaithful.S1417Glue
 import CFSG.Quasithin.EmptyFaithful.S1421Defs
 import CFSG.Quasithin.EmptyFaithful.S151cA2

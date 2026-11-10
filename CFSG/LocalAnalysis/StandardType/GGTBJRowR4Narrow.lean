@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4Row
-public import CFSG.LocalAnalysis.StandardType.GGTBJNaWeyl
-public import CFSG.LocalAnalysis.StandardType.GGTBRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6BadDatum
 
 public section

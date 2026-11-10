@@ -1,13 +1,9 @@
 module
 
-public import Certificates.Data.Kernel.LceSTab
 public import Certificates.Data.Kernel.LceSHeRu
 public import CFSG.Certificates.Kernel.Ru.BoundAlt.Route
-import Certificates.Kernel.LceSTab.Assemble
-import Certificates.Kernel.HeRu.Assemble
 import Certificates.Kernel.Ru.WordsJoin
 public import Certificates.Kernel.Ru.Words
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Ru.Bound.Checks.P_H_0
 public import CFSG.Certificates.Kernel.Ru.Bound.Checks.P
 import Certificates.Kernel.LceSTab.Chain

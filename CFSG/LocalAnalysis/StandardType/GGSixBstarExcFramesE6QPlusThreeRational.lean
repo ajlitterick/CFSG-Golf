@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.ExcLangNFix
 public import CFSG.RankThree.PartOne.KE6.EqpTorus
 public import CFSG.RankThree.Chevalley.SteinbergBUF4CyclotomicFourDescent
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
 public import CFSG.Monster.B.Geometry.CoxeterWords

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.CFSGNative.Bridge.SuzGPL
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabSuzU43
 

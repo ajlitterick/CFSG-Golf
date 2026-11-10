@@ -1,8 +1,6 @@
 module
 
-public import CFSG.RankThree.PartOne.KE.A1Main
 public import CFSG.RankThree.PartOne.KE.A1Weyl
-public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
 public import CFSG.Monster.B.Geometry.CoxeterWords
 public import CFSG.RankThree.PartOne.KE.A1SL2

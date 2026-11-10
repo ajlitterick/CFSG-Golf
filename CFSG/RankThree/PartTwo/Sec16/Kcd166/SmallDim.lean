@@ -2,7 +2,6 @@ module
 
 public import Mathlib.LinearAlgebra.Eigenspace.Charpoly
 public import Mathlib.LinearAlgebra.Eigenspace.Triangularizable
-public import Mathlib.RepresentationTheory.Irreducible
 public import CFSG.RankThree.PartTwo.KFacts.KS116LinRep
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.SubrepresentationLattice
 public import Mathlib.GroupTheory.IsPerfect

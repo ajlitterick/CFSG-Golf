@@ -1,10 +1,5 @@
 module
 
-public import CFSG.Certificates.CosetTablePresented
-public import CFSG.LieType.Multipliers.CoverWords
-public import CFSG.Sporadic.Schreier.TitsArrays
-public import CFSG.Sporadic.Schreier.TitsBasic
-public import CFSG.LieType.Multipliers.TitsCheckInputs
 public import Certificates.Certificate10009
 public meta import CFSG.Certificates.CosetTablePresented
 public meta import CFSG.LieType.Multipliers.CoverWords

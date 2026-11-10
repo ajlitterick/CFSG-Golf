@@ -9,7 +9,6 @@ public import Certificates.Kernel.Fi23Nt.Misc
 public import Certificates.Kernel.Fi23Nt.FixQ
 public import Certificates.Kernel.Fi23Nt.Pos
 public import CFSG.Certificates.Kernel.Common.ForallTree
-import Mathlib
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi23Sylow
 public import CFSG.LargeExtraspecial.BridgeSetting
 public import CFSG.LargeExtraspecial.S3Asch

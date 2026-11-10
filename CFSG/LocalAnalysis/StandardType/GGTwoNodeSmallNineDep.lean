@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallClosed
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallTransport
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallNineDepK
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallNineDepCoord

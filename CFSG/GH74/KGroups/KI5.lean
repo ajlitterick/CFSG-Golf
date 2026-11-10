@@ -1,16 +1,6 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.Generic2
-public import CFSG.GH74.KGroups.Generic3
 public import CFSG.GH74.KGroups.Generic9
-public import CFSG.GH74.KGroups.PermCheck
-public import CFSG.GH74.KGroups.Checks
-public import CFSG.GH74.KGroups.Checks2
-public import CFSG.GH74.KGroups.NativeChecks
-public import CFSG.GH74.KGroups.NativeChecks2
-public import CFSG.GH74.KGroups.Sz8
 public import CFSG.GH74.KGroups.Sz8Tables
 public import CFSG.GH74.Uniqueness.SU.KInputs
 public meta import CFSG.GH74.KGroups.Checks
@@ -19,16 +9,11 @@ public meta import CFSG.GH74.KGroups.NativeChecks2
 public meta import CFSG.GH74.KGroups.Sz8
 public meta import CFSG.GH74.KGroups.Sz8Tables
 import CFSG.Goldschmidt.Steps.GSz8Mult
-import CFSG.Goldschmidt.Steps.G3MFSz8
 public import Certificates.Certificate5115
-public import Certificates.Certificate5128
-public import Certificates.Certificate5130
-public import Certificates.Certificate113
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import Certificates.Kernel.J4Count.KFacts
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.Pattern
 public import CFSG.GH74.L5U5.ModelsBridge
 public import CFSG.GH74.Statements
 public import CFSG.LieType.CurtisTits.Conclusion

@@ -12,10 +12,7 @@ public import Certificates.Kernel.SporSch.HN.FixK.P2094G0
 public import Certificates.Kernel.SporSch.HN.FixK.P2094G1
 public import Certificates.Kernel.SporSch.HN.FixK.P2094G2
 public import Certificates.Kernel.SporSch.HN.FixK.P2094G3
-public import Certificates.Kernel.SporSch.HN.FixK.Spec
-public import Certificates.Kernel.Sporadic.OddCore.HND0
 public import Certificates.Kernel.Sporadic.OddCore.HND2
-public import CFSG.Sporadic.HNOddCore.XCheckInputs
 public import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Common.Harness
 

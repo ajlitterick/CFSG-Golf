@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Co3T.Defs
-public import Certificates.Kernel.SporSch.Th.GenV4
 meta import Certificates.Kernel.Co3T.EnumC
 meta import Certificates.Kernel.LocalComp.BfsGen
 meta import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co3ThreeInputs

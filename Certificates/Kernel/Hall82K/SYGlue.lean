@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.Hall82K.MRGlue
 public import Certificates.Kernel.Hall82K.SY
 public import CFSG.Certificates.Kernel.F4M3BSound
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts

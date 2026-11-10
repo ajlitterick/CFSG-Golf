@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965
-public import Mathlib.GroupTheory.SchurZassenhaus
 
 namespace CFSG
 end CFSG

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UFrame
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
 
 public section

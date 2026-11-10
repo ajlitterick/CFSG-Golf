@@ -4,13 +4,9 @@ public import Certificates.Kernel.HNClsL.ChecksA
 public import Certificates.Kernel.HNClsL.ChecksB
 public import Certificates.Kernel.HNClsL.ChecksC
 public import CFSG.Certificates.Kernel.HNClsLSound
-public import Certificates.Kernel.SporSch.HN.PtCR
 public import Certificates.Kernel.SporSch.HN.Pt2085
 public import CFSG.Certificates.Kernel.J4Hub.Sound
 public import CFSG.Certificates.Kernel.Spor.OrdCanon
-public import CFSG.Certificates.Kernel.SporSch.HNXCnt.Asm
-public import CFSG.Sporadic.HNOddCore.InvDefs
-public import CFSG.Sporadic.HNOddCore.ThreeInvol
 public import CFSG.Sporadic.HNOddCore.OuterFix
 
 public section

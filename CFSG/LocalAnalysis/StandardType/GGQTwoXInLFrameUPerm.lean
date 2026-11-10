@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameUDefs
 import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUAct
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeBlock
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.Sporadic.Schreier.MathieuSylowAutMain
 public import CFSG.Sporadic.Schreier.M12
-public import CFSG.Sporadic.Schreier.M12Pinned
-public import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
 public meta import CFSG.Sporadic.Schreier.MathieuSylowAutMain
 public meta import CFSG.Sporadic.Schreier.M12
 public meta import CFSG.Sporadic.Schreier.M12Pinned

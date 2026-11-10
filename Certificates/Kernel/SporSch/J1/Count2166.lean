@@ -5,7 +5,6 @@ public import Certificates.Kernel.SporSch.J1.ClassJ
 public import Certificates.Kernel.SporSch.J1.ChainCK
 public import CFSG.Certificates.Kernel.SporSch.J1PtSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

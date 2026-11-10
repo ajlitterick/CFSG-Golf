@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.CurtisTits.Reduction
 public import CFSG.LieType.Universal.RootData
 
 public section

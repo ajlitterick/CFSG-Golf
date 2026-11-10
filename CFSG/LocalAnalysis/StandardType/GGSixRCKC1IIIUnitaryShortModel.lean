@@ -6,10 +6,8 @@ public import CFSG.Quasithin.Background.RonanF918FourCases
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindCTUAlignAut
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotXiPartner
 public import CFSG.LocalAnalysis.StandardType.SUCenterOdd
-public import CFSG.RankThree.PartOne.S11d.OrthRankBase
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4Dec2Core
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotXiCaseS
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindCTUnitaryModel
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotPerfectW
 public import CFSG.Quasithin.Background.F918Fine4Pf
 public import CFSG.Quasithin.Background.SmithB42Alt7Model

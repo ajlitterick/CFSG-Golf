@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.StandardType.GGExcSevenTwoTorus
 import CFSG.LocalAnalysis.StandardType.GGExcSevenTwoFC
 import CFSG.LocalAnalysis.StandardType.GGLangRatCompC
 import CFSG.LocalAnalysis.StandardType.GGExcLangPairAt
-import CFSG.Assembly.Subnormal
 import CFSG.LocalAnalysis.StandardType.GGLangRatCompKillsPHolds
 
 public section

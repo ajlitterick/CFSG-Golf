@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD7BetaPosition
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD7BetaY
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD7TorusSwap
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD7QStd
 
 public noncomputable section

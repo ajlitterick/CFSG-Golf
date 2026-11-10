@@ -1,9 +1,6 @@
 module
 
-public import CFSG.RankThree.PartTwo.KFacts.KP4Data
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM22OuterData
 public meta import CFSG.RankThree.PartTwo.KFacts.KP4Data
-public import CFSG.RankThree.PartTwo.KFacts.KP4AutCheckInputs
 public import Certificates.Certificate8164
 
 public section

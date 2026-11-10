@@ -2,13 +2,11 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.IdentityComponentLang
 
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 import CFSG.LinearAlgebra.MapRangeFixedVector
 import CFSG.LieType.AlgebraicGroups.ZariskiClosureFrobenius
 import CFSG.LieType.AlgebraicGroups.AdditiveCoordinateSurjective
 import CFSG.LieType.AlgebraicGroups.ToralTwistPinning
 import TauCeti.RepresentationTheory.Unipotent.PowerOrder
-import Mathlib.LinearAlgebra.Basis.VectorSpace
 
 public noncomputable section
 

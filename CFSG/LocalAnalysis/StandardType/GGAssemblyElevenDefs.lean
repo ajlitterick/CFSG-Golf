@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyTenDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOmPlusFourField
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitOmField
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityEightRest
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelUInRound
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoToralRestTags

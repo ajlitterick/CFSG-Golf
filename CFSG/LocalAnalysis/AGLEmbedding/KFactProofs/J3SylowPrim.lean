@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.Bridge.TwoGen
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public meta import Certificates.Data.CFSGNative.Bridge.SurjA
-public import Mathlib
 
 public section
 

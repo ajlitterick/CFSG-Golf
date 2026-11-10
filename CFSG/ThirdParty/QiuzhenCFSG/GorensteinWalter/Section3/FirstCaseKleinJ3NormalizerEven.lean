@@ -2,12 +2,10 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinB3Subgroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinCardThreeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUniformInvolution
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinS4Normalizer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUCardThreePreB3
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.HhatQuotientS4
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalTwoSubgroupSymmetricFour
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

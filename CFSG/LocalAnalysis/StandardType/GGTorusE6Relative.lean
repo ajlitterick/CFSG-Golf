@@ -1,13 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6SplitFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6SplitNormalizer
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotAlignTori
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeF4CubeFrame
-public import CFSG.LieType.Chevalley.E6ToralGraphInvolution
 public import CFSG.LocalAnalysis.StandardType.GGTorusScalar
 public import CFSG.LieType.Chevalley.TwistedE6EvenCoverTorus
-public import CFSG.LieType.Chevalley.GraphFixedParameterFields
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotUniqueFieldTorus
 public import CFSG.ClassicalInvolution.Generic.InductionMain
 public import CFSG.ClassicalInvolution.Models.LinearFrames
@@ -62,7 +59,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.F4PilotHR7Split
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotTorus
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcBruhat
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime

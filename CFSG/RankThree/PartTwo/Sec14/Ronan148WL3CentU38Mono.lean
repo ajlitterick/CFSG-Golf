@@ -1,15 +1,10 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentGen
-import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentMat
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentTorus
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentSinger
-import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseA
 import CFSG.RankThree.PartTwo.Sec4.RonanK432L3HardMat
-import CFSG.RankThree.PartTwo.Sec4.RonanK432Sylow
 import CFSG.RankThree.PartTwo.Sec12.ONanKS128Diag
-import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
 
 public section
 

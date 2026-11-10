@@ -6,8 +6,6 @@ public import CFSG.Certificates.Kernel.Co2.Bound3.Checks.M
 public import CFSG.Certificates.Kernel.Co2.Bound3.Checks.C_H_0
 public import CFSG.Certificates.Kernel.Co2.Bound3.Checks.C_W_0
 public import CFSG.Certificates.Kernel.Co2.Bound3.Checks.C_L
-public import CFSG.Certificates.Kernel.Co2.Bound3.Data.C_Sel
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.FS81.RootE8Defs
 public import CFSG.LocalAnalysis.StandardType.FS81.E7RecogDefs
 public import CFSG.LocalAnalysis.StandardType.FS81.S7CentDefs
 public import CFSG.LocalAnalysis.StandardType.FS81.S7E7Incl
-public import CFSG.LocalAnalysis.StandardType.FS81.S7Model
-public import CFSG.LocalAnalysis.SeitzReduction.E8PilotMainLift
 import CFSG.LocalAnalysis.StandardType.FS81.E7RecogL3
 import CFSG.LocalAnalysis.StandardType.FS81.S7CharTwoModData
 import CFSG.LocalAnalysis.StandardType.FS81.S7DataMap

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResXDatumOfWeylType
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
 
 public section
 

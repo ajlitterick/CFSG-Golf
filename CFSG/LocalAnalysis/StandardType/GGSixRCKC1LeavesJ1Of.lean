@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LeavesJ1
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeLeaves
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcAssembly
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcCaseV
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcTw
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcClassE6
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeFAssembly
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierSL
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierA1
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierSU
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierSpF4
@@ -15,7 +11,6 @@ import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierSpB2
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierSpinPlus
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierTwoD
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCoverPairTwoD
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePinnedTransfer
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeNCNoSU3
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeNCNoB2
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeNCStdEnvelope
@@ -24,21 +19,15 @@ import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCoverPairA1
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCoverPairSL
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCoverPairSU
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairD
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairE6
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairE7
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairE8
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeNCCompImage
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRelOneUse
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeNCClassTransport
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeNCRootGroupTwo
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGHolds
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcRelOneFive
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIncidence
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairCoreHolds
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetE6
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetE7
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCoverPairTriD4
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeShapeLeaves
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairTwE6
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetTwE6
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetTriD4Holds

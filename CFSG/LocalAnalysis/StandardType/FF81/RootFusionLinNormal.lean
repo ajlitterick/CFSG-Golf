@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.RootFusionLinCent
 public import CFSG.LocalAnalysis.StandardType.FF81.RootFusionLinModule
-import Mathlib.Data.Matrix.Basis
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.SevenForm
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 import CFSG.OddTranspositions.PartThree.Twelve.Five
 import CFSG.OddTranspositions.PartThree.Nine.Setup
 

@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Foote.ModuleExclusions.Common
 public import CFSG.HardMathSupport.Foote.ModuleExclusions.PSpCore
 public import CFSG.CGT.PushingUpLit.CGT6M.FiveInspSp4
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

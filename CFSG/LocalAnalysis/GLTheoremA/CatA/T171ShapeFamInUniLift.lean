@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInLULift
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagUnitary
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniMat
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundGenTypeOne
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSL

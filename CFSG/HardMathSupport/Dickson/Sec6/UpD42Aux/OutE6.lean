@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Dickson.Sec6.UpD42Aux.InnExc
 public import CFSG.HardMathSupport.Dickson.Sec6.UpD42Aux.OutEntrywise
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.OutE6
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMarkingE6
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.E6Aux.Field
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.LayerMore
 

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.A45Cls.Checks
 public import Certificates.Kernel.A45Cls.Grp3
 public import Certificates.Data.Kernel.A45Cls.Over
-public import Certificates.Data.OmegaT0
 
 set_option maxRecDepth 400000
 set_option maxHeartbeats 0

@@ -1,11 +1,7 @@
 module
 
-public import CFSG.Quasithin.Background.F1Lemma10
-public import CFSG.LieType.Chevalley.GraphFixedSimpleComplement
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieD4Facts
-public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qNFqCard
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qNFqPar
-public import CFSG.Sporadic.Schreier.J4SSylow
 
 public section
 

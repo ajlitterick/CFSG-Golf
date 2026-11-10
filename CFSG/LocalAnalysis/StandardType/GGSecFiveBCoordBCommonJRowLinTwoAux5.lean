@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowLinTwoAux1
 public import CFSG.LocalAnalysis.StandardType.GGResQTwoLinearJ
-public import CFSG.Assembly.GL83LieDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

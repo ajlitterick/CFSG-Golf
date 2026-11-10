@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qStructLoc
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qYam
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Triality
 public import CFSG.LieType.Steinberg.CentralExt.GriessNativeModels
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.Certificates.Kernel.Spor.ONKSound
@@ -20,22 +19,9 @@ public import CFSG.Quasithin.Vol2.GoldschmidtF431Main
 public import CFSG.Quasithin.Vol2.GoldschmidtF431SpAbs
 public import CFSG.Quasithin.Vol2.GoldschmidtF431SpTrans
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixC
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 
 public section

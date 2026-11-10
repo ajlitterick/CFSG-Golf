@@ -1,14 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineAssembly
-public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineCatFiveMain
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporGenMGmat
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineThreeL34
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineCatThreeResidual
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineMemberSz
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineMemberDef
-public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineMemberAlt
-public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineMemberTits
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporExtra
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporFi22
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineThreeA6Hat
@@ -25,18 +22,10 @@ public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporGenHeis3He
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporGenHeis3Ru
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporGenHeis3J4
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporGenHeis3Mathieu
-public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporBig
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D1AlphaListLiftsSpor
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-public import CFSG.HardMathSupport.Solomon.Coordinator.SporOrders
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.B113K.DetCatalog
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporBigOvergroup
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
 import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineONTripleCover
 import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporCo1
 import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporHN

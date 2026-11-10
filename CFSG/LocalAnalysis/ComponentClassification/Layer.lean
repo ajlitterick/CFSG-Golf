@@ -1,10 +1,6 @@
 module
 
-public import Mathlib
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-public import CFSG.Open.Defs
 public import CFSG.GroupTheory.Fitting.WholeGroupConstruction
-public import CFSG.LocalAnalysis.ComponentClassification.OddCore
 public import CFSG.LocalAnalysis.ComponentClassification.LocalComponents
 
 public section

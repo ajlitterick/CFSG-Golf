@@ -3,10 +3,6 @@ module
 public import Certificates.Kernel.J4Hub.FamGrp
 public import Certificates.Kernel.J4Hub.LocData
 public import CFSG.Sporadic.J4.Local
-import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Perm.ChainSpec
-public import CFSG.Sporadic.J4.CertParts
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

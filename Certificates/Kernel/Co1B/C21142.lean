@@ -1,11 +1,9 @@
 module
 
-public import CFSG.Sporadic.Co1Patterson.TwistNativeInputs
 public import Certificates.Kernel.Co1B.Cnt21142
 public import Certificates.Kernel.Co1B.Tab21142
 public import Certificates.Kernel.Co1B.Twist
 public import Certificates.Kernel.Co1B.Weyl
-import CFSG.Certificates.Kernel.Co1BMulSound
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

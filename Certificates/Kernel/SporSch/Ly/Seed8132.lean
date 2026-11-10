@@ -2,7 +2,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Ly.SeedData
-public import Certificates.Kernel.SporSch.Ly.BS18009
 public import CFSG.Certificates.Kernel.LyOmega.SoundB4
 public import CFSG.Certificates.Kernel.SporSch.LySevMat
 public import CFSG.Certificates.Kernel.PackSetSound

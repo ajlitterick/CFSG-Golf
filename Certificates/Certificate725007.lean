@@ -1,17 +1,13 @@
 module
 
-public import CFSG.Sporadic.Schreier.PairJ2Cert
 public import CFSG.Sporadic.SmallOddCore.J2Data
 import Certificates.Kernel.W4Row.J2Cent
-import Certificates.Kernel.W4Row.J2CentK
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.StrLits
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1HeDim
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1HeTrans
 import CFSG.Sporadic.M23.M23Group
-import CFSG.Sporadic.Th.F2Spec
 
 public section
 

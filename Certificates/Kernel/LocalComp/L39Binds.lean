@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.O8ConstrSound
 public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.Stage1ModelData
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.Stage2Cand
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.Stage2MinusData

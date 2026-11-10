@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnSympRed
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnSympComp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GSympLabel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabel
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GU64Glue
 
 public section
 

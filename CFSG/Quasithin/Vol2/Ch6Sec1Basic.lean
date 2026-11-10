@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.Ch6NatMod
 public import CFSG.Quasithin.Vol2.Ch6Statements
 public import CFSG.Quasithin.Vol2.Ch5Sec1Basic
-public import CFSG.Quasithin.Vol2.Ch3Basic
-public import CFSG.Quasithin.Background.BlueprintB2Bridge
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

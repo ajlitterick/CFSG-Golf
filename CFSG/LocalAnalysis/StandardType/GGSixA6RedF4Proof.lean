@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedDefs
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviSp6
 public import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedCenter
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedF4ClassDefs
 

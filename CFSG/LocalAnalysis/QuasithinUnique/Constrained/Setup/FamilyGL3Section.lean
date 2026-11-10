@@ -30,7 +30,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LiftSaturate
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesAlt5Split
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesCentralQuotient
 public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

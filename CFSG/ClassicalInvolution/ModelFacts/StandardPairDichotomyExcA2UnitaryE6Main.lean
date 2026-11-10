@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2UnitaryHom
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2UnitaryE6Embed
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2UnitaryE6Cocycle
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2E6Pair
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2InterfaceE6

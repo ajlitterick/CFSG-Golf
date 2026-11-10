@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1HeData
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1HeArr
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1HeSylArr
 public import CFSG.Sporadic.HeldB.InnerCheck
-public import CFSG.Sporadic.HeldB.OuterArithCheck
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1HeCheckInputs
 import Certificates.Kernel.LocalQT.SV.C4134
-import Certificates.Kernel.LocalQT.SV.C4134H
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

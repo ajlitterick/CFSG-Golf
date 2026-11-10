@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S21rX
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S22a
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Standing22
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.PerfectResiduals
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.UniquenessCase.UC22P21c
 import CFSG.LocalAnalysis.UniquenessCase.UC22S21rU3b
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S21rU

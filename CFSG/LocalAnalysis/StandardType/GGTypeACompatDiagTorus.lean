@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagLin
 public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompBasic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 
 public section
 

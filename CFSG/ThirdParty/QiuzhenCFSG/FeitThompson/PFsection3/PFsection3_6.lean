@@ -1,9 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection3.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection3.PFsection3_1
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection3.PFsection3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_9
 
 namespace CFSG
 end CFSG

@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Census.Exceptional.E6E7
 public import CFSG.RankThree.PartTwo.Census.Exceptional.TwistedE6
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.GraphTwisted
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.AmbientGroup

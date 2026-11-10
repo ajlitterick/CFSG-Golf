@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKFactParabolicGenDatum
 public import CFSG.LieType.Chevalley.GraphFixedParabolicNormalizer
-public import CFSG.LieType.Chevalley.GraphFixedSylowOpposition
-public import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
-public import CFSG.Blueprint.Catalog
 
 public section
 

@@ -1,12 +1,6 @@
 module
 
-public import Mathlib.Data.Complex.Basic
-public import Mathlib.Analysis.Complex.Polynomial.Basic
-public import Mathlib.RepresentationTheory.Character
 public import Mathlib.Data.Complex.BigOperators
-public import Mathlib.LinearAlgebra.Basis.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.ClassFunction
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.ConjClassFunction
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Completeness
 
 namespace CFSG

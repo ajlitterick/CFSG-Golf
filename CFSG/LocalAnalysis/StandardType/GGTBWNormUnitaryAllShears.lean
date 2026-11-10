@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormUnitaryFourPrime
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormMpCellLabels
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormUnitaryTwicePrime
 
 public section
 

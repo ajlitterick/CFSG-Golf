@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.Spor.WordProg
 public import Certificates.Data.Kernel.Spor.WordProgW
 public import Certificates.Kernel.Fi23M.Data
 public import Certificates.Kernel.Fi23Kt.Data

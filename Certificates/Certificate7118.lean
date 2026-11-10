@@ -1,11 +1,7 @@
 module
 
-public import CFSG.Quasithin.Background.HSporLatInputs
 public import CFSG.Quasithin.Background.HSporLatM23Sg
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatFactsK
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
-import Certificates.Certificate2197
-import Certificates.Certificate4075
 import Certificates.Kernel.M23Dc.Facts
 
 public section

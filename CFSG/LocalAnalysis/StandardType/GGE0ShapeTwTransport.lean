@@ -1,18 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeDefs
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidTwE6
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Stroth.HeisD4.StraightenTw
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootKillDefs
-public import CFSG.RankThree.PartOne.KE.CTLang
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
-public import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
-public import CFSG.LieType.Chevalley.DiagramCoordinateFixedStructure
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigidTools
-public import CFSG.LieType.Chevalley.LangActualInvolutionReduction
-public import CFSG.LieType.Chevalley.OddDiagramFrobeniusFixedDerived
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1Defs
-public import CFSG.Open.StatedAPI
 public import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
 public import CFSG.LocalAnalysis.StandardType.UnitaryCenterScalar
 public import CFSG.ClassicalGroups.Symplectic.DiagonalTorusRank

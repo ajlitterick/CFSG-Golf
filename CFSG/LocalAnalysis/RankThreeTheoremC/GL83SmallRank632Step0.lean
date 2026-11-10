@@ -1,14 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank632Defs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank632NearCyclic
-public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank627Lines
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank627Faithful
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank627Good
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank627Wreath
 public import CFSG.LocalAnalysis.RankThreeTheoremC.FusionControl
-public import CFSG.LocalAnalysis.RankThreeTheoremC.StrongEmbeddingCase
-public import Mathlib.GroupTheory.Focal
 
 public section
 

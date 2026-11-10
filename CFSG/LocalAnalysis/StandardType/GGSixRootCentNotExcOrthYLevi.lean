@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootOmega
 public import CFSG.LocalAnalysis.StandardType.GGTwoPlaneThree
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.PerfThreeOrth.ResidualEichler
-public import CFSG.Quasithin.Background.GoldschmidtS146PPerf
-public import CFSG.LargeExtraspecial.S5Gen2
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmSmallMain
 
 public section

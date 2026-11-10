@@ -1,21 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.TorusM8POmegaMinus
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaModel
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotTori
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2Cross
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourS2Plane
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourS1Plane
-import CFSG.LocalAnalysis.StandardType.GGF4PairRootLeviTransport
-import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagSpin
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
-import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotTorusSingleton
-import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotTorusCentralizer
-import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotAnisoEight
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticEndNode
 import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndSmall
 import CFSG.LieType.BorelTits.LeviOrder
-import Mathlib.Tactic.Group
 
 public section
 

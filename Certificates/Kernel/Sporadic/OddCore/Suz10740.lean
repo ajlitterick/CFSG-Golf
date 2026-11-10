@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.Suz26990
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.Lemma44SuzCheck
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

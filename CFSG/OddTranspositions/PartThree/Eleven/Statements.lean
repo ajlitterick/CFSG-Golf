@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Statements
 public import CFSG.OddTranspositions.PartThree.FiveReflection
 public import CFSG.OddTranspositions.HalphaQuotient
-public import CFSG.Open.StatedDefs
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.AschbacherCanonicalRemaining
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.ExceptionalEightPlaneCentralizer

@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.HighestRoot.RootsBasic
 public import CFSG.LieType.Steinberg.Bruhat
 public import CFSG.LieType.Steinberg.CentralExt.Unipotent
-import Mathlib.Tactic.Group
 
 public section
 

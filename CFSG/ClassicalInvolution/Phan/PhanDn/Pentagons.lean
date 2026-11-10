@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Phan.PhanDn.Solid
 public import CFSG.ClassicalInvolution.Phan.PhanDn.Diameter
 public import CFSG.ClassicalInvolution.Phan.Geometry.ShortCycleMoves
-public import CFSG.LieType.BorelTits.Families
 
 import all CFSG.LieType.Universal.Spin.Forms
 import all CFSG.ClassicalInvolution.Phan.PhanDn.Perp

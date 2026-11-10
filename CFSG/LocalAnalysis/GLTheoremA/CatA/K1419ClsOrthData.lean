@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsDefs
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnOrthMark
 public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3LInput
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain

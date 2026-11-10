@@ -3,15 +3,10 @@ module
 public import Certificates.Kernel.Sporadic.Fi22.T2064
 public import Certificates.Kernel.Sporadic.Fi22.R2064
 public import CFSG.Certificates.Kernel.Spor.MulTreeSound
-public import CFSG.Certificates.Kernel.Spor.BaseSep
 public import CFSG.Sporadic.FischerOddCore.Fi22CentOrder
 public import CFSG.Sporadic.FischerOddCore.ClosureSpec
 public import CFSG.Sporadic.FischerOddCore.Fi22CTICheckInputs
-public import CFSG.Monster.B.Fischer.Fi22Order
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.IntervalCases
-public import Certificates.Kernel.Sporadic.Fi22.C3151
 
 public section
 

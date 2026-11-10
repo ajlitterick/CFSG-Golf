@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.TableC.HypDefs
-import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutLift
 import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdTwE6
 import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitTwE6Tag
 

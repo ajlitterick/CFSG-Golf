@@ -5,7 +5,6 @@ public import CFSG.RankThree.PartTwo.Sec21.Item228Census2ProofU4Lin
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentPlane
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentFix
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentPos
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryOrder
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.LieType.Multipliers.ProductKernel
 public import CFSG.LieType.Multipliers.U42Bridge

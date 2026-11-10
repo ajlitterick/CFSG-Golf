@@ -2,14 +2,9 @@ module
 
 public import CFSG.GH74.Generic.S3.NbrBase
 public import CFSG.GH74.Generic.S3.NbrIv
-public import CFSG.GH74.Generic.S3.LeavesR
-public import CFSG.GH74.Generic.S3.PumpLift
-public import CFSG.GH74.Generic.S3.PumpDiag
-public import CFSG.GH74.Generic.S3.L3Sylow
 public import CFSG.GH74.Generic.S1.SymComp
 public import CFSG.GH74.KGroups.L3EpsBlockLin
 public import CFSG.Sporadic.Th.Max3.Relations
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.Generic.S1.TFrame
 public import CFSG.GH74.KGroups.L3EpsNoNormalThree
 public import CFSG.GH74.KGroups.L3EpsOutExp

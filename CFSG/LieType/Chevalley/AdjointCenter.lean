@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Simplicity.Torus
-public import CFSG.LieType.Chevalley.Refined
-public import CFSG.LieType.Chevalley.RootOps.Comm
 public import CFSG.LieType.BorelTits.TitsClause
 
 public section

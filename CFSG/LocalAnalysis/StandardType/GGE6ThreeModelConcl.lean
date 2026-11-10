@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelDefs
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelNbr
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelAct
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelTv
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLModPSL
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinIrredDef
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLTv
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Nbr
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63ActCore
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitActMain
 

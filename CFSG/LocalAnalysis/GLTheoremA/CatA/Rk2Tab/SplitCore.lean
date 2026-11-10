@@ -1,14 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.KRank
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2TwAModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Arith2
-public import CFSG.LocalAnalysis.RankThreeEvenClassification.LocalRank
 public import CFSG.LocalAnalysis.GL83PartI.I713.ExceptionalCoprime
 public import CFSG.RankThree.OddKernel.RankOneQuotients
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycMCyclic
-public import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
-public import CFSG.RankThree.PerfectCover.HopfCentralCoversFinite
 public import CFSG.LocalAnalysis.GL83PartI.I713.Basic
 
 public section

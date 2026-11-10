@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenBN.U5.Sec3WSix
 public import CFSG.LocalAnalysis.EvenBN.U5.Sec3M1Borel
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec2Step22ivQuot
-import CFSG.LocalAnalysis.EvenBN.GMSK.SL2Facts
 import CFSG.LocalAnalysis.SeitzReduction.RankOneStart
 public import CFSG.LocalAnalysis.EvenBN.U5.Sec3WFive
 public import CFSG.LocalAnalysis.EvenBN.U5.Sec3WThree

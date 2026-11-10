@@ -5,14 +5,9 @@ public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourEndsOriginal
 import CFSG.LocalAnalysis.StandardType.GGF4AbsorbConj
 import CFSG.LocalAnalysis.StandardType.GGF4EndpointType
 import CFSG.LocalAnalysis.StandardType.GGF4Absorption
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRestOriginalWeyl
 import CFSG.LocalAnalysis.StandardType.GGAutomizerJoinInduced
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
 import CFSG.LocalAnalysis.StandardType.GGF4ReflLin
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrCompare
-import CFSG.LocalAnalysis.StandardType.GGSecFiveMaxJoin
 
 public section
 

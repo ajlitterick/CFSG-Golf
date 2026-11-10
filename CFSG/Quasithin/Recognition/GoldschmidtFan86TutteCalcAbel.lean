@@ -1,4 +1,3 @@
 module
 
-public import CFSG.Quasithin.Recognition.GoldschmidtFan86TutteCalcAbelSq
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86TutteCalcAbelPset

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.WittLev
 public import CFSG.Quasithin.Recognition.M22UniqueDataInputs
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

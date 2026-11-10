@@ -7,7 +7,6 @@ public import Certificates.Kernel.Co2SmithS.ElK
 public import Certificates.Kernel.Co2SmithS.DirK
 public import CFSG.Certificates.Kernel.Co2SmithS.ClassSound
 public import CFSG.Certificates.Kernel.Co2SmithS.OrbSound
-public import CFSG.Certificates.Kernel.Co2Smith.RowsSound
 public import Certificates.Kernel.Co2Smith.Pts
 public import Certificates.Kernel.Co2Smith.Cox
 import CFSG.Certificates.Kernel.Common.Harness

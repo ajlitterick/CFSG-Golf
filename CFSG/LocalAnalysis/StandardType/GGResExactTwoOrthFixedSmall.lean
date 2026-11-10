@@ -1,11 +1,8 @@
 module
 
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
-public import CFSG.RankThree.PartOne.KC.OrthogonalBinaryDickson
 public import CFSG.RankThree.PartOne.KC.OrthogonalSupportedScalarElementary
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.OrthBlocks
 public import CFSG.Quasithin.EmptyFaithfulMultiple.Inspection15418Basic
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
 public import CFSG.Quasithin.Background.A1cA132Action
 public import CFSG.Quasithin.Background.A1cA133Three
 public import CFSG.Quasithin.Background.B4Dual

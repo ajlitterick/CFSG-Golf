@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Recognition.St84.HeisF4
-public import Mathlib.Tactic.ENatToNat
 
 public section
 

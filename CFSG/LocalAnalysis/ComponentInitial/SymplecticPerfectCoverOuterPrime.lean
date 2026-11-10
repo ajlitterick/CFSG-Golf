@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Foundations.Basic
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherGeneration
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticTwoGeneration
 public import CFSG.LocalAnalysis.ComponentInitial.PerfectCentralQuotientOuter
 

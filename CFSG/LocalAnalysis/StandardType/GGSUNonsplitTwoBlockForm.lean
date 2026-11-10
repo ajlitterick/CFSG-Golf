@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.S11d.OddHerm
-public import Mathlib.LinearAlgebra.Basis.VectorSpace
-public import Mathlib.LinearAlgebra.Isomorphisms
 public import Mathlib.FieldTheory.Finite.Basic
 
 public section

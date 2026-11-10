@@ -1,17 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15FactsGen
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6M11
 public import CFSG.Sporadic.Schreier.M11
 public meta import Mathlib
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15FactsGen
 public meta import CFSG.Sporadic.Schreier.M11Data
 public meta import CFSG.Sporadic.Mathieu.M11
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15FactsM11Inputs
 public import Certificates.Certificate4144
-public import Certificates.Certificate110
-public import Certificates.Certificate2191
-public import Certificates.Certificate2192
 public meta import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
@@ -45,7 +40,6 @@ public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15Aux
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6
 public meta import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

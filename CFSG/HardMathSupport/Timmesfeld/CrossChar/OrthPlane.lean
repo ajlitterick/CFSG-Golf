@@ -4,10 +4,8 @@ public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Basic
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.OrthDerived
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.OrthSpecial
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.OrthSplitFour
-public import CFSG.RankThree.PartOne.KC.OrthogonalKernelSectorRigidityData
 public import CFSG.RankThree.PartOne.KC.OrthogonalQPlusOneModel
 public import CFSG.LieType.SeitzGeneration.OrthThree
-public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Families

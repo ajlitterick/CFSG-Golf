@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1KGInputs
 import CFSG.LocalAnalysis.StandardType.KGLangS1ALinCont
-import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldLinear
 
 public section
 

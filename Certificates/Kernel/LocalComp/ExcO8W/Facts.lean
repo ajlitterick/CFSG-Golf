@@ -6,10 +6,7 @@ public import Certificates.Kernel.LocalComp.ExcO8W.Derivs
 public import Certificates.Kernel.LocalComp.ExcGlue
 public import Certificates.Kernel.LocalComp.E8Tables
 public import CFSG.Certificates.Kernel.LocalCompExcTextSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
-public import CFSG.Certificates.Kernel.Spor.RawOrbHead
 public import CFSG.Certificates.Kernel.Child3Reps
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckBase
 

@@ -1,15 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167CDefs
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167CCover
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrth
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthMinus
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthLabelO
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthLabelU
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthRigid
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthFamRoute
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsOrth
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
 import CFSG.Certificates.CentralKernel
 import CFSG.Certificates.CosetTableWalkC
@@ -21,7 +15,6 @@ import CFSG.Monster.GMS.Fi23Gen
 import CFSG.Monster.GMS.Fi23GenIso
 import CFSG.Monster.GMS.Fi23GenSix
 import CFSG.Monster.GMS.LeechCoh
-import CFSG.Monster.GMS.LeechCohGroup
 import CFSG.Monster.GMS.S365Center
 import CFSG.Monster.GMS.S37
 import CFSG.Monster.GMS.S4Assembly

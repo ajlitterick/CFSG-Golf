@@ -4,7 +4,6 @@ public import Certificates.Kernel.CF23L34.HeGSL
 public import Certificates.Kernel.SporSch.HeT.W2117K
 public import Certificates.Kernel.LocalComp.HeFix2329.Enum
 public import Certificates.Data.GrSLitHeZStar
-public import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -1,11 +1,8 @@
 module
 
 public import CFSG.YGroups.Chain
-public import CFSG.YGroups.Exact.Model
 public import CFSG.YGroups.Exact.ModelRep
-public import CFSG.YGroups.Exact.Y321Inputs
 public import Certificates.Certificate10097
-public import Certificates.Data.CFSGNative.YGroups.ExactData
 public meta import CFSG.YGroups.Defs
 public meta import Certificates.Data.CFSGNative.YGroups.Check
 public meta import Certificates.Data.CFSGNative.YGroups.ExactCheck

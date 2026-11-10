@@ -2,11 +2,9 @@ module
 
 public import Certificates.Kernel.Fi24.Chain
 public import Certificates.Kernel.Sporadic.Fi24Fix.DataK
-public import CFSG.Certificates.Kernel.Fam.Fi24Act.LibSound
 public import CFSG.Certificates.Kernel.Spor.Fi24FixSound
 import Certificates.Kernel.Co2.Intro
 import Certificates.Kernel.Fi24.FactsF1
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.ForallChunks
 import CFSG.Certificates.Kernel.Fi24.Slices.Bind
 import CFSG.Certificates.Kernel.Fi24.Slices.Head1
@@ -42,7 +40,6 @@ import CFSG.Certificates.Kernel.Fam.Fi24Act.Checks.LJL1
 import CFSG.Certificates.Kernel.Fam.Fi24Act.Checks.LJL2
 import CFSG.Certificates.Kernel.Fam.Fi24Act.Checks.LJL3
 import CFSG.Certificates.Kernel.Fam.Fi24Act.Checks.LJL4
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.LceSP.Cosets
 
 public section

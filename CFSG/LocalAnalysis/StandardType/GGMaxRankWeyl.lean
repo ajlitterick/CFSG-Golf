@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteA4Thm
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LieType.Steinberg.Adjoint.Pairs
-public import CFSG.LieType.Chevalley.WeylRoots
 public import CFSG.LieType.Chevalley.RootComponentType
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwReduction
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwTorus

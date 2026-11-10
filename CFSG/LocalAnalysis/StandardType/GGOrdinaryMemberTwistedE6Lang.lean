@@ -2,8 +2,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGOrdinaryMemberTwistedE6
 public import CFSG.LocalAnalysis.StandardType.GGOrdinaryMemberE7RootCentralizer
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitCyclicCore
-public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UData
 public import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.F4TwoLang
 public import CFSG.LocalAnalysis.StandardType.GGLangRatCompC
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTQuot

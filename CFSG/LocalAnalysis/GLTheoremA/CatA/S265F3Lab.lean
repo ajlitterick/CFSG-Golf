@@ -2,17 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Fam
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265F3Kind
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRField
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResSmall
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResTwF4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158InnHolds2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I91T10
-public import CFSG.LocalAnalysis.GLTheoremA.S10.InputsBeta
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
-public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Cfg
 
 public section

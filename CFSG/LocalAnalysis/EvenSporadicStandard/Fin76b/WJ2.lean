@@ -1,10 +1,7 @@
 
 module
 
-public import CFSG.Sporadic.SmallOddCore.J2DataInputs
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.RootFacts
 
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.WCheck
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.WJ2Check
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaJ2
 public import Certificates.Certificate24608
@@ -18,7 +15,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Common
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaSq
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddKernelInvolutionFusion
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFinModelInput
 public import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompatDefs
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreAutomizer
 
 public section

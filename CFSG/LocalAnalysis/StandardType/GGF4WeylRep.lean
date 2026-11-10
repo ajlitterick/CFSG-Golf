@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.Chevalley.WeylRoots
 public import CFSG.LocalAnalysis.StandardType.GGF4WeylMat
 import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLFaithful
-import Mathlib.LinearAlgebra.Matrix.ToLin
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKacTablePatternList
-public import Mathlib.Dynamics.PeriodicPts.Lemmas
-public import Mathlib.Data.Fintype.Card
 
 public section
 

@@ -1,11 +1,7 @@
 module
 
 public import Mathlib.Algebra.BigOperators.Field
-public import Mathlib.Algebra.BigOperators.Pi
 public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.Data.Finset.SymmDiff
-public import Mathlib.Data.Fintype.EquivFin
-public import Mathlib.Data.ZMod.Basic
 public import Mathlib.LinearAlgebra.Dimension.Finite
 public import Mathlib.Tactic.IntervalCases
 

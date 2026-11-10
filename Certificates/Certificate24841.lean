@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M24Std.TransDataWords
 import CFSG.Certificates.Kernel.SxtSound
 import Certificates.Kernel.LocalQT.Syl.C4137
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 set_option Elab.async false

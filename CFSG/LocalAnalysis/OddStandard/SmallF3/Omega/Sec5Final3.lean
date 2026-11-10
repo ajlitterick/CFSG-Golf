@@ -6,19 +6,13 @@ public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5L52
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5L53
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5L54
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5L55
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5L56
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5Step56
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5Glue
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5Statements2
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5Statements3
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5InputsB1
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5L512K
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5L512H
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5L510
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5BZClass
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5InputsB2
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5BFact59Spec
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5OFacts
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5OFinal
 public import CFSG.ClassicalInvolution.QuaternionStructure
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
@@ -42,20 +36,6 @@ public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec4L49
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec4ZStar
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
 public import CFSG.Quasithin.Background.A1cTransferVariants
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 
 public section
 

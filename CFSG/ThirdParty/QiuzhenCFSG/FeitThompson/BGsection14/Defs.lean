@@ -2,7 +2,6 @@ module
 
 public import Mathlib.Data.Set.Card.Arithmetic
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection13.lemma_13_13
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Remaining
 
 namespace CFSG
 end CFSG

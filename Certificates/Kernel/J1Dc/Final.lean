@@ -3,9 +3,6 @@ module
 
 public import Certificates.Kernel.J1Dc.Bridge
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatOfFacts
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatPt
-import CFSG.Certificates.Kernel.Common.Harness
-public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.Prim
 
 set_option maxRecDepth 100000

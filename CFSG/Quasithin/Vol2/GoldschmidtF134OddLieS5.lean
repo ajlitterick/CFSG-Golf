@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.BorelTits.Basic
 public import CFSG.GroupTheory.ABGLocalTools.Basic
 import CFSG.Quasithin.Vol2.F134LieF4Group
-import CFSG.CharacterTheory.Burnside
 import CFSG.Quasithin.Vol2.GoldschmidtF134OddLieS5Act
 
 public section

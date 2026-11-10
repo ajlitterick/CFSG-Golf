@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Inputs47
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Lemma43
-public import CFSG.Dihedral.DisconnectedInvolutionGraph.RankOneQuaternionRecognition
 
 public section
 

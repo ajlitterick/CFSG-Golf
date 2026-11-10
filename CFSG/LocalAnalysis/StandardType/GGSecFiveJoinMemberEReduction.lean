@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinMemberETwistedE6Defs
 public import CFSG.LocalAnalysis.StandardType.GGOrdinaryMemberOrthogonal
-import CFSG.LocalAnalysis.StandardType.GGTBFixNbrXInnerWeyl
 
 public noncomputable section
 

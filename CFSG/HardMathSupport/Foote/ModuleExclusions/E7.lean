@@ -4,13 +4,6 @@ public import CFSG.HardMathSupport.Foote.ModuleExclusions.Common
 public import CFSG.CGT.PushingUpLit.CGT6M.FiveInspTrans
 public import CFSG.HardMathSupport.Foote.ModuleExclusions.ExcSigns
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalTwistReduction
-public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningSemilinear
-public import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
-public import CFSG.LieType.Chevalley.ProductInjectivity
-public import CFSG.LieType.Chevalley.ExceptionalG2F4ModelSchreier
-public import CFSG.LieType.Chevalley.LangStronglyOrthogonalCommute
-public import CFSG.LieType.Chevalley.LangFiniteRootCentralizer
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
 

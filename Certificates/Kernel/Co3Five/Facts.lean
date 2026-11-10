@@ -4,13 +4,8 @@ public import Certificates.Kernel.Co3Five.Checks
 public import CFSG.Certificates.Kernel.Co3Five.TailSound
 public import CFSG.Certificates.Kernel.Item434.PkSound
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
-public import CFSG.Certificates.Kernel.BfsPinBaseSound
-public import CFSG.Certificates.Kernel.Spor.SiftRSound
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Spor.RawOrbHead
 import CFSG.Certificates.Kernel.Spor.RawSiftK
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Certificates.Kernel.Misc.ArrBind
 

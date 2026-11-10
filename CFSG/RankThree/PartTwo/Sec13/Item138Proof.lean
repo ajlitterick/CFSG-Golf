@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec13.Item138ProofMain
 public import CFSG.RankThree.PartTwo.Sec13.Item138ProofOmega
 public import CFSG.RankThree.PartTwo.Sec13.Item138ProofPGL
 public import CFSG.RankThree.PartTwo.Sec13.Item138ProofSylow

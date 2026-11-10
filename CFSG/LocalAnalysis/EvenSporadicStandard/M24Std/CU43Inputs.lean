@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.Data.Nat.Notation
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M24Std.CU43Data1
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M24Std.CU43Data2
 public import CFSG.LieType.Multipliers.U43Data

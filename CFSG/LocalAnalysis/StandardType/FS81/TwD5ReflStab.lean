@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Refl
-public import CFSG.LocalAnalysis.StandardType.FS81.EvenN0Mat
 
 public section
 

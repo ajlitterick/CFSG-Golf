@@ -4,8 +4,6 @@ public import CFSG.RankThree.PartOne.Q1327T.Item7Basic
 public import CFSG.RankThree.PartOne.Q1327T.Item7Weights
 public import CFSG.RankThree.PartOne.KF.UnitaryModel
 public import CFSG.RankThree.PartOne.KF.F128SU
-public import CFSG.RankThree.PartOne.KC.PlaneLifting
-public import CFSG.RankThree.PartOne.N143X.WeylMatrix
 public import CFSG.RankThree.PartOne.N143.SectionGroup
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CGT.Timmesfeld75.L2Pair
@@ -50,7 +48,6 @@ public import CFSG.Monster.B.TwoA.Amalgam.Data
 public import CFSG.Monster.B.TwoA.Sp8.Par1
 public import CFSG.Monster.B.TwoA.Unitary.LinThree
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeSetting
@@ -61,12 +58,9 @@ public import CFSG.RankThree.PartOne.S11c.Sec66Sp
 public import CFSG.RankThree.PartOne.S11d.OutClassicalTwo
 public import CFSG.RankThree.PartOne.S11d.OutSymplectic
 public import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Walter.Defs
 public import CFSG.YGroups.Y322Central
 

@@ -4,10 +4,6 @@ module
 public import Certificates.Data.Kernel.GammaUSigmaK
 public import CFSG.Certificates.Kernel.IdxFourCosetSound
 public import CFSG.Certificates.Kernel.IdxFourSiftSound
-public import CFSG.GF2Type.Smith1979.GammaU.SigmaInputs
-public import CFSG.GF2Type.Smith1979.GammaU.Violation
-public import CFSG.GF2Type.Smith1979.GammaU.SpanList
-public import Mathlib.GroupTheory.Commutator.Basic
 public import CFSG.GF2Type.Smith1979.GammaU.SigmaBase
 public import CFSG.GF2Type.Smith1979.GammaU.Enum
 public import CFSG.GF2Type.Smith1979.GammaU.ResidualPairBase

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUSp6LagrangianStatements
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
 
 public noncomputable section
 

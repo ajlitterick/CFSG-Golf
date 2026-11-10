@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Harada.GoldCor93
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Harada.GoldCorHom
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.Open.Defs
 
 public section

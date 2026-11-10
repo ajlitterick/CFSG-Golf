@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qLocBase
-public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsD4Data
 public import CFSG.LieType.Chevalley.GraphFixedParabolicNormalizer
 
 public section

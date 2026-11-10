@@ -1,18 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Rows
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TransferData
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TransferMark
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Absence
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 public import CFSG.LieType.Steinberg.CentralExt.E8Even
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCoverMark
-public import CFSG.LocalAnalysis.StandardType.GGLangTorusInnerDiagLie
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGLangRatComp
-public import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1E8Model
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TwE6Three
 

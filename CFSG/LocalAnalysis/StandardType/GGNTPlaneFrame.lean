@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneNormalForm
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneUntw
-public import CFSG.LocalAnalysis.StandardType.GGNTPlaneRetoralExact
 public import CFSG.GroupTheory.IsComponentOfMap
 
 public section

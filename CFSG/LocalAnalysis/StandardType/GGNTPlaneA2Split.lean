@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNTPlaneA2Orbit
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneDiag
 public import CFSG.LocalAnalysis.StandardType.GGExcCompSLLen
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
-public import CFSG.LocalAnalysis.ComponentInitial.SwappedQuasisimple
-public import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
-public import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.StarAux
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcLang
 

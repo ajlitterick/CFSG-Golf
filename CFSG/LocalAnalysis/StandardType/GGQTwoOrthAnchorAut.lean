@@ -4,12 +4,8 @@ public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Defs
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1OAut
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Models
 import CFSG.ClassicalGroups.Orthogonal.FieldTwoTransport
-import CFSG.ClassicalGroups.Orthogonal.IsometryConj
 import CFSG.RankThree.GF2n.Stroth80.GriessOrthSmall
-import CFSG.LieType.Universal.Spin.Forms
 import CFSG.LieType.ChevTwo.Orthogonal
-import CFSG.LieType.ChevTwo.OrthogonalBasic
-import CFSG.RankThree.OrthogonalInvolutions.Dickson
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Anisotropic.Plane
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Pairs

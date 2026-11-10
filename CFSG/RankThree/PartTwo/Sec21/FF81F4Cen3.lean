@@ -1,10 +1,7 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.FF81F4Syl3C
-public import CFSG.RankThree.PartTwo.Sec21.FF81F4CenCard
 public import CFSG.RankThree.PartTwo.Sec21.FF81F4L3
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoInputsEndNode
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoInputsSylow
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotUniqueRowsSwap
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotHR4
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotInnerActionOuter

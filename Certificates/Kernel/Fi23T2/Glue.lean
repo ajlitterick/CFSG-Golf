@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.Fi23T2.ChkDefs
 public import Certificates.Kernel.Fi23S.Tables
-public import Certificates.Kernel.Fi23M.Keys
-public import CFSG.Sporadic.Fi23.Classes
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi23Sylow
 public import CFSG.LocalAnalysis.EvenSporadicStandard.YS14.LargeInv
 import Certificates.Kernel.Fi23T2.Sl0
@@ -11,9 +9,6 @@ import Certificates.Kernel.Fi23T2.Sl1
 import Certificates.Kernel.Fi23T2.Sl2
 import Certificates.Kernel.Fi23T2.Sl3
 import Certificates.Kernel.Fi23T2.Misc
-import Certificates.Kernel.Sporadic.ON.Gen
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC

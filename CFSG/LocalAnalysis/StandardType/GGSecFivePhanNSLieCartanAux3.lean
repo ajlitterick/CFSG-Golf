@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieCartanAux2
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.Open.LocalVocabulary
 
 public section
 

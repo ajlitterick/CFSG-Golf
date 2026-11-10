@@ -2,10 +2,8 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.FF81Sec57D
 public import CFSG.RankThree.PartTwo.Sec21.FF81Sec57C
-import CFSG.RankThree.PartTwo.Sec21.FF81Sec52M
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec53
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec54
-import CFSG.RankThree.PartTwo.Sec21.FF81Sec56C
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec43T
 import CFSG.RankThree.PartTwo.Sec21.FF79Lemma42CSyl
 import CFSG.GroupTheory.QuasisimpleCommutingProductBound

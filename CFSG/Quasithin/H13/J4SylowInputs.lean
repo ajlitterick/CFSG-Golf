@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Schreier.J4SSylow
-public import CFSG.Quasithin.H13.J4Words
 public meta import CFSG.Sporadic.Schreier.J4SData
 
 public noncomputable section

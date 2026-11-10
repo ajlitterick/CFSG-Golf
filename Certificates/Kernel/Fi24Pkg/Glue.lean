@@ -7,8 +7,6 @@ import CFSG.Certificates.Kernel.M24QSpan
 import CFSG.Quasithin.Vol2.Ch12Sec5KGM24
 import CFSG.Quasithin.Vol2.Ch4Sec2InspM22SporMid
 import CFSG.LocalAnalysis.EvenSporadicStandard.M24Std.Local
-import CFSG.RankThree.Asc83Table.E9
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.SporadicModelGlue
 public import CFSG.GH74.SmallRanks.AltM11
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
 public import CFSG.LocalAnalysis.ComponentClassification.NormalizedProductSylow
@@ -24,9 +22,6 @@ public import CFSG.Quasithin.Background.A1cA132Action
 public import CFSG.Quasithin.Background.A1cA133Three
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F6Amalgams
 public import CFSG.Quasithin.Background.F6SolvableQuotient
 public import CFSG.Quasithin.Background.F9G2
@@ -50,7 +45,6 @@ public import CFSG.Sporadic.Schreier.J4SLocalNodes
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M11
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M12
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M23
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.JRFacts
 
 set_option maxRecDepth 100000

@@ -4,19 +4,14 @@ public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeNineApply
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeNineSocle
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeData
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.SporadicTable
-public import CFSG.Sporadic.Schreier.TitsAutD
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.NineTen
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeYTransport
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeOrders
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.DResidualSimple
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.HypC
 import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineMemberDefLocal
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CKStarComponent
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CSixThreeOneBasic
 import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphismsCongr
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-import CFSG.Sporadic.Schreier.TitsOuter
-import CFSG.Open.StatedAPI
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.HSFiveCaseTwo
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitThm47Statement
 public import CFSG.LocalAnalysis.EvenSporadicStandard.CentralTwoJ3

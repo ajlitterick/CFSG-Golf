@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Data.TitsAschbacherParrott
-public import Mathlib.LinearAlgebra.Matrix.Notation
-public import Mathlib.Data.ZMod.Basic
 
 public section
 

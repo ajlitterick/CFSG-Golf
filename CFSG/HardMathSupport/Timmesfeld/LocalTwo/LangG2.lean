@@ -5,7 +5,6 @@ public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LangG2Even
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.ExcInnerOne
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.ExcInnerFamG2
 public import CFSG.LieType.SeitzGeneration.ExcCatModels
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.RankThree.PartOne.K133H.G2Plane
 
 public section

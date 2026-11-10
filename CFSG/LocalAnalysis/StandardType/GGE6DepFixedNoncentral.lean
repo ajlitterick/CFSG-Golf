@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
 
 public section

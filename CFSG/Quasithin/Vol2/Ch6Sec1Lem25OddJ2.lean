@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.Ch6Sec1Lem25OddA
 import CFSG.RankThree.PartOne.KS.J2
 public import CFSG.Sporadic.SmallOddCore.J2Data
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
 
 public section
 

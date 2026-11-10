@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixPermAux7
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixFrameAux2
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixCenter
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoCloseDefs
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SULCoordModelA
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoSixSU

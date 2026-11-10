@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qy
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qd
-import CFSG.GH74.GLS.IVK.L2.Borel
 
 public section
 

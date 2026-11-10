@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOTwoStarFrame
 public import CFSG.LocalAnalysis.StandardType.GGSteinbergAutLemmas
-public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionSL
-public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRestSU
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionTwistedE6
 

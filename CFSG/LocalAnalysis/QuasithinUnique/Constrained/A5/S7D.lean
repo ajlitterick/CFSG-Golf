@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.S7C
-public import CFSG.LocalAnalysis.QuasithinUnique.GammaFamiliesExtraConfining
 
 public section
 

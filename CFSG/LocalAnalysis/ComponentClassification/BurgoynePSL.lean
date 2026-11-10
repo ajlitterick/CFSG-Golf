@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLOrthData
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLOrthThree
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLField
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearHigherBPureGraph
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
 
 public noncomputable section

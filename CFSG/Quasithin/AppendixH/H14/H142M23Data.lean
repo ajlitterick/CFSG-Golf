@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.AppendixH.H14.H142Bfs
 public import CFSG.Quasithin.AppendixH.H14.H142M23DataBool
 
 public section

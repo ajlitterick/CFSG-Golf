@@ -5,7 +5,6 @@ public import Certificates.Data.Kernel.Misc.O73Chain
 public import Certificates.Kernel.Sporadic.RawTreeGen
 public meta import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanWeakGenO73Chain
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public meta import Mathlib
 
 set_option maxRecDepth 400000

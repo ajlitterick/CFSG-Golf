@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderPSLRestNonsplit
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderClassicalSp
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

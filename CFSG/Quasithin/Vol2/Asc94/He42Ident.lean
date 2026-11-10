@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.WittDesignPlaneCollinea
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Defs
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
 public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.Fischer.F4
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.GeneralizedFitting
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

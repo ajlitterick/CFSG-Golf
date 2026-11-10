@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepFrame
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepK
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepOdd
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeDefs
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
 
 public section

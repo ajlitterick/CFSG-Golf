@@ -1,20 +1,13 @@
 module
 
-public import CFSG.LieType.ChevTwo.Defs
 public import CFSG.LieType.ChevTwo.OutDataGen
-public import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockDefs
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import CFSG.Open.StatedDefs
-public import CFSG.Quasithin.Background.PSL2TwoNilpotent
 import CFSG.Quasithin.Vol2.GoldschmidtTDOutLin
 import CFSG.Quasithin.Vol2.GoldschmidtTDOutSp
 import CFSG.Quasithin.Vol2.GoldschmidtTDOutExc
 import CFSG.Quasithin.Vol2.GoldschmidtTDOutAlt
 import CFSG.HardMathSupport.Curtis.Coordinator.SeitzTower.Symplectic
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrModel
-import CFSG.Adapters.TauCetiExceptional.EvenBridgeG2
 import CFSG.RankThree.PartOne.N143.Inspect613Even
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
 public import CFSG.LocalAnalysis.SectionRank.LargeRee.SuzukiData
 public import CFSG.LocalAnalysis.SectionRank.OddCover.CatalogOdd
@@ -23,10 +16,8 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3StructureFacts
 public import CFSG.RankThree.PartOne.S11d.OutAbstract
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

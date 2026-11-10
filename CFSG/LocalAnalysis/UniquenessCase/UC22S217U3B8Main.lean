@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S217U3BMain
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S217U3B8
-public import CFSG.Open.GriessAllModelsStatement
 import CFSG.LocalAnalysis.UniquenessCase.UC22S217U38
 import CFSG.LocalAnalysis.UniquenessCase.UC22S217U38Mat
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22l
-import CFSG.LocalAnalysis.UniquenessCase.UCKPCenter
 import CFSG.LocalAnalysis.UniquenessCase.UCKPSyl3
 import CFSG.LocalAnalysis.UniquenessCase.UCKPFI3
 import CFSG.LocalAnalysis.UniquenessCase.UCKP898D

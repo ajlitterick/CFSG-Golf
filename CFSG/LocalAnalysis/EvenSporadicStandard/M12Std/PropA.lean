@@ -1,9 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.PropA.A5Basic
-public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.PropA.Defs
-public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.PropA.Emb
-public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.PropA.Facts
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.PropA.LemmaC
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.PropA.ModelCert
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.PropA.Perfect

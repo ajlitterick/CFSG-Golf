@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUTableCl
-public import CFSG.LocalAnalysis.StandardType.GGTPNThmUTableClDefs
 
 public section
 

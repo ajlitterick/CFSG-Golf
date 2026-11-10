@@ -1,11 +1,8 @@
 module
 
 public import Certificates.Data.Kernel.PCentSet
-public import Certificates.Data.Kernel.Misc.ArrEnum
-public import Certificates.Data.Kernel.Spor.Prim
 public import Certificates.Kernel.G24Tri.Chain27206
 public import Certificates.Kernel.G24Th799103.TGData
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 

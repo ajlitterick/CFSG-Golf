@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2325Base
 
-public import CFSG.Sporadic.ThSchreier.UASpaceInputs
 public meta import CFSG.Sporadic.ThSchreier.CentralizerDataBase
 public meta import CFSG.Sporadic.ThSchreier.WordsBase
 import Certificates.Kernel.SporSch.Th.UA2325

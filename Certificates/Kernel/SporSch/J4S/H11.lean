@@ -6,8 +6,6 @@ public import Certificates.Data.Kernel.SporSch.J4SPow
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4CentralizerH11Data
 meta import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4CentralizerH11Data
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Sporadic.Schreier.J4SCommGenBase
-public import CFSG.Sporadic.Schreier.J4SPrimes
 meta import CFSG.Sporadic.Schreier.J4SCommGenBase
 meta import CFSG.Sporadic.Schreier.J4SPrimes
 meta import CFSG.Sporadic.Schreier.J4SThreeDataInputs

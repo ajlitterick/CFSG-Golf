@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.InP11OfStrongly
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SylowCentralOuter
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankBound
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs13
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront07
-public import CFSG.LocalAnalysis.UniquenessCase.UCR638
 public import CFSG.LocalAnalysis.UniquenessCase.UC22OddPRank
 public import CFSG.GroupTheory.TPermutingTorus
 public import CFSG.LocalAnalysis.SectionRank.TwoGenerators

@@ -1,11 +1,9 @@
 module
 
-public import CFSG.Sporadic.GLQ.RegisterProgram
 public meta import CFSG.Sporadic.GLQ.RegisterProgram
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsFp
 public meta import Certificates.Data.CFSGNative.SectionRank.Fp
 public import CFSG.Blueprint.MatrixSeedIdentification
-import CFSG.Blueprint.NativeSporadic
 public import CFSG.RankThree.PartOne.KS.ScalFiveDefs
 public meta import CFSG.RankThree.PartOne.KS.ScalFiveDefs
 

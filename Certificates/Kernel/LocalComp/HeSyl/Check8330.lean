@@ -4,11 +4,9 @@ public import Certificates.Kernel.LocalComp.HeFixBind
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec4HeSylowSylTests
 public import Certificates.Kernel.LocalComp.HeSyl.Check16
 public import Certificates.Kernel.LocalComp.HeSyl.Words
-public import CFSG.Certificates.Kernel.PermToolSound
 import CFSG.Certificates.Kernel.BfsPinSetSound
 import CFSG.Certificates.Kernel.Common.Harness
 import Certificates.Kernel.Sporadic.ON.Gen
-import Mathlib.Tactic.IntervalCases
 
 public section
 

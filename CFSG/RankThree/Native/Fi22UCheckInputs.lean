@@ -1,11 +1,9 @@
 module
 
 public import CFSG.Monster.B.Fischer.Fi22Outer
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Monster.B.Fischer.Fi22Outer
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Mathlib
-public import Mathlib
 
 public section
 

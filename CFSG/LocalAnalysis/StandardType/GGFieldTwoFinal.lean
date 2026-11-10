@@ -1,25 +1,18 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFieldTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGFieldTwoSlices
 public import CFSG.LocalAnalysis.StandardType.GGFieldTwoLabel
 public import CFSG.LocalAnalysis.StandardType.GGTPNNonExcR
 public import CFSG.LocalAnalysis.StandardType.GGTPNExcTwoSlices
 public import CFSG.LocalAnalysis.StandardType.GGExcTwoCompListsRE
 public import CFSG.LocalAnalysis.StandardType.GGF4TwoThree
-public import CFSG.LocalAnalysis.StandardType.GGK0CompREMult
-public import CFSG.LocalAnalysis.StandardType.GGB36JExc
 public import CFSG.LocalAnalysis.StandardType.GGE6TwoCenter
 public import CFSG.LocalAnalysis.StandardType.GGE6TwoLocalRank
 public import CFSG.LocalAnalysis.StandardType.GGE6TwoSevenComp
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmRAC5
-public import CFSG.LocalAnalysis.StandardType.GGTPNA8SevenR
 public import CFSG.LocalAnalysis.StandardType.GGTPNE6TwoSeven
 public import CFSG.LocalAnalysis.StandardType.GGTPNClassicalCover
 public import CFSG.LocalAnalysis.StandardType.GGTPNExcCover
-public import CFSG.LocalAnalysis.StandardType.GGTPNNarrowC6
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGK0ExcB3
 
 public section
 

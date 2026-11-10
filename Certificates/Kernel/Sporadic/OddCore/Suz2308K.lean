@@ -6,8 +6,6 @@ public import Certificates.Kernel.Sporadic.OddCore.SuzCert
 public import Certificates.Kernel.Sporadic.OddCore.SuzCenter
 public import Certificates.Kernel.Sporadic.OddCore.SuzLocal
 public import Certificates.Data.Kernel.Spor.RowWord
-public import Certificates.Data.Kernel.Spor.PEnum
-public import Certificates.Data.Kernel.Spor.Mathieu
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

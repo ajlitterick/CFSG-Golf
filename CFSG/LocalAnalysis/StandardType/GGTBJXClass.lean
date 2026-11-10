@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJXDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBJCentralizer
 public import CFSG.LocalAnalysis.StandardType.GGTBJLift
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 
 public section
 

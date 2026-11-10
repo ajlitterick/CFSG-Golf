@@ -1,9 +1,7 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.Section4EWeak
-public import CFSG.RankThree.GF2n.Parrott.Cardinality
 public import CFSG.RankThree.GF2n.Parrott.Section4SylowFiveFusion
-public import CFSG.GroupTheory.CentralizerSylowFusion
 public import CFSG.RankThree.GF2n.Parrott.Section4FixDimBridge
 public import CFSG.GF2Type.Aschbacher1976
 public import CFSG.GroupTheory.Fitting.MulEquiv

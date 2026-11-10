@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenInput
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeTwE6
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Conj
-public import CFSG.LieType.Chevalley.GraphFixedParabolicLevi
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenLayer
-public import CFSG.LieType.Chevalley.CLSOddE7RationalEightGroup
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 
 public section
 

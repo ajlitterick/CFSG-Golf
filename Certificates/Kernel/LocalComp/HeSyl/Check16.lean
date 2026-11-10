@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.LocalComp.HeSylEnum
 public import Certificates.Kernel.LocalComp.HeSyl.Flags
 public import CFSG.Certificates.Kernel.HeSylKSound
-public import CFSG.Certificates.Kernel.LocalCompUnpack
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

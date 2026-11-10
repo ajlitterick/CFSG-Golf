@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.FS81.N7MainRecOut
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBCZ1
 public import CFSG.Mathlib.LinearAlgebra.F3NormOneOrthogonal
 import Lean.Elab.Tactic.Omega.Frontend
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.Group
 
 open Subgroup Matrix CFSG.StandardType CFSG.StandardType.FrameRoute.FS81
 

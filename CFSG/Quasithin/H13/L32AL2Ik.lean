@@ -3,32 +3,15 @@ module
 public import CFSG.Quasithin.H13.L32AL2Ii
 public import CFSG.Quasithin.H13.L32AL2Id
 public import CFSG.Quasithin.H13.L32AL2Ij
-public import CFSG.Quasithin.H13.L32NLem1434
 public import CFSG.Quasithin.EmptyFaithful.SzN17Ctx
 public import CFSG.Quasithin.EmptyFaithful.T1515dC
 public import CFSG.Quasithin.EmptyFaithful.SBdK36Abs
-public import CFSG.Quasithin.Vol2.Ch1Faithful
-public import CFSG.Quasithin.Vol2.Ch1Comm
-public import CFSG.Quasithin.Background.B2Factorization
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixFusionOrbits
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects
-public import CFSG.CharacterTheory.Semidihedral.Principal.DegreeZeroGram
 public import CFSG.CharacterTheory.Semidihedral.Principal.PrimeOrderSylowColumn
-public import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion
 public import CFSG.CharacterTheory.TwoRankLowerBound.NormalComplementCharacterSpace
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExclusion
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpWedge
 public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
-public import CFSG.LocalAnalysis.LargeEvenClassification.C8FourSubgroupExhaustion
-public import CFSG.LocalAnalysis.LargeEvenClassification.C8FourSubgroupRanks
-public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicFourLarge
-public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicTwoFourGenerators
-public import CFSG.LocalAnalysis.LargeEvenClassification.MacWilliamsReduction
-public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstruction
-public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionNormalTwoFixedPointHull
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldNaturalAction
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionThreePointFullTransport
@@ -53,10 +36,6 @@ public import CFSG.Quasithin.Background.C1PackC129Case
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -103,10 +82,6 @@ public import CFSG.Quasithin.Vol2.Ch11StatementsG
 public import CFSG.Quasithin.Vol2.Ch12Sec8NonabHatTen
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent.Radical
 public import CFSG.Sporadic.Schreier.J4SCommGenBase1
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 public import Certificates.Kernel.J4Count.Prim
 
 public section

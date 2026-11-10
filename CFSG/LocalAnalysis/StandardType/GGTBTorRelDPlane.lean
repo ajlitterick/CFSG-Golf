@@ -1,16 +1,8 @@
 module
 
-public import CFSG.ClassicalGroups.Orthogonal.Hyperbolic
 public import TauCeti.LinearAlgebra.Determinant
-public import Mathlib.Algebra.Polynomial.SpecificDegree
-public import Mathlib.LinearAlgebra.Charpoly.Basic
-public import Mathlib.LinearAlgebra.Eigenspace.Charpoly
-public import Mathlib.FieldTheory.Finite.GaloisField
 public import CFSG.LinearAlgebra.ExtraspecialCyclotomicModule
-public import CFSG.Timmesfeld.Orders.ClassicalAnisotropic
 public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-public import Mathlib.Algebra.CharP.CharAndCard
-public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.Basic
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointActionModels
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelWitness

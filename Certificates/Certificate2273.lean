@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.SmallOddCore.HSLocalCheckInputs
 public import CFSG.Sporadic.SmallOddCore.HSCosetInputs
 public meta import CFSG.Sporadic.SmallOddCore.HSData
 public meta import CFSG.Sporadic.SmallOddCore.ClassSimple

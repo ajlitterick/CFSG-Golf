@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaWeylAux
-public import Mathlib.LinearAlgebra.Matrix.Notation
 public import CFSG.Mathlib.Decide.Bounded
 public import CFSG.Mathlib.Decide.Nodup
 

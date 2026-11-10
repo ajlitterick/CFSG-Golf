@@ -3,15 +3,12 @@ module
 
 public import CFSG.Quasithin.Recognition.RuRank3RuIsoDataBase
 
-public import CFSG.Sporadic.Schreier.RuLocalFacts
-public import CFSG.Sporadic.Schreier.RuReps
 public import CFSG.Quasithin.Recognition.RuRank3Tits13
 public meta import CFSG.Sporadic.Schreier.RuLocalFacts
 public meta import CFSG.Sporadic.Schreier.RuReps
 public meta import CFSG.Sporadic.Schreier.RuCheckChains
 public meta import CFSG.Quasithin.Recognition.RuRank3Tits13
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Quasithin.Recognition.RuRank3RuIsoDataInputs
 public import Certificates.Certificate7047
 
 public section

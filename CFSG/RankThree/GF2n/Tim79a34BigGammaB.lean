@@ -4,7 +4,6 @@ public import CFSG.RankThree.GF2n.Tim79a34BigEpsGe
 public import CFSG.RankThree.GF2n.Tim79a34BigIWProof
 public import CFSG.RankThree.GF2n.Tim79a34BigNaturalProof
 public import CFSG.RankThree.GF2n.Tim79a34BigGammaBasic
-public import Certificates.Kernel.J4Count.FixCE
 
 public section
 

@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34F2Even2PGL
 public import CFSG.Adapters.Certificate43Check
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherFactsL2Orders
-public import Mathlib.LinearAlgebra.Matrix.Notation
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherFactsL2Maximal
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 
 public section
 

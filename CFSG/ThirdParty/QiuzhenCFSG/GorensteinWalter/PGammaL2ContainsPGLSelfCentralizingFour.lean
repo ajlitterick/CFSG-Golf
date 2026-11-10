@@ -1,15 +1,11 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PureSemilinear
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2DihedralProjection
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourCentralizerTransport
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourExceptionTransport
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GWLemma21Trichotomy
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
 public import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourMapInjective
-import Mathlib.GroupTheory.SpecificGroups.KleinFour
 
 namespace CFSG
 end CFSG

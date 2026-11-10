@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.ExcPos.U1aRootSub
 public import CFSG.LocalAnalysis.StandardType.ExcPos.U1aPairInner
 public import CFSG.LocalAnalysis.StandardType.ExcPos.U1aPairOuter
-public import CFSG.Foundations.SteinbergCADefinitionNodes
 public import CFSG.GroupTheory.OddKernelImage
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongE6
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2E7Bridge

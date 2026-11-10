@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117Defs
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117Lift
 public import CFSG.LocalAnalysis.GLTheoremA.S4.FullCover.MultLie
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.I2611
-public import CFSG.RankThree.PartTwo.Census.Carrier.SpinDOdd
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A

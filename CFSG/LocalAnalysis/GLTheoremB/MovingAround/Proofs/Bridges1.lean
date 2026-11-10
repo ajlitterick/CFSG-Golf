@@ -3,18 +3,14 @@ module
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma135b
 public import CFSG.HardMathSupport.Solomon.Coordinator.I11_2Full
 public import CFSG.HardMathSupport.Timmesfeld.Coordinator.ScopeBInputs
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.Final
 public import CFSG.HardMathSupport.Solomon.Coordinator.T112TCAll
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Prop112
 public import CFSG.HardMathSupport.Solomon.Coordinator.I19_1Main
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma1111
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Konvisser3
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Input183
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Input223
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KI2320Main
-public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.PGroupNormalE4
 public import CFSG.LocalAnalysis.RankFourTheoremC.P5.Ctx
-import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.CGT.PushingUpLit.Statements
@@ -46,8 +42,6 @@ public import CFSG.Quasithin.Background.C1PackS15212C
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

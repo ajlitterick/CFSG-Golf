@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-import CFSG.LocalAnalysis.StandardType.GGTableB
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineClassical
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestBasic
 import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVac
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNinePGL
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmall
-import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestVac
 
 public section
 

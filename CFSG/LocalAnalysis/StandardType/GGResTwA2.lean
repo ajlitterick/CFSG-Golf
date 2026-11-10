@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResTwA2Defs
 public import CFSG.LocalAnalysis.StandardType.GGResTwA2Nbr
-public import CFSG.LocalAnalysis.StandardType.GGResLeaves
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 
 public section
 

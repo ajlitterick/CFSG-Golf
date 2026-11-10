@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC11AltVec
 public import CFSG.Mathlib.Decide.Bounded
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.GH74.Generic.Certificates
 public import CFSG.GH74.Statements

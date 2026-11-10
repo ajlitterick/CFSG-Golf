@@ -1,18 +1,14 @@
 module
 
-public import CFSG.GH74.GLS.C3.Prop121.ModelFiveS
 public meta import Mathlib.GroupTheory.SpecificGroups.Alternating
 public meta import CFSG.GH74.GLS.C3.Prop121.ModelFive
 public meta import CFSG.GH74.GLS.C3.Prop121.ModelFiveS
 public meta import CFSG.GH74.GLS.C3.Layer2.FinModelDefs
 public meta import CFSG.GH74.GLS.C3.Layer2.FinModelEmb
 public meta import CFSG.GH74.GLS.C3.Layer2.NumMoved
-public import CFSG.GH74.GLS.C3.Layer2.L5FinInputs
 public meta import CFSG.GH74.GLS.C3.Layer2.L5FinInputs
 public import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 public import Certificates.Certificate5072
-public import Certificates.Certificate5092
 
 public section
 

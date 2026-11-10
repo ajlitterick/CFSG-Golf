@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.Duality
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.DualOuterFull
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.Transfer
 
 public section
 

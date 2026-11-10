@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.Pieces
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.RankThree.PartTwo.Census.Alternating
 public import CFSG.LargeExtraspecial.A2ModOrdCard
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionMaximalPrimeNormalizer
@@ -25,7 +24,6 @@ public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

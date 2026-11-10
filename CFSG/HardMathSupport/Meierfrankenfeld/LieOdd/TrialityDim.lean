@@ -1,12 +1,7 @@
 module
 
-public import Mathlib
-public import CFSG.LieType.Steinberg.TwistedD4.Local
-public import CFSG.LieType.Chevalley.RootCommutator
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationShortAdjoint
 public import CFSG.HardMathSupport.Meierfrankenfeld.FFToolkit.HeisRootInj
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.Balance.PassTwoFinal
 public import CFSG.LieType.Ree.SmallReeModelSchreier
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
@@ -38,7 +33,6 @@ public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
 public import CFSG.Quasithin.Background.B15P4LayerDict
 public import CFSG.Quasithin.Background.B1MoreNineG
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

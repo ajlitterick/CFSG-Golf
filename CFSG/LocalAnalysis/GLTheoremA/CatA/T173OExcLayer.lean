@@ -1,14 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcCent
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3LieRes
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.AssemblyAll
 public import CFSG.LocalAnalysis.SeitzReduction.E8PilotPositionPerfect
 public import CFSG.LieType.SeitzGeneration.ExcOuterLeOne.EntryLemma
 public import CFSG.Adapters.CatalogueFieldBridges.Exceptional
-public import CFSG.LieType.Chevalley.OppositeNoncommutativity
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2

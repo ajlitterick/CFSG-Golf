@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanPrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourTBSmall
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrOfEnnola
 
 public section
 

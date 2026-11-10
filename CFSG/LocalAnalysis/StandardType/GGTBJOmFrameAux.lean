@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusCore
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelOmMvMoves
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Certificates.Kernel.Spor.PackWord
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
-public import CFSG.Sporadic.SmallOddCore.McLLocalCheckInputs
 public import CFSG.Sporadic.Recognition.McLCentralizerInputs
 meta import CFSG.Sporadic.SmallOddCore.McLLocalCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness

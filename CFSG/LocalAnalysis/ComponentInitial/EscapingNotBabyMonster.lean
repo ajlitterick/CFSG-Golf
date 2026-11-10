@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.B.CTIB.ComponentsSeventeen
 public import CFSG.Monster.B.Final.PinnedBOrder
-public import CFSG.LocalAnalysis.ComponentInitial.EscapingBlockQuotient
 public import CFSG.LocalAnalysis.ComponentInitial.EscapingNotAlternating
 public import CFSG.LocalAnalysis.ComponentInitial.GroupCentralQuotient
 public import CFSG.GroupTheory.LocalCores.Layer

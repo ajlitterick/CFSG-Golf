@@ -5,7 +5,6 @@ public import Certificates.Kernel.Misc.T46Data
 public import Certificates.Kernel.Misc.Unitary
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Misc.KernelRfl
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Misc.O73Sound
 public import Mathlib
 

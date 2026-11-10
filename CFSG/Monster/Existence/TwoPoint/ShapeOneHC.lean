@@ -2,10 +2,8 @@ module
 
 public import CFSG.Monster.Existence.TwoPoint.ShapeOneGriess
 public import CFSG.Monster.Existence.BabyW2
-public import CFSG.Monster.Existence.NormalizerF
 public import CFSG.Monster.B.CTIB.UniqueComponent
 public import CFSG.Monster.GMS.BabyCover
-import Mathlib.Tactic.Group
 public import CFSG.Monster.AxisCount.BabyCoverSpec
 
 public section

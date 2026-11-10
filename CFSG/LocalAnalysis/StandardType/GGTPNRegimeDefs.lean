@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 public import CFSG.LocalAnalysis.StandardType.GGKacK1
-public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
 
 public section
 

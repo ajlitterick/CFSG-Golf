@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S8.HNNative
-public import CFSG.LocalAnalysis.GLTheoremA.S8.I1016ONRow
 public import CFSG.LocalAnalysis.GLTheoremA.S8.Lemma83Inputs
-public import CFSG.Sporadic.Bridge.HNSurj
-public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.TrivialRows
-public import CFSG.LocalAnalysis.GLTheoremA.Sec5BTools
 public import CFSG.LocalAnalysis.GLTheoremA.S8.Lemma84Tools
 public import CFSG.LocalAnalysis.GLTheoremA.S8.Lemma82
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup

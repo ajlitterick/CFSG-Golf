@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixStd
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitNbrB
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMLin
-import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosurePComp
 
 public section

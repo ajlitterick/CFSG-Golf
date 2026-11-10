@@ -7,8 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGFrameFSxE7
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteFSCenter
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteFSEnds
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteLower
-import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 
 public section
 

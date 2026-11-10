@@ -10,7 +10,6 @@ import CFSG.ClassicalGroups.Symplectic.Sp4LagrangianParabolic
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotNonsplitSL2
 import CFSG.RankThree.PartTwo.KFacts.K71Sp4
 import CFSG.GH74.GLS.Stage2.Signalizer.Odd87Sp4OutPsp4
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

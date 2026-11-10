@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.KDenseP.Q7.Run
 public import CFSG.Certificates.Kernel.KDenseP.Q7.Pairs
-public import CFSG.Certificates.Kernel.Common.Chain
 import CFSG.Certificates.Kernel.Common.Each
 public import CFSG.YGroups.Y443.Native.EdgeNoncomm
 

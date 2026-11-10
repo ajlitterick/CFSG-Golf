@@ -1,8 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Defs
-public import CFSG.OddTranspositions.HalphaQuotient
-public import CFSG.Timmesfeld.Bridge.Asc72Lift
 
 public section
 

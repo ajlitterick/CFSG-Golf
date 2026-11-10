@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.Norton.MON5_7.SevenDatum
-import Certificates.Certificate6007
 import Certificates.Kernel.KDenseP.Norton
 public import CFSG.LocalAnalysis.AGLEmbedding.Norton.MON5_7.WordCheck
 public import CFSG.YGroups.Y443.Native.EdgeNoncomm

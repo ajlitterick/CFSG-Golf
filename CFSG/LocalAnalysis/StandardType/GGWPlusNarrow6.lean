@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGWPlusNarrow6Defs
 public import CFSG.LocalAnalysis.StandardType.GGWPlusUnitLabel
 
 public section

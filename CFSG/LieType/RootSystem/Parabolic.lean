@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.RootSystem.Form
-public import TauCeti.GroupTheory.Coxeter.Parabolic
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.Schreier.ONWordDatum
 public import CFSG.Sporadic.Schreier.ONCompactSpec
 public import Certificates.Data.CFSGNative.ONSchreier.Vectors
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

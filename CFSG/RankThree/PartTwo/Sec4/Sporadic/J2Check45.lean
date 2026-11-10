@@ -1,17 +1,13 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Data45
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Check3
 public meta import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Data45
 public meta import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Check3
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Check45Inputs
 public import Certificates.Certificate8169
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAut
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.Sporadic.J2
 public import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

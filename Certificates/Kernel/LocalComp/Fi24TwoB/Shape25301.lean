@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.LocalComp.Fi24TwoB.A15027
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.Fi24ShapeCheck
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Multipliers.ProductKernel

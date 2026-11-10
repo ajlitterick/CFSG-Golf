@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Uni3
-public import CFSG.RankThree.PartOne.KC.OrthogonalBlockQuasisimple
 
 public noncomputable section
 

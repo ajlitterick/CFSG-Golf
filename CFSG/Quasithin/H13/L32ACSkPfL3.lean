@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Quasithin.H13.L32ACSkPfL2
-public import CFSG.Quasithin.H13.KGFact22TorL3
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherFieldInvolution
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherGraphFieldInvolution
 public import CFSG.RankThree.PartTwo.KFacts.AutPSL
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore

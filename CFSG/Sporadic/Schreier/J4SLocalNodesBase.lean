@@ -2,11 +2,7 @@
 module
 
 public import CFSG.Sporadic.Schreier.J4SGLBase
-public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Schreier.J4SCols
-public import CFSG.Sporadic.Schreier.J4SOrbitsBase
 public meta import CFSG.Sporadic.Schreier.J4SOrbitsBase
-public import CFSG.Sporadic.J4.Local
 
 @[expose] public noncomputable section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTransvectionCore
-public import CFSG.LieType.BorelTits.Basic
-public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotBlocks
 
 public section
 

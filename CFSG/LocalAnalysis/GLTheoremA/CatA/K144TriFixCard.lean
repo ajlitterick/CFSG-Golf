@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GTriFix
-import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenG2Two
 import CFSG.RankThree.PartTwo.Sec8.Item812Res8ProofGammaInner
 import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.TriD4OuterAux.Two
 import CFSG.Certificates.LiftedSchreierData

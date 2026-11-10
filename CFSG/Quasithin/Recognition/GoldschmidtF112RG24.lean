@@ -3,9 +3,7 @@ module
 public import CFSG.Quasithin.Recognition.GoldschmidtF112RSp44
 public import CFSG.Quasithin.Recognition.GoldschmidtF112RTransport
 public import CFSG.Quasithin.Vol2.Ch9Sec3FactsF112PfB
-public import CFSG.Quasithin.H13.NQCatG2RadModel
 public import CFSG.Sporadic.Recognition.LyonsAS44Frattini
-public import CFSG.LocalAnalysis.QuasithinUnique.GammaFamiliesBasic
 public import CFSG.Quasithin.Background.F6GoldschmidtListCat
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtRk2ParG2
 public import CFSG.Quasithin.Recognition.F112RShapes

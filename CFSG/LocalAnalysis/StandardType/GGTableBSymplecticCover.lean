@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticLift
 import CFSG.RankThree.PartOne.S15K.CentralCover
-import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeGroup
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-public import CFSG.Assembly.Subnormal
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 
 public section

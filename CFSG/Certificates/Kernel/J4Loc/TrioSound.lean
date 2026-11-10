@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.J4Loc.Trio
 public import CFSG.Certificates.Kernel.J4Q.RepQT2B
 public import CFSG.Sporadic.J4.QTElem
-public import CFSG.Sporadic.J4.QTRankNative
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.HNSchreier.InvolSpec
-public import CFSG.Sporadic.HNSchreier.Recognition
 
 public noncomputable section
 

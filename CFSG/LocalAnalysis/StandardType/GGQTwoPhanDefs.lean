@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Phan.Defs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagUnitary
 public import CFSG.LocalAnalysis.StandardType.GGPhanSuBridge

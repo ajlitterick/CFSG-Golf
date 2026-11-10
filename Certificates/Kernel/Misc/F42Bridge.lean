@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Misc.F42
-import Mathlib.Tactic.NormNum
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.PK.MiscBase
 import Certificates.Data.Kernel.Misc.T46

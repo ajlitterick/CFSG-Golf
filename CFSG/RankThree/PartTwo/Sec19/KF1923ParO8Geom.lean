@@ -4,10 +4,7 @@ public import CFSG.RankThree.PartTwo.Sec19.KF1923ParO8Core
 public import CFSG.RankThree.PartTwo.Sec19.KF1923ParO8Layer
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailMaxBorel
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailSylow
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailUnipotentGroup
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailWeylLift
 import CFSG.RankThree.PartTwo.Sec4.RonanK429RowFOm8Model
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting

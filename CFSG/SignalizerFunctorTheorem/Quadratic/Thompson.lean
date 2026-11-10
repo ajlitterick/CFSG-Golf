@@ -1,15 +1,10 @@
 module
 
-public import Mathlib
-public import CFSG.SignalizerFunctorTheorem.Glauberman.Basic
 public import CFSG.SignalizerFunctorTheorem.Quadratic.ThompsonJ
 public import CFSG.SignalizerFunctorTheorem.Quadratic.Ambient
 
 import CFSG.GroupTheory.ABGLocalTools.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 public import CFSG.LocalAnalysis.SignalizerFunctor
 
 public section

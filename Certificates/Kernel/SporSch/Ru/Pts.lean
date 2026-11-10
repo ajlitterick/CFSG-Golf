@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.Certificates.Kernel.SporSch.RuSound
-public import CFSG.Sporadic.Schreier.RuDefs
 meta import CFSG.Sporadic.Schreier.RuDefs
 import CFSG.Certificates.Kernel.Common.Harness
 

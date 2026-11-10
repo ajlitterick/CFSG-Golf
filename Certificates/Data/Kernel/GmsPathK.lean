@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.VecK
 public import CFSG.Certificates.Kernel.Co1M.OrbitMem
 
 public section

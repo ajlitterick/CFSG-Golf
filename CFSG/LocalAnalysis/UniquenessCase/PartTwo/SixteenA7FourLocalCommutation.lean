@@ -3,14 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenA7FourBlockInvolutions
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenA7FourBlockUniqueness
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenSix
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenSixGlue
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenSixThree
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTwo
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenGlue
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenFiveTen
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTools
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenUniqueMax
-public import CFSG.Quasithin.Background.B1ChiefCount
 
 public section
 

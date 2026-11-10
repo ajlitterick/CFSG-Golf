@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGExcRERegimeDefs
 public import CFSG.LocalAnalysis.StandardType.GGExcCentred
 public import CFSG.LocalAnalysis.StandardType.GGTypeAExcOneThree
 public import CFSG.LocalAnalysis.StandardType.GGTypeAE6Three
-public import CFSG.LocalAnalysis.StandardType.GGTypeADefs
 
 public section
 

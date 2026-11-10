@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearTwoDescentFiel
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.Lemma37.RankBoundField
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoGeneralLinear
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

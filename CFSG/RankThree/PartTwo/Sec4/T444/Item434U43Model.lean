@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434U43Code
-public import CFSG.Quasithin.Background.G2UClosure
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.Perm.Cycle.Type
-public import Mathlib.Data.Fintype.Perm
 
 public section
 

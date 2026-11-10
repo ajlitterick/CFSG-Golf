@@ -3,19 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeBigCell
 import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1Tor
 import CFSG.LocalAnalysis.StandardType.GGTDLabels
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySplitRefl
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
-import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 import CFSG.LocalAnalysis.StandardType.GGQ2LDatumDims
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
 import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeLinearNbr
-import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimLinear
-import CFSG.LocalAnalysis.StandardType.GGNbrLangTorARankBound
 
 public section
 

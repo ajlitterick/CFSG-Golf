@@ -1,13 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResSingularAExactTwo
 public import CFSG.LocalAnalysis.StandardType.GGResThreeSettled
 public import CFSG.LocalAnalysis.StandardType.GGK2E6ExactTwoJoin
-public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeBLinearNs
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc11R
-public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
-public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-public import CFSG.LocalAnalysis.StandardType.GGTCJHolds
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.S7CentDefs
-public import Mathlib.GroupTheory.Sylow
 import CFSG.LieType.BorelTits.Basic
 import CFSG.LocalAnalysis.StandardType.FS81.S7CentralHall
 

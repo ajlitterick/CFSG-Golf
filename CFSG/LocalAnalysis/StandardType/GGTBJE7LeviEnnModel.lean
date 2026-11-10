@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviEnnModel
-public import CFSG.LocalAnalysis.StandardType.GGMaxRankJModel
 public import CFSG.LocalAnalysis.StandardType.GGF4NbrAutReflKGReduce
 public import CFSG.HardMathSupport.Meierfrankenfeld.Proving.E7Curtis.E7Arith
 public import CFSG.LocalAnalysis.StandardType.GGTBJE7LeviDatum

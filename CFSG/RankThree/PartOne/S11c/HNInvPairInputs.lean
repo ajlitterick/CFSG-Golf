@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.HNOddCore.SixCheckInputs
-public import CFSG.Sporadic.HNOddCore.ChainUtil
 public import CFSG.RankThree.Native.HSMcLSmallData
 public meta import CFSG.Sporadic.HNOddCore.SixCheckInputs
 public meta import CFSG.Sporadic.HNOddCore.ChainUtil

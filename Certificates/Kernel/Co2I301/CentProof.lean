@@ -3,11 +3,8 @@ module
 
 public import Certificates.Kernel.Co2I301.SixProof
 public import Certificates.Kernel.Co2I301.QChk
-public import Certificates.Kernel.SporSch.Co2M.Class
-public import Certificates.Kernel.SporSch.Co2M.Span
 public import CFSG.Sporadic.Co2I301.SpecAux
 public import CFSG.Sporadic.Co2I301.SpecSixAuxBase
-public import CFSG.Sporadic.Co2Schreier.Cores
 
 public section
 

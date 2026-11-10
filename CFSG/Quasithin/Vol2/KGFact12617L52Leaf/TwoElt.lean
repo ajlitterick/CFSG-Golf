@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.KGFact12617L52Leaf.Defs
-public import CFSG.Quasithin.Vol2.KGFact12617L52a
 
 public section
 

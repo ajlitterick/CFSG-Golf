@@ -2,68 +2,34 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResSingularAExactTwo
 
-public import TauCeti.LinearAlgebra.BilinearForm.SymplecticBasis
 
-public import Mathlib.LinearAlgebra.SesquilinearForm.Orthogonal
 
-public import Mathlib.LinearAlgebra.QuadraticForm.Basic
 
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 
-public import Mathlib.Data.ZMod.Basic
 
-public import Mathlib.Data.Fintype.Card
 
 public import CFSG.RankThree.PartOne.KF.ClsPOmegaPlus
 
 public import CFSG.RankThree.PartOne.KF.ClsPOmegaMinus
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
 
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmFrame
 
-public import CFSG.LocalAnalysis.StandardType.GGSUNonsplitTwoBlockPiece
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
-public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneClassicalShearQuadratic
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Sp3
 
-public import CFSG.LieType.Steinberg.CentralExt.GriessOmegaEightTwo
 
-public import CFSG.LieType.Steinberg.CentralExt.GriessNativeModels
 
-public import CFSG.LieType.Steinberg.CentralExt.GriessClassical
 
 public import CFSG.HardMathSupport.Cooperstein.StructureLie.OrthogonalCentre
 
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public import CFSG.RankThree.PartOne.KFR4.Row4
 
-public import CFSG.GroupTheory.CenterlessInnerCentralizer
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45KGCentre
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaMinus
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 
 public import CFSG.Quasithin.EmptyFaithful.SzC4ChiGrpSq
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgOrthogonal
-public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenGenB
 public import CFSG.LocalAnalysis.StandardType.GGTCJEnnolaOrthModel
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Bridge
-public import CFSG.LocalAnalysis.StandardType.GGResFixedWeylCentralizer
-public import CFSG.LocalAnalysis.StandardType.GGResHigherFieldI1
-public import CFSG.LocalAnalysis.StandardType.GGResUnitaryExactTwo
 public import CFSG.LocalAnalysis.StandardType.GGTorsionPOmegaComp
-public import CFSG.LocalAnalysis.StandardType.GGTwistedLabelModels
-public import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndSmall
-public import CFSG.Assembly.LargeEvenDefs
-public import CFSG.Open.StatedDefs
-public import CFSG.Assembly.GL83LieDefs
-public import CFSG.Assembly.Defs
-public import Mathlib.LinearAlgebra.Basis.Basic
 public import CFSG.RankThree.PartOne.S12.Sec136Inputs
 public import CFSG.RankThree.PartOne.S12.Sec136Pair
 public import CFSG.RankThree.PartOne.S12.Sec136Setup

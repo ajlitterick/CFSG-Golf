@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.HSp4A6DataInputs
-public import CFSG.Quasithin.Background.HSp4Model
-public import CFSG.Quasithin.Background.G6Natural
 import Certificates.Kernel.Direct.C7067
 
 public section

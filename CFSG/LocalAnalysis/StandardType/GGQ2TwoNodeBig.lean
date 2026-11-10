@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2SubStab
-public import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeBigHeart
 import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeBigIrr
 import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeBigRed

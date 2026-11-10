@@ -2,17 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.TwelveSetting
 public import CFSG.Quasithin.Vol2.E2TenSevenMult
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.StronglyEmbedded.BenderBorelTransport
 public import CFSG.Holt.PointHullTwoGroupBasic
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.Adapters.LinearFieldTransport
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.LieType.BorelTits.Suzuki
-public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderLinearBorel
-public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderSuzukiBorel
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Wreathed.NonabelianCentralizer
 public import CFSG.Foundations
 public import CFSG.Goldschmidt.Statements
@@ -37,19 +27,6 @@ public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.A3Structure38Facts
 public import CFSG.Quasithin.Background.B2Thompson
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralUniqueCentralInvolution
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.MinimalCounterexample
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PreambleHSU
 public import CFSG.Walter.JRFacts
 
 public section

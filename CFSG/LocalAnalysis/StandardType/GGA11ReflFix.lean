@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGA11NbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcReflectionCharpoly
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveNbrBasic
 
 public section

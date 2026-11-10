@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172AExistBase
-public import CFSG.Adapters.RankTwoModelTransports
 public import CFSG.Adapters.StatedSLTwoField
 public import CFSG.HardMathSupport.Solomon.Coordinator.McLTypeFactsSL
 public import CFSG.Blueprint.OddStandardExact

@@ -3,9 +3,7 @@ module
 
 public import CFSG.Certificates.Kernel.ThDemp.Action
 public import CFSG.Certificates.Kernel.ThDemp.Batches
-public import CFSG.Certificates.Kernel.ThDemp.SoundBase
 public import CFSG.Certificates.Kernel.ThDemp.Sound
-public import Mathlib.Algebra.BigOperators.Intervals
 
 @[expose] public section
 

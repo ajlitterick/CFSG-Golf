@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Mathieu.Gen
 public import CFSG.Sporadic.Schreier.MathieuOddCoreM22Data
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM22Data
-import CFSG.Certificates.Kernel.Common.Harness
 public meta import CFSG.Sporadic.Schreier.M22
 public import CFSG.Sporadic.Schreier.M22
 public import CFSG.Sporadic.Schreier.MathieuOddCoreCentral

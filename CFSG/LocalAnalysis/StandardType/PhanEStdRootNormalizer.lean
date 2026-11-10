@@ -5,11 +5,9 @@ public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusDoubleEdge
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoFusionE7
 public import CFSG.LieType.Chevalley.CharTwoWeylLifts
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.Survivors.E7Rep
-public import CFSG.LocalAnalysis.SeitzReduction.E7PilotQ2Neighbour
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E7SplitTorus
 public import CFSG.GroupTheory.LangFixedConjugation
 public import CFSG.GroupTheory.ConjKerCenter
-public import CFSG.LocalAnalysis.SeitzReduction.E8PilotLevi
 public import CFSG.ClassicalInvolution.RouteD.GapsOrthChain
 public import CFSG.ClassicalInvolution.RouteD.MultiModelGlue
 public import CFSG.ClassicalInvolution.RouteD.MultiStarStd

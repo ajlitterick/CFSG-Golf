@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGE6ThreeNonToralCent
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelModule
 public import CFSG.LieType.AlgebraicGroups.ConnectedConjugationNorm
 public import CFSG.LieType.AlgebraicGroups.TorusGroupClosed
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 
 public noncomputable section
 

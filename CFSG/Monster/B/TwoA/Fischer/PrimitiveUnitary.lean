@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.B.Classical.UnitarySixGraph
-public import Mathlib.Algebra.Order.Ring.Star
 
 public section
 

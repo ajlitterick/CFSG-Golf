@@ -1,7 +1,5 @@
 module
 
-public import Mathlib
-public import CFSG.Blueprint.NativeSporadic
 public import CFSG.Sporadic.Fi24.RRefSpec
 public import Certificates.Data.CFSGNative.Fi24.Certificate
 public import Certificates.Data.Kernel.Spor.Fi24OrbL

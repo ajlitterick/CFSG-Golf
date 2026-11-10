@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoTBCCoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXGraphLin
 public import CFSG.GroupTheory.SupCommute
 public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 
 public section
 

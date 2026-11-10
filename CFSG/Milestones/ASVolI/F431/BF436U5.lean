@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Fischer.F4
 import all CFSG.Fischer.F4
 import all CFSG.ClassicalGroups.UnitaryFlag.GramForm
 import all CFSG.Milestones.ASVolI.F4

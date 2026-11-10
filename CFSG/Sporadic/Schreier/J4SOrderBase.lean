@@ -4,11 +4,7 @@ module
 public import CFSG.Sporadic.Schreier.J4SOrbitCheckBase
 public import CFSG.Sporadic.Schreier.J4SChain
 public import CFSG.Sporadic.J4Base
-public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Schreier.J4SCols
-public import CFSG.Sporadic.Schreier.J4SOrbitsBase
 public meta import CFSG.Sporadic.Schreier.J4SOrbitsBase
-public import CFSG.Sporadic.J4.Local
 
 @[expose] public noncomputable section
 

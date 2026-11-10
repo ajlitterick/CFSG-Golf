@@ -3,7 +3,6 @@ module
 public import Certificates.Certificate733004
 public import Certificates.Data.G24IdentLin
 import CFSG.Certificates.Kernel.G24LinQSound
-import Certificates.Data.Kernel.G24LinK
 import Certificates.Kernel.G24IdLin.Rec
 import CFSG.Certificates.Kernel.Common.Harness
 meta import Certificates.Kernel.Misc.Perm.CharsCatList

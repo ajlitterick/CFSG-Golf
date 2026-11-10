@@ -4,8 +4,6 @@ public import Certificates.Kernel.SporSch.Tits.QT4155
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKTitsInputs
 meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKTitsInputs
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.PerfectResidualNodes
 public import CFSG.LieType.Chevalley.RootCommutator
@@ -41,9 +39,6 @@ public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.Sporadic.Schreier.J4SSylow
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.Sporadic.Schreier.TitsQTModel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 public import CFSG.Walter.Defs
 public import Certificates.Certificate8026Base
 meta import CFSG.Assembly.OrderReductions.InvertedSubgroup

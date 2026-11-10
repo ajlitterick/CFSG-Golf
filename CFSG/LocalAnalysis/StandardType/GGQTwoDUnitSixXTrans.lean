@@ -1,23 +1,13 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixX
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixBase
 public import CFSG.LocalAnalysis.StandardType.GGNsq2U62
 public import CFSG.LocalAnalysis.StandardType.GGNsq2QuotNorm
 import CFSG.LocalAnalysis.StandardType.GGNsq2PairLift
-import CFSG.LocalAnalysis.StandardType.GGNsq2QuotAut
 import CFSG.LocalAnalysis.StandardType.GGNsq2QuotCover
 import CFSG.LocalAnalysis.StandardType.GGNsq2Main
 import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrSixEdge
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitRankTwo
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitXTransA
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixDel
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixCommon
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixComp
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixNbr
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosBlockAux
-import CFSG.LocalAnalysis.StandardType.GGLinearFusionSLCent
-import CFSG.ClassicalGroups.Unitary.SUThreeTwoDiagHom
 
 public section
 

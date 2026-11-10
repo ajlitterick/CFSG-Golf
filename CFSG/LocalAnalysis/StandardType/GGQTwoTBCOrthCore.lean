@@ -9,7 +9,6 @@ import CFSG.LocalAnalysis.StandardType.GGQTwoTBCOrthBlocks
 import CFSG.LocalAnalysis.StandardType.GGQTwoTBCOrthBlockFacts
 import CFSG.LocalAnalysis.StandardType.GGQTwoTBCOrthComp
 import CFSG.LocalAnalysis.StandardType.GGQTwoTBCTransfer
-import CFSG.RankThree.PartOne.KC.OrthogonalComponentFacts
 public import CFSG.ClassicalInvolution.Orders.OrthogonalCount
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointActionModels

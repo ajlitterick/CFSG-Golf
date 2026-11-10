@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GroupTheory.LocalCores.Components
-public import Mathlib.Algebra.Group.Commutator
 public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

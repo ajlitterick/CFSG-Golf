@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Phan.PhanS6T2Co
-public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.Algebra.Polynomial.Roots
 
 public section
 

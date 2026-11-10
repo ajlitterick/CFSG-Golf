@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.ActualSetupPart1
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.CyclicFinish
-public import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
-public import CFSG.LieType.Chevalley.SylowOpposition
 
 public noncomputable section
 

@@ -4,7 +4,6 @@ public import Certificates.Data.CFSGNative.ON.Data
 public import Certificates.Data.Kernel.Spor.F3Lane
 public import Certificates.Data.Kernel.Spor.Row
 public import Certificates.Kernel.Sporadic.RowsWCmd
-public import Certificates.Kernel.Sporadic.RawGen
 public meta import Certificates.Data.CFSGNative.ON.Data
 public meta import Certificates.Data.CFSGNative.F3.Basic
 

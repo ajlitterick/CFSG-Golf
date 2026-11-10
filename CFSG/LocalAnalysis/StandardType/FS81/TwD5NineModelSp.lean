@@ -2,7 +2,6 @@ module
 
 public import CFSG.Fischer.Classification.Orthogonal2.Local
 public import CFSG.LocalAnalysis.StandardType.FS81.OrthParity
-public import CFSG.RankThree.PartOne.KC.OrthogonalComponentFacts
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenTriality
 public import CFSG.LocalAnalysis.SeitzReduction.E8PilotQ2PositionWork
 public import CFSG.LocalAnalysis.SeitzReduction.E8PilotSwapLift

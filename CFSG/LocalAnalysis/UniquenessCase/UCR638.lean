@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UCFront10
 public import CFSG.Holt.TwoGroupsFocal
 public import CFSG.RankThree.PartOne.CTP.StrongPFusion
 public import CFSG.RankThree.Transfer.Yoshida
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.CharacterTheory.Wreathed.QuaternionOvergroupsSupport
 public import CFSG.Dihedral.DihedralFusionPrefixes
@@ -29,10 +27,6 @@ public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Remaining
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_6
 
 public section
 

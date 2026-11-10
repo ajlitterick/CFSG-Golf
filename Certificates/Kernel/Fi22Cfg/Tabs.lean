@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.Fi22.Cent
 public import Certificates.Data.Kernel.Spor.Row
-public import Certificates.Data.Kernel.Spor.Chain
 public import Certificates.Kernel.Sporadic.RowsWCmd
 public meta import CFSG.Sporadic.Fi22.TriangularCfgInputs
 

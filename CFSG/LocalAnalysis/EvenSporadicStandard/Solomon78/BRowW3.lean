@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.BRowW3Cbar
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.BRowComponent
-public import CFSG.Monster.B.CTIB.CoreCensus
-public import CFSG.Monster.B.CTIB.Census
 public import CFSG.Monster.B.CTIB.SylowCenter
-public import CFSG.Monster.B.CTIB.UniqueComponent
-public import CFSG.Monster.B.CTIB.Fusion
 public import CFSG.Monster.Existence.BabyTableIIIOf
 public import CFSG.Monster.Existence.BabyW3Classes
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Common

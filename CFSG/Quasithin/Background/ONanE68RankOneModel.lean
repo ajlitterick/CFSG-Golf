@@ -1,22 +1,15 @@
 module
 
 public import CFSG.Open.BenderStronglyEmbeddedMilestoneDefs
-public import CFSG.Assembly.LowTwoRankDefs
 public import CFSG.Blueprint.Catalog
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Comparator.Defs
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
 import CFSG.StronglyEmbedded.BenderUnitaryBorel
 import CFSG.LieType.BorelTits.Suzuki
 import CFSG.Adapters.LinearFieldTransport
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 import CFSG.Models.BenderSuzuki
 import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderLinearBorel
 import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderSuzukiBorel
 public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.Models
 import CFSG.StronglyEmbedded.ParityCriterion
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.theorem_4_18_b
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Permutation.FinPack
 public import Mathlib.GroupTheory.Perm.Sign
-public import Mathlib.Data.Fintype.Perm
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Repo
 

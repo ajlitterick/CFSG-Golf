@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoRecFive
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLGenerate
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLCompBasic
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpLFrameMp
 import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoCrossingFour
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoSingleton
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoKReflect

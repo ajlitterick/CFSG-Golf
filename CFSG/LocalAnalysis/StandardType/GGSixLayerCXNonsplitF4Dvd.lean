@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitF4Four
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitF4Six
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitExcLabel
 public import CFSG.LieType.SeitzGeneration.ExcPlaneF4Rest
-public import CFSG.RankThree.PartOne.KE.CTMain
-public import CFSG.LieType.Steinberg.Adjoint.Perfect
 public import CFSG.LieType.SeitzGeneration.Lift
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FF81.RootFusionLinCent
 public import CFSG.LocalAnalysis.StandardType.FF81.RootFusionLinO2
 public import CFSG.LocalAnalysis.StandardType.FF81.RootFusionLinExtra
 public import CFSG.LocalAnalysis.StandardType.FF81.RootFusionLinNormal

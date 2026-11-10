@@ -6,9 +6,7 @@ public import Certificates.Kernel.Co3Cent.Hex
 public import Certificates.Kernel.Co3T.EnumC
 public import Certificates.Data.Kernel.HeDihK
 public import Certificates.Data.Kernel.K426K
-public import Certificates.Data.Kernel.PGrp
 public import Certificates.Data.Kernel.OrbRow.Cent
-public import Certificates.Data.L28Presentation
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

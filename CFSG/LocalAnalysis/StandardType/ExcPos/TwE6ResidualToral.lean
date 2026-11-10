@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6TTThreeUnitary
-public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1Defs
 import CFSG.LocalAnalysis.StandardType.GGE6RankFiveTorality
-import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

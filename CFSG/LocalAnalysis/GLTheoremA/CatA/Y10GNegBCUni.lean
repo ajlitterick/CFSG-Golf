@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GNegBCLab
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GNegBCOrd
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniRed
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsUni
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniScal

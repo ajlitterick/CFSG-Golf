@@ -1,8 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Th.Gen.Max3
-public import CFSG.Sporadic.Th.Max3.RankInputs
-public import Certificates.Data.Kernel.ThRank10508.Defs
 public import CFSG.Certificates.Kernel.Th.Max3S.R10508
 import CFSG.Certificates.Kernel.Common.Generalize
 public import CFSG.Certificates.Kernel.Th.Max3S.Regs

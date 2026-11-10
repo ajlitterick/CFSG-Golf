@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GF2Type.Smith1979.WidthFourKP.OmegaPlus.Faithful
-public import CFSG.GF2Type.Smith1979.WidthFourKP.OmegaPlus.OddCore
 public import CFSG.GF2Type.Smith1979.WidthFourKP.OmegaPlus.ThreeFour
 public import CFSG.GF2Type.Smith1979.WidthFourKP.OmegaPlus.Triple
 public import CFSG.GF2Type.Smith1979.WidthFourKP.Swap.Final

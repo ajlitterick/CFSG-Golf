@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.EvenF4OuterInvolutionsCanonical
-public import CFSG.LieType.Ree.LargeReeExceptionalFullCentralizer
 public import CFSG.LocalAnalysis.StandardType.GGFieldOuterModel
 public import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4FactsRank
 public import CFSG.RankThree.PartTwo.Sec21.ReeF4ThreeLocalProofRank

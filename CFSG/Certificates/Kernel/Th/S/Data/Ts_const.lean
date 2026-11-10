@@ -1,7 +1,6 @@
 
 module
 
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Th.S.Chars
 public import CFSG.Sporadic.ThSchreier.LocalOrbitInputs
 import CFSG.Certificates.Kernel.Common.NatItemsGz

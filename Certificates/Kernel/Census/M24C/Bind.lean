@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Census.M24C.Data
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicM22Tests
 public import CFSG.Certificates.Kernel.Census.ToMainConj
 import all Certificates.Kernel.Census.M24C.Data
 import all CFSG.Certificates.Kernel.Census.ToMain

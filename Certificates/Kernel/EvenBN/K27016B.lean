@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.EvenBN.CNtAux
 public import Certificates.Kernel.EvenBN.Lists
-public import Certificates.Data.TitsAschbacherSecFour
 public import Certificates.Data.Kernel.EvenBN.BaseTw
 meta import Certificates.Data.TitsAschbacherSecFour
 meta import CFSG.Quasithin.Recognition.RuRank3TitsClsInputs

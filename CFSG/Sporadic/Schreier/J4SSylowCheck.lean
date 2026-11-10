@@ -2,9 +2,7 @@
 module
 
 public import CFSG.Sporadic.Schreier.J4SSylowCheckBase
-public import CFSG.Sporadic.Schreier.J4SOrbitsBase
 
-public import CFSG.Sporadic.Schreier.J4SSylowData
 public meta import CFSG.Sporadic.Schreier.J4SSylowData
 public import Certificates.Certificate2182
 

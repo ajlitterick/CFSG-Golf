@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.Q3A.Text
 public import Certificates.Kernel.Sporadic.Q3A.Pins
-public import Certificates.Kernel.Sporadic.Suz.Text2306
 public import Certificates.Kernel.Sporadic.OddCore.SuzTwC
 public import Certificates.Kernel.Sporadic.OddCore.SuzMG
 public import Certificates.Kernel.Sporadic.OddCore.Suz2302

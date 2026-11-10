@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowXUnStructLin
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 public import CFSG.LieType.BorelTits.CompleteFlag
 import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

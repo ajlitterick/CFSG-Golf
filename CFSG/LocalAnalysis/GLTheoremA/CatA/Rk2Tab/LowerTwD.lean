@@ -1,14 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerSymplecticOrth
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailSylow
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelCoordinates
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailRootGen
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointIsometryBasic
-public import CFSG.ClassicalGroups.Orthogonal.Simple
-public import CFSG.RankThree.PartOne.KF.ClsOmega
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.RootSp2
-public import CFSG.LieType.Steinberg.CentralExt.GriessClassical
 
 public section
 

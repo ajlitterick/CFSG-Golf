@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.U48X1
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.U48X4
-public import CFSG.LocalAnalysis.GLTheoremA.S10.InputsBeta
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

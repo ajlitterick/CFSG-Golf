@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBRowR1Defs
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR1Kg
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR1E8Split
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR1Datum

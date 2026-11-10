@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.SortTreeP
 public import CFSG.Certificates.Kernel.SortTreeSlice
 public import Certificates.Kernel.MonsterB.Perm3018Data
-public import CFSG.Monster.B.TwoA.Census.PermBFS
 public import CFSG.Monster.B.TwoA.Census.MonoData
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.SortTreeMul

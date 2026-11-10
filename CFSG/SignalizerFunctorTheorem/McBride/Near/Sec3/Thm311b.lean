@@ -1,13 +1,7 @@
 module
 
-public import Mathlib
-public import CFSG.SignalizerFunctorTheorem.McBride.Near.AssocSup
-public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec3.IntrDefs
-public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec3.Thm33Transport
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec3.ThetaLInf
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec3.Thm311bAux3
-public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Generation
-public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Lemma25
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Lemmas
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.AChief
 

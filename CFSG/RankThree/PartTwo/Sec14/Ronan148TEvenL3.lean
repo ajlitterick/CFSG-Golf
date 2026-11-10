@@ -1,20 +1,14 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TEvenU3
-public import CFSG.RankThree.SubgroupLists.SchurCommutant
 public import CFSG.RankThree.SubgroupLists.CliffordPrime
 import CFSG.RankThree.PartTwo.Sec14.Ronan148TOddModel
-import CFSG.RankThree.SubgroupLists.CentralThreeLift
 import CFSG.RankThree.SubgroupLists.CentralizerPerfect
 import CFSG.RankThree.SubgroupLists.QuasisimpleLayer
 import CFSG.GH74.GLS.IVK.Lifted.SL2KGroup
 import CFSG.GH74.Uniqueness.Bender.Dickson
 import CFSG.RankThree.SteinbergR3ELargeEvenLinearTwoCover
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Alt
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.Open.StatedAPI
-import CFSG.CharacterTheory.Burnside
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Center
 import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
 import CFSG.Quasithin.EmptyFaithful.S152He9A5
 import CFSG.CGT.Timmesfeld75.L2Pair
@@ -64,10 +58,6 @@ import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureTwoCoreGrowthLinearFrobenius
 import CFSG.Permutation.UnitaryThreeRecognition.Model
 import CFSG.StronglyEmbedded.MatrixGroups.PSL2
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 import CFSG.Walter.J1.Inv
 

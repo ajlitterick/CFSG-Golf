@@ -1,16 +1,8 @@
 module
 
-public import CFSG.RankThree.Native.SuzFiveDefs
-public import CFSG.RankThree.Native.ChainCentralizer
-public import CFSG.Sporadic.SuzOddCore.SmallChainCheck
-public import CFSG.Sporadic.SuzOddCore.InvGraphCheck
-public import CFSG.Monster.B.Mathieu.SylowCore
-public import CFSG.Sporadic.SuzOddCore.RestrictDefs
 public import CFSG.RankThree.Native.SuzFiveCheckInputs
 import Certificates.Kernel.Sporadic.OddCore.S8147Fin
 import Certificates.Kernel.Sporadic.OddCore.S8147Neg
-import CFSG.Sporadic.SuzOddCore.ArraysCheckInputs
-import CFSG.Sporadic.SuzOddCore.FamilyCheckInputs
 meta import CFSG.Sporadic.SuzOddCore.ArraysCheck
 meta import Certificates.Data.CFSGNative.Schreier.Refine
 meta import Certificates.Data.CFSGNative.Perm.Chain

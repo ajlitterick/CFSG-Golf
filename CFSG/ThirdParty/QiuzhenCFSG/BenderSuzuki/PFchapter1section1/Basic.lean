@@ -1,11 +1,8 @@
 module
 
 public import Mathlib.GroupTheory.GroupAction.MultipleTransitivity
-public import Mathlib.GroupTheory.Sylow
-public import Mathlib.FieldTheory.Finite.GaloisField
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIII.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 
 namespace CFSG
 end CFSG

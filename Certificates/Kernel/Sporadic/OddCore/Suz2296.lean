@@ -4,7 +4,6 @@ public import Certificates.Kernel.Sporadic.OddCore.SuzInvOdd
 public import Certificates.Kernel.Sporadic.OddCore.SuzFusion
 public import Certificates.Kernel.Sporadic.OddCore.Suz2289
 public import CFSG.Certificates.Kernel.Spor.LenSound
-public import CFSG.Sporadic.SuzOddCore.InvArrays
 public import CFSG.Sporadic.SuzOddCore.ArraysCheck
 public import Certificates.Data.CFSGNative.Schreier.Refine
 import all CFSG.Sporadic.SuzOddCore.InvArrays
@@ -12,7 +11,6 @@ import all Init.Data.Nat.Fold
 import all Init.Data.Range.Basic
 import all Init.Data.Array.Basic
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

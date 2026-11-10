@@ -4,7 +4,6 @@ public import CFSG.Certificates.Kernel.Bounds.Hdr
 public import CFSG.Certificates.Kernel.Bounds.Co3.T1vData
 public import CFSG.Certificates.Kernel.Bounds.Co3Alt.T2vData
 public import CFSG.Certificates.Kernel.Bounds.Co3Alt.T3vData
-import CFSG.Certificates.Kernel.Bounds.Load
 
 open CFSG.Certificates
 

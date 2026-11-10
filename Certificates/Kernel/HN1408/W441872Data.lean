@@ -1,9 +1,6 @@
 module
 
 public import Certificates.Kernel.HN1408.W441872Defs
-public import Certificates.Kernel.Sporadic.OddCore.MulHCmd
-public import Certificates.Kernel.Misc.Perm.HexCmd
-public import Certificates.Kernel.LocalQT.PEnumD
 meta import Certificates.Kernel.HN1408.W441872Defs
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.CompatModel.WitCheck
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.BlockCheck

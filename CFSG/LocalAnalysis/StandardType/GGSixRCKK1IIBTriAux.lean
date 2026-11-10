@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIModel
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIpIso
-public import CFSG.LieType.Steinberg.CentralExt.TrialityClosed
 
 public section
 

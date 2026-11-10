@@ -3,10 +3,6 @@ module
 public import CFSG.Milestones.ASVolI.F431.BF436U5R
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsU5Main
 public import CFSG.Quasithin.Vol2.GoldschmidtF431Un5LieB
-public import CFSG.RankThree.CentralLiftU.UnitaryBorelLift
-public import CFSG.LocalAnalysis.EvenBN.U5.Model
-public import CFSG.RankThree.PartOne.U5K.Hyp.Dlin
-public import CFSG.Fischer.F4
 import all CFSG.Fischer.F4
 public import CFSG.Milestones.ASVolI.F431.BCoreU5Chart
 public import CFSG.Milestones.ASVolI.F431.BF436U5

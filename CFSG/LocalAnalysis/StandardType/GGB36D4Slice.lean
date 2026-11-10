@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGB36Defs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

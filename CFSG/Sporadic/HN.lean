@@ -3,13 +3,8 @@ module
 
 public import CFSG.Sporadic.HNBase
 
-public import CFSG.Sporadic.HN.Commutant
-public import CFSG.Sporadic.HN.CoprimeSimple
 public import CFSG.Sporadic.HN.Certificate
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
-public import CFSG.Sporadic.HN.F5Group
-public import CFSG.Sporadic.HN.F5Chain
 
 public section
 

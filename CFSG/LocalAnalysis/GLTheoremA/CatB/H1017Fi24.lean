@@ -1,21 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1017Fi24Side
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1017Facts
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMThreeAFi24Inv
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.Fi24RowEdge
-public import CFSG.Sporadic.Fi22.InvFix
-public import Certificates.Certificate1007
 public import Certificates.Certificate431005
-public import CFSG.Sporadic.Bridge.Catalogue
 public import Certificates.Certificate431006
-public import Certificates.Certificate6001
-public import Certificates.Certificate6002
-public import Certificates.Certificate6003
-public import Certificates.Certificate6004
-public import Certificates.Certificate6005
-public import Certificates.Certificate6007
-public import Certificates.Certificate16026
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2

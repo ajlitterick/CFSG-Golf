@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusDefs
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinSignedPermGen
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenWeyl
 
-import CFSG.RankThree.PartOne.S9.Planes.Basic
-import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

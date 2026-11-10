@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWS7Nodes
-public import CFSG.ClassicalInvolution.RouteD.GapsEnd4Aux
-public import CFSG.ClassicalInvolution.RouteD.LocalTwinPartner
 
 public section
 

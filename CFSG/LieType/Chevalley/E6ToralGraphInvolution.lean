@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.Chevalley.LangAdjointDiagonalLift
 public import CFSG.LieType.Chevalley.GraphFixedF4Canonical
 public import CFSG.LieType.Chevalley.ToralCentralizerBruhat
-public import CFSG.LieType.Chevalley.ExactNormalFormE
 
 public noncomputable section
 

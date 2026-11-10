@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWSSp4V
 public import CFSG.ClassicalInvolution.RouteD.SCRTwinGenSu4
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2XO
 public import CFSG.ClassicalInvolution.Asc77.WP3SCRP1Base
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15OuterU4Model
 public import CFSG.Timmesfeld.ARS.CaseEFrame

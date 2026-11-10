@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6TwA2KDefs
 import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Dvd
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplit
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 import CFSG.GroupTheory.IsComponentOfMap
 

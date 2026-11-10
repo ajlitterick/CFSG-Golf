@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Nine24XMain
-public import CFSG.LocalAnalysis.UniquenessCase.UCKInputs2
-public import CFSG.CGT.PushingUpLit.CGT6.SixThreeCore
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Nine24XThreeElts
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Nine24XKDHolds
 import CFSG.LocalAnalysis.UniquenessCase.UCFront09R99
@@ -11,14 +9,10 @@ import CFSG.LocalAnalysis.UniquenessCase.UCFront09R911
 import CFSG.LocalAnalysis.UniquenessCase.UCFront09R92b
 public import CFSG.LocalAnalysis.UniquenessCase.UC6R640Cert
 public import CFSG.CGT.PushingUpLit.TwoKHolds
-public import CFSG.HardMathSupport.Foote.Coordinator.Downstream
-public import CFSG.LocalAnalysis.UniquenessCase.UC1K32
 public import CFSG.LocalAnalysis.UniquenessCase.UC1K462Holds
 public import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1677ThreeDefs
 public import CFSG.CGT.PushingUpLit.BHS6.NestedBasic
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95J3
-public import CFSG.GH74.GLS.IVK.Proofs2.Stmt111c
 public import CFSG.GH74.Generic.S45.LEvSporFacts
 public import CFSG.LargeExtraspecial.DWModelSplit
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVL34FFDefs

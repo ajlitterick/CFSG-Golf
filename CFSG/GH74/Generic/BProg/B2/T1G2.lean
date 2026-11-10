@@ -8,9 +8,6 @@ import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyBasic
 import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyC2
 import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyC3
 import CFSG.GH74.Generic.BProg.B2.T1Comp
-import CFSG.GH74.Generic.BProg.B2.Prop31
-import CFSG.GH74.Generic.JMaxCongr
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.LyCert
 public import CFSG.GH74.AS16.Defs
 public import CFSG.GH74.E2.OddRankG

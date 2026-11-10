@@ -3,11 +3,9 @@ module
 public import CFSG.Sporadic.Recognition.LyonsSimsEndgame
 import Certificates.Kernel.W4RowLane.Ly
 import CFSG.Certificates.Kernel.SporCov.OrdP
-import CFSG.Certificates.Kernel.SporCov.Words
 import Certificates.Kernel.Ly3085.Seed
 import Certificates.Kernel.VecCert.WordProg
 import CFSG.Certificates.Kernel.Fam.LySeed.Checks.K
-import Mathlib
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.PSL2Table.BlocksProduct
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
@@ -46,13 +44,8 @@ public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyFixedSet
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.Sporadic.Th.OrbitSpec
 public import CFSG.StronglyEmbedded.TheoremSE.BenderLowRank
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import Certificates.Certificate3085Base
 

@@ -3,19 +3,14 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLemmaA
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTorus
 public import CFSG.CharacterTheory.Wreathed.BrauerWongSylowCentralizer
-public import Mathlib.Data.Nat.Factorization.Basic
 
 public import CFSG.GroupTheory.SupCommute
 public import CFSG.GroupTheory.CentralizerSup
 public import CFSG.GroupTheory.ConjTransport
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
-public import CFSG.ClassicalGroups.Unitary.Simple
-public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.AlmostSimpleBInnerPClosure
 public import CFSG.Sporadic.Schreier.J4SOrder
 public import CFSG.Sporadic.Th.KernelSimple
 public import CFSG.Sporadic.Th.Simple
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.Dihedral.DihedralFusionPrefixes

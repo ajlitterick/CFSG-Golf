@@ -3,7 +3,6 @@ module
 public import CFSG.Fischer.UnitaryAction
 public meta import Certificates.Data.CFSGNative.F4.Unitary
 public import Certificates.Certificate1003
-public import Mathlib
 
 public section
 

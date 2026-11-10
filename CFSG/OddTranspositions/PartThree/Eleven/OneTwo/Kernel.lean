@@ -1,20 +1,9 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Eleven.Statements
-public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Hyp
 public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.ConjShared
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Pair
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Quandle
-public import CFSG.OddTranspositions.PartThree.EightFive.KBarSetup
 public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.Radical
-import CFSG.OddTranspositions.SixNineUnconditional
-import CFSG.OddTranspositions.PartFour.LineTransport
 import CFSG.OddTranspositions.PartThree.Nine.Setup
 import CFSG.GroupTheory.QuasisimpleCommutingProductBound
-import CFSG.LieType.SteinbergBRMulEquivCores
-public import Certificates.Kernel.SporSch.Th.Key2311
-public import Certificates.Kernel.SporSch.Th.Orb2315
-public import Certificates.Kernel.SporSch.Th.Plane2320
 
 public section
 

@@ -4,12 +4,9 @@ public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R8Z6Defs
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R8ZOdd
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R8AAE7
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThinPf18CrossSetting
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThinPf18CrossModel
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3Pf93WO2
 public import CFSG.ClassicalInvolution.Q3.Sec13End16M
 public import CFSG.ClassicalInvolution.Q3.E64Ker.Main
 public import CFSG.ClassicalInvolution.Sp62Rec.ModelCR1E64
-public import CFSG.ClassicalInvolution.Solomon73.YamakiTables
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R8ZTwo
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThinComm

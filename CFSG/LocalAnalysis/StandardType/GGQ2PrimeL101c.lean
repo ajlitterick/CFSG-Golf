@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeDeltaCent
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeX101Conj
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeX101Cent
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeX101Cover
-public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoT
-public import CFSG.Models.Transport
 
 public section
 

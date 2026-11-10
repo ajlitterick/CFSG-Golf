@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6DepZLDefs
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLLabelE
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLLabelT
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelAbelianLift
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
-public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnit63Holds
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc3
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExcReduction
 

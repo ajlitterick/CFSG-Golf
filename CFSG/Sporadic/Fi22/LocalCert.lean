@@ -3,9 +3,7 @@ module
 
 public import CFSG.Sporadic.Fi22.LocalCertBase
 
-public import Certificates.Data.CFSGNative.Fi22.Local
 public meta import Certificates.Data.CFSGNative.Fi22.Local
-public import Certificates.Data.Kernel.Fi22.Orb
 public import Certificates.Certificate1009
 public import Certificates.Certificate1009Base
 

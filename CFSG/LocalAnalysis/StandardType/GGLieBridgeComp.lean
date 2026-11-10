@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Assembly.Defs
 public import CFSG.GroupTheory.CentralizerSup
 public import CFSG.LocalAnalysis.StandardType.GGLieBridgeHom
 public import CFSG.Assembly.Subnormal

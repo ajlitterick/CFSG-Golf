@@ -3,8 +3,6 @@ module
 
 public import CFSG.Quasithin.H13.L32NKGG22
 public import Certificates.Data.TitsR2V6
-import Certificates.Data.Kernel.G28.R2
-import Certificates.Data.Kernel.Misc.PermClos
 import Certificates.Kernel.SporSch.Th.GenV4
 import Certificates.Kernel.Co1B.GenTri2045
 meta import Certificates.Kernel.Misc.TitsU33Gen

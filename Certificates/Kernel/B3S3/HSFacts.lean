@@ -5,15 +5,9 @@ public import Certificates.Kernel.B3S3.HSTail
 public import Certificates.Kernel.B3S3.HSJoin
 public import CFSG.Certificates.Kernel.B3S3KCard
 public import CFSG.Certificates.Kernel.HexArrsSound
-public import CFSG.Certificates.Kernel.Misc.PermClosSound
 public import CFSG.Sporadic.Schreier.PairHSOrder
 public import Certificates.Kernel.Misc.Perm.HSMcL
-import Certificates.Certificate2218
-import Certificates.Certificate2219
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.Simproc.Factors
 public import CFSG.Certificates.Kernel.BfsPinSound
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinLeviNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneRank
-public import CFSG.Open.StatedAPI
 public import CFSG.GroupTheory.ElemAbelianClosure
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.Data.Fintype.Card
 public import Mathlib.Data.Fintype.EquivFin
 public import Mathlib.Tactic.Group
 

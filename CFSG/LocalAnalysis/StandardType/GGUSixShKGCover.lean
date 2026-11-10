@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGUSixShKGCases
-import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGCases
-import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGDescent
 
 public section
 

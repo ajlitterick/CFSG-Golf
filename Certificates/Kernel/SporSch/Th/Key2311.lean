@@ -3,9 +3,7 @@ module
 
 public import Certificates.Kernel.SporSch.Th.Key2311Base
 
-public import Certificates.Kernel.SporSch.Th.Row2322
 public import CFSG.Sporadic.ThSchreier.Row
-public import CFSG.Sporadic.ThSchreier.LocalOrbitInputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.SporSch.ThRowsSound
 

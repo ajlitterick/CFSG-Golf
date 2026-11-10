@@ -1,10 +1,7 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec5Cfg
-public import CFSG.Quasithin.Vol2.Ch12Sec5K1List
-public import CFSG.Quasithin.EmptyFaithful.T1515eE
 public import CFSG.Quasithin.EmptyFaithful.S1421QA15N1
-public import CFSG.Quasithin.H13.J4Core
 
 public section
 

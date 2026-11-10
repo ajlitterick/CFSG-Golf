@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeTheoremC.PlaneModuleLines
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ElementaryAbelianAction
 public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.FieldTheory.Finiteness
 
 public section
 

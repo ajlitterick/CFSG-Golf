@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLAct
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRTwE6
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLCore
 
 public section

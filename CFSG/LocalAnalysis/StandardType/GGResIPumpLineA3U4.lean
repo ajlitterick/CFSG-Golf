@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUModel
 public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
 
 public section

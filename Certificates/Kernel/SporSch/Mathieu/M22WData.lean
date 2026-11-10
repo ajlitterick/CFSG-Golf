@@ -9,7 +9,6 @@ public meta import Certificates.Kernel.SporSch.Mathieu.M22Data
 public meta import Certificates.Data.Kernel.SporSch.MathieuC3
 public meta import Certificates.Data.Odd87F3M22
 public meta import Certificates.Data.CF67M22
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

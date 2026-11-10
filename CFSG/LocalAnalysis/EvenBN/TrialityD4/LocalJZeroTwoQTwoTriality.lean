@@ -3,11 +3,6 @@ module
 public import CFSG.LocalAnalysis.SeitzReduction.RankOneCatSL2FiveExTwoPartE
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.G2Subgroup
 public import CFSG.HardMathSupport.Lang.Triality.G2ClassOrder
-import CFSG.LieType.Chevalley.OddExceptionalOuterTwoRank
-import CFSG.LieType.Chevalley.OddTrialityAutomorphismNormalForm
-import CFSG.LieType.Chevalley.GraphFixedF4Canonical
-import CFSG.RankThree.PartOne.KGD.D4T36Core
-import CFSG.LocalAnalysis.SeitzReduction.CrossCharCert
 import CFSG.LocalAnalysis.SeitzReduction.SporadicRefineL34
 public import CFSG.ClassicalInvolution.QuaternionStructure
 public import CFSG.LieType.Chevalley.SimplyLacedFieldTwoCover

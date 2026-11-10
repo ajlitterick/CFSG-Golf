@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrKFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagLift
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 public import CFSG.LocalAnalysis.StandardType.GGHalfKnownGroups
 public import CFSG.LocalAnalysis.StandardType.GGSL9TwoProj
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrCoordDefs

@@ -9,7 +9,6 @@ import CFSG.LocalAnalysis.StandardType.GGTwE6K1D4
 import CFSG.LocalAnalysis.StandardType.GGTwE6K1Toral
 import CFSG.LocalAnalysis.StandardType.GGTwE6K1A2InnerRank
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24A2CubeOuter
-import CFSG.LocalAnalysis.StandardType.GGTriD4NoneMarking
 import CFSG.Goldschmidt.Steps.G37Core
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.Basic
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcCtx
@@ -27,8 +26,6 @@ import CFSG.Quasithin.Background.A3Structure314
 import CFSG.Quasithin.Background.B15P4LayerDict
 import CFSG.Quasithin.Background.C1GNSolvConnect
 import CFSG.Quasithin.Background.E2Statements
-import CFSG.Quasithin.Background.F6CatRecogL2
-import CFSG.Quasithin.Background.F6CatRecogTools2
 import CFSG.Quasithin.Background.FFC7G
 import CFSG.Quasithin.Background.FFC8A
 import CFSG.Quasithin.Background.InternalSecB56B
@@ -50,7 +47,6 @@ import CFSG.Quasithin.Vol2.Ch11SecAFacts12b
 import CFSG.Quasithin.Vol2.Ch11SecQ9bKGC
 import CFSG.Quasithin.Vol2.Ch9KGFFQR
 import CFSG.Quasithin.Vol2.Ch9KGFFQRCase
-import CFSG.Walter.J1Props
 import Certificates.Kernel.J4Count.Prim
 
 public section

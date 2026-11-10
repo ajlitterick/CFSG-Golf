@@ -4,7 +4,6 @@ public import CFSG.OddTranspositions.PartThree.FiveReflection
 public import CFSG.Open.StatedDefs
 import CFSG.OddTranspositions.PartThree.Eleven.Five.Equiv
 import CFSG.OddTranspositions.PartThree.Eleven.Five.Central
-import CFSG.ClassicalGroups.Orthogonal.FiveSquareModel
 import CFSG.Blueprint.SourceClassicalTransport
 import CFSG.GroupTheory.CentralizerMapMulEquiv
 

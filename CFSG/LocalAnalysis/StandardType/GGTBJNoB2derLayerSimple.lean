@@ -3,13 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derDefs
 import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derSpIso
 import CFSG.LocalAnalysis.StandardType.GGSixA6RedSpLie
-import CFSG.LocalAnalysis.StandardType.GGSixA6RedSpRestr
-import CFSG.LocalAnalysis.StandardType.GGSixA6RedSpRestrStd
 import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeOrthSpOne
-import CFSG.LocalAnalysis.ComponentInitial.LinearIsometry
-import CFSG.ClassicalGroups.Symplectic.StandardForm
 import CFSG.ClassicalGroups.Symplectic.SmallF2Module
-import CFSG.LieType.Universal.SymplecticExtras.Matrices
 
 public section
 

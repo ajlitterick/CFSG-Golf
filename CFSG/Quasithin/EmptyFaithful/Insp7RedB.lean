@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.Insp7RedA
 
-public import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
 public import CFSG.Quasithin.EmptyFaithful.S143NO
 
 public section

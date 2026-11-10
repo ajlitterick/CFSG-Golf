@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.TwoHS.HarSD
 public import Certificates.Kernel.TwoHS.Four
 public import Certificates.Data.Kernel.Spor.MulHF
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Each
 
 public section

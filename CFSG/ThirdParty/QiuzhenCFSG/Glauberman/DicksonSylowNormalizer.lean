@@ -1,17 +1,12 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonTorusNormalizer
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonUnipotent
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonSplitTorusMatrices
 import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonBorelMatrices
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_11
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_14
 import Mathlib.LinearAlgebra.Eigenspace.Basic
 import Mathlib.Algebra.Polynomial.SpecificDegree
 import Mathlib.Algebra.BigOperators.Ring.Nat
-import Mathlib.GroupTheory.GroupAction.ConjAct
-import Mathlib.GroupTheory.SchurZassenhaus
-import Mathlib.GroupTheory.Transfer
 
 namespace CFSG
 end CFSG

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Open.StandardComponentRecognitionMilestoneDefs
 public import CFSG.Blueprint.EvenStandardExact
-public import CFSG.Assembly.Reduction
 public import CFSG.Monster.Existence.StdOdd.Defs
 public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
 public import CFSG.LieType.Chevalley.C2E6StdMatrixData
@@ -14,7 +13,6 @@ public import CFSG.YGroups.Y443.Native.Swap13Word
 public import Certificates.Data.TitsAschbacherFive
 public import Certificates.Kernel.EvenBN.Bind
 public import Certificates.Kernel.EvenBN.DWord
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Yardstones.M41b0c98b3153.MilestoneProof
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableCompactPresented
@@ -130,13 +128,11 @@ public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
 public import CFSG.Sporadic.Ly.OrbitSpec
-public import CFSG.Sporadic.Ly.PrimitiveBase
 public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.ON.ActionBase
 public import CFSG.Sporadic.ON.CertificateBase
 public import CFSG.Sporadic.ON.ChainBase
 public import CFSG.Sporadic.ON.LinesBase
-public import CFSG.Sporadic.ON.PrimitiveBase
 public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Sporadic.Presentation.Co1
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
@@ -159,10 +155,6 @@ public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.Schreier.M23
 public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
-public import CFSG.Sporadic.Th.KernelPlanesBase
-public import CFSG.Sporadic.Th.KernelSimpleBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Walter.Defs
 public import CFSG.YGroups.Y443.Native.EdgeNoncommBase
 

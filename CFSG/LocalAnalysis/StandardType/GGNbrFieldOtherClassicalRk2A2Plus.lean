@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalCoreTwo
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineClassical
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixRows
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
 
 public section
 

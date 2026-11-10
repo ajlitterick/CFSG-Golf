@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylOpenLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusPrimes
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusFrameNoLine
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfSylow
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
 public import CFSG.RankThree.PartOne.KLCE.CharTwoRep

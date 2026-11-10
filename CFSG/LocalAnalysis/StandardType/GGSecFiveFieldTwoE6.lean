@@ -1,17 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeD4ThreeE6Inner
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoExcCore
 import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoExcOrbit
 import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoMemberModels
 import CFSG.LocalAnalysis.StandardType.GGSelectedPOmegaMinusLong
 import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoE8
-import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoCommon
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusExcOrbit
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
 
 public section
 

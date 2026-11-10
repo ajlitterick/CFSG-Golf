@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Co2Cen.GlueData
 public import Certificates.Kernel.Co2Cen.Data
 public import Certificates.Kernel.Co2J.Data
-public import Certificates.Kernel.Co2Syl.Small
 public import Certificates.Kernel.Co2Census.TInvCls
 public import CFSG.RankThree.Co2.ZuWordsData
 import CFSG.Certificates.Kernel.Common.Harness

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearDescentFixedBasis
 

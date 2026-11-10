@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Misc.HypRun
-public import Certificates.Data.CFSGNative.Fischer.HyperovalSearch
-public import CFSG.Certificates.Kernel.Misc.XiSound
 public import CFSG.Certificates.Kernel.Misc.HypNative
 import CFSG.Certificates.Kernel.Misc.KernelRfl
 import CFSG.Certificates.Kernel.Misc.HypSoundLam

@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergF4
-public import CFSG.LieType.Chevalley.EvenCanonicalFieldCentralizer
-public import CFSG.LieType.Chevalley.OddF4CosetDescent
 public import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
-public import CFSG.LieType.Steinberg.Isogeny.E7
-public import CFSG.LieType.Steinberg.Adjoint.CertE7
 public import CFSG.LieType.Steinberg.CentralExt.F4E8Multiplier
 public import CFSG.LocalAnalysis.ComponentInitial.CentralCoverAbelian
 

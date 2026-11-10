@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.SuzCheck
 public import Mathlib.Data.Finset.Attr

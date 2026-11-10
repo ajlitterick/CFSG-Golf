@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.J4DCE.TrioSteps
-public import Certificates.Data.CFSGNative.AS91.M24Geom
 import CFSG.Certificates.Kernel.M24G.ImgSound
 
 public section

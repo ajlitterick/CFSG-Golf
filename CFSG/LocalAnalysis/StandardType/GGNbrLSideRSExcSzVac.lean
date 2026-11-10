@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcVac
-import CFSG.LieType.Ree.SuzukiOrder
 import CFSG.HardMathSupport.Solomon.Coordinator.L3BDeltaOuter
 
 public section

@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordFullWeyl
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrame
-public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLDefs
 import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivKind
-import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameCBase
 import CFSG.LocalAnalysis.StandardType.GGQTwoLMModQm
-import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordFullTorus2
 
 public section
 

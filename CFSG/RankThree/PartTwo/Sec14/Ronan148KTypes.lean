@@ -5,11 +5,8 @@ import CFSG.RankThree.PartTwo.Sec14.Item148MainProofKType
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
 import CFSG.RankThree.PartTwo.Sec4.RonanK429CfgTypes
 import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwo
-import CFSG.RankThree.PartTwo.KFacts.L34Sections
 import CFSG.RankThree.Coprime.InvolutionFixedRankBound
 import CFSG.RankThree.Asc83Table.E27
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -18,14 +15,12 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.RankThree.PartTwo.NotationBlocks
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.ClassicalGroups.Symplectic.Simple
 import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
 import CFSG.RankThree.PartTwo.KFacts.KS12MovesSL
@@ -40,7 +35,6 @@ import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 import CFSG.RankThree.PartTwo.Sec4.ProjSLEquiv
 import CFSG.RankThree.PartTwo.Sec4.RonanK429Rows
 import CFSG.RankThree.PartTwo.Sec4.RonanK432Rows
-import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

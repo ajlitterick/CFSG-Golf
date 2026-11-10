@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Torus
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelLangTorus
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelLiftT
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeToralityTw
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeBlock
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang
 public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.WeylTorusAct
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.Dihedral.DihedralFusionPrefixes

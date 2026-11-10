@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.E7CentAssemblyAux
-public import CFSG.LieType.BorelTits.Basic
 
 public section
 

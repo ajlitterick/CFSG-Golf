@@ -1,15 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.TriD4Defs
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3LieRes
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I1431ChevTwoF4
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GCenterQuot
-import CFSG.SignalizerFunctorTheorem.Inheritance.TransportA.Fitting
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinDOdd
-import CFSG.Timmesfeld.Orders.Classical
-import CFSG.Timmesfeld.Orders.Distinct
-import CFSG.LieType.Universal.Unitary.Clause0
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeALocalBase
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeL1Orb
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34SporAux.BMDownMGmat

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.He31064.M
 public import Certificates.Kernel.HeOrb.Data
-public import Certificates.Data.Kernel.Spor.PEnum
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000

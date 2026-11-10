@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Monster.B.Final.PairNodes
 public import CFSG.Monster.B.CTIB.Defs
 public import CFSG.Monster.Existence.BabyOrder
 

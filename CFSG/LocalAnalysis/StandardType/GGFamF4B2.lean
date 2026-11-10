@@ -1,15 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFamComponent
 public import CFSG.LocalAnalysis.StandardType.GGFamF4Shapes
-import CFSG.LocalAnalysis.StandardType.GGFamF4Orbit
 import CFSG.LocalAnalysis.StandardType.GGFamF4Tame
-import CFSG.LocalAnalysis.StandardType.GGFamInnerCover
 import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Gamma
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.LowRankModelsPart2
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.B2Inner
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.B2SmallJ
-import CFSG.LieType.Universal.Symplectic
 
 public section
 

@@ -2,10 +2,7 @@ module
 
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Torus
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwA2ConjLang
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToral
-public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
 public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.WeylTorusActPow
-public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCentralizer
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Frames
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Arith
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagLift

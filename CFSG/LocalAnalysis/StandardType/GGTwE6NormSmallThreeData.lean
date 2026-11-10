@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6NormSmallThreeTorus
-import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

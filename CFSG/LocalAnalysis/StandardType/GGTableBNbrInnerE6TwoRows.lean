@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSCr
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoThree
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoThreeIrred
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoSevenIrred
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMonomialIrred
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
 
 public section
 

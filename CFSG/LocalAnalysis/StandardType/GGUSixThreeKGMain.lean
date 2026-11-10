@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGCases
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGDescent
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Two
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverTwo
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverOdd
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitary
 

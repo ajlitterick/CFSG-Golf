@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMHelp
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrame
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameA
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameB
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameC
@@ -9,9 +8,7 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoLMPrimeA
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMPrimeB
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMPrimeC
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMModAug
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMMod
 public import CFSG.LocalAnalysis.StandardType.GGQTwoRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
 
 public section
 

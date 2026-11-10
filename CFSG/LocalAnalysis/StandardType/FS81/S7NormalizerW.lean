@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.S7CentDefs
-import Mathlib.Algebra.Group.Commute.Basic
-import Mathlib.GroupTheory.Commutator.Basic
 
 public section
 

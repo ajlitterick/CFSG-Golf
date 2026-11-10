@@ -1,15 +1,10 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.J2CnK
-public import Certificates.Kernel.Sporadic.OddCore.MulHCmd
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaCheck
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaCheck
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 meta import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 meta import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication

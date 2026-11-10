@@ -1,16 +1,9 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Algebra.Group.Subgroup.Defs
 public import Mathlib.Data.Finite.Defs
 public import Mathlib.GroupTheory.Solvable
 public import Mathlib.GroupTheory.SchurZassenhaus
 
-import Mathlib.Algebra.Group.Subgroup.Pointwise
-import Mathlib.SetTheory.Cardinal.NatCard
-import Mathlib.GroupTheory.GroupAction.Quotient
-import Mathlib.GroupTheory.QuotientGroup.Basic
-import Mathlib.Tactic.Basic
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Invariant
 

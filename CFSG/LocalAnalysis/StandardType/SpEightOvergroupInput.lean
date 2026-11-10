@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.SpEightOvergroups
 public import CFSG.LocalAnalysis.StandardType.SpTwoThreeFixedPoints
-public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitzExcGenuine
 public import CFSG.LocalAnalysis.StandardType.SylowOvergroupReduction
 
 public section

@@ -2,17 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T2021Facts
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRField
-public import CFSG.LocalAnalysis.ComponentClassification.InnAutDerived
-import CFSG.HardMathSupport.Dickson.Bal207.D4GraphBridgeField
 import CFSG.HardMathSupport.Dickson.Sec6.I1431D4Aux.FieldPart.NormalForm
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterFourSeitzBal
-import CFSG.LocalAnalysis.StandardType.GGInndiagCommRest
-import CFSG.LocalAnalysis.GLTheoremA.CatA.MIInn
-import CFSG.LocalAnalysis.GLTheoremA.CatA.FPFieldN
-import CFSG.LocalAnalysis.GLTheoremA.CatA.FPMI
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsOrthKind
 import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResTwF4
-import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResSmall
 import CFSG.HardMathSupport.Seitz.G2Noninner.Descent.OddNeThree
 import CFSG.HardMathSupport.Seitz.G2Noninner.SubfieldPair.Final
 import CFSG.LieType.SeitzGeneration.ExcOuterAssemblyV5

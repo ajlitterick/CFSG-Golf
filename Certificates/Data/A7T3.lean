@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.Perm.Sign
-public import Mathlib.Data.Fintype.Perm
 
 public section
 

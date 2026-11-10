@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
-public import Mathlib.GroupTheory.IsPerfect
 
 public section
 

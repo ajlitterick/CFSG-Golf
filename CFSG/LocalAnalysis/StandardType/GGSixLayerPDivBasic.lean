@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCore
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 
 public section
 

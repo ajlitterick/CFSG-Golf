@@ -10,7 +10,6 @@ import CFSG.Goldschmidt.Steps.Sec84b
 import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeAmbientCentralizerGeneration
 import CFSG.CharacterTheory.Semidihedral.FixedCoreNontrivialEqualParameterGeneric
 import CFSG.Walter.Bender1970.S3.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_17iii
 
 public section

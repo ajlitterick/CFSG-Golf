@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6DepKDefs
 public import CFSG.LocalAnalysis.StandardType.GGE6DepFrameK
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

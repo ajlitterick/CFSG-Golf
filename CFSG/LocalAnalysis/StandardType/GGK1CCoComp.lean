@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1CCoDefs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympInnerExport
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-public import CFSG.Assembly.Subnormal
 
 public section
 

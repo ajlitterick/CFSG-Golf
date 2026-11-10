@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.ParrottLeviExcBQBasic
 public import CFSG.ClassicalInvolution.WeakCT.TwistedE6Model
-public import CFSG.ClassicalInvolution.WeakCT.TwistedE6Levi
-public import CFSG.LieType.Steinberg.TwistedE6.Clause0
 public import CFSG.ClassicalInvolution.WeakCT.Main
 
 public section

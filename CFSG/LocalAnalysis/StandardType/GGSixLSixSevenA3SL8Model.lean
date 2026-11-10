@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3ProofModels
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSLRestNonsplit
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLFrame
 
 public section

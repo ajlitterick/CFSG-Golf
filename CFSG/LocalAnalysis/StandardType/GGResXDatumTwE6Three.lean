@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGResXDatumOfWeylTypeCard
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeTwE6Three
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 
 public section
 

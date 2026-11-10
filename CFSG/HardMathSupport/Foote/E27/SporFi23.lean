@@ -4,10 +4,8 @@ public import CFSG.HardMathSupport.Foote.E27.SporCommData
 public import CFSG.HardMathSupport.Foote.E27.SporFi23Action
 public import CFSG.RankThree.Asc83Table.MatCert
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF3
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.TcGenDefs
 public import Certificates.Certificate9507
 public import CFSG.Sporadic.Fi23.Simple
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

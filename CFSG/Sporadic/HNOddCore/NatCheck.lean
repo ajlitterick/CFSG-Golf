@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.HNOddCore.InvData
-public import CFSG.Sporadic.HNSchreier.LocalCheck
 public meta import CFSG.Sporadic.HNOddCore.InvData
 public meta import CFSG.Sporadic.HNSchreier.LocalCheck
-public import CFSG.Sporadic.HNOddCore.NatCheckInputs
 public import Certificates.Certificate2087
 
 public section

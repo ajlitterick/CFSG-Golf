@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLLine
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLTv
 
 public section

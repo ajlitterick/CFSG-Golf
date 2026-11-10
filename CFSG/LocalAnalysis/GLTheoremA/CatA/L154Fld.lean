@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPTransport
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPCanon
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPMI
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIAut
 
 public section
 

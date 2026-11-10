@@ -5,14 +5,11 @@ import CFSG.RankThree.GF2n.Stroth80.GuralnickSec119PSU8Setup
 public import CFSG.RankThree.GF2n.Stroth80.HeringSec119OmegaModelPSU
 import CFSG.ClassicalGroups.Orthogonal.OmegaSiegelFixedComm
 import CFSG.ClassicalGroups.Orthogonal.OmegaSiegelIrred
-import CFSG.ClassicalGroups.Orthogonal.OmegaSiegelSetting
-import CFSG.RankThree.GF2n.Stroth80.HeringSec11Action
 import CFSG.RankThree.GF2n.Stroth80.HeringSec119OmegaFiltration
 import CFSG.RankThree.GF2n.Stroth80.GuralnickSec1110Count
 import CFSG.RankThree.GF2n.Stroth80.Sec119Filtration
 import CFSG.RankThree.GF2n.Stroth80.Sec38Abelian
 import CFSG.RankThree.GF2n.Stroth80.Sec118RT1Form
-import CFSG.RankThree.GF2n.Stroth80.HeringSec118RT1Action
 import CFSG.RankThree.GF2n.Stroth80.Sec37CommTrans
 import CFSG.LocalAnalysis.OddStandard.SmallAltFiveRho
 public import CFSG.Blueprint.LieModelAPI

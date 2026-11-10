@@ -2,16 +2,11 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec8.Item812Proof89
 import CFSG.RankThree.PartTwo.Sec4.Census.WiringInputs
-import CFSG.RankThree.PartTwo.KFacts.AutLargeRee
-import CFSG.RankThree.PartTwo.KFacts.K71Coprime
 import CFSG.RankThree.PartTwo.KFacts.K71Item89
 import CFSG.RankThree.PartOne.RF4.FinalKFacts
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.LargeReeFixedEmbed
 import CFSG.RankThree.SteinbergR3ELargeReeOrder
 import CFSG.RankThree.Chevalley.SteinbergBTCanonicalFieldCommon
-import CFSG.LieType.Simplicity.TitsModel
-import CFSG.LieType.Simplicity.TitsSimple
-import CFSG.LieType.Ree.ReeGenericPerfect
 import CFSG.GroupTheory.PerfectResidualNodes
 import CFSG.Certificates.WordSubgroupRel
 import CFSG.GH74.Statements
@@ -45,7 +40,6 @@ import CFSG.Monster.B.TwoA.Amalgam.Data
 import CFSG.Monster.B.TwoA.Sp8.Par1
 import CFSG.Monster.B.TwoA.Unitary.LinThree
 import CFSG.RankThree.PartTwo.Census.Spin.Main
-import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 import CFSG.Sporadic.Presentation.Common
 import CFSG.Sporadic.SmallOddCore.CheckSpec

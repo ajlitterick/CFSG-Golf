@@ -9,7 +9,6 @@ public meta import CFSG.Monster.B.TwoA.Co2Inv.ConjCert
 public meta import CFSG.Monster.B.TwoA.Co2Inv.Data
 public meta import CFSG.Monster.B.TwoA.Census.NatCert
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
-public import CFSG.RankThree.Co2.JConjFacts
 public import Certificates.Certificate8105
 
 public section

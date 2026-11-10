@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.Co1Block.PermCheckInputs
 public meta import CFSG.Sporadic.Co1Block.PermData
 public meta import CFSG.Sporadic.Schreier.Co1StabFix
 public meta import CFSG.Sporadic.Schreier.Co1StabCheck
@@ -15,13 +14,10 @@ public import Certificates.Kernel.Co1B.Act2043
 public import Certificates.Kernel.Co1B.Chk2043
 public import Certificates.Kernel.Co1B.Iota
 public import CFSG.Certificates.Kernel.Co1BActSound
-public import CFSG.Certificates.Kernel.Co1BTrSound
 public import CFSG.Certificates.Kernel.Misc.HexDropSound
-public import CFSG.Certificates.Kernel.PosTableSound
 public import CFSG.Sporadic.Co1Block.PermBase
 public import CFSG.Sporadic.SuzRecog.ModelGroupsKit
 public import Certificates.Kernel.SporSch.Co1.OrbX2
-public import Certificates.Data.CFSGNative.Co1.Data
 
 public section
 

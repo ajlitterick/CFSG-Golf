@@ -1,15 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceFive
-public import CFSG.Blueprint.Catalog
 
 import CFSG.LocalAnalysis.StandardType.GGLieOddCover
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridge
 import CFSG.LocalAnalysis.AGLEmbedding.TrialityTwo.Assembly
 import CFSG.LocalAnalysis.AGLEmbedding.TrialityTwo.FiveFixedDichotomy
 import CFSG.GH74.Generic.S1.CompIdent
 import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphismsCongr
-import Mathlib.GroupTheory.Perm.Cycle.Type
 import CFSG.LocalAnalysis.AGLEmbedding.BlockThreeCentCoprimeDefs
 
 public section

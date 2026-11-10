@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionCore
-public import CFSG.LieType.Steinberg.Minuscule.BruhatExtras
-public import CFSG.LieType.Steinberg.Adjoint.Borel
-public import CFSG.LieType.Steinberg.Adjoint.Presentation
 public import CFSG.LieType.Steinberg.CentralExt.SpinMinusPosLift
-public import CFSG.ClassicalInvolution.ModelFacts.WeylTransitive
 public import CFSG.ClassicalInvolution.ModelFacts.Families
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 

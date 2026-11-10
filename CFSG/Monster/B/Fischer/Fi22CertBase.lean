@@ -1,18 +1,11 @@
 
 module
 
-public import CFSG.Monster.B.Fischer.PinnedChainBase
-public import CFSG.Monster.B.Fischer.Fi22CertData
-public import CFSG.Monster.B.Fischer.Fi22FormsData
-public import CFSG.Monster.B.Fischer.Fi22Monomials
-public import Mathlib.Data.Matrix.Mul
-public import Mathlib.Data.ZMod.Basic
 public meta import CFSG.Monster.B.Fischer.PinnedChainBase
 public meta import CFSG.Monster.B.Fischer.Fi22CertData
 public meta import CFSG.Monster.B.Fischer.Fi22FormsData
 public meta import Certificates.Data.CFSGNative.Fi22Pinned.Forms
 public import CFSG.Monster.B.Fischer.Fi22CertInputs
-public import CFSG.Monster.B.Fischer.PinnedChainInputs
 
 @[expose] public section
 

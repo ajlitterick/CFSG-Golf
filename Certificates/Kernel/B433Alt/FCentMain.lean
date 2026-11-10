@@ -1,9 +1,7 @@
 module
 
 public import Certificates.Kernel.B433Alt.FCentC
-public import Certificates.Kernel.B433Alt.FixLab
 public import Certificates.Kernel.B433Alt.FixMain
-public import CFSG.Certificates.Kernel.YModel.SchCard
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBFiveCentSyl
 
 set_option maxRecDepth 100000

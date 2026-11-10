@@ -9,7 +9,6 @@ public meta import CFSG.LieType.Chevalley.C2E6StdMatrixData
 public meta import CFSG.Monster.B.Classical.E6AdjointTable
 public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
 public import CFSG.Monster.GMS.Facts.TableV
 
 public section

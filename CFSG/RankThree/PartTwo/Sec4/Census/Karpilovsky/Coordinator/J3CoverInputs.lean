@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Multipliers.CoverWords
 public import CFSG.Sporadic.Recognition.CoverRecipe
 
 public section

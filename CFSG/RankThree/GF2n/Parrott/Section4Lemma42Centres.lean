@@ -2,13 +2,8 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42Sylow
 public import CFSG.RankThree.GF2n.Parrott.OddLiftCentralizer
-public import CFSG.RankThree.GF2n.Parrott.ExtraspecialJ
-public import CFSG.RankThree.GF2n.Parrott.LiftSquare
 public import CFSG.GroupTheory.CoprimeCosetFixed
-public import CFSG.GroupTheory.CentralizerSylowFusion
 public import CFSG.RankThree.GF2n.Parrott.SpinFixedCardSigma
-public import CFSG.RankThree.GF2n.Parrott.Section4FixDimBridge
-public import CFSG.RankThree.GF2n.Parrott.QA45SigmaCentralizers
 public import CFSG.RankThree.GF2n.Parrott.ActionQAIdentificationOutsideEquality
 
 public section

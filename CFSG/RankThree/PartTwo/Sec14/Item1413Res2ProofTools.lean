@@ -3,22 +3,14 @@ module
 public import CFSG.RankThree.PartTwo.Sec14.Item1413ProofCase3
 import CFSG.RankThree.PartTwo.Sec13.Item132
 import CFSG.RankThree.PartTwo.Sec13.Item133
-import CFSG.RankThree.PartTwo.Sec13.Item133Mono
-import CFSG.RankThree.PartTwo.Sec13.Item13Plane
-import CFSG.RankThree.PartTwo.Sec13.Item131Facts
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
 import CFSG.RankThree.PartTwo.Sec13.Item13SLTwo
 import CFSG.RankThree.PartTwo.Sec13.Item136PGL
-import CFSG.RankThree.PartTwo.Sec13.Naturality
-import CFSG.RankThree.PartTwo.Sec14.Item1411
 import CFSG.RankThree.PartTwo.Sec14.Concl142NHJInner
 import CFSG.RankThree.PartTwo.KFacts.KS14Orders
-import CFSG.RankThree.PartTwo.KFacts.KS14HJBasic
 import CFSG.RankThree.PartTwo.Sec4.Census.Lift46
 import CFSG.RankThree.PartOne.KE8F.HyperGen
-import CFSG.Sporadic.Mathieu.M12
 import CFSG.Sporadic.Mathieu.M22
-import CFSG.Sporadic.J2
 import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.N6Split
 public import CFSG.LocalAnalysis.StandardType.FS81.OddCoreTransvOrth
-public import CFSG.LocalAnalysis.ZStar
 
 public section
 

@@ -6,7 +6,6 @@ public meta import CFSG.Certificates.Kernel.Common.Tab
 public meta import Certificates.Kernel.Sporadic.RawGen
 public meta import Lean
 public import CFSG.Certificates.Kernel.Spor.RawSound
-public import Mathlib.GroupTheory.Schreier
 
 open Lean Elab Command
 

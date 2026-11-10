@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Enum.Defs
 public import Certificates.Data.Kernel.SporSch.PairJ3Cnt
 public import Mathlib.Data.Nat.Factorial.Basic
 

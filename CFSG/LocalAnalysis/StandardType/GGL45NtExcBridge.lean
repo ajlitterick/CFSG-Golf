@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeDefs
-public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeU
-public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeE6
-public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeTwE6
-public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeTriD4
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeTwF4
 
 public section

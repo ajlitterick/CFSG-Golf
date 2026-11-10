@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.SporSch.Co1Bfs
-public import Certificates.Data.Kernel.Co1BW
 
 public section
 

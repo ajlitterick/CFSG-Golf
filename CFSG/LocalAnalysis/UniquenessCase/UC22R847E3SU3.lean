@@ -4,21 +4,13 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22R847E3
 public import CFSG.LocalAnalysis.UniquenessCase.UC22InE229Z3Res
 public import CFSG.LocalAnalysis.UniquenessCase.UC22InE229SEFZ
 public import CFSG.LocalAnalysis.UniquenessCase.UC22InE229L34Torus
-public import CFSG.LocalAnalysis.UniquenessCase.Lie.RankOneInput
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.KInputs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DataThree
-public import CFSG.Open.GriessAllModelsStatement
 import CFSG.LocalAnalysis.UniquenessCase.UC22R847E3B1
 import CFSG.LocalAnalysis.UniquenessCase.UC22R847E3L34
 import CFSG.LocalAnalysis.UniquenessCase.UC22InE229L34U3
-import CFSG.LocalAnalysis.UniquenessCase.UC22InE229Z5U3
 import CFSG.LocalAnalysis.UniquenessCase.UC22InE229Z6b
-import CFSG.LocalAnalysis.UniquenessCase.UC22InE229ZB
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.Good
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Conclusion76Three
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
 import CFSG.LocalAnalysis.UniquenessCase.UC6S846h
-import CFSG.LocalAnalysis.UniquenessCase.UCR638
 public import CFSG.GroupTheory.PCore.Transport
 public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 

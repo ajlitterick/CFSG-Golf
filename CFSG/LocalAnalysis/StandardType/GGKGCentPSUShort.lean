@@ -1,16 +1,8 @@
 module
 
-public import CFSG.LieType.Universal.Unitary.Extras
-public import CFSG.LieType.Universal.Unitary.Extras.Basic
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherSemilinearData
-public import CFSG.LocalAnalysis.StandardType.GGKGPosSUStd
 public import CFSG.LocalAnalysis.StandardType.GGKGPosSUTableB
 import all CFSG.LieType.Universal.Unitary.Roots
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.LiftAutPSU
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHyperbolic
-import CFSG.LieType.Universal.Unitary.Clause0
-import Mathlib.FieldTheory.Finite.Basic
-import Mathlib.Tactic.Group
 
 public section
 

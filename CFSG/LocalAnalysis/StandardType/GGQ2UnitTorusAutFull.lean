@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2UnitNormalizerStatements
 import CFSG.LocalAnalysis.StandardType.GGQ2UnitDiag
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBTypeAMono
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInUniLift
 import CFSG.Mathlib.Perm.FixingSubgroupSwap
 

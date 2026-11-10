@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FixedA2Type
-public import CFSG.RankThree.PartOne.TCX.E.E6A2Sigma
-public import CFSG.Mathlib.FieldTheory.InfiniteUnitPowers
 public import CFSG.Mathlib.GroupTheory.CentralProductQuotient
 public import CFSG.RankThree.PartTwo.Sec6.BThreeCensusSL3Algebraic
 public import CFSG.RankThree.PartTwo.Sec6.BThreeCensusPSL3Two

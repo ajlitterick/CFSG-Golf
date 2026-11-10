@@ -1,16 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC611b
-public import CFSG.LocalAnalysis.UniquenessCase.UC611c
-public import CFSG.LocalAnalysis.UniquenessCase.UC611d
 public import CFSG.LocalAnalysis.UniquenessCase.UC611e
-public import CFSG.LocalAnalysis.UniquenessCase.UC611a
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qa
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qs
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DataThree
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.PartOneThree
-public import CFSG.LocalAnalysis.RankThreeTheoremC.WreathThompson
-public import CFSG.GroupTheory.Gorenstein.MaxOrderThompson
 
 public section
 

@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Certificates.Kernel.ThDemp.SoundBase
-public import CFSG.Sporadic.Th.SetupBase
 public import Certificates.Kernel.ThDemp.Data
 import Certificates.Kernel.ThDemp.Slp
 import Certificates.Kernel.ThDemp.Shape

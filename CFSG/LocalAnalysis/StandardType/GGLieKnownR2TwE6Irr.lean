@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Rad
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6CoordAct
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 
 public section
 

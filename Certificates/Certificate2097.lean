@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2097Base
 
-public import CFSG.Sporadic.HNSchreier.FALocalCheckInputs
 public meta import CFSG.Sporadic.HNSchreier.LocalCheckBase
 public meta import CFSG.Sporadic.HNSchreier.FAData
 import all Init.Data.Nat.Fold

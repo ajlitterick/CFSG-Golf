@@ -1,14 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallConfProps
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallConfChecks2
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3P45
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3P45
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallConfChecks2
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallConfP45Inputs
 public import Certificates.Certificate2009
-public import Certificates.Certificate2012
-public import Certificates.Certificate2015
 
 public section
 

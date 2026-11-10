@@ -5,10 +5,7 @@ public import Certificates.Kernel.Sporadic.OddCore.SuzBtOD
 public import Certificates.Kernel.Sporadic.OddCore.SuzBtZD
 public import Certificates.Data.Kernel.Spor.BTupN
 public import Certificates.Kernel.Sporadic.OddCore.SuzMGF
-public import Certificates.Data.Kernel.Spor.BTupO
 public import Certificates.Data.Kernel.Spor.BTupI
-public import Certificates.Data.Kernel.Spor.Chain
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

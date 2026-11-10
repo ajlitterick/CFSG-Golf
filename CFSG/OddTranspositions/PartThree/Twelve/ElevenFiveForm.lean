@@ -1,12 +1,8 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModel
-public import CFSG.OddTranspositions.PartThree.FiveReflectionFischer
-public import CFSG.OddTranspositions.PartThree.Eleven.Five.FiveFormAux
 import CFSG.Mathlib.LinearAlgebra.BilinForm.Finrank
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveRefl
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultReflPair
-public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveChartModel
 import CFSG.Mathlib.Algebra.IsSquareMul
 
 public section

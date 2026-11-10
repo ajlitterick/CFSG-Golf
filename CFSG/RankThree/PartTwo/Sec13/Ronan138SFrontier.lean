@@ -1,29 +1,17 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec13.Item138Proof
-public import CFSG.RankThree.PartTwo.Sec13.Ronan138SKNoComp
-public import CFSG.RankThree.PartTwo.Sec13.Ronan138SSyl
 public import CFSG.RankThree.PartTwo.Sec13.G131Holds
 public import CFSG.RankThree.PartTwo.Sec13.Item13Final
 public import CFSG.RankThree.PartTwo.Sec13.Item133Final
-public import CFSG.RankThree.PartTwo.Sec11.Item11CloseChain
-public import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.Item415
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.Item414Local
 public import CFSG.RankThree.PartTwo.KFacts.KS18M12Proof
-public import CFSG.RankThree.PartTwo.Toolkit.M12Clause
-public import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
-public import CFSG.RankThree.PartTwo.Sec13.Ronan138SSN
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138SKStr
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138SQE
-public import CFSG.RankThree.PartTwo.Sec13.Ronan138SENeDRed
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138SENeDTwo
-public import CFSG.RankThree.PartTwo.Sec13.Ronan138SENeDSeven
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138P5Main
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138P5PZero
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138P5Elem
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138P5S
-public import CFSG.RankThree.PartTwo.Sec13.Ronan138P5EFLift
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138P5Lx
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138SENeDHeis
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138WOmegaCent
@@ -35,7 +23,6 @@ public import CFSG.RankThree.PartTwo.Sec13.Ronan138SOuterIn
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138TInMain
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138WOutAb
 import CFSG.RankThree.PartTwo.Sec13.Ronan138SKTwo
-import CFSG.RankThree.PartTwo.Sec13.Ronan138SKCentPGL
 import CFSG.RankThree.PartTwo.Sec13.Ronan138SKCentL3
 import CFSG.RankThree.PartTwo.Sec13.Ronan138SKCentJ2
 import CFSG.RankThree.PartTwo.Late.Item2011

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagLin
 public import CFSG.LocalAnalysis.StandardType.GGLinearSemisimple
-public import CFSG.LocalAnalysis.StandardType.GGTypeAFarActsVec
 
 public section
 

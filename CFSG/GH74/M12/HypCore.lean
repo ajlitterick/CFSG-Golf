@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GH74.M12.HypCoreInputs
 public meta import CFSG.GH74.M12.HypCoreInputs
 public import Certificates.Certificate5135
 

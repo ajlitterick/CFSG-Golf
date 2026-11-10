@@ -3,10 +3,8 @@ module
 
 public import Certificates.Kernel.SporSch.Co2M.ThEG
 public import Certificates.Kernel.SporSch.Co2M.ThEJ
-public import Certificates.Kernel.SporSch.Co2M.Class
 public import Certificates.Kernel.SporSch.Co2M.WordsBase
 public import CFSG.Certificates.Kernel.SporSch.Co2ThirdE
-public import CFSG.Certificates.Kernel.SporSch.RecordSound
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.StrongOfSound
 

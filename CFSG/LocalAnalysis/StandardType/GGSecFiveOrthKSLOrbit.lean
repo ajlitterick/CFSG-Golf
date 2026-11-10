@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthKSLBase
 public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
 public import CFSG.LocalAnalysis.StandardType.GGK0ExcB3
 
 public section

@@ -5,7 +5,6 @@ public import Certificates.Kernel.G2Three.Sec1T1Checks2
 public import Certificates.Kernel.G2Three.Sec1T5Glue
 public import CFSG.Certificates.Kernel.G2Three.Sec1T1Sound
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.T1Facts
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.TabPred2
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.ModelL
 import CFSG.Certificates.Kernel.Common.Harness
 

@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTorCWitness
 public import CFSG.LocalAnalysis.StandardType.GGTorCTori
 public import CFSG.LocalAnalysis.StandardType.GGTorusTorLiftTwo
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusTransferCore
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameCenter
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinMaxElemSp
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotResidualHigherTrace
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRest
 public import CFSG.LocalAnalysis.StandardType.GGTBTorTransport

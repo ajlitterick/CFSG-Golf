@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigInputs
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08StabDatumAllAux
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BstarCentralLeaf
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08StabDatumHAut
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08StabDatumNorm

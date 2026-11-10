@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.Stage4.HexCPos
-public import CFSG.LieType.Steinberg.BruhatWeyl
 public import CFSG.GH74.GLS.Stage4.HexClass
 public import CFSG.LieType.Steinberg.G2
 

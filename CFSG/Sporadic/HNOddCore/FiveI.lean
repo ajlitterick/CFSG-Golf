@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.HNOddCore.FiveH
-public import CFSG.Sporadic.HNOddCore.SylA
 
 public noncomputable section
 

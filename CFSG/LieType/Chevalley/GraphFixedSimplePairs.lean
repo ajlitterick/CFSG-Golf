@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.GraphFixedBorelOvergroups
-public import CFSG.LieType.Chevalley.GraphFixedOrbitCollection
 
 public noncomputable section
 

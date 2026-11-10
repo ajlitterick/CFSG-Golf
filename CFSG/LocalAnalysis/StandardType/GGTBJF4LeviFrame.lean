@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4LeviDatum
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4LeviStab
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviEnnModel
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameCentralizer
 public import CFSG.LocalAnalysis.StandardType.GGTBJCoverComp
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflInner
 
 public section
 

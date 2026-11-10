@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2S08CellsShape
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CertD6
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CertD9
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CertA4
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08CellsFull
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CertB4
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CertB5
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CertB6

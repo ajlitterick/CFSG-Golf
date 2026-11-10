@@ -5,7 +5,6 @@ public import Certificates.Kernel.Co1M.Orb98280
 public import Certificates.Kernel.Co1Cover.Bridge
 public import CFSG.Sporadic.Co1.Module.CoTwoAutGraphLitInputs
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Sporadic.Co1.Module.InvFam
 
 public section
 

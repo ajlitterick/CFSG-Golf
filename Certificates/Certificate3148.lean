@@ -4,7 +4,6 @@ module
 public import Certificates.Certificate3148Base
 import all Certificates.Certificate3148Base
 
-public import CFSG.Monster.B.Fischer.Fi22CentralizerCheckInputs
 import Certificates.Kernel.Sporadic.Fi22.C3148
 
 public section

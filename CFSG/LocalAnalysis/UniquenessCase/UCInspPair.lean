@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.LocalVocabulary
 public import CFSG.LocalAnalysis.UniquenessCase.UCInspBasic
 
 public section

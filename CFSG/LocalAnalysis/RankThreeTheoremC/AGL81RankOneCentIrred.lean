@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentCited
-import CFSG.LocalAnalysis.AGLEmbedding.ConstrainedSLAux
 public import CFSG.LocalAnalysis.AGLEmbedding.LinTwoCatalog
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.L28TorusNormalizer
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.SmallRankOneLinTwo
@@ -20,9 +19,6 @@ public import CFSG.Sporadic.Bridge.M11CheckInputs
 public import CFSG.Sporadic.Bridge.McLSurj
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.HardMathSupport.Solomon.LocalBalance.Balance
 import CFSG.LocalAnalysis.AGLEmbedding.JStarReducedDefs
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallShape
@@ -51,8 +47,6 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.PlaneStruct
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.PointConfig
 import CFSG.Permutation.UnitaryThreeRecognition.Model
 import CFSG.RankThree.PartOne.CTP.StrongPSylow
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

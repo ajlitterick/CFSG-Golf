@@ -4,7 +4,6 @@ public import Certificates.Kernel.J4Q.X0OrbOk
 public import Certificates.Kernel.J4Q.X0Conj
 public import Certificates.Kernel.J4Q.ListAux
 public import Certificates.Kernel.J4Q.LocVec
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

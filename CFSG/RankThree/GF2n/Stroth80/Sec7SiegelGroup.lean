@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
-public import CFSG.ClassicalGroups.Orthogonal.RootGroupCard
-public import CFSG.LieType.Universal.Spin.Forms
-public import CFSG.Open.StatedDefs
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -14,9 +11,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPoi
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSemilinearDataCompatibility
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 
 public section

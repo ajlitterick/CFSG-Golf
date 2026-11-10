@@ -7,7 +7,6 @@ import Certificates.Kernel.Sporadic.Fi24P7.S02
 import Certificates.Kernel.Sporadic.Fi24P7.S1
 import Certificates.Kernel.Sporadic.Fi24P7.S3
 import Certificates.Kernel.Sporadic.Fi24P7.S4
-import Mathlib.Tactic.FinCases
 
 public section
 

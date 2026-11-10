@@ -1,8 +1,6 @@
 module
 
-public import CFSG.RankThree.PartTwo.Census.Carrier.Sp6TwoData
 public meta import CFSG.RankThree.PartTwo.Census.Carrier.Sp6TwoData
-public import CFSG.RankThree.PartTwo.Census.Carrier.Sp6TwoCertInputs
 public import Certificates.Certificate8151
 
 public section

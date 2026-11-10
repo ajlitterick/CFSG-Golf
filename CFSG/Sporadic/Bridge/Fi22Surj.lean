@@ -1,17 +1,9 @@
 module
 
 public import CFSG.Sporadic.Fi22.Simple
-public import CFSG.Sporadic.Bridge.TwoGen
 public import CFSG.Sporadic.Presentation.Fi22Exact
-public import Certificates.Data.CFSGNative.Bridge.SurjA
 public meta import Certificates.Data.CFSGNative.Bridge.SurjA
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import Certificates.Certificate9205
-public import Certificates.Certificate1005
-public import Certificates.Certificate9107
-public import Certificates.Certificate9108
-public import Certificates.Certificate9109
-public import Certificates.Certificate9110
 public meta import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import CFSG.Certificates.CosetTableOrders
@@ -19,7 +11,6 @@ public import CFSG.Certificates.CosetTableShort
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.Presentation.Fi22ExactCover
 public import CFSG.Sporadic.Presentation.Fi22ExactTop
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

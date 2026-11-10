@@ -1,10 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixIndex
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseOddCoreIndexTwo
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.InvolutionNormalizerInfConjugate
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

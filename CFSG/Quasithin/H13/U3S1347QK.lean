@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.H13.A6S1372L76EK
 public import CFSG.Quasithin.H13.A6S13834FK
-public import CFSG.Permutation.FinPackWalk
 
 public section
 

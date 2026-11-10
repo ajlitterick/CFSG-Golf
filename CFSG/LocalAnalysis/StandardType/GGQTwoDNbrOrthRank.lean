@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameOfMarking
 import CFSG.LocalAnalysis.StandardType.GGResOrthogonalExactTwo
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameCharSum
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusCore
-import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCover
 
 public section
 

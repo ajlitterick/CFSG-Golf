@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLinearModelRestFieldBasic
-import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLRestOutdiag
-import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestBstar
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs256q2
 import CFSG.ClassicalInvolution.RouteD.G2D4T3Free
 import CFSG.GroupTheory.PCore.SubgroupCore

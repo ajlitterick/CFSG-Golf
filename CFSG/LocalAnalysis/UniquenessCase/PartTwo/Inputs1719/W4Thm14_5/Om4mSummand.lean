@@ -1,15 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsModule
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.TwoSummands
-import CFSG.Quasithin.Background.RealizesFaithful
 import CFSG.Quasithin.Background.HSL3Bridge
 import CFSG.Quasithin.Background.FFC6P
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23a.LineMinus
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OmegaMinusFourIrr.Natural
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatOm4mA.Holds
-import CFSG.Timmesfeld.Orders.Classical
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
 public import CFSG.LocalAnalysis.SectionRank.LargeRee.SuzukiData
 public import CFSG.LocalAnalysis.SectionRank.OddCover.CatalogOdd
@@ -19,18 +16,13 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Monster.Code.Weights
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A4Defs
 public import CFSG.Quasithin.Background.B1Restrict
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.EmptyFaithful.Setting
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.CGT.Timmesfeld75.L2Pair
 import CFSG.CGT.Timmesfeld75.ListWCBasic
 import CFSG.CharacterTheory.CyclicBlocks.Family

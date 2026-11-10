@@ -1,16 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167ExcParDefs
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.InnerCover
 import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoF4
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerF4Root
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.F4ThreeLangInner
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
-import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcInner
-import CFSG.Adapters.SpecialLinearPerfect
 import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoOrders
-import CFSG.RankThree.PartOne.KE.D4TranspositionInterface
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenAsm
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TwE6

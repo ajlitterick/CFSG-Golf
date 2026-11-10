@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLattice
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyU
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneUnitaryLabel
 
 public section

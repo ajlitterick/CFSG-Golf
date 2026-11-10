@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaEq
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnitField
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDTwDFieldUni
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthLTwD
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailFinal
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRest
 
 public section
 

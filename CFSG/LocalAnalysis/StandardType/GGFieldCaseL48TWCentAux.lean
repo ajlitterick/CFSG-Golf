@@ -2,7 +2,6 @@ module
 
 public import Mathlib.GroupTheory.Transfer
 public import Mathlib.NumberTheory.Multiplicity
-public import Mathlib.GroupTheory.Sylow
 
 public section
 

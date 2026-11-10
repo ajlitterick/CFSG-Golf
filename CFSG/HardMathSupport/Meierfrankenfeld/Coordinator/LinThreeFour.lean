@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVL34FFBasic
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.UPrimeExcL34
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.SmallThreeOrders
 public import CFSG.RankThree.PartTwo.Sec4.T444.L34Shape
 public import CFSG.RankThree.PartTwo.KFacts.L34CenterProof
 public import CFSG.ClassicalInvolution.Q3.TwinLemmaBasic
-public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.Foundations
 public import CFSG.LieType.Multipliers.U42Bridge

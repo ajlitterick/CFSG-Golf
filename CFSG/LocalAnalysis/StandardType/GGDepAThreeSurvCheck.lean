@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGDepAThreeCheck
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
 
 public section
 

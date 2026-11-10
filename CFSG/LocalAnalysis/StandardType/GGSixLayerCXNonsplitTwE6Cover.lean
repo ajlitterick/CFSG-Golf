@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6Cover
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwisted
-public import CFSG.LocalAnalysis.StandardType.GGRootDetectTwE6
-public import CFSG.LieType.Steinberg.CentralExt.MinusculeCenter
 
 public section
 

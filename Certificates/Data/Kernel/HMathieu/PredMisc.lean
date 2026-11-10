@@ -5,7 +5,6 @@ public import CFSG.Quasithin.Vol2.Ch8Sec2L82MatR4In
 public import CFSG.Quasithin.Vol2.Ch8Sec2L82MatR2In
 public import CFSG.Quasithin.AppendixH.H15.CocodeTwoOffDefs24
 public import Certificates.Data.SmithB45MatQ
-public import Mathlib.Data.Nat.Log
 
 public section
 

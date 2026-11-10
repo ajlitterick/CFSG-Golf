@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.OmegaSwap
-import Certificates.Certificate2012
 import Certificates.Kernel.A45Cls.Glue442017
 
 public section

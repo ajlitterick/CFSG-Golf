@@ -2,8 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.KDenseP.Q7.MonoTab
 public import Certificates.Data.Kernel.KDenseP.MonoBind
-public import CFSG.Certificates.Kernel.KDense.Data.Fix
-public import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139Defs
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139Basic
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139B
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139C
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139D
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139Cliff
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps13FoundB
 
 public section
 

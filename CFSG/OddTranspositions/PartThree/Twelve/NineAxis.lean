@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Twelve.Nine
 import CFSG.OddTranspositions.PartThree.Twelve.Seven
 import CFSG.GF2Type.Smith1979.W4AsSurvNine
-import Mathlib.Algebra.Order.Group.Action.End
 
 public section
 

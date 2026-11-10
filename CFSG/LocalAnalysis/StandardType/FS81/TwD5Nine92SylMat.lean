@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Main
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5OE6
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5OddCore
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5ReflMat
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5ReflCheck
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Transfer
-public import CFSG.LocalAnalysis.StandardType.FS81.N7MainRecOut
 
 public section
 

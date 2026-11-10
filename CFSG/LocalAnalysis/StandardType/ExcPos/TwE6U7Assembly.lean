@@ -1,13 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6U7Pieces
-public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6U7Orbit
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6U7Setup
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6U7Swapped
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6U7Dict
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6U7Lift
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePinnedTransfer
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortTransport
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSU
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortTwE6
 

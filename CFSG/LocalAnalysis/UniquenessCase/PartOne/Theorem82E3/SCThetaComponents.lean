@@ -1,83 +1,48 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.CaseTwoSylow
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.CaseTwoFixedEnd
-public import CFSG.LocalAnalysis.QuasithinUnique.ComponentNormalization
-public import CFSG.Walter.AStar.Subnormal
-public import CFSG.RankThree.GroupTheory.ThetaQuotientTransport
-public import CFSG.RankThree.PartTwo.Sec4.Notation
-public import CFSG.RankThree.LocalRank.ThetaCoreQuotients
-public import CFSG.RankThree.PartTwo.KFacts.KP7Suzuki
-public import CFSG.RankThree.PartTwo.KFacts.KS44Sz
-public import CFSG.Foundations.KCoreOpen
-import CFSG.RankThree.PartTwo.Sec13.Item13SetupAt
-import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtKFIdCyc
 import CFSG.LocalAnalysis.GLTheoremA.PartI.I113Lift
 
 public import CFSG.LocalAnalysis.RankThreeUC.OddRankOneQuotient.OddRankOneQuotient
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KMinDegLow.Section
-public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic5KFacts
 import all CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.CaseTwoSylow
-import CFSG.SignalizerFunctorTheorem.Inheritance.Sections
 import CFSG.GroupTheory.PCore.SubgroupCore
 import CFSG.RankThree.PartTwo.Sec4.Item422Proof
-import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.PGroups
 
 public import CFSG.RankThree.PartTwo.Sec16.SuzukiSectionProofGL
 import CFSG.RankThree.PartTwo.Sec16.Item166StepsProofSol
 public import CFSG.RankThree.PartTwo.Sec18.Item189KTypeBridge
-public import CFSG.Sporadic.Schreier.J1Outer
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.SylowThreePerfectAction
 import CFSG.RankThree.PartOne.Q1327T.Item7U3A
 import CFSG.RankThree.PartTwo.Sec14.Ronan148KT1Gen
 import CFSG.RankThree.PartTwo.Sec8.Hering611S3QAut
-import CFSG.RankThree.PartTwo.KFacts.K71bOutAbelian
 import CFSG.RankThree.PartTwo.KFacts.K72SLPiInndiag
-import CFSG.RankThree.PartTwo.Sec17.Item17Res15ProofAut
 import CFSG.RankThree.PartTwo.Sec10.Sec10XProofCover
 import CFSG.LocalAnalysis.GLTheoremB.Prop95Iii
 import CFSG.GroupTheory.ConjActionModPCore
 import CFSG.GroupTheory.PGroup.CardCoprime
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CommutatorSupLeOfCommutatorLeAndNormalize
-import CFSG.LieType.BorelTits.Basic
-import CFSG.Quasithin.Background.F9Comp
-import CFSG.RankThree.PartTwo.Sec6.Item612Basic
 import CFSG.RankThree.PartOne.S10.FiveSuccessorTheta
-import CFSG.GroupTheory.PCore.InfPCoreOf
 import CFSG.GroupTheory.PCore.PCoreOfMulEquiv
-import CFSG.Quasithin.Background.A3ComponentsBasic
-public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Lemma27Aux4
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Lemma27Aux7
-import CFSG.LocalAnalysis.SignalizerFunctor.CentralizerImages
-import CFSG.GroupTheory.PCore.SolvableRadical
-import CFSG.GroupTheory.Frattini.PSubgroupLift
 import CFSG.LocalAnalysis.RankThreeTheoremC.RelPair2T_Two
 import CFSG.RankThree.PartTwo.Sec11.Item116R1CompThree
-import CFSG.RankThree.ThetaFree.CenterFree
 import CFSG.GroupTheory.PerfectSolvableKernelImage
 import CFSG.GroupTheory.PerfectCoreSup
 import CFSG.GroupTheory.PCoreOfSubnormal
 import CFSG.GroupTheory.CoprimeCentralizerCover
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFiftyFive
-import CFSG.LocalAnalysis.RankThreeUC.TheoremDClauseCCore
 import CFSG.Quasithin.H13.U3S1347G
 import CFSG.RankThree.PartTwo.Sec16.Item166ThreePerfect
-import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Semisimple
 import CFSG.RankThree.PartTwo.Sec16.Item16Res6ProofAct
-import CFSG.RankThree.PartTwo.Sec4.Item423StepsProof432
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.Context
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPS
 public import CFSG.LocalAnalysis.GorensteinLyons.SteinbergBXPlaneComponentOrbitRank
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPS7b
-import CFSG.LocalAnalysis.ComponentClassification.SolvableKernelContainment
-import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Lemma27Aux2
 import CFSG.SignalizerFunctorTheorem.McBride.Prelim.SemisimpleCommutator
 import CFSG.RankThree.PartTwo.Sec13.Item132
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail
 import CFSG.LocalAnalysis.GLTheoremA.S3.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.Core
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Lemma27Aux6
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Defs

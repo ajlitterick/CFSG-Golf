@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA
 public import CFSG.LocalAnalysis.StandardType.GGResJNormalComplement
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinTwoTBMain
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordAux
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordModelD
 
 public section

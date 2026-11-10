@@ -2,7 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenSpModel
 public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
-public import CFSG.Timmesfeld.Bridge.Asc72Basic
 public import CFSG.LocalAnalysis.WeakClosure81.SevenElevenCls
 import CFSG.ClassicalGroups.Orthogonal.CharTwoReflectGen
 import CFSG.ClassicalGroups.Orthogonal.OmegaMinus8ThreeLocalType

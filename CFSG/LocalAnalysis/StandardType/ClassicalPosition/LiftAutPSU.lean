@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUNotDvd
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectSU
-import Mathlib.Tactic.Group
 
 public section
 

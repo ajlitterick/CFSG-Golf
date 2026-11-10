@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LinearAlgebra.RootGroupSL.DatumEquiv
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2CoverNC
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2SLFpf
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2SLRankOne
-public import CFSG.LieType.Universal.SpecialLinearExtras
 
 public section
 

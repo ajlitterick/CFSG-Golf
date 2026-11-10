@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1F3Sat
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T23Basic
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreQuotient
 public import CFSG.GroupTheory.PCore.PrimeSetCore
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.ClassicalInvolution.Asc77.Lemma310
@@ -19,7 +17,6 @@ public import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Ord
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15Std
 public import CFSG.ClassicalInvolution.Q3.Step
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
-public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Steinberg.CentralExt.PSL2Multiplier
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogSchreierCases
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSporadicCasesC
@@ -28,12 +25,10 @@ public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1F3Props
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T23Defs
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36SporMult
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverModels
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
 public import CFSG.LocalAnalysis.ComponentClassification.RestrictedStdFamilies
 public import CFSG.Monster.B.TwoA.Base.FourNorm
 public import CFSG.Monster.SteinbergMY443SimpleIsomorphism
 public import CFSG.Quasithin.Background.Basic
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.Sporadic.HeldB.Common
 public import CFSG.Sporadic.Schreier.LyFixedSet
 public import CFSG.Sporadic.Schreier.TitsOther
@@ -44,7 +39,6 @@ public import CFSG.YGroups.Y443.Native.Parabolic2CheckB
 public import CFSG.YGroups.Y443.Native.Parabolic2CheckW
 public import Certificates.Kernel.J4Count.FixC
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import Certificates.Kernel.SporSch.J4S.NoCP
 
 public noncomputable section

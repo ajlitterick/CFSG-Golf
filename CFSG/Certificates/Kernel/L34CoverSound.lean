@@ -4,8 +4,6 @@ public import Certificates.Data.Kernel.L34Cover
 public import CFSG.Certificates.Kernel.L34InvSound
 import CFSG.Certificates.Kernel.BfsPinSetSound
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Spor.BfsReplay
-import CFSG.Certificates.Kernel.Spor.PackWord
 
 public section
 

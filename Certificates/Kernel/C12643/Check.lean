@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.C12643.LinesD
 public import Certificates.Kernel.C12643.Brute
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

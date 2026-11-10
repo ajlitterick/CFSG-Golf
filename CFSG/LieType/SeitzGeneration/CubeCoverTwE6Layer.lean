@@ -1,17 +1,7 @@
 module
 
 public import CFSG.LieType.SeitzGeneration.CubeCoverLayer
-public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwHolds
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwInnerLine
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwA2Conj
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCoreAssembly
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoDefs
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwInnCard
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeDiagParTw
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CatTw
-public import CFSG.LieType.SeitzGeneration.QuasiHigh5E6Cover
-public import CFSG.LieType.SeitzGeneration.QuasiHigh5E6CoverTw
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.SeitzRest5Even
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FL4
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FL4Cases

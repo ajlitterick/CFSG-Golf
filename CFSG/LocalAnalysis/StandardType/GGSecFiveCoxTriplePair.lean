@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.RootSystem.Cartan
-public import CFSG.LieType.RootSystem.Form
 public import CFSG.LieType.Steinberg.OfCartan
 
 public section

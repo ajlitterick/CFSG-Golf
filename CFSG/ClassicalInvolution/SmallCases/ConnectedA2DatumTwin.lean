@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.ClassicalInvolution.Omega
 public import CFSG.ClassicalInvolution.ModelFacts.LinearAutFrame
 public import CFSG.ClassicalInvolution.SmallCases.ConnectedA2FactsKG2Dichotomy

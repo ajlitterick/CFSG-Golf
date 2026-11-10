@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Centralizer
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
 
 public section

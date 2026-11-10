@@ -2,13 +2,9 @@ module
 
 public import CFSG.GH74.GLS.Stage4.Q9.DFacts
 public import CFSG.GH74.GLS.Stage4.Q9.Link1
-public import CFSG.GH74.GLS.Stage4.Q9.Lemma82
-public import CFSG.GH74.GLS.Stage4.Q9.SettingFacts
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 
 public section
 

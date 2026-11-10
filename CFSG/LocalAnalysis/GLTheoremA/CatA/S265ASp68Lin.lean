@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3ZAdjSp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265AP2Lin
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Sp6
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBaseChange
 public import CFSG.Assembly.LargeEvenGLABridge
 public import CFSG.Assembly.OpenBridges
 public import CFSG.GroupTheory.CenterlessInnerCentralizer

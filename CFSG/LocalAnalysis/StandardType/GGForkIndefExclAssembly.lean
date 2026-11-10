@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGP3CellDispatch
 public import CFSG.LocalAnalysis.StandardType.GGP5CellDispatch
 public import CFSG.LocalAnalysis.StandardType.GGR4Pump
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterForkSplit
-public import CFSG.LocalAnalysis.StandardType.GGForkCellsDefs
-public import CFSG.LocalAnalysis.StandardType.GGForkRestTrichotomy
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylNS
 
 public section
 

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.ClassicalGroups.Unitary.Finite
-public import CFSG.ClassicalGroups.Unitary.Transitivity
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.LocalVocabulary
-public import Mathlib.GroupTheory.Perm.Cycle.Type
 public import CFSG.LieType.BorelTits.CompleteFlag
 
 public section

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNsFrameCompPSU
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClHerm
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClAltSix
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGSLTag
 
 public section
 

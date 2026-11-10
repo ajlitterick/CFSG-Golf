@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2OrthBlocksDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoOmCoord
-public import CFSG.ClassicalGroups.Orthogonal.Matrix
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthTorusAutBasic
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksCentExt
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticFrameDimensions

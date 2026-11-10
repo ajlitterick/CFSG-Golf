@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGNFGen
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGNFSimpleE
-public import CFSG.ClassicalInvolution.ModelFacts.ChevAutMain
-public import CFSG.LieType.Chevalley.ExactNormalFormE
 
 public section
 

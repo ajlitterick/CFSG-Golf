@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviEnnComp
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE7
 public import CFSG.LocalAnalysis.StandardType.GGTBJE7LeviCore
 
 public section

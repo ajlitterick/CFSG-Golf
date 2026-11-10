@@ -1,17 +1,10 @@
 module
 
-public import CFSG.HardMathSupport.Dickson.I271.Support.OuterTransport
-public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTransport
-public import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
 public import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrConj
-public import CFSG.LocalAnalysis.StandardType.GGResCentBound
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc11R
 public import CFSG.LocalAnalysis.StandardType.GGRemStdSubTableBHolds
 public import CFSG.LocalAnalysis.StandardType.GGSpNbrKGRound12
-public import CFSG.LocalAnalysis.StandardType.GGTwF4SUThreeRank
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrCaseIISplit
 public import CFSG.LocalAnalysis.StandardType.GGTwE6A5KLine
 public import CFSG.LocalAnalysis.StandardType.GGTwE6A5LKnownHolds
@@ -23,8 +16,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrCaseII
 public import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
 public import CFSG.LocalAnalysis.StandardType.GGResRowAssembly
 public import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeNarrow
-import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011I61
-import CFSG.RankThree.PartOne.K1214.Omega
 public import CFSG.LocalAnalysis.StandardType.GGTwE6K1ThreeA2Two
 
 public section

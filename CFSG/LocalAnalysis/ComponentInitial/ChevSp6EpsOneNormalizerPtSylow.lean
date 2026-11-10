@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneNormalizerPtOrders
 public import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneNormalizerPtFull
 public import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneNormalizerE2Unique
-public import CFSG.LocalAnalysis.ComponentInitial.BinaryOddQuadraticFiveOrthogonalGroup
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 
 public noncomputable section
 

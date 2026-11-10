@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.PCentSet
 public import Certificates.Kernel.HS799102.GlueData
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.I19_10Red
 public import CFSG.HardMathSupport.Solomon.Coordinator.I19_6OutThree
-public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.DefCharExceptional
-public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.DefCharOrth
 public import CFSG.HardMathSupport.Timmesfeld.Balance.Alt.Setup
 
 public section

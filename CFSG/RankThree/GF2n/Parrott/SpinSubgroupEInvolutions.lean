@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.SpinSubgroupE
 public import CFSG.RankThree.GF2n.Parrott.SpinFixedSConj
-public import CFSG.RankThree.GF2n.Parrott.QA45InvolutionClasses
 
 public section
 

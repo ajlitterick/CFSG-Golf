@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonTriFacts
-public import CFSG.LocalAnalysis.GLTheoremA.S12.Common
-public import CFSG.LocalAnalysis.GLTheoremA.S10.Bridge
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneRank
 public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneAutRank
 public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.I_11_3_TablesA
-public import CFSG.Open.StatedAPI
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIInnDiag
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
@@ -24,7 +20,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.S12.Prop123
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Proof
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma99Inputs
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 
 public section

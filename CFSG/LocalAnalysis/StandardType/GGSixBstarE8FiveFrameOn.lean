@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveAutFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNormalizerAut
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarModelFrameTransfer
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcRestProof
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTags
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section

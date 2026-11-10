@@ -2,7 +2,6 @@ module
 
 public import CFSG.Assembly.E6FourNeighbourModel
 public import CFSG.Assembly.E6FourCentLangPhi
-public import CFSG.LieType.SeitzGeneration.ExcTorusE6Two
 public import CFSG.Assembly.LargeEvenGLABridge
 public import CFSG.Assembly.OpenBridges
 public import CFSG.Assembly.StandardTypeRecognitionDefs
@@ -55,7 +54,6 @@ public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanDiagOuterE6Adj
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.SporCaseThreeGen
 public import CFSG.LocalAnalysis.AGLEmbedding.OneLieMSideDefsAux
 public import CFSG.LocalAnalysis.AGLEmbedding.ReeFacts
-public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.AGLEmbedding.UnitaryFacts
 public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsCentModel
 public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsFieldAut
@@ -103,7 +101,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.Unitary
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19Defs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294KDOutTwE6
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Open.SplitBNPair
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
 public import CFSG.Quasithin.Background.A3Structure314Defs
@@ -114,8 +111,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -182,8 +177,6 @@ public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.HeldB.Common
 public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Sporadic.ONOddCore.LiftHomCheckInputs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import CFSG.Walter.Ree.Model.JTHyp
 

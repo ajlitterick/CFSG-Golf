@@ -3,8 +3,6 @@ module
 public import CFSG.Certificates.Kernel.GMS78RuSound
 public import Certificates.Kernel.GMS78.Gen
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-import Batteries.Tactic.Init
 
 public section
 

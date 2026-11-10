@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Sporadic.J4.GlobalSpec
-import Certificates.Data.CFSGNative.J4.Orbit
-import Certificates.Data.CFSGNative.J4.Global
-import Certificates.Data.CFSGNative.J4.Cert
 
 public section
 

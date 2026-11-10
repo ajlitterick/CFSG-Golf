@@ -2,18 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJXClass
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThreeE6Split
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeRootGenFrame
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeRootGenKG
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeRootGenComp
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelRecipeID
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelE6Kernel
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenCoord
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FixedA2Type
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeCoord
-public import CFSG.LocalAnalysis.StandardType.GGRootGenAvoidCoverTorus
-public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenModel
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameCentralizer
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 
 public section
 

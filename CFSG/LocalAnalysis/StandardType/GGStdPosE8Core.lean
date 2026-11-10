@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcRank
-public import CFSG.LieType.Steinberg.Adjoint.Presentation
 import CFSG.LocalAnalysis.StandardType.GGStdPosIsogCore
 import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
-import CFSG.LieType.Chevalley.AdjointCenter
 
 public section
 

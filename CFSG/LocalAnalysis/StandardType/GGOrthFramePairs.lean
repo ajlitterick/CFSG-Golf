@@ -3,12 +3,9 @@ public import CFSG.LocalAnalysis.StandardType.GGOrthRk1AllPairs
 public import CFSG.LocalAnalysis.StandardType.GGOrthFrameCore
 public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
 public import CFSG.LocalAnalysis.StandardType.GGFixedTwoKernelTransport
-public import CFSG.LocalAnalysis.StandardType.GGTBJOmAutomizerAux
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmOddSign
 public import CFSG.LocalAnalysis.StandardType.GGEvenSignedNormalizer
-public import CFSG.LocalAnalysis.StandardType.GGReflectionBasic
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmDTwo
-public import CFSG.RankThree.PartOne.S11d.OrthModels
 
 public section
 namespace CFSG.StandardType

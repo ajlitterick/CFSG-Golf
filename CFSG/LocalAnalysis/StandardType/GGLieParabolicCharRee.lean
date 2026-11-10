@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharOn
 public import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharCoatom
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Ree
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ReeAut
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.JStarReducedDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools

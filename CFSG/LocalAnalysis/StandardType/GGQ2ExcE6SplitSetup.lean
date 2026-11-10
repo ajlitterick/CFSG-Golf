@@ -1,21 +1,14 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitDefs
-public import CFSG.LocalAnalysis.StandardType.GGQ2ExcLangFrame
 
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeFrame
 import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UG3
-import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotToral
 import CFSG.LocalAnalysis.StandardType.GGTwE6EnnolaSplitTorus
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeFrame
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeDiag
 import CFSG.LocalAnalysis.StandardType.GGTwE6D4RootFacts
-import CFSG.RankThree.PartOne.KE6.EqpTorus
-import CFSG.RankThree.Lattice.SteinbergBIE6EvenFixedRootData
 import CFSG.CGT.T75N.L29Generic
 import CFSG.CGT.Timmesfeld75.ListWCLin
 import CFSG.LocalAnalysis.GLTheoremA.CatB.HU42STorus
-import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.ExcLangNFix
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3E7MPair
 public import CFSG.ClassicalInvolution.Q3.Q3E7MLin
-public import CFSG.ClassicalInvolution.ModelFacts.E7ModelSignMain
 public import CFSG.ClassicalInvolution.ModelFacts.E7ModelPerp
 
 public section

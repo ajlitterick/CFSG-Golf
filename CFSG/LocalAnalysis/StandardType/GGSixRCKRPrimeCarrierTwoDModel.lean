@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeReturnSpecs
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedDModel
-public import CFSG.LocalAnalysis.SeitzReduction.SeitzQ2OddSplitClassical
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootLine
 
 public section

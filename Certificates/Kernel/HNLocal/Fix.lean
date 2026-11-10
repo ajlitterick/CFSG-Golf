@@ -1,14 +1,11 @@
 module
 
 public import Certificates.Kernel.HNLocal.Regs
-public import CFSG.Certificates.Kernel.HNLocalSound
-public import CFSG.Certificates.Kernel.Orders.HN.Data.Const
 import Certificates.Kernel.HNLocal.Checks.K
 import Certificates.Kernel.HNLocal.Checks.R
 import Certificates.Kernel.HN3166.Seed
 import CFSG.Certificates.Kernel.Orders.HN.Checks.K
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 400000
 

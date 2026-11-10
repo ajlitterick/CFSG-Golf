@@ -3,11 +3,7 @@ module
 
 public import Certificates.Kernel.SporSch.HN.C17381K
 public import Certificates.Kernel.SporSch.HN.C13609
-public import Certificates.Kernel.SporSch.HN.Pt2109
-public import CFSG.Certificates.Kernel.HNLocalSound
 public import CFSG.Certificates.Kernel.HNLocal.AddSound
-public import CFSG.Certificates.Kernel.SporSch.HNXCnt.Seed
-public import CFSG.Certificates.Kernel.SporSch.HNXCnt.Asm
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNFiveCertBase
 
 public section

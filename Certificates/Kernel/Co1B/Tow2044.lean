@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Co1B.Dag2044
-public import Certificates.Data.Kernel.SporSch.Co1Tower
 public meta import Certificates.Kernel.SporSch.Co1.GenTower
 meta import Certificates.Kernel.Co1B.In2044
 meta import CFSG.Sporadic.Co1Block.TwoAData

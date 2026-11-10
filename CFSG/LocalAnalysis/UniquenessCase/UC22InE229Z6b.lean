@@ -10,7 +10,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UC22SigmaThreeStrong
 import CFSG.LocalAnalysis.UniquenessCase.UC7P3NoBad
 import CFSG.LocalAnalysis.UniquenessCase.UC6S846h
 import CFSG.LocalAnalysis.UniquenessCase.UCKPSyl1
-public import CFSG.LocalAnalysis.UniquenessCase.UCR638
 
 public section
 

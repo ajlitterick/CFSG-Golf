@@ -5,7 +5,6 @@ public import CFSG.Quasithin.Background.F8Basic
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen1c
 import CFSG.LocalAnalysis.UniquenessCase.UC6Mod
 import CFSG.Milestones.ASVolI.C31.J4NP.Orbit
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

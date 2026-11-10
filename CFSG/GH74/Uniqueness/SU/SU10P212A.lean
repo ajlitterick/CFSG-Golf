@@ -1,14 +1,8 @@
 module
 
-public import CFSG.GH74.Uniqueness.SU.SU10Stmts
-public import CFSG.GH74.Uniqueness.SU.SU10Setup
-public import CFSG.GH74.Uniqueness.SU.SU10Fusion
-public import CFSG.GH74.Uniqueness.SU.SU10Syl
 public import CFSG.GH74.Uniqueness.SU.SU10Cl
 public import CFSG.GH74.Uniqueness.SU.SU10Zbar
 public import CFSG.GH74.GLS.TwoThin.Rank
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 
 public section
 

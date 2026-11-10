@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2MixedPower
 public import CFSG.LocalAnalysis.StandardType.GGF4N2NbrClassification
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
 import CFSG.LocalAnalysis.StandardType.N2PlaneGroup
 
 public section

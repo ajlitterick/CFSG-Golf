@@ -1,9 +1,7 @@
 module
 
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisE6.NoIrrFF
-public import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisE6.Hat
 public import CFSG.HardMathSupport.Meierfrankenfeld.LieOdd.ExcE
-public import CFSG.Open.StatedDefs
 public import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutModel
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main

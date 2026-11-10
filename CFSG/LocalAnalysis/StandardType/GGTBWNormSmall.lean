@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormLowRank
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNine
-public import CFSG.RankThree.PartOne.Q1327C.BNoCube
-public import CFSG.RankThree.Chevalley.SteinbergCFExceptionalModelCover
-public import CFSG.RankThree.PartTwo.Sec21.ReeF4ThreeLocalProofRank
 public import CFSG.RankThree.PartTwo.Sec8.Item89Res2ProofJTypeRee
 
 public section

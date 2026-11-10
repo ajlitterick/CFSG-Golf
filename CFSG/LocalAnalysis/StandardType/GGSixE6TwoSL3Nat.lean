@@ -39,7 +39,6 @@ import CFSG.Quasithin.Background.SmithB42L2Nat
 import CFSG.Quasithin.Background.SmithB42SL3Aut
 import CFSG.Quasithin.Background.SmithB42SL3Base
 import CFSG.Quasithin.Background.SmithB51LnRealB
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

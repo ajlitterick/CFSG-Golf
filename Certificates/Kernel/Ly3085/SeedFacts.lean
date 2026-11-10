@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.Ly3085.Bridge
 public import Certificates.Kernel.Ly3085.Omega.SeedRel
 public import Certificates.Kernel.Ly3085.Seed
-public import Certificates.Kernel.SporSch.Ly.BS18009
 
 public section
 

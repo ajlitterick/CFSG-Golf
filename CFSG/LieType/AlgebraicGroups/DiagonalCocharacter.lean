@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.G2ExceptionalComorphism
-public import CFSG.LieType.AlgebraicGroups.GLCoordPoints
 public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import TauCeti.Algebra.AlgebraicGroup.SplitTorus.Cocharacter
-public import Mathlib.Algebra.MonoidAlgebra.NoZeroDivisors
-public import Mathlib.RingTheory.Finiteness.Finsupp
 public import TauCeti.Algebra.Bialgebra.Quotient
 
 public noncomputable section

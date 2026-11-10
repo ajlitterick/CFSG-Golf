@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LieType.D4Small.Datum
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityModel
 public import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613KGTorus
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupGLEichler
-public import CFSG.LieType.Steinberg.Classical.SpinFrame.Commutator
-import Mathlib.Tactic.Ring
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 
 public section

@@ -1,13 +1,8 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_6
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Induction
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Orthogonality
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.SimpleCriteria
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Divisibility
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.CharacterValues
 public import Mathlib.GroupTheory.FiniteAbelian.Duality
-public import Mathlib.GroupTheory.Index
 
 namespace CFSG
 end CFSG

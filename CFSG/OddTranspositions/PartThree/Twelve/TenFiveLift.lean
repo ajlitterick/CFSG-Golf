@@ -1,6 +1,5 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveCentral
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultiplier
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveLiftModel
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveLiftExtension

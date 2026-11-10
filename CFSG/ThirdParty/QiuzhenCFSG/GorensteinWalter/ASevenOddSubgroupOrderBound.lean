@@ -1,16 +1,9 @@
 module
 
-public import Mathlib.Algebra.Group.Subgroup.Defs
-public import Mathlib.Algebra.Ring.Parity
-public import Mathlib.SetTheory.Cardinal.Finite
 public import Mathlib.GroupTheory.SpecificGroups.Alternating
 
 import Mathlib.Tactic
-import Mathlib.GroupTheory.Sylow
-import Mathlib.GroupTheory.PGroup
-import Mathlib.GroupTheory.Perm.Cycle.Type
 import Mathlib.Data.Nat.GCD.Prime
-import Mathlib.GroupTheory.SpecificGroups.Cyclic
 
 namespace CFSG
 end CFSG

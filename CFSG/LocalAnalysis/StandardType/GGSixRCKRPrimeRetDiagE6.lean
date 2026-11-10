@@ -2,12 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetLang
 import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankE6
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeE6FourFusion
-import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviHom
-import CFSG.ClassicalInvolution.ModelFacts.ChevAutLift
-import CFSG.LieType.Steinberg.Isogeny.TwistedE6
-import CFSG.LieType.Chevalley.RootCharacterConjugation
-import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 
 public section
 

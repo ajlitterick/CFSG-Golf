@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerLinearNsFrame
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreCl
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRestCore
-public import CFSG.RankThree.SteinbergR3ELinearRegularUnipotent
 
 public section
 

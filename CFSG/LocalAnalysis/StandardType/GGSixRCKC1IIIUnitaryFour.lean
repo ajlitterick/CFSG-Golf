@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2GeoSUShort
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotQ2OverlapValSU4U
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindCTUAlignTwist
-import CFSG.Timmesfeld.Transvection.ModelSUFour
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotXiPartner
-public import CFSG.LocalAnalysis.StandardType.GGSixRCK1416Defs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIShortModel
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpOmegaSix
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpOrthPoint

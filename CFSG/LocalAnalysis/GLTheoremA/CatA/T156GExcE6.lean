@@ -3,13 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GKnown
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GExcBase
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcGap
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevModel
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownE6Model
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixAut
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixData
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangModel
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestInner
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.FixedE6
 
 public section
 

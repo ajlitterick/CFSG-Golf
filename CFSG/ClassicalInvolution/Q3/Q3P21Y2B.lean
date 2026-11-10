@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3P21Y2A
-public import CFSG.ClassicalInvolution.Q3.Q3TLKAut
 
 public section
 

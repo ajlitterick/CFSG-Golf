@@ -6,19 +6,13 @@ public import Certificates.Data.CFSGNative.Co3.Data
 public import CFSG.Certificates.Kernel.Orders.Co3.RelsBind
 public import CFSG.Certificates.Kernel.Bounds.Co3Alt.Binding
 public import CFSG.Certificates.Kernel.Orders.Co3.GensBind
-public import CFSG.Certificates.Kernel.Orders.Co3.Checks.R
-public import CFSG.Certificates.Kernel.Orders.Co3.Checks.H
 public import CFSG.Certificates.Kernel.Orders.Co3.Checks.D
 public import CFSG.Certificates.Kernel.Orders.Co3.Checks.K
-public import CFSG.Certificates.Kernel.Orders.Co3.Data.Pay
 public import CFSG.Sporadic.Presentation.Co3
 import all CFSG.Blueprint.NativeSporadic
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Perm.ChainSpec
 public import CFSG.Sporadic.Presentation.Common
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

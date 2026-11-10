@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutModel
 public meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheck
 public import Certificates.Certificate4105
 public import CFSG.Sporadic.J2
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

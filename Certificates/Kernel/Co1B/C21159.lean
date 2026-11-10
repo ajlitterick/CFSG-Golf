@@ -4,7 +4,6 @@ public import CFSG.Sporadic.Co1Patterson.AmalgamInnerInputs
 public import Certificates.Kernel.Co1B.C21142
 public import Certificates.Kernel.Co1B.Tab21159
 public import Certificates.Kernel.Co1B.Loop21159
-import CFSG.Certificates.Kernel.Co1BMulSound
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

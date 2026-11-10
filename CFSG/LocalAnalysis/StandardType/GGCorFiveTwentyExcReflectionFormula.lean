@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LieType.Chevalley.LangWeylChamberStabilizers
 public import CFSG.LieType.Chevalley.LangWeylInvolutionReflections
 public import CFSG.LieType.Chevalley.SimplyLacedFieldTwoCoverRoots
-public import Mathlib.Algebra.Module.Submodule.Union
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LocalAnalysis.ComponentInitial.CentralCoverAbelian
 

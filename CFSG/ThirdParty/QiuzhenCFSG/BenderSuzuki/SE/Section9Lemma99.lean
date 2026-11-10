@@ -2,15 +2,9 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section9Lemma98
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Corollary85
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.II1Section4
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Sylow
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.Nilpotent
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.lemma_3_1
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection5.theorem_5_3
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.lemma_6_5_a
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection12.corollary_12_9_b
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
 
 namespace CFSG

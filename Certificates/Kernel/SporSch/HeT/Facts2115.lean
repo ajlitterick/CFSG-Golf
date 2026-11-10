@@ -5,13 +5,11 @@ public import Certificates.Kernel.SporSch.HeT.CntGlue
 public import Certificates.Kernel.SporSch.HeT.CntA
 public import Certificates.Kernel.SporSch.HeT.CntT
 public import Certificates.Kernel.SporSch.HeT.CntS0
-public import CFSG.Sporadic.HeldB.InnerClassCheckInputs
 public meta import CFSG.Sporadic.HeldB.HeBlocks
 public meta import CFSG.Sporadic.HeldB.InnerCheck
 public meta import Certificates.Data.CFSGNative.HeldB.Tests
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -2,15 +2,12 @@ module
 
 public import Certificates.Data.CatFactsL4U4P1L43Data
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4P1CentTriv
-public import CFSG.Certificates.Kernel.Spor.RawDefs
 public import Certificates.Data.Kernel.Misc.ArrEnum
 public import Certificates.Kernel.Sporadic.RawGen
 public meta import Certificates.Data.CatFactsL4U4P1L43Data
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 import all Init.Data.Nat.Fold
 import all Init.Data.Range.Basic
-public import Mathlib
 
 set_option maxRecDepth 400000
 set_option maxHeartbeats 0

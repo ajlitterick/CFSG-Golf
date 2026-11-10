@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.LBalance
-public import CFSG.ClassicalInvolution.LBalance.Proof.Tools
 public import CFSG.ClassicalInvolution.LBalance.Proof.Correspondence
 public import CFSG.ClassicalInvolution.LBalance.Proof.Central
 public import CFSG.ClassicalInvolution.LBalance.Proof.Reductions

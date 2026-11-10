@@ -4,10 +4,6 @@ public import CFSG.Monster.Existence.TwoPoint.FourDLift
 public import CFSG.Monster.Existence.TwoPoint.FourDRoot
 public import CFSG.Monster.Existence.TwoPoint.ShapeOneHC
 public import CFSG.Monster.B.TwoA.Amalgam.LocalLabel
-public import CFSG.Monster.B.CTIB.UniqueComponent
-import Mathlib.Tactic.Group
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Monster.Existence.TwoPoint.Fi23ConjBase
 public import CFSG.Monster.Existence.TwoPoint.Fi23MiscBase
 public import CFSG.Monster.Existence.TwoPoint.Fi23Rels0Base

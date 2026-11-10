@@ -1,20 +1,13 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGN2Defs
 public import CFSG.LocalAnalysis.StandardType.GGN2NotRankOne
 public import CFSG.LocalAnalysis.StandardType.GGN2I1
 public import CFSG.LocalAnalysis.StandardType.GGN2ExcPair
 public import CFSG.LocalAnalysis.StandardType.GGN2RA
-public import CFSG.LocalAnalysis.StandardType.GGTPNRegimeDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPNClGen
 public import CFSG.LocalAnalysis.StandardType.GGTPNClassicalCover
 public import CFSG.LocalAnalysis.StandardType.GGTPNExcCover
 public import CFSG.LocalAnalysis.StandardType.GGTPNNonExc
-public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
-public import CFSG.LocalAnalysis.StandardType.GGTPNNarrowC6
-public import CFSG.LocalAnalysis.StandardType.GGTPNI1
-public import CFSG.LocalAnalysis.StandardType.GGTPNI1Gen
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

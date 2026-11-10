@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniQTwoExcDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniQTwoExcSixCore
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniQTwoExcFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveUnitarySixCenterAction
 import CFSG.LocalAnalysis.StandardType.GGSecFiveUnitarySixCentralizer
 

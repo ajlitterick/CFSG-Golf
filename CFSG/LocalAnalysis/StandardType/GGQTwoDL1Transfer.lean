@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDTransport
 public import CFSG.LocalAnalysis.StandardType.GGInvolutionRankOneRepresentative
-public import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGLinearFusionSLCent
 public import CFSG.LocalAnalysis.StandardType.GGOTwoPrimeMap
 
 public section

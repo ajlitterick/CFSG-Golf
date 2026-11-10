@@ -2,10 +2,7 @@ module
 
 public import CFSG.Certificates.Kernel.Common.Loop
 public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
-public import Mathlib.Data.List.Pairwise
 import Mathlib.Data.Nat.Bitwise
-import Mathlib.Algebra.Order.BigOperators.Group.Finset
-import Mathlib.Data.List.Nodup
 import Mathlib.Tactic.Positivity
 import Mathlib.Tactic.Ring
 

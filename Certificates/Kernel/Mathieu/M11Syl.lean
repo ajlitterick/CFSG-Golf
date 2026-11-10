@@ -4,8 +4,6 @@ public import Certificates.Kernel.Mathieu.RootData
 public import Certificates.Kernel.Mathieu.M11Chains
 public import CFSG.Certificates.Kernel.Mathieu.SylowSoundK
 public import CFSG.Sporadic.Mathieu.M11
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

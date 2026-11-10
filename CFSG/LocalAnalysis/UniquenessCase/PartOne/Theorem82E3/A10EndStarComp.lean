@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UC1K327Core
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma123a
 import CFSG.LocalAnalysis.GH72.PGammaL2Permutable
 import CFSG.Adapters.WholeGroupLayer
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
 import CFSG.GH74.GLS.AssemblyComponents
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.AlmostSimpleBInnerPClosure
 import CFSG.SignalizerFunctorTheorem.McBride.Functor.SrSubgroup

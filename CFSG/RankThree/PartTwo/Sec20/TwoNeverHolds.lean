@@ -8,7 +8,6 @@ public import CFSG.RankThree.PartTwo.Sec19.F194Wide3
 import CFSG.RankThree.PartTwo.Sec19.KF1923ParSp6Main
 import CFSG.RankThree.PartTwo.Sec19.KF1923ParO8
 import CFSG.RankThree.PartTwo.Sec19.Item1923
-import CFSG.RankThree.PartTwo.Sec19.Item1922Full
 public import CFSG.GH74.GLS.IVK.Proofs2.C3Ivk102L
 public import CFSG.HardMathSupport.Cooperstein.AlternatingGeometry.TwoGroupExtension
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.Co2DfsSound

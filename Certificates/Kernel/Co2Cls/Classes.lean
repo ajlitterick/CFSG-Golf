@@ -4,10 +4,6 @@ public import Certificates.Kernel.Co2Cls.Checks
 public import Certificates.Kernel.Co2Cls.Units
 public import Certificates.Kernel.Co2Syl.Facts
 public import CFSG.Certificates.Kernel.Co2Cls.Assemble
-import Mathlib.Tactic.NormNum.GCD
-import Mathlib.Tactic.NormNum.Prime
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
-public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 public import CFSG.Certificates.Kernel.BSeed.Sound
 public import Certificates.Kernel.Co2Cls.Rec5
 public import Certificates.Kernel.Co2Cls.Rec6

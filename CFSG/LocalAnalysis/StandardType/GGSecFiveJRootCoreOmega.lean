@@ -1,14 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreTorus
-import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmDiag
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmDich
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmBlock
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmFix
-import CFSG.LieType.Universal.SpinOmega.Range
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3OrthMinusBlock
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSpin
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
 
 public section
 

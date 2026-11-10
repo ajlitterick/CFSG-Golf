@@ -2,8 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Pair
 public import CFSG.OddTranspositions.O4CloseReduction
-import CFSG.OddTranspositions.PartThree.EightSix.OFourMinusCheck
-public import CFSG.Timmesfeld.Bridge.Asc72Triangle
 public import Certificates.Certificate1430001
 public import CFSG.OddTranspositions.SixEight
 public import CFSG.Timmesfeld.Moufang.Three

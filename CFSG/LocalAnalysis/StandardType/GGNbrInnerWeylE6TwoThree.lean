@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylOpenLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwoTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotToral
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylScIrred
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestCenter
-public import CFSG.LieType.Steinberg.CentralExt.FieldTwoMultiplier
 
 public section
 

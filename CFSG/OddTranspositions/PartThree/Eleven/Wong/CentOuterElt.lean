@@ -1,8 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentOuterPsi
-public import Mathlib.GroupTheory.SpecificGroups.Dihedral
-import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentDiagA5
 import TauCeti.GroupTheory.SpecificGroups.Dihedral.Basic
 import CFSG.GH74.GLS.SP.GenOrder
 

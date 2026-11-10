@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.EightEight.WreathFourBlocks
-public import CFSG.Timmesfeld.Bridge.Asc72Defs
 import CFSG.OddTranspositions.PartThree.EightEight.WreathNatural
 import CFSG.OddTranspositions.PartThree.EightEight.WreathSwapClass
 import CFSG.OddTranspositions.PartThree.EightEight.WreathGen

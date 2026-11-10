@@ -2,10 +2,8 @@ module
 
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneBlocks
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownComp
-public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Defs
 public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.KLinearOmega
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.PlaneTorus
 public import CFSG.Assembly.ComponentFreeOddCores

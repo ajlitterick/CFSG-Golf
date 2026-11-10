@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGDepAThreeDefs
-public import CFSG.LocalAnalysis.StandardType.GGDepASmall
-public import CFSG.LocalAnalysis.StandardType.GGDepAFrame
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 
 public section
 

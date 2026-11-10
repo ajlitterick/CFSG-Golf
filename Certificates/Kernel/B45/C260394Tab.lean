@@ -11,7 +11,6 @@ public import CFSG.Sporadic.Schreier.RuSEnum
 import CFSG.Certificates.Kernel.Misc.RuInvCov
 import CFSG.Certificates.Kernel.Misc.RuInvSound
 import Certificates.Kernel.Sporadic.ON.Gen
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

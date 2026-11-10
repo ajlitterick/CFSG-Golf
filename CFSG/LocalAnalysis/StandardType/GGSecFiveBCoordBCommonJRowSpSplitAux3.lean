@@ -2,18 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpBlock
 import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpSelected
-import CFSG.LocalAnalysis.StandardType.GGTBJSpCoreAux
 import CFSG.LocalAnalysis.StandardType.GGTBJSpParabolicAut
-import CFSG.LocalAnalysis.StandardType.GGHalfCentGroup
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommSpRes
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-import CFSG.Adapters.RankTwoModelTransports
-import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagModel
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpIsoOneLinear
-public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagLinear
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUDvd
-public import CFSG.Fischer.Classification.Recognition.Basic
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE0ShapeDefs
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeSmall
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeCard
-public import CFSG.RankThree.PartOne.KE.CTLang
 
 public section
 

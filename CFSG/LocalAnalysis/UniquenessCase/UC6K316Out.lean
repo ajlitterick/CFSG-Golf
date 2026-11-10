@@ -3,13 +3,7 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K36Shape
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K316L34
 public import CFSG.RankThree.PartTwo.KFacts.L34Centralizers
-public import CFSG.RankThree.PartTwo.KFacts.AutPSLOrderThree
 public import CFSG.RankThree.PartTwo.KFacts.KS18OuterCore
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiMain
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherGraphFieldInvolution
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherOuterQuotients
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
-public import CFSG.Assembly.OrderReductions.LinearOrders
 public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinear
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalSmallSourceLinear
 public import CFSG.RankThree.PartTwo.KFacts.KS18Basic

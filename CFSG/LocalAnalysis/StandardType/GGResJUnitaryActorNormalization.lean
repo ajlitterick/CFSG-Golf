@@ -1,7 +1,5 @@
 module
 
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-public import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryField
 public import CFSG.LocalAnalysis.StandardType.GGSUNonsplitTwoBlockRestrict
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUProjectivePlaneUnitaryModel

@@ -1,7 +1,6 @@
 module
 
 public import Mathlib
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
 
 public section
 

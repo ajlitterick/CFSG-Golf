@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res5ProofCover
-public import CFSG.Sporadic.McL.Setup
-public import Certificates.Data.R3E417.McL
 public import Certificates.Certificate8175
 public import Certificates.Certificate8007
 public import Certificates.Certificate8008

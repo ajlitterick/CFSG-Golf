@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.Defs
 public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.ClassicalTorus
 public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.ClassicalTorusU
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherAntiunitaryTransport
 
 import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.CharThree
@@ -11,8 +9,6 @@ import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.Arith
 import CFSG.LocalAnalysis.SteinbergBNUnitaryThreeOuterInvolutionRigidity
 import CFSG.LieType.SeitzGeneration.UnitaryHyperDiag
 import CFSG.LieType.OutStructureFixRankUnitary
-import CFSG.RankThree.Classical.SteinbergBTUnitarySubfield
-import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderPSUDescent
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 import CFSG.Certificates.CentralKernel
 import CFSG.Certificates.CosetTableWalkC
@@ -71,7 +67,6 @@ import CFSG.Monster.GMS.Fi23Gen
 import CFSG.Monster.GMS.Fi23GenIso
 import CFSG.Monster.GMS.Fi23GenSix
 import CFSG.Monster.GMS.LeechCoh
-import CFSG.Monster.GMS.LeechCohGroup
 import CFSG.Monster.GMS.S365Center
 import CFSG.Monster.GMS.S37
 import CFSG.Monster.GMS.S4Assembly

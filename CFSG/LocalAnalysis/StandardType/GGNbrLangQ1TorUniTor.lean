@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorUniDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdCodimOne
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdTorality
 import CFSG.LocalAnalysis.StandardType.KGLangS1AUniTypeDet
 import CFSG.LocalAnalysis.StandardType.KGLangS1AUniTransfer
 

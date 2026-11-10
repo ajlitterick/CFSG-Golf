@@ -6,7 +6,6 @@ public import Certificates.Kernel.SuzThree13637.CEnum
 public import Certificates.Data.Kernel.HeDihK
 public import Certificates.Data.Kernel.K426K
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 400000
 

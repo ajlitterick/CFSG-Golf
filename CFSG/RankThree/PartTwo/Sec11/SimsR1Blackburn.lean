@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.KFacts.KS116
 public import CFSG.RankThree.PartTwo.Sec11.SimsR1BlackburnSmall
 public import CFSG.RankThree.PartTwo.Sec11.SimsR1BlackburnOmega
 public import CFSG.RankThree.PartTwo.Sec11.SimsR1BlackburnOut
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 
 public section
 

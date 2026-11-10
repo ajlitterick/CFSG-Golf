@@ -2,12 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesReindex
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldUnipotent
-public import Mathlib.RingTheory.Coalgebra.IsFrobenius
-public import Mathlib.RingTheory.Etale.Weakly
-public import Mathlib.RingTheory.HopfAlgebra.Basic
-public import Mathlib.RingTheory.PiTensorProduct
-public import Mathlib.RingTheory.TotallySplit
-public import Mathlib.Topology.Compactification.OnePoint.ProjectiveLine
 
 public section
 

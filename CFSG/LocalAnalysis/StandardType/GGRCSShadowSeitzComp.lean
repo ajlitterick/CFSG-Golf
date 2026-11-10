@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGRCSShadowBasic
 public import CFSG.LocalAnalysis.StandardType.SpEightOvergroupInput
 public import CFSG.LocalAnalysis.StandardType.SpSixOvergroupInput
 public import CFSG.LocalAnalysis.StandardType.L34OvergroupInput
-public import CFSG.LargeExtraspecial.A2ModOrdCard
-public import CFSG.Timmesfeld.Orders.Classical
 
 public section
 

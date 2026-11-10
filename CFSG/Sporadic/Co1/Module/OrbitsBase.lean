@@ -8,7 +8,6 @@ public meta import Certificates.Data.CFSGNative.Perm.Chain
 import CFSG.Perm.OrbitTree
 import all CFSG.Blueprint.NativeSporadic
 public import CFSG.Sporadic.Co1Base
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

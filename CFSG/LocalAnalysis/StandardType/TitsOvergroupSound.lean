@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.TitsOvergroupCheck
 public import CFSG.LocalAnalysis.StandardType.SylowPairOvergroup
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.MaxD2PermSound
-public import CFSG.Open.Defs
 
 public section
 

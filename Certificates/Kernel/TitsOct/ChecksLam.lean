@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.TitsOct.Checks
 public import Certificates.Kernel.TitsOct.DataLam
 public import Certificates.Data.Kernel.TitsOctLamK
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

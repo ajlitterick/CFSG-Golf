@@ -1,12 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRealQFour
 public import CFSG.LocalAnalysis.StandardType.GGRealKGTorusComponents
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpJr
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpSeven
-public import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3Bridge
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLinearOne
 
 public section

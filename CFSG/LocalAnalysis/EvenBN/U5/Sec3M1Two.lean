@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.U5.Sec3M1One
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 
 public noncomputable section
 

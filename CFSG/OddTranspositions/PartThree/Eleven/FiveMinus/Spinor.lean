@@ -5,7 +5,6 @@ import CFSG.OddTranspositions.PartThree.Eleven.Five.Hom
 import CFSG.ClassicalInvolution.Orders.OrthogonalNeg
 import TauCeti.LinearAlgebra.Matrix.OneSubVecMulVec
 import TauCeti.Algebra.Group.Units.Basic
-import TauCeti.FieldTheory.SquareClassGroup.Basic
 
 public section
 

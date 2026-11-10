@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentKnownInputs
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseNoBL5Aut
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL4546Defs
 
 import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagLift
 import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagLinear
@@ -10,13 +8,7 @@ import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagOrth
 import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagSUFour
 import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedSLTwo
 import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedLift
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenOrth
-import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestInner
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindUnitaryGlobal
-import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
-import CFSG.LocalAnalysis.StandardType.GGAssemblyFiveDefs
 import CFSG.LocalAnalysis.StandardType.GGExclNoIso
 import CFSG.GroupTheory.PerfectImageRange
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphUnitaryNormal

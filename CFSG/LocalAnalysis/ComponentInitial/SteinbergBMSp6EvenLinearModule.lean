@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymmetricThreeFullAffine
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixRadicalLabels
-public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixModelTransport
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBMSp6EvenLinearAmbientTools
 
 public noncomputable section

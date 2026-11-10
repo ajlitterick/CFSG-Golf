@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2RootGroups
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
 import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderLinearBorel
-public import Mathlib.LinearAlgebra.Projectivization.Cardinality
 
 public section
 

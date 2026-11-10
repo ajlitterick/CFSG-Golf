@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5F4
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5F4Kernel
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5F4Lang
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5F4Trace
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
 import CFSG.Quasithin.H13.NQCatJ4FrattiniGen
-import CFSG.RankThree.Chevalley.SteinbergCFERootSL2Traces
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 
 public section
 

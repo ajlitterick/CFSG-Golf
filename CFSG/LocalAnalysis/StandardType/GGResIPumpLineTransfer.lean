@@ -2,72 +2,34 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieM6cFinal
 
-public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Recipe
 
-public import CFSG.LocalAnalysis.StandardType.GGCanonicalToLegacy
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T2021LayerOrder
 
-public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
 public import CFSG.LocalAnalysis.StandardType.GGTPNLineDefs
-public import CFSG.LocalAnalysis.StandardType.GGResJLineA3
 public import CFSG.LocalAnalysis.StandardType.GGResJLineBCGamma
-public import CFSG.LocalAnalysis.StandardType.GGCSRHolds
 public import CFSG.LocalAnalysis.StandardType.GGRootGenSmallRankQFour
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
 public import CFSG.LocalAnalysis.StandardType.GGResIPumpLineAut
 public import CFSG.LocalAnalysis.StandardType.GGResIPumpLineA3
 public import CFSG.LocalAnalysis.StandardType.GGResILineBThree
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenKernel
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenOver
 public import CFSG.LocalAnalysis.StandardType.GGTBJWeyl
 public import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTransport
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplit
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Holds
-public import CFSG.LocalAnalysis.StandardType.GGInndiagCommRestExcl
-public import CFSG.LocalAnalysis.StandardType.GGOddCenterPrimeLabel
 public import CFSG.LocalAnalysis.StandardType.KGCenterCoprime
 public import CFSG.LocalAnalysis.StandardType.GGQTwoU5Bridges
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CoprimeSplit
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
-public import CFSG.LocalAnalysis.StandardType.GGTCJHolds
-public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclicHolds
-public import CFSG.LocalAnalysis.StandardType.GGTBTorCHolds
-public import CFSG.LocalAnalysis.StandardType.GGTBTorDatum
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalCover
 public import CFSG.LocalAnalysis.StandardType.GGCRNOrthNs
-public import CFSG.LocalAnalysis.StandardType.GGTBTorE7
-public import CFSG.LocalAnalysis.StandardType.GGTBTorE8Split
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTorus
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
-public import CFSG.LocalAnalysis.StandardType.GGTBTorDSplit
-public import CFSG.LocalAnalysis.StandardType.GGTBTorDNsHolds
-public import CFSG.LocalAnalysis.StandardType.GGTBTorRelDHolds
-public import CFSG.LocalAnalysis.StandardType.GGTBTorRelDMinusSplit
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
 public import CFSG.LocalAnalysis.StandardType.GGTBE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNE6Cells
-public import CFSG.LocalAnalysis.StandardType.GGResE6DepOrder
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6NonsplitThreeHolds
 public import CFSG.LocalAnalysis.StandardType.GGL45E67Center
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNE6Frame
 public import CFSG.LocalAnalysis.StandardType.GGTorusWeylTypeEven
 public import CFSG.LocalAnalysis.StandardType.GGTBRowOFrameAux
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourNotToral
 public import CFSG.LocalAnalysis.StandardType.GGTwE6E4bReflection
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableBE6Three
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsBoth
-public import CFSG.LocalAnalysis.StandardType.GGPumpTwExcKnownHolds
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6Three
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Holds
 
 public section
 

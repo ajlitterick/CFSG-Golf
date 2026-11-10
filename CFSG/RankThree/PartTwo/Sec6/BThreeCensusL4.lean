@@ -1,9 +1,7 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec6.BThreeCensusSp4Odd
-public import CFSG.RankThree.PartTwo.KFacts.AutPSLOrderThree
 import CFSG.RankThree.SubgroupLists.CentralThreeLift
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherFieldInvolution
 import CFSG.RankThree.PartOne.KC.LinearSubfieldPointwise
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

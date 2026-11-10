@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenResults
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenResults2
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2Glue
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2NineteenCore
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2NineteenCase4
@@ -9,7 +7,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2NineteenCas
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2EighteenCase4
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2EighteenCase10
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThirteenB
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
 public import CFSG.Quasithin.EmptyFaithful.T1515C6Grp
 
 public section

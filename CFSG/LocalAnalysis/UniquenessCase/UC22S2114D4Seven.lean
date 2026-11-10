@@ -1,17 +1,8 @@
 module
 
-public import CFSG.LieType.Chevalley.EvenTrialityTorusCoordinates
-public import CFSG.LieType.Steinberg.TwistedD4.Perfect
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
-public import CFSG.LieType.Steinberg.TwistedD4.Quasisimple
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S218D4
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114D4Syl
-import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
-import CFSG.LieType.Chevalley.GraphFixedRankOneImage
 import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsD4Data
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
-import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.CyclicBlocks.Family

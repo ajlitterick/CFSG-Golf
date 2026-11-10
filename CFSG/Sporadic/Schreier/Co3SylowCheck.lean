@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.Schreier.Co3Outer
-public import CFSG.Sporadic.Schreier.Co3OrderCheck
 public meta import CFSG.Sporadic.Schreier.Co3Outer
 public meta import CFSG.Sporadic.Schreier.Co3OrderCheck
-public import CFSG.Sporadic.Schreier.Co3SylowCheckInputs
 public import Certificates.Certificate2162
 
 public section

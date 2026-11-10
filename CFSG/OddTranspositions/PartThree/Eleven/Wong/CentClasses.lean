@@ -2,7 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentT
 import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentDiagA5
-import Mathlib.GroupTheory.SpecificGroups.Alternating.Centralizer
 
 public section
 

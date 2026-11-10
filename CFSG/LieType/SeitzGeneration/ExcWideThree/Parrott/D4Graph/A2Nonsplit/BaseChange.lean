@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2Nonsplit.Frame
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupDescent
-public import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
 
 public section
 

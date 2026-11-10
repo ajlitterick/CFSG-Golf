@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Open.Catalog
-public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.RankTwoShapes.UnitaryFour.Bridge
 public import CFSG.Fischer.Classification.Recognition.PSU6
 public import CFSG.LieType.Steinberg.CentralExt.Model

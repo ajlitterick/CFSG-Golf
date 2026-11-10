@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeShapeLeaves
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeLabelledD
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairPinD
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairE6

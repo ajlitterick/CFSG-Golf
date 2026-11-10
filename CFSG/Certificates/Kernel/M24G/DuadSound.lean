@@ -3,9 +3,7 @@ module
 public import Certificates.Data.Kernel.M24G.Duad
 import CFSG.Certificates.Kernel.M24G.BfsReplaySound
 import CFSG.Certificates.Kernel.M24G.ReplayFacts
-import CFSG.Certificates.Kernel.M24G.IdxSound
 import CFSG.Certificates.Kernel.M24G.FixOctSound
-import CFSG.Certificates.Kernel.M24G.ImgSound
 import CFSG.Certificates.Kernel.M24G.ToddSound
 
 public section

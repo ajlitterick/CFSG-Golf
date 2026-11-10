@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangData
-public import CFSG.LocalAnalysis.StandardType.GGLatRootBridge
-public import CFSG.LieType.Steinberg.Adjoint.Pairs
 
 public section
 

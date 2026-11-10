@@ -2,9 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.ModHM23a
 public import CFSG.Quasithin.EmptyFaithful.ModHM23b
-public import CFSG.Quasithin.EmptyFaithful.ModHOut3
-public import CFSG.Quasithin.EmptyFaithful.ModHOut4
-public import CFSG.Quasithin.EmptyFaithful.ModHRho
 public import CFSG.Quasithin.EmptyFaithful.ModHInn
 public import CFSG.Quasithin.EmptyFaithful.ModHSolv
 public import CFSG.Sporadic.Schreier.MathieuOddCoreM23

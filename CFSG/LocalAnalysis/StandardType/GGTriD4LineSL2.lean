@@ -4,7 +4,6 @@ public import Mathlib
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldFullAutomorphism
 import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
 import CFSG.LinearAlgebra.SteinbergBQEvenSL2OddCyclic
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Definitions
 import Mathlib.NumberTheory.Padics.PadicVal.Basic
-import Mathlib.Data.Nat.Factorization.Basic
 
 namespace CFSG
 end CFSG

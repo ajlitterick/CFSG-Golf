@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentInitial.GroupBinaryPolar
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalSplitCoverLift
-public import CFSG.LocalAnalysis.ComponentInitial.MatrixExtensionAlternating
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryOddCoverSylow
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryOddCoverComplement
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalSplitCoverPrimeCore
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 public import CFSG.LieType.BorelTits.CompleteFlag
 
 public section

@@ -4,12 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenAvoidKG
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyA11C3D4
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusCentrallyClosed
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenDefs
-import CFSG.LocalAnalysis.StandardType.GGTorusRootGenAvoidModel
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyA11RootGen
 import CFSG.LocalAnalysis.StandardType.GGSpRootGenAvoid
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaMinus
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotRecognizeGen
 import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenIso
 import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenWeyl
 import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenConj

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.WeakCT.FieldTwo
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.RecogE
 public import CFSG.LocalAnalysis.StandardType.FS81.FrameEm
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameNative
 

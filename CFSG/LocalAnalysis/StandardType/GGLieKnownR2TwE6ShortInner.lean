@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6NPanel
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6NThmA
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6NTor
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2Transport
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6ShortTorus
-public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import CFSG.LieType.Chevalley.EvenExceptionalActorCoverage
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6Center
 
 public section
 

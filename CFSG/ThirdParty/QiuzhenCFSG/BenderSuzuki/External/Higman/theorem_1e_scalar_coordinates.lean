@@ -1,12 +1,7 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.theorem_1a
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.theorem_1b
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.theorem_1e_isomorphic_summands
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_12
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ElementaryAbelianAction
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.CentralizerCondition
-import Mathlib.GroupTheory.Complement
 
 namespace CFSG
 end CFSG

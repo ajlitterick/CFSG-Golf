@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoBlockHubDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoPhanDefs
-import CFSG.LocalAnalysis.StandardType.GGQTwoBlockAsmChart
 import CFSG.LocalAnalysis.StandardType.GGQTwoBlockAsmPair
 import CFSG.LocalAnalysis.StandardType.GGQTwoBlockAsmGen
 import CFSG.LocalAnalysis.StandardType.GGQTwoSixGensWindows

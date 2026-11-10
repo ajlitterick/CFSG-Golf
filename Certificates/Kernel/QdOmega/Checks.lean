@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.QdOmega
 public import Certificates.Kernel.LocalQT.Syl.C4137
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M24Std.QuadDataWords
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 set_option Elab.async false

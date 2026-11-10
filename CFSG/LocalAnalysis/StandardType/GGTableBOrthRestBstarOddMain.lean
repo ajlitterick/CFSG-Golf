@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestBstarOddSemi
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailBstar
 import CFSG.GroupTheory.ElemAbelianClosure
 
 public section

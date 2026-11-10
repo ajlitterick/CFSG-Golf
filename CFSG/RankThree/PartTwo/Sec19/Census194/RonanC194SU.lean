@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194Core
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Unitary
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.CoverMap
-public import CFSG.LocalAnalysis.SectionRank.ClassicalOdd.Basic
 public import CFSG.RankThree.PartOne.S12.ModelTransport
 public import CFSG.Foundations
 public import CFSG.GroupTheory.Fitting.CharacteristicP

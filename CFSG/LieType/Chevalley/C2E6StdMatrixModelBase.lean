@@ -2,22 +2,13 @@
 module
 
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
-public import CFSG.Monster.B.Classical.E6AdjointTable
 public import CFSG.Sporadic.Bridge.TwoGen
-public import CFSG.Blueprint.Catalog
-public import Certificates.Data.CFSGNative.Chevalley.C2E6StdMatrix
 public import CFSG.LieType.Chevalley.C2E6StdMatrixVec
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
 public import CFSG.LieType.Chevalley.C2E6StdMatrixModelInputs
 public meta import Certificates.Data.CFSGNative.Chevalley.C2E6StdMatrix
 public meta import CFSG.LieType.Chevalley.C2E6StdMatrixData
 public meta import CFSG.Monster.B.Classical.E6AdjointTable
-import CFSG.Monster.B.Classical.E6AdjointGroup
 import CFSG.Monster.B.E6.StdF4LeviRank
-import CFSG.LieType.Chevalley.GraphFixedOrbitCollection
-import CFSG.LieType.Chevalley.C2E6FirstResidueLevi
-import CFSG.LieType.Chevalley.FoldedWeylIdentification
-import CFSG.LieType.Chevalley.C2E6FirstResidueGeometry
 import CFSG.LieType.Chevalley.TwistedE6FieldTwoCyclicKernel
 import all CFSG.Fischer.F4
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
@@ -54,8 +45,6 @@ import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 import CFSG.LocalAnalysis.SectionRank.SporadicCover
 import CFSG.Monster.B.Geometry.CoxeterWords
 import CFSG.Sporadic.M23.M23Group
-import CFSG.Sporadic.Th.F2Spec
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import Certificates.Certificate1953
 import Certificates.Certificate1954
 import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials

@@ -1,15 +1,9 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.E2.Shapes
-public import CFSG.GH74.KGroups.L33
-public import CFSG.GH74.KGroups.Checks
 public meta import Mathlib
 public meta import CFSG.GH74.KGroups.L33
-public import CFSG.GH74.E2.L33OuterTablesInputs
 public meta import CFSG.GH74.E2.L33OuterTablesInputs
 public import Certificates.Certificate5012
-public import Certificates.Certificate5120
 
 public section
 

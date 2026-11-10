@@ -5,13 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
 import CFSG.LocalAnalysis.StandardType.GGResNonsingularBase
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMemberAux
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNCells
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRank
-import CFSG.LocalAnalysis.StandardType.GGSignedPermCount
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordRefl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
 

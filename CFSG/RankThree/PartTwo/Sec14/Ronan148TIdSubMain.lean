@@ -1,13 +1,11 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdSubRed
-import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdSubType
 import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdSubPGL
 import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdSubDet
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WSubField
 import CFSG.RankThree.PartTwo.Sec14.Ronan148TOddGlue
 import CFSG.RankThree.PartTwo.Sec4.LThreePiHessian
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseI
 import CFSG.CharacterTheory.CyclicBlocks.Family
 import CFSG.CharacterTheory.PSL2Table.BlocksProduct
 import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
@@ -22,10 +20,6 @@ import CFSG.Combinatorics.OuterLayerPredecessors
 import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNine
 import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNineInvolutions
 import CFSG.Permutation.UnitaryThreeRecognition.Model
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

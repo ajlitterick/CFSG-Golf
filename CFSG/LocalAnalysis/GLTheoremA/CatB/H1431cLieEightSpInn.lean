@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightB4
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightSpGood
-import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.SympInner
-import CFSG.RankThree.PartOne.KC.SymplecticIsotypicFixed
-import CFSG.RankThree.PartOne.KC.PrimaryDecomposition
-import CFSG.LieType.Steinberg.CentralExt.PSpEvenMultiplier
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.CentralExt.CoverAssembly
-public import CFSG.LieType.Steinberg.CentralExt.PerfectCover
 public import CFSG.LieType.Steinberg.CentralExt.PSUMultiplier
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryOddCover
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryOddCoverLarge

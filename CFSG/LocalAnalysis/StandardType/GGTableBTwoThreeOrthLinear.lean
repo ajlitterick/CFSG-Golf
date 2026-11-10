@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeOrthSp
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThree
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoTableB
 
 public section

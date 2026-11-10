@@ -5,16 +5,12 @@ public import Certificates.Kernel.HN25550.E0
 public import Certificates.Kernel.HN25550.E1
 public import Certificates.Kernel.HN25550.Neg
 public import Certificates.Kernel.Sporadic.OddCore.HN2092
-public import Certificates.Certificate2092
 public import CFSG.Certificates.Kernel.Spor.PNodeSound
-public import CFSG.Certificates.Kernel.Spor.PEnumSound
 public import CFSG.Certificates.Kernel.Spor.BaseMaskGlue
-public import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourEnumSpec
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.SylowReduce
 public import CFSG.Sporadic.HNOddCore.SixD
 public import CFSG.Sporadic.HNOddCore.SylA
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.BaseMaskSound
 
 set_option maxRecDepth 400000

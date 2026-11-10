@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.Section5LocalW
-public import CFSG.RankThree.GF2n.Parrott.Section5LocalJ
-public import CFSG.RankThree.GF2n.Parrott.Section5Basic
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.SimpleTrick
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.Fi22
 public import CFSG.Sporadic.Bridge.Fi22Surj
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 
 public section

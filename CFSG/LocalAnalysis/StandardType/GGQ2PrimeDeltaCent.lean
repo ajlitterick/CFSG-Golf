@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeDeltaCentBlock
-public import CFSG.RankThree.PartOne.KP.Fi22Unitary
 public import CFSG.Fischer.Polar.Delta
-public import CFSG.Fischer.T46Unitary
 public import CFSG.Models
 import all CFSG.Fischer.F4
 

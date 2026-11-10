@@ -2,12 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrth
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthFamType
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172V2
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentType
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitOmBlkFix
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
-public import CFSG.RankThree.PartOne.KC.OrthogonalComponentFacts
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnOrth
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I114Grp
 

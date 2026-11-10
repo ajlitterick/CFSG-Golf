@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThreeShape
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThreeB2t
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThreeA
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThreeC2
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThreeD
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThreeG
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThreeI
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThreeZ3
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenT7Proof
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102Basic
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThreeB2s

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedShapeOrthAbs
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedShapeSUCore
-public import CFSG.LieType.BorelTits.OrthogonalForm
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Tits.Five10050E
 public import Certificates.Kernel.SporSch.Tits.Five10050K
 public import Certificates.Kernel.SporSch.Tits.Inv2266
-public import CFSG.Certificates.Kernel.Spor.SiftRSound
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

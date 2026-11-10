@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Step
 import CFSG.Mathlib.GroupTheory.BurnsideNormalizerPPrimeCore
-import CFSG.Walter.J1.Fusion
-import CFSG.GroupTheory.SupCommute
 
 public section
 

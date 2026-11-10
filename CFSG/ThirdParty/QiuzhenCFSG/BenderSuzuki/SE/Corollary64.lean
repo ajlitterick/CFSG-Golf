@@ -2,9 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Theorem4Induction
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_2_a
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection8.theorem_8_1
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Gorenstein.Chapter8_2
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection11.corollary_11_2_a
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
 
 namespace CFSG

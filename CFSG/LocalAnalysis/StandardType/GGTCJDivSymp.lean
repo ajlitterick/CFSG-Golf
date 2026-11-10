@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTCJDivDefs
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnSymp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GNegBCSymp
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympInnerExport
@@ -9,8 +8,6 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSL
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSU
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GCenterQuot
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinCore
-public import CFSG.Assembly.Subnormal
 
 public section
 

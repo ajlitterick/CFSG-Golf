@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Certificates.Kernel.K3Defs
-public import CFSG.Certificates.Kernel.Spor.MulHSound
 public import CFSG.Certificates.Kernel.Spor.MulHInvSound
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.BfsPinAlg
 import CFSG.Certificates.Kernel.Spor.RawOrbHead
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp

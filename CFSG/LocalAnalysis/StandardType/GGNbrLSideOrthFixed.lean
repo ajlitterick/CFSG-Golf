@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
-public import CFSG.Blueprint.Catalog
-public import CFSG.Open.StatedDefs
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorOmegaRank
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinCore
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GCenterQuot
@@ -41,25 +39,13 @@ import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniPComp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GU64Pieces
 import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011U64Types
 import CFSG.LocalAnalysis.GLTheoremA.S11.Inputs119
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.Quasithin.Background.A3Structure319
-import CFSG.Quasithin.Background.A3Structure36Base
-import CFSG.Quasithin.Background.A3Structure38Part3
-import CFSG.Quasithin.Background.B1MoreElevenE
-import CFSG.Quasithin.Background.B1MoreNineG
-import CFSG.Quasithin.Background.B4ModelsAction
-import CFSG.Quasithin.Background.B4ModelsIso
-import CFSG.Quasithin.Background.E3Cent
 import CFSG.Quasithin.Background.F9FiveStruct
 import CFSG.Quasithin.Background.F9G2
 import CFSG.Quasithin.Background.F9Geometry
 import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.EmptyFaithful.S1421Defs
 import CFSG.Quasithin.EmptyFaithful.S142Statements
 import CFSG.Quasithin.H13.A5S1326
@@ -77,7 +63,6 @@ import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 import CFSG.RankThree.PartTwo.Sec4.ProjSLEquiv
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

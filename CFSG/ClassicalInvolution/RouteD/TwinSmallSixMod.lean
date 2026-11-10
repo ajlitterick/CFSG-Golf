@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallWitt
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallTwin
 public import CFSG.ClassicalInvolution.ModelFacts.E8D8AdjPair
-public import CFSG.ClassicalInvolution.RouteD.GapsFrSpin
-public import CFSG.ClassicalInvolution.RouteD.GapsFrModel
 
 public section
 

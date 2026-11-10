@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P54Tools
 public import CFSG.LieType.Steinberg.CentralExt.PSLMultiplier
 public import CFSG.LieType.Steinberg.CentralExt.MultiplierCongr
 public import CFSG.ClassicalInvolution.Models.LinearPairs
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 public import CFSG.ClassicalInvolution.WeakCT.Main
 public import CFSG.GH74.Generic.Front.Final

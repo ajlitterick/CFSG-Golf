@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGReflectionBasic
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBFixLine
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
 import CFSG.LocalAnalysis.StandardType.GGSharedInvolution
-import Mathlib.Tactic.Group
 
 public section
 

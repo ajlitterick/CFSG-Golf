@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RParam
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4ULang
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.Chevalley.CLSOddToralOrdinaryComponentRootFactor
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RVec
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Orbit
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6Two
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Lift
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.AE6ModelSmall
 public import Certificates.Data.TwinPerpV3A6iCurtis
-public import Mathlib.Data.List.Defs
 
 public section
 

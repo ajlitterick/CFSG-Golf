@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.F6CatRecogTools3
 public import CFSG.Quasithin.Background.F6CatAssemblyMS
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 
 public section
 

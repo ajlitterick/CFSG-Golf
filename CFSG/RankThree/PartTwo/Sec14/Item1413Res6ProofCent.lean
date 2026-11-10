@@ -6,9 +6,7 @@ public import CFSG.RankThree.PartTwo.Sec14.Item1413Res2ProofM12Q
 import CFSG.RankThree.PartTwo.Sec14.Concl142NHJM12
 import CFSG.RankThree.PartTwo.Sec13.Item13Plane
 import CFSG.RankThree.PartTwo.Sec13.Item133
-import CFSG.RankThree.Asc83Table.Automizer
 import CFSG.RankThree.PartTwo.Sec4.Census.Lift46
-import CFSG.Sporadic.Mathieu.M22
 public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Hexads
 public import CFSG.RankThree.Asc83Table.PermTables
 public import CFSG.RankThree.PartTwo.Sec14.Item1413Res3ProofPoints

@@ -1,13 +1,6 @@
 module
 
-public import CFSG.Quasithin.Recognition.CertPermOuter
-public import CFSG.Quasithin.Recognition.CertTitsSimpleMain
-public import CFSG.Quasithin.Recognition.CertDataTitsOuter
-public import Certificates.Data.CFSGNative.YGroups.ExactCheck
-public import Certificates.Data.CFSGNative.Schreier.Check
 public import CFSG.Quasithin.Recognition.CertTitsOuterInputs
-import Certificates.Certificate8071
-import Certificates.Certificate8072
 import Certificates.Kernel.Misc.Tits.Outer8075
 import Certificates.Kernel.Misc.Tits.Pi7092Neg
 import Certificates.Kernel.Sporadic.Tits.Order2264
@@ -16,10 +9,6 @@ import CFSG.Certificates.Kernel.Misc.TitsPiSound
 import CFSG.Certificates.Kernel.Misc.TitsOuterSound
 import CFSG.Certificates.Kernel.Spor.RawSiftKConv
 import CFSG.Certificates.Kernel.Spor.DecLinesRead
-import CFSG.Certificates.Kernel.Spor.PackWord
-import CFSG.Certificates.Kernel.YModel.Sound
-import CFSG.Sporadic.Schreier.TitsChain
-import Mathlib.Tactic.IntervalCases
 
 public section
 

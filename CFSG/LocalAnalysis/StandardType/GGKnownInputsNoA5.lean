@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.LocalAnalysis.StandardType.GGTableB
 public import CFSG.LocalAnalysis.StandardType.GGKnownInputsPsuOrder
 

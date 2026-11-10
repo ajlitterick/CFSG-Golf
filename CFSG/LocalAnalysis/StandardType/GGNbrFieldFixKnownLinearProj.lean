@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 
 public section
 

@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowUdSetup
 public import CFSG.LocalAnalysis.StandardType.GGTBRowUdFrame
-public import CFSG.LocalAnalysis.StandardType.GGExcReflTBWeylDatum
 public import CFSG.LocalAnalysis.StandardType.GGExcReflTBWeylDatumOfWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTBRowUCartan
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcReflLinear
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyHypG0
 import CFSG.LocalAnalysis.StandardType.GGTwE6BadWeyl
 import CFSG.LocalAnalysis.StandardType.GGTBJWeyl
 

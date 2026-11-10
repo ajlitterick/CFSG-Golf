@@ -1,12 +1,8 @@
 module
 
-public import Mathlib
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Basic
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec5
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.T613
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.T614
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.L64
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.T61.Maximal
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.T61.Centralizer
 
 public section

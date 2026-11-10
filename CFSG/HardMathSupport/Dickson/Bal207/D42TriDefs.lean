@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Dickson.Bal207.D42TriInputs
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeModel
 public import CFSG.Sporadic.SmallOddCore.LocalSpec
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeCheckBase
 
 public section

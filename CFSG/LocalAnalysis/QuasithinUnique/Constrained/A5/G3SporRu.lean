@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3SporRows
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
-public import CFSG.Sporadic.Ru
 
 public section
 

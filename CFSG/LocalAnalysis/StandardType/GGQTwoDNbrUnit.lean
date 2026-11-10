@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAdapter
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosFinal
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSCornerMain
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinToralA
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 
 public section
 

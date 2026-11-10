@@ -1,10 +1,7 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidDescent
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.AlgebraicZMod
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtDatum
 public import CFSG.LocalAnalysis.StandardType.E6FieldNoneMixedFinal
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeToralityTw
 
 public section
 

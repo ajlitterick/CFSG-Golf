@@ -3,12 +3,8 @@ module
 public import CFSG.RankThree.PartTwo.Sec6.HeringB3Tools
 public import CFSG.RankThree.PartTwo.Sec6.BThreeCensusSp4Odd
 public import CFSG.RankThree.PartTwo.Sec11.KS11Lie7Proof
-public import CFSG.RankThree.PartTwo.KFacts.AutG2OrderThree
-public import CFSG.RankThree.PartTwo.KFacts.K71G2
 import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentLieG2
-import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenG2Two
-import CFSG.RankThree.Chevalley.SteinbergCFExceptionalModelCover
 import CFSG.CharacterTheory.Semidihedral.Principal.DegreeZeroGram
 import CFSG.LieType.Chevalley.SignKernelComponentPerfect
 import CFSG.LocalAnalysis.ComponentClassification.GSLitInputs

@@ -2,10 +2,8 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.RudvalisFF81Sp6SRFacts
 public import Certificates.Kernel.Misc.Sp6SR.Checks
-public import Certificates.Kernel.Misc.Sp6Transv.FactsQ
 public import Certificates.Kernel.Misc.Sp6Transv.FactsN
 import CFSG.Certificates.Kernel.Misc.PermClosProof
-import CFSG.RankThree.PartTwo.Census.Carrier.G2Three
 
 public section
 

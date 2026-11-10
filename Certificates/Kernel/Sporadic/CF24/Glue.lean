@@ -5,8 +5,6 @@ public import Certificates.Kernel.Sporadic.OddCore.Suz23000F
 public import Certificates.Kernel.CosetJ.SuzTab
 public import CFSG.Certificates.Kernel.Misc.ArrEnumOps
 public import CFSG.Certificates.Kernel.Fi22Rk.Side
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Suzuki
 

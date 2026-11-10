@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.LocalQT.BaseT
 public import Certificates.Data.Kernel.LocalQT.RankB
 
 public section

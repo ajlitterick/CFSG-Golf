@@ -2,11 +2,8 @@ module
 
 public import Mathlib.Data.ZMod.Basic
 public import Mathlib.Data.Fin.VecNotation
-public import Mathlib.Data.Fintype.Prod
-public import Mathlib.Algebra.Group.Defs
 public import Mathlib.Algebra.Group.MinimalAxioms
 public import Mathlib.Tactic.Ring
-public import Mathlib.Tactic.FinCases
 public import Mathlib.Tactic.LinearCombination
 
 public section

@@ -8,7 +8,6 @@ import CFSG.Certificates.Kernel.Co2ElevenSnd.Letters
 import CFSG.Certificates.Kernel.Co2ElevenSnd.Level
 import CFSG.Certificates.Kernel.Co2ElevenSnd.Sift
 import CFSG.Certificates.Kernel.Spor.PK.NatChain
-public import Mathlib.Topology.Sheaves.Presheaf
 
 public section
 

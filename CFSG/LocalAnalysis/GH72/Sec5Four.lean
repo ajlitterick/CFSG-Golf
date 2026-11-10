@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.GH72.Sec5FourConfig
 public import CFSG.LocalAnalysis.GH72.Sec5Nineteen
 public import CFSG.LocalAnalysis.GH72.Sec5Seventeen
 public import CFSG.LocalAnalysis.GH72.PGammaL2Permutable
-import CFSG.LocalAnalysis.GH72.G3bNineteen
 import CFSG.LocalAnalysis.GH72.Sec5ZJ
 
 public section

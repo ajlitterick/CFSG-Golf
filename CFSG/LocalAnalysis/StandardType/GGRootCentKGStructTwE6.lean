@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGStructND
-public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwisted
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcTwE6Root
-public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotCentralizerT
-import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6ClassListBasic
-import CFSG.LieType.Steinberg.Isogeny.E6
 
 public section
 

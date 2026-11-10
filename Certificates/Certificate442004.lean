@@ -2,8 +2,6 @@
 module
 
 public import Certificates.Data.OmegaF1051Facts
-import Certificates.Certificate2012
-import Certificates.Data.PSp43Sylow
 import Certificates.Kernel.A45Cls.Glue1051
 
 public section

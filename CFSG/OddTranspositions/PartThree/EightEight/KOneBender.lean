@@ -1,15 +1,11 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.EightEight.KOneRadical
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Comparator.Defs
-public import CFSG.Timmesfeld.Bridge.Asc72Defs
 
 import CFSG.OddTranspositions.PartThree.EightEight.StarSigma
 import CFSG.OddTranspositions.PartThree.EightEight.WreathNatural
 import CFSG.OddTranspositions.PartThree.EightFive.Transitive
 import CFSG.OddTranspositions.WidthOne
-import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent.Radical
-import CFSG.Timmesfeld.Bridge.OddTranspBasic
 
 public section
 

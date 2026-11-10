@@ -4,7 +4,6 @@ public import CFSG.Sporadic.Fi22.LH.Defs
 public import CFSG.Sporadic.Fi22.Graph
 public import CFSG.Fischer.Polar.Lines
 public import CFSG.Fischer.Uniq.HyperovalFacts
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

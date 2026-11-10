@@ -7,7 +7,6 @@ public import CFSG.Goldschmidt75.WeakClosure
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsCoverInvModel
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsOuter
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsParabolicGen
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsRealModelBase
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsSec5Center
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsStandard
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourL34Check

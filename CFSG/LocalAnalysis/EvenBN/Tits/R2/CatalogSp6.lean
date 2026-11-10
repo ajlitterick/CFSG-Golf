@@ -2,14 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.Tits.R2.CatalogDefs
 public import CFSG.RankThree.PartTwo.Census.Carrier.Sp6Two
-public import CFSG.Adapters.RankTwoModelTransports
-public import CFSG.Adapters.LinearFieldTransport
 public import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
-public import CFSG.RankThree.PartTwo.Census.Carrier.Sp6TwoCertInputs
-import CFSG.Certificates.Kernel.Sp6Two.Sound
-import Certificates.Data.Kernel.Sp6TwoT
 import Certificates.Kernel.Sp6Two.Final
-import Certificates.Kernel.Sp6Two.Rec
 import Certificates.Kernel.Sp6Two.Idx4
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.GH74.KGroups.U33

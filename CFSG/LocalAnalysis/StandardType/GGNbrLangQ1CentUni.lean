@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1CentUniLift
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorUniMark
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorUniLift
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Transfer
 
 public section
 

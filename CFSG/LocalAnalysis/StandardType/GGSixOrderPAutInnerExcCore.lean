@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLNonsplitGroup
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.GroupTheory.ElemAbelianClosure
 
 public section

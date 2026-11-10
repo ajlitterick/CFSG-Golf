@@ -4,11 +4,7 @@ public import CFSG.Sporadic.Schreier.ONSchreierData
 public import CFSG.Sporadic.Schreier.ONCompactSpec
 public import CFSG.Sporadic.Schreier.ONCheckChain
 public import CFSG.Certificates.SchreierPointSiftSoundness
-public import Certificates.Certificate2212
-public import Certificates.Certificate2217
-public import Certificates.Certificate3171
 public import CFSG.Sporadic.ON.Lines
-public import CFSG.Sporadic.Th.F2Spec
 
 public noncomputable section
 

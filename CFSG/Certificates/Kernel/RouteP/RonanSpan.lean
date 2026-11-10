@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.RouteP.GeomSound
 public import Certificates.Data.Kernel.RouteP.RonanRoot
-public import Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected
 
 public section
 

@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommLocalSixE
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommModel3Linear
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommModel3Unitary
-public import CFSG.LocalAnalysis.SteinbergSFSingleCommModel3Transfer
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.Open.StatedAPI
 
 public section
 

@@ -3,11 +3,7 @@ module
 public import CFSG.GH74.Uniqueness.Bender.Out
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.PartOne
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846b
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S21a
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
-import CFSG.GroupTheory.WeirSylow.GL
 import CFSG.GroupTheory.WeirSylow.Unitary
-import CFSG.LieType.BorelTits.Basic
 import CFSG.LieType.ChevTwo.OppositeFixedExcTits
 import CFSG.RankThree.PartOne.KC.CentralizerOfInnerTrivial
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.WeakClosureHeis.SigmaDich

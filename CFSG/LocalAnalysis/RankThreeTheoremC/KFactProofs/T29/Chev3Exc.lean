@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.Chev3Rank
-public import CFSG.LocalAnalysis.SectionRank.ExceptionalModels
-public import CFSG.LocalAnalysis.SectionRank.SmallRee
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294CrossThreeExc
-public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.Bridge
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.ExcCensus
-public import CFSG.RankThree.PartOne.CTP.SeitzExcModels
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res5ProofG23
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma28b
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma55

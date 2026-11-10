@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Asch54SporFi22
-public import CFSG.Monster.B.Co2.PermArr
 
 public section
 

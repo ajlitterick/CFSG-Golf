@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.Fi24TwinK.Data
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.SliceRange
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.Native
-public import CFSG.LieType.Chevalley.NativeHolds
 public import CFSG.LieType.BorelTits.FixedWeighted
 
 public section

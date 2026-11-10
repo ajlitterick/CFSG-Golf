@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGOrthKStructDefs
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinSignedPermGen
 import CFSG.LocalAnalysis.StandardType.GGOrthKStructClass4CombAux
-import CFSG.LocalAnalysis.StandardType.GGOrthKStructClass4CombAux2
 import CFSG.LocalAnalysis.StandardType.GGOrthKStructClass4CombAux3
 
 public section

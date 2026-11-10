@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtCheck
-public import CFSG.Monster.B.Fischer.Fi22OuterCheck
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtCheck
 public meta import CFSG.Monster.B.Fischer.Fi22OuterCheck
 public import Certificates.Certificate2073

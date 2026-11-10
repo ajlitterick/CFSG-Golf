@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClFactors
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresTransport
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGSL
 
 public section

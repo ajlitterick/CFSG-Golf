@@ -4,7 +4,6 @@ public import Certificates.Kernel.He7149.Checks
 public import CFSG.Certificates.Kernel.E64FSound
 public import CFSG.Certificates.Kernel.LocalQTBaseSRep
 public import Certificates.Kernel.LocalQT.Base.C4141
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHeCertificateInputs
 
 set_option maxRecDepth 100000
 

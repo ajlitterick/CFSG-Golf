@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.Spor.MatK
 public import CFSG.Sporadic.SuzOddCore.GraphArraysCheckInputs
-import CFSG.Certificates.Kernel.Common.Loop
 import CFSG.Certificates.Kernel.MtxKSound
 import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.Spor.PackFld

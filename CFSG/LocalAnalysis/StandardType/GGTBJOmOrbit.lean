@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmDefs
-public import CFSG.RankThree.PartOne.KC.OrthogonalSupportedBlocks
-public import CFSG.RankThree.PartOne.KC.OrthogonalPrimarySummands
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedBlock
 
 public section
 

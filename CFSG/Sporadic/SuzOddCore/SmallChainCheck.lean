@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.SuzOddCore.ArraysCheck
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Sporadic.SuzOddCore.ArraysCheck
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.SuzOddCore.SmallChainCheckInputs
 public import Certificates.Certificate2306
 
 public section

@@ -1,13 +1,9 @@
 module
 
-public import CFSG.Sporadic.Ly
 public import CFSG.Sporadic.Bridge.LySurj
-public import CFSG.Sporadic.Bridge.LyData
 public meta import CFSG.Sporadic.Bridge.LyData
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import Certificates.Certificate8160
-public import Certificates.Certificate3085
 
 public section
 

@@ -1,14 +1,11 @@
 module
 
-public import CFSG.Blueprint.Catalog
 import CFSG.Adapters.TauCetiLieModels
 public import CFSG.Adapters.TauCetiExceptional.EvenAll
 import CFSG.Adapters.ExceptionalCatalogReverse
 import CFSG.StronglyEmbedded.Catalog.Suzuki
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Chevalley.EvenRootCommutatorF4
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.SpinRigidityBridge
-public import CFSG.Open.LocalVocabulary
 
 public section
 

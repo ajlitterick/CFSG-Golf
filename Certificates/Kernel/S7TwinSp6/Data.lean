@@ -5,7 +5,6 @@ public import Certificates.Kernel.LocalComp.Child3Gen
 public import Certificates.Data.S7TwinSp6
 public meta import Certificates.Kernel.LocalComp.Sp6J.Data
 public meta import Certificates.Data.S7TwinSp6
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

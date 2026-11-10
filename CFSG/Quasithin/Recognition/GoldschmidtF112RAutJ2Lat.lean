@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutOddCore
 public import CFSG.Quasithin.Background.E2TwoProofSporGen
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRows
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
 public import CFSG.Quasithin.Background.F1Amalgam
 public import Certificates.Certificate40702
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.Quasithin.H13.J4Core
 public import CFSG.Quasithin.Background.F2Equiv
 

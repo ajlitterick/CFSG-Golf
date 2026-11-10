@@ -1,11 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1SevenLeaf
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1SevenKit
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1FiveKit
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co3ThreeKit
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Reduction
-public import Certificates.Data.CFSGNative.Timmesfeld.Co1Seven
 
 public section
 

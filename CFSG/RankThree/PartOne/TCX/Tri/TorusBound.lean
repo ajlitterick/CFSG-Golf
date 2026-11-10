@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartOne.KE.CTTorusFixed
 public import CFSG.Assembly.ComponentTypeDefs
 public import CFSG.Assembly.RankThreeEvenDefs
 public import CFSG.RankThree.PartOne.KGD.D4Frame

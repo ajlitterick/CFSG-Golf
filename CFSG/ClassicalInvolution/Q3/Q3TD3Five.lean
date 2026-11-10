@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TD3Pat
 public import CFSG.ClassicalInvolution.Q3.Q3TD3Pairs
-public import CFSG.ClassicalInvolution.RouteD.GapsFrFive
 
 public section
 

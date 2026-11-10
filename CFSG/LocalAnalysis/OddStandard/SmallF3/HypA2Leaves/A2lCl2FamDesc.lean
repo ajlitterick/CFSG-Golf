@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQuadDescentMain
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQuadDescent
-public import CFSG.LieType.Chevalley.SylowOpposition
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE7Twist
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE7Inner
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddLieFamilies
-public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalTrialityD4CubeReturn
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

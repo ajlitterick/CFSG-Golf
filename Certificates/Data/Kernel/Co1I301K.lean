@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Lie.CT.Core
-public import Certificates.Data.Kernel.Co1B
 public import Certificates.Data.Kernel.Co1BW
 
 public section

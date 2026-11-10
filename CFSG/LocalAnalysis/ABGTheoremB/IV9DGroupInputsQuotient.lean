@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.ABGTheoremB.IV9DGroupInputsLinear
 public import CFSG.LocalAnalysis.ABGTheoremB.IV9DGroupInputsASeven
-public import CFSG.GroupTheory.ABGDGroups.LinearEmbedding
 public import CFSG.GroupTheory.ABGDGroups.LinearSignalizers
-public import CFSG.GroupTheory.ABGDGroups.WreathedDGroups
 
 public section
 

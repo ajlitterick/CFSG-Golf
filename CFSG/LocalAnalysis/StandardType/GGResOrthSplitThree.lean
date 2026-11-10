@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResTwoCells
-public import CFSG.LocalAnalysis.StandardType.GGRootGenSmallRankQFour
 import CFSG.LocalAnalysis.StandardType.GGPSUFourRankSplit
 
 public section

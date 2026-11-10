@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.D4.ChainAD
 public import Certificates.Data.Kernel.Spor.RawSch3G
-public import Certificates.Data.Kernel.Spor.RawSch3F
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

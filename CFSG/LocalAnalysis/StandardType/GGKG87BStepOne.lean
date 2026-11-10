@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeMarking
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherTwE6
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6Three
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GTwE6Fix
 import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04E6FTw
 import CFSG.Adapters.GeneralizedFitting
@@ -18,13 +16,10 @@ import CFSG.LocalAnalysis.SeitzReduction.E6PilotHR4
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotUniqueField
 import CFSG.Quasithin.Background.B216Quotient
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.E3OffenderB
 import CFSG.Quasithin.Background.F2Equiv
 import CFSG.Quasithin.Background.G2Relaxed
 import CFSG.Quasithin.EmptyFaithful.S14117
-import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-import CFSG.Quasithin.EmptyFaithful.S14117Rank
 import CFSG.Quasithin.EmptyFaithful.S152N11
 import CFSG.Quasithin.Vol2.Ch12Sec8NonabHatTen
 import CFSG.RankThree.PartOne.S11d.OddOutPSL2

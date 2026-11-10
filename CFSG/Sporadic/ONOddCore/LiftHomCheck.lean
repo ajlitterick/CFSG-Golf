@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Sporadic.ONOddCore.LiftCheck
 public meta import CFSG.Sporadic.ONOddCore.LiftCheck
 public import CFSG.Sporadic.ONOddCore.LiftHomCheckInputs
-public import CFSG.Sporadic.ONOddCore.LiftGraphInputs
 public import Certificates.Certificate2122
 
 public section

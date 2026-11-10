@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.OddStandard.RouteWStdONanB2
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Open
 public import CFSG.LocalAnalysis.ComponentClassification.GMS78Open
 public import CFSG.LocalAnalysis.ComponentClassification.GMS78Sec5RuH1Final
-public import CFSG.Sporadic.SuzRecog.MixedCell
-public import CFSG.Sporadic.SuzRecog.SuzLeaf
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoRu.HypOne
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.L34Size
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma37

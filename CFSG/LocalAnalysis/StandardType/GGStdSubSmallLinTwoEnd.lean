@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallLinTwoTv
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeNorm
 
 public section
 

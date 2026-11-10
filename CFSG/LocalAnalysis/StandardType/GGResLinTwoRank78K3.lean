@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResLinTwoL3GammaGap
-public import CFSG.LocalAnalysis.StandardType.GGKnownInputsPsuOrderClassical
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthKSLOrder
-public import CFSG.LocalAnalysis.StandardType.GGResJTwA5Sylow
 
 public section
 

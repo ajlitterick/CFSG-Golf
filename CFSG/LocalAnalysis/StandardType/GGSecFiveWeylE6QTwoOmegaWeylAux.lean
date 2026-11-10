@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoTransfer
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoModelSpinor
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixAux
 
 public section

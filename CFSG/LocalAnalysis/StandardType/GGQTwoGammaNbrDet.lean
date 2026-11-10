@@ -8,7 +8,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrLineStab
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaNbrAt
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFinishK
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBridgeWeyl
-public import CFSG.LocalAnalysis.StandardType.GGQTwoSwapAB
 
 public section
 

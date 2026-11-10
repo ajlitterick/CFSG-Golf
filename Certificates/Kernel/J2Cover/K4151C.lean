@@ -6,7 +6,6 @@ public import CFSG.Certificates.Kernel.Misc.ArrEnumSound
 meta import Certificates.Kernel.J2Cover.K4151D
 meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutData
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Misc.ArrBind
 public import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
 public import Std.Data.HashMap

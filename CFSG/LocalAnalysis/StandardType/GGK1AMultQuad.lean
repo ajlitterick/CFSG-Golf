@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1ADefs
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeRing
-public import Mathlib.RingTheory.Polynomial.Cyclotomic.Factorization
-public import Mathlib.Algebra.Module.Torsion.Field
 
 public section
 

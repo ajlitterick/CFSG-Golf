@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGExcReflTBWeylDatum
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR5Defs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangWeylRestVac
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwenty
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-import CFSG.FeitThompson.OddOrderTheorem
 
 public section
 

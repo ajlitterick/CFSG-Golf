@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK0LCDefs
-public import CFSG.LocalAnalysis.StandardType.GGK0LCAct
-public import CFSG.LocalAnalysis.StandardType.GGK0LCAffine
 public import CFSG.LocalAnalysis.StandardType.GGK0LCReflect
 public import CFSG.LocalAnalysis.StandardType.GGK0LCNeg
 

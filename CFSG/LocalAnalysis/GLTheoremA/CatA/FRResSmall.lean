@@ -1,24 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRField
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.CentQChar2Index
-public import CFSG.LocalAnalysis.StandardType.MarkingSmall
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenG2Two
-public import CFSG.Quasithin.EmptyFaithfulMultiple.G2TwoUnitary
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.TightPairAndPureRank.U33Proved
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.TightPairAndPureRank.AtlasOrders2
-public import CFSG.LocalAnalysis.SectionRank.OddCover.DegreeThree
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryPerfect
-public import CFSG.LieType.Ree.SuzukiOrder
-public import CFSG.Adapters.RankTwoModelTransports
-public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.CharacterTheory.Burnside
-public import CFSG.Sporadic.Schreier.TitsOuter
-public import CFSG.Sporadic.Schreier.TitsIso
-public import CFSG.Sporadic.Schreier.TitsCert
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Index
 public import CFSG.Holt.Centralizer

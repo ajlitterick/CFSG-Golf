@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.AschTight.Sec6Gen611
-public import CFSG.ClassicalInvolution.Asc77.AscT3Sym
-public import CFSG.ClassicalInvolution.Asc77.AscP1ThompsonBasic
 public import CFSG.Assembly.RankThreeEvenDefs
 public import CFSG.ClassicalInvolution.Asc77.AscP1Nine3
 public import CFSG.ClassicalInvolution.Asc77.AscT8Basic

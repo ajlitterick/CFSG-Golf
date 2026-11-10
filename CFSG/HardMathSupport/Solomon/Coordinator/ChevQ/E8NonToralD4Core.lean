@@ -4,7 +4,6 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E8NonToralD4Steps
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E8NonToralD4Bruhat
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E8NonToralD4Norm
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E8NonToralD4NormOrder
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E8NonToralD4Triples
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E8NonToralAssembly
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.SmallQCommute
 public import CFSG.Certificates.CentralKernel
@@ -47,7 +46,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

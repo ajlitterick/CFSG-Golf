@@ -5,7 +5,6 @@ public import Certificates.Kernel.LocalComp.C589102E16
 public import Certificates.Kernel.LocalComp.L34Cert
 public import Certificates.Data.S1277Kt
 public import CFSG.Certificates.Kernel.LocalCompPinSound
-import CFSG.Certificates.Kernel.BfsPinUnpack
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Basic
-public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
 public import CFSG.RankThree.PartOne.KC.SymplecticFullCentralizerTransvection
 import CFSG.OddTranspositions.PartThree.Twelve.FourSp
 import CFSG.OddTranspositions.PartThree.Twelve.Six
@@ -14,7 +12,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinear
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear
 public import CFSG.RankThree.PartOne.KC.UnitaryPrimaryAlgebra
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.ClassicalGroups.Alternating.I4SpLineElt
 
 public section

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGSkeleton
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UGroup
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveQTwoCompat
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenE6Components

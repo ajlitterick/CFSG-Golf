@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJF4Defs
-public import CFSG.LocalAnalysis.StandardType.GGTBJF4Weyl
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4Roots
 
 public section

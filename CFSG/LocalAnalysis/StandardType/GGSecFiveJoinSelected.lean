@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatJoinCells
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import Certificates.Kernel.ThCent.Leaves
 
 public section

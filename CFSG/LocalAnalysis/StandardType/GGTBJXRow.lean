@@ -1,18 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJXTorus
-public import CFSG.LocalAnalysis.StandardType.GGTBJRowGeneric
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR1Defs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwenty
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGRootGenExcLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBExc
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Aut
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBPSL
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitClassical
 public import CFSG.LocalAnalysis.StandardType.GGTBJRowR4Narrow
 
 public section

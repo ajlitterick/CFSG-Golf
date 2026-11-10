@@ -2,13 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplitR
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-public import CFSG.RankThree.PartOne.KC.OrthogonalLocalComponentDefs
-public import CFSG.RankThree.PartOne.KC.OrthogonalComponentFacts
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
-public import CFSG.RankThree.PartOne.KC.OrthogonalReciprocal
-public import CFSG.Assembly.GL83LieDefs
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.Parrott.LThreeEpsRank
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthUnTwDPlane
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173SplitFrame

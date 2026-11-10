@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyU
 public import CFSG.LocalAnalysis.StandardType.GGFrameTBSUDvdModel
 
 public section

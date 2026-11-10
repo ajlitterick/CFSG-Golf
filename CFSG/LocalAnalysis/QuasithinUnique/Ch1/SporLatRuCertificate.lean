@@ -1,18 +1,10 @@
 module
 
-public import Certificates.Data.CFSGNative.Ru.Data
-public import Certificates.Data.CFSGNative.Th.Tables
-public import Certificates.Data.CFSGNative.SporLat.BuildPt
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBaseNative
 public meta import Certificates.Data.CFSGNative.Ru.Data
 public meta import Certificates.Data.CFSGNative.Th.Tables
 public meta import Certificates.Data.CFSGNative.SporLat.BuildPt
 public meta import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBaseNative
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRuCertificateInputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRuDcInputs
 public import Certificates.Certificate4034
-public import Certificates.Certificate3172
-public import Certificates.Certificate4143
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.OddTranspCoreSimple
-public import CFSG.Fischer.Uniq.Graph
 public import CFSG.Open.FusionDefs
 import CFSG.LocalAnalysis.WeakClosure81.OddTranspCoreThreeTransp
 import CFSG.GroupTheory.ThreeTranspositions.FischerResidual
@@ -33,10 +32,6 @@ import CFSG.Goldschmidt75.Basic
 import CFSG.GroupTheory.SubgroupCardMul
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7Iso
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122AProved
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveShort
 import CFSG.LocalAnalysis.WeakClosure81.EightThreeA
 import CFSG.LocalAnalysis.WeakClosure81.SevenEleven
@@ -44,10 +39,7 @@ import CFSG.LocalAnalysis.WeakClosure81.SevenElevenW3
 import CFSG.LocalAnalysis.WeakClosure81.SevenFiveTwo
 import CFSG.LocalAnalysis.WeakClosure81.SixNine
 import CFSG.LocalAnalysis.WeakClosure81.SixSix
-import CFSG.Quasithin.Background.A3Structure318Red
-import CFSG.Quasithin.Background.C2Inputs
 import CFSG.Quasithin.Background.G10Local
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.Vol2.Ch10SecA1011A
 import CFSG.Quasithin.Vol2.Ch10SecABasicAut
 import CFSG.RankThree.Asc83Table.PermTables
@@ -56,7 +48,6 @@ import CFSG.RankThree.S4Free.Statement
 import CFSG.Sporadic.Schreier.M11
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 import TauCeti.GroupTheory.SpecificGroups.Dihedral.Basic
 
 public section

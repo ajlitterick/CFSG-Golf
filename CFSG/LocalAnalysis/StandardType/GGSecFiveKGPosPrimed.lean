@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPrimed
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosHolds
-public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGStdPosRankDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
 import CFSG.LocalAnalysis.StandardType.GGStdPosTableBPos
@@ -15,7 +14,6 @@ import CFSG.LocalAnalysis.StandardType.GGStdPosE6
 import CFSG.LocalAnalysis.StandardType.GGStdPosE6Three
 import CFSG.LocalAnalysis.StandardType.GGStdPosE7
 import CFSG.LocalAnalysis.StandardType.GGStdPosE8
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
 import CFSG.LocalAnalysis.StandardType.GGStdPosRankLift
 
 public section

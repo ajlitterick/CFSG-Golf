@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixInnerAux3
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Complements
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootCount
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootExc
-public import CFSG.Timmesfeld.Orders.Classical
-public import CFSG.Timmesfeld.Orders.Exceptional
 
 public section
 

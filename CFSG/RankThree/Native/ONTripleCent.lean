@@ -4,14 +4,6 @@ public import CFSG.RankThree.Native.ONTripleNorm
 public import CFSG.RankThree.Native.ONSevenRestrict
 public meta import CFSG.RankThree.Native.ONSevenRestrict
 public import Certificates.Certificate8139
-public import Certificates.Certificate8143
-public import Certificates.Certificate8144
-public import Certificates.Certificate8142
-public import Certificates.Certificate2212
-public import Certificates.Certificate2217
-public import Certificates.Certificate3171
-public import Certificates.Certificate9127
-public import Certificates.Certificate9217
 public import CFSG.Certificates.NativeSchreierCard
 public meta import CFSG.Certificates.NativeSchreierCard
 public import CFSG.Monster.B.Mathieu.SylowSound

@@ -1,14 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreBridge
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceFive
-public import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompatDefs
-public import CFSG.LocalAnalysis.StandardType.GGFinModelInput
-public import CFSG.LocalAnalysis.StandardType.GGFinModelAdj
-public import CFSG.LocalAnalysis.StandardType.GGFinModelTw
-public import CFSG.LocalAnalysis.StandardType.GGFinModelRat
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRest
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeTypeA
 
 public section
 

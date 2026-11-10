@@ -2,8 +2,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallConfA8Inputs
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3A8Data
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallConfChecks2
 public import Certificates.Data.Kernel.Census.CatFacts.PkDefs
 
 public section

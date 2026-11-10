@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTorDNsWitness
 public import CFSG.LocalAnalysis.StandardType.GGTorusTorLiftTwo
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusTransferCore
-public import CFSG.LocalAnalysis.StandardType.GGTBTorTransport
-public import CFSG.LocalAnalysis.StandardType.GGTBTorRest
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenOrth
 
 public section
 

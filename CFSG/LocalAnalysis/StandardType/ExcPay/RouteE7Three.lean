@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPay.E7
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMemberAux
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxElem
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE7Three
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE7E8Five
 
 public section
 

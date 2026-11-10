@@ -5,7 +5,6 @@ public import Certificates.Kernel.Sporadic.OddCore.J3OutSyl
 public import Certificates.Data.Kernel.Spor.FiveK
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.J3Inputs
 meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-import CFSG.Certificates.Kernel.Common.Harness
 meta import CFSG.GroupTheory.Fitting.CharacteristicP
 meta import CFSG.GroupTheory.LocalCores.Components
 meta import CFSG.GroupTheory.LocalCores.Fitting

@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FinalTheorem
 public import CFSG.Dihedral.BrauerSuzuki
-public import CFSG.ClassicalInvolution.QuaternionStructure.Structure
 public import CFSG.ClassicalInvolution.QuaternionStructure.WitnessCore
 public import CFSG.ClassicalInvolution.QuaternionStructure.Perfect
 public import CFSG.FeitThompson.OddOrderTheorem

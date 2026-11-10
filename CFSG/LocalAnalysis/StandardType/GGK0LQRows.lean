@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGK0LQDictKinds
 public import CFSG.LocalAnalysis.StandardType.GGK0LQKindA
 public import CFSG.LocalAnalysis.StandardType.GGK0LQKindD
 public import CFSG.LocalAnalysis.StandardType.GGK0LQKindE
-public import CFSG.LocalAnalysis.StandardType.GGK0LQShape
 public import CFSG.LocalAnalysis.StandardType.GGK0LQRecA
 public import CFSG.LocalAnalysis.StandardType.GGK0LQRecD
 public import CFSG.LocalAnalysis.StandardType.GGK0LQRecE
@@ -15,9 +14,6 @@ public import CFSG.LocalAnalysis.StandardType.GGK0LQRecTriD4
 public import CFSG.LocalAnalysis.StandardType.GGK0LQRecTwE6
 public import CFSG.LocalAnalysis.StandardType.GGK0LQ2Adapt
 public import CFSG.LocalAnalysis.StandardType.GGK0LQFamTable
-import CFSG.LocalAnalysis.StandardType.GGKacTableShapes
-import CFSG.LocalAnalysis.StandardType.GGK0NormalTypes
-import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
 
 public section
 

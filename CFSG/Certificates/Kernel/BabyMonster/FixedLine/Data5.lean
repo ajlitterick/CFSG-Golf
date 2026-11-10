@@ -1,8 +1,5 @@
 module
 
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Eval
 meta import CFSG.Certificates.Kernel.BabyMonster.TwinDy
 import CFSG.Certificates.Kernel.BabyMonster.Dyadic.Basis
 import CFSG.Certificates.Kernel.BabyMonster.Dyadic.Gens

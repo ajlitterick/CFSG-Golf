@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOEvenInner
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1F3ThetaOTorus
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

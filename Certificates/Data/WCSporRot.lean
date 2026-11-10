@@ -2,10 +2,6 @@ module
 
 public import Certificates.Data.CFSGNative.MultRes.Witnesses
 public import Certificates.Data.CFSGNative.ComponentPrimary.BabyMonster
-public import Certificates.Data.CFSGNative.SectionRank.Local
-public import Certificates.Data.CFSGNative.SectionRank.F2
-public import Certificates.Data.CFSGNative.SectionRank.F3
-public import Certificates.Data.CFSGNative.SectionRank.F2Fast
 
 public section
 

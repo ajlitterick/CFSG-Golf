@@ -3,9 +3,6 @@ module
 public import Certificates.Kernel.Bounds.HS.Chain
 public import Certificates.Kernel.Bounds.HS.Pair
 public import CFSG.Certificates.Kernel.Bounds.HSAlt.Checks.C_H_0
-public import CFSG.Certificates.Kernel.Bounds.HSAlt.Checks.C_L
-public import CFSG.Certificates.Kernel.Bounds.HSAlt.Checks.M
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

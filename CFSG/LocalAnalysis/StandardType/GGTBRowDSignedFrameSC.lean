@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowDSignedFrame
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExcEven
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7DLModelDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBRowCoordFrame
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

@@ -6,7 +6,6 @@ public import CFSG.RankThree.GF2n.Stroth80.GriessProof
 import CFSG.RankThree.GF2n.Stroth80.GriessSL34Proof
 import CFSG.OddTranspositions.WidthSylow
 import CFSG.RankThree.PartOne.S11d.OrthSplitAbs
-import CFSG.LieType.Universal.SpinOmega.Center
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalORigidMinusFacts
 public import CFSG.CGT.Timmesfeld75.Cfg214Gen
 public import CFSG.CGT.Timmesfeld75.Forms

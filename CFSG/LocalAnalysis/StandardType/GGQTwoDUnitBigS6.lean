@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGTBJSpPlus
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 
 public section
 

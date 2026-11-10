@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Blueprint.ChevalleyRoots
 public import CFSG.LieType.Steinberg.Minuscule.Group
 
 public section

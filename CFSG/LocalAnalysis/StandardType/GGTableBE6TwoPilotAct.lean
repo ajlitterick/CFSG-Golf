@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotRel
-public import Mathlib.GroupTheory.SemidirectProduct
-public import Mathlib.GroupTheory.NoncommCoprod
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.ClassFunction
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.CharacterValues
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection3.PFsection3_5
 
 namespace CFSG

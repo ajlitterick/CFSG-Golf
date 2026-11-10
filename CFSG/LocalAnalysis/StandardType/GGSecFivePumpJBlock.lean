@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSLCent
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotRoots
 import CFSG.LocalAnalysis.StandardType.GGLinearSemisimple
 import CFSG.LocalAnalysis.StandardType.GGSixLinearModelOmega
 

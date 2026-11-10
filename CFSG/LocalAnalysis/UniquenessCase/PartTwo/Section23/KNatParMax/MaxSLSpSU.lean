@@ -4,13 +4,10 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Defs
 public import CFSG.Open.StatedDefs
 
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.SLParabolic
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherMaximalParabolics
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.SpBorel
 import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherMaximal
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.UnitaryTransport
 import CFSG.ClassicalGroups.UnitaryFlag.StatedBridge
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherMaximalParabolics
-import CFSG.Quasithin.H13.U4ParPoint
 import CFSG.CGT.Timmesfeld75.Statements
 import CFSG.ClassicalGroups.UnitaryFlag.PointSylow
 import CFSG.Foundations

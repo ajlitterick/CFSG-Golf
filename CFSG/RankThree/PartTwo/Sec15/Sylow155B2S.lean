@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec15.Sylow155B2
 import CFSG.RankThree.PartTwo.Sec15.Sylow155A5
 import CFSG.RankThree.PartTwo.Sec15.Sylow155Gen
-import CFSG.RankThree.PartTwo.Sec14.Concl142HJ
 import CFSG.RankThree.PartTwo.Sec14.Concl143Std
 import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
 public import CFSG.Certificates.CentralKernel

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbr6Defs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbr6Rows
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbr6Orth
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbr6U6

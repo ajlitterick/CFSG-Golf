@@ -3,20 +3,11 @@ module
 public import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.Parrott.P614R3Defs
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.I291R3ExThree
 import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.L62AltRank
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.Adapters.LinearCatalog
-import CFSG.Adapters.LinearFieldTransport
-import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.Adapters.StatedPSLTwoSeven
-import CFSG.Adapters.TauCetiLieModels
 import CFSG.Models.Blueprint
-import CFSG.Models.BenderSuzuki
-import CFSG.StronglyEmbedded.Catalog.Suzuki
-import CFSG.StronglyEmbedded.MatrixGroups.SzModel
 import CFSG.LocalAnalysis.ComponentClassification.GMS78Basic
 import CFSG.Quasithin.Background.G2A5Iso
 import CFSG.CGT.PushingUpLit.CGT6.EmbModule.SL2Alt5
-import CFSG.LinearAlgebra.SL2MinimalFaithfulMatrix
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
 public import CFSG.CharacterTheory.Semidihedral.Principal.PrimeTorusBlockAlignment
@@ -96,7 +87,6 @@ public import CFSG.Permutation.UnitaryThreeRecognition.Model
 public import CFSG.Quasithin.Background.B15P4LayerDict
 public import CFSG.Quasithin.Background.D14Normal
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.RankThree.PartOne.CTP.SeitzOrthModel
 public import CFSG.RankThree.PartOne.CTP.StrongPBridgeRest
 public import CFSG.RankThree.PartOne.CTP.StrongPFinal
@@ -129,8 +119,6 @@ public import Certificates.Data.CFSGNative.Co1.CoTwoAutData
 public import Certificates.Data.CFSGNative.Co1.CoTwoAutOrbit
 import CFSG.Blueprint.LieModelAPI
 import CFSG.LargeExtraspecial.OrthoF2
-import CFSG.LargeExtraspecial.OrthoF2Fixed
-import CFSG.LargeExtraspecial.OrthoF2SpRadical
 import CFSG.LargeExtraspecial.S12SevenMain
 import CFSG.LargeExtraspecial.S12Square
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.K3.CatalogQ

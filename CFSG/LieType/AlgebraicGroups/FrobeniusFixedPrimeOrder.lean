@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.IdentityComponentLang
 
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 import CFSG.LieType.AlgebraicGroups.ToralTwistPinning
 import CFSG.LieType.AlgebraicGroups.ZariskiClosureFrobenius
 import CFSG.LieType.AlgebraicGroups.UnipotentFrobeniusFixed

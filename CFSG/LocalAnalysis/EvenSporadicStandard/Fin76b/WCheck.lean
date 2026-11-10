@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.WEnum
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.WTransport
-public import Mathlib
 
 public section
 

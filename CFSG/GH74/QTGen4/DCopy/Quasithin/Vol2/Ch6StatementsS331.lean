@@ -1,9 +1,6 @@
 module
 
 public import CFSG.GH74.QTGen4.Finite4
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Defs
-public import CFSG.Quasithin.Background.F7
-public import CFSG.Quasithin.Vol2.Ch6Inputs
 public import CFSG.Quasithin.Vol2.Ch6Statements
 
 public section

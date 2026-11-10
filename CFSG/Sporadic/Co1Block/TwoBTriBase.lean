@@ -3,7 +3,6 @@ module
 
 public import CFSG.Sporadic.Co1Block.TwoBCentBase
 public import CFSG.Sporadic.Co1Block.XFixBase
-public import CFSG.Sporadic.Co1Block.TwoBCheckInputs
 public meta import CFSG.Sporadic.Co1Block.TwoBData
 public meta import CFSG.Sporadic.Co1Block.TwoBCheckDefs
 public meta import CFSG.Sporadic.Co1Block.CentCheck
@@ -20,17 +19,10 @@ public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.Schreier.Merge
 public meta import Certificates.Data.CFSGNative.ONSchreier.Compact
-public import CFSG.Sporadic.Co1Block.TwoBExtraCheckInputs
 public meta import CFSG.Sporadic.Co1Block.ConjBData
 public meta import CFSG.Sporadic.Co1.Module.InvDataBase
 public meta import CFSG.Sporadic.Co1.Module.FormsBase
 public meta import CFSG.Sporadic.Co1.Module.OrbitsBase
-public import CFSG.Sporadic.Schreier.Co1ThreeLocalInputs
-public import Certificates.Data.CFSGNative.Co1.Data
-public import CFSG.Sporadic.Co1.Module.InvGroupBase
-public import CFSG.Sporadic.Co1.Module.InvDataInputs
-public import CFSG.Sporadic.Co1.Module.InvFamInputs
-public import CFSG.Sporadic.Co1.Module.TwoBFrameInputs
 
 @[expose] public noncomputable section
 

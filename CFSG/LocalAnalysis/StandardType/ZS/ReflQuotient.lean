@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
-public import CFSG.Blueprint.FischerDefs
 
 public noncomputable section
 

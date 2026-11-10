@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.Spor.RawAgree
 public import CFSG.Sporadic.Schreier.PairClasses
 public import Certificates.Data.Kernel.SporSch.PairJ3Cnt
 public import CFSG.Certificates.Kernel.Spor.RawOrbSound
-public import Mathlib.Data.Int.Star
 
 public section
 

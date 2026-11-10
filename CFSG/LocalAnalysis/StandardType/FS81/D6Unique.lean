@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.StdLoc
 public import CFSG.LocalAnalysis.StandardType.FS81.D6UniqueAux
 public import CFSG.LocalAnalysis.StandardType.FS81.D6Inner
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameTrans
 public import CFSG.LocalAnalysis.StandardType.FS81.BasisMonomial
-public import CFSG.LocalAnalysis.StandardType.FS81.LocalGen
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 
 public section
 

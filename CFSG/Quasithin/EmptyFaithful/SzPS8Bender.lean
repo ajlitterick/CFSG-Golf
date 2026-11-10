@@ -1,11 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.SzPS8Field
-public import CFSG.Quasithin.EmptyFaithful.A38c12FieldOne
-public import CFSG.Quasithin.Background.GoldschmidtS146RProper
-public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
-public import CFSG.Quasithin.Background.GoldschmidtS146RPair
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LargeExtraspecial.S8CBFSect
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeMax
 public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentralizer

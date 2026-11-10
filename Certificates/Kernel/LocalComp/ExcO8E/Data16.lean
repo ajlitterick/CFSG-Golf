@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.ExcO8E.Data
 public meta import Certificates.Kernel.LocalComp.ExcO8E.Data
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

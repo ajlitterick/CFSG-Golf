@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Basic
-public import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalThreeDefs
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Families
 
 public section

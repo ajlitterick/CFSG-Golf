@@ -1,12 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.G2D4TD4Twin
-public import CFSG.ClassicalInvolution.ModelFacts.G2D4Max
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.Steinberg.TwistedD4.RankOne
-public import CFSG.ClassicalInvolution.RouteD.NoG2D4Count
 public import CFSG.ClassicalInvolution.RouteD.G2D4E189Rest
-public import CFSG.ClassicalInvolution.Asc77.AscIHD4
 public import CFSG.ClassicalInvolution.Asc77.AscE184Basic
 public import CFSG.ClassicalInvolution.Asc77.AscSixZW
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationPairBoot

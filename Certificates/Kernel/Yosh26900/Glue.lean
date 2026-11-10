@@ -1,13 +1,10 @@
 
 module
 
-public import Certificates.Data.Yosh26900Spec
 public import Certificates.Kernel.Yosh26900.Checks
 public import CFSG.Certificates.Kernel.Yosh26900Sound
 public import CFSG.Certificates.Kernel.Yosh26900Facts
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.YoshExt
-public import CFSG.Monster.B.Mathieu.Order
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -2,14 +2,7 @@ module
 
 public import CFSG.RankThree.Chevalley.SteinbergCFEvenF4StandardParabolic
 public import CFSG.RankThree.Chevalley.EvenPinnedRootSL2
-public import CFSG.LieType.TitsSimplicity.Simplicity
-public import CFSG.LieType.Chevalley.OppositeBorel
-public import CFSG.LieType.Chevalley.FixedCollection
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Defs
 
 public noncomputable section

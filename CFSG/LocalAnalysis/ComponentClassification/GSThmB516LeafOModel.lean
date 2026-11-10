@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB516LeafODiag
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB516LeafOXpc
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

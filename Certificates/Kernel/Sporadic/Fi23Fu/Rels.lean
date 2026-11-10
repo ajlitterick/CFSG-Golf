@@ -9,8 +9,6 @@ import Certificates.Kernel.Sporadic.Fi23Fu.R2
 import Certificates.Kernel.Sporadic.Fi23Fu.R3
 import Certificates.Kernel.Sporadic.Fi23Fu.R4
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BThreeFi23Reps
-import CFSG.Certificates.Kernel.Spor.OrdSound
-import CFSG.Certificates.Kernel.Common.ForallChunks
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC

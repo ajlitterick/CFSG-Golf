@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionCyclic
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSpin
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
 
 public section

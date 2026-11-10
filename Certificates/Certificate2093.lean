@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2093Base
 
-public import CFSG.Sporadic.HNOddCore.WCheckInputs
 public meta import CFSG.Sporadic.HNOddCore.PCheckBase
 import Certificates.Kernel.Sporadic.OddCore.HN2093
 

@@ -1,13 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK1DDefs
 public import CFSG.LocalAnalysis.StandardType.GGK1DTorus
 public import CFSG.LocalAnalysis.StandardType.GGK1DBlocks
 public import CFSG.LocalAnalysis.StandardType.GGK1DFamily
-public import CFSG.LocalAnalysis.StandardType.GGK1DFixed
 public import CFSG.LocalAnalysis.StandardType.GGK1DMult
 public import CFSG.LocalAnalysis.StandardType.GGK1DCentreless
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticLift
 
 public section
 

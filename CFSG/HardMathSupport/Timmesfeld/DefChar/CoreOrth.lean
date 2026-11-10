@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreA
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.OuterOrth
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreC
 

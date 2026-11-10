@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Monster.B.Final.Simple
-public import CFSG.Monster.B.Rep4371.ExactActions
 public import CFSG.Monster.B.Final.Max2Nodes
 public import CFSG.Monster.B.Pinned.Primes.FiveSubgroup
-public import CFSG.Monster.B.Pinned.Primes.SixPrimes
 public import CFSG.Monster.B.Pinned.Primes.ThreeTwelve
 public import CFSG.Sporadic.Bridge.Common
 public import CFSG.Sporadic.Bridge.BSeven

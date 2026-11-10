@@ -1,8 +1,5 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.PermCheck
 public import CFSG.GH74.KGroups.Checks
 public import CFSG.GH74.KGroups.PSLN
 import CFSG.LocalAnalysis.ComponentInitial.OddLinearTwoAliases
@@ -10,7 +7,6 @@ public meta import CFSG.GH74.KGroups.Checks
 public meta import Mathlib
 import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTDModelDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Wielandt
 
 public section

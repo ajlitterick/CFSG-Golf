@@ -1,9 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.Tits.LocK
-public import Certificates.Kernel.Misc.Tits.Text
-public import CFSG.Certificates.Kernel.Spor.RawDefs
-public import Certificates.Data.Kernel.Spor.Prim
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000

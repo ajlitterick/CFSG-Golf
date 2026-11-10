@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityEightLin
 public import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613C3Frame
-public import CFSG.RankThree.PartOne.AUTSL.OmegaDickson
 
 public section
 

@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.StandardType.ZS.MarkedWeyl
 import CFSG.LocalAnalysis.StandardType.ZS.ReflProductOrder
 import CFSG.LocalAnalysis.StandardType.GGTDAutomizer
 import CFSG.Quasithin.EmptyFaithful.SzF53BasFin
-import Mathlib.GroupTheory.SpecificGroups.Alternating
 
 public section
 

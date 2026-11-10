@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthSetup
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthB5False
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthFixedFour
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarBridge
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinCoxeterCard
-public import CFSG.LocalAnalysis.StandardType.GGSpFrameCoxeterCard
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD
 
 public section

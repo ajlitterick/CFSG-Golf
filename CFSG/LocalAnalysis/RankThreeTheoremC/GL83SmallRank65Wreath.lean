@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.Defs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank627WreathR
 import CFSG.GroupTheory.ElementaryAbelianTransport
 

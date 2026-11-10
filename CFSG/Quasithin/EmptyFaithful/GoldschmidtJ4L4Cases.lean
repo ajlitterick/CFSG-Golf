@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4L4Cz0
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4L4Aut
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocTransport
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocFix
 
 public section
 

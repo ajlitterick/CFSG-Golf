@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTorus
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoElemAbelian
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryDvdFrame
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Descent

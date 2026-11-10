@@ -2,16 +2,9 @@ module
 
 public import CFSG.Holt.H78.Sec4FinalB2
 import CFSG.Holt.H78.Schur
-import CFSG.Adapters.LinearSmallCatalog
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.Walter.PSL2Facts.Even
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.LinearCentralCover
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryCentralCover
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCentralCover
 import CFSG.LieType.Steinberg.CentralExt.SuzukiMultiplier
 import CFSG.LieType.Multipliers.Sz8
-import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
-import CFSG.RankThree.PerfectCover.HopfFormula
 public import CFSG.GH74.Uniqueness.Bender.UnitaryAut
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderInvUnitary
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderUnitary

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRMat
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRChev
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRSz
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRRee
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FROmegaMinus
@@ -9,7 +7,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRTwE6
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRTD4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQRee
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQOmegaMinus
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPFieldN
 public import CFSG.LocalAnalysis.GLTheoremA.S10.YS09Cat7
 
 public section

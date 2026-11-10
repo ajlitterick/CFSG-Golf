@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.FrobeniusDiagram
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

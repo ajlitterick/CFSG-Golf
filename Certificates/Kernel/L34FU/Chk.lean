@@ -1,11 +1,9 @@
 module
 
 public import Certificates.Kernel.L34W.Outer
-public import Certificates.Kernel.L34W.Tabs
 public import Certificates.Kernel.LocalComp.L34E16
 public import Certificates.Kernel.LocalComp.L34RDefs
 public import Certificates.Data.Kernel.L34FU
-import Certificates.Kernel.Misc.Perm.HexCmd
 import CFSG.Certificates.Kernel.Common.Harness
 meta import Certificates.Kernel.L34FU.Data
 

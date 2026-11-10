@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4TBlocks
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4U4Core
 
 public section
 

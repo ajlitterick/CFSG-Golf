@@ -1,10 +1,8 @@
 module
 
-public import CFSG.RankThree.GF2n.Tim79a34BigAssembly
 public import CFSG.RankThree.GF2n.Tim79a34BigGammaBasic
 import CFSG.RankThree.GF2n.Tim79a34BigIWProof
 import CFSG.RankThree.GF2n.Tim79a34BigNaturalProof
-public import Certificates.Kernel.J4Count.FixCE
 
 public section
 

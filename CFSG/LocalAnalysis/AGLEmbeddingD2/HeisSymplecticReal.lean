@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.SquareSymplectic
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.HeisEngine
-import CFSG.LocalAnalysis.AGLEmbeddingD2.ParabRealThree
 
 public section
 

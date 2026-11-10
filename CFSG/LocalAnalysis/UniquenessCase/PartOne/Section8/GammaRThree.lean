@@ -5,15 +5,10 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.PartOne
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront07Use
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFiftyNine
 public import CFSG.LocalAnalysis.RankFourTheoremC.PPointSetup
-public import CFSG.GroupTheory.PRankQuotientLift
 public import CFSG.GroupTheory.PGroup.CardCoprime
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.Theorem76
-public import CFSG.RankThree.PartTwo.KFacts.L34Sylow
-public import CFSG.RankThree.PartOne.AUTSL.Interface
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdRank
 public import CFSG.HardMathSupport.Timmesfeld.Tables.Multiplier.Aut
 public import CFSG.LocalAnalysis.UniquenessCase.UC22OddPRank
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.Goldschmidt.StatementsG2
 public import CFSG.Goldschmidt.StatementsG3
@@ -59,7 +54,6 @@ public import CFSG.Quasithin.Background.B5Basic
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.InternalSecAutOn
 public import CFSG.Quasithin.Background.InternalSecB4
 public import CFSG.Quasithin.Background.SmithC27Star

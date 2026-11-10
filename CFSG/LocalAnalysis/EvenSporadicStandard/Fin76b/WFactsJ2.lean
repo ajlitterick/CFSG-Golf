@@ -1,17 +1,11 @@
 
 module
 
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.WCheck
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.WJ2Check
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaJ2
-public import CFSG.Sporadic.SmallOddCore.J2DataInputs
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.RootFacts
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.WFacts
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.PinEJ2
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.WJ2
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverModelsBridge
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutModel
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverModels
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 

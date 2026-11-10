@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedOmegaModel
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedOmegaInner
-public import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
-public import CFSG.RankThree.PartOne.S12.AmbientTransport
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I194Reduce
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase
 public import CFSG.HardMathSupport.Solomon.Coordinator.I28_8Defs

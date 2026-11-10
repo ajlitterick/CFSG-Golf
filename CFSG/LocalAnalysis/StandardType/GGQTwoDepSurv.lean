@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDepBasic
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDepKer
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDepLeaf
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCaseIITypes

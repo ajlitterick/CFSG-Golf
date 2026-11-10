@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapTwF4
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevGeom
 
 public section
 

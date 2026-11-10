@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K55Module
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K55Gen
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K541Even
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.FiveThreeAlt.A6Clause
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.OrdinaryProofs.FiveThreeBridge
 public import CFSG.LargeExtraspecial.OrthoF2
 public import CFSG.LargeExtraspecial.S2Basic

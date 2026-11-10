@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRestSC
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoRestTwo
 
 public section
 

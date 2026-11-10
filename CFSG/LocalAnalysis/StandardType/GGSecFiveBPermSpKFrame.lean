@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpFrameDefs
-import CFSG.ClassicalInvolution.Models.SymplecticPairs.TypeCShortRoot
 import CFSG.ClassicalInvolution.Balance.Q27FuzzyModel
 import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownComp
 import CFSG.ClassicalInvolution.Balance.BootstrapLayersFuzzyCanon

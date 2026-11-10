@@ -1,14 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2SUInner
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2SUInnerShort
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2SULift
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2SUNC
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2SUNCShort
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ItemThree
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2CoverNC
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSU
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindCTUnitaryMain
 
 public section
 

@@ -1,10 +1,7 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.I.theorem_18_3
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Conjugacy
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
-public import Mathlib.GroupTheory.SchurZassenhaus
-import Mathlib.Algebra.Group.Pointwise.Set.Basic
 
 namespace CFSG
 end CFSG

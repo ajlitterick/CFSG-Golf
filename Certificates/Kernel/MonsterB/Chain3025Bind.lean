@@ -8,7 +8,6 @@ public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 import Certificates.Kernel.Misc.Perm.HexCmd
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
-public import Mathlib.GroupTheory.Schreier
 
 set_option maxRecDepth 400000
 

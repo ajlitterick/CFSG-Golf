@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.SteinbergSFRankOneSelector
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommPrincipalLayersCore
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GH74.Generic.S45.LEvSporGen
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

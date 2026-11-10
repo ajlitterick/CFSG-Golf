@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.Co1.SplitK
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

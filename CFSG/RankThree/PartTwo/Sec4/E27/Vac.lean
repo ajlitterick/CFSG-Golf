@@ -3,9 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec4.E27.VacuousRows
 public import CFSG.RankThree.PartTwo.Sec4.E27.AllInnerRows
 public import CFSG.RankThree.PartTwo.Sec8.Item82ProofPSL3
-public import CFSG.RankThree.PartTwo.KFacts.KS6OuterIndexProof
-public import CFSG.RankThree.PartTwo.KFacts.K72SylowL3
-public import CFSG.RankThree.PartTwo.Sec4.Item47Bridges
 public import CFSG.RankThree.PartTwo.Sec6.BThreeCensusSp4Odd
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res3ProofLieP
 public import CFSG.RankThree.PartTwo.Sec4.Item4Res3ProofRank

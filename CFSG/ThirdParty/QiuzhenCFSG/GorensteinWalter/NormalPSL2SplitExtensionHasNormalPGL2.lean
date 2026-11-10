@@ -3,11 +3,8 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2NormalExtension
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2ContainsPGLSelfCentralizingFourAll
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeNormalExtension
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeEquiv
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearRingEquiv
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DGroupQuotient
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGroupExtension
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
 
 namespace CFSG
 end CFSG

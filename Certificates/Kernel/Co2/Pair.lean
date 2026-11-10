@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Co2.Chain
-public import CFSG.Certificates.Kernel.HOrbSound
 public import CFSG.Certificates.Kernel.Co2KillSound
 public import CFSG.Certificates.Kernel.McLLabSound
 public import CFSG.Certificates.Kernel.Co2.Bound.Checks.P_H_0
@@ -10,7 +9,6 @@ public import CFSG.Certificates.Kernel.Co2.Bound.Checks.O
 public import CFSG.Certificates.Kernel.Co2.Bound3.Checks.Pair
 public import CFSG.Certificates.Kernel.Co2.Bound.Data.A
 public import CFSG.Certificates.Kernel.Co2.Bound.Data.O
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

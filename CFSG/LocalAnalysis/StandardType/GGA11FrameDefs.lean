@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGA11Defs
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrKFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrCoordDefs
 
 public section

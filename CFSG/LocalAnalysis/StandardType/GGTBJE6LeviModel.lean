@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBE6IndSplit
-public import CFSG.LocalAnalysis.StandardType.GGMaxRankJModel
 public import CFSG.LocalAnalysis.StandardType.GGTBJETypeCells
 
 public section

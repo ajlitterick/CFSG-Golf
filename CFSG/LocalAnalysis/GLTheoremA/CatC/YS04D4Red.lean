@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04BCRes
 public import CFSG.HardMathSupport.Timmesfeld.DFour.Tower
-public import CFSG.RankThree.PartTwo.Census.Carrier.SpinDOdd
 public import CFSG.GroupTheory.PerfectResidualNodes
 public import CFSG.LocalAnalysis.SignalizerFunctor.Helpers
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs

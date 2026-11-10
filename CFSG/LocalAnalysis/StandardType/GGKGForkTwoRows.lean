@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkOrthRow
 public import CFSG.LocalAnalysis.StandardType.GGKGForkSpRow
-public import CFSG.LocalAnalysis.StandardType.GGKGForkURow
-public import CFSG.LocalAnalysis.StandardType.GGKGForkLinearRow
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcRowsTw
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcE6PlusRow
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcSplitL0

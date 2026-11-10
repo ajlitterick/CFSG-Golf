@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.Uniqueness.Bender.UnitaryFixed
-public import CFSG.GH74.Uniqueness.Bender.Aut
 public import CFSG.GH74.Uniqueness.Bender.FixedLinear
 public import CFSG.GH74.Uniqueness.Bender.Unitary
 public import CFSG.GH74.Uniqueness.Bender.Outer
@@ -9,9 +8,6 @@ public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFiel
 public import CFSG.LieType.Suzuki.SuzukiOuterCyclic
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryDiagonalOuterOrder
 public import CFSG.StronglyEmbedded.Catalog.Suzuki
-import CFSG.Models.BenderSuzuki
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionNormalTwoFixedPointHull

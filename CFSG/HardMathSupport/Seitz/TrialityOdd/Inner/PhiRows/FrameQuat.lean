@@ -1,8 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.FrameLift
-public import Mathlib.GroupTheory.SchurZassenhaus
-public import Mathlib.GroupTheory.PGroup
 public import CFSG.RankThree.PartOne.KGD.D4T36Core
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnTorus
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4TorusFrame

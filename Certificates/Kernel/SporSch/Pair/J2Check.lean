@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.Pair.J2Chain
 public import Certificates.Kernel.SporSch.Pair.GenNF
-public import CFSG.Certificates.Kernel.SporSch.PairClSound
 public import CFSG.Certificates.Kernel.Spor.PrimSound
 meta import CFSG.Sporadic.Schreier.PairJ2CheckInputs
 public import Certificates.Kernel.SporSch.Pair.Nil

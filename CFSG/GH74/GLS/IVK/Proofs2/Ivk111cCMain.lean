@@ -5,34 +5,6 @@ public import CFSG.GH74.GLS.IVK.Proofs2.Ivk111cCSL2Conj
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk111cCIncl
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ScalarDescent
 public import CFSG.CharacterTheory.SteinbergBYModularRealization
-public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
-public import Mathlib.Algebra.CharP.CharAndCard
-public import CFSG.GH74.GLS.IVK.Proofs2.Stmt111c
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
-public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.GH74.GLS.IVK.Defs2
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import Mathlib.Algebra.CharP.Lemmas
-public import Mathlib.Algebra.CharP.Two
-public import Mathlib.Algebra.Field.Basic
-public import Mathlib.Algebra.Group.Action.Defs
-public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.FieldTheory.Finite.Trace
-public import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
-public import Mathlib.FieldTheory.IsAlgClosed.Basic
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import Mathlib.GroupTheory.SpecificGroups.Quaternion
-public import Mathlib.LinearAlgebra.Matrix.MvPolynomial
-public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.LinearAlgebra.Matrix.ToLin
-public import Mathlib.LinearAlgebra.TensorProduct.Basis
-public import Mathlib.LinearAlgebra.Transvection.Basic
-public import Mathlib.RingTheory.Nilpotent.Basic
-public import Mathlib.RingTheory.TensorProduct.Free
 
 public section
 

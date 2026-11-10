@@ -1,12 +1,7 @@
 module
 
-public import CFSG.Assembly.Defs
-public import CFSG.Blueprint.Chevalley
-public import CFSG.LieType.Chevalley.ExactNormalFormE
-public import CFSG.LocalAnalysis.ComponentInitial.RootDiagonalConjugation
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLevi
 public import CFSG.LocalAnalysis.SeitzReduction.EPilotFusionEntrywise
-public import CFSG.LocalAnalysis.SeitzReduction.LongRootPairsRoots
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotAutDTwo
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoExcStep
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGRigid
@@ -14,9 +9,6 @@ import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 import CFSG.RankThree.PartOne.KE.A2Shape
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 import CFSG.Monster.B.Geometry.CoxeterWords
 import CFSG.RankThree.PartOne.KE.A1SL2

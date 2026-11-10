@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.GroupAction.MultipleTransitivity
-public import Mathlib.GroupTheory.Index
 
 namespace CFSG
 end CFSG

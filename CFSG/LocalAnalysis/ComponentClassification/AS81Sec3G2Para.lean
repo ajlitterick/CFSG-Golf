@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenShortCentralizer
-public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8G2Radical
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8G2Core
 
 public section

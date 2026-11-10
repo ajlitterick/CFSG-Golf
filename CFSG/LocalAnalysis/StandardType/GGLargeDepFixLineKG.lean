@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLargeFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGResKnownGroup
 public import CFSG.LocalAnalysis.StandardType.GGLargeDepConnected
 public import CFSG.LocalAnalysis.StandardType.GGLargeDepRestrict
 public import CFSG.LocalAnalysis.StandardType.GGLargeDepOrder

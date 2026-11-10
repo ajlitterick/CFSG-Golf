@@ -4,18 +4,12 @@ public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RC1
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4C1
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RToral
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RParam
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RFam
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RLangComp
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RLangLabel
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RLangFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6Two
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Lift
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Label
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4A5Close
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Upper
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs2
 public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 
 public section

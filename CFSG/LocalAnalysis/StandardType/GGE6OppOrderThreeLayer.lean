@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Assembly.Defs
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
 import CFSG.LocalAnalysis.StandardType.GGE6OppRankAut
 import CFSG.LocalAnalysis.StandardType.GGE6OppCompRank
@@ -8,9 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGE6OppFixedRank
 import CFSG.LocalAnalysis.StandardType.GGE6OppInnerAction
 import CFSG.LocalAnalysis.StandardType.GGE6OppConjDatum
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6OppTorsionLabel
-import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRuleSpFinAbs
-import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerModel
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
 import CFSG.Mathlib.GroupTheory.InnerElemAbelian
 public import Certificates.Data.E6TableT
 

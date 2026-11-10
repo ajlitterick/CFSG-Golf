@@ -1,13 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBase
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicRep
 public meta import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBaseNative
 public import CFSG.Sporadic.He
 public meta import Certificates.Data.CFSGNative.He.Certificate
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHeInputs
 public import Certificates.Certificate4141
-public import Certificates.Certificate3168
 public import CFSG.Foundations
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -17,7 +14,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.Interface
-public import CFSG.Sporadic.Th.F2Spec
 public import Certificates.Certificate113
 
 public section

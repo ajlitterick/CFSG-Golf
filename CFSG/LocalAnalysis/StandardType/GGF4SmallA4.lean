@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveF4SmallDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLang
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteA4F4
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteJoin
-import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
 
 public section
 

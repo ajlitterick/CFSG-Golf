@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.SuzOutComp
 public import Certificates.Data.Kernel.Misc.SuzOut
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Data.SuzOutComp
 

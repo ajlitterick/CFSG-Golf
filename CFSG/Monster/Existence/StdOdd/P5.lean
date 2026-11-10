@@ -4,14 +4,12 @@ public import Mathlib.GroupTheory.Sylow
 public import Mathlib.GroupTheory.Rank
 public import Mathlib.GroupTheory.IndexNormal
 public import Mathlib.GroupTheory.SemidirectProduct
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 public import Std.Data.HashSet
 public import Std.Data.HashMap
 public meta import Mathlib.Data.ZMod.Defs
 public meta import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 public meta import Std.Data.HashSet
 public meta import Std.Data.HashMap
-public import CFSG.Monster.Existence.StdOdd.P5Inputs
 public import Certificates.Certificate6040
 public import CFSG.Certificates.Kernel.WeylE6Sound
 

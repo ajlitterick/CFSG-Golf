@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankJModel
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestDefs
 
 public section
 

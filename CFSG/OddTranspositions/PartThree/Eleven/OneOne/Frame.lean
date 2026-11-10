@@ -5,8 +5,6 @@ public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Lift
 import CFSG.OddTranspositions.PartThree.Eleven.OneOne.FrameD
 import CFSG.OddTranspositions.PartThree.Eleven.OneOne.FrameFields
 import CFSG.OddTranspositions.PartThree.Eleven.OneOne.FrameAut
-import Mathlib.Algebra.Group.Subgroup.Finite
-import Mathlib.Data.ZMod.QuotientGroup
 import CFSG.OddTranspositions.PartThree.HalphaCentralizer
 
 public section

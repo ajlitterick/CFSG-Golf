@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.SmallOddCore.Assembly
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtElRestJ2F
 public import CFSG.Quasithin.EmptyFaithful.S153Odd
 public import CFSG.GroupTheory.SylowInfNormal

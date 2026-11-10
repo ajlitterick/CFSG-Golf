@@ -2,17 +2,11 @@ module
 
 public import Certificates.Kernel.He589203.M
 import CFSG.Certificates.Kernel.Common.Harness
-public import Certificates.Data.Kernel.LocalQT.BaseT
 meta import Certificates.Kernel.Sporadic.RawGen
-public import Certificates.Data.Kernel.DcK
-public import Certificates.Kernel.He7149.Final
 public import Certificates.Kernel.E68Spor4215.Final
 public import CFSG.Certificates.Kernel.DcKSound
 public import CFSG.Certificates.Kernel.DcKParse
 public import CFSG.Certificates.Kernel.DcKInv
-public import CFSG.Certificates.Kernel.LocalQTBaseSRep
-public import CFSG.Certificates.Kernel.SporLatOmegaSound
-public import Certificates.Data.DcHeOverV
 public import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 

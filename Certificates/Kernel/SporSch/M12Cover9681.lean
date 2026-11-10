@@ -2,8 +2,6 @@ module
 
 public import Certificates.Data.Kernel.Misc.SylKey
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanM12CoverData
-public import CFSG.Sporadic.Mathieu.M12
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 public import CFSG.Sporadic.Schreier.ImagePairs

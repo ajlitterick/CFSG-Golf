@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.HuppertReeEight.Checker
 public import Certificates.Kernel.TitsW.Alg
-import CFSG.Certificates.Kernel.Spor.PinvSSound
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Common.Harness
 

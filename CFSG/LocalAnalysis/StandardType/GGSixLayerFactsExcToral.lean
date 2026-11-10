@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcComp
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaDefs
 public import CFSG.RankThree.PartOne.KE8F.FamBruhat
-public import CFSG.LieType.Chevalley.GraphFixedOrbitCollection
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
 public import CFSG.Monster.B.Geometry.CoxeterWords
 public import CFSG.RankThree.PartOne.KE.A1SL2

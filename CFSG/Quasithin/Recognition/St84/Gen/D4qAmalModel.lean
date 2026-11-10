@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qStructNorm
 import CFSG.RankThree.PartOne.S11c.Sec66D4Tri
 import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsModD4
-import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsD4Data
 import CFSG.Quasithin.Vol2.Ch10SecKHLk2C
 import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalExcTwCore
 public import CFSG.Quasithin.Recognition.St84.Gen.D4qRadical

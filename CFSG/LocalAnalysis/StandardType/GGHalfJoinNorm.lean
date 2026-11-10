@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinInner
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 
 public section
 

@@ -8,7 +8,6 @@ import all Certificates.Data.CFSGNative.F4.Basic
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.EachUnfold
 import CFSG.Certificates.Kernel.Common.ForallChunks
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Fischer.HermitianEquiv
 public import CFSG.Fischer.PolarCertBase
 

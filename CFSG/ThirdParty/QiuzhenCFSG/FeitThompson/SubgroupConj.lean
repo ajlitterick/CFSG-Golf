@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.Algebra.Group.Subgroup.Actions
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 

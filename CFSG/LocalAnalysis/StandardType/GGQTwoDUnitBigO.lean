@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigOModel
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigOY
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigA
-public import CFSG.LocalAnalysis.StandardType.GGOrthFrameCore
 import CFSG.LinearAlgebra.F2PlaneMaps
 
 public section

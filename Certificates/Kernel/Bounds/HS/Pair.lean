@@ -5,8 +5,6 @@ public import Certificates.Kernel.Bounds.HS.Facts
 public import CFSG.Certificates.Kernel.HSKillSound
 public import CFSG.Certificates.Kernel.Bounds.HSAlt.Checks.B_H_0
 public import CFSG.Certificates.Kernel.Bounds.HSAlt.Checks.Pair
-public import CFSG.Certificates.Kernel.Bounds.HSAlt.Data.M
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

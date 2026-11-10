@@ -1,17 +1,7 @@
 module
 
-public import Mathlib.Algebra.CharP.Frobenius
-public import Mathlib.Algebra.Ring.Commute
-public import Mathlib.LinearAlgebra.Matrix.Notation
-public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.FieldTheory.Finite.GaloisField
-public import Mathlib.GroupTheory.OrderOfElement
-public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
-public import Mathlib.Data.Matrix.Basic
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KDRank3SmallL3
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KDRank3Defs
-public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-public import CFSG.Open.StatedDefs
 
 public section
 

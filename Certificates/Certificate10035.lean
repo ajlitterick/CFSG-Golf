@@ -4,7 +4,6 @@ public import CFSG.Monster.GMS.Griess13.Data
 meta import CFSG.Monster.GMS.Griess13.Data
 meta import Mathlib
 public import CFSG.Sporadic.Co1Base
-public import CFSG.Sporadic.Th.F2Spec
 meta import CFSG.Sporadic.Co1Base
 meta import CFSG.Sporadic.Th.F2Spec
 

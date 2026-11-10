@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1CDefs
 public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorusField
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLNonsplitLinear
 
 public section
 

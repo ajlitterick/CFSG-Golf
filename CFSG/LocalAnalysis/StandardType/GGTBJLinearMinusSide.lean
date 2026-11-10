@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTypeBSupported
 public import CFSG.LocalAnalysis.StandardType.GGTBJTypeBTwisted
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSL
 
 public section
 

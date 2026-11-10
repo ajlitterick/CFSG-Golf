@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6Dvd
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6FiveSc
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitExcSixE
 
 public section
 

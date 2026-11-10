@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGK0LCBridge
 public import CFSG.LocalAnalysis.StandardType.GGK0LCKacPt
-public import CFSG.LieType.Chevalley.ToralCentralizerQuotient
 
 public section
 

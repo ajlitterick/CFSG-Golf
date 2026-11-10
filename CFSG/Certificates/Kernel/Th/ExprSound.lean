@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.Th.Expr
 public import CFSG.Certificates.Kernel.Th.Max3S.Regs
-public import CFSG.Sporadic.Th.Max3.AllConjInputs
 
 public section
 

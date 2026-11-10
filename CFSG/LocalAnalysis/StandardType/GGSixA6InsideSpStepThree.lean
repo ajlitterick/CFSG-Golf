@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpFix
-import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpComp
-import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpPull
 import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpTorus
-public import CFSG.Assembly.LargeEvenDefs
 
 public section
 

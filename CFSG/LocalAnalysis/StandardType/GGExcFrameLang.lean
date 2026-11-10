@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoFusionLang
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBTorus
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4ZRootTorus
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTorus
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesWeyl
 
 public section

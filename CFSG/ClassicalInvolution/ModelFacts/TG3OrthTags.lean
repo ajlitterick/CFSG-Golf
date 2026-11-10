@@ -4,8 +4,6 @@ public import CFSG.ClassicalInvolution.ModelFacts.TG3OrthTwin
 public import CFSG.ClassicalInvolution.ModelFacts.CF3SpinOdd
 public import CFSG.ClassicalInvolution.ModelFacts.CF3SpinPlus
 public import CFSG.ClassicalInvolution.ModelFacts.CF3SpinMinus
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinStd
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthWitt
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalE6
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalE7
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcF4Main

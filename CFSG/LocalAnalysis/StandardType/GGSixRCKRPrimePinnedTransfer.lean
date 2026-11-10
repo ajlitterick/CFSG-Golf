@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeReturnSpecs
-import CFSG.LocalAnalysis.SeitzReduction.SeitzQ2OddSplit
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1Helpers
 
 public section

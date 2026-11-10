@@ -1,16 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixPositionDefs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.LieType.Universal.Unitary.Extras
-public import CFSG.LieType.BorelTits.UnitaryForm
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2GeoSU
-public import CFSG.Timmesfeld.Transvection.PresSUModel
 public import CFSG.Timmesfeld.Transvection.OddModelHeis
 public import CFSG.Timmesfeld.LieEmbed.UnitaryIsometry
-public import CFSG.Timmesfeld.LieEmbed.UnitaryForms
 public import CFSG.LocalAnalysis.StandardType.GGInvolutionClassSURoot
-public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionCore
 public import CFSG.ClassicalInvolution.ModelFacts.MF15Skew
 import all CFSG.LieType.Universal.Unitary.Roots
 public import CFSG.ClassicalInvolution.ModelFacts.MF15Basic

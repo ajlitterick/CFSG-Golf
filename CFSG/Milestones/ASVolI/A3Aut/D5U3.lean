@@ -2,10 +2,6 @@ module
 
 public import CFSG.Milestones.ASVolI.A3Aut.D5Base
 public import CFSG.Milestones.ASVolI.A2OddAut
-public import CFSG.RankThree.PartTwo.KFacts.AutPSUFaithful
-public import CFSG.RankThree.PartTwo.KFacts.AutPSUDet
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B113OverBender
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.ClassicalInvolution.WeakCT.Main
 public import CFSG.Milestones.ASVolI.A3Aut.Fam
 public import CFSG.Milestones.ASVolI.A3Aut.Util
@@ -21,10 +17,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Statements423
 public import CFSG.RankThree.PartTwo.Sec6.Statements
 public import CFSG.RankThree.PartTwo.Sec8.Steps
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 
 public section
 

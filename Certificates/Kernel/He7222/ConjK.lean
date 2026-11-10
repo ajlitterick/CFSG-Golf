@@ -4,7 +4,6 @@ public import Certificates.Kernel.He7222.FixK
 public import Certificates.Kernel.He7222.Data
 public import Certificates.Kernel.He7222.HData
 public import Certificates.Kernel.He7222.HWords
-public import CFSG.Certificates.Kernel.Common.Lce
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

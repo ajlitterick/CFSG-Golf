@@ -1,10 +1,6 @@
 module
 
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Data
-public import CFSG.Monster.B.TwoA.Unitary.Action
-public import Certificates.Kernel.MonsterB.Co2Mem
 public import Certificates.Kernel.MonsterB.Fix3081Data
-public import CFSG.Certificates.Kernel.MonsterB.U6OrbSound
 public import CFSG.Certificates.Kernel.MonsterB.Co2CountSound
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408

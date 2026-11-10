@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrCan
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormNbr
-public import CFSG.LocalAnalysis.StandardType.GGHLDefs
-public import CFSG.LocalAnalysis.StandardType.GGStdSubExist
 public import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup
 
 public section

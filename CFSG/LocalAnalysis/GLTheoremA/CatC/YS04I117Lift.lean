@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117Defs
 public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3Family
-public import CFSG.LocalAnalysis.GLTheoremB.PQuotientTools
-public import CFSG.HardMathSupport.Solomon.LocalBalance.TwoLocalTools
-public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.I_11_2_FamilyRank
 public import CFSG.LocalAnalysis.ComponentClassification.BlockCentralSylowEquality
 public import CFSG.LocalAnalysis.ComponentClassification.BlockFourFactorSupport
 public import CFSG.LocalAnalysis.ComponentClassification.BlockLargeProductInvolutions

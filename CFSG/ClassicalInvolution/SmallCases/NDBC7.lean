@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBC6
-import CFSG.ClassicalInvolution.Asc77.AscIH8Small
 import CFSG.ClassicalInvolution.Asc77.AscMuTabD4
 import CFSG.ClassicalInvolution.Asc77.WP3SCSModel
 

@@ -1,18 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorusFieldTransferSh
 public import CFSG.LocalAnalysis.StandardType.GGF4ThreeToral
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerClassicalModel
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclic
 public import CFSG.LocalAnalysis.StandardType.GGNbrKGFieldShInputs
-import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-import CFSG.LieType.Chevalley.ToralCentralizerBruhat
-import CFSG.LieType.Chevalley.BorelStructure
 import CFSG.LocalAnalysis.StandardType.GGNbrKGF4ThreeAddHolds
 import CFSG.LocalAnalysis.StandardType.GGNbrKGFieldE6TwE6
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
-import CFSG.LocalAnalysis.ComponentInitial.FourGroupChevalley
 
 public section
 

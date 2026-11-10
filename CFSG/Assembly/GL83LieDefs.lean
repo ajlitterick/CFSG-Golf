@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.Open.StatedDefs
 public import CFSG.Open.PGLModelDefs
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeEnvelopePieces
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPReduction
 
 public section
 

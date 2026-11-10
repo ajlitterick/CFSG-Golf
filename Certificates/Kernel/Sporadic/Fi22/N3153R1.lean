@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.Fi22.N3153Defs
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.G2.ProductDefs
 import CFSG.LocalAnalysis.EvenBN.TrialityD4.ProductN2
-import CFSG.LocalAnalysis.EvenBN.Common.FongSeitzFourB
-public import CFSG.Quasithin.H13.J4Core
-public import CFSG.Quasithin.H13.J4Order
-public import CFSG.Sporadic.Schreier.J4SOrder
 public import CFSG.Sporadic.Th.Max3.Quotient
 
 open Subgroup CFSG.Open CFSG.Blueprint CFSG.Blueprint.Chevalley CFSG.LieType.Chevalley

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.DimThree.Basic
-public import CFSG.RankThree.SubgroupLists.CliffordPrime
 public import CFSG.Quasithin.Background.SimsG4Defs
 
 public section

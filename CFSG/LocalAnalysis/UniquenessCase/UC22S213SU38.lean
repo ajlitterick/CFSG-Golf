@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UCKPRank1
 import CFSG.Quasithin.Background.RonanF615QTK
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76SL3Sylow
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.CentralOmega.Linear
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGDepASmall
-public import CFSG.LocalAnalysis.StandardType.GGDepAFrame
 public import CFSG.LocalAnalysis.StandardType.GGDepAPerm
 
 public section

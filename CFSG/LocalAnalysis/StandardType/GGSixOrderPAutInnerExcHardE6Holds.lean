@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcHardE6
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcHardF4
-import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.LocalAnalysis.StandardType.GGOrdPToralLang
 import CFSG.LocalAnalysis.StandardType.GGExcElemToralE6
 import CFSG.LocalAnalysis.StandardType.GGExcFieldRankE6
-import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Basic
 import CFSG.LieType.SeitzGeneration.ExcHighThree.E6InF4Assemble
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase

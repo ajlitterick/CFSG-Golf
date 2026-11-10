@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentConfig
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentMat
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentNT
-import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
-import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.LinRep
-public import Certificates.Data.Kernel.Spor.Chain
 public import Certificates.Data.Kernel.Misc.ArrEnum
 
 public section

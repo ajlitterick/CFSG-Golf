@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs2
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
 public section
 

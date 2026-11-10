@@ -3,23 +3,11 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaE6PatCox
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaE6PatRows
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMember
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinRMDefs
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinByType
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
 public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQSplit
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCubeHolds
 import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCube
-import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRank
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourTBSmall
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Weyl
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
 
 public section
 

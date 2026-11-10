@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNineDepRowLin
 import CFSG.LocalAnalysis.StandardType.GGNineDepRestrictAux
-import Mathlib.LinearAlgebra.Transvection.Basic
-import Mathlib.LinearAlgebra.Reflection
-import Mathlib.LinearAlgebra.Basis.Defs
-import Mathlib.Algebra.Ring.Parity
 
 public section
 

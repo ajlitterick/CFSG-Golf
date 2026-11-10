@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryInnFrame
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGInnLocal
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
 
 public section

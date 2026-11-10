@@ -9,8 +9,6 @@ public meta import CFSG.Sporadic.Schreier.M24
 public meta import CFSG.Monster.B.Mathieu.M24Check
 public meta import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
 import Certificates.Kernel.Sporadic.M24Syl.Facts
-import Certificates.Kernel.Sporadic.M24Syl.Checks
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

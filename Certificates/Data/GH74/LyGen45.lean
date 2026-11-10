@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.GH74.LyGen
-public import Certificates.Data.CFSGNative.He.Fp
 
 public section
 

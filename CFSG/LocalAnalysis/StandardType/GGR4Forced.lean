@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGForkIndefLattice
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelProofFork
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosure
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosureRefl
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.BrauerInduction.Elementary.CyclicCharacters
-public import CFSG.ThirdParty.BrauerInduction.Cyclotomic.CharacterSystem
-public import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
 
 public section
 

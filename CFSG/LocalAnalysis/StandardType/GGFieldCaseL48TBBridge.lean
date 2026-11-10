@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenUnitaryIrred
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6TBIrred
 
 public section

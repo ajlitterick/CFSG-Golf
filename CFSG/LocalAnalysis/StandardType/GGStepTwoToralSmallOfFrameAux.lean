@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStepTwoToralCertSpec
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 
 public section
 

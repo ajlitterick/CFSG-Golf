@@ -7,11 +7,8 @@ public import Certificates.Kernel.Sporadic.McLC.CoverC
 public import Certificates.Kernel.Sporadic.McLC.CoverD
 public import Certificates.Kernel.Sporadic.McLC.Gen
 public import CFSG.Certificates.Kernel.Spor.PChainSound
-public import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.LocalCompSPCode
 import Certificates.Kernel.Sporadic.ON.Gen
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.IntervalCases
 public import Mathlib.GroupTheory.Perm.Basic
 import CFSG.LocalAnalysis.ComponentInitial.Finkelstein1977Commuting
 import CFSG.RankThree.Native.PermEnumeration

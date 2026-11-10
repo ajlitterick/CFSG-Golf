@@ -4,7 +4,6 @@ public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieLTSL
 public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieLTSU
 public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieLTSp
 public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieLTOrth
-public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieLTExc
 public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieLTExcE67
 
 public section

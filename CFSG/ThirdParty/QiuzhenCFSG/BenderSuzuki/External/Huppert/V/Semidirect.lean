@@ -2,18 +2,10 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Remaining
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.lemma_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection8.theorem_8_1
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.MinimalNormal
 public import Mathlib.GroupTheory.FixedPointFree
-public import Mathlib.LinearAlgebra.Dimension.Free
-public import Mathlib.FieldTheory.Finite.GaloisField
 public import Mathlib.Algebra.Field.ULift
-public import Mathlib.GroupTheory.SemidirectProduct
-public import Mathlib.GroupTheory.Subgroup.Centralizer
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-public import Mathlib.GroupTheory.Sylow
 
 namespace CFSG
 end CFSG

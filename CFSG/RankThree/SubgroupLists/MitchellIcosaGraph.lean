@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.SubgroupLists.MitchellFrameBar
 public import CFSG.RankThree.SubgroupLists.MitchellPlusImage
-import CFSG.RankThree.SubgroupLists.MitchellDicksonTwo
 import CFSG.RankThree.SubgroupLists.MitchellFourFrame
 
 public section

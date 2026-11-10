@@ -1,17 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniCover
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniExc
-import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
-import CFSG.LocalAnalysis.StandardType.GGResLeaf
 import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeF4Comp
 import CFSG.LocalAnalysis.StandardType.GGKnownInputsPsuOrder
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLNoJ1Ppd
-import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
-import CFSG.Timmesfeld.Orders.Classical
-import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 
 public section
 

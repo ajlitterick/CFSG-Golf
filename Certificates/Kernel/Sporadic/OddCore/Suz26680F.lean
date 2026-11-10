@@ -5,12 +5,8 @@ public import Certificates.Kernel.Sporadic.OddCore.Suz26680S1
 public import Certificates.Kernel.Sporadic.OddCore.Suz26990F
 public import Certificates.Kernel.Sporadic.OddCore.SuzCTF0
 public import Certificates.Kernel.Sporadic.OddCore.Suz2303F
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBSSuzCheck
-import CFSG.Certificates.Kernel.BfsPinUnpack
 import CFSG.Certificates.Kernel.BfsPinSetSound
 import CFSG.Certificates.Kernel.L34ScanSound
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Common.Harness
 import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.HeAutKSound
 import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions

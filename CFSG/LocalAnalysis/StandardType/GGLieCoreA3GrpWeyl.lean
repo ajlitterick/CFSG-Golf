@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3LatticeE6Defs
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3DictPhi
-public import CFSG.HardMathSupport.Timmesfeld.Torality.LangAssembly
-public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.KillsRootGroup
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Frames
 public import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalThreeSporadicRank

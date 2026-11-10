@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSelectedTwistedE6
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMarkingE6
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeInner
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
-public import CFSG.LieType.Steinberg.Adjoint.Perfect
-public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
 
 public section
 

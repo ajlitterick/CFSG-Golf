@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSwSwitch
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitSingleSFLZOneR
-import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4DiagMem
-import CFSG.LocalAnalysis.ComponentClassification.GrSLitSingleSFL
-import CFSG.LocalAnalysis.ComponentClassification.GrSLitSingleRank
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

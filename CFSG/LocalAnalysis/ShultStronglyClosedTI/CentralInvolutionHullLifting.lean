@@ -3,13 +3,9 @@ module
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.CentralCoverInnerWitness
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.CentralInvolutionHullInjectivity
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.AmbientOddCenterQuotient
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryCentralCover
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCentralCover
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Final
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public noncomputable section
 

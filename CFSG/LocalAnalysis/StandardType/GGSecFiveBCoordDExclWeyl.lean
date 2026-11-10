@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclRestDefs
 public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordConj
-import CFSG.LocalAnalysis.StandardType.GGTBXDatumOfTor
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 import CFSG.LocalAnalysis.StandardType.GGNsq2QuotNorm
-import CFSG.LocalAnalysis.StandardType.GGSignedCoordRefl
-import TauCeti.GroupTheory.Coxeter.Geometric
 
 public section
 

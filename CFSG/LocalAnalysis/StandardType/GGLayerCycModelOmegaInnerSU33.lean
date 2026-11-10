@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaInnerDerived
-public import Mathlib.GroupTheory.Perm.Cycle.Type
-public import Mathlib.FieldTheory.Finiteness
 
 public section
 

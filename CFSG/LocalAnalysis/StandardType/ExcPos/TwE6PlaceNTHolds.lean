@@ -1,14 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ExcPos.UnitRAssembly
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6PlaceNTConfig
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6ThetaModel
-public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6TTThreeUnitary
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6BigElemAbelian
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcCaseV
-import CFSG.LocalAnalysis.StandardType.GGLieBridgeTheta
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE6Toral
-import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

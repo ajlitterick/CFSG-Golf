@@ -1,23 +1,10 @@
 module
 
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E8Cube
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Coordinator.PhiRows
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Coordinator.HandbackPhi6
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Coordinator.Phi6RouteWStarProved
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.RouteWJPlacement
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.RouteWSylow
-public import CFSG.RankThree.PartOne.K128.D4Syl
 public import CFSG.RankThree.PartOne.S11c.Sec66D4Tri
-public import CFSG.LieType.SeitzGeneration.ExcAnisotropicTriality
-public import CFSG.LieType.SeitzGeneration.ExcCatModels
-public import CFSG.LieType.SeitzGeneration.ExcPlaneModel
-public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Leaf.PlaneCardAuxE8Twelve
 public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.ClassLeaves
-public import CFSG.Goldschmidt.Final
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LieType.SeitzGeneration.ExcHigh.Leaves
 public import CFSG.LieType.SeitzGeneration.ExcHigh.FrameDatum
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Rank1
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.E8.MPart
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSplit

@@ -1,12 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBRowExcFrame
-public import CFSG.LocalAnalysis.StandardType.GGTBRowE6Equiv
-public import CFSG.LocalAnalysis.StandardType.GGTBRowTwE6Parity
-public import CFSG.LocalAnalysis.StandardType.GGTBRowFrame
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwenty
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6Plus
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 public import CFSG.LocalAnalysis.StandardType.GGTBRowTwE6FrameAux
 
 public section

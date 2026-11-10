@@ -17,7 +17,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinear
 public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_8Sylow
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2pFacts
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Defs
 
 public section

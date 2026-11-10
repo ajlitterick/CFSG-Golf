@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Open.QuasithinDefs
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

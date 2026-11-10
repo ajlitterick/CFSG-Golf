@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.StarQuot
 import CFSG.LocalAnalysis.RankThreeTheoremC.RelPair2T_Two
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineSixStarEGen
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenLayer
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CThreeComponents
 import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenLayerGen
 import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenThreeGen

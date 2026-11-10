@@ -3,14 +3,8 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.BorelQuotientA5U34
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CartanQuotientTools
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.OutL2U3Product
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenSixtyFour
 public import CFSG.GroupTheory.NormalizerQuotientProduct
 public import CFSG.GroupTheory.AlternatingFive.SylowTwo
-public import CFSG.GroupTheory.QuasiDihedralFusion.Transport
-public import CFSG.LocalAnalysis.QuasithinUnique.CatalogBridgeLinear
-public import CFSG.LocalAnalysis.QuasithinUnique.Setting
-public import CFSG.LieType.Simplicity.Classical
-public import CFSG.LocalAnalysis.EvenBN.GMSK.U3Facts
 public import CFSG.CGT.Timmesfeld75.ListWCSzU3
 public import CFSG.Sporadic.Schreier.Co1OddGen
 public import CFSG.Adapters.Certificate43Check
@@ -50,7 +44,6 @@ public import CFSG.Quasithin.Background.C1PackS15212C
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.FFC5Final
 public import CFSG.Quasithin.Background.FFC6U
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

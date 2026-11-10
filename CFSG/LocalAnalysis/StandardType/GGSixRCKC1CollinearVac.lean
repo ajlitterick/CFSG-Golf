@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1CollinearDefs
-public import CFSG.LieType.HighestRoot.ModelCenter
 
 public section
 

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGF4AutWeyl
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBExcInduced
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylGenRefl
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerF4
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 
 public section
 

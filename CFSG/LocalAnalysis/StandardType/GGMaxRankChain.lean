@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGMaxRankWeyl
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankChainAux
 public import CFSG.LocalAnalysis.StandardType.GGCoxReflConv
 

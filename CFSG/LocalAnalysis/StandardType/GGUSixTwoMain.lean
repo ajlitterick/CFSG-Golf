@@ -4,16 +4,11 @@ public import CFSG.LocalAnalysis.StandardType.GGUSixTwoRoot
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoDelta
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoNormSmall
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoDeltaSmall
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvd63
 public import CFSG.LocalAnalysis.StandardType.GGRemStdSubResidualsULCOU
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveMain
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRuleSpFinHigh
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveSpRoot
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveU52Assembly
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRuleSpFourMain
-public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveUDvdRRoot
-public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveUDeltaNode
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthInPlus
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthInMinus
 
 public section

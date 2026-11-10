@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Vol2.KGFact1297Red
 public import CFSG.Quasithin.Vol2.KGFact1295Par
 
 public section

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepAssembly
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepAssemblyR
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCK1416Defs
-import CFSG.LieType.Universal.SpinOmega.Kernel
 import CFSG.ClassicalGroups.Orthogonal.EichlerCentralizerScalar
 import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 

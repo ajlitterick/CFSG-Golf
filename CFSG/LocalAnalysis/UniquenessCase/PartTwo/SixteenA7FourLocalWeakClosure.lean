@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenA7FourLocalCommutation
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenEight
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenNine
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenGlue
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenFiveTen
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTools
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenUniqueMax
 
 public section
 

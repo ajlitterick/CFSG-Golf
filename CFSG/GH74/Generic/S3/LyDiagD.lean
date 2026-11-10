@@ -1,10 +1,6 @@
 module
 
 public import CFSG.GH74.Generic.S3.LyDiagA
-public import CFSG.GH74.Generic.S1.SymTransport
-public import Mathlib.GroupTheory.Abelianization.Defs
-public import Mathlib.Algebra.Group.TypeTags.Basic
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.Generic.S3.LyPump
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
 

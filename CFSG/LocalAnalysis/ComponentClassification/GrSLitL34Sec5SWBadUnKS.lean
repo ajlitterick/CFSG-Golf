@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5SWBadUn
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSInputs
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsOutSquare
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsParabolicGen
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsRealModelBase
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4End43W
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InputsEnd
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InputsEnd46F

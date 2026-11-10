@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenE7Defs
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenE7D0Aux
 public import CFSG.LieType.AlgebraicGroups.KernelRootDescent
-public import CFSG.LieType.Chevalley.ParabolicRootFactorData
-public import CFSG.LieType.Chevalley.C2E6SubsystemBruhatDefs
-public import CFSG.LieType.Chevalley.E7SupportedBruhat
 
 public section
 

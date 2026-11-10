@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGK0ExcCentreSupport
 public import CFSG.LocalAnalysis.StandardType.GGK0ExcCentreNodeExp
 public import CFSG.LocalAnalysis.StandardType.GGK0ExcCentreKernelRoots
 public import CFSG.LocalAnalysis.StandardType.GGK0ExcCentreCount
-public import CFSG.LocalAnalysis.StandardType.GGK0ExcCentreOrbitCount
 
 public section
 

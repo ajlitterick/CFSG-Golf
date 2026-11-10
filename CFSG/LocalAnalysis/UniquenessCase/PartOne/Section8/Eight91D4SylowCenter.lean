@@ -3,12 +3,7 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight91D4Setup
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight91D4ZOfIndex
 import CFSG.RankThree.PartTwo.Sec11.Item1120V0BarD4Pure
-import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
-import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 import CFSG.GroupTheory.ConjTransport
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_14
-import Mathlib.GroupTheory.Nilpotent
-import Mathlib.GroupTheory.PGroup
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic

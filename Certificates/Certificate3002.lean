@@ -3,7 +3,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEightMinus.NativeSylowDefs
 import Certificates.Kernel.OmegaEight.Bridge3002
-import Certificates.Kernel.OmegaEight.SA3002K
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.BfsPinSound
 import CFSG.Certificates.Kernel.Census.SiftSound
@@ -45,7 +44,6 @@ import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 import CFSG.LocalAnalysis.SectionRank.SporadicCover
 import CFSG.Sporadic.M23.M23Group
 import CFSG.Sporadic.SmallOddCore.CheckSpec
-import CFSG.Sporadic.Th.F2Spec
 import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

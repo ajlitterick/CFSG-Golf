@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherRankTwoLevi
-public import CFSG.RankThree.SteinbergR3ECALinearSplitBlocks
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypTorus
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenDefs
 

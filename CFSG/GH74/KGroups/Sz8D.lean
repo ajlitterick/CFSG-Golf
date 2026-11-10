@@ -1,23 +1,12 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.Generic10
-public import CFSG.GH74.KGroups.PermCheck
-public import CFSG.GH74.KGroups.Checks
-public import CFSG.GH74.KGroups.Sz8
-public import CFSG.GH74.KGroups.Sz8Tables
-public import CFSG.GH74.KGroups.NativeChecks2
 public meta import CFSG.GH74.KGroups.Checks
 public meta import CFSG.GH74.KGroups.Sz8
 public meta import CFSG.GH74.KGroups.Sz8Tables
 public meta import CFSG.GH74.KGroups.NativeChecks2
 public meta import CFSG.GH74.KGroups.Generic10
-public import CFSG.GH74.KGroups.Sz8DInputs
 public meta import CFSG.GH74.KGroups.Sz8DInputs
-public import Certificates.Certificate5128
 public import Certificates.Certificate5129
-public import Certificates.Certificate5130
 
 public section
 

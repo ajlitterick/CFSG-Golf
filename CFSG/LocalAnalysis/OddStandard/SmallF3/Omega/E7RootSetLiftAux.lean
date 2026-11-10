@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.E7RootSetRoots
 public import CFSG.LocalAnalysis.StandardType.GGFamTrivialRoots
 public import CFSG.LocalAnalysis.StandardType.GGFamOuterEField
-public import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
-public import CFSG.HardMathSupport.Timmesfeld.RootAut.Orbit
-public import CFSG.ClassicalGroups.Orthogonal.Basic
 
 public section
 

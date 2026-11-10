@@ -34,8 +34,6 @@ public import CFSG.Quasithin.Background.B15P4LayerDict
 public import CFSG.Quasithin.Background.B1MoreElevenB
 public import CFSG.Quasithin.Background.B1MoreNineG
 public import CFSG.RankThree.PartTwo.Sec6.Statements
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Defs
 
 public section

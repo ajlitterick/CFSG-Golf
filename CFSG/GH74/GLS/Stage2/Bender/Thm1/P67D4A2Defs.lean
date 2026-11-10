@@ -4,9 +4,7 @@ public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4PlaneToral
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87GenCell
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4Toral
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MonoNF
-public import CFSG.GH74.GLS.Stage4.HexModelD4
 public import CFSG.LieType.Steinberg.CentralExt.TrialityCoprime
-public import CFSG.Timmesfeld.RankTwo.ModelD43Weyl
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.Der61a
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.Der69

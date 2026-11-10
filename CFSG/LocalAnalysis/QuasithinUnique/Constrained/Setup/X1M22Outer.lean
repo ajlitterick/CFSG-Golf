@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1PermCheck
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M22Data
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM22Outer
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1PermCheck
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M22Data
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM22Outer
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M22OuterInputs
 public import Certificates.Certificate4136
 public meta import CFSG.Foundations
 public import CFSG.Foundations

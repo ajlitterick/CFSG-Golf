@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Census.Criteria
 public import CFSG.RankThree.PartTwo.Census.Spin.Witness
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.GraphTwisted
 

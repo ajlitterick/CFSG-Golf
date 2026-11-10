@@ -5,8 +5,6 @@ public meta import CFSG.Sporadic.FischerOddCore.Fi22Cent
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheck
 import Certificates.Kernel.Sporadic.Fi22.C2066
 import Certificates.Kernel.Sporadic.Fi22.E2065Eq
-import Certificates.Certificate3039
-import Certificates.Certificate3147
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3E8Rows
 public import CFSG.ClassicalInvolution.Q3.Q3E8TorNodes
-public import CFSG.ClassicalInvolution.Q3.Q3E7MSign
-public import CFSG.ClassicalInvolution.Q3.Q3E7MStar
 public import CFSG.ClassicalInvolution.Q3.Q3E7MD8
 public import CFSG.ClassicalInvolution.Q3.Q3E8BF5
 public import CFSG.ClassicalInvolution.Q3.Q3E8BMain

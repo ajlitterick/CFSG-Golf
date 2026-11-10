@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoU5Frame
 public import CFSG.LocalAnalysis.StandardType.GGQTwoU5Bridges
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeProp1010
-public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeStepTwo
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.Assembly.Subnormal
 
 public section
 

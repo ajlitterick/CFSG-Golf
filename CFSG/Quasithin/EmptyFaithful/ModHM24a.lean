@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.ModHOut4
-public import CFSG.GroupTheory.SolvableHallNodes
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
 public import CFSG.GroupTheory.WeirSylow.GL
 public import CFSG.LieType.Chevalley.LangRootArithmetic
@@ -49,10 +48,6 @@ public import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
 public import CFSG.Sporadic.Schreier.M11
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 public import Certificates.Kernel.J4Count.Prim
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

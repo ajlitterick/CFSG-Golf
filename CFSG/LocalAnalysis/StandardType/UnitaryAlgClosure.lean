@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
-public import Mathlib.LinearAlgebra.Matrix.Transvection
 public import CFSG.LieType.Universal.Unitary.Basic
 
 public section

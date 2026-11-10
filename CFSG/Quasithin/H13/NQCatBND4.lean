@@ -1,12 +1,6 @@
 module
 
 public import CFSG.Quasithin.H13.NQCatBNG2
-public import CFSG.LieType.Steinberg.TwistedD4.Datum
-public import CFSG.LieType.Steinberg.TwistedD4.RankOne
-public import CFSG.LieType.Steinberg.TwistedD4.Bruhat
-public import CFSG.LieType.Steinberg.TwistedD4.Generation
-public import CFSG.LieType.Steinberg.TwistedD4.Quasisimple
-public import CFSG.LieType.Steinberg.TwistedD4.Perfect
 public import CFSG.LieType.Chevalley.TrialityExactFiniteOrder
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
@@ -25,7 +19,6 @@ public import CFSG.Quasithin.Background.A1cModuleCoprime
 public import CFSG.Quasithin.Background.A3Components
 public import CFSG.Quasithin.Background.A3Structure312
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.E6TorusFacts

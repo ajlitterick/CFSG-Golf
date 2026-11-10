@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeCore
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6Row
-public import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelQ8Kernel
 public import CFSG.LocalAnalysis.StandardType.GGResXDatumTwE6Three
-public import CFSG.LocalAnalysis.StandardType.GGTwE6BadLabelParity
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR1Defs
 
 public section

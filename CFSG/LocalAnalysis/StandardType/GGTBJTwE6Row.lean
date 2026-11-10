@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6Core
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6Model
 public import CFSG.LocalAnalysis.StandardType.GGTBJRowGeneric
 public import CFSG.LocalAnalysis.StandardType.GGTBRowTwE6Parity
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitClassical
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenLift
 
 public section
 

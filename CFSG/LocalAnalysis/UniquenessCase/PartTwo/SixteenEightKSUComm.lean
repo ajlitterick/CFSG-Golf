@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightF8Pred
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightF8Nat
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightF8Out
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CenterHopf
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven3Close16CoverR119
 

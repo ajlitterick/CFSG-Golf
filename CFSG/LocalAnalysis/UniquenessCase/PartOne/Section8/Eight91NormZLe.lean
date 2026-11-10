@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight91Defs
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight91D4Inversion
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight8xK85
 import CFSG.GroupTheory.PrimeOrderSubgroups
-import CFSG.LocalAnalysis.RankThreeUC.Basic
-import CFSG.GroupTheory.PGroup.ElemAbelianSq
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 import CFSG.HardMathSupport.Solomon.Proving.GLBCoreNormalizer
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankBound
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102Transport
@@ -111,20 +108,13 @@ import CFSG.LieType.SeitzGeneration.OuterLinearCat
 import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsCentModel
 import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsFieldAut
 import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
-import CFSG.Quasithin.Background.C2Inputs
 import CFSG.Quasithin.Background.SmithC27Star
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.RankThree.PartOne.CTP.SeitzOrthModel
 import CFSG.RankThree.PartOne.KC.OrthogonalBlockProduct
 import CFSG.RankThree.PartOne.KC.OrthogonalKernelSectorRigiditySelfDual
 import CFSG.RankThree.PartOne.KC.PlaneReductionGeneral
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

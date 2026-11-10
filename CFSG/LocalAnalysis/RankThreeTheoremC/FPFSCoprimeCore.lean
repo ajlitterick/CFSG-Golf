@@ -2,7 +2,6 @@ module
 
 public import CFSG.GroupTheory.SteinbergCBHHBExtraspecialModule
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.LinearAlgebra.PrimitiveRootEigenspaces
-public import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
 
 public section
 

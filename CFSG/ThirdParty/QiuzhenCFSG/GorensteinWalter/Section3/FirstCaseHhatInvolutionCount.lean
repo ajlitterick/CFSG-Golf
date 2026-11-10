@@ -2,8 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseBaseInvolutionCount
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.CyclicTwoCoreFittingTI
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourFixedAutomorphism
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

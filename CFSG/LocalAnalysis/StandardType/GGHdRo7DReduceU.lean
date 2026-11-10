@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7DDefs
 import CFSG.LocalAnalysis.StandardType.GGHdRo7SUReduceVRefl
 import CFSG.LocalAnalysis.StandardType.GGHdRo7SUSmallBridge
-import CFSG.LocalAnalysis.StandardType.GGQTwoReflLin
-import Mathlib.Tactic.Module
-import Mathlib.Tactic.LinearCombination
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.LRed7Zorn
-public import CFSG.Quasithin.Background.FFC2G2
 
 public section
 

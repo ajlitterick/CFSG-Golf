@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item211Lie3ProofSpPhi
-import CFSG.RankThree.GroupTheory.SteinbergBYRelativeCores
 import CFSG.RankThree.PartTwo.Sec21.Item211Lie2ProofU42Char
 
 public section

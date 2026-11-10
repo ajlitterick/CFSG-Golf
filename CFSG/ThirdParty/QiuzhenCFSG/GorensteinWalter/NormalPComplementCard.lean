@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.Data.Nat.MaxPowDiv
 public import Mathlib.GroupTheory.PGroup
 import Mathlib.Tactic
 

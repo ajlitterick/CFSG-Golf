@@ -1,7 +1,6 @@
 
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Monster.B.Fischer.Fi22OrderCheckInputs

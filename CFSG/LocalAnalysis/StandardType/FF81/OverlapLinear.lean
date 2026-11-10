@@ -1,11 +1,7 @@
 module
 
-public import CFSG.ClassicalInvolution.WeakCT.Defs
-public import CFSG.RankThree.SteinbergR3ECALinearSplitBlocks
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTypeAIrred
 public import CFSG.ClassicalInvolution.WeakCT.AutExtend
-import CFSG.ClassicalInvolution.Phan.Blocks
-import CFSG.ClassicalInvolution.WeakCT.Blocks
 import CFSG.Quasithin.Vol2.Ch7Prop711Facts
 public import CFSG.ClassicalInvolution.WeakCT.StandardPair
 public import CFSG.ClassicalInvolution.WeakCT.TorusAgree
@@ -21,13 +17,10 @@ import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 import CFSG.LocalAnalysis.SectionRank.TitsCover
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.B4ModelsAction
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M12
 import CFSG.Sporadic.Mathieu.M24
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.Defs
 
 public section

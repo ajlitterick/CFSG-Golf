@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTDModelAssemble
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBAutCard
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryDvd
-public import CFSG.LocalAnalysis.StandardType.GGWPlusUnitAutPerm
-public import CFSG.LocalAnalysis.StandardType.GGStdPosC13UnitaryDvdGen
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverTwo
 public import CFSG.LocalAnalysis.StandardType.GGKGForkUnitaryDvdModel
 public import CFSG.LocalAnalysis.StandardType.GGTDModelUPerm
 

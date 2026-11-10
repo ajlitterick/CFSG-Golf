@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixLinearModelDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixLinearModelOmega
 public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSLRank
-public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSLTransport
 
 public section
 

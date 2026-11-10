@@ -3,9 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec21.Item228Census2ProofOdd
 public import CFSG.RankThree.PartTwo.Sec21.Item228Census5ProofGL4
 public import CFSG.RankThree.PartTwo.Sec21.Item228Census5ProofSL4
-import CFSG.ClassicalInvolution.SL2Facts
-import CFSG.Adapters.RankTwoModelTransports
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

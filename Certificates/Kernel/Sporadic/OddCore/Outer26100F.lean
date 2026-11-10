@@ -5,13 +5,8 @@ public import Certificates.Kernel.Sporadic.OddCore.Beta24601F
 public import Certificates.Kernel.Sporadic.OddCore.SqrtGlue26102
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaJ2
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TC3HModel
-public import CFSG.Sporadic.Schreier.PairJ2Order
-public import CFSG.Sporadic.Schreier.PairJ2Pairs
-public import CFSG.Sporadic.Schreier.PairJ2Check
-public import CFSG.Sporadic.Schreier.PairJ2Cert
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Common
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaSq
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddKernelInvolutionFusion
 
 public section
 

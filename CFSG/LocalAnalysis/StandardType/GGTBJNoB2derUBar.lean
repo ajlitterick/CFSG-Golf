@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derModelDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derStepTwo
 public import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
-import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeSp
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Monster.B.TwoA.Sp8.Par1
-public import CFSG.Monster.B.Short.InvolutionCentralizer
-public import CFSG.Monster.B.Cbar.LocalStructure
 public import CFSG.Monster.B.Recog.GenericParity
 
 public noncomputable section

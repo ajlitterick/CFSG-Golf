@@ -4,16 +4,10 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMPrimeInputs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosPrimed
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxBasic
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpAbsorb
 import CFSG.LocalAnalysis.StandardType.GGKGPosTagWeyl
-import CFSG.LocalAnalysis.StandardType.GGRankOneModel
 import CFSG.LocalAnalysis.StandardType.GGRankOneSl2
 import CFSG.LocalAnalysis.StandardType.GGRankOneTags
-import CFSG.Adapters.SpecialLinearPerfect
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
-import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
-import CFSG.LocalAnalysis.ComponentInitial.SolvableCoreComponents
 
 public section
 

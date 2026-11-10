@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TypeE8ExclR2Basic
 public import CFSG.ClassicalInvolution.RouteD.TypeE8ExclR2Corr
-public import CFSG.ClassicalInvolution.RouteD.TypeE8Excl
 public import CFSG.ClassicalInvolution.RouteD.TypeE8Attached
 public import CFSG.ClassicalInvolution.RouteD.TypeE8Witness
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageCompletion

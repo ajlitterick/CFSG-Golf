@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TWWLayer
 public import CFSG.ClassicalInvolution.Q3.Q3TWWEvalD
-public import CFSG.ClassicalInvolution.Q3.Q3ZAdjChain
 
 public section
 

@@ -3,13 +3,7 @@ module
 
 public import CFSG.Quasithin.Background.E2TwoProofSporJ2Base
 
-public import CFSG.Quasithin.Background.E2TwoProofSporGen
-public import CFSG.Quasithin.Background.E2TwoProofSporJ2Inputs
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicJ2
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatO2
 public import Certificates.Certificate7125
-public import CFSG.Blueprint.NativeSporadic
 
 public section
 

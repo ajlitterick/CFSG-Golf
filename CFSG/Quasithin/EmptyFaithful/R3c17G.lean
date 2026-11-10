@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.EmptyFaithful.R3c17B
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.ExceptionalCatG2
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6ResidualG2
-public import CFSG.LieType.Chevalley.RankOneCentralImage
 
 public section
 

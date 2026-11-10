@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBCMat
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBCD
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBCExtra
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBCSylow
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBSOutModel
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBSVPairs
 

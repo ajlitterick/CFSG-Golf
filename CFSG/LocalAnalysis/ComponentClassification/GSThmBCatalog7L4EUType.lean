@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EUFour
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EType
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EULift
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EUCase
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7U4Lift
 

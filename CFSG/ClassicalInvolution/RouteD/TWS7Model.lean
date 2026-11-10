@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.RouteD.TWS7Asm
 public import CFSG.ClassicalInvolution.RouteD.TWS7Ord
 public import CFSG.ClassicalInvolution.RouteD.TWS7Lift
-public import CFSG.ClassicalInvolution.RouteD.TWS7Op
 public import CFSG.ClassicalInvolution.RouteD.TWS7Frame
 public import CFSG.ClassicalInvolution.RouteD.TWS7Diag
 

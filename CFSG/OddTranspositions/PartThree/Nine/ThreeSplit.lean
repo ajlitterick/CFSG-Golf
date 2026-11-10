@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Nine.Setup
 public import CFSG.OddTranspositions.HalphaQuotient
 public import CFSG.Timmesfeld.Bridge.Asc72Central
-public import CFSG.Timmesfeld.Bridge.Asc72NoPolar
 public import CFSG.GroupTheory.OddCoreQuotient
 public import CFSG.Holt.General.OrbitCountBasic
 public import CFSG.RankThree.PartOne.U5K.Perfect

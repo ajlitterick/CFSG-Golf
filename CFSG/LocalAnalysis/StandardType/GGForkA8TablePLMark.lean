@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGForkA8TablePClauses
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 
 public section
 

@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeDefs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelPSL
-public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionSL
-public import CFSG.ClassicalInvolution.ModelFacts.WeylTransitive
-public import CFSG.Assembly.OrderReductions.LinearOrders
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 public import Mathlib.GroupTheory.IsSubnormal
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.LinearAlgebra.Matrix.ToLin
 
 public section
 

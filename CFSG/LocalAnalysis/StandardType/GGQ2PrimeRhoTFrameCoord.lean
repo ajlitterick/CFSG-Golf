@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeL81Coords
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeABridge
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCoxeter
 
 public section

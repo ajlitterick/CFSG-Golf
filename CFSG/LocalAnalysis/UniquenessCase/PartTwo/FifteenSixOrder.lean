@@ -2,8 +2,6 @@ module
 
 public import CFSG.GF2Type.Aschbacher1976Full.HSGL3
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTwo
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs15
-public import CFSG.Quasithin.Background.D2Basic
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Supercritical
 
 public section

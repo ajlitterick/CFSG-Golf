@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmDefs
-public import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
-public import Mathlib.Algebra.Module.Submodule.Equiv
 
 public section
 

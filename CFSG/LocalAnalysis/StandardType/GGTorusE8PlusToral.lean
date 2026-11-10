@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusE8Scalar
 public import CFSG.LocalAnalysis.StandardType.GGExcElemToralLangStep
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE8Model
 
 public noncomputable section
 

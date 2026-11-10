@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallTwin
-public import CFSG.ClassicalInvolution.RouteD.GapsFrBGen
-public import CFSG.ClassicalInvolution.RouteD.GapsPatternD
 
 public section
 

@@ -2,11 +2,9 @@ module
 
 public import CFSG.Quasithin.H13.StatementsL5
 public import CFSG.Quasithin.H13.StatementsL3
-public import CFSG.Quasithin.H13.StatementsL1
 public import CFSG.Quasithin.Vol2.Ch4Sec4Hyp
 public import CFSG.Quasithin.Background.B5Statement
 public import CFSG.LocalAnalysis.QuasithinUnique.PushingUp.Blocks
-public import Mathlib.GroupTheory.Frattini
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CharacteristicPrimeLocal
 public import CFSG.Quasithin.Background.A1bGroups

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGReflCentralLift
 public import CFSG.LocalAnalysis.StandardType.GGF4ThreeToral
 public import CFSG.LocalAnalysis.StandardType.GGReflA2Toral
 public import CFSG.LocalAnalysis.StandardType.GGIrred937F4BCover

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCoverRkNarrow9Defs
 public import CFSG.LocalAnalysis.StandardType.GGCoverRkUnitLabel
 
 public section

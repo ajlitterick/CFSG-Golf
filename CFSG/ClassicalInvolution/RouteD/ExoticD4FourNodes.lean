@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourLift
-public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourPair
 
 public section
 

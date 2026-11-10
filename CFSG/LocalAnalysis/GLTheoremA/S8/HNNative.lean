@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S8.HNAlt12
 public import CFSG.LocalAnalysis.GLTheoremA.S8.I1423Lift
-public import CFSG.Sporadic.HNSchreier.ThreeCent
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Census228Spor.Normalizer
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Census228Spor.ON
 public import CFSG.LocalAnalysis.GLTheoremA.S4.ModCore

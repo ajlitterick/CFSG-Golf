@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeHolds
 public import CFSG.GroupTheory.GL52.Basic
-public import CFSG.GroupTheory.QuasiDihedralFusion.Basic
 
 public noncomputable section
 

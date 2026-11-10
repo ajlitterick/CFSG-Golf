@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.OddStandard.ONanIdOne
 public import CFSG.LocalAnalysis.OddStandard.ThmCConcl
 public import CFSG.LocalAnalysis.OddStandard.ONanEndPGLCert
-public import CFSG.LocalAnalysis.OddStandard.ONanSylowCert
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_13
-public import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.LieType.Simplicity.Classical
 public import CFSG.LocalAnalysis.OddStandard.ThmCTSub
 public import CFSG.LocalAnalysis.OddStandard.ThmCTWr

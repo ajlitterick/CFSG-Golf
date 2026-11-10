@@ -2,10 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.Tits.Common
 public import Certificates.Data.Kernel.SporSch.TitsEnum5
-public import CFSG.Certificates.Kernel.Spor.PrimSound
-public import CFSG.Sporadic.Schreier.TitsEnum
-public import CFSG.Certificates.Kernel.Spor.RawSlSound
-public import CFSG.Sporadic.Schreier.TitsCentralCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

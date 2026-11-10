@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelLangTorus
 public import CFSG.LocalAnalysis.StandardType.GGExcKGInndiagCIE6
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesIsogenyTwE6
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNormalizerAutInduces
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeToral
-public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Torus
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeLift
-public import CFSG.LocalAnalysis.StandardType.GGTwInndiagRootBridge
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2MixedMarkedL
 public import CFSG.LocalAnalysis.StandardType.GGF4N2E6NativeDict
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
-import CFSG.RankThree.PartOne.KE.TitsFiveCentralizer
 
 public section
 

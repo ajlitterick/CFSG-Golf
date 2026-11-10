@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkBlocks
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSU
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUBlock
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Input183
 public import CFSG.Adapters.GeneralizedFitting
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs

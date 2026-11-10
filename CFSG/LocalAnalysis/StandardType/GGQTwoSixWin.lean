@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixDefs
-import CFSG.ClassicalInvolution.Phan.Blocks
 
 public section
 

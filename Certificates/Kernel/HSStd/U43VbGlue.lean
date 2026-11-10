@@ -8,15 +8,12 @@ public import Certificates.Kernel.HSStd.U43VbRK1
 public import Certificates.Kernel.HSStd.U43VbCov
 public import Certificates.Kernel.HSStd.U43VbSol
 public import Certificates.Kernel.HSStd.U43Z4Glue
-import CFSG.Certificates.Kernel.BfsPinUnpack
 import CFSG.Certificates.Kernel.BfsPinSetSound
 import CFSG.Certificates.Kernel.BfsPinAlg
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Common.ForallChunks
 import CFSG.Certificates.Kernel.Spor.MulHCSound
 import CFSG.Certificates.Kernel.Spor.MulHFSound
-import CFSG.Certificates.Kernel.Spor.PEnumRSound
 
 public section
 

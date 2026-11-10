@@ -7,7 +7,6 @@ public import Certificates.Kernel.Misc.RuScan.XK
 public import Certificates.Kernel.Misc.RuScan.LB
 public import CFSG.Certificates.Kernel.Misc.RuScanCSound
 public import CFSG.Quasithin.Vol2.KGFactC31RuScanBase
-public import CFSG.Sporadic.Schreier.RuEnum
 import CFSG.Certificates.Kernel.Common.ForallTree
 public import CFSG.Quasithin.Vol2.KGFactC31Ident
 public import CFSG.Quasithin.Vol2.KGFactC31RuBigZBase

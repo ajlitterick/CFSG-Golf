@@ -1,11 +1,6 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.PermCheck
-public import CFSG.GH74.E2.Shapes
 public import CFSG.GH74.KGroups.TwoM12Aut
-public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizers
 public meta import CFSG.GH74.KGroups.PermCheck
 public import CFSG.GH74.SectionalRank
 public import CFSG.GH74.Statements

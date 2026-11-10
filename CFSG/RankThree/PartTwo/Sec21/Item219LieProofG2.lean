@@ -2,14 +2,11 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item21Res7ProofCensus
 public import CFSG.RankThree.PartTwo.Sec11.KS11Lie4ProofSplit
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Hom
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Sylow
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Torus
 import CFSG.ClassicalInvolution.Balance.LayerGenerationShortAdjoint
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.KS219.Tools
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Proving.LayerCentralizer
-import CFSG.LieType.Chevalley.AdjointCenter
-import CFSG.RankThree.Chevalley.SteinbergCAG2ToralPrimePlane
 import CFSG.RankThree.Classical2.SLnRootPermutingFixedGroups
 import CFSG.RankThree.PartTwo.Sec21.Item219LieProofSL3
 import CFSG.RankThree.PartTwo.Sec21.Item219LieProofLayer

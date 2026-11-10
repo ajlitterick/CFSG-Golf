@@ -15,7 +15,6 @@ public import CFSG.Certificates.Kernel.Fi24.Data.F9_Sel
 public import CFSG.Certificates.Kernel.Fi24.Data.F10_Sel
 public import CFSG.Certificates.Kernel.Fi24.Data.F11_Sel
 public import Mathlib.Tactic.IntervalCases
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Fi24.Slices.Bind
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Assembly.Defs
-public import Mathlib.Algebra.Group.Commutator
 
 public section
 

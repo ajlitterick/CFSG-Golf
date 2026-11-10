@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.J3Data
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutNative
-public import Certificates.Data.CFSGNative.SporadicSchreier.Count
 public import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
 
 public section

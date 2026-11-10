@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResidualGenFrame
 public import CFSG.LocalAnalysis.StandardType.GGActualQuadraticField
-public import CFSG.LocalAnalysis.StandardType.GGResidualA2Pair
 
 public section
 

@@ -2,22 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGB36Defs
 public import CFSG.LocalAnalysis.StandardType.GGKacExcB2
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
 public import CFSG.LocalAnalysis.StandardType.GGB36LemmaRT
-public import CFSG.LocalAnalysis.StandardType.GGKacTable
-public import CFSG.LocalAnalysis.StandardType.GGKacK0V2
-public import CFSG.LieType.Chevalley.EvenTrialityAutomorphismNormalForm
-public import CFSG.LieType.Chevalley.OddExceptionalOuterTwoRank
 public import CFSG.RankThree.PartTwo.Sec21.Item223Rank2ProofD4
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutThreeRank
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherOuterQuotients
 public import CFSG.CGT.Timmesfeld75.MultPrime
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
 public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Adapters.TauCetiExceptional.BridgeTransport
 public import CFSG.CGT.Timmesfeld75.OddCenter
 public import CFSG.CGT.Timmesfeld75.Sec5FiveEng

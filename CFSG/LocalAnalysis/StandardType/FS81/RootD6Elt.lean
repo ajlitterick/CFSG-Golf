@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.FS81.RootD6EltDefs
 public import CFSG.LocalAnalysis.StandardType.FS81.RootE8
 public import CFSG.LocalAnalysis.StandardType.FS81.N7MainRecOut
 public import CFSG.LocalAnalysis.StandardType.FS81.D6InnerAux
-public import CFSG.LocalAnalysis.StandardType.FS81.AutMat
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import Mathlib.GroupTheory.PGroup
 
 public section
 

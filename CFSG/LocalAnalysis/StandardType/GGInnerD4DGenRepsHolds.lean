@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4DGenContracts
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeOrthTLift
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddLayer
-public import CFSG.RankThree.PartOne.KC.OrthogonalMatrixModelTransport
-public import CFSG.RankThree.PartOne.KC.OrthogonalD4WitnessBridge
 
 public section
 

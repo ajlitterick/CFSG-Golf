@@ -8,7 +8,6 @@ import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DSylow
 import CFSG.GH74.GLS.Stage2.Signalizer.L46EAutD1Aut
 import CFSG.Adapters.StatedClassicalSmallOrders
 import CFSG.LocalAnalysis.StandardType.L34OvergroupSeven
-import CFSG.LocalAnalysis.StandardType.SolvableOrSimpleDerivedSylow
 
 public section
 

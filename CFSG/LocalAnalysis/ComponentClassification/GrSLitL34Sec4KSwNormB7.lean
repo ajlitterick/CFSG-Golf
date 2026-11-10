@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSwNormB6
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4FWN1
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4FWN1Inv
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

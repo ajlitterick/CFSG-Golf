@@ -2,12 +2,9 @@ module
 
 public import Certificates.Kernel.RuThree.ClassK
 public import Certificates.Kernel.RuThree.Facts
-public import CFSG.Certificates.Kernel.SporSch.PairJ3CntSound
 public import CFSG.Certificates.Kernel.K426KSound
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR3RuInputs
 public meta import CFSG.HardMathSupport.Solomon.Coordinator.GFR3RuInputs
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.Group
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR3Core
 public meta import CFSG.HardMathSupport.Solomon.Coordinator.GFR3Core
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Core

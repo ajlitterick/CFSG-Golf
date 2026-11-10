@@ -3,7 +3,6 @@ module
 public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 public import Mathlib.GroupTheory.PGroup
 import CFSG.LocalAnalysis.StandardType.FF81.TransvectionAut
-import Mathlib.GroupTheory.Subgroup.Centralizer
 
 public section
 

@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLevTwoS2dAuxPhi
-public import CFSG.LocalAnalysis.StandardType.GGLevTwoS2dAuxFormCoord
-public import CFSG.LocalAnalysis.StandardType.GGLevTwoS2dAuxRank
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS2dAuxZc
 public import TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeD.SimpleRoots
 

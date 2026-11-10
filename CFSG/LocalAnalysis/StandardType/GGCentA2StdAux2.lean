@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCentA2StdAux
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7CF24Grp
-public import CFSG.LocalAnalysis.ComponentInitial.FixedComponentCorrespondence
 public import CFSG.Quasithin.Background.GoldschmidtListedSolv
 public import CFSG.Foundations.SteinbergCADefinitionNodes
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce

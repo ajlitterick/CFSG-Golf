@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusTransferCore
 public import CFSG.LocalAnalysis.StandardType.GGNoTransvectionAutForm
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLTv
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoToralExcAdj
 
 public section

@@ -1,15 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.SevenThreeKFact
-public import CFSG.Open.StatedDefs
-public import Mathlib.LinearAlgebra.QuadraticForm.Basic
 
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.SevenThreeKFactBridge
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.SevenThreeKFactCore
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.SevenThreeKFactQuad
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.SevenThreeKFactScalars
 import CFSG.LocalAnalysis.GLTheoremA.CatB.RankFineSp
-import CFSG.LieType.Universal.Spin.Forms
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294CrossThreeSpMain
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.LargeExtraspecial.OfFStar
@@ -32,7 +29,6 @@ import CFSG.LocalAnalysis.SectionRank.SignLines
 import CFSG.RankThree.GroupTheory.ClassTwoThree
 import CFSG.RankThree.OrthogonalInvolutions.SuzukiTypes
 import CFSG.Sporadic.Co2Smith.Defs
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Utils
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 import CFSG.Timmesfeld.Outcome
 import TauCeti.LinearAlgebra.BilinearForm.Orthogonal

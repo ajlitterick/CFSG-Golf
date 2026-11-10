@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Data.Kernel.J4Q.Mat
 public import Certificates.Data.Kernel.SporSch.J4S11
-public import CFSG.Sporadic.GLQ.RegisterProgram
 
 public section
 

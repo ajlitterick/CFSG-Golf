@@ -1,15 +1,10 @@
 module
 
-public import CFSG.Timmesfeld.Bridge.Asc72Defs
-public import CFSG.Timmesfeld.Closure.MinCex
 public import CFSG.OddTranspositions.O4CloseReduction
 
 import CFSG.OddTranspositions.TheoremTwo.StepSeven
-import CFSG.Timmesfeld.Bridge.Asc72ZMain
-import CFSG.OddTranspositions.O4Minus5Pair
 import CFSG.OddTranspositions.WreathBase
 import CFSG.OddTranspositions.WreathBaseMinimal
-import CFSG.OddTranspositions.MinimalNormalTransport
 import CFSG.LocalAnalysis.ComponentClassification.SolMaxFiveFL2B
 public import CFSG.LocalAnalysis.LargeEvenClassification.C8FourSubgroupExhaustion
 public import CFSG.LocalAnalysis.LargeEvenClassification.C8FourSubgroupRanks
@@ -22,9 +17,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgrou
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.OddTranspositions.SixEight
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.Timmesfeld.Moufang.Three
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore

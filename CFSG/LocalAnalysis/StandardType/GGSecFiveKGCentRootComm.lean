@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LieType.Universal.RootData
 public import CFSG.LieType.Steinberg.Extras
 public import CFSG.Timmesfeld.ARS.CaseEWeight
 import CFSG.LieType.Steinberg.OfCartan
-import CFSG.LieType.RootSystem.Parabolic
 
 public section
 

@@ -4,12 +4,7 @@ public import Certificates.Kernel.He7222.GlueK
 public import Certificates.Kernel.He7222.GlueGood
 public import Certificates.Kernel.He7222.FtK
 public import CFSG.Certificates.Kernel.He7222.FibSound
-public import CFSG.Certificates.Kernel.He7222.CoverGrp
-import Mathlib.Data.List.Forall2
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.OrbRow.LevelSound
-import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Spor.Loops
 
 public section
 

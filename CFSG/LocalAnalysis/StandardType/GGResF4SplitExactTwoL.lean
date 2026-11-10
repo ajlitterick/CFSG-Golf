@@ -1,32 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGResExcSplitExactTwoL
-public import CFSG.LocalAnalysis.StandardType.GGResFixedWeylCentralizer
-public import CFSG.LocalAnalysis.StandardType.GGResNonsingularBase
-public import CFSG.LocalAnalysis.StandardType.GGRCTypeADet
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1F4
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestExc
 public import CFSG.LocalAnalysis.StandardType.GGIOneFieldCFHolds
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreField
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreTypeA
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 public import CFSG.LocalAnalysis.StandardType.GGResHigherFieldI1
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyNbrFieldRows
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGTCJHolds
-public import CFSG.LocalAnalysis.StandardType.GGTBE6
 public import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
-public import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsCls
 public import CFSG.LocalAnalysis.StandardType.GGResJOpenLabel
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeABridge
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySp
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSCore
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcDefs
 
 public section

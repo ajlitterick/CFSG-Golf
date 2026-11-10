@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.Bal209TwoInner
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.CompSLOB
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3FamPC
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.PSL2Table.BlocksProduct
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
@@ -87,8 +86,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -136,8 +133,6 @@ public import CFSG.RankThree.PartOne.S11d.OutClassicalTwo
 public import CFSG.RankThree.PartOne.S11d.OutSymplectic
 public import CFSG.RankThree.PartOne.S11d.OutUnitary
 public import CFSG.RankThree.PartTwo.Census.Exceptional.TrialityD4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import CFSG.Timmesfeld.Outcome
 

@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGB48SpGlue
 public import CFSG.LocalAnalysis.StandardType.GGB48Labels
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveInputs
-public import CFSG.LocalAnalysis.StandardType.GGHalfKnownGroups
 public import CFSG.LocalAnalysis.StandardType.GGHalfTorusFrame
 public import CFSG.LocalAnalysis.StandardType.GGHalfWeylAutomizer
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrRowFilter
 
 public section

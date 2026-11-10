@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.PFsection6_4
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.PFsection6_5_a
-import Mathlib.Algebra.Ring.Parity
 
 namespace CFSG
 end CFSG

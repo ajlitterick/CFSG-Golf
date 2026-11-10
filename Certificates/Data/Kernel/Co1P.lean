@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Data.Kernel.Co1BW
 public import Certificates.Data.Kernel.TreeK
-public import CFSG.Certificates.Kernel.Common.Loop
 public import Certificates.Data.Kernel.Griess13.Packed
 
 public section

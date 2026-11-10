@@ -3,18 +3,6 @@ module
 
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Base
 public meta import CFSG.Monster.B.TwoA.Unitary.Orbit1408Base
-public import Certificates.Data.CFSGNative.MonsterB.Short
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import CFSG.Certificates.Kernel.AxisPlane.Orbit
-public import Certificates.Data.Kernel.VisFrame.Gens
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
-public import CFSG.Monster.B.TwoA.Unitary.Bridge
-public import CFSG.Monster.B.TwoA.Unitary.ActionInputs
-public import CFSG.Monster.B.TwoA.Unitary.OrbitInputs
-public import CFSG.Monster.B.TwoA.Unitary.WStabInputs
-public import CFSG.Monster.B.TwoA.Unitary.Stab891Inputs
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Inputs
 
 @[expose] public noncomputable section
 

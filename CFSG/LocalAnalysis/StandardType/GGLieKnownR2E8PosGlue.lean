@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongE8
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PosGlue
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortTransport
-public import CFSG.LieType.Chevalley.AdjointCenter
 
 public section
 

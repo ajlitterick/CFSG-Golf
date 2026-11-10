@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGExcElemToralCyclic
 public import CFSG.LocalAnalysis.StandardType.GGExcToralSylowElem
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralSevenProved
 public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCharE8
-public import CFSG.LieType.Chevalley.EvenCartanRootDiagonals
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Assembly
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.PlanesSetup
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossLin

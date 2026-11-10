@@ -2,8 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_1_b
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_1_c
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
 
 namespace CFSG
 end CFSG

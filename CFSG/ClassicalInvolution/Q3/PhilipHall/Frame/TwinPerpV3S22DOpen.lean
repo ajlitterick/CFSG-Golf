@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3Pf93Steps
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscExitUMuRest
-public import CFSG.ClassicalInvolution.Q3.TL3T25
 public import CFSG.ClassicalInvolution.Q3.TL4LinkE2
 public import CFSG.ClassicalInvolution.Asc77.AscC22G6
 public import CFSG.ClassicalInvolution.Asc77.AscC22G8

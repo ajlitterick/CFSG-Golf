@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcCompSLRankFour
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Layers
 public import CFSG.ClassicalInvolution.Models.TwistedPairs
 public import CFSG.ClassicalInvolution.WeakCT.SU4SpinMinusBridge

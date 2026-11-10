@@ -1,10 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.Algebra.Group.Subgroup.Lattice
-public import Mathlib.Tactic.FieldSimp
-public import Mathlib.Tactic.Ring
-public import Mathlib.Tactic.FinCases
 public import Mathlib.Tactic.LinearCombination
 
 public noncomputable section

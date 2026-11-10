@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC6N588A2
-public import CFSG.GroupTheory.LocalCores.Components
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 public import CFSG.Adapters.WholeGroupLayer
-public import CFSG.GroupTheory.BurnsideNormalComplement
 
 public section
 

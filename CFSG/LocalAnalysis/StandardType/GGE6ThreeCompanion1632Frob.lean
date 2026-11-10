@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632Lang
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
 public import CFSG.RankThree.PartOne.Q1327T.Item7D4W
-public import CFSG.RankThree.PartOne.KE.CTLangData
 
 public section
 

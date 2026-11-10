@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4ThreeWeyl
 
 public section
 

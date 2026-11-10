@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseQuotientReflectedTorus
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Defs
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

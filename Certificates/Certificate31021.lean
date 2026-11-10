@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ThreeOneSporPlaneThData
 import Certificates.Kernel.ThCent.Plane31021Glue
-import Certificates.Certificate1022
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanD2CoreDefs
 
 public section

@@ -1,21 +1,8 @@
 module
 
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3B.BNFCheck
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3B.BNFProd
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.BHeis
 public import Certificates.Certificate36920
-public import CFSG.Monster.B.Pinned.GeneratorDeterminants
-public import CFSG.Monster.B.Dyadic.BinElim
-public import Certificates.Data.CFSGNative.MonsterB.BinaryRank
-public import Certificates.Data.CFSGNative.SectionRank.B
-public import Mathlib.Data.Nat.Notation
-public import CFSG.Blueprint.NativeSporadic
-public import Mathlib.LinearAlgebra.Matrix.Rank
 import Certificates.Kernel.BabyMonster.SeedRanks
-public import Mathlib.RingTheory.AdjoinRoot
-public import Mathlib.RingTheory.AlgebraTower
-public import Mathlib.LinearAlgebra.Projection
-public import Certificates.Certificate3109
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BSevenLocalCore
 
 public section

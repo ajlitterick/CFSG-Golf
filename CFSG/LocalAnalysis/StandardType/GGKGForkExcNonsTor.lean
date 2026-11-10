@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcNonsFix
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.ExcLangNSylow
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.ExcFiveToralAux.SylowFrame
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtDatum
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerResiduals
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE6
 public import CFSG.LieType.SeitzGeneration.ExtSeitzReeF4Cyclic

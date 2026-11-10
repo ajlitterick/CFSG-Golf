@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpIsoOneLinear
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNISpPrimary
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNISpVecMap
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthSU38Torus
-public import CFSG.HardMathSupport.Dickson.Bal207.SemilinCoord
-public import CFSG.HardMathSupport.Dickson.Bal207.SpFCField
 public import CFSG.Adapters.ClassicalCatalogLinearUnitary
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.PSL2Table.BlocksProduct
@@ -72,8 +70,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -127,8 +123,6 @@ public import CFSG.RankThree.PartTwo.Sec19.Step199Proof
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434AltPerm
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

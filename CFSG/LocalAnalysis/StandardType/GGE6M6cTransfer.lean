@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieM6cFinal
-public import CFSG.LieType.Chevalley.OddF4CosetDescent
-public import CFSG.RankThree.Classical2.TwistedE6RationalOrder
 
 public noncomputable section
 

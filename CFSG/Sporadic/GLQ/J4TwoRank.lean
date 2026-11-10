@@ -1,14 +1,8 @@
 module
 
-public import CFSG.Sporadic.GLQ.RegisterProgram
 public meta import CFSG.Sporadic.GLQ.RegisterProgram
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2
 public meta import Certificates.Data.CFSGNative.SectionRank.F2
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4Action
-import CFSG.Blueprint.NativeSporadic
-public import CFSG.Sporadic.GLQ.J4TwoRankInputs
 public import Certificates.Certificate2082
-public import Certificates.Certificate8023
 
 public noncomputable section
 

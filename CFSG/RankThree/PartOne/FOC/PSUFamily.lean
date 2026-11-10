@@ -5,7 +5,6 @@ public import CFSG.RankThree.PartOne.FOC.PSUOuter
 public import CFSG.RankThree.PartOne.FOC.LieAssemble
 public import CFSG.RankThree.PartOne.FOC.CompEquiv
 public import CFSG.RankThree.PartOne.FOC.PSUModel
-public import CFSG.RankThree.PartOne.S11c.Sec66ClassCommon
 
 public section
 

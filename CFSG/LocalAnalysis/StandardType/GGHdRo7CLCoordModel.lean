@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordModelC
-import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordModelD
-import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordModelE
-import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordModelF
-import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordModelG
-import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordModelH
 import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordModelI
 
 public section

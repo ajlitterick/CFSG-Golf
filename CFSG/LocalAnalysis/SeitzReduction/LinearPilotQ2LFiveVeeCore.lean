@@ -2,15 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotQ2LFiveVeeLin
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotQ2LFiveVeeMat
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 public import TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Transvection
 import all CFSG.Fischer.F4
-public import Mathlib.Order.CompletePartialOrder
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.ENatToNat
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
-public import Mathlib.Topology.Sheaves.Presheaf
 
 public section
 

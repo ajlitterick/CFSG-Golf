@@ -15,7 +15,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.K1.Interface
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBaseVec
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicRep
 public import CFSG.Sporadic.Ru
-public import CFSG.Sporadic.Th.F2Spec
 
 @[expose] public section
 

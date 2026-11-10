@@ -1,16 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusTwE6Rank
-import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TorsionLabel
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoLeafComponent
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusExcAdj
 import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Recipe
-import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcAssemblyTw
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
-import CFSG.Fischer.Classification.Recognition.Basic
 public import Certificates.Data.E6TableT
 
 public section

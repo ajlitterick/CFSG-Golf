@@ -4,8 +4,6 @@ public import CFSG.ClassicalInvolution.RouteD.TWRExoticTriple
 public import CFSG.ClassicalInvolution.RouteD.TWRExoticOrders
 public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootMain
 public import CFSG.ClassicalInvolution.RouteD.NoG2D4Row
-public import CFSG.ClassicalInvolution.Balance.BootNoTriple
-public import CFSG.ClassicalInvolution.SmallCases.DSplitDefs
 public import CFSG.ClassicalInvolution.Balance.BootNoTripleStrong
 public import CFSG.ClassicalInvolution.RouteD.G2D4Ih8
 

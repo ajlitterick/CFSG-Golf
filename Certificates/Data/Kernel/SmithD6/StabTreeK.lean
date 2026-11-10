@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.SmithD6.NcK
 public import Certificates.Data.Kernel.SmithD6.StabTreeData
-public import Certificates.Data.Kernel.KeyTreeChunks
 public import Certificates.Data.Kernel.PkTree
 
 public section

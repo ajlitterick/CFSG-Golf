@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherFieldInvolution
 public import CFSG.RankThree.PartOne.KC.CommonEigenbasis
 public import CFSG.RankThree.SteinbergR3ECALinearSplitBlocks
-public import CFSG.Assembly.Defs
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

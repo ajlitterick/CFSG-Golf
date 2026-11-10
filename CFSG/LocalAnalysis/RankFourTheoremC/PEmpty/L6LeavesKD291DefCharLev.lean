@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKD291DefCharXfer
-public import Mathlib.Algebra.CharP.Lemmas
-public import Mathlib.LinearAlgebra.Matrix.CharP
-public import Mathlib.LinearAlgebra.Matrix.Notation
 public import CFSG.Open.StatedDefs
-public import CFSG.Open.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

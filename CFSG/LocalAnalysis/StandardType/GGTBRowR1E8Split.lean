@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR1Parity
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowSE
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwenty
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowSCore
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrCover
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LieType.Steinberg.CentralExt.MinusculeCentrallyClosed
-import CFSG.LieType.Steinberg.CentralExt.F4E8Multiplier
-import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Seitz2313Cover
 import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
 

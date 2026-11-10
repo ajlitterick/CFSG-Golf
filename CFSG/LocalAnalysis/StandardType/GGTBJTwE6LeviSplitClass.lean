@@ -1,15 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4LeviFrame
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6SplitFrame
-public import CFSG.LocalAnalysis.StandardType.GGTwE6SplitRootGenRoot
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6SplitLang
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6SplitFold
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6SplitFoldFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6SplitWeyl
-public import CFSG.LocalAnalysis.StandardType.GGLangRatComp
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
 
 public section
 

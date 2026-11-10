@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.SporSch.Co1.RigidK
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

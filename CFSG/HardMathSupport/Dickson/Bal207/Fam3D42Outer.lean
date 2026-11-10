@@ -2,12 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Dickson.Bal207.G28Shape
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4Outer
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LayerSimple
-import CFSG.Quasithin.EmptyFaithfulMultiple.G2TwoUnitary
-import CFSG.RankThree.PartOne.KGD.D4T36Core
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import CFSG.RankThree.PartTwo.Sec21.LangTwisted2ProofD4
-import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofD4
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -52,7 +46,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

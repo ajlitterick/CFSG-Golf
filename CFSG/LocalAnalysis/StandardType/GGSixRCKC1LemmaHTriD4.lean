@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LemmaHBruhat
 public import CFSG.LocalAnalysis.StandardType.GGSixPositionDefs
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcRoots
-public import CFSG.LieType.Steinberg.TwistedD4.Datum
 public import CFSG.LieType.Steinberg.TwistedD4.Perfect
 public import CFSG.ClassicalInvolution.ModelFacts.WeylTransitive
 import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TriD4BridgeLongRoot

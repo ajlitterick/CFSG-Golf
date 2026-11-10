@@ -1,16 +1,12 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Statements
-import CFSG.Timmesfeld.Bridge.OddTranspBasic
 import CFSG.OddTranspositions.PartThree.Nine.Wreath
 import CFSG.OddTranspositions.PartThree.Ten.WreathEndgame
 import CFSG.OddTranspositions.PartThree.Ten.WreathRigidity
-import CFSG.OddTranspositions.SixSixWreathClass
-import CFSG.OddTranspositions.WreathBaseMinimal
 import CFSG.OddTranspositions.WidthSylow
 import CFSG.OddTranspositions.PartThree.HalphaCentralizer
 import CFSG.OddTranspositions.PartFour.Fourteen.ModelWreath
-import CFSG.Walter.PSL2Facts.Even
 import CFSG.LocalAnalysis.EvenSporadicStandard.SolvableRadical
 import CFSG.Timmesfeld.Bridge.Asc72WreathConn
 import CFSG.OddTranspositions.O4PairTenWidth

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10Ctx
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10F107Frame
 
 public section

@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Sporadic.ThSchreier.TransporterBase
-public import CFSG.Sporadic.ThSchreier.LocalOrbitBase
 public meta import CFSG.Sporadic.ThSchreier.TransporterBase
 public meta import CFSG.Sporadic.ThSchreier.LocalOrbitBase
 

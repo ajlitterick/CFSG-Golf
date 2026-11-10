@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Sporadic.Schreier.M11Data
 public meta import CFSG.Sporadic.Schreier.M11Data
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_8M11DataInputs
 public import Certificates.Certificate4154
 
 public section

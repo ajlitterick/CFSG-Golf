@@ -8,8 +8,6 @@ import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
 import CFSG.RankThree.PartOne.KC.UnitaryPlaneOrthogonal
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
 import CFSG.Walter.Defs
 
 public section

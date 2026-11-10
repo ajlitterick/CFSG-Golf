@@ -1,11 +1,7 @@
 module
 
-public import Mathlib
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec7
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.L612
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.L64
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.L84
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.T85.Hat
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.T85.Setup
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6Base
 

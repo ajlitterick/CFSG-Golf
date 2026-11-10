@@ -3,33 +3,16 @@ module
 
 public import CFSG.Certificates.Kernel.Th.SoundnessTwinBase
 
-public import CFSG.Certificates.Kernel.Th.SoundnessGen
-public import CFSG.Certificates.Kernel.Th.S.BaseS
-import CFSG.Certificates.Kernel.Th.Spec.Base
 import CFSG.Certificates.Kernel.Th.Spec.Base2
-public import CFSG.Certificates.Kernel.Th.S.SurjS
-public import Certificates.Data.CFSGNative.Th.Base
-public import CFSG.Sporadic.Bridge.ThData
-public import CFSG.Sporadic.Bridge.ThSurjInputs
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-import CFSG.Certificates.Kernel.Th.Spec.Seed
 import CFSG.Certificates.Kernel.Th.Spec.SurjRel
 public import CFSG.Certificates.Kernel.Th.Spec.SurjCheck
 public import CFSG.Certificates.Kernel.ThDemp.OrbCent
-public import CFSG.Certificates.CosetTableCompactColumns
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Certificates.Kernel.Th.Spec.GjBase
-public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.Presentation.ThBase
 public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
-public import CFSG.Sporadic.Th.KernelCentralizerBase
-public import CFSG.Sporadic.Th.KernelContractBase
-public import CFSG.Sporadic.Th.KernelOrderBase
-public import CFSG.Sporadic.Th.KernelPlanesBase
-public import CFSG.Sporadic.Th.KernelSimpleBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 import CFSG.Certificates.Kernel.Th.Spec.Base2Base
 
 public section

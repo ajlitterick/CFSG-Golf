@@ -5,9 +5,7 @@ public import Certificates.Kernel.McLRels.Tabs
 public import CFSG.Certificates.Kernel.Misc.Coset.MemSound
 public import CFSG.Sporadic.Recognition.McLMultiplierGlue
 public import CFSG.Sporadic.Recognition.CoverTransferWords
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.NativeSchreierCard
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

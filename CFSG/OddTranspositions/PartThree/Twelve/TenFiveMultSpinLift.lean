@@ -2,13 +2,8 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultModels
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog516CSpin
-public import CFSG.LieType.Universal.SpinClause0
-public import CFSG.LieType.Universal.SpinOmega.Kernel
-public import CFSG.LieType.Universal.SpinOmega.Center
-public import CFSG.LieType.Steinberg.CentralExt.OrthogonalPerfect
 public import CFSG.LieType.Steinberg.CentralExt.POmegaOddMultiplier
 public import CFSG.LieType.Steinberg.CentralExt.POmegaPlusMultiplier
-public import CFSG.LieType.Steinberg.CentralExt.SpinPlusCentrallyClosed
 public import CFSG.LieType.Steinberg.CentralExt.SpinMinusCentrallyClosed
 
 public section

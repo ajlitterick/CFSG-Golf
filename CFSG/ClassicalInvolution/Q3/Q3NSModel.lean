@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Asc77.AscBSCModel
 public import CFSG.ClassicalInvolution.Uniform.U3Edge
 public import CFSG.ClassicalInvolution.Q3.Q3WALoc
-public import CFSG.Open.StatedAPI
 public import CFSG.ClassicalInvolution.Q3.Q3WADict
 
 public section

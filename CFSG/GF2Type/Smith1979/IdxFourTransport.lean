@@ -5,8 +5,6 @@ public import CFSG.GF2Type.Smith1979.IdxFourModelSpec
 public import CFSG.GF2Type.Smith1979.GammaU.Dict2
 public import CFSG.GF2Type.Smith1979.CaseI25Index
 public import Certificates.Kernel.SporSch.Co2M.ThirdBound
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.GF2Type.Smith1979.GammaU.Model210
@@ -81,8 +79,6 @@ public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 public import CFSG.Walter.Defs
 public import Certificates.Data.CFSGNative.GammaU.Frame

@@ -1,14 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflSp
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 public import CFSG.LocalAnalysis.StandardType.GGCoverRkFieldFix
 public import CFSG.LocalAnalysis.StandardType.GGWPlusPosition
-public import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldSymplectic
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSymplectic
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaGroup
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoTableB
-public import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
 public import CFSG.Mathlib.GroupTheory.Automorphism.ConjCommute
 import CFSG.LocalAnalysis.StandardType.GGTableBPositionToral
 

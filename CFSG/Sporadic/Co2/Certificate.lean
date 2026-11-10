@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.Co2.Data
 public meta import Certificates.Data.CFSGNative.Co2.Data
 public import Certificates.Certificate3138
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Center
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Cardinality
-public import Mathlib.GroupTheory.Commutator.Basic
 import Mathlib.FieldTheory.Finite.Basic
 
 namespace CFSG

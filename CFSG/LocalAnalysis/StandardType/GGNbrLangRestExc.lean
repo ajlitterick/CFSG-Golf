@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangRestField
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclicLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTriality
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagRee
 public import CFSG.LocalAnalysis.StandardType.GGRawAutRestSz
 
 public section

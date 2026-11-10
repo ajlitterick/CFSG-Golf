@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.Co2Five.RankK
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
-public import CFSG.Certificates.Kernel.Misc.PairCountSound
-public import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

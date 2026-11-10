@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviSplit
-public import CFSG.LocalAnalysis.StandardType.GGTBJETypeCells
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeGlue
-public import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviCell
 
 public section
 

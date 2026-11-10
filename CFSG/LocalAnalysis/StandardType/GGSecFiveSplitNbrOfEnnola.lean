@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnolaLabel
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowCases
@@ -15,8 +14,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallAbsurd
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowZA8
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowZE6
 public import CFSG.LocalAnalysis.StandardType.GGTCJHolds
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceSchreier
 
 public section
 

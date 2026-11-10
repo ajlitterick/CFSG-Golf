@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoInputs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoK1OfI1
 public import CFSG.LocalAnalysis.StandardType.GGTBFixNbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAjSetting
-public import CFSG.LocalAnalysis.StandardType.GGQTwoReduction
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCor81
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTrivial
 public import CFSG.LocalAnalysis.StandardType.GGQTwoK1Model
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAssembleNondeg

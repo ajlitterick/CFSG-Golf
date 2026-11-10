@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
-public import CFSG.LieType.SemisimpleCentralizers.HeldUnitaryComponents
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelPSU
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelTwo
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniScal

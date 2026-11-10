@@ -2,10 +2,7 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.ExcInnerFamE
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcFieldG2Eight
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcFieldOrders
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuousG2
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuousTriality
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

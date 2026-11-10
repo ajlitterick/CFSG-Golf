@@ -1,19 +1,10 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyOrder
-public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCharStabilizer
-public import CFSG.LieType.Chevalley.SignKernelPositiveRepresentatives
-public import CFSG.LieType.Chevalley.ParabolicRootFactorData
 public import CFSG.Timmesfeld.Orders.ExceptionalWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagExcPpd
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeInnerSylowLine
-import CFSG.LieType.Chevalley.C2E6SubsystemBruhatDefs
-import CFSG.LieType.Chevalley.KernelComponentRoots
-import CFSG.LieType.Chevalley.WeylInversion
-import CFSG.LieType.SeitzGeneration.ExcParabolicCard
-import CFSG.RankThree.Chevalley.SteinbergCFEvenF4StandardParabolic
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.AlmostSimpleBExcChainsE6
-import CFSG.Timmesfeld.Orders.Bang
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyCover
 import CFSG.Certificates.CentralKernel
 import CFSG.Certificates.CosetTableWalkC
@@ -57,7 +48,6 @@ import CFSG.Monster.GMS.Fi23Gen
 import CFSG.Monster.GMS.Fi23GenIso
 import CFSG.Monster.GMS.Fi23GenSix
 import CFSG.Monster.GMS.LeechCoh
-import CFSG.Monster.GMS.LeechCohGroup
 import CFSG.Monster.GMS.S365Center
 import CFSG.Monster.GMS.S37
 import CFSG.Monster.GMS.S4Assembly

@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBG0
 public import CFSG.ClassicalInvolution.Asc77.AscT3CoreStab
-public import CFSG.ClassicalInvolution.Asc77.AscT3Sym
-public import CFSG.ClassicalInvolution.Asc77.AscL62Main
 
 public section
 

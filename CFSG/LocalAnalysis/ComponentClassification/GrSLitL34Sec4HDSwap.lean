@@ -3,13 +3,11 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4HDCaseOne
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitLemma412Inner
 public import CFSG.GroupTheory.InvolutionFixedCentralSylow
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.SmallCases.Hat2A7Cover
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.J3CheckInputs
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.Ly
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.LyCert
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.Pattern
 public import CFSG.Goldschmidt.Statements
 public import CFSG.Goldschmidt.StatementsG
 public import CFSG.Goldschmidt.StatementsH
@@ -35,8 +33,6 @@ public import CFSG.Sporadic.McL
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyFixedSet
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.Walter.Bender1970.S3.Setup
 public import CFSG.Walter.J1
 public import CFSG.Walter.JRFacts

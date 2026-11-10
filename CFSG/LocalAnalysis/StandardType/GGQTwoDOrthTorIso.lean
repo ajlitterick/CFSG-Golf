@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorBlockBase
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorBlockMain
 
 public section

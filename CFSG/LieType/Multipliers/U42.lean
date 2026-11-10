@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Multipliers.U42Bridge
-public import CFSG.Blueprint.Catalog
 public import Certificates.Certificate10010
 public meta import CFSG.LieType.Multipliers.U42Data
 public meta import CFSG.Certificates.CosetTableOrders

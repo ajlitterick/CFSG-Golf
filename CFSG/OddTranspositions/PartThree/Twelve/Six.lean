@@ -4,10 +4,8 @@ public import CFSG.OddTranspositions.PartThree.Twelve.SixComponent
 import CFSG.OddTranspositions.PartThree.Twelve.Five
 import CFSG.OddTranspositions.PartFour.SpLineCount
 import CFSG.OddTranspositions.PartFour.Fourteen.ShapeTransport
-import CFSG.LocalAnalysis.WeakClosure81.EightSixBorelSpNormal
 import CFSG.RankThree.PartOne.KC.SymplecticFullRankTwo
 import CFSG.RankThree.PartOne.CTP.SeitzSpClosure
-import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 
 public section
 

@@ -3,11 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1KGInputs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1Core
 public import CFSG.LocalAnalysis.StandardType.GGStdSubLinear
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableB
 import CFSG.LocalAnalysis.StandardType.GGNbrLangS1KGFieldLin
 import CFSG.LocalAnalysis.StandardType.KGLangS1ALinInput
-import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTransport
 import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
 import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45KGLabel
 

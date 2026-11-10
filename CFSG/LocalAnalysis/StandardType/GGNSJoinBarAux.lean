@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinRMChain
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarConnGen
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarLinData
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarBridge
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylPath
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMModuleThree
 
 public section
 

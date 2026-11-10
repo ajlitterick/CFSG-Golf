@@ -1,15 +1,8 @@
 module
 
-public import CFSG.Sporadic.J3
-public import CFSG.Sporadic.Presentation.J3
-public import CFSG.Sporadic.Bridge.TwoGen
-public import Certificates.Data.CFSGNative.Bridge.SurjA
 public meta import Certificates.Data.CFSGNative.Bridge.SurjA
 public meta import Certificates.Data.CFSGNative.J3.Data
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import Certificates.Certificate9119
 public import Certificates.Certificate9211
-public import Certificates.Certificate3169
 public meta import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all CFSG.Blueprint.NativeSporadic

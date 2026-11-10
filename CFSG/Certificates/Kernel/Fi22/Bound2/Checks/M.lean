@@ -1,6 +1,5 @@
 module
 
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Bounds.Core3
 import CFSG.Certificates.Kernel.Bounds.LoadRoot
 import CFSG.Certificates.Kernel.Common.Repo
@@ -8,7 +7,6 @@ import CFSG.Certificates.Kernel.Common.EachUnfoldNames
 import CFSG.Certificates.Kernel.Fi22.Bound2.Data.M
 import CFSG.Certificates.Kernel.Fi22.Bound2.Data.C_Sel
 import CFSG.Certificates.Kernel.Fi22.Bound2.Std3
-import CFSG.Certificates.Kernel.Fi22.Bound.Data.Cov
 
 #kc_repo #kc_items_root CFSG.KD.Fi22KM.MRows.P0 "CFSG/Certificates/Kernel/Fi22/Bound2/Data/M/rows/M_0_P.bin" 134 18264438263561613501
 #kc_repo #kc_items_root CFSG.KD.Fi22KM.MRows.P1 "CFSG/Certificates/Kernel/Fi22/Bound2/Data/M/rows/M_1_P.bin" 360 4860361684404279625

@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.SixNine
 public import CFSG.OddTranspositions.BlockGraph
 public import CFSG.OddTranspositions.BlockUnion
-public import CFSG.OddTranspositions.BlockGraph
 
 public section
 

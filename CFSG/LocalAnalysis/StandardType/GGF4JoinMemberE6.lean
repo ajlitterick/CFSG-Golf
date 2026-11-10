@@ -2,33 +2,17 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatJoinF4
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoExcCore
-public import CFSG.LocalAnalysis.StandardType.GGFamLabelAssembly
 public import CFSG.LocalAnalysis.StandardType.GGLangComponentLabel
-public import CFSG.LocalAnalysis.StandardType.GGSelectedModelOfChevalley
-public import CFSG.LocalAnalysis.StandardType.GGRankOneModel
 public import CFSG.LocalAnalysis.StandardType.GGSelectedRootPair
 public import CFSG.LocalAnalysis.StandardType.GGSelectedPOmegaMinusLongField
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoExcOrbit
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RFam
 import CFSG.LocalAnalysis.StandardType.ExcPos.TwistedE6Factors
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusExcOrbit
-import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcLang
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
 import CFSG.Quasithin.Background.SmithC27RTypeGen
-import CFSG.LocalAnalysis.StandardType.GGRankOneTorus
-import CFSG.LocalAnalysis.StandardType.GGRankOneSl2
 import CFSG.LocalAnalysis.StandardType.GGRankOneTagsA
 import CFSG.LocalAnalysis.StandardType.GGRankOneTagsE
 import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PSLCores
-import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
-import CFSG.ClassicalInvolution.ModelFacts.Families
-import CFSG.LieType.Universal.Spin.Roots.TypeD
 import CFSG.LocalAnalysis.StandardType.GGSecFivePresTags
-import CFSG.LieType.Steinberg.CentralExt.MinusculeCenter
-import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
 
 public section
 

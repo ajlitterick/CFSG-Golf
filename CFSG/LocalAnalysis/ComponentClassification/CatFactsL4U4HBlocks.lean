@@ -14,7 +14,6 @@ public import CFSG.LieType.Universal.Unitary
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4Cover
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4L4Core
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4U4Core
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

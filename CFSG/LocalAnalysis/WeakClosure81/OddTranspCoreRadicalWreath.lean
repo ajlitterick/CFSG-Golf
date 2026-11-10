@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.WeakClosure81.OddTranspCoreRadicalDefs
 public import CFSG.LocalAnalysis.WeakClosure81.SevenElevenCls
 import CFSG.OddTranspositions.PartFour.WreathLine
-import CFSG.Timmesfeld.ARS.NaturalModule
-import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 import CFSG.Quasithin.Vol2.Ch11SecBRootLiftSL2
 public import CFSG.CGT.Timmesfeld75.Cfg214Gen
 public import CFSG.LargeExtraspecial.S9TIXC

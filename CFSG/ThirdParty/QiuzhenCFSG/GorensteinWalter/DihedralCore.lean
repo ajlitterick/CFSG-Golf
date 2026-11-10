@@ -1,10 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.SpecificGroups.Dihedral
-public import Mathlib.GroupTheory.SpecificGroups.KleinFour
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-public import Mathlib.GroupTheory.Subgroup.Center
-public import Mathlib.Data.ZMod.Basic
 import Mathlib.Tactic
 
 namespace CFSG

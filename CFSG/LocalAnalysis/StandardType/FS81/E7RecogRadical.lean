@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.FS81.E7RecogPieces
 public import CFSG.LocalAnalysis.StandardType.FS81.S79Radical
 public import CFSG.LocalAnalysis.StandardType.FS81.L3TwoFixedPointFree
 import CFSG.LocalAnalysis.StandardType.FS81.RootCentralizerO2
-public import CFSG.LieType.BorelTits.Basic
-public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionMaximalPrimeNormalizer
 
 public section
 

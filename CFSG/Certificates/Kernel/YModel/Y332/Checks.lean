@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.YModel.Y332.Data
-public import CFSG.YGroups.Defs
 public import CFSG.Sporadic.Recognition.Fi22MultiplierInputs
 import CFSG.Certificates.Kernel.Common.Each
 public import Mathlib

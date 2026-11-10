@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfBlockEmbed
 public import CFSG.LocalAnalysis.StandardType.GGHalfKnownGroups
-public import CFSG.LocalAnalysis.StandardType.GGTypeAEndNodeAut
 
 public section
 

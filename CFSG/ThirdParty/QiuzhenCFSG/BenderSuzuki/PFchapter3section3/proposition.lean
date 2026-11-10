@@ -1,25 +1,12 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter3section3.Basic
-public import Mathlib.GroupTheory.SemidirectProduct
-public import Mathlib.GroupTheory.OrderOfElement
-public import Mathlib.LinearAlgebra.Dimension.Finite
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIII.lemma_2
-import Mathlib.FieldTheory.Finite.Basic
-import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIII.lemma_1
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIII.theorem
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Conjugacy
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section2.corollary
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section2.proposition_2
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section2.AppendixIInput
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.lemma_5
-import Mathlib.Algebra.Polynomial.SpecificDegree
-import Mathlib.FieldTheory.Finite.Extension
-import Mathlib.FieldTheory.Finite.Trace
-import Mathlib.FieldTheory.Normal.Basic
-import Mathlib.LinearAlgebra.GeneralLinearGroup.Basic
-import Mathlib.RingTheory.AdjoinRoot
 
 namespace CFSG
 end CFSG

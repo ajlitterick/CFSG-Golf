@@ -1,16 +1,12 @@
 module
 
 public import CFSG.Blueprint.Catalog
-public import CFSG.Models
 import CFSG.Adapters.ExceptionalCatalogReverse
 import CFSG.Adapters.TauCetiExceptional.EvenAll
-import CFSG.RankThree.PartTwo.Census.Carrier.ReeF4Catalog
 import CFSG.StronglyEmbedded.Catalog.Suzuki
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 public import CFSG.LieType.Chevalley.RootCommutatorData
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 import CFSG.StronglyEmbedded.ParityCriterion

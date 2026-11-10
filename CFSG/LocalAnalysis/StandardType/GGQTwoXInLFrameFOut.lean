@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLBridge
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFAbs2
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFIn2

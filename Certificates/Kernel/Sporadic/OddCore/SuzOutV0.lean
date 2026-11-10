@@ -3,11 +3,8 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.SuzDBind
 public import Certificates.Kernel.Sporadic.OddCore.SuzK0
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBSSuzOuterCheck
-public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.CentScanSound
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.HeAutKSound
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 

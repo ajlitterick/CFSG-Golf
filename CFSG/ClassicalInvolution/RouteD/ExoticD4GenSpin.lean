@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4GenPos
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourPair
-public import CFSG.ClassicalInvolution.Balance.LayerGenerationPairSpinFrame
 
 public section
 

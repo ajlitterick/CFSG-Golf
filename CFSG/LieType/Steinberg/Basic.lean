@@ -3,7 +3,6 @@ module
 public import Mathlib.GroupTheory.FreeGroup.Basic
 public import Mathlib.GroupTheory.QuotientGroup.Basic
 public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.Algebra.Group.Subgroup.Pointwise
 public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 public import Mathlib.Basic.Real.Basic
 public import Mathlib.Order.SupIndep

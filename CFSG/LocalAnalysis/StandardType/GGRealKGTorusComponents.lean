@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRealKGTorusComponentsDefs
 public import CFSG.LocalAnalysis.StandardType.GGRealQFour
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpJr
 public import CFSG.LocalAnalysis.StandardType.GGRealKGModelRoot
-public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3Bridge
 
 public section
 

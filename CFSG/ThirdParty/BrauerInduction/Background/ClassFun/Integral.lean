@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.BrauerInduction.Background.ClassFun.Maps
 public import CFSG.ThirdParty.BrauerInduction.Background.ClassFun.Induced
 
 public section

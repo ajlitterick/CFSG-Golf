@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4Facts
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4Pfl
-public import CFSG.Quasithin.Recognition.CertTwoF4AmalgamLocal
 
 public section
 

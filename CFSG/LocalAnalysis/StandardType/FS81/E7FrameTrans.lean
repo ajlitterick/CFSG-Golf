@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameLines
-public import CFSG.LocalAnalysis.StandardType.FS81.LocalGen
 public import CFSG.LocalAnalysis.StandardType.FS81.D6InnerAux
-public import CFSG.LocalAnalysis.StandardType.FS81.RootLineRigid
 
 public section
 

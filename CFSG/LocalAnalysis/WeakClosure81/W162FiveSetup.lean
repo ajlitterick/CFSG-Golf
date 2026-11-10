@@ -1,14 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.WeakClosure81.W16Four
 public import CFSG.LocalAnalysis.WeakClosure81.W16Seventeen
-public import CFSG.LocalAnalysis.WeakClosure81.SixFiveA
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC56Conj
 import CFSG.LocalAnalysis.QuasithinUnique.CharTwoInheritance
 import CFSG.SignalizerFunctorTheorem.Glauberman.Steps678.PGroup
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.E3OffenderB
 import CFSG.LocalAnalysis.SignalizerFunctor
 

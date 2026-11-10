@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBG6Comp
-public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootTwinSide
-public import CFSG.ClassicalInvolution.Asc77.AscIHTwin
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15RG2Pair
 
 public section
 

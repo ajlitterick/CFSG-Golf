@@ -5,7 +5,6 @@ public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.ExcResOutF4
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.OutG2
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPF4B2Two
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2EightTorBase
-public import CFSG.RankThree.Chevalley.SteinbergCFEvenF4StandardParabolic
 
 public section
 

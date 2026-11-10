@@ -2,13 +2,8 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzBtYF
 public import Certificates.Kernel.Sporadic.OddCore.SuzBtXG
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 public import CFSG.Certificates.Kernel.Spor.PcompFacts
-import Mathlib.GroupTheory.Perm.Cycle.Type
-import Mathlib.GroupTheory.Coset.Card
-import Mathlib.Data.ZMod.Basic
-import Mathlib.Tactic.IntervalCases
 
 public section
 

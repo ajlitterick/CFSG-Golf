@@ -1,19 +1,13 @@
 module
 
-public import CFSG.Foundations.Basic
-public import CFSG.Open.StatedDefs
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.ClassicalGroups.Unitary.Finite
 public import CFSG.LieType.Steinberg.CentralExt.MultiplierCongr
 public import CFSG.LieType.Steinberg.CentralExt.PSpMultiplier
 public import CFSG.LieType.Steinberg.CentralExt.PSLMultiplier
 public import CFSG.LieType.Steinberg.CentralExt.PSUMultiplier
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.B69K.OddCoversLift
-public import CFSG.RankThree.PerfectCover.HopfFormula
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoProjectiveFormulas
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticSmallFieldPerfect
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

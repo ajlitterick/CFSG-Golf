@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHypThreeSixteenFlat
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 
 public section
 

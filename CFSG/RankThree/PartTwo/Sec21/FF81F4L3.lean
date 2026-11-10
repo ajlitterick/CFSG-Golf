@@ -1,9 +1,6 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec21.FF81F4Elts
 public import CFSG.RankThree.PartTwo.Sec21.FF81F4Inv
-public import CFSG.RankThree.PartTwo.Sec21.FF81F4CenCard
-public import CFSG.RankThree.PartTwo.Sec21.FF81F4Easy
 public import Certificates.Kernel.F4Syl3.Pres
 
 public section

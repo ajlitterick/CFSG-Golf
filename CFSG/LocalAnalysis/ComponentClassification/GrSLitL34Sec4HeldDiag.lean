@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4HeldLift
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Transfer
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinInteraction
-public import CFSG.GroupTheory.SubnormalJoin
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwoOddFourGroups
 public import CFSG.LocalAnalysis.ComponentClassification.Foote47P3Gen
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitE8Generation

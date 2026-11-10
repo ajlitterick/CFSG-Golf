@@ -1,15 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResNonsingularBase
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpPlus
-import CFSG.LocalAnalysis.StandardType.GGTBJSpModelTwo
-public import CFSG.LocalAnalysis.StandardType.GGResHigherFieldI1
 public import CFSG.LocalAnalysis.StandardType.GGResJOpenLabel
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1BC
-import CFSG.LocalAnalysis.StandardType.GGTCJHolds
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
-import CFSG.LocalAnalysis.StandardType.GGTBE6
 
 public section
 namespace CFSG.StandardType

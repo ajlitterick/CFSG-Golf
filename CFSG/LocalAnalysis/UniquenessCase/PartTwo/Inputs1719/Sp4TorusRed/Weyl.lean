@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.TorusQSSp4Wey
 public import CFSG.GroupTheory.PerfectLeOfPGroupQuotient
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.Open.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Parrott.SpinFixedCardMore
 public import CFSG.RankThree.GF2n.Parrott.QA45SigmaCentralizers
 public import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
-public import CFSG.RankThree.GF2n.Parrott.LiftOrderThree
 public import CFSG.RankThree.GF2n.Parrott.SpinWords
 
 public section

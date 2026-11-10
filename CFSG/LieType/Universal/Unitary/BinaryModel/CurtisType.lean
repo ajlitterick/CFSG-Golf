@@ -3,12 +3,6 @@ module
 public import CFSG.LieType.Universal.Unitary.BinaryModel.FixedLine
 public import CFSG.LieType.Universal.Unitary.BinaryModel.TypeLabel
 public import CFSG.LieType.SpecialLinear.ExteriorModel.Weights
-public import CFSG.Quasithin.Background.SmithCurtisMain
-public import CFSG.LieType.Steinberg.CurtisDatum.RankOne
-public import CFSG.LieType.Universal.Unitary.CurtisDatum.TorusSums
-public import CFSG.LieType.RootSystem.Form
-public import Mathlib.Data.Fintype.BigOperators
-public import Mathlib.FieldTheory.Finite.Basic
 public import CFSG.Open.QuasithinDefs
 public import Lean.Elab.Tactic.Omega
 

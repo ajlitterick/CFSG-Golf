@@ -1,7 +1,5 @@
 module
 
-public import CFSG.RankThree.Native.LyFiveArrays
-public import CFSG.RankThree.Native.LySeedCheck
 public import CFSG.RankThree.Native.LyFiveCheckInputs
 import Certificates.Kernel.SporSch.Ly.Five8130
 

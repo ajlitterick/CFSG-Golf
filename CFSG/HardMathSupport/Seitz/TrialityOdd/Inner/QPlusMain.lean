@@ -2,15 +2,10 @@ module
 
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.QPlusPieces
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.QPlusCommute
-public import CFSG.LieType.Steinberg.TwistedD4.Weyl
-public import CFSG.LieType.Steinberg.TwistedD4.Local
-public import CFSG.LieType.Steinberg.TwistedD4.RankOne
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PlaneAbstract
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.G2OddQPlusAll
-public import CFSG.LieType.Steinberg.CentralExt.SUTwo
 public import CFSG.ClassicalInvolution.ModelFacts.G2D4TD4Sup
 public import CFSG.RankThree.PartOne.SEITZ3.PlanePair
-import CFSG.GH74.Filter.Lie.TwistedE6Odd
 public import CFSG.ClassicalInvolution.Balance.BootNoTripleStrong
 public import CFSG.ClassicalInvolution.Balance.StrongLocalBalanceGlue
 public import CFSG.ClassicalInvolution.ModelFacts.G2D4G2Edge

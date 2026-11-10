@@ -3,8 +3,6 @@ module
 
 public import Certificates.Certificate2168Base
 
-public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Schreier.J4SCols
 import Certificates.Kernel.SporSch.J4S.KsP
 
 public section

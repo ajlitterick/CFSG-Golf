@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNE6Frame
@@ -11,7 +10,6 @@ import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoThree
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937TwE6Inn
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937TwE6Center
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreSix
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHyperbolic
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 

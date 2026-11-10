@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Th.DModel.Mat
 public import Certificates.Kernel.Th.Fam.K
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

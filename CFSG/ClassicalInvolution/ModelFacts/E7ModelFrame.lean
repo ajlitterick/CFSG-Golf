@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.E7ModelFrameStep
-public import CFSG.ClassicalInvolution.ModelFacts.ChevAutTorusStdMain
 public import CFSG.ClassicalInvolution.RouteD.TypeE8Block
 
 public section

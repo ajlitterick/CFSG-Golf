@@ -2,9 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TwinYR3Frames
 public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinCtx
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinFrame
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinV
-public import CFSG.ClassicalInvolution.Asc77.AscT7HS2
 public import CFSG.ClassicalInvolution.RouteD.TWYPlane
 
 public section

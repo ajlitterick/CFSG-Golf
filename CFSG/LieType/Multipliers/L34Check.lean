@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LieType.Multipliers.L34Data
-public import CFSG.Certificates.CosetTableOrders
 public import Certificates.Certificate10005
 public meta import CFSG.LieType.Multipliers.L34Data
 public meta import CFSG.Certificates.CosetTableOrders

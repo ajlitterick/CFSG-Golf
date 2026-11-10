@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniSub
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinearDescent
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinearGeom
-public import CFSG.ClassicalGroups.Unitary.Simple
 
 public section
 

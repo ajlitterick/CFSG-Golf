@@ -2,14 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154LinAbs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ExcLabel
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MICore
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIAut
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FSimple
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FSeitzB1
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangChev
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-public import CFSG.RankThree.Chevalley.SteinbergBTCanonicalFieldCommon
 public import CFSG.GH74.KGroups.L34Aut
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1Final
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1ThreeAFinal

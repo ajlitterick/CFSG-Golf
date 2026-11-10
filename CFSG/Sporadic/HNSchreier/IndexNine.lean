@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.SporadicPermu
 public import CFSG.Mathlib.Decide.Bounded
 public import CFSG.Permutation.UnitaryThreeRecognition.Torus
 public import CFSG.GroupTheory.SylowTwoEquiv
-public import CFSG.GroupTheory.Frattini.PSubgroupLift
 public import CFSG.GH74.SmallRanks.AltM11
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
 public import CFSG.LocalAnalysis.ComponentClassification.NormalizedProductSylow
@@ -23,9 +22,6 @@ public import CFSG.Quasithin.Background.A1cA132Action
 public import CFSG.Quasithin.Background.A1cA133Three
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F6Amalgams
 public import CFSG.Quasithin.Background.F6SolvableQuotient
 public import CFSG.Quasithin.Background.F9G2

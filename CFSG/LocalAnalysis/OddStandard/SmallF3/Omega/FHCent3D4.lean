@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FHD4OddG
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FHD4OddI
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FHD4OddS
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec3L34GC1Simp
-import CFSG.GH74.Generic.Front.Sch
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.Blueprint.RecognitionDefs
 

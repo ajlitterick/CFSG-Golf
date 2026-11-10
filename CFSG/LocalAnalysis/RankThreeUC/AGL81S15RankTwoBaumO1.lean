@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherAutomorphismData
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearAction
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldAction
 
 public section
 

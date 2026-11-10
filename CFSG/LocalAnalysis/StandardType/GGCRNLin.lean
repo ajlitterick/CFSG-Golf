@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorARankBound
-public import CFSG.LocalAnalysis.StandardType.GGKGForkUSplitL
 public import CFSG.LocalAnalysis.StandardType.GGKGForkUSplitOddL
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas
 

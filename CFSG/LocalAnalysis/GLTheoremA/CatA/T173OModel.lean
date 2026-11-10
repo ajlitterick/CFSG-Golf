@@ -8,7 +8,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.InnRank
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.Shared
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2TwAModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011I61
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172Facts
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011LabUniq
 public import CFSG.LocalAnalysis.GLTheoremA.S11.Inputs119

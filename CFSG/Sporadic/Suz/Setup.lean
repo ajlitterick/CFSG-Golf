@@ -7,7 +7,6 @@ import all CFSG.Sporadic.Suz.SetupBase
 public import CFSG.Blueprint.MatrixSeedIdentification
 public import CFSG.Certificates.SchreierStabilizerGenerators
 public import CFSG.Sporadic.Suz.Certificate
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

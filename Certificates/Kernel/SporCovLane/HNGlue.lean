@@ -4,11 +4,9 @@ public import Certificates.Kernel.SporCovLane.HN
 public import Certificates.Kernel.HNF26720.Facts
 public import CFSG.Certificates.Kernel.SporCov.LaneKit
 public import CFSG.Certificates.Kernel.SporCov.PcCl
-public import CFSG.LocalAnalysis.StandardType.GGSporKRestClasses
 public import CFSG.Sporadic.HNSchreier.Intrinsic
 import Certificates.Kernel.HN3166.Seed
 import CFSG.Certificates.Kernel.Fam.HNSeed.Checks.K
-import Mathlib
 
 public section
 

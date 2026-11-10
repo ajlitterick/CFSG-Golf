@@ -2,8 +2,6 @@ module
 
 public import Certificates.Certificate712503
 public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.LinearAlgebra.Matrix.Notation
 
 public section
 

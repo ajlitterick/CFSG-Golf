@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.TwistedE6.CertInputs
-import Certificates.Certificate113
-import Certificates.Certificate114
-import Certificates.Certificate115
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Schreier.Co1ThreeLocal
 public meta import Certificates.Data.CFSGNative.Co1Schreier.Base
 public meta import Certificates.Data.CFSGNative.Co1.Data
 import Init.Data.Nat.Fold

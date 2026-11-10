@@ -6,9 +6,7 @@ public import Certificates.Kernel.J3Ref.RecC
 public import Certificates.Kernel.J3Ref.RecM
 public import Certificates.Kernel.J3Ref.RecN
 public import Certificates.Kernel.Sporadic.OddCore.J3FourGen
-public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
 public import CFSG.Certificates.Kernel.Common.ForallChunks
-public import CFSG.Certificates.Kernel.Spor.JoinSound
 
 public section
 

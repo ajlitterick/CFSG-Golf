@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LieType.Universal.SpecialLinearExtras
 public import CFSG.LieType.Steinberg.Classical.SpecialLinear
 public import CFSG.LieType.Steinberg.Bruhat
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.FinCases
-import Mathlib.Tactic.Group
-import TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Diagonal.Basic
 
 public section
 

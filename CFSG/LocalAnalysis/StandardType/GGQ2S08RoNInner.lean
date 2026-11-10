@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNAut
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

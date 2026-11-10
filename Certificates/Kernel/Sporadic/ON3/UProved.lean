@@ -1,9 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.ON3.U
-public import CFSG.Certificates.Kernel.Spor.ChainFKProof
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

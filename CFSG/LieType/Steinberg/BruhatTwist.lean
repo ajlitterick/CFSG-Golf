@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.Bruhat
-import Mathlib.Tactic.Group
 
 public section
 

@@ -1,10 +1,5 @@
 module
 
-public import CFSG.GH74.GLS.C3.Prop121.ModelFive
-public import CFSG.GH74.GLS.C3.Layer2.FinModelFactsGeneric
-public import Mathlib.GroupTheory.Sylow
-public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 public import CFSG.GH74.GLS.C3.Prop121.ModelFiveSInputs
 meta import Mathlib.GroupTheory.SpecificGroups.Alternating
 meta import CFSG.GH74.GLS.C3.Prop121.ModelFive

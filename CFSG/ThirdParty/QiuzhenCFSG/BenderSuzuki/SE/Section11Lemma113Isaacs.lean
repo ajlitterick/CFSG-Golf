@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma113Callbacks
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Divisibility
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_6
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Orthogonality
 
 namespace CFSG
 end CFSG

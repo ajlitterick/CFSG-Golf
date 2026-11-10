@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Background.JonesParshallCurtisClassify
 public import CFSG.Quasithin.Background.Harris.Ln2.Wedge5
 
 public section

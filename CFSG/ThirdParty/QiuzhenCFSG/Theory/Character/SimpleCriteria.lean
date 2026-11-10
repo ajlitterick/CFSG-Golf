@@ -1,13 +1,10 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.ClassFunction
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.ConjClassFunction
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.RepEquiv
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Induction
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Maschke
-public import Mathlib.Analysis.Complex.Polynomial.Basic
 public import Mathlib.RepresentationTheory.FinGroupCharZero
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 
 namespace CFSG
 end CFSG

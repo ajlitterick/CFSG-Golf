@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFront
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameL
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMOut

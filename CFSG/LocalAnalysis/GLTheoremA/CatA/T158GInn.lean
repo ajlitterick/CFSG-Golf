@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MInn
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GFinal
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011I91
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.ChevQ
 public import CFSG.HardMathSupport.Lang.Proving.FixedOrderCongruence
 
 public section

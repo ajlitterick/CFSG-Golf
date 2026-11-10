@@ -1,10 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.E7ModelPair
-public import CFSG.ClassicalInvolution.ModelFacts.E7ModelRoots
-public import CFSG.ClassicalInvolution.RouteD.TypeEModel
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPair
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcOrthAdj
 
 public section
 

@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LieType.Universal.SpinOmega.CommutatorEquiv
-public import CFSG.LieType.Universal.Spin.Chevalley.Plus
 public import CFSG.LieType.Universal.Spin.PlusCT.Weyl
 public import CFSG.LieType.Universal.Spin.Generation.Datum
-public import CFSG.LieType.CurtisTits.Reduction
 public import CFSG.RankThree.PartOne.KC.OrthogonalHypCoordinates
 public import CFSG.LieType.Universal.SpinOmega
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting

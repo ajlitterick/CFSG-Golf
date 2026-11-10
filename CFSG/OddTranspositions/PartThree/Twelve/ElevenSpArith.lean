@@ -1,8 +1,6 @@
 module
 
 public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-public import CFSG.Open.StatedDefs
-public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
 public import CFSG.RankThree.PartOne.AUTSL.TraceAS
 public import CFSG.RankThree.PartOne.KC.SymplecticFullCentralizerTransvection
 import CFSG.Holt.FoundationsFusion
@@ -10,7 +8,6 @@ import CFSG.RankThree.PartOne.AUTSL.TraceASApply
 import CFSG.ClassicalGroups.Alternating.RT1SpGeneration
 import CFSG.ClassicalGroups.Orthogonal.OmegaSiegelRoot
 import CFSG.ClassicalGroups.Orthogonal.PolarPairPlane
-import CFSG.ClassicalInvolution.Asc77.AscE189OrthV
 import CFSG.ClassicalInvolution.ModelFacts.MF15Sign
 import CFSG.LocalAnalysis.GLTheoremA.CatA.H81Orth.TwistedConfig
 import CFSG.RankThree.PartOne.KC.OrthogonalNormPlaneFactors
@@ -28,7 +25,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalMod
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear
 public import CFSG.RankThree.PartOne.KC.UnitaryPrimaryAlgebra
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 import CFSG.ClassicalInvolution.ModelFacts.MF15Sq
 import CFSG.ClassicalInvolution.Models.LinearPairs

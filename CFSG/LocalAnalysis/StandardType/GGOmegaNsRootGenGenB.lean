@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenDefs
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Om8
-import CFSG.LieType.SeitzGeneration.OrthRelRoot
 import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
 import CFSG.ClassicalInvolution.RouteD.TWYPlane
 public import CFSG.LieType.SeitzGeneration.OrthNonsplitTools

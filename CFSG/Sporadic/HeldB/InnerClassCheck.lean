@@ -3,14 +3,10 @@ module
 
 public import CFSG.Sporadic.HeldB.InnerClassCheckBase
 
-public import CFSG.Sporadic.HeldB.HeBlocks
-public import CFSG.Sporadic.HeldB.InnerCheck
-public import Certificates.Data.CFSGNative.HeldB.Tests
 public meta import CFSG.Sporadic.HeldB.HeBlocks
 public meta import CFSG.Sporadic.HeldB.InnerCheck
 public meta import Certificates.Data.CFSGNative.HeldB.Tests
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
-public import CFSG.Sporadic.HeldB.InnerClassCheckInputs
 public import Certificates.Certificate2115
 
 public section

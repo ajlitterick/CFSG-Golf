@@ -2,8 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2Action
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.CentralizerLiftOfOddCenter
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem26ComponentTransport
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

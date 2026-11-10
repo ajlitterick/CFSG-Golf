@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelFactors
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresTransport
 
 public section
 

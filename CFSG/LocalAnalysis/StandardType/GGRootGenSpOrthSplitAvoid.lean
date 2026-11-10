@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenAvoid
 import CFSG.LocalAnalysis.StandardType.GGSpRootGenAvoid
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySp
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 
 public section
 

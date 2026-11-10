@@ -1,23 +1,16 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK1CCoDefs
 public import CFSG.LocalAnalysis.StandardType.GGK1CCoArith
 public import CFSG.LocalAnalysis.StandardType.GGK1CCoPos
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenSymplecticNormalForm
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GSympLabel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelPSU
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniData
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniScal
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelTwo
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GCenterQuot
 public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneAlt6
 public import CFSG.LocalAnalysis.StandardType.GGTPNI1BC
-public import CFSG.LocalAnalysis.StandardType.MarkingSmall
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.RootSp2
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympInnerExport
-public import CFSG.LieType.SemisimpleCentralizers.HeldSLFacts
 public import CFSG.Assembly.OpenBridges
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniPComp
 public import CFSG.RankThree.PartTwo.Sec12.Notation

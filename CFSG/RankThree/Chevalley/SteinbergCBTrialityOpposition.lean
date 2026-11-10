@@ -4,8 +4,6 @@ public import CFSG.RankThree.Chevalley.SteinbergCFTrialityCommutingSL2
 public import CFSG.RankThree.Chevalley.SteinbergCFOddG2QPlusTorus
 public import CFSG.LieType.Chevalley.OddDiagramFrobeniusFixedDerived
 public import CFSG.LieType.Chevalley.OddF4CosetDescent
-public import CFSG.LieType.Chevalley.GraphFixedMonomialQuotient
-public import CFSG.LieType.Chevalley.Braid
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard

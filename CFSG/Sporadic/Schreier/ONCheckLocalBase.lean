@@ -1,8 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.Schreier.ONCheckChain
-public import CFSG.Sporadic.Schreier.ONOuterData
 public meta import CFSG.Sporadic.Schreier.ONCheckChain
 public meta import CFSG.Sporadic.Schreier.ONOuterData
 public import CFSG.Sporadic.Schreier.ONCheckLocalInputs

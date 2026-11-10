@@ -4,11 +4,6 @@ public import CFSG.ClassicalInvolution.RouteD.TwinSmallSixNorm
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallSixMod
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallSixStd
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallLeaf
-public import CFSG.ClassicalInvolution.RouteD.GapsMoved
-public import CFSG.ClassicalInvolution.RouteD.GapsPatternD
-public import CFSG.ClassicalInvolution.RouteD.GapsFrBGen
-public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusOrth
-public import CFSG.ClassicalInvolution.ModelFacts.FundNoncentralBridge
 
 public section
 

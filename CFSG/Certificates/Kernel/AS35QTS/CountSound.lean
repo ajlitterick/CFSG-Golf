@@ -2,9 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.AS35QTS.ListSound
 public import CFSG.Certificates.Kernel.LceSP.Popcount
-import Mathlib.Tactic.Ring
-import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.NormNum
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalRoots
-public import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
 import CFSG.Quasithin.Recognition.St84.Gen.SL2Semilinear
 import CFSG.Quasithin.H13.A6S13820AutL3a
 import CFSG.RankThree.GF2n.DecompSetupSplit

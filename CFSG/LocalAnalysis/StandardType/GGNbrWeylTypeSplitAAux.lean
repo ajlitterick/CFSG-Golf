@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeDefs
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBWeyl
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBRefl
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBPSL
 public import CFSG.LocalAnalysis.StandardType.GGResIICell
 public import CFSG.LocalAnalysis.StandardType.GGTDAutomizer
 

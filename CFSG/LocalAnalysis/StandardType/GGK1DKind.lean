@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniData
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelTwo
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelPSU
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniScal
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
 public import CFSG.Assembly.GL83StatedBridge
 public import CFSG.Assembly.OpenBridges
 public import CFSG.GroupTheory.HallHigmanPiCore

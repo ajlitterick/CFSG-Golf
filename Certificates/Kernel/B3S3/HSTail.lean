@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.B3S3.HSEnum
 public import Certificates.Data.Kernel.B3S3K
 public import Certificates.Data.Kernel.Misc.ChainTail
-public import Certificates.Data.Kernel.Misc.PermClos
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000

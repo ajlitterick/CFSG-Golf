@@ -5,21 +5,11 @@ public import Certificates.Kernel.SporSch.Tits.Syl8117G
 public import Certificates.Kernel.SporSch.Tits.Inv2266
 public import Certificates.Kernel.SporSch.Tits.Stab2270
 public import CFSG.Certificates.Kernel.SporSch.TitsSylSound
-public import CFSG.Sporadic.Schreier.TitsDAction
-public import CFSG.Sporadic.Schreier.TitsStab
 public import CFSG.Sporadic.Schreier.TitsInv
-public import CFSG.Sporadic.Schreier.TitsEnum
-public import CFSG.Sporadic.Schreier.TitsCentral
-public import CFSG.Sporadic.Schreier.TitsCentralCheck
-public import CFSG.Sporadic.Schreier.TitsLocalCheck
 public import CFSG.Certificates.Kernel.LocalQTCovTPrim
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 import CFSG.Certificates.Kernel.SporSch.LyLoop
 import CFSG.Certificates.Kernel.Spor.PackFld
-import CFSG.Certificates.Kernel.Spor.RawOrbHead
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.Chevalley.RootCommutator
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -32,8 +22,6 @@ public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.Sporadic.Schreier.TitsOuter
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 
 public section
 

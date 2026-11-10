@@ -1,14 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight91D4Odd
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiDefs
 public import CFSG.GH74.QTGen4.Leaves.F112.PSU32Model
 public import CFSG.ClassicalInvolution.Q3.Sec13L711Swap
-public import CFSG.Timmesfeld.Orders.ClassicalLinear
-public import CFSG.Open.StatedAPI
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22ry
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.ExtraspecialConstructor
-public import CFSG.Open.StatedSUFieldChange
 public import CFSG.Mathlib.Decide.Bounded
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15O82
 import all CFSG.LocalAnalysis.RankThreeUC.SmallClassTwoGroups.IsExtraspecialExpP

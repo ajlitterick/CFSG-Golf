@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S6.InputsProp65
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeForm
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeModel
 public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
-public import CFSG.Open.StatedDefs
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
@@ -40,7 +35,6 @@ public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

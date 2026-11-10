@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelLieU6Aut
 import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFixInf
 import CFSG.HardMathSupport.Solomon.Coordinator.FixSubgroupInf
-import CFSG.LinearAlgebra.ProjectivePrimePlane
-import TauCeti.GroupTheory.Commutator
 import all CFSG.Fischer.F4
 
 public section

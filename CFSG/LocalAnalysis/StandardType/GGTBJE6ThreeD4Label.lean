@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJXClass
-public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeD4Roots
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeD4RatLabel
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtDatum
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtUntw
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidDescent
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.GoodRankOne
 public import CFSG.LocalAnalysis.StandardType.GGLangExhaust
 

@@ -2,12 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWDInv
 public import CFSG.ClassicalInvolution.RouteD.TWSReduce
-public import CFSG.ClassicalInvolution.RouteD.GapsOrthSpin
-public import CFSG.ClassicalInvolution.RouteD.GapsOrthSpinOdd
-public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusOrth
-public import CFSG.ClassicalInvolution.RouteD.TypeDLocal
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedDLocal
-public import CFSG.ClassicalInvolution.RouteD.LocalTwinBLocal
 
 public section
 

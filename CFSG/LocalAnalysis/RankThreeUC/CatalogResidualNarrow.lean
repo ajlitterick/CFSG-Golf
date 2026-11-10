@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.CatalogResidual
 public import CFSG.LocalAnalysis.RankThreeUC.CatalogClosureOddBasic
-public import CFSG.RankThree.PartOne.Census3.Interface
 public import CFSG.RankThree.PartOne.CTP.StrongPAssembly
-public import CFSG.Blueprint.NativeSporadic
-import CFSG.LocalAnalysis.RankThreeUC.CatalogClosureOddLinTwo
 import CFSG.LocalAnalysis.RankThreeUC.CatalogClosureOddLie
 import CFSG.LocalAnalysis.RankThreeUC.CatalogClosureAlt
 import CFSG.LocalAnalysis.RankThreeUC.CatalogClosureSporOrder
@@ -14,7 +11,6 @@ import CFSG.RankThree.PartOne.CTP.StrongPThree
 import CFSG.RankThree.PartOne.CTP.SpinRankFour
 import CFSG.RankThree.PartOne.CTP.BabyRankFour
 import CFSG.RankThree.PartOne.CTP.StrongPBridgeRest
-import CFSG.RankThree.PartOne.TCB.Sporadic
 import CFSG.Adapters.CatalogAgree
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CGT.Timmesfeld75.Statements
@@ -66,14 +62,12 @@ public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
 public import CFSG.Sporadic.Ly.OrbitSpec
-public import CFSG.Sporadic.Ly.PrimitiveBase
 public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.M23.M23Group
 public import CFSG.Sporadic.ON.ActionBase
 public import CFSG.Sporadic.ON.CertificateBase
 public import CFSG.Sporadic.ON.ChainBase
 public import CFSG.Sporadic.ON.LinesBase
-public import CFSG.Sporadic.ON.PrimitiveBase
 public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Sporadic.Presentation.Co1
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
@@ -92,10 +86,6 @@ public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.Schreier.M23
 public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
-public import CFSG.Sporadic.Th.KernelPlanesBase
-public import CFSG.Sporadic.Th.KernelSimpleBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 import CFSG.Certificates.FusionF2
 import CFSG.Certificates.WordSubgroupHom
 import CFSG.GroupTheory.HallHigmanPiCore

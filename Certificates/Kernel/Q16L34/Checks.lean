@@ -2,8 +2,6 @@ module
 
 public import Certificates.Data.Kernel.Q16Q16K
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoL3FourHypIIPk
-import Certificates.Data.Kernel.Census.Packed
-import CFSG.Certificates.Kernel.Enum.Defs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

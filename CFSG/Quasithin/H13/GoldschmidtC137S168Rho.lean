@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.H13.GoldschmidtC137S168Lab
 public import CFSG.LocalAnalysis.SeitzReduction.RankOneDegreeEightPerm
 public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.Open.Defs
 public import CFSG.Quasithin.H13.GoldschmidtC137SQFrat
 public import CFSG.Quasithin.H13.GoldschmidtC137SQKg
 public import CFSG.Quasithin.H13.GoldschmidtC137SQSyl7

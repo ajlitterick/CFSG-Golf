@@ -1,12 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrTwE6Prop87
-public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnit63Holds
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc3
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExcReduction
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
 
 public section
 

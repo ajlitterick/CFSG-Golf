@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionFlatBasic
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionAltDefining
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionAltFamily
-public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitz
 
 public section
 

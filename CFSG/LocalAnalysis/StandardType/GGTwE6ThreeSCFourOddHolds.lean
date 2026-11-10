@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwE6R4Defs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6R4Index
 public import CFSG.LocalAnalysis.StandardType.GGTwE6R4RankSix
 public import CFSG.LocalAnalysis.StandardType.GGTwE6R4Count
 public import CFSG.LocalAnalysis.StandardType.GGTwE6R4CoverNine
 public import CFSG.LocalAnalysis.StandardType.GGTwE6R4CoverThree
-public import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
 
 public section
 

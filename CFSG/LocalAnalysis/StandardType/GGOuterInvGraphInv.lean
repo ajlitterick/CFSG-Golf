@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvFieldTags
 public import CFSG.LocalAnalysis.StandardType.GGE0Frame
 

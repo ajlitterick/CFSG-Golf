@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB516PumpTools
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
-public import CFSG.LocalAnalysis.ComponentClassification.CanonicalPrimeComponentLift
-public import CFSG.LocalAnalysis.ComponentInitial.DiagonalComponent
 public import CFSG.RankThree.GroupTheory.SteinbergCEThetaSubnormalDichotomy
-public import CFSG.FeitThompson.OddOrderTheorem
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 
 public section

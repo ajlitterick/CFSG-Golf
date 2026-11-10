@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.RuInsp443.Data
-public import Certificates.Kernel.SporSch.Ru.GensData
 public import Certificates.Kernel.SporSch.Ru.C2253
 public import Certificates.Data.Kernel.RuInsp443
 import CFSG.Certificates.Kernel.Common.Harness

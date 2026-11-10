@@ -9,19 +9,14 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBE8
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBF4
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBTwE6
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PSLInner
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PSLCores
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaForms
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaCores
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2E6Root
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongE6
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2E7Root
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongE7
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2E8Inner
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongE8
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2F4Inner
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongF4
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Root
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongTwE6
 
 public section
 

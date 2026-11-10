@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2Fast
 public import Certificates.Data.CFSGNative.SectionRank.B
 public meta import Certificates.Data.CFSGNative.SectionRank.B
-import CFSG.Blueprint.NativeSporadic
 public import Certificates.Certificate8010
 public import CFSG.Certificates.Kernel.BabyMonster.E35B
-public import CFSG.Open.Defs
 
 public section
 

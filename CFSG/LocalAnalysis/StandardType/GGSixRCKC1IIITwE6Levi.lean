@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CorootCoreCent
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CorootCoreFuse
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24Dim
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BTwE6A4A1Sym3
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BTwE6Card
-public import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Defs
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCoreAssembly
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24Plane
@@ -44,8 +42,6 @@ public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts

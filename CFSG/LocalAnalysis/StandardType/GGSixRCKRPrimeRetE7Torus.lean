@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetE7Frame
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE7Model
-import CFSG.LieType.Chevalley.LangFiniteRootCentralizer
-import CFSG.LieType.Chevalley.RootCharacterConjugation
-import CFSG.LieType.Ree.Endo
-import CFSG.Mathlib.RingTheory.UnitOrderOf
 
 public section
 

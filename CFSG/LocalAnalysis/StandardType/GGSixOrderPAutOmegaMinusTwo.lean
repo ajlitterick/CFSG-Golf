@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridge
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestBstar
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwo
 import CFSG.LocalAnalysis.StandardType.GGNbrGraphField
 
 public section

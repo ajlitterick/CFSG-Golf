@@ -3,9 +3,6 @@ module
 public import CFSG.Sporadic.J3
 public import CFSG.Sporadic.Presentation.J3
 public import CFSG.Sporadic.Bridge.TwoGen
-public import Certificates.Data.CFSGNative.Bridge.SurjA
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import Certificates.Data.CFSGNative.J3.Data
 import Certificates.Kernel.Sporadic.J3.Rels
 public import CFSG.Sporadic.Presentation.Common
 

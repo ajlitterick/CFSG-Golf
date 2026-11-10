@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeTableZDefs
 
-import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.LocalAnalysis.WeakClosure81.W16LPU3Cover
 import CFSG.ClassicalGroups.UnitaryFlag.PointSylow
 import CFSG.LocalAnalysis.SteinbergSFSingleCommModel3UnitaryGen

@@ -2,12 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.Spor.Numerics
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporHN
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HN
-public import CFSG.Sporadic.HNSchreier.Order
-public import CFSG.Sporadic.HNSchreier.Intrinsic
-public import CFSG.Sporadic.HNSchreier.ThreeCent
-public import CFSG.Sporadic.HNSchreier.AltCent
-public import CFSG.Sporadic.HNSchreier.Faithful
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
@@ -39,25 +33,13 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSUFiel
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalSmallSourceLinear
 public import CFSG.LocalAnalysis.GLTheoremA.S6.AltSetup
 public import CFSG.LocalAnalysis.GLTheoremA.S6.InputsAlt72
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.Quasithin.Background.A3Structure319
-public import CFSG.Quasithin.Background.A3Structure36Base
-public import CFSG.Quasithin.Background.A3Structure38Part3
-public import CFSG.Quasithin.Background.B1MoreElevenE
-public import CFSG.Quasithin.Background.B1MoreNineG
-public import CFSG.Quasithin.Background.B4ModelsAction
-public import CFSG.Quasithin.Background.B4ModelsIso
-public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.Background.F9FiveStruct
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Geometry
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S1421Defs
 public import CFSG.Quasithin.EmptyFaithful.S142Statements
 public import CFSG.Quasithin.H13.A5S1326
@@ -68,7 +50,6 @@ public import CFSG.Quasithin.Vol2.Ch11StatementsB
 public import CFSG.Quasithin.Vol2.Ch11StatementsC
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

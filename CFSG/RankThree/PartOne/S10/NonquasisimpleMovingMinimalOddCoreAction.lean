@@ -9,7 +9,6 @@ import CFSG.RankThree.PGroups.SolvableFittingSelfCentralizing
 import CFSG.LocalAnalysis.SectionRank.Ccomm.OddCritical
 import CFSG.GroupTheory.FrattiniQuotient
 import CFSG.RankThree.OddKernel.ThreeComplementQuotient
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

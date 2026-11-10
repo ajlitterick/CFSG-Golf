@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Monster.B.CTIB.HInnerCert
-public import Certificates.Data.CFSGNative.CTIB.Coset
 public meta import CFSG.Monster.B.CTIB.HInnerCert
 public meta import Certificates.Data.CFSGNative.CTIB.Coset
-public import CFSG.Monster.B.GSide.HInnerFusionCertInputs
 public import Certificates.Certificate3044
 
 public section

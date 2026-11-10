@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6TwoD4
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenLabels
-public import CFSG.LieType.Universal.SpinOmega.Center
 
 public section
 

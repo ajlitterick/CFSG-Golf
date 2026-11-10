@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotQ2LFiveVeeCore
-public import Mathlib.Algebra.Order.Ring.Star
-public import Mathlib.Data.Int.Star
-public import Mathlib.RingTheory.PiTensorProduct
 
 public section
 

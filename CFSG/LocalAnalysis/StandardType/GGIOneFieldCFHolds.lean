@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreField
 public import CFSG.LocalAnalysis.StandardType.GGIOneFieldCFTypeA
-public import CFSG.LocalAnalysis.StandardType.GGIOneFieldCFTwD
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLBstar
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLBstarE6
 
 public section

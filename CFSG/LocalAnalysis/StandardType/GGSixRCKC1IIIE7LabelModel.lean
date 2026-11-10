@@ -1,18 +1,11 @@
 module
 
-public import CFSG.Blueprint.Chevalley
 public import CFSG.HardMathSupport.Meierfrankenfeld.Proving.E7Curtis.E7Arith
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.LieType.Simplicity.Exceptional
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-public import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
 public import CFSG.LocalAnalysis.SeitzReduction.E7PilotQ2PositionFusion
 public import CFSG.LocalAnalysis.StandardType.GGCompListMarked
 public import CFSG.LocalAnalysis.StandardType.GGE7TwoThreeComp
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmULabel
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
 public import CFSG.GroupTheory.IsComponentOfMap
 public import CFSG.GroupTheory.MulAutCongr
 public import CFSG.LocalAnalysis.SeitzReduction.E7PilotQ2PositionFacts

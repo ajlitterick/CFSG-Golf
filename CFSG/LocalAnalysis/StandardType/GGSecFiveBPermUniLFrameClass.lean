@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
-public import CFSG.Assembly.LargeEvenDefs
-import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUComp
-import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepairBlock
 import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSU
 
 public section

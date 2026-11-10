@@ -4,7 +4,6 @@ public import CFSG.Dihedral.GorensteinWalter.ASevenFourgroupFullActionInputs
 public import Certificates.Certificate112
 
 import all CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenDistinctInvertedConjugate
-public import CFSG.Dihedral.BlueprintDefs
 import all CFSG.Dihedral.BlueprintDefs
 
 public noncomputable section

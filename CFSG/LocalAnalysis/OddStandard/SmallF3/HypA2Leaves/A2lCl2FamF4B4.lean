@@ -1,14 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofF4ToralB4
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofF4B4
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofF4ToralC3
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofRootComponentGen
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddPSp
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofExcLayerShape
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofF4ToralThree
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofF4FrameB4
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

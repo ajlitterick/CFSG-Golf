@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.McL.Certificate
 public meta import Certificates.Data.CFSGNative.McL.Certificate
 public import Certificates.Certificate3170
 

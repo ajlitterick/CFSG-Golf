@@ -2,15 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSURoot
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeForm
-import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSUHolds
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGRigid
 import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylOuterTransport
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
-import CFSG.LocalAnalysis.StandardType.GGRootDetectSU
 import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2Split.SylowAbstract
-import CFSG.LocalAnalysis.StandardType.GGRootDetectSUDiag
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoPSUCent
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoPSULevi
 

@@ -5,7 +5,6 @@ public import CFSG.Open.LocalVocabulary
 import CFSG.GH74.Uniqueness.SU.SU1Basic
 import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

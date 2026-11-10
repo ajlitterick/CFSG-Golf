@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGStructPSUBlock
-import CFSG.LieType.Steinberg.CentralExt.SUOddFieldThreeRadical
 import CFSG.Timmesfeld.LieEmbed.UnitaryWitt
-import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotTransvectionCoreGroup
-import CFSG.LocalAnalysis.StandardType.GGRootDetectSU
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerSUCore
-import CFSG.LieType.BorelTits.UnitaryForm
 
 public section
 

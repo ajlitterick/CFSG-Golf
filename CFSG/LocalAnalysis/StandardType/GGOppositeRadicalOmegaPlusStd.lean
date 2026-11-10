@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalOmegaPlusModel
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalSplitFlagTransitivity
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalSplitUnipotent
 
 public section
 

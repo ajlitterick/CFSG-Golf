@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoHeartDefs
 public import CFSG.LocalAnalysis.StandardType.GGKGWeylReflOn
 public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenModel
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcReflLinear
-public import CFSG.LieType.Chevalley.WeylRoots
 public import CFSG.LocalAnalysis.StandardType.GGQ2HeartJRoots
 
 public section

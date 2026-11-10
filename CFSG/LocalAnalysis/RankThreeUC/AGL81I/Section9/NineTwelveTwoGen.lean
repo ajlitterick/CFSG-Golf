@@ -2,43 +2,23 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenFiveMain
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenCent
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenSingle
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenOneI
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenCompGen
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenKerQuot
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenTrans
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenFieldAut
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenOmega
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenSigma
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenClauses
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CSixSixOne
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CSevenOneKSField
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CSevenOneCenterRankTwo
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CSevenOneKSCenter
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CSixThreeOneHolds
 public import CFSG.LieType.OutStructureReductions
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineSixTwoComp
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineSixThree
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.K35CentralHolds
-public import CFSG.RankThree.PartTwo.Sec4.Census.CoverSLThree46
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CKFactThreeFiveRankOne
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineOne
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveThreeGroupSub
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CSixSeven
-import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.AlmostSimpleBInnerPClosure
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveThirteenW
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveRankTwo
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenRankTwoEasy
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenLayer
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenThree
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenStar
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenKStar
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveFrattini
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveKer
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.Base
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenSingleGen
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenOrbitGen
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenRankRGen
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenOneIGen
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineElevenGen

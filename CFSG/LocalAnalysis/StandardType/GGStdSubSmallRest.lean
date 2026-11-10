@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestVac
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeTableB
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperUnitaryLabel
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallSp
 

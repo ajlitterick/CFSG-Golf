@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.Assembly.LargeEvenDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowSCore
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LieType.Steinberg.CentralExt.MinusculeCentrallyClosed
 import CFSG.LieType.Steinberg.CentralExt.F4E8Multiplier
 import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
 import CFSG.LocalAnalysis.ComponentInitial.CentralCoverAbelian

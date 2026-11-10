@@ -4,13 +4,8 @@ public import CFSG.RankThree.PartOne.K133B.Pair
 public import CFSG.RankThree.PartOne.K133B.Defs
 public import CFSG.RankThree.PartOne.Q1327T.Transfer
 public import CFSG.RankThree.PartOne.Q1327T.Weyl
-public import CFSG.RankThree.PartOne.K1320.Pair
-public import CFSG.RankThree.PartOne.K1320X.CommDistinctX
-public import CFSG.RankThree.PartOne.S13K.ThetaFixed
-public import CFSG.RankThree.PartOne.S12.Facts13
 public import CFSG.RankThree.PartOne.N143.SectionListConsumers
 import CFSG.GroupTheory.ElementaryAbelianTransport
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LieType.Chevalley.OddF4CosetDescent
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore
@@ -50,7 +45,6 @@ public import CFSG.RankThree.PartOne.S12.Sec159FiveDefs
 public import CFSG.RankThree.PartOne.S12.Sec15Items
 public import CFSG.RankThree.PartOne.U4F.Main
 public import CFSG.Sporadic.ThSchreier.AutCore
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

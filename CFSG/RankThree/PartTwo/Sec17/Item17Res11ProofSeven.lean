@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec17.Item17Res10ProofSeven
-public import CFSG.RankThree.PartTwo.Sec17.Item172Proof
 import CFSG.RankThree.PartTwo.Sec17.Item17Res11ProofSec
 import CFSG.RankThree.PartTwo.Sec17.Item17Res9ProofLd
 import CFSG.RankThree.PartTwo.Sec17.Item176StepsProof172
@@ -9,7 +8,6 @@ import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 import CFSG.RankThree.PartTwo.Sec14.Item14Tools
 import CFSG.RankThree.GroupTheory.SteinbergBYHyperplaneResidual
 import CFSG.RankThree.PartTwo.Sec14.Item147
-import CFSG.RankThree.PartTwo.Sec14.Item1411
 import CFSG.RankThree.PartTwo.Sec14.Concl142NHJInner
 import CFSG.RankThree.PartTwo.Sec5.Tools
 public import CFSG.RankThree.PartTwo.Sec17.Item17Res4ProofSeven

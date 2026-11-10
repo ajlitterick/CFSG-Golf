@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaThreeDefs
 import CFSG.LocalAnalysis.StandardType.GGIOneExcOuterTwE6
 import CFSG.LocalAnalysis.StandardType.GGTwE6LangThree
-import CFSG.LocalAnalysis.StandardType.GGSmallKGInputsTwE6
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 
 public section
 

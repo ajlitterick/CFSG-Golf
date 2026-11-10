@@ -1,11 +1,8 @@
 module
 
-public import Mathlib
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Basic
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec5
 public import CFSG.SignalizerFunctorTheorem.McBride.Functor.Dichotomy
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.SuzukiSimple
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

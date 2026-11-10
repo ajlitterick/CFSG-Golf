@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetLang
-import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
-import CFSG.RankThree.PartOne.KE.SigmaCentralizer
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.GoodRankOne
-import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-import CFSG.LieType.Chevalley.LangFiniteRootCentralizer
-import CFSG.LieType.Steinberg.Isogeny.TwistedE6
-import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.CommonFactor
 
 public section
 

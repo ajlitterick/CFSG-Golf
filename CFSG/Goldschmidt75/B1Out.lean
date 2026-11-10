@@ -2,15 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherClassicalSchreier
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryCentralCover
 public import CFSG.LieType.BorelTits.Suzuki
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LieType.Ree.SuzukiSimple
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSelModule
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitPermLe
-import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameModule
-import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameCfg
 import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameMain
 import CFSG.LocalAnalysis.StandardType.GGQTwoChartTwoThreeSurj
 import CFSG.LocalAnalysis.StandardType.GGNSJoinToralA

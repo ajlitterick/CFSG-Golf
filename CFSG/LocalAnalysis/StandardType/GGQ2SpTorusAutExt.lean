@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpNormalizerStatements
-import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksCentExt
 import CFSG.LocalAnalysis.StandardType.GGQ2PlaneSignedPerm
-import CFSG.LocalAnalysis.StandardType.GGQ2SpTorusAutBasic
 import CFSG.LocalAnalysis.StandardType.GGQ2SpTorusAutExtGen
 import CFSG.LocalAnalysis.StandardType.GGQ2SpTorusAutAmb
 

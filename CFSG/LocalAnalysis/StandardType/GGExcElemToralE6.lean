@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGExcElemToralCyclic
 public import CFSG.LocalAnalysis.StandardType.GGExcToralSylowElem
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.E6FiveAux.Steinberg
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Basic
 public import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
 public import CFSG.RankThree.PartOne.KE.E7FiveBlock
 public import CFSG.RankThree.PartOne.KE.SLnShape

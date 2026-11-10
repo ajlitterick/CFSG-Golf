@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepCardSixDefs
 public import CFSG.LocalAnalysis.StandardType.GGK2E6E6OriginalSpanTwo
 public import CFSG.LocalAnalysis.StandardType.GGE6DepNbrFacts
-public import CFSG.LocalAnalysis.StandardType.GGDepAConfig
 
 public section
 

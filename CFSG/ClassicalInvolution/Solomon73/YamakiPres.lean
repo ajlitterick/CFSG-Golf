@@ -2,18 +2,12 @@ module
 
 public import CFSG.Certificates.CosetTableColumns
 public import CFSG.Open.StatedDefs
-public import Certificates.Data.YamakiPres
 public import Certificates.Certificate550701
 public import Certificates.Certificate550702
-import CFSG.Certificates.CosetTablePresented
 import Certificates.Kernel.Bounds.Family
 import CFSG.Certificates.Kernel.Misc.Coset.TableFact
-import CFSG.ClassicalGroups.Symplectic.Simple
 import CFSG.LocalAnalysis.ComponentClassification.GHarrisGL3
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-import CFSG.Open.StatedAPI
 import CFSG.RankThree.PartOne.CTP.SeitzSpClosure
-import Mathlib.LinearAlgebra.Matrix.Transvection
 public import CFSG.Certificates.CosetTableShort
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoProjectiveFormulas
 import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
@@ -21,7 +15,6 @@ import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 import CFSG.LocalAnalysis.SectionRank.Ccomm.Supercritical
 import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear
 import CFSG.RankThree.PartOne.KC.UnitaryPrimaryAlgebra
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

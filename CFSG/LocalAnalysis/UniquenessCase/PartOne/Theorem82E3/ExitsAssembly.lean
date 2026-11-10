@@ -2,14 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ExitsSetup
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.CaseOneExitSharp
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.CaseOneLieExit
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.CaseOneSp6Holds
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.CaseOneA11Final
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.A10EndFrame
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.A10EndFinal
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.A10EndFactsGamma
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.A10EndStarSeitz
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.A10EndAutThree
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.A10EndAutThreeCensus
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.K5AltSharp
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.K5ONanSharp
@@ -19,48 +17,33 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.K7cSharpHold
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.K7L67TwoSharpHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.K7L4MechHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.KInputsLieL7Two
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811K1Holds
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K2LieHolds
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K2Reduction
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K5Alt
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K5SmallJ3
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K5Small
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811K3Holds
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K5SmallONan
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K4L227
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K4bL227
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811K6aHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811K6bHolds
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811Centre
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811SignedFactsOmega7
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811SignedFactsOmega8Minus
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811SignedFactsSL
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811SignedFactsSU
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811SignedFactsSp6
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811SignedHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811K7Holds
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.KInputsSolvableOf
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.SEFive.Holds
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S215KF7UseThree
-public import CFSG.LocalAnalysis.UniquenessCase.UC6K35Holds
-public import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIB
-public import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIBSmall
 public import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIBA6
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332K33
-public import CFSG.LocalAnalysis.UniquenessCase.UC1K326P1CoverHolds
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332THolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixThirtyNineClause
 public import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.J4Eleven
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.SmallRank.OutThreeCore
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.StrongThree
-public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.InnerActionFinal
 public import CFSG.HardMathSupport.Dickson.Bal207.Closed
 public import CFSG.HardMathSupport.Dickson.Bal207.D42Triality
 public import CFSG.HardMathSupport.Solomon.Coordinator.SignalizerFunctorInstance
 public import CFSG.LieType.OutStructureSevenOneSevenHolds
-public import CFSG.RankThree.PartOne.TCB.Final
-public import CFSG.RankThree.PartTwo.KFacts.KS44Sz
 public import CFSG.CGT.PushingUpLit.SolK.Inputs
 public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieLift
 public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieRanges
@@ -149,11 +132,9 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.D1Frontier3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2AltFiveBlock3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2Families3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2HSFive3
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Cover
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Fusion
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Impure
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Kmax
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Port3CoreFree
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Residue3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2LeavesNarrow3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2SporDatum3

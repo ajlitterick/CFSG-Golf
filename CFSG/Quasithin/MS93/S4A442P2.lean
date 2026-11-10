@@ -1,12 +1,7 @@
 module
 
 public import CFSG.Quasithin.MS93.S4A442Stmt
-public import CFSG.Quasithin.MS93.S4A444
-public import CFSG.Quasithin.MS93.S4A44Q
-public import CFSG.Quasithin.MS93.S4A431E
 public import CFSG.Quasithin.MS93.S4A44E1
-public import CFSG.Quasithin.MS93.S46Ker
-public import CFSG.Quasithin.MS93.S4AEA
 public import CFSG.Quasithin.MS93.S4AFMain
 public import CFSG.CharacterTheory.Blocks.BrauerInduction
 public import CFSG.CharacterTheory.Semidihedral.Principal.PrimeOrderSylowColumn
@@ -58,8 +53,6 @@ public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F6Amalgams
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.FFC7G

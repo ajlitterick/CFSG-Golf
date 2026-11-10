@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGWitSlpm
 public import CFSG.LocalAnalysis.StandardType.GGWitSlpmConj
 public import CFSG.LocalAnalysis.StandardType.GGWitSlpmOrder
 

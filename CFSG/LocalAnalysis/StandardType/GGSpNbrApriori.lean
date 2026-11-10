@@ -5,13 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGRoundFourSmallASpLift
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
 public import CFSG.LocalAnalysis.StandardType.GGSpNbrKGMark
 public import CFSG.LocalAnalysis.StandardType.GGSpNbrKGConfig
-public import CFSG.LocalAnalysis.StandardType.GGSpFrameRank
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinMaxElemSp
-public import CFSG.LocalAnalysis.StandardType.GGSpFrameLine
-public import CFSG.LocalAnalysis.StandardType.GGSpFrameCoxeterCard
-public import CFSG.LocalAnalysis.StandardType.GGSpFrameConfig
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 public import CFSG.LocalAnalysis.StandardType.GGSpNbrKGF4Refl
 public import CFSG.LocalAnalysis.StandardType.GGSpLiftReflGen
 

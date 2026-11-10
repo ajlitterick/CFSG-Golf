@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLFinite
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelEFrame
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeScLift
-public import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
 
 public section
 

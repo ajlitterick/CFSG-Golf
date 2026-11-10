@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGAutPSUAux
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2GeoSU
-public import CFSG.Timmesfeld.LieEmbed.UnitaryForms
-public import CFSG.Timmesfeld.Transvection.ModelRankSU
 
 public section
 

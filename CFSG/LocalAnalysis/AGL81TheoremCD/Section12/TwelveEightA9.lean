@@ -31,11 +31,8 @@ import CFSG.LocalAnalysis.ComponentClassification.Sol78Family
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldNaturalAction
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122AProved
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L238BridgeAlt57Sp4
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LiftSaturate
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19Defs
 import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageCompletion
@@ -48,12 +45,9 @@ import CFSG.Quasithin.Background.B3Facts
 import CFSG.Quasithin.Background.B3FourConj
 import CFSG.Quasithin.Background.C4Statement
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E2TwoLieQuotLift
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Uniq
-import CFSG.Quasithin.Background.E4Solv
 import CFSG.Quasithin.Background.F9FiveStruct
 import CFSG.Quasithin.Background.F9Sixteen
 import CFSG.Quasithin.Background.FFC7G
@@ -69,7 +63,6 @@ import CFSG.Quasithin.Background.SmithB45SL3Label
 import CFSG.Quasithin.Background.SmithB45SL3Outer
 import CFSG.Quasithin.Background.SmithB51LnRealB
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.EmptyFaithful.S14110
 import CFSG.Quasithin.EmptyFaithful.S14117
 import CFSG.Quasithin.EmptyFaithful.T1515Der
@@ -97,7 +90,6 @@ import Certificates.Kernel.J4Count.Cent11Base
 import Certificates.Kernel.J4Count.Fix5
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

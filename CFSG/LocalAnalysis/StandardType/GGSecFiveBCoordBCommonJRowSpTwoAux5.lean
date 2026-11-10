@@ -8,9 +8,6 @@ import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusUnitary
 import CFSG.LocalAnalysis.StandardType.GGTPNI1BCComm
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowSpTwoAux3
 import CFSG.RankThree.PartOne.S11d.PSpGood
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenSymplecticNormalForm
 
 public section
 

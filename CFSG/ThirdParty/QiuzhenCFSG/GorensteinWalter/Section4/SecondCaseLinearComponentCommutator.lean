@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseLinearKCommutator
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
 import Mathlib.Tactic
 
 namespace CFSG

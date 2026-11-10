@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.TitsE1.Data
 public import Certificates.Data.Kernel.MaxD2.Check
-public import Certificates.Data.Kernel.Spor.Prim
-public import Certificates.Data.Kernel.BfsPin
 public import Certificates.Kernel.Sporadic.Tits.ChainD
 import CFSG.Certificates.Kernel.Common.Harness
 

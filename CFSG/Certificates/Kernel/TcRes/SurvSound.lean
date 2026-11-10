@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RCore
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Orbit
 public import CFSG.Certificates.Kernel.TcRes.RootSound
 public import Certificates.Data.Kernel.TcRes.C3
 

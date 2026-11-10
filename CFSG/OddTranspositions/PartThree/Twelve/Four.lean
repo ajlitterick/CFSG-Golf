@@ -4,7 +4,6 @@ public import CFSG.OddTranspositions.PartThree.Twelve.Three
 import CFSG.OddTranspositions.FusionStep
 import CFSG.OddTranspositions.WidthSylow
 import CFSG.OddTranspositions.PartThree.Ten.DalphaBlocks
-import CFSG.Timmesfeld.RootSubgroupBasic
 import CFSG.OddTranspositions.O4PairTenWidth
 import CFSG.OddTranspositions.Width
 

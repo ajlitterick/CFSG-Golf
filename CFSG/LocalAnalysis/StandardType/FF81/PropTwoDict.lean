@@ -3,11 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.FF81.Defs
 public import CFSG.LocalAnalysis.StandardType.GGFFModelNDefs
 public import CFSG.RankThree.PartTwo.Sec21.FF81P51
-public import CFSG.Open.LocalVocabulary
 import CFSG.LocalAnalysis.StandardType.GGFFEleven
 import CFSG.LocalAnalysis.StandardType.GGFFP51
 import CFSG.LocalAnalysis.StandardType.GGFFTen
-import CFSG.RankThree.PartTwo.Sec21.FF81P51Ten
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 

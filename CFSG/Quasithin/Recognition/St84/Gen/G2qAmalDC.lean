@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalBorelAut
 public import CFSG.GH74.QTGen4.DSGen4.Leaf.L34DCTransport
 import CFSG.Quasithin.Recognition.St84.Gen.L3qAmalExtend
-import CFSG.LieType.Chevalley.OddF4G2AutomorphismNormalForm
 public import CFSG.GH74.QTGen4.DSGen4.OpenLeaves
 public import CFSG.GH74.QTGen4.DSGen4.Statements
 public import CFSG.GH74.QTGen4.U42.AmalgamGen

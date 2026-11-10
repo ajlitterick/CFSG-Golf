@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Q8
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6RankFive
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeSCFourOdd
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeSCFourOddHolds

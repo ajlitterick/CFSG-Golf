@@ -3,23 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExcLabel
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoTBTv
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6TBModel
-public import CFSG.LocalAnalysis.StandardType.GGBstarLIDE6Field
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Cfg
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Nbr
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdLabel
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvSix
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenVac
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangWeylRestVac
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinIrredDef
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLModPSL
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLLine
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLTv
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Act
 
 public section

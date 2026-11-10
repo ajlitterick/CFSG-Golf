@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGClassicalEmbed
 public import CFSG.LocalAnalysis.StandardType.GGR4ActionHom
 public import CFSG.LocalAnalysis.StandardType.GGR4DatumComplement

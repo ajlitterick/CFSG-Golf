@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 public import CFSG.LocalAnalysis.StandardType.GGTypeAEndNode
 
 public section

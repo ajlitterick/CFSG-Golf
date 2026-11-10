@@ -1,25 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.S8.I1016ON
-public import CFSG.LocalAnalysis.GLTheoremA.S8.HNAlt12
-public import CFSG.RankThree.PartOne.K133Spor.HNKlein
-public import CFSG.RankThree.PartOne.K133Spor.HNClassB
-public import CFSG.RankThree.PartOne.S11c.HNInvQ6
-public import CFSG.Sporadic.HNOddCore.InvRow4b
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.HSFiveLocal
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714Lin
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714Conj
-public import CFSG.Sporadic.HS
-public import CFSG.Sporadic.Bridge.HSSurj
-public import CFSG.LocalAnalysis.GLTheoremA.Sec5BTools
 public import CFSG.LocalAnalysis.GLTheoremA.S8.I2014Core
 public import CFSG.LocalAnalysis.GLTheoremA.S8.I1423HN
-public import CFSG.LocalAnalysis.GLTheoremA.S8.I1016ONRow
 public import CFSG.LocalAnalysis.GLTheoremA.S8.I1016CoRows
-public import CFSG.Sporadic.HNOddCore.InvRow6
 public import CFSG.Sporadic.HN.Local.Main
 public import CFSG.RankThree.PartOne.K133Spor.HNLeaf6
-public import CFSG.LocalAnalysis.GLTheoremA.S8.Lemma83Inputs
 public import CFSG.GH74.Generic.S45.LLinSel
 public import CFSG.LocalAnalysis.GLTheoremA.S8.Lemma89
 

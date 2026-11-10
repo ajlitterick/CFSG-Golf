@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGReeB2StepThreeDefs
 public import CFSG.LocalAnalysis.StandardType.GGReeB2SigmaOrder
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Abel
-import Mathlib.Tactic.Push
 import Mathlib.Algebra.Ring.Fin
 public import Mathlib.Data.Nat.Bitwise
 public import Mathlib.Tactic.Linarith

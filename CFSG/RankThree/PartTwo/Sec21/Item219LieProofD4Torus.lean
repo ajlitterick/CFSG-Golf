@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
 public import CFSG.RankThree.Chevalley.SteinbergBTTrialitySplitPrimePlane
-import CFSG.RankThree.Chevalley.SteinbergCBTrialityOpposition
 import CFSG.RankThree.PartTwo.Sec4.Item417Res8ProofD4Plane
 import CFSG.RankThree.PartOne.K128.D4Syl
 

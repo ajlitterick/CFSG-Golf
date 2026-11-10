@@ -1,32 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitSU
-public import CFSG.LocalAnalysis.StandardType.GGResJUnitaryActorNormalization
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
-public import CFSG.LocalAnalysis.StandardType.GGNsFrameCompFrame
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-public import CFSG.LieType.SeitzGeneration.NonabLinear
-public import CFSG.RankThree.PartOne.CTP.SeitzUSplit
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.LocalAnalysis.StandardType.GGResIPumpLineTransfer
-public import CFSG.LocalAnalysis.StandardType.GGResJLineA3
 public import CFSG.LocalAnalysis.StandardType.GGResJUnitaryCubicBlock
-public import CFSG.LocalAnalysis.StandardType.GGResJLineBCGamma
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpElt
-public import CFSG.LocalAnalysis.StandardType.GGSignedPermCount
-public import CFSG.LocalAnalysis.StandardType.GGTwSUSigned
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeProp1010
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalUnitHypLift
-public import CFSG.LocalAnalysis.StandardType.GGKGForkUSplitOddL
-public import CFSG.LocalAnalysis.StandardType.GGKGForkUSplitC
-public import CFSG.LocalAnalysis.StandardType.GGKGForkUSplitOddC
-public import CFSG.LocalAnalysis.StandardType.GGKGForkUSplitE
 public import CFSG.LocalAnalysis.StandardType.GGKGForkUSplitOddE
 public import CFSG.GroupTheory.WeirSylow.CrossRankUnitary
 public import CFSG.GroupTheory.WeirSylow.UniqueE27Symplectic
-public import CFSG.GroupTheory.ElemAbelianRank
 
 public section
 

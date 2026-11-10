@@ -1,18 +1,11 @@
 module  -- shake: keep-all --deprecated_module: ignore
 
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.ClassFunction
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Orthogonality
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Integrality
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Induction
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.BrauerSuzuki
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.ConjClassFunction
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.SimpleCriteria
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Completeness
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Divisibility
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.BrauerPermutation
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.CharacterValues
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.DegreeBounds
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Cyclotomic
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.CrossCharBrauer
 
 namespace CFSG

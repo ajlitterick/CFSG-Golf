@@ -1,12 +1,6 @@
 module
 
-public import Mathlib.GroupTheory.GroupAction.FixedPoints
-public import Mathlib.GroupTheory.GroupAction.Quotient
 public import Mathlib.LinearAlgebra.FixedSubmodule
-public import Mathlib.LinearAlgebra.Basis.VectorSpace
-public import Mathlib.LinearAlgebra.Dimension.Constructions
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic.Basic
-public import Mathlib.LinearAlgebra.Finsupp.VectorSpace
 public import Mathlib.RepresentationTheory.Invariants
 
 namespace CFSG

@@ -6,11 +6,7 @@ import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveFusion
 import CFSG.OddTranspositions.PartThree.Twelve.TenFive
 import CFSG.OddTranspositions.PartThree.Twelve.SixFive
 public import CFSG.OddTranspositions.PartThree.Twelve.SevenFive
-public import CFSG.OddTranspositions.O4CloseReduction
-import CFSG.OddTranspositions.PartThree.Twelve.Four
 import CFSG.OddTranspositions.PartThree.Twelve.FiveCount
-import CFSG.OddTranspositions.PartThree.Nine.Setup
-import CFSG.OddTranspositions.PartFour.Fourteen.RootBlockFive
 
 public section
 

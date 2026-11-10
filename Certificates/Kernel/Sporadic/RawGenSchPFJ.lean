@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.RawGenSchPF
-public import CFSG.Certificates.Kernel.Spor.RawSchPSound
 public import CFSG.Certificates.Kernel.Spor.RawSchFSound
 public meta import Certificates.Kernel.Sporadic.RawGenSchPF
 public meta import Certificates.Kernel.Sporadic.RawGenSchP

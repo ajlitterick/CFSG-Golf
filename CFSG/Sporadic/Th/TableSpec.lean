@@ -2,11 +2,6 @@ module
 
 public import Mathlib
 public import Certificates.Data.CFSGNative.Th.Certificate
-import Certificates.Data.CFSGNative.Th.Core
-import Certificates.Data.CFSGNative.Th.Orbit
-import Certificates.Data.CFSGNative.Th.Tables
-import Certificates.Data.CFSGNative.Th.Sift
-import Certificates.Data.CFSGNative.Th.Suborbits
 
 public section
 

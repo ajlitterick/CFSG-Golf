@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentStepFour
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.Defs
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentPQ
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentSylow
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneElevenEleven
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.PLengthLemmas
 import Certificates.Kernel.Sporadic.Fi22.C2068
 import Certificates.Kernel.Sporadic.Fi22.C3151
 

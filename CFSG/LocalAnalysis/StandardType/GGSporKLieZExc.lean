@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSporKLieZReduce
-public import CFSG.LocalAnalysis.StandardType.GGLayerAbelianOdd
-public import CFSG.LocalAnalysis.StandardType.GGExcAdjOddLayerCentreHolds
 public import CFSG.LocalAnalysis.StandardType.GGOddLayerCentreHolds
 public import CFSG.LocalAnalysis.StandardType.GGSporKLieZTwD4Core
-public import CFSG.Adapters.TauCetiExceptional.TwistedTransfer
-public import CFSG.Blueprint.Catalog
 
 public section
 

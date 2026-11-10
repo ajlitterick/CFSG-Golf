@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.EightEight.Star
-public import CFSG.OddTranspositions.WreathBase
 public import CFSG.OddTranspositions.PartThree.Ten.WreathEndgame
 import CFSG.OddTranspositions.PartThree.EightSeven
 import CFSG.OddTranspositions.PartThree.EightEight.WreathBlocks

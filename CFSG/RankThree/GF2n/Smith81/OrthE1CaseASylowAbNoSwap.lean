@@ -2,9 +2,7 @@ module
 
 public import CFSG.RankThree.GF2n.Smith81.OrthE1KF3p
 public import CFSG.RankThree.GF2n.Smith81.OrthE1KF9
-public import CFSG.RankThree.GF2n.Smith81.OrthE1KFSmall
 public import CFSG.Quasithin.H13.NQRigidWMGroups
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalORigidMinusFacts
 public import CFSG.RankThree.GF2n.Smith81.OrthE1CaseASylowAbOmegaComm
 public import CFSG.Certificates.LiftedSchreierData
 public import CFSG.LocalAnalysis.RankFourTheoremC.InvariantTwo.KFacts.I294CrossFamilies

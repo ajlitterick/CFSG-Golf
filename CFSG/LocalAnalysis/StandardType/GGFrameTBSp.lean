@@ -6,10 +6,7 @@ import CFSG.LocalAnalysis.StandardType.GGFrameClassicalNum
 import CFSG.LocalAnalysis.StandardType.GGFrameClassicalAut
 import CFSG.LocalAnalysis.StandardType.GGStdPosC24Signed
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalSpLift
-import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalSpSC
 import CFSG.LocalAnalysis.StandardType.GGKGARank
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 
 public section
 

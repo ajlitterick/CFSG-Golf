@@ -4,17 +4,12 @@ module
 public import CFSG.Sporadic.Ru
 public import CFSG.Sporadic.Bridge.VecSurj
 public import CFSG.Sporadic.Presentation.RuExact
-public import Certificates.Data.CFSGNative.Bridge.SurjD
 public meta import Certificates.Data.CFSGNative.Bridge.SurjD
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import CFSG.Sporadic.Presentation.RuExactInputs
-public import Certificates.Data.CFSGNative.Ru.Data
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all CFSG.Blueprint.NativeSporadic
 public import CFSG.Certificates.SeededRelations
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.Sporadic.Presentation.Common
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

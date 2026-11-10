@@ -2,9 +2,7 @@
 module
 
 public import CFSG.GH74.E2.SD16CertInputs
-public import CFSG.GH74.E2.AutCert
 import all CFSG.GH74.E2.AutCert
-public import CFSG.CharacterTheory.Semidihedral.NormalForm
 import all CFSG.CharacterTheory.Semidihedral.NormalForm
 import all CFSG.CharacterTheory.Semidihedral.Model
 import all CFSG.GH74.E2.SD16CertInputs

@@ -5,9 +5,7 @@ public import CFSG.CGT.T75Q.Sec64Aux
 public import CFSG.CGT.T75P.DecD
 public import CFSG.CGT.T75P.Chain4
 public import CFSG.CGT.T75I.Ctx
-public import CFSG.CGT.Timmesfeld75.Sec3TwelveRho
 public import CFSG.CGT.Timmesfeld75.Sec6TwoSetup
-import Mathlib.Tactic.Group
 public import CFSG.CGT.T75P.Syl
 public import CFSG.CGT.Timmesfeld75.OddCenter
 public import CFSG.CGT.Timmesfeld75.Sec5ElevenIso
@@ -15,7 +13,6 @@ public import CFSG.CGT.Timmesfeld75.Sec5FiveEng
 public import CFSG.CGT.Timmesfeld75.Sec6One
 public import CFSG.CGT.Timmesfeld75.Step57Reduction
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonSplitTorus
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.EmptyFaithful.S151S9TData
 public import CFSG.Quasithin.EmptyFaithful.S151S9TNineData
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHeCertificateInputs
 

@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Data.HePresCheck
 public import CFSG.Certificates.Kernel.CosetJ.ModelSound
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 import all Certificates.Data.HePresData

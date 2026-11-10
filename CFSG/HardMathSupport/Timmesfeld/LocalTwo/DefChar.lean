@@ -1,21 +1,9 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.Families
-public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.DefCharClassical
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.DefCharOrth
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.DefCharExceptional
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.OuterClassical
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreAssembly
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreA
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreA1
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreC
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreTwistedA
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreOrth
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreE
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreF4G2
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreTwistedE6
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreReeD4
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.OuterRank
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreDFour
 public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverFour
 

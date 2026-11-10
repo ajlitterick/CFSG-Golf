@@ -6,9 +6,6 @@ public import Certificates.Kernel.Sporadic.OddCore.SuzOuter
 public import Certificates.Kernel.Sporadic.OddCore.Glue
 public import CFSG.Certificates.Kernel.Spor.RowWordSound
 public import CFSG.Sporadic.SuzOddCore.OuterCheckInputs
-public import CFSG.Sporadic.SuzOddCore.CertChainCheckInputs
-import CFSG.Sporadic.SuzOddCore.Arrays
-import CFSG.Sporadic.SuzOddCore.GraphArrays
 import CFSG.Certificates.Kernel.Common.Harness
 import Mathlib.Tactic.IntervalCases
 public import Std.Tactic.BVDecide.Normalize.Prop

@@ -2,13 +2,8 @@ module
 
 public import CFSG.Sporadic.SuzOddCore.CTIBase
 public import CFSG.Sporadic.SuzOddCore.ThreeLocalA
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourGroupSpec
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public meta import CFSG.Sporadic.SuzOddCore.CTICheck
-public import Certificates.Certificate2289
-public import Certificates.Certificate2293
-public import Certificates.Certificate2296
-public import Certificates.Certificate2306
 public meta import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.Open.LocalVocabulary

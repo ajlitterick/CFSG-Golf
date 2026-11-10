@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGWeylFamQuotSolvFin
 public import CFSG.LocalAnalysis.StandardType.GGKGLayersE6
-public import CFSG.LocalAnalysis.StandardType.GGKGSigmaLayer
-public import CFSG.LocalAnalysis.StandardType.GGKGOrthPairs
-public import CFSG.RankThree.Classical2.SLnRootPermutingFixedGroups
-public import CFSG.RankThree.PartOne.KE.E6A3Sigma
 
 public section
 

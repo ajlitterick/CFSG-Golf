@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.K1320X.CommDistinctX
-public import CFSG.RankThree.PartOne.S13K.KFLiftRows
 public import CFSG.RankThree.PartOne.K1320X.TwoSub
 
 public section

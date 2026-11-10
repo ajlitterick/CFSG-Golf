@@ -1,10 +1,5 @@
 module
 
-public import Mathlib.Algebra.Group.Action.End
-public import Mathlib.GroupTheory.GroupAction.Defs
-public import Mathlib.LinearAlgebra.FiniteDimensional.Defs
-public import Mathlib.LinearAlgebra.Isomorphisms
-public import Mathlib.LinearAlgebra.QuadraticForm.Basic
 public import Mathlib.Algebra.Field.ZMod
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.Basic
 

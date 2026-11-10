@@ -1,25 +1,15 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CTUSol76SigL39K2
-public import CFSG.LocalAnalysis.ComponentClassification.CTUSol76SigL39KC
-public import CFSG.LocalAnalysis.ComponentClassification.CTUSol76SigGoodJoin
-public import CFSG.LocalAnalysis.ComponentClassification.CTUSol76SigQInv
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmBInputs
 public import CFSG.LocalAnalysis.ComponentClassification.SolAltLitSCATTwo
 public import CFSG.LocalAnalysis.ComponentClassification.SolMaxSwapN9CG
 public import CFSG.LocalAnalysis.ComponentClassification.SolMaxSwapN9B
 public import CFSG.LocalAnalysis.ComponentClassification.SolMaxSixG
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSwNormC3
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB58NFq
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
-public import CFSG.GroupTheory.PCore.PrimeCoreImages
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB58NFr
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB58NFp
-public import CFSG.LocalAnalysis.ComponentClassification.Sol76Thm12
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitSolomonFamily
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82TcA10TDefs
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82CIA0Fuse
-public import CFSG.LocalAnalysis.ComponentClassification.GSLitInputs
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.GH74.E2.CaseIINoComp
 public import CFSG.GH74.GLS.C3.Layer1.PU4Proved
@@ -64,8 +54,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7S3g
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82A10E1Defs
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82A10SidePgl
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82A10SideS6
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82CB10
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82Final
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82FinalB
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82SecondCentral
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBSections

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6ThreeDefs
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 
 public section
 

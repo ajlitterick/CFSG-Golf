@@ -1,16 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenResultsB
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenResults2
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen24Defs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenAk
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThirteenA
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenResults
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenSmallDefs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1Cover
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22p
-public import CFSG.LocalAnalysis.WeakClosure81.SixNine
 public import CFSG.HardMathSupport.Timmesfeld.OrthogonalGeneration.Bridge
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofOAut
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofOCoords
@@ -34,8 +28,6 @@ public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.InternalSecAutOn
 public import CFSG.Quasithin.Background.InternalSecB4
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S1417Glue
 public import CFSG.Quasithin.EmptyFaithful.S1421Defs
 public import CFSG.Quasithin.EmptyFaithful.S151ZC

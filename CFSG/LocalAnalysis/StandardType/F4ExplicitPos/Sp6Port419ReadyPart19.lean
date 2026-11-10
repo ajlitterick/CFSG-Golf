@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.A2CommutatorCheck
 public import CFSG.LieType.SeitzGeneration.HeisTorusU87Arith
 public import CFSG.RankThree.Lattice.SteinbergBIE6OrderThree
 public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints

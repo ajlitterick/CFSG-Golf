@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2E6NativeComp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I142NLift
-public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CanonicalPerfectLifts
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Export
 public import CFSG.Assembly.E6FourDiagonal
-public import CFSG.ClassicalInvolution.ModelFacts.ChevAutLift
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2IsogenyCenter
-public import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
-public import CFSG.Assembly.Subnormal
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotNonsplitFrobenius
 public import CFSG.Assembly.E6FourCentSpec
 

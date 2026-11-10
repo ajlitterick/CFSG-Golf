@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Quasithin.H13.KGFactT3J4Inputs
 public import Certificates.Certificate7171
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4Quot
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4Check
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M24Lat
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4RadM3Orb
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatO2
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatIncl
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1PipeBasic
 public import CFSG.Quasithin.H13.NQCatT513L24

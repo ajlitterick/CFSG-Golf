@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeAFiveProof
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofMain
-public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofGlueVec
-public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofGlueInj
-public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCfg
-public import CFSG.LocalAnalysis.StandardType.GGTypeAFarConfig
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrWeylA
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKnownDefs
 

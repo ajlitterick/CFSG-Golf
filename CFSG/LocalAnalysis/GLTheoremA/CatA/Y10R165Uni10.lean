@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Uni9
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Uni12
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Concl
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcEngine
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Num
 public import CFSG.HardMathSupport.Solomon.Coordinator.L5Conj
 public import CFSG.Holt.Fixed
 public import CFSG.LocalAnalysis.GL83PartI.I_22_6

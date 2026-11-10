@@ -3,8 +3,6 @@ module
 public import CFSG.LieType.AlgebraicGroups.RealizedTangentCurves
 
 import CFSG.LieType.AlgebraicGroups.InnerInvolutionTorus
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
-import Mathlib.Algebra.Polynomial.Roots
 
 public noncomputable section
 

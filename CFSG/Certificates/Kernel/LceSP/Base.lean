@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.LceSTab
 public import Mathlib.GroupTheory.Index
 import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Group
 
 public section

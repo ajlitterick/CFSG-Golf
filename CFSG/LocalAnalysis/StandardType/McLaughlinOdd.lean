@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.McLaughlinOddSpGrow
 public import CFSG.ClassicalGroups.Alternating.Generation
-import Mathlib.Tactic.LinearCombination
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2LinBlocksDefs
-import CFSG.LinearAlgebra.LinearGroups.Perfect
 import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksCent
 import CFSG.LocalAnalysis.StandardType.GGQ2LinBlocksBasic
 

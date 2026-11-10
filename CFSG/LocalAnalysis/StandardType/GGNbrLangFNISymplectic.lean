@@ -1,17 +1,13 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIRestr
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNISpSemilin
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNISpFixedCoord
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNISpPairCoord
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNISpSelfDualCoord
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNISpBlockMark
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNISpUnitaryMark
-import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOrthogonalBlocks
 import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpDecomp
-import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagBlocks
 import CFSG.LocalAnalysis.StandardType.TableC.POmegaBlockDeg
-import CFSG.GroupTheory.IsComponentOfMap
 
 public section
 

@@ -3,9 +3,7 @@ module
 
 public import Certificates.Certificate15090Base
 
-public import CFSG.Sporadic.SuzRecog.LevelTwoCheck
 import Certificates.Kernel.Sporadic.L2.G7
-import Certificates.Kernel.Sporadic.L2.XC
 public import Mathlib
 
 public section

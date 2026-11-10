@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Parrott.Data
 public import Certificates.Kernel.Misc.Coset.ActBlocks
 public import Certificates.Kernel.Misc.Tits.Text
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

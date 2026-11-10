@@ -4,8 +4,6 @@ public import Certificates.Kernel.Co1SevenK.SylGlue
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1SevenBase
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1PowBound
 public import CFSG.Certificates.Kernel.Co1BSpinSound
-public import CFSG.Certificates.Kernel.Co1BTrSound
-import Mathlib.Tactic.IntervalCases
 
 public section
 

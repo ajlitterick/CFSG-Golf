@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSylow
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuous
-public import CFSG.LieType.SeitzGeneration.ExcTorusRankE8
 public import CFSG.LocalAnalysis.StandardType.GGPRankBoundsExc
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.LieOuterE
 public import CFSG.HardMathSupport.Timmesfeld.Proving.ExistsOrderPCentralizer

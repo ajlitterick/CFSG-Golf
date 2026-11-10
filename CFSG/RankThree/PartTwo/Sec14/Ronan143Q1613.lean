@@ -1,20 +1,8 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec16.Item1613ResProofOut
-public import CFSG.RankThree.PartTwo.Sec16.Item16Tail13Defs
-public import CFSG.RankThree.PartTwo.Sec15.HypS
-public import CFSG.RankThree.PartTwo.Sec13.Item138N
-public import CFSG.RankThree.PartTwo.Sec13.Item13Inputs
-public import CFSG.RankThree.PartTwo.Sec17.RouteForms
-public import CFSG.RankThree.PartTwo.Sec16.Item1613StepsProofTypeC
-public import CFSG.RankThree.PartTwo.Sec16.Item16Res10ProofOut
 public import CFSG.RankThree.PartTwo.Sec16.Item16Res11ProofOut
-public import CFSG.RankThree.PartTwo.Sec16.Item16Res11ProofTools
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiItem412
-public import CFSG.RankThree.PartTwo.Sec4.Item41Narrow
 public import CFSG.RankThree.PartTwo.Sec16.Item16Res12ProofL3
 public import CFSG.RankThree.PartTwo.Sec16.Item16Res12ProofTheta
-public import CFSG.RankThree.PartTwo.Sec16.Item16Res3ProofOmega
 public import CFSG.RankThree.PartTwo.Sec16.Item16Res12ProofOut
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148QDefs
 import CFSG.RankThree.PartTwo.Sec16.Item1613StepsProofStep
@@ -24,60 +12,35 @@ import CFSG.RankThree.PartTwo.Sec16.Item16Tail13Tools
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail13PGL
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail13Fus
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail13
-import CFSG.RankThree.PartTwo.Sec16.Item16Tail
-import CFSG.RankThree.PartTwo.Sec16.Item16TailMore
 import CFSG.RankThree.PartTwo.Sec16.Item169General
-import CFSG.RankThree.PartTwo.Sec13.Item131Facts
-import CFSG.RankThree.PartTwo.Sec13.Item136PGL
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import CFSG.RankThree.PartTwo.Sec13.Item13Plane
-import CFSG.RankThree.PartTwo.Sec14.Concl142NHJInner
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
-import CFSG.RankThree.PartTwo.Sec21.Implications
 import CFSG.RankThree.PartTwo.Sec5.Tools
 import CFSG.RankThree.PartTwo.KFacts.KS14Orders
 import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
 import CFSG.LocalAnalysis.SignalizerFunctor.InvariantSylowAmbient
-import CFSG.LocalAnalysis.RankThreeEvenClassification.Helpers
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 import CFSG.RankThree.PartTwo.Sec6.Item612Core
 import CFSG.RankThree.PartTwo.Source.OrderThreeMinimalTwoGroup
 import CFSG.RankThree.PartTwo.Sec14.Item1411StepsProofTools
 import CFSG.RankThree.PartTwo.Sec17.Item176ProofTwo
-import CFSG.RankThree.PartTwo.Sec13.Naturality
-import CFSG.RankThree.PartTwo.Sec21.Item211ProofQuot
 import CFSG.RankThree.PartTwo.Sec21.Item2130Res5ProofLThree
 import CFSG.RankThree.PartTwo.Sec15.NoModNine
-import CFSG.RankThree.PartTwo.KFacts.KSL3PiOrder3TypeC
 import CFSG.RankThree.PartTwo.Sec8.Item82OneProofTransport
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseI
-import CFSG.GroupTheory.LocalCores.Components
 import CFSG.RankThree.PartTwo.Sec15.Item156Res4ProofInner
 import CFSG.RankThree.PartTwo.Sec15.Item158CartanProofFuse
 import CFSG.RankThree.PartTwo.Sec15.Item158StepsProof
-import CFSG.RankThree.PartTwo.Sec15.Item1514Steps1515
 import CFSG.RankThree.PartTwo.Sec14.Item142L3ResProofTypesCent
 import CFSG.RankThree.PartTwo.Sec13.Item138ProofOmega
 import CFSG.RankThree.PartTwo.Sec13.Item138NMod9
-import CFSG.RankThree.PartTwo.Sec13.Item136Pair
-import CFSG.RankThree.PartTwo.Sec13.Item13Prod
-import CFSG.RankThree.PartTwo.Sec13.Item13Theta
 import CFSG.RankThree.PartTwo.Sec13.Item133
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
-import CFSG.RankThree.PartTwo.Sec4.LThreePiHessian
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail14Tools
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
 import CFSG.RankThree.PartTwo.Sec13.Item132
-import CFSG.RankThree.PartTwo.Sec16.Item16Tail15
 import CFSG.RankThree.PartTwo.Sec16.Item1613StepsProofEF
 import CFSG.RankThree.PartTwo.Sec16.Item1613StepsProofTrans
-import CFSG.RankThree.PartTwo.Sec16.Item1613ResProofDL
 import CFSG.RankThree.PartTwo.Sec15.Item1511Meta
-import CFSG.RankThree.PartTwo.Sec14.Concl143Std
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail14
-import CFSG.RankThree.PartTwo.Sec16.Item1613ResProofFix
 import CFSG.RankThree.PartTwo.Sec16.Item1613StepsProofComm
-import CFSG.RankThree.PartTwo.Sec16.Item16Res3ProofOmegaSolv
 import CFSG.RankThree.PartTwo.Sec16.Item16Res3ProofSzOdd
 import CFSG.RankThree.PartTwo.Sec16.SuzukiSectionProofGL
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
@@ -88,7 +51,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 public import CFSG.RankThree.PartTwo.Sec14.Concl143HJ
@@ -114,7 +76,6 @@ import CFSG.RankThree.PartTwo.Sec17.Item17ParaHJ
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface46
 import CFSG.RankThree.PartTwo.Sec7.ThreeTranspositions
 import CFSG.Sporadic.ONOddCore.LiftHomCheckInputs
-import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

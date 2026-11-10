@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Center
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Center
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.Dihedral.OriginalASevenPrimeNormalizer
 import all CFSG.Dihedral.BlueprintDefs
-public import CFSG.Dihedral.PrimeClassPartition
-public import CFSG.Dihedral.PrimeNormalizerQuotientAlternatives
 
 public noncomputable section
 

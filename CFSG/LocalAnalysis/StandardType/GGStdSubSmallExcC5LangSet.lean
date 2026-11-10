@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5LangTor
 public import CFSG.LocalAnalysis.StandardType.GGLangRatComp
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1ExcSetup
-public import CFSG.LieType.Chevalley.GraphFixedCoordinateDetection
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcSuNHom
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreHom
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenPin

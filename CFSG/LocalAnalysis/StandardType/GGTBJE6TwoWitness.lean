@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6TwoLang
-public import CFSG.LocalAnalysis.StandardType.GGTBTorDefs
 public import CFSG.LocalAnalysis.StandardType.GGTorusScalar
 public import CFSG.LocalAnalysis.StandardType.GGTorusWeylFrame
-import CFSG.LieType.Chevalley.TorusCoordinates
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteA4F4
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassical222ExcO8Defs
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylFrameData
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 public import CFSG.Sporadic.HeldB.Common
 public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizerData
 public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutFusion

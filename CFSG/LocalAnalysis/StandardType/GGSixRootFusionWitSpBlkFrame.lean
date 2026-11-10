@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitSpBlkNorm
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitSpBlkExt
 public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorusForm
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameMatrix
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSpNs
 
 public section

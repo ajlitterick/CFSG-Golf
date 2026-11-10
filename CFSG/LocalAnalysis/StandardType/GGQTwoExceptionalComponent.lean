@@ -1,17 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoExceptionalRealization
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCavQuotient
 public import CFSG.LocalAnalysis.StandardType.GGLangExhaust
 public import CFSG.LocalAnalysis.StandardType.GGQTwoRationalComponent
 public import CFSG.LocalAnalysis.StandardType.GGQTwoF4RationalAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGLangUniform
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCavMarking
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.AlgSetupUntw
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtUntw
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigidSplit
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFivePairRigid
-public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcEmb
 
 public noncomputable section
 

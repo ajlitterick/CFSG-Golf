@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeKInputs
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeMax
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeEnd
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
 public import CFSG.LieType.Universal.SpinOmega.Range
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwoOddFourGroups

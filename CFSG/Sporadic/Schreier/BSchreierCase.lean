@@ -3,9 +3,6 @@ module
 public import CFSG.Monster.B.Final.PinnedBOrder
 public import CFSG.LocalAnalysis.ComponentClassification.BMCaseCbar
 public import CFSG.LocalAnalysis.ComponentClassification.SporadicSchreierDispatch
-public import CFSG.LocalAnalysis.ComponentInitial.AlternatingOuterBound
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Sporadic.M23.M23Group
 public import CFSG.Sporadic.Schreier.RuLocal
 public import CFSG.Sporadic.SchreierLemmas.FrattiniProfile

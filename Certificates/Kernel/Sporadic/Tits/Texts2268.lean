@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Certificates.Kernel.Misc.PairCountSound
@@ -8,9 +7,7 @@ public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Sporadic.Schreier.TitsLocalCheckInputs
 meta import CFSG.Sporadic.Schreier.TitsData
-import CFSG.Sporadic.Schreier.TitsArrays
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

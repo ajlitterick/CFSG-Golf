@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.LocalVocabulary
 public import CFSG.GroupTheory.CommutingProductFixedSubgroup
 public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.GroupTheory.InvertingElements
@@ -9,7 +8,6 @@ public import CFSG.GH74.GLS.IVK.L2.ExistCyclic
 public import CFSG.CharacterTheory.Semidihedral.OddFieldSL2
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.Open.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 public section
 

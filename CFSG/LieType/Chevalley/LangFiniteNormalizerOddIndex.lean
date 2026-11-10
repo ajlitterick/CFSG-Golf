@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.SylowOpposition
 public import CFSG.LieType.Chevalley.ChevalleySplitBN
-public import Mathlib.GroupTheory.PGroup
 
 public noncomputable section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.Assembly.Subnormal
 
 public section
 

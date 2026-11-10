@@ -3,17 +3,12 @@ module
 
 public import CFSG.Quasithin.H13.J4ClassCheckBase
 
-public import Certificates.Data.CFSGNative.H13.J4Class
 public meta import Certificates.Data.CFSGNative.H13.J4Class
-public import Certificates.Data.CFSGNative.H13.J4Elems
 public meta import Certificates.Data.CFSGNative.H13.J4Elems
-public import CFSG.Sporadic.Schreier.J4SNative
 public meta import CFSG.Sporadic.Schreier.J4SNative
 public import CFSG.Sporadic.Schreier.J4SKCent
 public meta import CFSG.Sporadic.Schreier.J4SKCent
-public import CFSG.Sporadic.Schreier.J4SOrbits
 public meta import CFSG.Sporadic.Schreier.J4SOrbits
-public import CFSG.Quasithin.H13.J4ClassCheckInputs
 public import Certificates.Certificate7034
 
 public section

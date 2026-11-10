@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.SzFiveTrans
 import CFSG.RankThree.PartOne.S12.Sec1511SPEFStar
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.SEFive.SPEBasics
 import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Sporadic.ThSchreier.CentralizerDataBase
-public import CFSG.Sporadic.ThSchreier.WordsBase
 public meta import CFSG.Sporadic.ThSchreier.CentralizerDataBase
 public meta import CFSG.Sporadic.ThSchreier.WordsBase
 

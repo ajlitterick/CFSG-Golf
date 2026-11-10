@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.HardDefs
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.HardCentral
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.HardComp
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.HardDiag
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.HardStep
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.Thm3Cover

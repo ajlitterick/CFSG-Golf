@@ -1,37 +1,14 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Statements
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Final
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.A4
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Commutation
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Remark31Fstar
-public import CFSG.LocalAnalysis.QuasithinUnique.GammaFamiliesExtraComponents
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma32K
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma32S
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma32B
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma32A7
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma32A8
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma32W
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma32LeK
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.TabClass8Split
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.TabClass8Sp4
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.TabClass8L5
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.TabClass8HS
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma33
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma35
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma36
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma36TC
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma36Cent
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Claim1Assembly
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Claim1Ident
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma37
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Remark31Phi
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.FinalFacts
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Used
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.GammaLemmas
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.L34End
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.L27Reentry
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.L27ReentryA5
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma27A5
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.TabBig
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.In2436Proved

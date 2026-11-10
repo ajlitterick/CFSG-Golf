@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Tits.T614Q
-public import Certificates.Kernel.Sporadic.Tits.LocS
 public meta import CFSG.Quasithin.Vol2.Ch6Sec1Lem4TInputs
 
 public section

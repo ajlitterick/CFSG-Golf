@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.ExcU7Frame
-public import CFSG.LocalAnalysis.StandardType.ExcPos.ExcU7TvSwapped
 public import CFSG.LocalAnalysis.StandardType.ExcPos.ExcU7TvFixed
 public import CFSG.LocalAnalysis.StandardType.ExcPos.ExcU7TvCentral
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I91T4
-public import CFSG.Adapters.ClassicalCatalogLinearUnitary
-public import CFSG.Adapters.LinearCatalog
-public import CFSG.Adapters.ClassicalCatalogReverse
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Index
 

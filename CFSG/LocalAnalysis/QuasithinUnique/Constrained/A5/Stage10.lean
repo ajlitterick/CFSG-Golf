@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.S10J
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Stage7
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Statements
 
 public section
 

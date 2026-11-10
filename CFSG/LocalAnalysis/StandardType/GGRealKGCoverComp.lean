@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Assembly.Subnormal
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I142NBase
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenTwist
 public import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenWeyl

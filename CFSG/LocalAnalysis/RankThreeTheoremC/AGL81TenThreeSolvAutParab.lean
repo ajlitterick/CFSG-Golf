@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockDefs
-public import CFSG.Open.StatedDefs
 public import CFSG.Open.GriessAllModelsStatement
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.BlockB.PLElem.Parabolic
 import CFSG.LocalAnalysis.AGLEmbedding.UnitaryParabThreeRank
@@ -46,7 +45,6 @@ import CFSG.LocalAnalysis.AGLEmbedding.J3InSitu
 import CFSG.LocalAnalysis.AGLEmbedding.J3MSide
 import CFSG.LocalAnalysis.AGLEmbedding.KFactsAlphaWeakCentral
 import CFSG.LocalAnalysis.AGLEmbedding.MonomialWeightsOne
-import CFSG.LocalAnalysis.AGLEmbedding.OddCoreRank
 import CFSG.LocalAnalysis.AGLEmbedding.OneLieMDataAux2
 import CFSG.LocalAnalysis.AGLEmbedding.OneLieMSideCore
 import CFSG.LocalAnalysis.AGLEmbedding.OneLieUnitaryZAux

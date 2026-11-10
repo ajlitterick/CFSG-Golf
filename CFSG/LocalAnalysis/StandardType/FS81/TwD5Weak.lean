@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Transfer
-public import CFSG.LocalAnalysis.StandardType.FS81.NoTransvUnique
 public import CFSG.LocalAnalysis.StandardType.FS81.NoTransvMain
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 
 public section
 

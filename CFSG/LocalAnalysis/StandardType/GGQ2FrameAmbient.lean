@@ -3,12 +3,10 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265CDynO
 public import CFSG.LocalAnalysis.StandardType.GGQ2ActualFrame
 public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.Assembly.LargeEvenGLABridge
 import CFSG.LocalAnalysis.GLTheoremA.CatB.FStdDiagRed
 import CFSG.LocalAnalysis.StandardType.GGXInLDispatch
 import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVac
 import CFSG.LocalAnalysis.StandardType.GGCSRHolds
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGCanonicalToLegacy
 public import CFSG.HardMathSupport.Curtis.Coordinator.SeitzTower.Rest
 public import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderE6Order

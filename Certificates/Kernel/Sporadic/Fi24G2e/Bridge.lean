@@ -3,15 +3,12 @@ module
 public import Certificates.Kernel.Sporadic.Fi24Orb.Psi
 public import Certificates.Kernel.Sporadic.Fi24Ext.Links
 public import Certificates.Kernel.Sporadic.Fi24G2e.Data
-public import Certificates.Kernel.VecCert.WordProgX
 import Certificates.Kernel.Sporadic.Fi24Fix.Chain
 import Certificates.Kernel.Sporadic.Fi24G2e.BV
 import Certificates.Kernel.Sporadic.Fi24G2e.B0
 import Certificates.Kernel.Sporadic.Fi24G2e.B1
 import Certificates.Kernel.Sporadic.Fi24G2e.B2
 import all CFSG.Sporadic.Bridge.Common
-import Mathlib.Tactic.Group
-public import Certificates.Kernel.Fi23M.Psi
 
 public section
 

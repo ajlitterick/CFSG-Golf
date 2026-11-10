@@ -1,15 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGMarkingSU
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6Coker
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcTwE6Cyc
-public import CFSG.LieType.Chevalley.E6GraphLeviUnitary
-public import CFSG.LieType.Chevalley.E6GraphLeviIntersections
-public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotHR6X
 public import CFSG.LieType.Chevalley.E6EvenRootTorus
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeTypeA
-import CFSG.ClassicalGroups.Unitary.Finite
-public import CFSG.LieType.Chevalley.GraphFixedCompatibleDiagonal
 
 public section
 

@@ -2,19 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBase
 public meta import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBaseNative
-public import CFSG.Sporadic.Mathieu.M11
-public import CFSG.Sporadic.Mathieu.M12
-public import CFSG.Sporadic.Mathieu.M22
-public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.Sporadic.Schreier.M23Gens
 public import CFSG.Sporadic.Schreier.M23
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieuInputs
 public import Certificates.Certificate4075
-public import Certificates.Certificate2197
-public import Certificates.Certificate3017
-public import Certificates.Certificate3029
-public import Certificates.Certificate3086
-public import Certificates.Certificate3120
 public import CFSG.Foundations
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

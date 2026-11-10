@@ -3,9 +3,6 @@ module
 public import CFSG.ClassicalInvolution.SmallCases.NDBH3T3
 import CFSG.ClassicalInvolution.SmallCases.NDBH1
 import CFSG.ClassicalInvolution.Asc77.WP3ChainVGen3
-import CFSG.ClassicalInvolution.Asc77.WP3FrameLieE
-import CFSG.ClassicalInvolution.Asc77.WP3FrameBootTwinSide
-import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.ClassicalInvolution.Asc77.WP3ChainVToral
 
 public section

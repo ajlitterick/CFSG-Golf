@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResUnitaryKRankFiveLDefs
 public import CFSG.LocalAnalysis.StandardType.GGResRankFiveFieldTwoL
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySp
 
 public section
 

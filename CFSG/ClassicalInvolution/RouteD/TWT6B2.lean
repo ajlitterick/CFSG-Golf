@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWT4Hbad
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2Trans
 public import CFSG.ClassicalInvolution.RouteD.SCRTwinGenSmall
 
 public section

@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.Perm.Sign
-public import Mathlib.GroupTheory.Perm.List
 public import CFSG.Quasithin.Vol2.KGFactC31EBasis
 
 public section

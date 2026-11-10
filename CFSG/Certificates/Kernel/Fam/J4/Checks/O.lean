@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.Fam.Lin
 public import CFSG.Certificates.Kernel.Fam.J4.Data.Sel
 public import CFSG.Certificates.Kernel.J4.KRSData
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 set_option maxHeartbeats 0

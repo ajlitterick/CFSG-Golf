@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapGlue
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRTD4
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestTri
-public import CFSG.LieType.Simplicity.TrialityD4
 
 public section
 

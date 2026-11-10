@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeDefs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDConversePSL
 public import CFSG.GroupTheory.IsComponentOfMap
-public import CFSG.GroupTheory.CommutingProductFixedSubgroup
-public import CFSG.Open.StatedAPI
 
 public section
 

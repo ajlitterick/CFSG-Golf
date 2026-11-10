@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Alternating.Multipliers.Carmichael
-public import CFSG.RankThree.PerfectCover.HopfFormula
 public meta import CFSG.Alternating.Multipliers.Carmichael
 public meta import CFSG.Certificates.CosetTableOrders
 public meta import CFSG.LieType.Multipliers.CoverWords

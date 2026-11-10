@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sp6Cls.Checks
 public import Certificates.Kernel.Sp6A2.Final
-public import Certificates.Kernel.Sp6Two.Final
 
 public section
 

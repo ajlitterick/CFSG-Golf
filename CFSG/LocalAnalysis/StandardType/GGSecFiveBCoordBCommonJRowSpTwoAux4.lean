@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowSpTwoAux
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowSpTwoAux3
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJNativeDefs
 import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusBlock
-import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusBlockZ
-import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusBlockZ2
-import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusUnitaryBlock
 import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticFrameDimensions
 import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticComponent
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRuleSpFourTwo

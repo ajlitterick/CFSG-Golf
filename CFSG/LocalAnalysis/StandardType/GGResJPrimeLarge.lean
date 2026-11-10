@@ -1,16 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanOutElemRankCatalog
-public import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
 public import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceSchreier
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviFive
-public import CFSG.RankThree.PartOne.SPOR.Final
-public import CFSG.RankThree.PartOne.TCB.Final
 
 public section
 

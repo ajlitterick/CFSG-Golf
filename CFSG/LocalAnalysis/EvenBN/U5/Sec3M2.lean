@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenBN.U5.Sec3VThree
 public import CFSG.LocalAnalysis.EvenBN.U5.Sec3M2Model
 public import CFSG.LocalAnalysis.EvenBN.GMSK.ConsumerSectionsQuasi
-import CFSG.LocalAnalysis.QuasithinUnique.QTKECore
-import CFSG.LieType.Universal.Unitary.Clause0
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups
@@ -93,7 +91,6 @@ public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 public import CFSG.Sporadic.ThSchreier.ThSchreierCase
 

@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGStdPosC24SlNsNorm
 public import CFSG.LocalAnalysis.StandardType.GGTorusWeylFrameSigned
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLComp
 public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
-public import CFSG.Sporadic.Th.Max3.Core
 
 public section
 

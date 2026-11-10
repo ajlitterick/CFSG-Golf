@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitChecks
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcRawFixWeylOne
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitAmbient
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitCent
-import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitShortWeyl
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitLongWeyl
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitInsideGe
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitInsideLe

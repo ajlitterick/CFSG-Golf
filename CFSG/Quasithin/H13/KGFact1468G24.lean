@@ -3,13 +3,8 @@ module
 public import CFSG.Quasithin.H13.KGFact1468Spor
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenInvolutions
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenShortCentralizer
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenLongCentralizer
 public import CFSG.Quasithin.H13.NQCatG2RadModel
-public import CFSG.RankThree.Chevalley.EvenRealThreeCentralizingInvolution
-public import CFSG.Quasithin.Background.A4FourQuot
 public import CFSG.Quasithin.H13.U4ParLine
-public import CFSG.LieType.Chevalley.SylowOpposition
-public import CFSG.Quasithin.Background.F1Basic
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieFrame
 
 public section

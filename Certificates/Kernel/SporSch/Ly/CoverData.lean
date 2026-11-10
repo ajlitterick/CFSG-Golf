@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.Ly.BSData
 public import Certificates.Kernel.SporSch.Ly.GenCover
-public import CFSG.Sporadic.Schreier.LyCheckCover
 import all Init.Data.Nat.Fold
 import all Init.Data.Range.Basic
 import all Init.Data.Array.Basic

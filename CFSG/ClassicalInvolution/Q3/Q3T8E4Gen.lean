@@ -4,12 +4,9 @@ public import CFSG.ClassicalInvolution.Q3.Q3T8C262Type
 public import CFSG.ClassicalInvolution.Q3.Q3T7SectC
 public import CFSG.ClassicalInvolution.Q3.Q3MTModel5
 public import CFSG.ClassicalInvolution.Asc77.AscT8W19
-public import CFSG.ClassicalInvolution.Q3.Q3WASAut
 public import CFSG.ClassicalInvolution.Q3.Q3TPSModel
 public import CFSG.ClassicalInvolution.Q3.Q3MTOrth
 public import CFSG.ClassicalInvolution.Q3.Q3TZMax
-public import CFSG.ClassicalInvolution.Asc77.AscIHSectKB
-public import CFSG.ClassicalInvolution.Asc77.AscIHSectKC
 public import CFSG.ClassicalInvolution.Asc77.AscC25J12
 public import CFSG.ClassicalInvolution.Asc77.AscC25J13
 public import CFSG.ClassicalInvolution.Asc77.AscT8RFinal

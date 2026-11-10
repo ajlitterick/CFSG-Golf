@@ -3,13 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.ExcPos.RankOneJoint
 public import CFSG.LocalAnalysis.StandardType.ExcPos.NeighbourComponent
 
-public import CFSG.LocalAnalysis.StandardType.ExcPos.UnitDefs
-import CFSG.LocalAnalysis.StandardType.ExcPos.PacketBasic
-import CFSG.LocalAnalysis.StandardType.ExcPos.ContainingComponent
 import CFSG.LocalAnalysis.StandardType.ExcPos.TwistedE6Factors
 import CFSG.LocalAnalysis.StandardType.ExcPos.StrictNeighbourAlt
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.ExcPosBasics
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
 
 public noncomputable section
 

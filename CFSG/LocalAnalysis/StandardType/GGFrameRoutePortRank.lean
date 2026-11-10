@@ -3,16 +3,11 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortDefs
 import CFSG.Assembly.LargeEvenGLABridge
 import CFSG.LocalAnalysis.GLTheoremB.PCompBasics
-import CFSG.LocalAnalysis.GLTheoremB.GammaStarConj
-import CFSG.LocalAnalysis.ComponentClassification.LocalComponents
 import CFSG.HardMathSupport.Solomon.Coordinator.I22_4Split
 import CFSG.HardMathSupport.Solomon.Coordinator.I10_20
 import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.GroupTheory.HyperplaneGeneration
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 import CFSG.Assembly.OpenBridges
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

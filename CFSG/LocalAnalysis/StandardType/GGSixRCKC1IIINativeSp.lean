@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeF1PSp
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIISpBlock
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPSp
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDegreeOneGFTwo
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotTorus
 
 public noncomputable section
 

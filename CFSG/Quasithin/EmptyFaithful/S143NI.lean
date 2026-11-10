@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.S143NH
-public import CFSG.LocalAnalysis.QuasithinUnique.EscapingLocalAux
 
 public section
 

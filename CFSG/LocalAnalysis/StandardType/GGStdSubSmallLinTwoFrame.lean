@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinTwoTBMain
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLComp
 
 public section
 

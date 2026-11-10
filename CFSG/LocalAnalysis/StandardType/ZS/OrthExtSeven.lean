@@ -1,18 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.OrthExtRoots
-public import CFSG.LocalAnalysis.StandardType.ZS.SubgroupSpaces
-public import CFSG.LocalAnalysis.StandardType.ZS.ClassReflOrder
-public import CFSG.LocalAnalysis.StandardType.ZS.DimThree.OrthRefl
-public import CFSG.LocalAnalysis.StandardType.ZS.Basic
-public import CFSG.LocalAnalysis.StandardType.ZS.AbsIrred
-public import CFSG.LocalAnalysis.StandardType.ZS.MovedGroup
-public import CFSG.LocalAnalysis.StandardType.ZS.ClassReflClosure
-public import CFSG.ClassicalGroups.Orthogonal.Restrict
-public import CFSG.ClassicalGroups.Orthogonal.TwoHyperplanes.Basic
 public import CFSG.ClassicalGroups.Orthogonal.TwoHyperplanes.Generation
-public import CFSG.ClassicalGroups.Orthogonal.NormClass.Generation
-public import CFSG.ClassicalGroups.Orthogonal.Represents
 public import CFSG.LieType.Universal.SpinOmega.Reflections
 import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 

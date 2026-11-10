@@ -3,19 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGExcElemToralLangStep
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxToral
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcRank
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusE7
-public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneHeightRigidityAut
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE7Model
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE8Model
-public import CFSG.RankThree.PartOne.Q1327T.Item7D4W
-public import CFSG.RankThree.PartOne.KE.CTLang
-public import CFSG.RankThree.Chevalley.SteinbergCAF4SplitPrimeTorus
-public import CFSG.LieType.AlgebraicGroups.ToralTwistPinning
-public import CFSG.LieType.AlgebraicGroups.ToralTwistSemilinearDatum
-public import CFSG.LieType.Chevalley.OddDiagramFrobeniusFixedDerived
-public import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
-public import CFSG.LieType.Chevalley.OddF4CosetDescent
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.Killed
 
 public noncomputable section

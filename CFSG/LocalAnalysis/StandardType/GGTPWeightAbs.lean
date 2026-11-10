@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPWeightDefs
-public import Mathlib.Algebra.CharP.Defs
-public import Mathlib.LinearAlgebra.Dimension.Finrank
-public import Mathlib.LinearAlgebra.GeneralLinearGroup.Basic
-public import Mathlib.RingTheory.Finiteness.Defs
-public import Mathlib.Algebra.Group.TypeTags.Finite
-public import Mathlib.Data.Fintype.Perm
 public import CFSG.SignalizerFunctorTheorem.NonLocal.Weights
 public import Mathlib
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteOrder
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoFusionLang
 
 public section
 

@@ -7,12 +7,9 @@ public import CFSG.Certificates.Kernel.LyDce.ConjSound
 public import CFSG.Certificates.Kernel.TwistDce.Cover
 import all Certificates.Kernel.LyDce.CoverGlue
 import all Certificates.Kernel.LyDce.BWord
-import CFSG.Sporadic.Recognition.LyonsFinalFamiliesBase
-import CFSG.Sporadic.Recognition.LyonsFinalFamilyInputs
 import CFSG.Sporadic.Recognition.LyonsFinalGlue
 import CFSG.Sporadic.Recognition.LyonsFinalMain
 public import CFSG.Sporadic.Th.Max3.Core
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
 public import CFSG.CharacterTheory.Semidihedral.Principal.PrimeTorusBlockAlignment
@@ -49,10 +46,6 @@ public import CFSG.Sporadic.Recognition.LyonsSimsRecognition
 public import CFSG.Sporadic.Schreier.J4SThree
 public import CFSG.Sporadic.Schreier.LyFixedSet
 public import CFSG.StronglyEmbedded.TheoremSE.BenderLowRank
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import Certificates.Certificate3085Base
 

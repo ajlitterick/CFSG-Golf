@@ -2,13 +2,9 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.NormalPSL2InvolutionCentralizerOddFittingPSLRange
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2NormalizerFittingActionCommon
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2NormalizerSylowNoncyclic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2ComponentLeNormalizerLayer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PerfectNormalSubgroupMulEquivPSL2OfLinearModel
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PerfectImageNormalOddIndex
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddKernelCentralizerSurjective
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalCenterlessDihedral
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

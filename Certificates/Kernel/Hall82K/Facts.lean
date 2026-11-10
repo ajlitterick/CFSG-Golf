@@ -10,8 +10,6 @@ import Certificates.Kernel.Hall82K.C5
 import Certificates.Kernel.Hall82K.MGens
 import Certificates.Kernel.Hall82K.Reducible
 import Certificates.Kernel.Hall82K.Extra
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts

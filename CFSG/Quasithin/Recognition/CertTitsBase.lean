@@ -1,12 +1,6 @@
 
 module
 
-public import CFSG.Open.QuasithinDefs
-public import CFSG.Blueprint.MatrixSeedIdentification
-public import CFSG.Quasithin.Recognition.CertChain
-public import CFSG.Quasithin.Recognition.CertDataTits
-public import Certificates.Data.CFSGNative.YGroups.ExactCheck
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Open.QuasithinDefs
 public meta import CFSG.Quasithin.Recognition.CertDataTits
 public meta import Certificates.Data.CFSGNative.YGroups.ExactCheck

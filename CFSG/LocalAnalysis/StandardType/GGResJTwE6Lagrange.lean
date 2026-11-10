@@ -2,18 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResJFusion
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthKSLOrder
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGTWLowStmt
 import CFSG.LocalAnalysis.StandardType.GGTBJLabelJ
-import CFSG.LocalAnalysis.StandardType.GGPZWeylType
-import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Absence
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourTBSmall
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
-import CFSG.LocalAnalysis.StandardType.GGResNonsingularBase
-import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SF0
 import CFSG.ClassicalInvolution.RouteD.TWRExoticArith
-import CFSG.HardMathSupport.Lang.E27.TwistedE6Field
 import CFSG.LocalAnalysis.StandardType.GGResJOneReflCell
 
 public section

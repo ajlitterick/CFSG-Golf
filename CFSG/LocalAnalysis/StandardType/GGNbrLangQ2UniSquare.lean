@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniLift
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagUnitary
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2BlockProj
-import CFSG.GroupTheory.WeirSylow.UnitaryBridge
 
 public section
 

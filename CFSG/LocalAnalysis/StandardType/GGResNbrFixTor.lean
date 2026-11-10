@@ -1,23 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
-public import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRankDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937Defs
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineClassicalLabel
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmallLabel
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerLinearNonsplit
-public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoTBMain
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
 public import CFSG.LocalAnalysis.StandardType.GGResSevenNbr
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
-public import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseNoBL5Aut
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL4546Defs
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
-import CFSG.LocalAnalysis.StandardType.GGTBTorDatum
 import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrConj
 
 public section

@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBRes
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniNbrLabel
 public import CFSG.LocalAnalysis.StandardType.GGMultTableCl
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTransport
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGK1ScMain
 import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrHolds
 

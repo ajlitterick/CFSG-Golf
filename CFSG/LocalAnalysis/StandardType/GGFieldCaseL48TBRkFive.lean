@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkDefs
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofFinal
 
 public section

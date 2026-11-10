@@ -4,11 +4,9 @@ public import Certificates.Kernel.Co3Cent.ChainGlue
 public import Certificates.Kernel.Co3Cent.CentBChk
 public import Certificates.Kernel.Co3T.Facts
 public import CFSG.Certificates.Kernel.OrbRow.KeyOrbit
-public import CFSG.Certificates.Kernel.OrbRow.WordRep
 public import CFSG.Certificates.Kernel.Co3Cent.Bound
 public import CFSG.Certificates.Kernel.Co3Cent.Sylow
 public import Certificates.Data.Co3Cent
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

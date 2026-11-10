@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmClass
 public import CFSG.RankThree.PartOne.KC.OrthogonalPrimaryPairing
-public import CFSG.RankThree.PartOne.KC.OrthogonalReciprocal
 public import Mathlib
 
 public section

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnitCopResiduals
-public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnit63Holds
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvSix
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofFinal
 
 public section
 

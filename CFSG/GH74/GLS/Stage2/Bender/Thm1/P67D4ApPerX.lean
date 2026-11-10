@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnStab
-public import CFSG.RankThree.PartOne.KGD.D4QPerX
 public import CFSG.RankThree.PartOne.KGD.D4QPlane
 public import CFSG.RankThree.PartOne.KE.StabGeneral
 

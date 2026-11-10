@@ -1,9 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoCover
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoInnerQ
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixPermAux
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixPermAux2
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixPermAux7
 
 public section

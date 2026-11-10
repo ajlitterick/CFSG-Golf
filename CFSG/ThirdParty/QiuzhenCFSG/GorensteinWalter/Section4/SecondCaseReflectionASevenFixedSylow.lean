@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenInvolutionCentralizerThreeCycle
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralGenerators
-public import Mathlib.Data.Nat.Factorization.Basic
 import Mathlib.Tactic
 
 namespace CFSG

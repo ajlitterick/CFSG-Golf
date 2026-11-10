@@ -2,11 +2,8 @@ module
 
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
-public import Certificates.Data.Kernel.SporCov.Defs
 public import Certificates.Data.Kernel.SporCov.PCl
 public import Certificates.Data.Kernel.SporCov.BaseKit
-public import Certificates.Data.Kernel.SporCov.Census
 
 #kc_repo #kc_json_gz CFSG.KD.SporCovPerm.M12.F "Certificates/Kernel/SporCovPerm/data/m12.json.gz" 10516
   16281635230140512064

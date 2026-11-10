@@ -4,8 +4,6 @@ public import Certificates.Kernel.SporSch.J1.Chain
 public import CFSG.Certificates.Kernel.Spor.PresCard
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
-public import Mathlib
 
 public section
 

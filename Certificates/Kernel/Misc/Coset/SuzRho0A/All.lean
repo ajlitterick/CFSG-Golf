@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Misc.Coset.SuzRho0A.Data
 public import Certificates.Kernel.Misc.Coset.ActBlocks
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

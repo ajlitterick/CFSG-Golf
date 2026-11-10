@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6S
-public import CFSG.ClassicalInvolution.Asc77.AscSixBasic
 
 public section
 

@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec21.FF81Am6Main
 public import CFSG.RankThree.PartTwo.Sec21.FF81Am6LSideCert
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotGraphSpinModelF4
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationShortSp
-public import CFSG.LieType.Universal.SymplecticExtras.Matrices
 public import CFSG.ClassicalInvolution.Balance.PassTwoFinal
 public import CFSG.ClassicalInvolution.Models.LinearPairs
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs

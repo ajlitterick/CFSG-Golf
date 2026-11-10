@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoOneLinear
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoUnitary
-public import CFSG.HardMathSupport.Dickson.Bal207.OrthSU38Torus
-public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagLinear
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagUnitary
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOne
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIUnitaryTwo
 public import CFSG.LieType.SemisimpleCentralizers.OrderThree.CenterQuot
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CharacterTheory.Semidihedral.ProperSubgroupRegularityVocab
-import CFSG.Sporadic.Mathieu.M11
 meta import CFSG.Sporadic.Mathieu.M11
 meta import CFSG.Blueprint.NativeSporadic
 meta import CFSG.CharacterTheory.Semidihedral.ProperSubgroupRegularityVocab

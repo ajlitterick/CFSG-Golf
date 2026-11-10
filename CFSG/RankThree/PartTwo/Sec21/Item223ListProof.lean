@@ -5,14 +5,10 @@ public import CFSG.RankThree.PartTwo.Sec21.Item223PrintProof
 public import CFSG.RankThree.PartTwo.Sec21.Item223NarrowProofTheta
 import CFSG.RankThree.PartTwo.Sec21.Item223KFactsProofBlocks
 import CFSG.RankThree.PartTwo.Sec5.Tools
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.Foundations
 public import CFSG.GroupTheory.ABGLocalTools.Constraint
 public import CFSG.GroupTheory.BaerSuzuki
-public import CFSG.GroupTheory.HallHigmanPiCore
-public import CFSG.LieType.Chevalley.LangRootArithmetic
 public import CFSG.LieType.Multipliers.ProductKernel
 public import CFSG.LieType.Multipliers.U42Bridge
 public import CFSG.LieType.Multipliers.U43Action
@@ -22,7 +18,6 @@ public import CFSG.LieType.Multipliers.U62Bridge
 public import CFSG.LieType.Multipliers.U62Kernel
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingTransport
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
@@ -36,12 +31,10 @@ public import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
 public import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.ComponentInitial.PerfectOuterInjection
-public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeCheckBase
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeModel
 public import CFSG.LocalAnalysis.EvenSmallLie.Sp6JCondition
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
-public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageCompletion
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerPreimages
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestrictionCompletion
@@ -57,7 +50,6 @@ public import CFSG.Monster.B.TwoA.Amalgam.Data
 public import CFSG.Monster.B.TwoA.Sp8.Par1
 public import CFSG.Monster.B.TwoA.Unitary.LinThree
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.Asc83Table.Automizer
 public import CFSG.RankThree.LocalRank.SelectorCases
@@ -72,25 +64,20 @@ public import CFSG.RankThree.PartTwo.Sec13.Item135
 public import CFSG.RankThree.PartTwo.Sec13.Item135Simple
 public import CFSG.RankThree.PartTwo.Sec13.Item135SimpleReduce
 public import CFSG.RankThree.PartTwo.Sec18.Notation
-public import CFSG.RankThree.PartTwo.Sec18.Tools
 public import CFSG.RankThree.PartTwo.Sec21.Item229Diagram
 public import CFSG.RankThree.PartTwo.Sec21.Item233
 public import CFSG.RankThree.PartTwo.Sec21.Item233OneProof
 public import CFSG.RankThree.PartTwo.Sec21.Item233OneProofStatements
 public import CFSG.RankThree.PartTwo.Sec21.Membership
 public import CFSG.RankThree.PartTwo.Sec21.SylowThree
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.PartTwo.Sec4.Census.Item44PartOne
 public import CFSG.RankThree.PartTwo.Sec4.Item47
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 public import CFSG.RankThree.PartTwo.Sec4.StatementsGraphField
 public import CFSG.RankThree.PartTwo.Sec6.Item612
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.YGroups.Y322Central
 
 public section

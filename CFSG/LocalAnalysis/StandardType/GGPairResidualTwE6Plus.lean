@@ -4,12 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGPairResidualE7Plus
 import CFSG.LocalAnalysis.StandardType.ExcPay.TwE6
 import CFSG.LocalAnalysis.StandardType.GGPairConjugation
 import CFSG.LocalAnalysis.StandardType.GGRankOneShared
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenOver
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
-import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeExcPlusAux
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMemberAux
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

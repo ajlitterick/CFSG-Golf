@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.SupportedNativeLang
-public import CFSG.LieType.AlgebraicGroups.RootWordBruhatCover
-public import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

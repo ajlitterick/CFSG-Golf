@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresAltForm
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresTransport
-public import CFSG.RankThree.PartOne.KC.SymplecticIsotypicFixed
 public import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneAlt6
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCore
 public import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneCore

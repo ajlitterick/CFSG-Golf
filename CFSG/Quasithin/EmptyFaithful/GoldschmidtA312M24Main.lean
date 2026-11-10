@@ -4,7 +4,6 @@ public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M24Z1d
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M24Z3c
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M24Z4c
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M24Z6c
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListFamilies
 
 public section
 

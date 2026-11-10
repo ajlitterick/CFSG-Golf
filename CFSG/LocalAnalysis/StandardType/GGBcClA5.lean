@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGBcDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPNA8Seven
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGK1Final
 public import CFSG.LocalAnalysis.StandardType.GGK1ScFinal
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUKac
-public import CFSG.LocalAnalysis.StandardType.GGMultTableCl
 
 public section
 

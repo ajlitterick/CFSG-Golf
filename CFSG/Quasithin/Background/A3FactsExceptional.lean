@@ -1,18 +1,9 @@
 module
 
 public import CFSG.Quasithin.Background.A3FactsRank
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.LieType.Chevalley.RootConj
-public import CFSG.LieType.Chevalley.OrbitGroups
-public import CFSG.LieType.Steinberg.Adjoint.Unipotent
-public import CFSG.LieType.Steinberg.TwistedD4.Unipotent
 public import CFSG.LocalAnalysis.SectionRank.LargeReeCover
 public import CFSG.LocalAnalysis.SectionRank.LargeRee.Torus
-public import CFSG.LocalAnalysis.SectionRank.TrialityEvenCover
-public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.SectionRank.BruhatLift
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_4
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.Defs
 
 public section
 

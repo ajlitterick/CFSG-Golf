@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealSgnDefs
-public import CFSG.LocalAnalysis.StandardType.GGKGForkTransfer
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLatticeElt
 
 public section

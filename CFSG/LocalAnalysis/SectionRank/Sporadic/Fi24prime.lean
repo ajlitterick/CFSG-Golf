@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF3
-public import Certificates.Data.CFSGNative.SectionRank.Fi24prime
 public meta import Certificates.Data.CFSGNative.SectionRank.Fi24prime
 import all CFSG.Blueprint.NativeSporadic
 public import Certificates.Certificate8016
-public import CFSG.Open.Defs
 
 public section
 

@@ -1,8 +1,6 @@
 
 module
 
-public import CFSG.Monster.GMS.S365CosetSpecBase
-public import CFSG.Monster.GMS.S365CentBasic
 public import CFSG.Monster.GMS.S365CentPathSpecBase
 public import CFSG.Monster.GMS.S365CenterOrbInputs
 public import Certificates.Kernel.Co1M.C10044

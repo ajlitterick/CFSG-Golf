@@ -3,12 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 import CFSG.GroupTheory.ElementaryAbelianTransport
-import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 import CFSG.RankThree.PartOne.K133.KillL2
 import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 import CFSG.RankThree.PartOne.K133.Moving
 import CFSG.RankThree.PartOne.K133.SylowKill
@@ -17,7 +13,6 @@ import CFSG.RankThree.PartOne.S12.InputsSec15
 import CFSG.RankThree.PartOne.S12.Sec137
 import CFSG.RankThree.PartOne.S12.Sec15FA
 import CFSG.RankThree.PartOne.S12.Sec15Items
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CommutatorNormalizer
 
 public section

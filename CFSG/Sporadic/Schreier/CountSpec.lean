@@ -3,9 +3,6 @@ module
 public import CFSG.Sporadic.Schreier.Enumeration
 public import CFSG.Sporadic.Th.TableSpec
 public import Certificates.Data.CFSGNative.SporadicSchreier.Count
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
 public import Std.Tactic.BVDecide.Normalize.BitVec
 
 public section

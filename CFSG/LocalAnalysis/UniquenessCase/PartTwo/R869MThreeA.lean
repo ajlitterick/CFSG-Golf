@@ -9,7 +9,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankBound
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.PartOneSixThirtyEight
 import CFSG.LocalAnalysis.UniquenessCase.UC6S846h
 import CFSG.LocalAnalysis.RankFourTheoremC.PPointSetup
-import CFSG.GroupTheory.PGroup.ElemAbelianSq
 import CFSG.GroupTheory.OddPGroupNoncyclicChar
 import CFSG.Goldschmidt.Steps.Sec82PGroup
 public import CFSG.CGT.Timmesfeld75.Statements

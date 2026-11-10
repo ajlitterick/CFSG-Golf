@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLModProof
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTypeAIrred
 
 public section
 

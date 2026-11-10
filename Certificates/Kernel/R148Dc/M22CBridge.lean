@@ -1,17 +1,13 @@
 module
 
 public import Certificates.Kernel.R148Dc.M22CChecks
-public import CFSG.Certificates.Kernel.SporLatDcSound
 public import CFSG.Certificates.Kernel.SporLatDcPair
 public import CFSG.Certificates.Kernel.SporLatDcGood
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148BM22Sg
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieu
-public import CFSG.Sporadic.Mathieu.M22
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.RankThree.Asc83Table.PermTables
 

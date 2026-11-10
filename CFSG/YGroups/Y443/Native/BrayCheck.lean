@@ -1,6 +1,5 @@
 module
 
-public import CFSG.YGroups.Y443.Native.BrayWords
 public import Certificates.Certificate10111
 public meta import CFSG.YGroups.Y443.Native.BrayWords
 public meta import CFSG.YGroups.Y443.Native.Align

@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixEToral
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcE6
-public import CFSG.LieType.Steinberg.Isogeny.TwistedE6
-public import CFSG.LieType.Simplicity.Exceptional
-public import CFSG.ClassicalInvolution.ModelFacts.ChevAutLift
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcTwE6One7
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcTwE6One2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcTwE6One3
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerTwE6
 
 public section
 

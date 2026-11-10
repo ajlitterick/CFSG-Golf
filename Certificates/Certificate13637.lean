@@ -3,10 +3,7 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.SuzThreeInputs
 public import CFSG.Sporadic.SuzOddCore.Perms
-public import CFSG.RankThree.Native.PermEnumeration
 import Certificates.Kernel.SuzThree13637.Glue
-import CFSG.Sporadic.SuzOddCore.ArraysCheckInputs
-import CFSG.Sporadic.SuzOddCore.SmallChainCheckInputs
 meta import CFSG.Sporadic.SuzOddCore.ArraysCheck
 meta import Certificates.Data.CFSGNative.Schreier.Check
 public import CFSG.Certificates.LiftedSchreierData

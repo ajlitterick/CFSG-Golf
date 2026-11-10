@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.CentAFrame
-public import CFSG.Open.LocalVocabulary
 import CFSG.LocalAnalysis.StandardType.FF81.CentAO2
 import CFSG.LocalAnalysis.StandardType.FF81.CentANormUi
 import CFSG.LocalAnalysis.StandardType.FF81.CentAModelGen

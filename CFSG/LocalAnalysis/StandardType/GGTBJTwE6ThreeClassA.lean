@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeData
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6Class
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeD4RatLabel
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeWeyl
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
 
 public section
 

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcE6
-public import CFSG.LieType.Chevalley.ExactNormalFormE
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcConj
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergRoot
-import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
 
 public section
 

@@ -6,11 +6,9 @@ public import CFSG.LocalAnalysis.StandardType.GGHalfKGCFive
 public import CFSG.LocalAnalysis.StandardType.GGHalfKGCAMain
 public import CFSG.LocalAnalysis.StandardType.GGHalfKGCOm8
 public import CFSG.LocalAnalysis.StandardType.GGHalfKGCE6
-public import CFSG.RankThree.PartOne.S15K.ProjSLBridge
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5CoreExcOut
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanO10CentOut
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoTransAux
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoLevi
 public import CFSG.HardMathSupport.Foote.E27.LieTwo.OrthModel
 public import CFSG.LieType.Multipliers.U62Sylow
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.OmegaMinusCentModel

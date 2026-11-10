@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownComp
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneBlocks
-public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.PlaneTorus
 public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.BlockCentralizer
 public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Chamber
 

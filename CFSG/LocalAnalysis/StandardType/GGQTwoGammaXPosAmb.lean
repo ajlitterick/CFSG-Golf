@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoAmbModelBridge
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXPosE6
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXGraph
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTBWNormAmbInner

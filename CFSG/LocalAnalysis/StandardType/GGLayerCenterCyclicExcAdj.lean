@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicExcSz
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 public import CFSG.LieType.Steinberg.CentralExt.G2FourMultiplier
 public import CFSG.LieType.Steinberg.CentralExt.F4TwoMultiplier
 public import CFSG.LocalAnalysis.SeitzReduction.SeitzQ2OddSplitE7

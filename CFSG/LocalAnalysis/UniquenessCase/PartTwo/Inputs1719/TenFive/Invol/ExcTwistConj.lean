@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.RationalInnerInvolutionReduction
-public import CFSG.LieType.Chevalley.RationalToralSignDiagram
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public section
 

@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoCartan
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoModelAux
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoModelRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoModelSpinor
-public import Mathlib.GroupTheory.GroupAction.Quotient
 
 public section
 

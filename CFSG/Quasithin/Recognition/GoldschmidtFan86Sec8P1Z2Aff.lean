@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec8P1Z2Loc
-public import Mathlib.Data.ZMod.Defs
 
 public section
 

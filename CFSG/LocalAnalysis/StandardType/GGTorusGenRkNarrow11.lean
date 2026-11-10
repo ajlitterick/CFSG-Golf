@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkNarrow11Defs
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkLabel
 
 public section

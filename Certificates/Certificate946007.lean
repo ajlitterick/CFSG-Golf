@@ -1,9 +1,7 @@
 module
 
 public import Certificates.Data.ParrottSpinA
-import Certificates.Data.ParrottSpin
 import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43ModelInputs
-import CFSG.GH74.KGroups.Generic
 
 public section
 

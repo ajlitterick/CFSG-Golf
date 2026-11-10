@@ -4,10 +4,7 @@ public import CFSG.LieType.BorelTits.StronglyEmbedded
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.Assembly.GL83SuzukiModel
-public import CFSG.Blueprint.Catalog
 import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderSuzukiBorel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
 import CFSG.StronglyEmbedded.ParityCriterion
 
 public section

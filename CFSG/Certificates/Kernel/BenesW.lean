@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.BenesSound
 public import CFSG.Certificates.Kernel.BabyMonster.Native.Dyadic
-public import CFSG.Certificates.Kernel.Common.Loop
 
 public section
 

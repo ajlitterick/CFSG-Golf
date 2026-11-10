@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetAssembly
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetPin
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcOrbit
 import CFSG.GroupTheory.SylowIntersectionControl.GomiLeviExc.ModelMinuscule
 
 public section

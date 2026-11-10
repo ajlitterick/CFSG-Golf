@@ -1,9 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2F4Pair
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Interface
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcOrth
-public import CFSG.ClassicalInvolution.Models.UnitaryPairs.Pairs
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs
 
 public section

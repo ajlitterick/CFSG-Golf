@@ -3,13 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGOrdinaryMemberOrthogonal
 public import CFSG.LocalAnalysis.StandardType.GGOrdinaryMemberE7RootRecognition
 public import CFSG.LocalAnalysis.StandardType.GGFieldOuterInvLangSetup
-import CFSG.LocalAnalysis.StandardType.GGLieCoreToralInd
 import CFSG.RankThree.PartOne.KE6.EqpA24
 import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBLang
-import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.StandardType.GGStdPosRootKerForm
-import CFSG.LieType.SeitzGeneration.ExcTorusCount
 
 public noncomputable section
 

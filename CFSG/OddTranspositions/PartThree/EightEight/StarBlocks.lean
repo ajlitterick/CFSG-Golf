@@ -1,9 +1,7 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.EightEight.Star
-public import CFSG.Timmesfeld.Bridge.Asc72Minimal
 
-import CFSG.OddTranspositions.BlockGraph
 import CFSG.OddTranspositions.PartThree.EightEight.Eighteen
 import CFSG.OddTranspositions.PartThree.EightEight.FibreCentre
 import CFSG.OddTranspositions.PartThree.EightEight.Kernel
@@ -11,10 +9,7 @@ import CFSG.OddTranspositions.PartThree.EightEight.Seventeen
 import CFSG.OddTranspositions.PartThree.EightEight.ThirdCentralizer
 import CFSG.OddTranspositions.PartThree.EightEight.Transport
 import CFSG.OddTranspositions.PartThree.EightFive.Transitive
-import CFSG.OddTranspositions.PartThree.HalphaCentralizer
 import CFSG.OddTranspositions.PartThree.Nine.ThreeBlocks
-import CFSG.OddTranspositions.SixSevenLocalStep
-import CFSG.Timmesfeld.Bridge.Asc72ConjOrbit
 
 public section
 

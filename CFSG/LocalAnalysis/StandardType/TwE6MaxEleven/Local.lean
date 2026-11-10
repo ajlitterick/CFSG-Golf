@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.TwE6MaxEleven.Defs
-public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.Solvable
-public import Mathlib.GroupTheory.SpecificGroups.ZGroup
 public import CFSG.Monster.Existence.StdOdd.Coprime
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 

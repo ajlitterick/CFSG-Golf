@@ -1,14 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFixSub
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-public import CFSG.GroupTheory.SteinbergBKSemilinearFixedBasis
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.CentralQuotient
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Export
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniSub
 import CFSG.LocalAnalysis.StandardType.KGLangTorAFields
-import CFSG.Quasithin.Background.GoldschmidtListedSolv
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQMat
 import CFSG.HardMathSupport.Solomon.Coordinator.I14_20Alt
 import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain
@@ -23,20 +19,13 @@ import CFSG.HardMathSupport.Solomon.UniquenessMaximal.GenL3.Input252
 import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Inputs
 import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6D62
 import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6E66
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.Quasithin.Background.A3Structure319
-import CFSG.Quasithin.Background.A3Structure36Base
-import CFSG.Quasithin.Background.A3Structure38Part3
 import CFSG.Quasithin.Background.F9FiveStruct
 import CFSG.Quasithin.Background.F9G2
 import CFSG.Quasithin.Background.F9Geometry
 import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.EmptyFaithful.S1421Defs
 import CFSG.Quasithin.EmptyFaithful.S142Statements
 import CFSG.Quasithin.H13.A5S1326

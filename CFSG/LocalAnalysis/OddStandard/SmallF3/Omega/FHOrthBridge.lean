@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.TL4OmegaAOFD4OG
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameCaseII205HU33Pf
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec3L34GFacts
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec3L34GC1Simp
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FHCent3Gen
 public import CFSG.Blueprint.OddStandardExact

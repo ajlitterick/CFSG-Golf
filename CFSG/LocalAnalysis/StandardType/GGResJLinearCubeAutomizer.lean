@@ -1,33 +1,15 @@
 module
 public import CFSG.GroupTheory.PerfectCentralQuotient
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQMat
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173AMModel
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclic
 public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclicHolds
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
 public import CFSG.LocalAnalysis.StandardType.GGAutomizerAbelianMatrix
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundGenKernel
 
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBPermAut
 public import CFSG.LocalAnalysis.StandardType.GGTypeAFarActsVec
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenOver
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBBstar
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerTypeADvdModel
 public import CFSG.LocalAnalysis.StandardType.GGL45TALinRk
-public import CFSG.RankThree.PartOne.KC.CommonEigenbasis
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBRefl
-public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBPSL
-public import CFSG.LocalAnalysis.StandardType.GGResJLineA3
 public import CFSG.LocalAnalysis.StandardType.GGResJLineBCGamma
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.LocalAnalysis.ComponentInitial.LinearModelOuterTwoPart
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173ADefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173ALinDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173AUniDefs

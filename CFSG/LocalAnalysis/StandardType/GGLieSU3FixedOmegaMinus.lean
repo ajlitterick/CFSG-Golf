@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Assembly.GL83LieDefs
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
 
-import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
-import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalEndNode
 import CFSG.GroupTheory.PerfectImageRange
 
 import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedOrthCore

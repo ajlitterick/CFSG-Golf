@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.J4Hub.Fam
 public import Certificates.Kernel.J4.Bridge
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.RightNearField
 public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.Algebra.Module.ZMod
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 public import Mathlib.RepresentationTheory.Maschke

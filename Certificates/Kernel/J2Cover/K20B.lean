@@ -2,8 +2,6 @@
 module
 
 public import Certificates.Kernel.J2Cover.K20A
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -1,18 +1,9 @@
 module
 
-public import Mathlib
 public import CFSG.ClassicalInvolution.SmallCases.Hat2A7S25Nu
-public import CFSG.ClassicalInvolution.SmallCases.Hat2A7S25FW1
 public import CFSG.ClassicalInvolution.SmallCases.Hat2A7S25FW2
-public import CFSG.ClassicalInvolution.AschTight.S1911FusB
-public import CFSG.ClassicalInvolution.AschTight.S1911FusD
-public import CFSG.ClassicalInvolution.Asc77.AscSixModCent
 public import CFSG.ClassicalInvolution.Asc77.AscC25V32
-public import CFSG.ClassicalInvolution.ModelFacts.LinearAutFrame
 public import CFSG.ClassicalInvolution.Q3.ModelOddCentralizerBlocks
-public import CFSG.ClassicalInvolution.Q3.ClassicalFundamental
-public import CFSG.ClassicalInvolution.SolvableCase.SL2Three
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 
 public section
 

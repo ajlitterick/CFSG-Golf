@@ -1,8 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Determinant
-public import Mathlib.SetTheory.Cardinal.Finite
-public import Mathlib.Data.ZMod.Basic
 import Mathlib.LinearAlgebra.SpecialLinearGroup
 import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 

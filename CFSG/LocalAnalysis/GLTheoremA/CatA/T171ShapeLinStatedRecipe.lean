@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInLinTrans
-import CFSG.Adapters.ProjectiveSpecialLinear
 
 public section
 

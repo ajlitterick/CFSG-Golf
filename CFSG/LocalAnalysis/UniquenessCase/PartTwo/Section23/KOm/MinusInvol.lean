@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOm.MinusPlane
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOm.MinusVectors
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOm.PlaneIsometry
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOm.MinusBorel
 
 public section

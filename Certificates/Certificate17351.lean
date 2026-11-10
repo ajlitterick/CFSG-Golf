@@ -2,12 +2,7 @@ module
 
 public import Certificates.Data.Co2CentDefs
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co2ThreeDefs
-public import CFSG.RankThree.PartTwo.Sec4.Census.CoverCenterThreeRestCover
 import Certificates.Kernel.Co2Cent.Assemble
-import Certificates.Certificate2012
-import Certificates.Certificate3115
-import Certificates.Certificate3117
-import Certificates.Certificate17350
 public import CFSG.Certificates.InvariantMerge
 public import CFSG.Sporadic.Co2Cert.Cert
 

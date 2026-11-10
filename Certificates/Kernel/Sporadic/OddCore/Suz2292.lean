@@ -3,10 +3,7 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.Suz2304
 public import Certificates.Kernel.Sporadic.OddCore.TBfsCmd
-public import Certificates.Kernel.Sporadic.OddCore.PEnumCmd
-public import CFSG.Sporadic.SuzOddCore.CertChainCheckInputs
 meta import CFSG.Sporadic.SuzOddCore.CertChainCheckInputs
-import CFSG.Sporadic.SuzOddCore.Arrays
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

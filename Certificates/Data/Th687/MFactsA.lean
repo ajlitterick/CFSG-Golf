@@ -1,11 +1,9 @@
 module
 
 public import CFSG.Sporadic.Th.Max3.CentA
-public import CFSG.Sporadic.Th.Max3.Core
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
 public import CFSG.Sporadic.ThSchreier.KernelAut
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 
 public section

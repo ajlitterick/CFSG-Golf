@@ -4,7 +4,6 @@ public import Certificates.Kernel.CF23L34.SuzData
 public import Certificates.Kernel.Sporadic.OddCore.Suz2302
 public import Certificates.Data.Kernel.CF23L34.Word
 public import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

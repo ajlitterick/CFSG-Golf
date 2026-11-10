@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1ILongNotShortF4
-public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionSp
-public import CFSG.LieType.Universal.SymplecticExtras.Matrices
 
 public section
 

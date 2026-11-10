@@ -2,14 +2,10 @@ module
 
 public import CFSG.Sporadic.SmallOddCore.J2LocalCheck
 public import CFSG.Sporadic.SmallOddCore.LocalSpec
-public import CFSG.Sporadic.Schreier.PairChain
 public import CFSG.Sporadic.Schreier.PairJ2Pairs
 public meta import CFSG.Sporadic.SmallOddCore.J2LocalCheck
 public meta import CFSG.Sporadic.Schreier.PairJ2Check
-public import Certificates.Certificate2233
-public import Certificates.Certificate2234
 public import CFSG.Certificates.NativeSchreierCard
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

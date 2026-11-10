@@ -1,11 +1,8 @@
 module
 
 public import Certificates.Kernel.J2Cover.M22Lk
-public import Certificates.Kernel.J2Cover.ModelsBind
 public import Certificates.Kernel.J2Cover.K20D
 public import CFSG.Certificates.Kernel.J2ModelsSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import Certificates.Kernel.J2Cover.M22Blocks
 
 public section

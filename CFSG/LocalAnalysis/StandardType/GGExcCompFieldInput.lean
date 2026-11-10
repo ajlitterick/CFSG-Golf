@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGEvenLieOrderSl2Arith
 public import CFSG.LocalAnalysis.StandardType.GGEvenLieOrderSmallArith
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGExcToralSylowCentReduced
-public import CFSG.LocalAnalysis.StandardType.GGExcToralSylowElem
 
 public section
 

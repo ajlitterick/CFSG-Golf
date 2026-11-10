@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154LinData
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154LinPsl
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154LinAbs
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154LinT
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Fld
-public import CFSG.GH74.L5U5.Models
-public import CFSG.Models.PGLSimple
 public import CFSG.Assembly.OpenBridges
 
 public section

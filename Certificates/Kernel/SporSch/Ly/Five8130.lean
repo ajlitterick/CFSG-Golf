@@ -6,7 +6,6 @@ public import Certificates.Kernel.SporSch.Ly.FiveRelT
 public import Certificates.Kernel.SporSch.Ly.FiveRelR1
 public import Certificates.Kernel.SporSch.Ly.Five8131
 public import Certificates.Kernel.SporSch.Ly.NeId
-public import CFSG.RankThree.Native.LyFiveCheckInputs
 public import CFSG.Certificates.Kernel.Spor.RawSound
 
 public section

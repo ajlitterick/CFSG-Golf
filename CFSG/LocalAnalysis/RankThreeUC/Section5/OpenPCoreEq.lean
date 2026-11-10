@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.Wielandt
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.Unfold
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 
 public section
 

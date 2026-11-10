@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.BrauerInduction.Bernstein.Congruence
 public import CFSG.ThirdParty.BrauerInduction.Background.LinearAlgebra.IntegerLattice
-public import CFSG.ThirdParty.BrauerInduction.Bernstein.Ideal
 
 public section
 

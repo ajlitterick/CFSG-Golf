@@ -1,13 +1,8 @@
 module
 
 public import CFSG.CGT.PushingUpLit.CGT6M.FiveHeisTransfer
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.SectionRank.OddCover.PSL2
-public import CFSG.LocalAnalysis.SectionRank.OddCover.LinearThree
 public import CFSG.RankThree.Classical.SteinbergBJUnitaryThreeInvolutions
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

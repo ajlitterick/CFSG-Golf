@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Step17
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3G24Fix
-public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8G2TorusConj
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Reduce
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherComponentInvolutionFitting
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherComponentInvolutionMoved

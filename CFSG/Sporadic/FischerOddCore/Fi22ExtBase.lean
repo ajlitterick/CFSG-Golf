@@ -3,13 +3,11 @@ module
 
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckBase
 public import CFSG.Monster.B.Fischer.Fi22GraphBase
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtData
 public meta import CFSG.Monster.B.Fischer.Fi22OuterCheckBase
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public import CFSG.Monster.B.Fischer.Fi22GraphCheckBase
 public import CFSG.Monster.B.Fischer.PinnedChain
-public import Mathlib
 
 @[expose] public noncomputable section
 

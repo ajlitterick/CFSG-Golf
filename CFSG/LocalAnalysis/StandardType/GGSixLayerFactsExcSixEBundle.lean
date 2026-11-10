@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcPilotBundle
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixENonsplit
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwistedNonsplit
 
 public section

@@ -1,27 +1,18 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeStepA
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIpIso
 public import CFSG.LocalAnalysis.StandardType.AlternatingEightNormalizerAction
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthKSLBase
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIField
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepOrders
-public import CFSG.LocalAnalysis.StandardType.GGOutTwoCommInnerHolds
-public import CFSG.LocalAnalysis.StandardType.GGTCJDatum
-public import CFSG.LocalAnalysis.StandardType.ChevTwoLieModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2017ClsInn
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2017ClsLin
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2017ClsUni
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2017ClsSymp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2017ClsD4
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2017ClsExc
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2017Image
-public import CFSG.LocalAnalysis.GLTheoremA.PComp
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs1415
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148LComp
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-public import CFSG.Adapters.TauCetiLieModels
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.AltFacts4
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Input319
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma123

@@ -3,8 +3,6 @@ module
 public import CFSG.Sporadic.Co1Block.TwoBTriBase1
 
 public import CFSG.Sporadic.Co1Block.TwoBCent
-public import CFSG.Sporadic.Co1Block.XFix
-public import CFSG.Sporadic.Co1Block.TwoBCheckInputs
 public meta import CFSG.Sporadic.Co1Block.TwoBData
 public meta import CFSG.Sporadic.Co1Block.TwoBCheckDefs
 public meta import CFSG.Sporadic.Co1Block.CentCheck
@@ -21,16 +19,10 @@ public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.Schreier.Merge
 public meta import Certificates.Data.CFSGNative.ONSchreier.Compact
-public import CFSG.Sporadic.Co1Block.TwoBExtraCheckInputs
 public meta import CFSG.Sporadic.Co1Block.ConjBData
 public meta import CFSG.Sporadic.Co1.Module.InvData
 public meta import CFSG.Sporadic.Co1.Module.Forms
 public meta import CFSG.Sporadic.Co1.Module.Orbits
-public import CFSG.Sporadic.Schreier.Co1ThreeLocalInputs
-public import Certificates.Data.CFSGNative.Co1.Data
-public import Certificates.Certificate10070
-public import CFSG.Sporadic.Co1.Module.TwoBFrameInputs
-public import CFSG.Sporadic.Co1Block.TwoBCheck
 public import Certificates.Kernel.Co1B.Tri2045
 
 public noncomputable section

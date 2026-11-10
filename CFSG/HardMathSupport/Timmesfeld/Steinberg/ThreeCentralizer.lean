@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LieType.AlgebraicGroups.ToralCentralizerIdentity
 public import CFSG.LieType.AlgebraicGroups.ConnectedToralLang
 public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCharStabilizer
 public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ToralCentralizerGenerated
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

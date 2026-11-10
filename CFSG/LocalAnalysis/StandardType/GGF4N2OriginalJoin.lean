@@ -4,13 +4,10 @@ public import CFSG.LocalAnalysis.StandardType.GGF4N2OmegaK
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveQTwoInternal
 public import CFSG.LocalAnalysis.StandardType.GGSpFrameConfig
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenAsm
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerSUBasic
 public import CFSG.GroupTheory.GLS2.GroupTheory.Quasisimple
 public import CFSG.LocalAnalysis.StandardType.GGF4OriginalRankOne
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourPlusRankOne
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
 public import CFSG.LocalAnalysis.StandardType.GGSharedInvolution
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
 public import CFSG.GroupTheory.GLS2.GroupTheory.PiComponents
 
 public section

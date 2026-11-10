@@ -7,7 +7,6 @@ public import Certificates.Kernel.MaxD2.HSP.Data
 public import Certificates.Kernel.MaxD2.HSU.Enum
 public import Certificates.Kernel.MaxD2.HSU.Data
 public import Certificates.Data.Kernel.MaxD2.Check
-public import Certificates.Data.Kernel.Spor.PEnum
 public import Certificates.Data.HSFiveU35Check
 import CFSG.Certificates.Kernel.Common.Harness
 

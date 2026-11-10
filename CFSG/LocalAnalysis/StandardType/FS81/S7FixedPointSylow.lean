@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Open.LocalVocabulary
-public import Mathlib.GroupTheory.Sylow
 import CFSG.LocalAnalysis.StandardType.FS81.S7FixedCoset
 
 public section

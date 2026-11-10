@@ -1,25 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourKGPos
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOrb
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2
-import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk1
 import CFSG.LocalAnalysis.StandardType.GGRankOneShared
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBFixLine
-import CFSG.LocalAnalysis.StandardType.GGReflectionBasic
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneCard
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInner
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLFaithful
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-import CFSG.LocalAnalysis.StandardType.GGCoxeterForkProofBCDExt
-import CFSG.LieType.Universal.Spin.Twisted.Datum
-import CFSG.LieType.Steinberg.Classical.SpinFrame.Weyl
-import CFSG.LieType.Steinberg.CentralExt.UnitaryRankOne
-import CFSG.Adapters.SpecialLinearPerfect
-import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
 import CFSG.LieType.BorelTits.LeviOrder
-import Mathlib.Tactic.Group
 
 public section
 

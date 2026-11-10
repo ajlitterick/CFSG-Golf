@@ -5,8 +5,6 @@ public import CFSG.Certificates.Kernel.KStep.Xi
 public import CFSG.Certificates.Kernel.KStep.Tau
 public import CFSG.Certificates.Kernel.KStep.Perm15
 public import CFSG.Certificates.Kernel.KStep.KeyBind
-public import CFSG.Certificates.Kernel.KStep.Defs
-import CFSG.Certificates.Kernel.KDense.KeysSound
 import CFSG.Certificates.Kernel.KDense.Data.Checks
 import CFSG.Certificates.Kernel.KDense.Data.KeySort
 import Mathlib.Tactic.Ring

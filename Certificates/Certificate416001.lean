@@ -3,7 +3,6 @@ module
 public import Certificates.Data.TwinE4Sp62S
 import Certificates.Kernel.PermCent.K416001
 public import Certificates.Data.Kernel.PermCent.CV
-import CFSG.Certificates.Kernel.PermCent.CVSound
 
 public section
 

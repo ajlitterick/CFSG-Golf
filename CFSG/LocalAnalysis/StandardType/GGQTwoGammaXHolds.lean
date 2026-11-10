@@ -7,8 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoLemmaA
 public import CFSG.LocalAnalysis.StandardType.GGQTwoScalarStable
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFinishD
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNoF4
-public import CFSG.LocalAnalysis.StandardType.GGQTwoBridgeWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
 import CFSG.LocalAnalysis.StandardType.GGQTwoTBWNormModelA
 
 public section

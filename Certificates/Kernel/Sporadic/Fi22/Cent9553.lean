@@ -1,13 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Fi22FiveCoreData
 public import Certificates.Kernel.Sporadic.Fi22.CentChecks
 public import Certificates.Kernel.Sporadic.Fi22.CentStar
 public import Certificates.Kernel.Sporadic.Fi22.FiveK
 public import Certificates.Kernel.Sporadic.Fi22.C2064
 public import CFSG.Sporadic.FischerOddCore.ClosureSearchEq
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

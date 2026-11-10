@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Background.CommVBasics
 public import CFSG.CGT.PushingUpLit.BHS.ThreeConj
 public import CFSG.CGT.PushingUpLit.BHS.TwoSixteenAlt
 public import CFSG.Foundations

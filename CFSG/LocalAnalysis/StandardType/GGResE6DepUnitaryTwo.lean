@@ -2,12 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepUnitary
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoSetup
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoDescent
-public import CFSG.LocalAnalysis.StandardType.GGF4AutWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterFaithfulTypeA
-public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclicHolds
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeWeylHolds
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Main
 
 public section
 

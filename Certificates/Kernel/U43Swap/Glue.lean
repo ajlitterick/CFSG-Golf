@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.U43Mod.Glue
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5XSwCen
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Reduction

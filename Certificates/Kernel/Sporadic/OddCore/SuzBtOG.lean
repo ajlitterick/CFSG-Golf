@@ -4,13 +4,9 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.SuzBtNG
 public import Certificates.Kernel.Sporadic.OddCore.SuzBtIG
 public import Certificates.Kernel.Sporadic.OddCore.SuzBtOF
-public import Certificates.Kernel.Sporadic.OddCore.SuzTwCF
 public import CFSG.Certificates.Kernel.Spor.BTupOSound
-public import CFSG.Sporadic.SuzRecog.C1ModelBase
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.HeFixKFix
-import Mathlib.Tactic.Group
 
 public section
 

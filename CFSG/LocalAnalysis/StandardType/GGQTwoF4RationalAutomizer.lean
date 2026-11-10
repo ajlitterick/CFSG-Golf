@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoRationalWeyl
 public import CFSG.LocalAnalysis.StandardType.GGLangDetectsTwoF4Class
 public import CFSG.LocalAnalysis.StandardType.GGLangLatSolv
-public import CFSG.LocalAnalysis.StandardType.GGLangCorootPair
-public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl
-public import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.F4TwoKernel
 public import CFSG.Mathlib.Decide.Bounded
-public import CFSG.GroupTheory.LocalCores.Components
 
 public noncomputable section
 

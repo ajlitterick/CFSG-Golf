@@ -2,15 +2,10 @@ module
 
 public import CFSG.RankThree.PartTwo.Census.Carrier.G2EvenRank
 public import CFSG.RankThree.PartTwo.Census.Criteria
-public import CFSG.Blueprint.Catalog
-public import CFSG.LieType.Chevalley.NativeMonomial
 public import CFSG.LieType.Chevalley.RankOneGaussian
-public import CFSG.Blueprint.ChevalleyPinned
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCalculus
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenInvolutions
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenLongCentralizer
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenShortCentralizer
-import CFSG.LieType.Chevalley.AdjointCenter
 import CFSG.Adapters.TauCetiExceptional.EvenBridgeG2
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 import CFSG.LieType.Chevalley.EvenRootCommutatorF4

@@ -2,7 +2,6 @@ module
 
 import all CFSG.Fischer.F4
 public import CFSG.Monster.B.Classical.UnitarySixGraph
-public import Mathlib.Order.CompletePartialOrder
 
 public section
 

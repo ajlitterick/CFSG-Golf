@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwisted
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeOuterInn
 
 public section

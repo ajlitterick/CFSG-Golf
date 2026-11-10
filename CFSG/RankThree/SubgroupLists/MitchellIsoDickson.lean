@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.SubgroupLists.MitchellIsoTorus
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonClassification
 import CFSG.Dihedral.GorensteinWalter.FieldTransport
 
 public section

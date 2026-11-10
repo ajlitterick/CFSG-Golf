@@ -1,7 +1,5 @@
 module
 
-public import CFSG.RankThree.Native.ONTripleLocalCheckInputs
-import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.Misc.ON.Wit0
 public import Certificates.Kernel.Misc.ON.Wit1
 public import Certificates.Kernel.Misc.ON.Wit2

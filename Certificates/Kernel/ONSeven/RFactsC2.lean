@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.ONSeven.RGlueE
 public import Certificates.Kernel.ONSeven.RChkC2
-import CFSG.Certificates.Kernel.BfsPinSliceSound
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

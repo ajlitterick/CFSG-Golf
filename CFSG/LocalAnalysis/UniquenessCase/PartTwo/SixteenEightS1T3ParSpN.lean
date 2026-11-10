@@ -2,7 +2,6 @@ module
 
 public import CFSG.Adapters.RankTwoModelTransports
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenKNormSp
-public import CFSG.Open.StatedDefs
 public import CFSG.Quasithin.Background.FFC4Zmod
 public import CFSG.Quasithin.Background.B5FinOut
 public import CFSG.Quasithin.Background.FFC4Real

@@ -3,11 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTypeAReflOverDefs
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofLin
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofGlueCtx
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.Module
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.Ring
 
 public section
 

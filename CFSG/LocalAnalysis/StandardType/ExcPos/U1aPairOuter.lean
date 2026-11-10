@@ -1,15 +1,6 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigid
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimple
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleLang
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleRankOne
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleSplit
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.OuterFieldCore
 public import CFSG.LocalAnalysis.StandardType.ExcPos.U1aPairOuterTwo
-public import CFSG.LocalAnalysis.StandardType.GGJ4dKernel24
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcBruhat
 
 public section
 

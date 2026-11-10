@@ -6,13 +6,10 @@ public import Certificates.Kernel.Sporadic.M22Syl.Surv2
 public import Certificates.Kernel.Sporadic.M22Syl.Surv3
 public import CFSG.Certificates.Kernel.Spor.MSylowSound
 public import CFSG.Certificates.Kernel.Spor.MSylowSoundW
-public import CFSG.Sporadic.Schreier.MathieuSylowAutM22Inputs
-public import CFSG.Sporadic.Schreier.MathieuSylowAutM22Derivs
 public meta import CFSG.Sporadic.Schreier.MathieuSylowAutMain
 public meta import CFSG.Sporadic.Schreier.M22
 public meta import CFSG.Monster.B.Mathieu.M22Check
 public meta import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Certificates.Kernel.Spor.PCountW
 public import CFSG.Certificates.Kernel.Spor.PK.Perm.Inv

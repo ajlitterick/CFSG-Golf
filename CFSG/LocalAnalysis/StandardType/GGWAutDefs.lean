@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResKnownGroup
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112K
-public import CFSG.LocalAnalysis.StandardType.GGQTwoReflLin
-public import CFSG.LocalAnalysis.StandardType.GGQTwoInnerDefs
 
 public section
 

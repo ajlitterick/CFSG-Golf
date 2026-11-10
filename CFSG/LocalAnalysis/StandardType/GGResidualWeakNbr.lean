@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinOutWeakDefs
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourExact
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 
 public section
 

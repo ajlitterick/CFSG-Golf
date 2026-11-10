@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Vol2.E2StatementsAS
 public import CFSG.Quasithin.Background.E1Solv
 public import CFSG.ThirdParty.QiuzhenCFSG.BaerSuzuki.FinalTheorem
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralGenerators
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
 
 public section
 

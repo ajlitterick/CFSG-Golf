@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKnownInputsPsuOrder
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDetOrders
 
 public section
 

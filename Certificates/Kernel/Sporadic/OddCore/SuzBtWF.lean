@@ -4,7 +4,6 @@ public import Certificates.Kernel.Sporadic.OddCore.SuzBtTD
 public import Certificates.Kernel.Sporadic.OddCore.SuzC1EG
 public import Certificates.Data.Kernel.Spor.BTupI
 public import CFSG.Sporadic.SuzRecog.SuzL34.Facts
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

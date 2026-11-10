@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Timmesfeld.Bridge.Asc72Basic
-public import CFSG.Timmesfeld.Closure.MinCex
 public import CFSG.OddTranspositions.HalphaQuotient
 
 import CFSG.OddTranspositions.PartThree.Nine.ThreeSplit
-import CFSG.Timmesfeld.Bridge.Asc72Local
-import CFSG.Timmesfeld.Special.Basic
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.AschbacherCanonicalRemaining
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.ExceptionalEightPlaneCentralizer

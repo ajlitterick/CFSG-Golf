@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeOmOrder
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentGrp
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentKey
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddLayer
-public import CFSG.RankThree.PartOne.S11d.OrthModels
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.WeakBlockModuleData.OutCover
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeOmMinusStdGen
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentFix
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentFix

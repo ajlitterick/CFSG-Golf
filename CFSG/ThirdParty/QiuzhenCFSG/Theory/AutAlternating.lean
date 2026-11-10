@@ -1,9 +1,6 @@
 module
 
 public import Mathlib.Algebra.Group.ConjFinite
-public import Mathlib.GroupTheory.Perm.Cycle.Type
-public import Mathlib.GroupTheory.Perm.Support
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 
 namespace CFSG

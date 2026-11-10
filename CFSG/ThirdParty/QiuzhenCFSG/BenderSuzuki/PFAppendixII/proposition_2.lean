@@ -3,8 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixII.proposition_1
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.RightNearField.Linear
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixI.proposition_2
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection2.EndFieldRep
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Maschke
 
 namespace CFSG
 end CFSG

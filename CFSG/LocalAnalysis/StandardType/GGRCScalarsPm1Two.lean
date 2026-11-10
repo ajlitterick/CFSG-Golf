@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 public import CFSG.LocalAnalysis.StandardType.GGRCTriangleLattice
 public import CFSG.LocalAnalysis.StandardType.GGRCLatticeTripleTwo
 public import CFSG.LocalAnalysis.StandardType.GGRCMonomialFrame

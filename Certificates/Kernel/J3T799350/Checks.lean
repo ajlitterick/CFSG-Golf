@@ -4,7 +4,6 @@ public import Certificates.Kernel.J3T799350.Data
 public import Certificates.Data.Kernel.J3Tk
 public import CFSG.RankThree.PartTwo.Sec8.Hering611S4Data
 public import Certificates.Kernel.SporSch.PairJ3.Chain
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

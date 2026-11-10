@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Monster.B.GSide.CompletionFusion
-public import CFSG.Monster.B.GSide.HInnerFusion
 public import CFSG.Monster.B.GSide.EdgeQCertL
-public import CFSG.Monster.B.CTIB.HInnerCensus
 public import CFSG.Monster.B.CTIB.HOuter
 
 public noncomputable section

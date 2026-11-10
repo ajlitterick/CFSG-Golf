@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2E8Pair
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2InterfaceE8
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcOrth
-public import CFSG.ClassicalInvolution.Models.UnitaryPairs.Pairs
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs
 
 public section

@@ -1,13 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclicLabels
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T266G2Holds
 public import CFSG.CGT.PushingUpLit.CGT6M.FiveInspD4
 public import CFSG.RankThree.PartTwo.Sec4.E27.D4StepALeavesAuxL2G2
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res7ProofG2
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmall
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTriality
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 public import CFSG.RankThree.PartOne.S9.Sylow.GlobalRelative
 public import CFSG.RankThree.PartTwo.Sec11.KS11Lie6ProofKFacts
 public import CFSG.RankThree.PartTwo.Sec21.Item211Res5ProofBlockMain

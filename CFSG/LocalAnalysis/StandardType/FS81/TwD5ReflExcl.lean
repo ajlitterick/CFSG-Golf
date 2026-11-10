@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Refl
-public import CFSG.LocalAnalysis.StandardType.FS81.SpMatAlg
-public import CFSG.LocalAnalysis.StandardType.FS81.OddCoreOrthRows
 public import CFSG.LocalAnalysis.StandardType.FS81.SpMatWt
-public import CFSG.LocalAnalysis.StandardType.FS81.Realized
 
 public section
 

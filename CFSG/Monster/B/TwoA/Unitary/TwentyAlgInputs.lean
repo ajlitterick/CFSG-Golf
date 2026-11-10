@@ -2,13 +2,8 @@ module
 
 public import CFSG.Monster.B.TwoA.Unitary.TwentyData
 public import CFSG.Monster.Code.Bits
-public import Mathlib.LinearAlgebra.Basis.Basic
-public import Mathlib.LinearAlgebra.Basis.Defs
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 public meta import CFSG.Monster.B.TwoA.Unitary.TwentyData
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.AbsolutelyIrreducible
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.JacobsonDensity
-import Mathlib.RingTheory.Flat.FaithfullyFlat.Algebra
 
 public section
 

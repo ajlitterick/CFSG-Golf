@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.TypesOmega
-public import CFSG.Open.StatedDefs
-import CFSG.ClassicalGroups.Orthogonal.Matrix
 import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.BridgeDerived
 import CFSG.Blueprint.SourceClassicalTransport
 import CFSG.LieType.Steinberg.CentralExt.OrthogonalPerfect

@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.ClassicalInvolution.SmallCases.Hat2A7S25N5
 public import CFSG.ClassicalInvolution.SmallCases.Hat2A7S25N6
 

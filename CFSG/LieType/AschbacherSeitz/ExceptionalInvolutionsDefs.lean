@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLatRootBridge
 public import CFSG.LocalAnalysis.StandardType.GGLatOrth
 public import CFSG.LocalAnalysis.StandardType.GGExcKnownGroups
-public import CFSG.LieType.Universal.Catalog
 
 public section
 

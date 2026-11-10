@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.GraphFixedRootNormal
-public import CFSG.LieType.Chevalley.FoldedRootOrbits
-public import CFSG.LieType.Chevalley.PositiveRootCollection
 
 public noncomputable section
 

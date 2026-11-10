@@ -1,17 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNTPlaneInput
 public import CFSG.LocalAnalysis.StandardType.GGCentD4Diagram
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterFourSeitzD4
 import CFSG.LocalAnalysis.StandardType.GGLangRootSym3
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2Outer
-import CFSG.LieType.Chevalley.WeylRootTransport
-import CFSG.LieType.Chevalley.E7SupportedBruhat
-import CFSG.LieType.Chevalley.ExactNormalFormE
-import CFSG.LieType.Chevalley.GraphFixedHighestRoot
-import CFSG.Blueprint.ChevalleyPinnedLemmas
-import CFSG.LocalAnalysis.SeitzReduction.E6PilotCentralizerYLeviBasic
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcTw
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.Coordinator.Cover
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.ExceptionsTransport.FamilyProved
 public import CFSG.HardMathSupport.Seitz.G2Noninner.Descent.OddNeThree

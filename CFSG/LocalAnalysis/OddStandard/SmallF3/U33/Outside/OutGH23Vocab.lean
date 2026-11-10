@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Bg.TwoGroups.Models
 public import Mathlib.GroupTheory.PGroup
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 public import Mathlib.GroupTheory.SpecificGroups.Alternating
 
 public section

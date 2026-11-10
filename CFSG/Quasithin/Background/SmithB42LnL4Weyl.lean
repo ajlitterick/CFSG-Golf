@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Quasithin.Background.SmithB42LnL4Grp
-public import CFSG.LieType.Universal.SpecialLinearRoots
 public import CFSG.Quasithin.Background.SmithCurtisHecke
-public import CFSG.LieType.RootSystem.Form
 
 public section
 

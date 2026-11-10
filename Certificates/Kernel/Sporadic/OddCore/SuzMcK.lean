@@ -5,7 +5,6 @@ public import Certificates.Kernel.Sporadic.OddCore.SuzMGF
 public import Certificates.Kernel.Sporadic.OddCore.SuzRKZ
 public import Certificates.Kernel.Sporadic.OddCore.SuzC1ED
 public import Certificates.Kernel.Sporadic.L2.Defs2
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.EachUnfold
 
 public section

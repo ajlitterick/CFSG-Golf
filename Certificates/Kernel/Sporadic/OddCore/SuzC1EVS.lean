@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzC1EF
-public import Certificates.Kernel.Sporadic.OddCore.Suz2302
 
 public section
 

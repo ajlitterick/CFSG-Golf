@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Bounds.LyAlt.DceS5
 public import CFSG.Certificates.Kernel.Bounds.LyAlt.Data.Sel
 public import CFSG.Certificates.Kernel.Bounds.Core3
 public import Certificates.Data.Kernel.LceSSeg

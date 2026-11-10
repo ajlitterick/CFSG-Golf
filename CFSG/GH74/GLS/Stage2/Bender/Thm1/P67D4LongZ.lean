@@ -1,8 +1,6 @@
 module
 
-public import CFSG.GH74.GLS.Stage4.HexModelD4
 public import CFSG.LieType.Steinberg.CentralExt.TrialityTorus
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4ZRoot
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4HexLong
 

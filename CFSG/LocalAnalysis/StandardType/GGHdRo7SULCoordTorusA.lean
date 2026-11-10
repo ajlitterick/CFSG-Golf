@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SULCoordModelA
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUCoord
 
 public section
 

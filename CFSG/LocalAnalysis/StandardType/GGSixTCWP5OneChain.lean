@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6Chain
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6Dich
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6FrameDef
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4TwistOuter
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs2
 

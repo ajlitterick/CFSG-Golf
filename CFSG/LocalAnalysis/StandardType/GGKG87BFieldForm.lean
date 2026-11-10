@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeMarking
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Conj
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 import CFSG.LocalAnalysis.StandardType.GGTwE6FieldTransport
-import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherTwE6
-import CFSG.RankThree.Chevalley.SteinbergBTCanonicalFieldCommon
 
 public section
 

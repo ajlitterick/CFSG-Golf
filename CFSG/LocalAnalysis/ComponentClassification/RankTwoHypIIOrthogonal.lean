@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoHypIIOrthogonalLinear
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoHypIIOrthogonalFree
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalDefs
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelWitness
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataPlusImage
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalInvolutionConjugacy
 public import CFSG.RankThree.PartOne.KC.OrthogonalAutSemilinearTags
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
@@ -39,8 +36,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
 public import CFSG.RankThree.PartOne.KC.OrthogonalAutSemilinearBridge
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

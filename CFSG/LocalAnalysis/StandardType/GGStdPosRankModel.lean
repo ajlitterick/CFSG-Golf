@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeTypeA
-public import CFSG.LieType.Universal.SpecialLinear
-public import CFSG.LieType.CurtisTits.Conclusion
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 
 public section
 

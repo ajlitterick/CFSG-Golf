@@ -5,32 +5,14 @@ import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Label
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Basic
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerLinear
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
-public import Certificates.Certificate1002
-public import Certificates.Certificate2151
 public import Certificates.Certificate2154
 public import Certificates.Certificate2157
 public import Certificates.Certificate2326
 public import Certificates.Certificate3006
 public import Certificates.Certificate3007
 public import Certificates.Certificate3008
-public import Certificates.Certificate3041
-public import Certificates.Certificate3042
-public import Certificates.Certificate3054
-public import Certificates.Certificate3055
-public import Certificates.Certificate3056
-public import Certificates.Certificate3057
-public import Certificates.Certificate3058
-public import Certificates.Certificate3060
-public import Certificates.Certificate3061
-public import Certificates.Certificate3062
 public import Certificates.Certificate3063
-public import Certificates.Certificate3072
-public import Certificates.Certificate3073
-public import Certificates.Certificate3074
-public import Certificates.Certificate3075
-public import Certificates.Certificate3076
 public import Certificates.Certificate3077
-public import Certificates.Certificate3078
 public import Certificates.Certificate3082
 public import Certificates.Certificate3083
 public import Certificates.Certificate9130
@@ -43,9 +25,7 @@ public import Certificates.Certificate10010
 public import Certificates.Certificate10012
 public import Certificates.Certificate10013
 public import Certificates.Certificate10014
-public import Certificates.Certificate10015
 public import Certificates.Certificate10016
-public import Certificates.Certificate10017
 public import Certificates.Certificate10018
 public import Certificates.Certificate12041
 public import Certificates.Certificate12042

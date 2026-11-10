@@ -6,11 +6,7 @@ public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaDecomp
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoOneLinear
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoUnitary
 import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDict
-import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
 import CFSG.LocalAnalysis.StandardType.TableC.POmegaBlockDeg
-import CFSG.LocalAnalysis.StandardType.TableC.GramBlockDegree
-import CFSG.LocalAnalysis.StandardType.TableC.GramBlockRank
-import CFSG.LocalAnalysis.StandardType.TableC.OrthGram
 import CFSG.RankThree.GF2n.Smith81.OrthE1KFLinear
 import CFSG.LinearAlgebra.OrthogonalIdempotentsFinrank
 public import CFSG.RankThree.GF2n.Smith81.OrthE1Steps
@@ -24,7 +20,6 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294KDOutTwE6
 import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotResidualFRHigher
 import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotResidualLeviGlue
 import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotUniqueGen
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtX1512DeltaA
 import CFSG.RankThree.GF2n.Smith81.EStmt
 import CFSG.RankThree.GF2n.Smith81.OrthE2Layer
 import CFSG.RankThree.GF2n.Smith81.TiLane

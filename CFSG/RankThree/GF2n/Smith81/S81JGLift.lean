@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Smith81.S81JMat
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.StatedAPI
 public import CFSG.RankThree.GF2n.Smith81.S81BA5Rank
 
 public section

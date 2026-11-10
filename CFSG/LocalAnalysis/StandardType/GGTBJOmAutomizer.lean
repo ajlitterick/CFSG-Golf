@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJRowR5O2
-public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlock
-public import CFSG.LocalAnalysis.StandardType.GGTBJTypeDDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBJOmAutomizerAux
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmOddSign
 
 public section

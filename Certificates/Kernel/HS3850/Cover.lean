@@ -4,7 +4,6 @@ public import Certificates.Kernel.HS3850.Fours
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.Le4.CoverData
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.Le4.CoverData
 meta import Certificates.Kernel.Misc.Perm.HexCmd
-import CFSG.Certificates.Kernel.Common.Harness
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Rows
 meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic

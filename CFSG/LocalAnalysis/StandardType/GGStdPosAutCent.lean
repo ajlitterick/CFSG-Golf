@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGStdPosRootKerDefs
 public import CFSG.LocalAnalysis.StandardType.GGStdPosTorusNorm
 public import CFSG.LocalAnalysis.StandardType.GGStdPosCore
 public import CFSG.LocalAnalysis.StandardType.GGStdPosTrans
-import TauCeti.GroupTheory.Coxeter.Geometric
-import Mathlib.Tactic.Group
 
 public section
 

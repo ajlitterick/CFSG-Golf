@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78F514Zs
-public import CFSG.LocalAnalysis.ComponentClassification.Foote5L53L
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.Stage1.Thm6.Sec12.Lemma12_7
 public import CFSG.GH74.GLS.Stage1.Thm6.Sec12b.Statements129
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78F514Cent

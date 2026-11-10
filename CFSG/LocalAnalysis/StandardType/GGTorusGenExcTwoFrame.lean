@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRDefs
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenExcTwoCent
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenExcTwoComp
-public import CFSG.LocalAnalysis.StandardType.GGIrred937ExcLang
 public import CFSG.LocalAnalysis.StandardType.GGIrred937ExcMain
 import CFSG.GroupTheory.ConjClassGeneration
 

@@ -1,16 +1,9 @@
 module
 
-public import Mathlib.GroupTheory.Frattini
 public import Mathlib.GroupTheory.IsPerfect
 public import Mathlib.GroupTheory.IsSubnormal
-public import Mathlib.GroupTheory.Solvable
-public import Mathlib.GroupTheory.Sylow
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
 public import CFSG.GroupTheory.Fitting.WholeGroupConstruction
-public import Mathlib.Tactic.Eqns
 public import CFSG.GroupTheory.PCore.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 public import CFSG.Foundations.MaxOrderThompsonDefs
 public import CFSG.Foundations.FullStandardCore
 

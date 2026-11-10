@@ -4,7 +4,6 @@ public import CFSG.OddTranspositions.PartThree.Ten.SwapImage
 import CFSG.OddTranspositions.PartThree.Ten.SwapKlein
 import CFSG.OddTranspositions.PartThree.Ten.DalphaBlocks
 import CFSG.OddTranspositions.PartThree.Ten.CentralSymSplit
-import CFSG.OddTranspositions.PartThree.Ten.WreathEndgame
 import CFSG.OddTranspositions.FusionStep
 import CFSG.Timmesfeld.Bridge.Asc72ZQuot
 import CFSG.OddTranspositions.SecondKindCoset

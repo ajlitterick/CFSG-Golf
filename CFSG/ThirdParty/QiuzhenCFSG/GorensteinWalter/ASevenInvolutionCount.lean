@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenInvariantOddPSubgroupCentralized
-import Mathlib.GroupTheory.GroupAction.CardCommute
-import Mathlib.GroupTheory.Perm.Centralizer
 import Mathlib.Tactic
 import all Mathlib.GroupTheory.Perm.Cycle.Factors
 

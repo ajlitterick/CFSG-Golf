@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanChevOuterRep
 public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import CFSG.Open.LocalVocabulary
 public import CFSG.RankThree.PartOne.KS.PKit
 public import CFSG.RankThree.PartOne.KS.PKitLines
 

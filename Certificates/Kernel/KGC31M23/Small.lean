@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.KGC31M23.CosDefs
 public import Certificates.Kernel.KGC31M23.ChainData
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

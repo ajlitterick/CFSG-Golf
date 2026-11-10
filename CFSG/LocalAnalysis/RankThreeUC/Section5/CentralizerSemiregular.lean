@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.CommutatorActorTwoCoreSupActorCenterEqBot
-public import CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 import all CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 public import CFSG.LocalAnalysis.RankThreeUC.ProofSupport.CyclicCentralizerEquality.CyclicCentralizerEquality
 public import CFSG.LocalAnalysis.RankThreeUC.ProofSupport.CoprimeFixedCentralCoset.CoprimeFixedCentralCoset

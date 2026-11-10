@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.KGFactC31M24Data
 import Certificates.Kernel.KGC31M24.Facts7216
-import Certificates.Kernel.KGC31M24.Defs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Quasithin.Vol2.KGFactC31CosetCheck
 public import CFSG.Quasithin.Vol2.KGFactC31FrameCheck
 public import CFSG.Sporadic.Schreier.M24Base

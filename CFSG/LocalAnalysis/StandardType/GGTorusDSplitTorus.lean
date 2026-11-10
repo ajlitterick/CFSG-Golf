@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTorusDWeyl
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalEndNode
 public import CFSG.LocalAnalysis.StandardType.GGKGForkOmPlusRoot2
 public import CFSG.LocalAnalysis.StandardType.GGTorusF4Split
 public import CFSG.LocalAnalysis.StandardType.GGTorCTori

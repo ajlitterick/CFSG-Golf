@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011LabUniq
 public import CFSG.LocalAnalysis.GLTheoremA.S10.InputsAlpha
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.Main
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Multiplier.Models
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.Thm46FS.G2EvenOuterTypeDet
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32
 public import CFSG.HardMathSupport.Solomon.LocalBalance.PartIInputs

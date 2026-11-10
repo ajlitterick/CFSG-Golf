@@ -1,18 +1,11 @@
 module
 
-public import CFSG.Certificates.Kernel.BabyMonster.PairSound
 public import CFSG.Certificates.Kernel.BabyMonster.Chain4
-public import Certificates.Kernel.BabyMonster.Chain2
-public import CFSG.Certificates.Kernel.BabyMonster.Five.All
 public import CFSG.Certificates.Kernel.BabyMonster.Scal.All
 public import CFSG.RankThree.PartOne.KS.ScalFiveBasic
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.ComponentPrimary.BFiveData
-public import CFSG.Blueprint.NativeSporadic
 public import Certificates.Kernel.BabyMonster.Five.Mem
-public import CFSG.Certificates.Kernel.BabyMonster.Scal.Check0
-public import CFSG.Certificates.Kernel.BabyMonster.Scal.Check1
-public import CFSG.Certificates.Kernel.BabyMonster.Scal.Check2
 
 public section
 

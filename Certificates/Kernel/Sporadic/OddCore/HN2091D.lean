@@ -3,10 +3,8 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.HND2
 public import Certificates.Kernel.Sporadic.OddCore.ChainCheckGlue
 public import Certificates.Kernel.Sporadic.OddCore.BfsLCmd
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.Sporadic.OddCore.RowsCmd
-public import CFSG.Sporadic.HNOddCore.SCheckInputs
 meta import CFSG.Sporadic.HNOddCore.SCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
 

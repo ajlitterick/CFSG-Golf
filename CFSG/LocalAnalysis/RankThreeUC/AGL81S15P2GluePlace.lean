@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15Vocab
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K5192P2PB
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15P2GlueKernel
-import CFSG.Quasithin.Background.A4V
-import CFSG.LocalAnalysis.AGLEmbedding.BlockThreeAux
-import CFSG.Quasithin.Background.Equivariance
-import CFSG.Quasithin.EmptyFaithful.S1412
 
 public section
 

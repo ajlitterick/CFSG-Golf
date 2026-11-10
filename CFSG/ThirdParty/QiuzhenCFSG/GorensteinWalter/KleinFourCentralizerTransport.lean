@@ -6,7 +6,6 @@ public import Mathlib.GroupTheory.Complement
 public meta import Mathlib.Data.Fintype.Perm
 public meta import Mathlib.Algebra.Group.End
 public meta import Mathlib.GroupTheory.Subgroup.Center
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

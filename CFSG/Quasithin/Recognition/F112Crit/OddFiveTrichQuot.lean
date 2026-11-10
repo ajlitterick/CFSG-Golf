@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Recognition.F112Crit.BenderCartan
 public import CFSG.Quasithin.Recognition.F112Crit.BenderTrichotomy
 public import CFSG.GH74.Uniqueness.Bender.Sylow2SpecialSuzuki
-public import CFSG.GH74.Uniqueness.Bender.UnitaryOuterRoot
 public import CFSG.GH74.Uniqueness.Bender.UnitaryAut
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureTwoCoreGrowthLinearFrobenius
 public import CFSG.StronglyEmbedded.MatrixGroups.PSL2

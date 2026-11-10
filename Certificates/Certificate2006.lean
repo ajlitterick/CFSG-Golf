@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2006Base
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallA6Inputs
 public meta import CFSG.GH74.KGroups.Checks
 public meta import CFSG.GH74.KGroups.A6
 import Certificates.Kernel.Census.CatFacts.C2006

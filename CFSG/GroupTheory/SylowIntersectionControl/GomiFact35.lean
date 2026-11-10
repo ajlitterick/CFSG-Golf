@@ -5,7 +5,6 @@ public import CFSG.Quasithin.Background.G64NatSec
 public import CFSG.GroupTheory.SylowIntersectionControl.GomiFactsGF2
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K421SpSL
 import CFSG.Open.MatrixFixedVectors
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.SubrepresentationLattice
 
 public section
 

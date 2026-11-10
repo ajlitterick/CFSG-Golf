@@ -4,7 +4,6 @@ public import CFSG.RankThree.GF2n.Smith81.LinStmt
 import CFSG.RankThree.GF2n.Smith81.TiOuter
 import CFSG.RankThree.GF2n.Smith81.InspLinLocal
 import CFSG.RankThree.GF2n.Smith81.LinOddAssembly
-import CFSG.Timmesfeld.Orders.Classical
 import CFSG.ClassicalInvolution.RouteD.TWRExoticArith
 import CFSG.RankThree.GF2n.Stroth80.Sec1110Core
 public import CFSG.CGT.Timmesfeld75.Forms
@@ -30,9 +29,6 @@ public import CFSG.RankThree.GF2n.Tim79CentC
 public import CFSG.RankThree.GF2n.Tim79CentL
 public import CFSG.RankThree.GF2n.Tim79Mod
 public import CFSG.RankThree.GF2n.Tim81.Components
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.Timmesfeld.RankOne
 import CFSG.Combinatorics.AperiodicCentralInvolution
 import CFSG.Combinatorics.AperiodicFiveOfSix

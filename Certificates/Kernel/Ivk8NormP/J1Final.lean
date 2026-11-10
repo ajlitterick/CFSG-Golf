@@ -3,15 +3,10 @@ module
 public import Certificates.Kernel.Ivk8NormP.J1
 public import Certificates.Kernel.SporSch.J1.Cent2163B
 public import CFSG.Certificates.Kernel.Ivk8NormPRes
-public import CFSG.Certificates.Kernel.Ivk8NormSound
-public import CFSG.Certificates.Kernel.Census.CatFacts.PkEnum
-public import CFSG.Certificates.Kernel.Spor.PK.CertBridge
-public import CFSG.Certificates.SchreierChainOrder
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8S12NormP
 public import CFSG.Sporadic.Schreier.J1Centralizer
 public import CFSG.Sporadic.Schreier.J1Outer
 import CFSG.Certificates.Kernel.Spor.RecGroup
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A

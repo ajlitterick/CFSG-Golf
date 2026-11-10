@@ -5,8 +5,6 @@ public import CFSG.Certificates.Kernel.EvenSporSuz.OuterSound
 public import CFSG.Certificates.Kernel.EvenSporSuz.CoverSound
 public import Certificates.Kernel.Sporadic.OddCore.Suz26990F
 import Certificates.Kernel.EvenSporSuz.Bridge
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

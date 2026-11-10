@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSUNorm
-public import CFSG.Timmesfeld.LieEmbed.UnitaryWittN
 
 public section
 

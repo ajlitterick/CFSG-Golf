@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.PhanEChevModel
-public import CFSG.LieType.Steinberg.BruhatWeyl
-import Mathlib.Tactic.Group
 
 public section
 

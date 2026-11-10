@@ -1,12 +1,10 @@
 module
 
 public import Certificates.Kernel.Fi22Ax.Checks
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.Certificates.Kernel.Spor.PcompFacts
 public import CFSG.Certificates.Kernel.Spor.DistinctSound
 public import CFSG.Certificates.Kernel.Misc.PairCountSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

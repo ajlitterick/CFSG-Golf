@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.H13.L32AC49e
 public import CFSG.Quasithin.H13.L32AC50b
 public import CFSG.Quasithin.H13.L32ACSk4
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierAlternatingOutsideSix
 
 public section
 

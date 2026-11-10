@@ -1,29 +1,20 @@
 module
 
-public import CFSG.LieType.AlgebraicGroups.InnerTwistDifferential
 public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.LieType.AlgebraicGroups.CartanCentralizer
-public import CFSG.LieType.AlgebraicGroups.GradedRepresentationKernel
-public import CFSG.LieType.AlgebraicGroups.EquivariantAffineEmbedding
 public import CFSG.Mathlib.RingTheory.FiniteFiberInjective
-public import TauCeti.Algebra.AlgebraicGroup.Unipotent.Semisimple
-public import TauCeti.RingTheory.FiniteType.PointSeparation
-public import CFSG.LieType.AlgebraicGroups.FixedComponentProduct
 public import CFSG.LinearAlgebra.FiniteSpanningAction
 public import CFSG.LocalAnalysis.ComponentInitial.LinearMonomial
 public import CFSG.Mathlib.FieldTheory.InfiniteUnitPowers
 public import CFSG.ThirdParty.TauCeti.DynamicRepresentability
-public import TauCeti.Algebra.AlgebraicGroup.ConstantGroup.Points
 public import TauCeti.Algebra.AlgebraicGroup.DiagonalizableGroup.ClosedSubgroup
 public import TauCeti.Algebra.AlgebraicGroup.GeneralLinear.Conjugation
-public import TauCeti.Algebra.AlgebraicGroup.HopfIdeal.Points.Equalizer
 public import TauCeti.Algebra.AlgebraicGroup.HopfIdeal.Quotient.Kernel.Finiteness
 public import TauCeti.Algebra.Coalgebra.Comodule.MatrixCoefficient.ChangeBasis
 public import TauCeti.LinearAlgebra.Matrix.Rank
 public import TauCeti.RingTheory.FiniteType.Tensor.PointSeparation
 public import TauCeti.RingTheory.Polynomial.BinomialBasis
 public import TauCeti.RingTheory.Spectrum.Prime.Topology
-public import TauCeti.RingTheory.TensorProduct.PointSeparation
 
 public noncomputable section
 

@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHalfWeylBasic
-public import CFSG.LocalAnalysis.StandardType.GGHalfWeylAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGHalfWeylSingleBlock
 public import CFSG.LocalAnalysis.StandardType.GGHalfWeylOrbitFacts
 public import CFSG.LocalAnalysis.StandardType.GGHalfWeylRank
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinOrbitBound
 
 public section
 

@@ -5,7 +5,6 @@ public import Certificates.Data.Kernel.SporLatDc2Check
 public import CFSG.Monster.B.Fischer.Fi22OuterArrays
 public import CFSG.Monster.B.Fischer.PinnedChainInputs
 import Certificates.Kernel.Fi22Dc2.Final
-import Certificates.Kernel.Sporadic.Fi22.X2069Ext
 import CFSG.Certificates.Kernel.Common.Harness
 import Certificates.Kernel.Sporadic.Fi22.C2068
 import Certificates.Kernel.Sporadic.Fi22.C3151

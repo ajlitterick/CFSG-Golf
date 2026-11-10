@@ -4,11 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGNineDepRowOrth
 public import CFSG.LocalAnalysis.StandardType.GGNineDepNegLift
 public import CFSG.LocalAnalysis.StandardType.GGWeylE8CardBound
 public import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLFaithful
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisExc.E8Weyl
-public import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-public import Mathlib.LinearAlgebra.QuadraticForm.Basic
 
 public section
 

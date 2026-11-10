@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.D6Cent
-public import Mathlib.Algebra.Group.Subgroup.Finite
-public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.GroupTheory.IsPerfect
-public import Mathlib.GroupTheory.Perm.Cycle.Type
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic.Basic
 
 public section
 

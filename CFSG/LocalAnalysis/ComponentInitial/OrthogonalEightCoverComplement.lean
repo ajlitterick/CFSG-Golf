@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentInitial.MatrixExtensionAlternating
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixCoverCore
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LocalAnalysis.ComponentInitial.CentralCoverAbelian

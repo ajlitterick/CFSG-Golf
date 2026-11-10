@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeADefs
-public import CFSG.LocalAnalysis.StandardType.GGTPNThmRACore
-public import CFSG.LocalAnalysis.StandardType.GGTPNThmRAC1
-public import CFSG.LocalAnalysis.StandardType.GGTPNThmRADescent
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorARankBound
 public import CFSG.LocalAnalysis.StandardType.GGBlockScalar
 

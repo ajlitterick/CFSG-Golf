@@ -3,11 +3,8 @@ module
 public import Certificates.Kernel.U38.Checks
 public import CFSG.Certificates.Kernel.K426KSound
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
-public import CFSG.Certificates.Kernel.Misc.ArrEnumOps
 public import CFSG.Certificates.Kernel.Misc.ArrEnumSound
-public import Certificates.Data.KD4BU38.Data
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Certificates.Kernel.Misc.ArrBind
 

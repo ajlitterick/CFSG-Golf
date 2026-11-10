@@ -3,15 +3,9 @@ module
 public import CFSG.Quasithin.H13.A5Facts1321
 public import CFSG.Quasithin.Vol2.Ch3Sec2Lem328Cases
 public import CFSG.Quasithin.Vol2.Ch10SecAShapeB42
-public import CFSG.Quasithin.Background.B5FinG2U33
-public import CFSG.Quasithin.Background.B5FinSp
-public import CFSG.Quasithin.Background.B5Models
 public import CFSG.Quasithin.Background.A3FactsRank
 public import CFSG.Quasithin.Background.G64ExtSq
-public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyLinearBinary
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups
@@ -46,10 +40,6 @@ public import CFSG.RankThree.Asc83Table.PermTables
 public import CFSG.Sporadic.Schreier.M11
 public import CFSG.Sporadic.Schreier.M22
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
 public import CFSG.Walter.J1

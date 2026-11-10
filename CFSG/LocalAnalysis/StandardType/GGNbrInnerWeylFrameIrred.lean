@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.SeitzGeneration.ExcTorusSylow
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFrameGen
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMonomialIrred
 

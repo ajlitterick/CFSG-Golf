@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFive
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.JSubNormalizer
 import CFSG.GroupTheory.ElementaryAbelianTransport
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.Helpers
-import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.GroupTheory.SylowNormalIndex
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27DiagGroup
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFour

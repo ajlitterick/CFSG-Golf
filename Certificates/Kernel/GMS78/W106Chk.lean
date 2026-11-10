@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.GMS78.W
 public import Certificates.Data.GMS78RuAsmAlign
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -6,7 +6,6 @@ public import CFSG.ClassicalGroups.Symplectic.Perfect
 public import CFSG.LieType.Universal.SymplecticRoots
 public import TauCeti.Algebra.Lie.Symplectic.StandardCarrier.FixedPoints
 import all TauCeti.Algebra.CharP.Frobenius.Fixed
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.GraphTwisted
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Basic

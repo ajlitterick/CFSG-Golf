@@ -1,8 +1,6 @@
 module
 
 import Lean
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosRank
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDiagAux
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDiagCommon
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDiagOrthoAux

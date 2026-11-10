@@ -2,10 +2,7 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.AffinePointGeometry
 public import Mathlib.RingTheory.Spectrum.Prime.Chevalley
-public import Mathlib.RingTheory.Spectrum.Prime.RingHom
 public import Mathlib.RingTheory.TensorProduct.Nontrivial
-public import Mathlib.RingTheory.Flat.Basic
-public import Mathlib.RingTheory.LocalRing.ResidueField.Ideal
 
 public noncomputable section
 

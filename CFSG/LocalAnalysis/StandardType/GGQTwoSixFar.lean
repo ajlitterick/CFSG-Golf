@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixCharts
 import CFSG.LocalAnalysis.StandardType.GGQTwoBlockAsmChart
 import CFSG.LocalAnalysis.StandardType.GGQTwoBlockAsmGen
-import CFSG.LocalAnalysis.StandardType.GGQTwoSUOrder
 
 public section
 

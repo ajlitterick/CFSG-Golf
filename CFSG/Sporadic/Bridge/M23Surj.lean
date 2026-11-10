@@ -3,13 +3,8 @@ module
 public import CFSG.Sporadic.Schreier.M23
 public import CFSG.Sporadic.Bridge.TwoGen
 public import CFSG.Sporadic.Presentation.M23
-public import Certificates.Data.CFSGNative.Bridge.SurjA
 public meta import Certificates.Data.CFSGNative.Bridge.SurjA
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import Certificates.Certificate9121
-public import CFSG.Sporadic.Bridge.M23SurjInputs
 public import Certificates.Certificate9214
-public import Certificates.Certificate2197
 public meta import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import CFSG.Sporadic.M23.M23Group

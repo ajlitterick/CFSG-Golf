@@ -3,10 +3,8 @@ module
 public import CFSG.Quasithin.Vol2.Ch4Sec4G443J4GB
 public import CFSG.Quasithin.Vol2.Ch4Sec4G443J4GD
 public import CFSG.Quasithin.Vol2.Ch4Sec4G443J4C
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocMain
 public import CFSG.Quasithin.EmptyFaithful.S151CLJ4Hj
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4L4Cases
-public import CFSG.Sporadic.J4.LocalOrder
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.PSL2Table.Halves
@@ -48,18 +46,6 @@ public import CFSG.Quasithin.Vol2.Ch4Sec4L443EFact
 public import CFSG.Quasithin.Vol2.Ch4Sec4L443EIn
 public import CFSG.Quasithin.Vol2.Ch4Sec4Lem445
 public import CFSG.RankThree.PartOne.S10.PlaneContract
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 
 public section
 

@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenDefs
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenDefs
 import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenFrame
 import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenCoherent
-import CFSG.ClassicalGroups.Alternating.Transvections
 import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitOmBlkCore
-import CFSG.LocalAnalysis.StandardType.GGSUNonsplitTwoBlockForm
 import CFSG.GroupTheory.ElemAbelianClosure
 
 public section

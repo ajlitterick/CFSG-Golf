@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 public import CFSG.LocalAnalysis.StandardType.GGKnownInputsPsuOrderClassical
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDet
-import CFSG.Timmesfeld.Orders.ClassicalLinear
 
 public section
 

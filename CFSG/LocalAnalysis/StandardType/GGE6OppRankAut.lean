@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6OppCentre
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267BadExcThreeE6Rank
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeTableZCatalogue
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 public import CFSG.LocalAnalysis.StandardType.GGTwistedLabelModels
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.H81Facts
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267BadExcG2Rank
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267BadExcRed

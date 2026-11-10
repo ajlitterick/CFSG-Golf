@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionAltCount
 public import CFSG.Assembly.Defs
-public import Mathlib.GroupTheory.Subgroup.Centralizer
 
 public section
 

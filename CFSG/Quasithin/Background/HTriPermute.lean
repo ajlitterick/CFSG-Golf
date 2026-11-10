@@ -2,7 +2,6 @@ module
 
 public import CFSG.GroupTheory.WielandtProductFinal
 public import CFSG.GroupTheory.HyperplaneGeneration
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 
 public section
 

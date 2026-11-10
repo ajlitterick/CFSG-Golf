@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Recognition.St84.SemidirectRec
 public import CFSG.Quasithin.Recognition.St84.HeisF4Rigid
 public import CFSG.GroupTheory.CardMapInfKer
-public import Mathlib.Order.CompletePartialOrder
 
 public section
 

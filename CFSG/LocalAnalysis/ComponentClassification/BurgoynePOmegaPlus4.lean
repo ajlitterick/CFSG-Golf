@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneInputs
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePOmegaEven
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

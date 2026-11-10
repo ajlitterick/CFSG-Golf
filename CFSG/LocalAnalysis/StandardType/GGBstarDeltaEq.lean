@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableB
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-public import CFSG.LocalAnalysis.LargeEvenClassification.LocalRank
 public import CFSG.LocalAnalysis.LargeEvenClassification.WeakCoreTwoSubgroups
-public import Mathlib.GroupTheory.Transfer
 
 public section
 

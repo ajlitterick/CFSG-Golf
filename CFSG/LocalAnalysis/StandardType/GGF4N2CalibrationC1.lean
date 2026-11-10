@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2Calibration
 public import CFSG.LocalAnalysis.StandardType.GGF4N2JModelExclusions
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
-import CFSG.ClassicalInvolution.Phan.Blocks
 import CFSG.LocalAnalysis.StandardType.GGF4N2MixedPower
 
 public section

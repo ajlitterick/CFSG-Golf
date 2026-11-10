@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoBlockHubDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLocalDefs
-public import CFSG.ClassicalInvolution.Balance.StrongPowSuBlocks
 
 public section
 

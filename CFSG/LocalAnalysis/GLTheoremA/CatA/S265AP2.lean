@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265ASpAct
-import CFSG.GroupTheory.PCore.SubgroupCore
-import CFSG.GroupTheory.PGroup.ElemAbelianSq
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265AP2Sp6
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265ARank
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265ASp6Lay

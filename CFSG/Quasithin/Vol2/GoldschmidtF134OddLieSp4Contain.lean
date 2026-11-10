@@ -4,30 +4,8 @@ public import CFSG.Quasithin.Vol2.GoldschmidtF134OddLieCfg
 public import CFSG.Quasithin.Vol2.GoldschmidtF134OddLieS5
 public import CFSG.Quasithin.Vol2.F134LieSp4Borel
 public import CFSG.Quasithin.Vol2.F134LieF4Group
-public import CFSG.LieType.BorelTits.Symplectic
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFourSylow
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherMaximal
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects
-public import CFSG.CharacterTheory.Semidihedral.Principal.DegreeZeroGram
-public import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion
-public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwo
-public import CFSG.LocalAnalysis.LargeEvenClassification.C8FourSubgroupExhaustion
-public import CFSG.LocalAnalysis.LargeEvenClassification.C8FourSubgroupRanks
-public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicFourLarge
-public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicTwoFourGenerators
-public import CFSG.LocalAnalysis.LargeEvenClassification.MacWilliamsReduction
-public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstruction
-public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public import CFSG.Quasithin.Vol2.GoldschmidtF134OddSporDef
-public import CFSG.Walter.J1
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 
 public section
 

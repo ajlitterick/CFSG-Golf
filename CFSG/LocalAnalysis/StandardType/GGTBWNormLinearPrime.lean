@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormFixedFree
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLLinePSL
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBRefl
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosureRefl
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcModel
 

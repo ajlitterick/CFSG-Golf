@@ -6,8 +6,6 @@ import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankGeneral
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankE7
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerE7
 public import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613
-public import CFSG.LocalAnalysis.SeitzReduction.E8PilotLevi
-public import CFSG.LieType.Chevalley.EvenE7E8AutomorphismNormalForm
 public import CFSG.RankThree.Chevalley.SteinbergCFOddInnerFieldLocalCore
 
 public section

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGAdjDefs
-public import CFSG.LocalAnalysis.StandardType.GGKGWeylRootFacts
 public import CFSG.LocalAnalysis.StandardType.GGKGWeylReflCore
 
 public section

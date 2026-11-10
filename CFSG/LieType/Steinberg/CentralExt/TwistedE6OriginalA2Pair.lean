@@ -1,7 +1,6 @@
 module
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6OriginalResidualCommutation
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6TwoReflectionFrame
-public import CFSG.LieType.Chevalley.WeylRoots
 public noncomputable section
 namespace CFSG.LieType.Steinberg.CentralExt.TwistedE6TwoCover
 open CFSG CFSG.Assembly CFSG.StandardType CFSG.StandardType.GGFinModel

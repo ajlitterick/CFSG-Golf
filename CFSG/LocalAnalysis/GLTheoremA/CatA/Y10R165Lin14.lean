@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Lin11
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Blocks7
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Blocks4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcEngine
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165OmDefs
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Num
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.GroupTheory.CentralizerSup
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.HardMathSupport.Solomon.Coordinator.L5Conj
 public import CFSG.LocalAnalysis.GL83PartI.I_22_6
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Lin10

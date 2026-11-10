@@ -1,9 +1,6 @@
 module
 
-public import CFSG.YGroups.Exact.Y322
 public import CFSG.YGroups.Y322Central
-public import Certificates.Data.CFSGNative.YGroups.ExactCheck
-public import CFSG.LieType.Multipliers.O73DataInputs
 public import Certificates.Certificate10006
 public meta import CFSG.YGroups.Defs
 public meta import CFSG.YGroups.Exact.Y322

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.AlmostSimpleBG2Comp
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.AlmostSimpleBExcTri
-public import CFSG.RankThree.Chevalley.SteinbergCFTrialityToralMain
 public import CFSG.RankThree.Chevalley.SteinbergBLTrialitySplitInner
 public import CFSG.RankThree.PartOne.FOC.ExcD4Split
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.AlmostSimpleBResExcF4

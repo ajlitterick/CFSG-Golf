@@ -6,9 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusE7Rank
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusE6Rank
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusF4Rank
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusTwE6Rank
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmall
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanks
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwDThree
 public import CFSG.LocalAnalysis.StandardType.UnitaryCenterOrders
 
 public section

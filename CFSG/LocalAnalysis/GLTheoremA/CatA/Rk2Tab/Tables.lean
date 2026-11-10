@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerSymplecticOrth
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerOrthOne
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerLinear
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerExcTorus
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerExcOne
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerCover
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerUnitary
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerTwD
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerTwE6

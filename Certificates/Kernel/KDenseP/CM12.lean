@@ -2,9 +2,6 @@ module
 
 public import Certificates.Kernel.KDenseP.AgreeB
 public import Certificates.Kernel.KDenseP.SepAt
-public import Certificates.Kernel.KDense.Basic
-public import Certificates.Kernel.KDenseP.Axis.Base
-public import CFSG.Certificates.Kernel.KDense.Data.Checks
 public import CFSG.Certificates.Kernel.KDenseP.CM12.MonoEChk
 public import CFSG.Certificates.Kernel.KDenseP.CM12.C17702
 import Certificates.Kernel.KDenseP.MonoTabL

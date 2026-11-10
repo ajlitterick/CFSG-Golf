@@ -25,7 +25,6 @@ public import Certificates.Kernel.LocalComp.F42.Lev19
 public import Certificates.Kernel.LocalComp.F42.Lev20
 public import Certificates.Kernel.LocalComp.F42.Lev21
 public import Certificates.Kernel.LocalComp.F42.BfsAll
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTvFrame
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBMain
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBIrred
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6TBIrred
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc4
 
 public section

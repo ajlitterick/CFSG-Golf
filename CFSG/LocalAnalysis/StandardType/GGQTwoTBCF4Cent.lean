@@ -1,15 +1,10 @@
 module
 
 
-public import CFSG.Blueprint.Chevalley
-public import CFSG.Open.LocalVocabulary
 
-import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264X1ExcF4Good
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotUniqueRowsSwap
 import CFSG.LocalAnalysis.StandardType.GGF4TwoNTFrame
-import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoRank
 import CFSG.LocalAnalysis.StandardType.GGTorusGenSpTwoCent
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviSp6
 

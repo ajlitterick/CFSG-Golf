@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BMCaseJbar
-public import CFSG.LocalAnalysis.ComponentClassification.BMCaseCo2Local
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicMovedPerfect
-public import CFSG.Monster.B.CTIB.CoreCensus
 public import CFSG.Monster.B.CTIB.FourClasses
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Open.MonsterY443Defs
 public import CFSG.Sporadic.Co1Base
 public import CFSG.Sporadic.Schreier.RuLocal

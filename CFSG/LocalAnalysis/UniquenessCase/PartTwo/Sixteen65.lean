@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen67Case
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen67Wreath
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23Unique
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenResultsB
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenUniqueMax
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22p
 
 public section

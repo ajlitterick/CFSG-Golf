@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNativeGen
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLDefs
-public import CFSG.ClassicalInvolution.Phan.Defs
 
 public section
 

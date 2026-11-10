@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J3KFacts
-public import CFSG.RankThree.Asc83Table.E27
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res4ProofJ3
 public import CFSG.RankThree.PartTwo.Sec21.Item21Early2ProofFour
 

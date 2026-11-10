@@ -1,10 +1,8 @@
 module
 
 public import Certificates.Kernel.J2Cover.AutChains
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Data.Kernel.SchreierFam.All3
 public import Certificates.Data.Kernel.SchreierFam.CqK
-public import Certificates.Data.Kernel.Misc.ArrEnum
 meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutData
 import CFSG.Certificates.Kernel.Common.Harness
 

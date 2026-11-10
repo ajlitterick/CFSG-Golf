@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamULift
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamUGraph
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamOrth
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddPSU
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddPSL
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherAntiunitaryDescent
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOrthAll
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits

@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Fi22FiveData
 public import Certificates.Kernel.Sporadic.Fi22.Cent9553
 public import Certificates.Kernel.Sporadic.Fi22.CentStar8
-public import Certificates.Kernel.Sporadic.Fi22.C2068
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Spor.RawSound
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.RankTwoShapes.OrderSixtyFour
 public import CFSG.Milestones.CLS_connectivity_MacWilliams_four_generator
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.FrattiniAutomorphismKernel
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GeneratorRank
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 
 public section
 

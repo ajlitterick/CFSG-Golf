@@ -2,11 +2,8 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.WeylTorusAct
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
-public import CFSG.LieType.Chevalley.ParabolicRootFactorData
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeA2Defs
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.TwE6UniqKac
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompKac
-import CFSG.Timmesfeld.Orders.ExceptionalWeyl
 import CFSG.RankThree.PartOne.KE.SuzukiDescent
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyCover
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.TwE6UniqDefs
@@ -66,7 +63,6 @@ import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 import CFSG.Sporadic.Schreier.J4SProfileNode
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import Certificates.Kernel.SporSch.Th.Plane2320
 
 public section

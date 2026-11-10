@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.GammaUNormK
 public import Certificates.Data.Kernel.IdxFourSiftK
 public import Certificates.Data.Kernel.GammaUSigmaK
-public import CFSG.GF2Type.Smith1979.GammaU.StepAInputs
 public import CFSG.GF2Type.Smith1979.GammaU.SigmaInputs
 
 public section

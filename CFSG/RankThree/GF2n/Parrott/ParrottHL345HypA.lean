@@ -5,8 +5,6 @@ public import CFSG.RankThree.GF2n.Parrott.ParrottSubgroupEWeak
 public import CFSG.RankThree.GF2n.Parrott.ParrottSubgroupEFusion
 public import CFSG.RankThree.GF2n.Parrott.ParrottSubgroupEPairFusion
 public import CFSG.RankThree.GF2n.Parrott.ParrottTheorem3Inputs
-public import CFSG.RankThree.GF2n.Parrott.Section4Lemma34HypA
-public import CFSG.RankThree.GF2n.Parrott.CaseIIF1Local
 public import CFSG.Holt.PSL2Natural.Defs
 public import CFSG.Holt.PermFacts
 public import CFSG.Holt.ThreePoint

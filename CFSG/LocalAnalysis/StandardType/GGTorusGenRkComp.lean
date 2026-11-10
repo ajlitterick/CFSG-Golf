@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSuDvdRootGenComp
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCover
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkClass
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
 
 public section
 

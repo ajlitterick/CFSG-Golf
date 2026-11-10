@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Co1.Module.OddCent
-public import CFSG.Monster.Existence.Co1Bridge
 import all CFSG.Monster.Existence.Co1Bridge
 public import CFSG.Monster.Existence.ELevelCheck
 import all CFSG.Monster.VisQuot.Simple

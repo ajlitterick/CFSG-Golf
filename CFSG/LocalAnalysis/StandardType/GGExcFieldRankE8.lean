@@ -1,33 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankTransfer
-public import CFSG.LieType.SeitzGeneration.ExcTorusRankE8
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Four
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Five
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Seven
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Eight
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Nine
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Ten
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Twelve
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Fourteen
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Fifteen
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Eighteen
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Twenty
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8TwentyFour
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Thirty
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8One
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Two
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Three
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Six
-public import CFSG.LieType.SeitzGeneration.ExcTorusThree
 public import CFSG.LieType.SeitzGeneration.ExcTorusThreeRank
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSylow
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplit
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE8
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE8RestTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoRank
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveConjClass
-public import CFSG.LieType.SeitzGeneration.ExcRankVacuous
 public import CFSG.HardMathSupport.Lang.AnisoE6.FieldEmbed
 
 public section

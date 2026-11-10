@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4OriginalRankOne
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourPlusRankOne
 public import CFSG.LocalAnalysis.StandardType.GGSignedTorusInnerAction
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusCore
-import Mathlib.Tactic.Group
 
 public noncomputable section
 

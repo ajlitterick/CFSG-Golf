@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGReflNineSound
 public import CFSG.LocalAnalysis.StandardType.GGReflNineChart
 public import CFSG.LocalAnalysis.StandardType.GGReflExtFinal
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeNineAllDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallNineDepChart
-public import Certificates.Data.CFSGNative.NineAll.Check
 
 @[expose] public section
 

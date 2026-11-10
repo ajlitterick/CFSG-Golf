@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2TableBNbrPlaneZero
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBNbrPlaneExt
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBNbrExc
 public import CFSG.LocalAnalysis.StandardType.GGQ2NoTwoNodeExc
-public import CFSG.LocalAnalysis.StandardType.GGQ2FrameSmall
 public import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalPlacementHolds
 
 public section

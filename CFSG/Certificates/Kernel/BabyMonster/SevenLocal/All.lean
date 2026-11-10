@@ -27,10 +27,3 @@ public import CFSG.Certificates.Kernel.BabyMonster.SevenLocal.RkU2
 public import CFSG.Certificates.Kernel.BabyMonster.SevenLocal.RkU12
 public import CFSG.Certificates.Kernel.BabyMonster.SevenLocal.RkU122
 import CFSG.Certificates.Kernel.BabyMonster.Load
-public import CFSG.Certificates.Kernel.BabyMonster.F2
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Data3
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Data5
-public import CFSG.Certificates.Kernel.BabyMonster.SevenGen.Spin
-public import CFSG.Certificates.Kernel.BabyMonster.SevenLocal.Data1
-public import CFSG.Certificates.Kernel.BabyMonster.SevenLocal.Data2
-public import CFSG.Certificates.Kernel.BabyMonster.SevenLocal.Rank

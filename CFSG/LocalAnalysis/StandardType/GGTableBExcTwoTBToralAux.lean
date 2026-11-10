@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBHalfKey
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoFusionCount
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToral
-public import CFSG.RankThree.Classical2.TwistedE6RationalOrder
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneE2Diag
 public import CFSG.LieType.AlgebraicGroups.E6GraphCentralizerRationalBase
 public import CFSG.LieType.AlgebraicGroups.E6GraphCentralizerLang

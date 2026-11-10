@@ -3,16 +3,11 @@ module
 public import CFSG.GH74.GLS.TwoThin.Pumpup
 public import CFSG.GH74.Constrained
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafL34Swap
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitFixedSimple
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5SStdInputs
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafBasic
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78Basic
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCBasic
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddPSL
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitLocalBalanceTypes
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrSourceChange
-public import CFSG.LocalAnalysis.SectionRank.NativeKGroup
 public import CFSG.Quasithin.Background.KGSchurMult2
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CGT.Timmesfeld75.L2Pair
@@ -25,7 +20,6 @@ public import CFSG.CharacterTheory.Semidihedral.Principal.DegreeZeroGram
 public import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion
 public import CFSG.ClassicalGroups
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.Pattern
 public import CFSG.GH74.GLS.TwoThin.Basic
 public import CFSG.LieType.Multipliers.ProductKernel
 public import CFSG.LieType.Multipliers.U42Bridge
@@ -76,25 +70,8 @@ public import CFSG.Monster.B.TwoA.Amalgam.Data
 public import CFSG.Monster.B.TwoA.Sp8.Par1
 public import CFSG.Monster.B.TwoA.Unitary.LinThree
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Presentation.Common
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 public import CFSG.YGroups.Y322Central
 
 public section

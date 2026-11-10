@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.Uniqueness.SU.KI1r4F61L216Inputs
-public import CFSG.GH74.KGroups.PermCheck
 public meta import CFSG.GH74.Uniqueness.SU.KI1r4F61L216Inputs
 public meta import CFSG.GH74.KGroups.PermCheck
 

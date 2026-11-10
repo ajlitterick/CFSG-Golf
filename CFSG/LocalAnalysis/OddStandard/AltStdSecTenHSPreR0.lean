@@ -1,14 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Fusion
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.FusionSylow
-public import CFSG.Sporadic.SmallOddCore.HSLocal
-public import CFSG.Sporadic.Schreier.PairHSOrder
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.HSInvolutions
 public import CFSG.LocalAnalysis.OddStandard.SwapPartner.UHSFacts
 public import CFSG.LocalAnalysis.OddStandard.SwapPartner.WpGTypes
 import Certificates.Kernel.Sporadic.HS.L2273F
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
 public import CFSG.CharacterTheory.Semidihedral.Principal.PrimeTorusBlockAlignment
@@ -68,11 +63,8 @@ public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 public import CFSG.StronglyEmbedded.TheoremSE.BenderLowRank
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import CFSG.Walter.JRFacts
 

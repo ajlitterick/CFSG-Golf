@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FrameSylow
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10Inputs
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10PkFrame
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10PkTA
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10TypeDict2
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10TypesClass
 

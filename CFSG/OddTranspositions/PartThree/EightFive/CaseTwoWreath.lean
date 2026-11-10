@@ -1,8 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.EightFive.CaseTwoStatement
-public import CFSG.OddTranspositions.HypothesisC
-public import CFSG.OddTranspositions.FaithfulBlocks
 public import CFSG.OddTranspositions.PartThree.Ten.SwapBlocks
 
 import CFSG.OddTranspositions.PartThree.Ten.Assembly

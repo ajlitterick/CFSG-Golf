@@ -1,10 +1,7 @@
 module
 
-public import CFSG.GH74.Generic.S1.SymNbhd
 public import CFSG.GH74.Generic.S45.LLift
 public import CFSG.GH74.Generic.JStar2Defs
-public import CFSG.GH74.Generic.JMaxThin
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

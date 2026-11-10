@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.J4.QTOutMatNative
 public import Certificates.Kernel.J4Q.Mat
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Sporadic.J4.QTRankWitNative
 
 public section
 

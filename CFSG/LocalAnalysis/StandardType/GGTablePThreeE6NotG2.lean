@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGExcCompSLMarking
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplit
 import CFSG.LocalAnalysis.StandardType.GGExcCompSLLen
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

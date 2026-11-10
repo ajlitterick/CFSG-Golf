@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBRes
 import CFSG.LocalAnalysis.StandardType.GGSecFivePermNbrLabel
 import CFSG.LocalAnalysis.StandardType.GGSecFivePermNbrFieldK0
 import CFSG.LocalAnalysis.StandardType.GGSecFivePermNbrFieldRA
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import Certificates.Certificate13657
 
 public section

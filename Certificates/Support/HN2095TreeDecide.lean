@@ -1,7 +1,6 @@
 module
 public import CFSG.Sporadic.HNSchreier.ArchiveGiantData
 public import CFSG.Sporadic.HNSchreier.EmbeddedOrbitAccess
-public import CFSG.Sporadic.HNSchreier.OrbitCheckInputs
 public import CFSG.Sporadic.HNSchreier.PackedOrbitChecks
 public meta import CFSG.Sporadic.HNSchreier.ArchiveGiantData
 public meta import CFSG.Sporadic.HNSchreier.EmbeddedOrbitAccess

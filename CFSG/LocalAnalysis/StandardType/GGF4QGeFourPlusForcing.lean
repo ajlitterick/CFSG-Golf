@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNA3PlusFinal
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflDom
-public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
 public import CFSG.LocalAnalysis.StandardType.GGF4H4ListLinHolds
 import CFSG.LocalAnalysis.StandardType.GGTypeANbrRowFilter
 

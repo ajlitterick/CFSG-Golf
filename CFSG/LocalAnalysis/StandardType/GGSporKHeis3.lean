@@ -1,9 +1,7 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3B.HeisAction
-import Mathlib.GroupTheory.Commutator.Basic
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

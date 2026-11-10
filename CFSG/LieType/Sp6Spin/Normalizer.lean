@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Sp6Spin.Model
-public import CFSG.RankThree.PartOne.AUTSL.OmegaDickson
 
 public section
 

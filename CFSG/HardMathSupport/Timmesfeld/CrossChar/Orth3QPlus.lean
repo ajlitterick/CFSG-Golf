@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Orth3KCQPlusOne
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Orth3Plane
-public import CFSG.RankThree.PartOne.KC.OrthogonalAutSemilinearTags
 
 public section
 

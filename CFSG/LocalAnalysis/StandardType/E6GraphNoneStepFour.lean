@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.E6GraphNoneFrobIndex
 public import CFSG.LocalAnalysis.StandardType.E6GraphNoneStepFourMatrix
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4ZWeyl
-public import CFSG.LieType.Chevalley.E6ToralGraphInvolution
-public import CFSG.LieType.Chevalley.GraphFixedCompatibleDiagonal
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
 
 public section
 

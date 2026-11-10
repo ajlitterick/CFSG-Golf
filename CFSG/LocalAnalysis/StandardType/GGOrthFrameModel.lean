@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Defs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerOrth
 import CFSG.LocalAnalysis.StandardType.GGOrthFrameModelAux
 
 public section

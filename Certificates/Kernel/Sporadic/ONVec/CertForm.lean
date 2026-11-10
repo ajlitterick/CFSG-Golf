@@ -9,9 +9,7 @@ public import Certificates.Kernel.Sporadic.ONVec.MatG
 public import Certificates.Kernel.Sporadic.ONVec.Gram
 public import CFSG.Certificates.Kernel.ONOut.InvVSound
 public import CFSG.Sporadic.Fi23.WideSpec
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.PackFld
-import Mathlib.Tactic.NormNum
 
 public section
 

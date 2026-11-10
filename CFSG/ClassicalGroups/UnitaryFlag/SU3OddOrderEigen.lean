@@ -1,18 +1,10 @@
 module
 
-public import CFSG.Open.StatedDefs
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 public import CFSG.ClassicalGroups.UnitaryFlag.LineSU2
-public import CFSG.LieType.BorelTits.UnitaryForm
 public import CFSG.LinearAlgebra.CoprimeActions.DistinctEigenspaceCommutantDimension
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.LinearAlgebra.PrimitiveRootEigenspaces
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.BorelTits.CompleteFlag
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CriticalSubgroupLemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection2.EndFieldRep
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Burnside.NormalComplement
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Extraspecial
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ConjugateRep
 
 public section
 

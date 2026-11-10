@@ -2,17 +2,11 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec15.Sylow155T51
 public import CFSG.RankThree.PartTwo.Sec13.Item133Mono
-public import CFSG.RankThree.PartTwo.Sec13.Item13Inputs
 import CFSG.RankThree.PartTwo.Sec15.Sylow155T52
 import CFSG.RankThree.PartTwo.Sec15.Sylow155T52Coord
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec13.Item132
-import CFSG.RankThree.PartTwo.Sec13.Item131Facts
-import CFSG.RankThree.PartTwo.Sec13.Item13Theta
-import CFSG.RankThree.PartTwo.Sec13.Naturality
-import CFSG.RankThree.PartTwo.Sec13.Item13Plane
 import CFSG.RankThree.PartTwo.Sec5.Tools
-import CFSG.RankThree.PartTwo.Toolkit.BloomMonoStd
 import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.RankThree.PartTwo.Sec14.Concl143HJ
 public import CFSG.RankThree.PartTwo.Sec15.Sylow155Center

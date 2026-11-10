@@ -4,13 +4,11 @@ module
 public import CFSG.Quasithin.Recognition.RuRank3RuGraphDataBase
 
 public import CFSG.Quasithin.Recognition.RuRank3RuIsoData
-public import CFSG.Quasithin.Recognition.RuRank3TitsSyl
 public meta import CFSG.Quasithin.Recognition.RuRank3RuIsoData
 public meta import CFSG.Quasithin.Recognition.RuRank3TitsSyl
 public meta import CFSG.Sporadic.Schreier.RuOrbit
 public meta import CFSG.Sporadic.Schreier.RuCheckChains
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Quasithin.Recognition.RuRank3RuGraphDataInputs
 public import Certificates.Certificate7046
 
 public section

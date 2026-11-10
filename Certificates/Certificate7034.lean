@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate7034Base
 
-public import CFSG.Quasithin.H13.J4ClassCheckInputs
 import Certificates.Kernel.H13J4.Fusion
 import Certificates.Kernel.H13J4.Cls
 import Certificates.Kernel.H13J4.Small

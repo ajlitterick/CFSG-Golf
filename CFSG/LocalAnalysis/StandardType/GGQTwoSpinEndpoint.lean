@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagSpin
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Models
 import CFSG.HardMathSupport.Foote.E27.Q2OrthModel
-import CFSG.LieType.Universal.SpinClause0
 import CFSG.RankThree.GF2n.Stroth80.GriessOrthSmall
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Anisotropic.Plane

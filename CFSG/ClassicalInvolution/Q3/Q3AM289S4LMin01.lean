@@ -1,10 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3AM289S4LSpin
-public import CFSG.ClassicalInvolution.Q3.Q3TY13
-public import CFSG.ClassicalInvolution.ModelFacts.TG3OrthTags
-public import CFSG.ClassicalInvolution.ModelFacts.FundamentalSL2Main
-public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalReduce
 
 public section
 

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Sporadic.HeldB.CertPChainData
-public import CFSG.Sporadic.HeldB.CertPFieldsData
 public meta import CFSG.Sporadic.HeldB.CertPChainData
 public meta import CFSG.Sporadic.HeldB.CertPFieldsData
 public import Certificates.Certificate2110

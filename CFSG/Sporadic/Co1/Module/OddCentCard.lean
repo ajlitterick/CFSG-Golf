@@ -1,15 +1,11 @@
 
 module
 
-public import CFSG.Sporadic.Co1.Module.OddCentCardBase
 
 public import CFSG.Sporadic.Co1.Module.OddFactsBase1
-public import Certificates.Data.CFSGNative.Co1.OddCent
-public import CFSG.Sporadic.Co1.Module.OddCentCardInputs
 public import Certificates.Certificate10072
 public meta import CFSG.Sporadic.Co1.Module.OddChecks
 public meta import Certificates.Data.CFSGNative.Co1.OddCent
-public import CFSG.Sporadic.Suz.Setup
 public import Certificates.Certificate10072Base
 public meta import Certificates.Certificate10073Base
 public import Certificates.Certificate10073Base

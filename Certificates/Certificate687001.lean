@@ -1,10 +1,8 @@
 module
 
 public import Certificates.Data.Th687.GlueWords
-public import CFSG.Certificates.CosetTableCompactColumns
 import Certificates.Kernel.CosetCC.C687001
 import CFSG.Certificates.Kernel.Misc.Coset.TableFact
-import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 
 public section
 

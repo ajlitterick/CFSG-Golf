@@ -2,9 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_1
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_6
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Defs
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 import Mathlib.LinearAlgebra.FixedSubmodule
 
 namespace CFSG

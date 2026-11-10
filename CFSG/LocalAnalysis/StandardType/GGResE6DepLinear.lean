@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepLabels
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySplitRefl
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
 public import CFSG.LocalAnalysis.StandardType.GGAutomizerGammaCard
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBCard
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBWeyl
-public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclicHolds
-public import CFSG.HardMathSupport.Curtis.Coordinator.PLTypeAltArith
 
 public section
 

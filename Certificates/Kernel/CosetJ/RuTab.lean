@@ -10,7 +10,6 @@ public import CFSG.Certificates.Kernel.Spor.NatWordsTxt
 import all Init.Data.List.SplitOn.Basic
 import all Init.Data.Nat.ToString
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 import all CFSG.Sporadic.Recognition.RuMultiplierInputs
 import all CFSG.Sporadic.Presentation.RuExactInputs
 import all CFSG.LieType.Multipliers.CoverWords

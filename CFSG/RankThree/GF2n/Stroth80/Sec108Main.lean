@@ -5,7 +5,6 @@ public import CFSG.RankThree.GF2n.Stroth80.Sec108Q4
 public import CFSG.RankThree.GF2n.Stroth80.Sec108Closure
 public import CFSG.RankThree.GF2n.Stroth80.Sec108Cover
 public import CFSG.RankThree.GF2n.Stroth80.HeringSec65NBar
-public import CFSG.RankThree.GF2n.Stroth80.Sec10Stmt
 public import CFSG.GroupTheory.StronglyClosedTI.Endgame
 public import CFSG.LocalAnalysis.ComponentClassification.Asc76XTheorem4
 public import CFSG.LocalAnalysis.LargeEvenClassification.MinimalNormalFactors

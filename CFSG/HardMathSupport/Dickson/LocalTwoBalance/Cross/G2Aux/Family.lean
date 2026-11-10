@@ -2,13 +2,7 @@ module
 
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.Split
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.G2Aux.Orders
-public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.ExcInnerBase
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.ExcInnerFamG2
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcFieldG2Eight
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcFieldEvenF4G2
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcFieldG2Three
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcFieldOdd
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Prop22
 public import CFSG.HardMathSupport.Timmesfeld.Balance.Alt.Setup
@@ -16,13 +10,7 @@ public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 
 public section
 

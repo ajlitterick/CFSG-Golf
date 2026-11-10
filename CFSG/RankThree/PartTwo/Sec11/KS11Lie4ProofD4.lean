@@ -2,11 +2,9 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec11.KS11Lie4ProofG2
 public import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
-public import CFSG.LieType.Chevalley.GraphFixedSchreier
 import CFSG.Adapters.TauCetiExceptional.EvenAll
 import CFSG.LieType.Chevalley.TrialityFullAmbientFixedGroup
 import CFSG.RankThree.Chevalley.SteinbergCFTrialityCommutingSL2
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 import CFSG.RankThree.SteinbergR3EEvenQuadraticSL2Fixed
 import CFSG.RankThree.PartTwo.Sec11.SetUp1118ProofCarrier
 import CFSG.LinearAlgebra.SL2MinimalFaithfulMatrix
@@ -22,7 +20,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B2Thompson
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
@@ -39,7 +36,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Statements423
 public import CFSG.RankThree.PartTwo.Sec6.Statements
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.HeldB.Common
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

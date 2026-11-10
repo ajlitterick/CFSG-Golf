@@ -1,12 +1,8 @@
 module
 
-public import Certificates.Kernel.EvenSporSuz.Outer25030
-public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoSuz.OuterCheck
-import Certificates.Kernel.EvenSporSuz.Data
 import Init.Data.List.SplitOn.Basic
 public import Certificates.Kernel.EvenSporSuz.Outer25030F
 import Certificates.Kernel.EvenSporSuz.Bridge
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

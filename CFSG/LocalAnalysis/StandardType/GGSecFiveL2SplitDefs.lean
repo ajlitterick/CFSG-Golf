@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Universal.Spin.Roots.TypeD
-public import Mathlib.Logic.Relation
 
 public section
 

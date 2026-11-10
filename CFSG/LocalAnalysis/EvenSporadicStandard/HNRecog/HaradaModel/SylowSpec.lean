@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HaradaModel.BasicCheck
 import Certificates.Kernel.HN1408.Basic
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HaradaModel.SylowData
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.CheckSpec
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HaradaModel.Coe
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.InvClasses
 public import Certificates.Certificate441662

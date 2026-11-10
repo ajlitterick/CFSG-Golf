@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Foote.E27.PermCent
 public import CFSG.HardMathSupport.Foote.E27.SplitIn
 public import CFSG.Sporadic.HNSchreier.Sylow3
-public import CFSG.Sporadic.HNSchreier.Faithful
 public import CFSG.Sporadic.Bridge.Catalogue
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeDefs
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwistedE6Base
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidTwE6
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiag
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigid
@@ -17,13 +16,10 @@ public import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.Background.F2Equiv
 public import CFSG.Quasithin.Background.G2Relaxed
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S152N11
 public import CFSG.Quasithin.Vol2.Ch12Sec8NonabHatTen
 public import CFSG.RankThree.PartOne.S11d.OddOutPSL2

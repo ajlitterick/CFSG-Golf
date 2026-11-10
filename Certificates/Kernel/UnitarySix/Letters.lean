@@ -3,11 +3,6 @@ module
 
 public import Certificates.Kernel.UnitarySix.LettersBase
 
-public import Certificates.Kernel.UnitarySix.Gen
-public import CFSG.Certificates.Kernel.U6Sound
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeDataInputs
-public import Certificates.Kernel.UnitarySix.GenEq
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeData
 
 public section

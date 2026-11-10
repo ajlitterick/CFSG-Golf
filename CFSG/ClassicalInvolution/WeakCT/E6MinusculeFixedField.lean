@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.WeakCT.OriginalULift
 public import CFSG.LocalAnalysis.StandardType.PhanEMinFrob
-public import CFSG.LieType.Steinberg.BruhatTwist
 public import CFSG.LocalAnalysis.StandardType.PhanEFrobDescent
 import CFSG.LieType.SemisimpleCentralizers.HeldLangI5E6Torus
 import CFSG.LieType.SemisimpleCentralizers.HeldLangI5E6Cover

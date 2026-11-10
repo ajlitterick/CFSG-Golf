@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Co3.Gen2155
 public import Certificates.Kernel.SporSch.GenClosure
 public import CFSG.Certificates.Kernel.SporSch.ClosureSound
-public import CFSG.Sporadic.Schreier.Co3SecondImageCheckInputs
 meta import CFSG.Sporadic.Schreier.Co3SecondImageCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.SporSch.AnyN

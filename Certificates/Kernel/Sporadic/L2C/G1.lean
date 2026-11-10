@@ -3,9 +3,6 @@ module
 
 public import Certificates.Kernel.Sporadic.L2C.G1Base
 
-public import Certificates.Kernel.Sporadic.L2C.Defs
-public import Certificates.Kernel.Sporadic.L2.G4
-public import CFSG.Sporadic.SuzRecog.LevelTwoCoverDefsBase
 
 public section
 

@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.StdLoc
 public import CFSG.LocalAnalysis.StandardType.FS81.D6NormAux
 public import CFSG.LocalAnalysis.StandardType.FS81.D6Inner
-public import CFSG.LocalAnalysis.StandardType.FS81.LocalOrthCore
 public import CFSG.LocalAnalysis.StandardType.FS81.BasisMonomial
-public import CFSG.LocalAnalysis.StandardType.FS81.RowElemAbOrth
-public import CFSG.LocalAnalysis.StandardType.FS81.LocalOrthModels
 
 public section
 

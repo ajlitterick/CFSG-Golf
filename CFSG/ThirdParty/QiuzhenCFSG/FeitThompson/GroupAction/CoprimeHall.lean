@@ -4,8 +4,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.ActionTriviality
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.CoprimeAction
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.MinimalNormal
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Conjugacy
 
 namespace CFSG
 end CFSG

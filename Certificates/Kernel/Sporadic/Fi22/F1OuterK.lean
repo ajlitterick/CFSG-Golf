@@ -6,7 +6,6 @@ public import Certificates.Kernel.Sporadic.Fi22.F1OuterS
 public import Certificates.Kernel.Sporadic.ON.Gen
 public import Certificates.Data.Kernel.Misc.ArrEnum
 public import Certificates.Data.Kernel.SporSch.Derivs
-public import CFSG.Monster.B.Fischer.Fi22OuterData
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

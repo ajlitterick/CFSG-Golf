@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJF4LeviFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBJETypeCells
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeFrame
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6PlusThreeTB
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4LeviFrameMap
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6TwoModel
-public import CFSG.LocalAnalysis.StandardType.GGTBJE6TwoLang
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6TwoWitness
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6TwoClassFacts
 

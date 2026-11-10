@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Foote.Coordinator.AnisoCube.E6ThreeLines
 public import CFSG.HardMathSupport.Foote.Coordinator.AnisoCube.LineCases
 public import CFSG.HardMathSupport.Foote.Coordinator.AnisoCube.NegRadical
 public import CFSG.HardMathSupport.Foote.Coordinator.AnisoCube.PlaneLines

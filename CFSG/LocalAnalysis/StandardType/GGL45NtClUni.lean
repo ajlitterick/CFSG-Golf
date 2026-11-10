@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGL45NtClTransfer
 public import CFSG.LocalAnalysis.StandardType.GGL45NtClRecipes
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.RankThree.PartOne.S15K.CentralCover
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
-public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 
 public section
 

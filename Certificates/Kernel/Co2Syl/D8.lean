@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Co2Syl.Small
 import CFSG.Certificates.Kernel.Common.F2Bfs
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Repo
 
 public section

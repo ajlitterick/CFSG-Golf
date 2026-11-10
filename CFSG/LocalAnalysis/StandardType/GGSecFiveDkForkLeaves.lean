@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRoots
-import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsBasic
-import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsPairs
-import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsWeyl
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpupRoots
 
 public section

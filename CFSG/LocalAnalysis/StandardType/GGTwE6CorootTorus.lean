@@ -1,11 +1,8 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.E6Model8
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcLang
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotAlignTori
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwistedE6Base
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorOddToral
 public import CFSG.GH74.Statements
 public import CFSG.Goldschmidt.Statements
@@ -38,7 +35,6 @@ public import CFSG.LargeExtraspecial.OrthoF2
 public import CFSG.LargeExtraspecial.S2Basic
 public import CFSG.LieType.Chevalley.E6SecondGraphFullCentralizer
 public import CFSG.LieType.Chevalley.SimplyLacedFieldTwoCover
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 public import CFSG.LocalAnalysis.ComponentClassification.BlockCentralSylowEquality
 public import CFSG.LocalAnalysis.ComponentClassification.BlockFourFactorSupport
 public import CFSG.LocalAnalysis.ComponentClassification.BlockLargeProductInvolutions
@@ -69,13 +65,8 @@ public import CFSG.Quasithin.Background.B69Core
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -131,10 +122,6 @@ public import CFSG.RankThree.PartOne.KE.ThreeA1Group
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 public import Certificates.Kernel.J4Count.Prim
 
 public section

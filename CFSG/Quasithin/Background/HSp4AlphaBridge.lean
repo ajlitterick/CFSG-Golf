@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.HSp4Alpha
-public import CFSG.Quasithin.Background.HSp4Bridge
 public import CFSG.Quasithin.Background.HSp4A6Pair
 
 public section

@@ -1,23 +1,15 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagData
 public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympInnerExport
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSL
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSU
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSp
-import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenSymplecticNormalForm
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-import CFSG.LieType.Universal.Unitary.Clause0
-import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SF5UClDist
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SF5UClDeg
 import CFSG.Timmesfeld.Orders.Classical
 import CFSG.Timmesfeld.Orders.Distinct
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
@@ -46,9 +38,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicCongruenceCut
 public import CFSG.LocalAnalysis.LargeEvenClassification.TopScalarLiftSquare
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.Fischer.Uniq.CompTau
 import CFSG.LieType.Steinberg.CentralExt.F4E8Multiplier
 import CFSG.LieType.Steinberg.CentralExt.PSpMultiplier

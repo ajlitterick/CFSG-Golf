@@ -1,33 +1,15 @@
 module
 
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Classification
 public import CFSG.Foundations.Basic
 public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Indices
-public import CFSG.Open.StatedDefs
 public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorOmega
 import CFSG.Adapters.LinearCatalog
-import CFSG.Adapters.LinearFieldTransport
-import CFSG.Blueprint.Catalog
 import CFSG.Blueprint.SourceClassicalTransport
-import CFSG.ClassicalGroups.Orthogonal.Simple
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.LieType.Universal.Unitary.Clause0
-import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOrthLow
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalFourSplitAction
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointIsometryRegular
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalLowDimCoverageCases
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalLowDimCoverageSplit
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 import CFSG.Open.StatedSUFieldChange
 import CFSG.RankThree.PartOne.K1214.SylowSL2
-import CFSG.RankThree.PartOne.KC.OrthogonalEvenMinusModel
-import CFSG.RankThree.PartOne.KC.OrthogonalEvenMinusSix
-import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
-import CFSG.RankThree.PartOne.KC.OrthogonalRegularCoverage
-import CFSG.RankThree.PartOne.S11d.OrthModels
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinDOdd
 import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDOdd
 public import CFSG.ClassicalInvolution.Orders.OrthogonalCount
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
@@ -81,18 +63,6 @@ import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

@@ -6,11 +6,8 @@ public import CFSG.LocalAnalysis.StandardType.GGDepED4LowClose
 public import CFSG.LocalAnalysis.StandardType.GGDepED4L58Rest
 public import CFSG.LocalAnalysis.StandardType.GGTWTwA5Of
 public import CFSG.LocalAnalysis.StandardType.GGHL58NbrRest
-public import CFSG.LocalAnalysis.StandardType.GGResXDichotomyDefs
 public import CFSG.LocalAnalysis.StandardType.GGPZCuts
-public import CFSG.LocalAnalysis.StandardType.GGPZMultHolds
 public import CFSG.LocalAnalysis.StandardType.GGPZTrivJ
-public import CFSG.LocalAnalysis.StandardType.GGPZVertHolds
 public import CFSG.LocalAnalysis.StandardType.GGTWSmallLE3Count
 
 public section

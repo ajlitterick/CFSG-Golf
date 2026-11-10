@@ -4,7 +4,6 @@ public import Certificates.Kernel.Tc.RuK
 public import Certificates.Kernel.Tc.RuThreeSrc
 public meta import Certificates.Kernel.Tc.RuThreeSrc
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 400000
 

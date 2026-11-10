@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2E6Factor
 public import CFSG.ClassicalInvolution.ModelFacts.TwistedE6PairCore
-public import CFSG.ClassicalInvolution.ModelFacts.TwistedE6PairLevi
-public import CFSG.ClassicalInvolution.ModelFacts.TwistedLeviDescent
 public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofExc
 
 public section

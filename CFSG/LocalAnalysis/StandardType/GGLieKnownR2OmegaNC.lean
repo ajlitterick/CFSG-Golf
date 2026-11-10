@@ -1,14 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Universal.Spin.Datum
-public import CFSG.LieType.Universal.Spin.Twisted.Datum
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2Filtration
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2FixedPointOdd
-import CFSG.LieType.Universal.Spin.Generation.Eichler
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaNCPlus
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaNCMinus
 public import CFSG.ClassicalInvolution.ModelFacts.CentralLift

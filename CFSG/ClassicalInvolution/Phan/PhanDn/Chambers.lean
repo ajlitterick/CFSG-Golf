@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Phan.PhanDn.Ruling
 public import CFSG.ClassicalInvolution.Phan.PhanDn.DiagTorus
 public import CFSG.Monster.B.Geometry.ChamberSystem
-public import CFSG.ClassicalInvolution.Phan.PhanDn.FlipFrame
 import all CFSG.ClassicalInvolution.Phan.PhanDn.FlipFrame
 
 public section

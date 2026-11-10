@@ -1,17 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLPairs
-import CFSG.LieType.Chevalley.AdjointCenter
-import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOther
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcOut
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLESixTwoCent
-import CFSG.LocalAnalysis.StandardType.GGTwE6KGLNoJ1Mark
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLNoJ1MarkTriality
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLNoJ1Ppd
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.Monster.Existence.Compat.Sp8
 import CFSG.RankThree.GF2n.Smith81.InspPpd
-import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 
 public section
 

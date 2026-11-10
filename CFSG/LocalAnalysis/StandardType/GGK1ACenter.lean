@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK1ADefs
 public import CFSG.LocalAnalysis.StandardType.GGK1ACenterNoglue
 public import CFSG.LocalAnalysis.StandardType.GGK1ACenterReduce
 public import CFSG.LocalAnalysis.StandardType.GGK1ACenterCount
@@ -8,9 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGK1ACenterSLSubOne
 public import CFSG.LocalAnalysis.StandardType.GGK1ACenterSLAddOne
 public import CFSG.LocalAnalysis.StandardType.GGK1ACenterSUAddOne
 public import CFSG.LocalAnalysis.StandardType.GGK1ACenterSUSubOne
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniMat
 
 public section
 

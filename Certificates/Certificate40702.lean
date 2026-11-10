@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.Recognition.GoldschmidtF112RAutJ2LatInputs
-import Certificates.Certificate3139
-import Certificates.Certificate4142
 import Certificates.Kernel.AutJ2Lat.Final
 
 public section

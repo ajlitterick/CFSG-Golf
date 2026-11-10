@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenFrame
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelCentE
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeA2BlockTwoCore
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTri
 
 public section
 

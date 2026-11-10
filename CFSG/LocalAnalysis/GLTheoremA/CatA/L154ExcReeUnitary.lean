@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec8.Item812Res11ProofU38
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitarySixThreeCases
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
 
 public section
 

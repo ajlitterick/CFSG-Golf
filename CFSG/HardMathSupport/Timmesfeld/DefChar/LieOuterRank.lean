@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.LieOuterFamilies
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.LieOuterA
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.LieOuterTwistedAC
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.LieOuterOrth

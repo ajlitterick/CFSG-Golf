@@ -3,12 +3,10 @@ module
 
 public import Certificates.Certificate2100Base
 
-public import CFSG.Sporadic.HNSchreier.LocalCheckInputs
 public meta import CFSG.Sporadic.HNSchreier.PrimCheckBase
 public meta import CFSG.Sporadic.HNSchreier.LocalData
 public meta import CFSG.Sporadic.HNSchreier.MaskCheck
 import Certificates.Kernel.SporSch.HN.Local2100
-import CFSG.Sporadic.HNSchreier.OrbitCheckInputs
 
 public section
 

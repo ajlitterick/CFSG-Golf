@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGKGForkExcRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcNonsAsm
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcNonsTor
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcNonsOrders
-public import CFSG.LocalAnalysis.StandardType.GGKGForkWeylSeven
-public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.E78Sylow
 
 public section
 

@@ -11,7 +11,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section2.AppendixIInpu
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter3section2.proposition
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter3section3.proposition
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter4section1.claim_H1
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter4section3.corollary_1_b
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter4section4.case_v_ne_w
 
 namespace CFSG

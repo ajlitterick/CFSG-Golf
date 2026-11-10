@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualPSp
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualTwoPSp
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelDualPairPSp
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoRootConversePSp
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockRankDvd
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepAPSp
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2

@@ -2,8 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.U38Plane
 public import CFSG.HardMathSupport.Solomon.Coordinator.I19_10U38Core
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryBalOuter
-public import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderPSUDescent
 public import CFSG.RankThree.PartTwo.KFacts.AutPSLOrderThree
 
 public section

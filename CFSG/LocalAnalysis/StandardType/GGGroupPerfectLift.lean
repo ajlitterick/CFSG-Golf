@@ -1,11 +1,7 @@
 module
 
-public import Mathlib.Algebra.Group.Commutator
-public import Mathlib.Data.Fintype.Card
-public import Mathlib.Data.Fintype.EquivFin
 public import Mathlib.Data.Fintype.Powerset
 public import Mathlib.GroupTheory.Solvable
-public import Mathlib.Order.Monotone.Basic
 public import Mathlib.Order.OrderIsoNat
 
 public section

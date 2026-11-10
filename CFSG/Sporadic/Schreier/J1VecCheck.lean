@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.Schreier.J1CertData
-public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.J1ModelTransport
 public meta import CFSG.Sporadic.Schreier.J1CertData
 public meta import CFSG.LocalAnalysis.ProperTwoGeneratedCore.J1ModelTransport
-public import CFSG.Sporadic.Schreier.J1VecCheckInputs
 public import Certificates.Certificate2167
 
 public section

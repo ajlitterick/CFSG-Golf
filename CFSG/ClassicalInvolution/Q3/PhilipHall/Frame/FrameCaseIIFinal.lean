@@ -1,25 +1,8 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf2
-public import CFSG.ClassicalInvolution.Q3.Q3T6DExact
-public import CFSG.ClassicalInvolution.SmallCases.NDBG1
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.InductionBridge.FrameCore
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameCaseII205A
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameCaseII205Defs
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameCaseII207Cent
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameCaseII2010Final
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf3S204
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf3S208
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf36Outer
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf19Thm3A
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameCaseII205QMain
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThmEWPf15Supply
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinModelSp62
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinModelD42
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinModelM12
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameCaseII205HU33Pf
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameCaseII205HRow
-public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameCaseII203
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameCaseII205InvConj
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameCaseII205Cover
@@ -59,7 +42,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3T7W21Res
 public import CFSG.ClassicalInvolution.Q3.Q3T8B01
 public import CFSG.ClassicalInvolution.Q3.Q3T8P26Top
 public import CFSG.ClassicalInvolution.Q3.TA3SOLCore
-public import CFSG.ClassicalInvolution.Q3.TA3SOLCoreRank
 public import CFSG.ClassicalInvolution.Q3.TL4D1Dis
 public import CFSG.ClassicalInvolution.Q3.TL4ExitTwoE4O8A
 public import CFSG.ClassicalInvolution.Q3.TL4MF163L2

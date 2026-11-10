@@ -2,7 +2,6 @@ module
 
 public import CFSG.Milestones.ASVolI.I1
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.EightFive.Statement
-public import CFSG.HardMathSupport.Cooperstein.Coordinator.NaturalBridgeHeart
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsModule
 import CFSG.LocalAnalysis.WeakClosure81.SevenTenEn
 public import CFSG.CGT.Timmesfeld75.Statements

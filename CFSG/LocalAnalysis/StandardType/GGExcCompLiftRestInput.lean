@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGExcCompLiftInput
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGNbrHalfSplitArith
-import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitMarking
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcTwE6Defs
 import CFSG.LocalAnalysis.StandardType.GGQTwoVACUnitDvd
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup
 
 public section

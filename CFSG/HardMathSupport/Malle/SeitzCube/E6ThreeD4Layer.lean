@@ -6,7 +6,6 @@ public import CFSG.HardMathSupport.Malle.SeitzCube.E6ThreeD4Frame
 public import CFSG.HardMathSupport.Malle.SeitzCube.D4LayerBridgeCat
 public import CFSG.HardMathSupport.Malle.SeitzCube.D4PlaneGen
 public import CFSG.HardMathSupport.Lang.SeitzPlane.Phi3D4LayerData
-public import CFSG.RankThree.PartOne.KE.CTLang
 public import CFSG.GH74.GLS.SP.Local.SPLRestrict
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MpMain
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4Q1Main

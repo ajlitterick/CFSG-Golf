@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowTools
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.PartTwo.Sec14.Notation
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429Rows
 

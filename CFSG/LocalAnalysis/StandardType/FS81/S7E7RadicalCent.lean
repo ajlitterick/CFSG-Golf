@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.FS81.S7E7Incl
 import CFSG.LocalAnalysis.StandardType.FS81.S7HighRadicalComm
 import CFSG.LocalAnalysis.StandardType.FS81.S7ModuleNontrivial
 import CFSG.LocalAnalysis.StandardType.FS81.E7RecogIrr
-import CFSG.LocalAnalysis.SeitzReduction.E7PilotNeighbourLevi
 
 public section
 

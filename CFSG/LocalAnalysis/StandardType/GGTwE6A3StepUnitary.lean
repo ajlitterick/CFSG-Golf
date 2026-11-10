@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.KE.E6A3Sigma
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUStd
-public import CFSG.LieType.Chevalley.GraphFixedCoordinateDetection
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Families
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAut
 public import CFSG.HardMathSupport.Timmesfeld.Proving.ExistsOrderPCentralizer

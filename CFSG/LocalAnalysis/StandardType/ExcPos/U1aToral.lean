@@ -1,15 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.U1aE6Rank
-public import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompatDefs
-public import CFSG.LocalAnalysis.StandardType.GGLieBridgeHom
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxToral
 public import CFSG.LocalAnalysis.StandardType.GGA6GlueToral
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKStepZero
 public import CFSG.LocalAnalysis.StandardType.GGLieM6cFinal
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE6Toral
-public import CFSG.LocalAnalysis.StandardType.GGLieBridgePartner
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRest
 
 public section
 

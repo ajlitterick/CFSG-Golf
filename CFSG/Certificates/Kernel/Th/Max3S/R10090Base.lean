@@ -19,16 +19,6 @@ import CFSG.Sporadic.ThSchreier.UASpaceInputs
 public import CFSG.Certificates.Kernel.Th.Max3S.RegsBase
 public import CFSG.Certificates.Kernel.Th.Max3S.DefsExtraBase
 import CFSG.Certificates.Kernel.Th.Spec.GjBase
-public import Mathlib.Algebra.Group.Subgroup.Actions
-public import Mathlib.Data.Int.Notation
-public import Mathlib.Data.Nat.Factorial.Basic
-public import Mathlib.GroupTheory.GroupAction.Defs
-public import Mathlib.GroupTheory.Perm.Cycle.Type
-public import Mathlib.GroupTheory.QuotientGroup.Defs
-public import Mathlib.GroupTheory.Schreier
-public import Mathlib.LinearAlgebra.Matrix.Nondegenerate
-public import Mathlib.Tactic.Common
-public import Mathlib.Tactic.Ring
 
 @[expose] public section
 

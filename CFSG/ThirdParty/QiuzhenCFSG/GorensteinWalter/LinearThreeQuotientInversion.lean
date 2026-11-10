@@ -1,11 +1,9 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.AlternatingFourThreeInversion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DGroupQuotientNotTwoGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalTwoSubgroupSymmetricFour
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearRingEquiv
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeEquiv
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 import Mathlib.Tactic
 
 namespace CFSG

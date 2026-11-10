@@ -1,10 +1,7 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentGen
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiMain
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentMat
-import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseA
 import CFSG.RankThree.PartTwo.Sec12.ONanKS128Diag
 
 public section

@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
 import CFSG.LocalAnalysis.StandardType.GGRootSeparationPendant
-import CFSG.LieType.Universal.Spin.Roots.TypeD
-import CFSG.LieType.Steinberg.Minuscule.Form
-import Mathlib.LinearAlgebra.Pi
-import Mathlib.Algebra.Field.ZMod
 import CFSG.Mathlib.LinearAlgebra.PairFunctional
 import CFSG.LinearAlgebra.OuterActorCorrection
 public import Certificates.Kernel.SporSch.Th.Plane2320

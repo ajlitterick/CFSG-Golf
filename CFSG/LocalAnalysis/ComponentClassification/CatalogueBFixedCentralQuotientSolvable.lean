@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.Bal3Sec
 public import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch512Gen
-public import CFSG.Quasithin.Background.E1Sections
 public import CFSG.GroupTheory.FixedCentralQuotientFamily
-public import CFSG.LocalAnalysis.WeakClosure81.W18KernBridge
 public import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 public import CFSG.CGT.Timmesfeld75.Derivations
 public import CFSG.CGT.Timmesfeld75.Form2
@@ -20,9 +18,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.Sol78Family
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7Iso
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122AProved
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4Quot
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19Defs
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2
 public import CFSG.LocalAnalysis.WeakClosure81.EightNine
@@ -33,20 +28,16 @@ public import CFSG.LocalAnalysis.WeakClosure81.W18PackRank
 public import CFSG.LocalAnalysis.WeakClosure81.W19Conf
 public import CFSG.LocalAnalysis.WeakClosure81.W19Hyp197
 public import CFSG.LocalAnalysis.WeakClosure81.W19Min
-public import CFSG.Quasithin.Background.A3Structure318Red
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.B3Facts
 public import CFSG.Quasithin.Background.B3FourConj
 public import CFSG.Quasithin.Background.B69Core
 public import CFSG.Quasithin.Background.C4Statement
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E2TwoLieQuotLift
 public import CFSG.Quasithin.Background.E2TwoProofDefs
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F9Sixteen
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.H16TwoM22
@@ -60,7 +51,6 @@ public import CFSG.Quasithin.Background.SmithB42SL3Key
 public import CFSG.Quasithin.Background.SmithB45SL3Label
 public import CFSG.Quasithin.Background.SmithB45SL3Outer
 public import CFSG.Quasithin.Background.SmithB51LnRealB
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S14110
 public import CFSG.Quasithin.EmptyFaithful.S14117
 public import CFSG.Quasithin.EmptyFaithful.S152N11
@@ -87,7 +77,6 @@ public import Certificates.Kernel.J4Count.Cent11Base
 public import Certificates.Kernel.J4Count.Fix5
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public noncomputable section
 

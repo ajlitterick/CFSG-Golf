@@ -1,14 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLPairs
-import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
 import CFSG.LocalAnalysis.StandardType.GGInndiagThreeAdicInner
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLThreeAdic
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLThreeAdicCells
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLNoJ1MarkTriality
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLNoJ1Ppd
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDet
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDetOrders
 
 public section
 

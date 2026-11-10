@@ -1,17 +1,13 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Defs
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S20
-public import CFSG.Open.StatedDefs
 
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusData
-import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusResGroup
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.OmegaMinusFlag
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.LeviTools
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Bar2Map
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOrdNatural.PCoreOmegaMinus
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Foundations

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 
 public section

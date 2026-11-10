@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 import CFSG.RankThree.SubgroupLists2.SpectralBounds
 

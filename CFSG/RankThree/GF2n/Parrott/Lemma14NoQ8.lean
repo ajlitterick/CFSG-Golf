@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Parrott.Lemma14
 public import CFSG.RankThree.GF2n.Parrott.QA45InvolutionClasses
 public import CFSG.RankThree.GF2n.Parrott.SpinRigidityBridge
-public import CFSG.GroupTheory.CentralizerSylowFusion
 import all CFSG.RankThree.GF2n.Parrott.Lemma14
 import all CFSG.Quasithin.Recognition.U33Defs
 public import CFSG.Blueprint.SourceGeckCorrespondence

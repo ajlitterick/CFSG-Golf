@@ -1,10 +1,8 @@
 module
 
-public import Certificates.Kernel.Co1M.Orb98280
 public import Certificates.Kernel.LocalComp.BlockGen
 public import CFSG.Monster.GMS.ASegConnCo1Inputs
 import CFSG.Certificates.Kernel.Common.HexTree
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Monster.GMS.Leech.Linear
 public import CFSG.Sporadic.Co1.Module.OddFacts
 public import CFSG.Sporadic.Co1.Module.Pairs

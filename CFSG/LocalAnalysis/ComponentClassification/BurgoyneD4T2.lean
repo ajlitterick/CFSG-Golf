@@ -8,9 +8,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneInputs
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOEvenInner
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOFieldNF
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOFormEven
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOOddSlice
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataPlusImage
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LieType.Universal.SpinOmega.Kernel
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneD4Coord
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials

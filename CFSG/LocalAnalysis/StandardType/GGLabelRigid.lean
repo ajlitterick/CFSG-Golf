@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.Adapters.LieModelSmallOrders
-import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.LocalAnalysis.GLTheoremA.CatA.MILabel
 import all CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011LabUniq
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsGen

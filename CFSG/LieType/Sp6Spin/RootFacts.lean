@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Sp6Spin.Setup
 public import CFSG.ClassicalGroups.Symplectic.Model
-public import CFSG.Open.StatedDefs
 
 public section
 

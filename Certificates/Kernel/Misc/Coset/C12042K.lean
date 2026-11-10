@@ -3,8 +3,6 @@ module
 public import Certificates.Data.Kernel.Misc.Coset.Mat
 public import CFSG.LieType.Multipliers.G23Data
 public import CFSG.Certificates.Kernel.Bounds.XG23R.Route
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.LieType.Multipliers.CoverWords
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.Open.Defs

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Sporadic.Presentation.Fi22ExactData
-public import CFSG.Certificates.Kernel.Common.Lce
-public import CFSG.Certificates.Kernel.Common.Loop
 public import CFSG.Certificates.Kernel.Fi22.Bound.Cov
 public import CFSG.Certificates.Kernel.Fi22.Bound.Data.Cov
 public import Mathlib

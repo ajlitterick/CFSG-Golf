@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.Th.TableSpec
 public import CFSG.Certificates.Kernel.RouteP.TextSplit
 public import Certificates.Kernel.RouteP.Text.Texts
-public import Mathlib.RingTheory.WittVector.IsPoly
 
 public section
 

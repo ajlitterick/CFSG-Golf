@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallLinTwo
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
-public import CFSG.GroupTheory.WielandtProductAux
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.StandardType.GGR4Lemma47c
 public import CFSG.GroupTheory.SupCommute
-public import CFSG.LocalAnalysis.StandardType.GGSixFieldFiveProofSL
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3ZeroBlockCount
 
 public section

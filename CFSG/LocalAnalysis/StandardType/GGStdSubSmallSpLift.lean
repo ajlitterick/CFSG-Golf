@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmall
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticCover
 import CFSG.RankThree.PartOne.S15K.CentralCover
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 
 public section
 

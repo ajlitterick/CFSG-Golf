@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0PSLComp
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinear
-public import CFSG.LocalAnalysis.StandardType.KGLangS1ALinTypeDet
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNILinFactor
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2LinBlock
 import CFSG.Quasithin.Background.F918Z2Core
-import CFSG.Assembly.GL83StatedBridge
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Meierfrankenfeld.GeneralFF.OffenderDefs
-public import Mathlib.GroupTheory.IsPerfect
 
 public section
 

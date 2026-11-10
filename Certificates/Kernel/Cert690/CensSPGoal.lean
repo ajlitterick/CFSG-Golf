@@ -6,8 +6,6 @@ public import Certificates.Kernel.Cert690.CensSP2
 public import Certificates.Kernel.Cert690.CensSP3
 public import Certificates.Kernel.Cert690.CensSPBase
 public import Certificates.Kernel.Cert690.CensSBind
-public import Certificates.Kernel.Cert690.GlueP
-public import Certificates.Kernel.Cert690.PglGlue
 public import CFSG.Certificates.Kernel.Cert690.CensusSGoal
 public import CFSG.Certificates.Kernel.Common.ForallTree
 public import CFSG.GF2Type.Smith1979W3.Cert690.Holds
@@ -36,8 +34,6 @@ public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Open.QuasithinDefs
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 public import Certificates.Kernel.Cert690.BfsNeg
 public import Certificates.Kernel.Cert690.SqA8Neg

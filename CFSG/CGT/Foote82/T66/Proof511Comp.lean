@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CGT.Foote82.T66.Proof511Red
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EType
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EUType
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog81X10RecChar
 public import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentZ2A7

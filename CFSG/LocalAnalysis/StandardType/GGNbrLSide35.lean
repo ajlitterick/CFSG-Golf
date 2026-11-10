@@ -1,17 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLTorusOrthMinus
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLTorusBridge
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLTorusTypeAPlus
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLTorusSymplectic
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLTorusOrthPlus
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
-import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.QTGen4.Recog.G23.Words
-public import Certificates.Data.G23RecogWordsInputs
 import Certificates.Kernel.Bounds.Family
 import CFSG.Certificates.Kernel.Misc.Coset.TableFact
 public meta import CFSG.GH74.QTGen4.Recog.G23.Words

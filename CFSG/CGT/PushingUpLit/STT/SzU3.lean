@@ -2,8 +2,6 @@ module
 
 public import CFSG.CGT.Timmesfeld75.Defs
 public import CFSG.LocalAnalysis.ComponentClassification.Asc76BenderFacts
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.LieType.BorelTits.Suzuki
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherKnownGroupFacts
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem3WeakClosure
 

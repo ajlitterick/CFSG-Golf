@@ -5,13 +5,6 @@ public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.PSUTwoAux.Co
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.PSUTwoAux.Inner
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.PSUTwoAux.Outer
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.PSUTwoAux.Planes
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Unitary2DMain
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryBalNonsplit
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryOuter
-public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeCentralizer
-public import CFSG.RankThree.PartOne.KC.UnitaryGoodAct
-public import CFSG.RankThree.PartOne.KC.UnitaryInnerPlaneLift
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Rank1
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Generic
@@ -48,12 +41,9 @@ public import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.Background.G2Relaxed
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S152N11
 public import CFSG.Quasithin.Vol2.Ch12Sec8NonabHatTen
 public import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel

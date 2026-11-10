@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGPumpTwLabDefs
 import CFSG.LocalAnalysis.StandardType.GGTPNThmULabel
 public import CFSG.LocalAnalysis.StandardType.GGTCJDatum
-import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVQuot
 
 public section
 

@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.Spor.Fi24FixK
 public import CFSG.Certificates.Kernel.Fam.Fi24Act.LibSound
 import Mathlib.Tactic.IntervalCases
 import Mathlib.Tactic.Group
-public import Mathlib.Algebra.BigOperators.Group.Finset.Piecewise
 
 public section
 

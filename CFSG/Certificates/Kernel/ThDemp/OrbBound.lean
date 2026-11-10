@@ -4,9 +4,7 @@ module
 public import CFSG.Certificates.Kernel.ThDemp.OrbBoundBase
 
 public import CFSG.Certificates.Kernel.ThDemp.OrbElt
-public import CFSG.Certificates.Kernel.ThDemp.OrbMain
 public import CFSG.Certificates.Kernel.ThDemp.OrbPts
-public import CFSG.Certificates.Kernel.ThDemp.Sound
 
 public section
 

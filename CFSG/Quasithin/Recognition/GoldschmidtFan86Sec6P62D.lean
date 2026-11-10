@@ -6,7 +6,6 @@ public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec5P51bK
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec3Six
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec3Main
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sigma3Main
-public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec5PSing
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec8P1Arc
 public import CFSG.LieType.SteinbergBRTwoRankBound
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction

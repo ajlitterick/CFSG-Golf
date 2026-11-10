@@ -10,7 +10,6 @@ public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenTwEightInput
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwCent
 public import CFSG.RankThree.PartTwo.Census.Classical.EvenPrimes
 public import CFSG.LocalAnalysis.WeakClosure81.SU3RankRoots
-public import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6TwoAssembly
 
 public section
 

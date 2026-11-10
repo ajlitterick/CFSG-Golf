@@ -1,12 +1,8 @@
 module
 
-public import Certificates.Data.Kernel.Bounds.Table
 public import CFSG.Certificates.Kernel.Bounds.J3Cov.Route
-public import CFSG.Certificates.CosetTablePresented
 import Certificates.Kernel.Bounds.Assemble
 import CFSG.Certificates.Kernel.Bounds.J3Cov.All
-import CFSG.Certificates.Kernel.Bounds.J3Cov.T1vK000
-import CFSG.Certificates.Kernel.Bounds.J3Cov.T2vK000
 
 public section
 

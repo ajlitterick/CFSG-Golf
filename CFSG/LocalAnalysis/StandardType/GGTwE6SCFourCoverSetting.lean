@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCoverMark
-import CFSG.LocalAnalysis.StandardType.GGTableB
 
 public section
 

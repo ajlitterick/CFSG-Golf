@@ -1,12 +1,8 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec8Setup
-public import CFSG.Quasithin.EmptyFaithful.S1421F112
 public import CFSG.Quasithin.Background.E1Solv
 public import CFSG.Quasithin.Background.E1Twelve
-public import CFSG.Quasithin.Background.A3ComponentsCore
-public import CFSG.Quasithin.Background.F1Hyp
-public import CFSG.Quasithin.Vol2.Ch3Basic
 public import CFSG.Quasithin.EmptyFaithful.S1421QShapeDefs
 public import Certificates.Kernel.SporSch.J4S.NoCP
 public import CFSG.Foundations
@@ -18,17 +14,12 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.F2Equiv
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

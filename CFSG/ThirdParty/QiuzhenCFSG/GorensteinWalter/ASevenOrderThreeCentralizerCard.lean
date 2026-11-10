@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenOrderThreeKleinFourThreeCycle
-import Mathlib.GroupTheory.SpecificGroups.Alternating.Centralizer
 import Mathlib.Tactic
 
 namespace CFSG

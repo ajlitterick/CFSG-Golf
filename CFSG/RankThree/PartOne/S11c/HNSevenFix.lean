@@ -3,12 +3,7 @@ module
 
 public import CFSG.RankThree.PartOne.S11c.HNSevenFixBase
 
-public import CFSG.RankThree.PartOne.S11c.HNCoverAbstract
-public import CFSG.RankThree.PartOne.S11c.HNSevenInputs
-public import CFSG.Sporadic.HNOddCore.InvRow2
-public import CFSG.Sporadic.HNSchreier.Order
 public import Certificates.Certificate14980
-public import Mathlib.GroupTheory.Perm.Centralizer
 
 public noncomputable section
 

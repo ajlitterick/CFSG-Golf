@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHypSix
 public import CFSG.LocalAnalysis.StandardType.GGRankOneModel
-public import CFSG.LocalAnalysis.StandardType.GGRankOneSl2
 public import CFSG.LocalAnalysis.StandardType.GGRankOneTorus
 
 public section

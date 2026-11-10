@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK0LQRoots
 public import CFSG.LocalAnalysis.StandardType.GGK0LQTwist
-public import CFSG.Sporadic.ThSchreier.GlobalData
 
 public section
 

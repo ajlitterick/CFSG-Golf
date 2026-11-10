@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDShared
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 import CFSG.ClassicalInvolution.Models.UnitaryPairs.RootSU2
-import Mathlib.FieldTheory.Finite.GaloisField
 import CFSG.ClassicalInvolution.Models.LinearPairs
 
 public section

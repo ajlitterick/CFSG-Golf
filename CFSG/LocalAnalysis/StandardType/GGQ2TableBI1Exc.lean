@@ -1,23 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1Frame
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaExcPlusAux2
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
 import CFSG.LocalAnalysis.StandardType.GGTBRowExcFrame
-import CFSG.LocalAnalysis.StandardType.GGFrameRouteA4Thm
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
 import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
 import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeF4ThreeAux
-import CFSG.LocalAnalysis.StandardType.GGF4AutWeylTableB
-import CFSG.LocalAnalysis.StandardType.GGTBRowF4FrameAux
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenModel
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenElt
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenLift
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 
 public section
 

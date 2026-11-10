@@ -2,10 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.Proving.OmegaCentreZMod2
 public import CFSG.HardMathSupport.Timmesfeld.Proving.OmegaEmbed
-public import CFSG.ClassicalGroups.Orthogonal.Restrict
-public import CFSG.ClassicalGroups.Orthogonal.Simple
-public import CFSG.LieType.Universal.Spin.Forms
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.GLTheoremB.UniqDefs
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUProjectivePlaneCentralizer
 public import CFSG.LieType.Universal.SpinOmega.Kernel

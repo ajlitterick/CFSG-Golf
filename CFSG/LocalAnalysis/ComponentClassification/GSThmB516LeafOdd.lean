@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog516Rows
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB516LeafRed
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB516LeafModel
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog81X10RecChar
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36OddChar
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofX10SpCard
@@ -40,9 +39,6 @@ public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.Sporadic.SmallOddCore.HSAut
 public import CFSG.Sporadic.SmallOddCore.J2
 public import CFSG.Sporadic.SmallOddCore.J3Aut
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

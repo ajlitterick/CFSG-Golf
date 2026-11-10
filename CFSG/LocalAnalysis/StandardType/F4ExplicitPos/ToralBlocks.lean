@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixedTrialityOddEllBasic
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToral
 public import CFSG.HardMathSupport.Timmesfeld.Torality.F4Block
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart25
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.A2ActualPart4
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MpAlg
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4TorusFrame

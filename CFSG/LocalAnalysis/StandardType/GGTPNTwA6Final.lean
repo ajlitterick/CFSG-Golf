@@ -2,16 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNTwA6Defs
 public import CFSG.LocalAnalysis.StandardType.GGTypeADefs
-public import CFSG.LocalAnalysis.StandardType.GGExcRegimeDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPNClassicalCover
 public import CFSG.LocalAnalysis.StandardType.GGTPNExcCover
-public import CFSG.LocalAnalysis.StandardType.GGTPNNarrowC6
-public import CFSG.LocalAnalysis.StandardType.GGTPNI1
 public import CFSG.LocalAnalysis.StandardType.GGTPNClGen
 public import CFSG.LocalAnalysis.StandardType.GGTPNNonExc
-public import CFSG.LocalAnalysis.StandardType.GGExcGen
 public import CFSG.LocalAnalysis.StandardType.GGExcCentred
-public import CFSG.LocalAnalysis.StandardType.GGK0ExcB3
 import CFSG.LocalAnalysis.StandardType.GGTPNTwA6ClRA
 import CFSG.LocalAnalysis.StandardType.GGTPNTwA6ExcOneThree
 import CFSG.LocalAnalysis.StandardType.GGTPNTwA6E6Three

@@ -3,12 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatJoinB
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermProperPos
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniNbrLabel
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniJLabel
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniQTwoExc
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniQTwoExcSix
 import CFSG.LocalAnalysis.StandardType.GGStdUnitaryFourExcl
-import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclic
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermProperQTwoSix
 
 public section

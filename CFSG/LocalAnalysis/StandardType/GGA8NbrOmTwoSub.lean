@@ -1,13 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGA8NbrOmDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmFix
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrOmFrameCore
-public import CFSG.ClassicalGroups.Orthogonal.Eichler
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinateRegular
-public import CFSG.RankThree.Classical.SteinbergBJOrthogonalDerivedCentralizer
-public import CFSG.LieType.SeitzGeneration.OrthEvenSingular
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 
 public section
 

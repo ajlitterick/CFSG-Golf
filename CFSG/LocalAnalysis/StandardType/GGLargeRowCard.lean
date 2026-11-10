@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLargeFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGLargeCartanRank
-public import CFSG.LocalAnalysis.StandardType.GGResKnownGroup
 public import CFSG.LocalAnalysis.StandardType.GGResXDichotomyDefs
 import CFSG.LocalAnalysis.StandardType.GGRCCardJoin
 import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
-import CFSG.LocalAnalysis.StandardType.GGRCTypeADet
-import TauCeti.GroupTheory.Coxeter.Geometric
 import TauCeti.GroupTheory.SpecificGroups.Dihedral.Basic
 
 public section

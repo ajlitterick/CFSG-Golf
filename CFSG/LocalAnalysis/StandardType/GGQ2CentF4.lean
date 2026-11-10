@@ -5,15 +5,8 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoTBCF4Cent
 
 import CFSG.LocalAnalysis.StandardType.GGQTwoAssemble
 import CFSG.LocalAnalysis.StandardType.GGQTwoCavImage
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBReduce
-import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
-import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoBstar
-import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoRank
-import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRank
 import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCube
 import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCubeHolds
-import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

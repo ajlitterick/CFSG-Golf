@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.AutMat
 public import CFSG.GroupTheory.SupCommute
-import Mathlib.Tactic.Ring
 
 public noncomputable section
 

@@ -1,8 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.Perm.Cycle.Type
-public import Mathlib.RingTheory.RootsOfUnity.Basic
-public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 public import CFSG.ClassicalGroups.UnitaryFlag.GramForm
 public import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryTrace
 public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas

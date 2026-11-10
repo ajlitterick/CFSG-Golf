@@ -4,10 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.GGCartanReflLift
 public import CFSG.LocalAnalysis.StandardType.GGResIIWStar
 public import CFSG.LocalAnalysis.StandardType.GGSmallDepLeafDefs
 public import CFSG.LocalAnalysis.StandardType.GGWitOrthClassR35Frame
-public import CFSG.LocalAnalysis.StandardType.GGWitOrthSpin
 public import CFSG.Mathlib.LinearAlgebra.Matrix.GramDetModP
 public import CFSG.Mathlib.LinearAlgebra.Matrix.SignedPathDet
-public import TauCeti.LinearAlgebra.RootSystem.FiniteType.Dynkin
 public import CFSG.LocalAnalysis.StandardType.ZS.RootMatrix
 
 public section

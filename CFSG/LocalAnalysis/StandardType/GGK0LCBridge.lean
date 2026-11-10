@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGK0LCStab
 public import CFSG.LieType.Chevalley.ToralCentralizerQuotient
-public import TauCeti.Algebra.BigOperators.ZPow
 
 public section
 

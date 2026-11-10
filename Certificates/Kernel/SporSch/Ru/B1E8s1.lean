@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Ru.B1EF
-public import Certificates.Kernel.SporSch.Ru.RowsGen
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

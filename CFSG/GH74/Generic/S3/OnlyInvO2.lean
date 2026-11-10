@@ -1,16 +1,7 @@
 module
 
-public import CFSG.GH74.Generic.S3.LeavesR
-public import CFSG.GH74.Generic.S3.PumpLift
-public import CFSG.GH74.Generic.S3.PumpDiag
-public import CFSG.GH74.Generic.Lifting
-public import CFSG.GH74.GLS.TwoThin.Pumpup
-public import CFSG.GH74.GLS.TwoThin.PumpData
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.Generic.S3.J2Star
-public import CFSG.GH74.Generic.JMaxDefs
 public import CFSG.GH74.AS16.Standard
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 public import CFSG.GH74.AS16.Defs
 
 public section

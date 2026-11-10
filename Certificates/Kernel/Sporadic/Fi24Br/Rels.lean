@@ -3,9 +3,7 @@ module
 
 public import Certificates.Kernel.VecCert.HomBound3
 public import Certificates.Kernel.VecCert.WordProg
-public import Certificates.Kernel.Sporadic.Fi24Br.Data
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Fischer.TwentyFour
-public import CFSG.Blueprint.NativeSporadic
 public import CFSG.Certificates.Kernel.Orders.Fi24p.Rels
 import Certificates.Kernel.Sporadic.Fi24Br.K
 import Certificates.Kernel.Sporadic.Fi24Br.S0
@@ -22,7 +20,6 @@ import CFSG.Certificates.Kernel.Spor.BytesFSound
 import CFSG.Sporadic.Fi24.SetupBase
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.ForallChunks
-import Mathlib.Tactic.IntervalCases
 import Certificates.Kernel.Sporadic.BrChain
 public import Certificates.Kernel.Sporadic.Fi24Br.Prog
 import CFSG.Blueprint.MatrixSeedIdentification

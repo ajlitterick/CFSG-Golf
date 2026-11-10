@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.Th.Spec.SylowPcGrp
 public import CFSG.Certificates.Kernel.Th.Spec.SylowPcRun
 public import CFSG.Certificates.Kernel.Th.Spec.Big
-public import CFSG.Certificates.Kernel.Th.S.BigS
 import CFSG.Certificates.Kernel.Th.Spec.FwdSlp
 
 public section

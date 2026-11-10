@@ -6,7 +6,6 @@ public import CFSG.Certificates.Kernel.SporCov.ChainKit
 public import CFSG.Sporadic.HNSchreier.FALocal
 import Certificates.Kernel.HN3166.Seed
 import CFSG.Certificates.Kernel.Fam.HNSeed.Checks.K
-import Mathlib
 
 public section
 

@@ -2,14 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationPairExc
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationPairF4Data
-public import CFSG.ClassicalInvolution.Balance.LayerGenerationRoots
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalF4
-public import CFSG.LieType.Chevalley.OddToralInvolutionComponents
-public import CFSG.LieType.Chevalley.PinnedBridge
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import CFSG.LieType.Chevalley.SignCharacterMasks
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.Balance.BootstrapDischarge
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationInner
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationTriple

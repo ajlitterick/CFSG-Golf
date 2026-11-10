@@ -4,8 +4,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3T7E9OrthCore
 public import CFSG.ClassicalInvolution.Q3.Q3T7E9Dim4
 public import CFSG.ClassicalInvolution.Asc77.AscE189Orth
 public import CFSG.ClassicalInvolution.Asc77.AscE189D4Model
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthBridge
-public import CFSG.ClassicalInvolution.RouteD.GapsOrthSpin
 public import CFSG.ClassicalInvolution.Asc77.AscR10E5
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationInner
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationTriple

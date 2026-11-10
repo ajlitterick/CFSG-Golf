@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartOne.Q1327C.BOm8Data
 public import CFSG.RankThree.PartOne.Q1327C.BDefs
 public import CFSG.RankThree.PartOne.K159H.O3Link
 public import CFSG.RankThree.PartOne.KFR4.Row4
-public import CFSG.RankThree.PartOne.S12.ModelTransport
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.LieType.Multipliers.ProductKernel
 public import CFSG.LieType.Multipliers.U42Bridge
@@ -34,7 +33,6 @@ public import CFSG.Monster.B.TwoA.Amalgam.Data
 public import CFSG.Monster.B.TwoA.Sp8.Par1
 public import CFSG.Monster.B.TwoA.Unitary.LinThree
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.RankThree.PartOne.KC.OrthogonalNormPlaneFactors
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
 public import CFSG.RankThree.PartOne.KF.ClsBasic
@@ -44,7 +42,6 @@ public import CFSG.RankThree.PartOne.Q1327C.BBase
 public import CFSG.RankThree.PartOne.Q1327C.BRows
 public import CFSG.RankThree.PartOne.Q1327C.P5Glue
 public import CFSG.RankThree.PerfectCover.HopfCentralCoversFinite
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.SmallOddCore.CheckSpec

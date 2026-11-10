@@ -5,8 +5,6 @@ public import Certificates.Kernel.Sporadic.OddCore.Beta24603L
 public import Certificates.Kernel.Sporadic.OddCore.J3BetaA5F
 public import Certificates.Kernel.Sporadic.OddCore.CentGlue
 public import CFSG.Certificates.Kernel.Spor.ColHSound
-public import CFSG.Certificates.Kernel.Spor.MulHInvSound
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Misc.RuInvHash
 
 public section

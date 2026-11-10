@@ -1,12 +1,8 @@
 module
 
 public import Certificates.Data.Co3CentDefs
-public import CFSG.Sporadic.Schreier.Co3Cert
-public import CFSG.RankThree.Native.PermEnumeration
-public import CFSG.RankThree.PartTwo.Sec4.Census.CoverCenterThreeRestCover
 public import Certificates.Kernel.Co3Cent.CaseAFinal
 public import Certificates.Kernel.Co3Cent.CaseBBound
-public import Certificates.Kernel.Co3Cent.CaseCGlue
 
 public section
 

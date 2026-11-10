@@ -5,7 +5,6 @@ public import CFSG.Monster.B.TwoA.Unitary.SemilinearBase
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Data
 public meta import CFSG.Monster.B.TwoA.Unitary.Orbit1408Data
 public meta import CFSG.Monster.B.TwoA.Unitary.Form
-import CFSG.Fischer.F4
 public meta import CFSG.Monster.B.TwoA.Unitary.PlanesBase
 
 public noncomputable section

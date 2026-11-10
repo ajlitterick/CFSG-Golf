@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Background.SmithB45L2Field
 public import CFSG.Quasithin.Background.SmithB45L2Pair
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesInternal
-public import Mathlib.Data.Int.Star
 
 public section
 

@@ -2,16 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNineDepCtxFacts
 public import CFSG.LocalAnalysis.StandardType.GGSmallDepLeafDefs
-import Mathlib.Algebra.BigOperators.Fin
-import Mathlib.Algebra.Module.Equiv.Basic
-import Mathlib.Algebra.Ring.Commute
-import Mathlib.Data.Finite.Perm
-import Mathlib.GroupTheory.Coset.Card
-import Mathlib.GroupTheory.Perm.Cycle.Type
-import Mathlib.GroupTheory.Subgroup.Center
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-import Mathlib.LinearAlgebra.Transvection.Basic
-import Mathlib.RingTheory.Finiteness.Cardinality
 import CFSG.LocalAnalysis.StandardType.ZS.AdaptMonomial
 import CFSG.LocalAnalysis.StandardType.ZS.TableCommon
 import CFSG.LocalAnalysis.StandardType.GGSmallDepE6Three

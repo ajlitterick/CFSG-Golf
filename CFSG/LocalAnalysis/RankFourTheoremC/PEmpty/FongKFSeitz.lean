@@ -1,15 +1,10 @@
 module
 
-public import Mathlib
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.FongKFLift
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.LieCross
-public import CFSG.Open.StatedDefs
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.Adapters.LinearCatalog
-public import CFSG.Adapters.RankTwoModelTransports
 public import CFSG.Open.StatedSUFieldChange
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Classification
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.BorelTits.CompleteFlag
@@ -26,7 +21,6 @@ public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Permutation.AlternatingAutomorphism
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 

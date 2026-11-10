@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksCentExt
-import CFSG.LocalAnalysis.StandardType.GGSpJoinCentralizerLam
 import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksIso
-import CFSG.LieType.Universal.Symplectic
 
 public section
 

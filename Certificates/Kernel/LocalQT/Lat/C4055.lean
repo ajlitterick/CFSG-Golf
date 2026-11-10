@@ -4,7 +4,6 @@ public import Certificates.Kernel.LocalQT.Lat.D4055
 public import CFSG.Certificates.Kernel.LocalQTLatMSound
 public import Certificates.Data.Kernel.LocalQT.LatT
 public import CFSG.Certificates.Kernel.LocalQTLatESound
-public import Certificates.Data.Kernel.LocalQT.ChainInj
 import CFSG.Certificates.Kernel.LocalQTTleTSound
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.LocalQTListLemmas
@@ -21,9 +20,7 @@ public import CFSG.Quasithin.Background.A3Structure318Red
 public import CFSG.Quasithin.Background.A3Structure36A
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
 public import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
 public import CFSG.Quasithin.Background.A3Structure36BFrattini
 public import CFSG.Quasithin.Background.A3Structure36BHeisBase
 public import CFSG.Quasithin.Background.A3Structure36BHomocyclic
@@ -35,11 +32,6 @@ public import CFSG.Quasithin.Background.B1MoreElevenE
 public import CFSG.Quasithin.Background.B1MoreNineG
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Cent
 import CFSG.Certificates.Kernel.LocalQTLatCCheckSound
 

@@ -6,7 +6,6 @@ import CFSG.Certificates.Kernel.Common.Repo
 import CFSG.Certificates.Kernel.Common.EachUnfold
 import CFSG.Certificates.Kernel.Co2.Bound3.Data.M
 import CFSG.Certificates.Kernel.Co2.Bound3.Data.C_Sel
-import CFSG.Certificates.Kernel.Co2.Bound3.Rels
 
 #kc_repo #kc_items_root CFSG.KD.Co2KM.MRows.P0 "CFSG/Certificates/Kernel/Co2/Bound3/Checks/data/rows/M_0_P.bin" 24 5345327144182400672
 #kc_repo #kc_items_root CFSG.KD.Co2KM.MRows.P1 "CFSG/Certificates/Kernel/Co2/Bound3/Checks/data/rows/M_1_P.bin" 114 15409417108354689326

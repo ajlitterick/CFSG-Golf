@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeKnownSix
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeF4Comp
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

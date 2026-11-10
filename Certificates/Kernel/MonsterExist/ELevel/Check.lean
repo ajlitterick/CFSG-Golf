@@ -6,7 +6,6 @@ public import Certificates.Kernel.MonsterExist.ELevel.Inner1b
 public import Certificates.Kernel.MonsterExist.ELevel.Check2
 public import Certificates.Kernel.MonsterExist.ELevel.Check6
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

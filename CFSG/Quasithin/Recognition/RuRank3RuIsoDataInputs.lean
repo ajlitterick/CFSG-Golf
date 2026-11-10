@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Sporadic.Schreier.RuLocalFacts
-public import CFSG.Sporadic.Schreier.RuReps
 public import CFSG.Quasithin.Recognition.RuRank3Tits13Base
 public meta import CFSG.Sporadic.Schreier.RuLocalFacts
 public meta import CFSG.Sporadic.Schreier.RuReps

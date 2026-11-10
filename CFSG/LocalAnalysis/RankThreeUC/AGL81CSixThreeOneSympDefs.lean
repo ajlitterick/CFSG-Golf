@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CSixThreeOneDefs
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Open.StatedDefs
-public import CFSG.Foundations.Basic
 public import CFSG.RankThree.SubgroupLists.SchurCommutant
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs

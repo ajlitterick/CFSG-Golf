@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.SpinConfig
-public import CFSG.RankThree.GF2n.Parrott.SpinPack45
 
 public section
 

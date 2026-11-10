@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigDichot
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigWCard
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigIrr
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigBKernel
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigRestrict
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08DatumRefl
 
 public section
 

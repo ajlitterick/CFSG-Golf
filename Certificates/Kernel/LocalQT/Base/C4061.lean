@@ -7,7 +7,6 @@ public import Certificates.Kernel.LocalQT.Base.C4061Z
 public import Certificates.Kernel.LocalQT.Base.C4061P
 public import Certificates.Kernel.LocalQT.Base.C4076B
 public import Certificates.Kernel.LocalQT.Base.C4143
-public import CFSG.Certificates.Kernel.LocalQTX1RSound
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000

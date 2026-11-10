@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfEndNodes
-public import CFSG.LocalAnalysis.StandardType.GGHalfZpowers
 
 public section
 

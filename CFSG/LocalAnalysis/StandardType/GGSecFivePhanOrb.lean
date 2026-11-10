@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanPrimDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneWeyl
 import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylRest5
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentralizerBasic
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrCoxOrder
 import CFSG.LocalAnalysis.StandardType.GGA2Conj
 import CFSG.ClassicalInvolution.Asc77.WP3SCVConn

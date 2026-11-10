@@ -1,12 +1,10 @@
 
 module
 
-public import CFSG.Monster.B.Fischer.Fi22CertInputs
 public import Certificates.Kernel.Sporadic.Fi22.Cert3149K
 public import Certificates.Kernel.Sporadic.Fi22.C3152
 public import CFSG.Certificates.Kernel.Spor.HexAtSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

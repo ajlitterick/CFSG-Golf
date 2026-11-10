@@ -4,8 +4,6 @@ public import CFSG.ClassicalGroups.Orthogonal.QuadraticExtensionDescent
 public import CFSG.LocalAnalysis.StandardType.PhanEStdChoice
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergSpinPlusField
 public import CFSG.LieType.Steinberg.CentralExt.SpinPlusThree
-public import CFSG.LocalAnalysis.SeitzReduction.E7PilotNeighbourLevi
-public import CFSG.LocalAnalysis.StandardType.PhanEAdjDescent
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupNormalizer
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Anisotropic.Plane
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Pairs

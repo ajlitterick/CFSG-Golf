@@ -5,14 +5,8 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE8Four4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE8Four8
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE8Spin8
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveConjClass
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE8RestTorus
-public import CFSG.HardMathSupport.Lang.AnisoE6.PlaneConjGen
 public import CFSG.Mathlib.RingTheory.UnitOrderOf
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Num
 public import CFSG.GroupTheory.ElemAbelianRank
-public import CFSG.LocalAnalysis.SeitzReduction.E8PilotAlignTori
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Four
 public import CFSG.HardMathSupport.Solomon.Coordinator.C25Borel
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Center
 public import CFSG.HardMathSupport.Solomon.Coordinator.I22_4Glue

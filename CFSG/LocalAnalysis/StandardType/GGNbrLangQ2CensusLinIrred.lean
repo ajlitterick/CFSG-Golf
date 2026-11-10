@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusDefs
 import CFSG.LocalAnalysis.StandardType.GGTPNThmRACoreLin
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1CentLin
-import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
-import CFSG.Assembly.Subnormal
 
 public section
 

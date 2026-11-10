@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaFork
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaTypeA
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaForkCox
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrCoxOrder
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaOrth
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaExcPlus
@@ -10,10 +8,7 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaTwE6
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaTwE6Three
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSExcl
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrOfEnnola
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaCore
 

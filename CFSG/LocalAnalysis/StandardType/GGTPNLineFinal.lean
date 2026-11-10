@@ -4,16 +4,11 @@ public import CFSG.LocalAnalysis.StandardType.GGTPNLineClRA
 public import CFSG.LocalAnalysis.StandardType.GGTPNLineExcOneThree
 public import CFSG.LocalAnalysis.StandardType.GGTPNLineE6Three
 public import CFSG.LocalAnalysis.StandardType.GGTypeADefs
-public import CFSG.LocalAnalysis.StandardType.GGExcRegimeDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPNClassicalCover
 public import CFSG.LocalAnalysis.StandardType.GGTPNExcCover
-public import CFSG.LocalAnalysis.StandardType.GGTPNNarrowC6
-public import CFSG.LocalAnalysis.StandardType.GGTPNI1
 public import CFSG.LocalAnalysis.StandardType.GGTPNClGen
 public import CFSG.LocalAnalysis.StandardType.GGTPNNonExc
-public import CFSG.LocalAnalysis.StandardType.GGExcGen
 public import CFSG.LocalAnalysis.StandardType.GGExcCentred
-public import CFSG.LocalAnalysis.StandardType.GGK0ExcB3
 
 public section
 

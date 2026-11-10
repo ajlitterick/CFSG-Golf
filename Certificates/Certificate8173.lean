@@ -1,7 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Toolkit.Statements
-public import CFSG.RankThree.PartTwo.Toolkit.Cocycle
 public import CFSG.RankThree.PartTwo.Toolkit.H1Inputs
 import CFSG.LinearAlgebra.LinearGroups.SLThreeRootGeneration
 

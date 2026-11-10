@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.Defs
 public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.SignalizerFunctorTheorem.Coprime.CommutatorGeneration
 public import CFSG.GroupTheory.LocalCores.MinimalNormal

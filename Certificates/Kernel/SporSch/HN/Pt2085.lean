@@ -1,17 +1,13 @@
 module
 
-public import Certificates.Kernel.SporSch.HN.Pt2085K
 public import Certificates.Kernel.SporSch.HN.Pt2085E
 public import Certificates.Kernel.SporSch.HN.Pt2085B
 public import Certificates.Kernel.SporSch.HN.FixK.P2085Q0
 public import Certificates.Kernel.SporSch.HN.FixK.P2085Q1
 public import Certificates.Kernel.SporSch.HN.FixK.P2085Q2
 public import Certificates.Kernel.SporSch.HN.FixK.P2085Q3
-public import Certificates.Kernel.SporSch.HN.FixK.Spec
 public import Certificates.Kernel.SporSch.HN.Pt2109
 public import Certificates.Kernel.SporSch.HN.Pt2094
-public import CFSG.Sporadic.HNSchreier.Separating
-public import CFSG.Sporadic.HNSchreier.FALocal
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -2,8 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.SuzThreeKit
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SporSuzE81Data
-public import CFSG.Monster.B.Mathieu.SylowCore
-public import Certificates.Data.CFSGNative.Co3Schreier.Basic
 public meta import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.SuzThreeKit
 public meta import CFSG.RankThree.PartTwo.Sec4.T444.Item434SporSuzE81Data
 public meta import CFSG.Monster.B.Mathieu.SylowCore

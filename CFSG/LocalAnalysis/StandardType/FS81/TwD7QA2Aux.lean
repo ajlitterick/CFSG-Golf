@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.FS81.TwD7QSplit
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD7QCountAux
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD7M0Model
 public import CFSG.LocalAnalysis.StandardType.FS81.D6MarkOfModel
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD7BetaNormElements
 public import CFSG.LocalAnalysis.StandardType.FS81.SplitEAux
 
 public section

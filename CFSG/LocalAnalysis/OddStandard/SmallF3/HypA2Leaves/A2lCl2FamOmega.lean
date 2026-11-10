@@ -1,19 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamOInner
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamOField
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamOrth
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOmega
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddPSp
-public import CFSG.LocalAnalysis.ComponentClassification.EvenOrthSelector
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddInnerOmega
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddInnerOLift
-public import CFSG.RankThree.Classical.SteinbergBYOrthogonalGates
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOmegaField
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOmegaForms
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalFieldFixed
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalFixedTransfer
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOrthAll
 
 public noncomputable section

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.LocalComp.Sp6J.Data
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

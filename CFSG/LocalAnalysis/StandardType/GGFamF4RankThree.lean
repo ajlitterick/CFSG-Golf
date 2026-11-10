@@ -1,15 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFamComponent
 public import CFSG.LocalAnalysis.StandardType.GGFamF4Orbit
 public import CFSG.LocalAnalysis.StandardType.GGFamF4Shapes
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RankThreeModelsPart1
 import CFSG.LocalAnalysis.StandardType.GGFamInnerCover
-import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.SelectedLiteralPart1
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.SelectedLiteralPart2
-import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.B3AlgebraicPart3
-import CFSG.LieType.Chevalley.WeylRootTransport
-import CFSG.Blueprint.LieModelAPI
 
 public section
 

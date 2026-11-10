@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.Lemma37.TwoANine.Alterna
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.Lemma37.TwoANine.Classes
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.AschbacherAssembly
 public import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Burnside.NormalComplement
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.Basic
 public import CFSG.Foundations
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GroupTheory.LocalCores.Fitting

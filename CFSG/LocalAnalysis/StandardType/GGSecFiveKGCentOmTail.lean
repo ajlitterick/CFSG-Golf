@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentOmCorank
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoOmPlusStep
 
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentOmTorus
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
-import CFSG.RankThree.OrthogonalInvolutions.Dickson
 
 public section
 

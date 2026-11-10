@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YCDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117Count
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIAut
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4TI117
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4TNoTri
 
 public section

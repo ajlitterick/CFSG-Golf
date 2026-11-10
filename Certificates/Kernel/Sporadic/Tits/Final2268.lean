@@ -8,7 +8,6 @@ public import Certificates.Kernel.Sporadic.Tits.LocJ
 public import Certificates.Kernel.Sporadic.Tits.LocK
 public import Certificates.Kernel.Sporadic.Tits.LocR
 public import Certificates.Kernel.Sporadic.Tits.GroupT2264
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

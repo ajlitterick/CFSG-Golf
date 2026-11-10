@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGraphFieldAction
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldFixed
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingTransport
 
 public section
 

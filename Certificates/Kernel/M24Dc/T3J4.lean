@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.H13.KGFactT3J4KInputs
 public import Certificates.Kernel.M24Dc.Idx3
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 set_option maxHeartbeats 0

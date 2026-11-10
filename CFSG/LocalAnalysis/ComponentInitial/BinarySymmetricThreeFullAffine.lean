@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymmetricThreeLinear
-public import CFSG.Assembly.Defs
 
 public section
 

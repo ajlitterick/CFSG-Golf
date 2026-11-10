@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFFLocal
 public import CFSG.LocalAnalysis.StandardType.GGFFModelNDefs
-public import CFSG.Open.LocalVocabulary
-import Mathlib.Algebra.Group.Action.End
-import Mathlib.Algebra.Group.Subgroup.Pointwise
-import Mathlib.GroupTheory.Sylow
 import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Generation
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 import CFSG.GroupTheory.CommutingProductFixedSubgroup

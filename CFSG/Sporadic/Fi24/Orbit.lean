@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.Fi24.OrbitBase
 import all CFSG.Sporadic.Fi24.OrbitBase
 
 public import CFSG.Sporadic.Fi24.Setup

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.OpsV4
-public import CFSG.Sporadic.GLQ.RegisterProgram
 
 public section
 

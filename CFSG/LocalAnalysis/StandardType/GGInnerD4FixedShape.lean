@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4Lemma4Defs
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeOrthTFix
-import CFSG.RankThree.PartOne.KC.OrthogonalRegularQuasisimple
 import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Orth2
 
 

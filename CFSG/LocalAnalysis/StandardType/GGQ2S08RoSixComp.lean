@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoSixFrame
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoSixMat
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoSixQuasi
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangTypeALift
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenLift
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVPComp
 
 public section

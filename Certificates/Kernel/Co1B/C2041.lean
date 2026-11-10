@@ -14,7 +14,6 @@ public meta import Certificates.Data.CFSGNative.Co1.Involutions
 public meta import Certificates.Data.CFSGNative.HS.SmallF2
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public import Certificates.Kernel.Co1B.Fix2041
-public import CFSG.Certificates.Kernel.Co1BTrSound
 
 public section
 

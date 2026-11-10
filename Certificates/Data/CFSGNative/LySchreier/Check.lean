@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.CFSGNative.Ly.Orbit
-public import Certificates.Data.CFSGNative.Th.Orbit
 
 public section
 

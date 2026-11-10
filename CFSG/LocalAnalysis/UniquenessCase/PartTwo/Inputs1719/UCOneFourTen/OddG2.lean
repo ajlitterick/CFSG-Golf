@@ -9,8 +9,6 @@ import CFSG.RankThree.PartTwo.Sec6.Item611Res3ProofG2
 import CFSG.Quasithin.EmptyFaithful.Gold14610LiftCenter
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81LThreeFourAutFive
 import CFSG.LieType.Chevalley.ExceptionalG2F4ModelSchreier
-import CFSG.RankThree.PartOne.SEITZ11.G2SevenRep
-import CFSG.RankThree.PartTwo.Sec21.Item223RankResProofSeven
 import CFSG.Foundations
 import CFSG.GroupTheory.BaerSuzuki
 import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies

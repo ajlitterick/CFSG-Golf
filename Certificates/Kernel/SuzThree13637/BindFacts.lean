@@ -4,11 +4,8 @@ public import Certificates.Kernel.SuzThree13637.Bind
 public import Certificates.Kernel.SuzThree13637.CEnum
 public import Certificates.Kernel.SuzPump.PairFacts
 public import CFSG.Certificates.Kernel.PGrpSound
-public import CFSG.Certificates.Kernel.B3S3KSound
-public import CFSG.Certificates.Kernel.BfsPinSliceSound
 import CFSG.RankThree.PartTwo.Sec4.T444.Item434SporE81Local
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.Algebra.Group.Subgroup.ZPowers.Basic
-public import Mathlib.Data.Fintype.Card
 
 import Mathlib.Algebra.Group.Conj
 import Mathlib.Tactic.Group

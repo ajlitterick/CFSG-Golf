@@ -3,7 +3,6 @@ module
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8KAStarCert
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8KATwoD
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8KATwoE
-public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8Stmt813
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinear
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSUFieldOddCore

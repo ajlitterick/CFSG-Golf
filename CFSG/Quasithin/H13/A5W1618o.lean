@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Background.CommVBasics
 public import CFSG.Quasithin.H13.A5W1618m
 public import CFSG.Quasithin.H13.A5W1618n
 

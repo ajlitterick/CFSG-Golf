@@ -6,7 +6,6 @@ public import CFSG.Certificates.Kernel.Spor.ONLin
 public meta import CFSG.Sporadic.Schreier.ONActionData
 public meta import Certificates.Data.CFSGNative.ONSchreier.Vectors
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
 
 public section
 

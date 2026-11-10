@@ -4,8 +4,6 @@ public import CFSG.Quasithin.Background.Sp4InfA6Gen
 public meta import CFSG.Quasithin.Background.Sp4InfA6Basic
 public import CFSG.Quasithin.Background.Sp4InfAbs
 public import Certificates.Certificate8065
-public import Certificates.Certificate8066
-public import Certificates.Certificate8067
 public import CFSG.Adapters.GeneralizedFitting
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.GroupTheory.LocalCores.Fitting

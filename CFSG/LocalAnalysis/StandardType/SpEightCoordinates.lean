@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.StatedAPI
 public import CFSG.Blueprint.SourceClassicalTransportOrthogonal
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointActionModels

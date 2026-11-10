@@ -1,15 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGF4N2MixedBadLine
 public import CFSG.LocalAnalysis.StandardType.GGF4N2MixedFinal
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourJoin
 public import CFSG.LocalAnalysis.StandardType.GGNewPlaneLocalAction
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOppPlusSup
 import CFSG.LocalAnalysis.StandardType.GGF4N2OriginalJoin
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflDom
-import CFSG.LocalAnalysis.StandardType.GGNbrBalanceSchreier
-import CFSG.RankThree.PartOne.TCB.SchreierFinal
 
 public section
 

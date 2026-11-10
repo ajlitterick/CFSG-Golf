@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.Misc.BfsK
 public import Certificates.Data.Kernel.Mat8P
-public import Certificates.Data.Kernel.G2Three.Defs
 
 public section
 

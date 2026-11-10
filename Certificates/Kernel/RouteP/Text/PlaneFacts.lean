@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.RouteP.Text.PlanesX
 public import Certificates.Kernel.RouteP.Text.Layout
-public import Mathlib.Tactic.ReduceModChar
 
 public section
 

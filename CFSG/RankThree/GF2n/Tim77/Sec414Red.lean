@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CGT.Timmesfeld75.Defs
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 import CFSG.ThirdParty.QiuzhenCFSG.BaerSuzuki.FinalTheorem
 
 public section

@@ -5,7 +5,6 @@ public import CFSG.Milestones.ASVolI.F4TISets
 public import CFSG.RankThree.PartOne.KC.SymplecticSubfieldOuter
 public import CFSG.GH74.KGroups.U33
 public import CFSG.Sporadic.Schreier.TitsAutD
-public import CFSG.Milestones.ASVolI.F4
 import all CFSG.Milestones.ASVolI.F4
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Ambient
 public import CFSG.Monster.B.Fischer.Fi22Order

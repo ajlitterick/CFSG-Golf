@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5L53H
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5L53F
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5L53G
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

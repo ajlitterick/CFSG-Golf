@@ -6,9 +6,6 @@ public import CFSG.Sporadic.Bridge.Common
 public import CFSG.Sporadic.Presentation.ONan
 public import Certificates.Data.CFSGNative.Bridge.ONGPL
 public meta import Certificates.Data.CFSGNative.Bridge.ONGPL
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import CFSG.Sporadic.Presentation.ONanInputs
-public import Certificates.Data.CFSGNative.ON.Certificate
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import CFSG.Perm.ChainComplete
 public import CFSG.Sporadic.HS.Chain
@@ -16,8 +13,6 @@ public import CFSG.Sporadic.ON.ActionBase
 public import CFSG.Sporadic.ON.CertificateBase
 public import CFSG.Sporadic.ON.ChainBase
 public import CFSG.Sporadic.ON.LinesBase
-public import CFSG.Sporadic.ON.PrimitiveBase
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

@@ -5,7 +5,6 @@ public import CFSG.RankThree.PartOne.AUTSL.TraceAS
 import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveLocalIso
 import CFSG.OddTranspositions.PartThree.Twelve.FourSp
 import CFSG.OddTranspositions.PartThree.Twelve.ElevenSpArith
-import CFSG.OddTranspositions.PartThree.Twelve.ElevenSpModelChart
 import CFSG.OddTranspositions.PartThree.Twelve.ElevenSpModelOrder
 import CFSG.RankThree.GF2n.Stroth80.Sec310ClQuad
 import CFSG.ClassicalGroups.Symplectic.PointRadicalNormal

@@ -1,14 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoStandardDefs
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoBenderHypII
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoBenderSuzukiInner
-public import CFSG.LocalAnalysis.ComponentClassification.Asc76BenderFactsCover
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.LinearCentralCover
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryCentralCover
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.Adapters.LinearFieldTransport
-public import CFSG.LieType.BorelTits.Suzuki
 public import CFSG.LieType.Steinberg.CentralExt.PerfectCover
 
 public section

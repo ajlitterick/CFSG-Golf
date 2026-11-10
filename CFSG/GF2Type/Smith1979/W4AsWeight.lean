@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LargeExtraspecial.S4Basic
 public import CFSG.LargeExtraspecial.S5Odd
 public import CFSG.LargeExtraspecial.S12Basic
 public import CFSG.GF2Type.Aschbacher1976Full.HSGL3
@@ -18,8 +17,6 @@ public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominato
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Supercritical
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 
 public section
 

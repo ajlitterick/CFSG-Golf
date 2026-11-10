@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Statements
 public import CFSG.LocalAnalysis.QuasithinUnique.GammaFamiliesExtraComponents
-public import CFSG.Open.StatedDefs
-public import Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.AppCCases
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.L2_4_27
 

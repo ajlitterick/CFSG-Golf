@@ -2,16 +2,9 @@ module
 
 public import CFSG.RankThree.PartOne.F106.OddRadAt
 public import CFSG.RankThree.PartOne.KC.SymplecticIsotypicSpecial
-public import CFSG.RankThree.PartOne.KC.PrimaryDecomposition
-public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
 import CFSG.RankThree.PartOne.F106.OddRadTools
-import CFSG.RankThree.PartOne.KC.SymplecticIsotypicBlocks
 import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneCore
 import CFSG.RankThree.PartOne.S11d.PSpGood
-import CFSG.RankThree.GroupTheory.SubnormalCores
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.GroupTheory.ABGLocalTools.Constraint
-import CFSG.GroupTheory.PerfectResidualNodes
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts
@@ -56,7 +49,6 @@ import CFSG.RankThree.PartOne.S11d.OutUnitary
 import CFSG.RankThree.PartOne.S11d.PSLDescent
 import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import CFSG.Walter.Defs
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension

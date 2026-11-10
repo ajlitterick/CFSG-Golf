@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.H13.L32N1449Inputs
 public import Certificates.Data.Kernel.Mat8R
-import Certificates.Kernel.H13.ElemsO3
 import Certificates.Kernel.H13.Pow
 import Certificates.Kernel.H13.Q1449InvGlue
 public import Certificates.Kernel.H13.DataQ1449

@@ -7,7 +7,6 @@ public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCharDataF4
 public import CFSG.LocalAnalysis.StandardType.GGHalfCentGroup
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreCentOrbit
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2F4Pos
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.LocalAnalysis.StandardType.GGSixTCKSpace
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigid
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSU

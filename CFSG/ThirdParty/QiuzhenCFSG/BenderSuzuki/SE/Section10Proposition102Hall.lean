@@ -2,8 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Proposition102Core
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Proposition102PrimeSupport
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection14.PFsection14_6
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection12.lemma_12_3_a
 
 namespace CFSG
 end CFSG

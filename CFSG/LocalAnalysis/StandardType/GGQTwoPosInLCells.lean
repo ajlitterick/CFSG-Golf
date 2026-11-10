@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaNbrAt
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTableBNbr
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
 
 public section
 

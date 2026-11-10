@@ -4,9 +4,7 @@ public import Certificates.Kernel.He7222.GlueScan
 public import Certificates.Kernel.He7222.NvK
 public import Certificates.Kernel.He7222.NvTK
 public import CFSG.Certificates.Kernel.He7222.NvSound
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.OrbRow.LevelSound
-import CFSG.Certificates.Kernel.Spor.PcompFacts
 
 public section
 

@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.Tits8074.Syl
 public import Certificates.Kernel.Tits8074.Walk
 public import Certificates.Kernel.Tits8074.GrpChk
-public import CFSG.Certificates.Kernel.PermCent.OrbGroup
 public import CFSG.Certificates.Kernel.Tits8074Aut
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGWitOrthClassR33Aux2
 import CFSG.LocalAnalysis.StandardType.GGWitOrthClassR33Aux3
 public import CFSG.LocalAnalysis.StandardType.GGWitOrthTypeA
-public import CFSG.LocalAnalysis.StandardType.GGWitOrthNormal
-import Mathlib.LinearAlgebra.Reflection
 
 public section
 

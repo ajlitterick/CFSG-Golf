@@ -1,21 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.FooteTopExclusionMarkedSwap
-import CFSG.LocalAnalysis.ComponentClassification.FooteMarkedTransport
 import CFSG.LocalAnalysis.ComponentClassification.FooteMarkedAbsorptionTools
 import CFSG.LocalAnalysis.ComponentClassification.FooteMarkedCanonicalLift
-import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aFStar
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSBFixedLayer
 import CFSG.LocalAnalysis.SeitzReduction.CentralizerComponents
-import CFSG.Foundations.GilmanSolomonGrammar
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 import CFSG.LocalAnalysis.ComponentClassification.GS82HConfigQuot
-import CFSG.LocalAnalysis.ComponentInitial.LocalBMaximalPropagation
-import CFSG.LocalAnalysis.ComponentClassification.AS76bLemma21Basic
 public import CFSG.LocalAnalysis.ComponentClassification.FooteMarkedRelative
-public import CFSG.RankThree.PartOne.SPOR.Final
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitCatalogueU
-public import CFSG.LocalAnalysis.ComponentClassification.KProperComponentLocalBOpen
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.CGT.PushingUpLit.BHS.ThreeEight
 public import CFSG.CGT.PushingUpLit.BHS6.ThreeEightBT

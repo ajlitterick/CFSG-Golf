@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelCoordinates
-import CFSG.ClassicalGroups.Orthogonal.Basic
-import Mathlib.FieldTheory.Finite.GaloisField
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 
 public section

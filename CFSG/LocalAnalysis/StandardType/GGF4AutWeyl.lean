@@ -3,13 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGAutomizerMap
 public import CFSG.LocalAnalysis.StandardType.GGF4AutWeylTorus
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Three
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoRank
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.E6InF4Torus
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneCoord
-public import CFSG.RankThree.Chevalley.G2F4FiniteFieldFixedMatrices
-public import CFSG.LieType.Chevalley.GraphFixedData
-public import Mathlib.FieldTheory.Finite.Extension
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Frames
 public import CFSG.HardMathSupport.Lang.AnisoE6.CatBridge

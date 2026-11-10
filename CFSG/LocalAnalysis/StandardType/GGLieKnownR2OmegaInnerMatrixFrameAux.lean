@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaInnerFieldFrame
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaInnerSimilarity
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalFlag
 public import CFSG.ClassicalGroups.Orthogonal.EichlerCentralizerScalar
 
 public section

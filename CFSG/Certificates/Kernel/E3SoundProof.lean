@@ -5,9 +5,6 @@ import CFSG.Certificates.Kernel.Co3BfsSound
 import CFSG.Certificates.Kernel.Spor.KeyBfsGen
 import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.Spor.PrimSound
-import CFSG.Certificates.Kernel.Spor.Loops
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Data.Finset.Card
 public import CFSG.Certificates.Kernel.Spor.RawSound
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentRigidCheckInputs
 public import Certificates.Data.Kernel.E3

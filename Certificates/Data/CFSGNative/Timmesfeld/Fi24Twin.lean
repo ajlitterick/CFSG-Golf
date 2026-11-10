@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.CFSGNative.Timmesfeld.Fi24Three
-public import Std.Data.HashMap
 
 public section
 

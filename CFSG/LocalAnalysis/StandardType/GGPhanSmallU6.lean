@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanSmallDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeFrame
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
-public import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
 
 public section
 

@@ -1,13 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.Lift
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.Lift2
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.Rank3
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.Transport
 public import CFSG.LocalAnalysis.GLTheoremA.S6.InputsAlt73
-public import CFSG.LocalAnalysis.GLTheoremA.Basic
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main

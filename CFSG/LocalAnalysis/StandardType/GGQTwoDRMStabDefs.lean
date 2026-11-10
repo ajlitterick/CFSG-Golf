@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDCoxEven
 
 public section
 

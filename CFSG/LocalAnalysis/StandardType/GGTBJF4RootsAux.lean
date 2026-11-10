@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.F4FieldTwoEuclid
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 
 public section
 

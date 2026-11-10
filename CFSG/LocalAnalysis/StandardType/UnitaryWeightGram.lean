@@ -2,9 +2,6 @@ module
 
 public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
 public import Mathlib.LinearAlgebra.Matrix.Diagonal
-public import Mathlib.Algebra.CharP.Two
-public import Mathlib.Algebra.Ring.Equiv
-public import Mathlib.Tactic.Ring
 public import Mathlib.Tactic.NoncommRing
 
 public section

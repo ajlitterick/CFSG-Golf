@@ -9,7 +9,6 @@ import CFSG.Assembly.QuasithinDefs
 import CFSG.GH74.Defs
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 import CFSG.LocalAnalysis.ComponentClassification.Helpers
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.Quasithin.Background.Basic
 import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 import CFSG.RankThree.LocalRank.SelectorCases

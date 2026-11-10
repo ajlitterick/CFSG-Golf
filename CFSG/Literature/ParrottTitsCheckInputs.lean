@@ -3,7 +3,6 @@ module
 public import CFSG.Literature.ParrottTitsPresentation
 public import CFSG.Sporadic.Schreier.TitsArrays
 public import CFSG.Sporadic.Schreier.TitsBasic
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Literature.ParrottTitsPresentation
 public meta import CFSG.Certificates.CosetTablePresented
 public meta import CFSG.Sporadic.Schreier.TitsData

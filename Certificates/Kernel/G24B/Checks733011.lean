@@ -4,7 +4,6 @@ public import Certificates.Kernel.G24B.Checks733008
 public import Certificates.Kernel.G24B.NData
 import CFSG.Certificates.Kernel.Common.F2Bfs
 import CFSG.Certificates.Kernel.Common.Cover
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

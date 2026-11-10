@@ -5,12 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoOrders
 public import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoKac
 public import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoE6D4
 public import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoF4
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.KacDispatch
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.OuterDispatch
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPReduction
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE6
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE7
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE8
 
 public section
 

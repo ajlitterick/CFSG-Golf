@@ -1,7 +1,6 @@
 module
 
 import CFSG.RankThree.PartTwo.Sec20.Item20Res11ProofKO3
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.RankThree.PartTwo.Sec19.Item194Five
 public import CFSG.RankThree.PartTwo.Sec19.Item19Res3ProofAsc93

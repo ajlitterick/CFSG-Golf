@@ -2,10 +2,8 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Quotient
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.ConjInv
-import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.TwoPoint
 import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.PCore
 import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Center
-import CFSG.OddTranspositions.PartFour.SeventeenTwo
 import CFSG.LocalAnalysis.ComponentClassification.Foote47Lift
 import CFSG.GroupTheory.PCore.TwoOddCoreSolvable
 import CFSG.GroupTheory.ABGLocalTools.PStabilityRelative

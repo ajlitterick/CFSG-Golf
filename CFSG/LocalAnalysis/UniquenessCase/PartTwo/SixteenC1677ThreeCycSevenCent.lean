@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Background.D2Basic
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightD3Aut
 
 public section

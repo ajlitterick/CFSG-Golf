@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.Basic
 public import Mathlib.GroupTheory.FixedPointFree
-public import Mathlib.GroupTheory.Complement
 
 public noncomputable section
 

@@ -4,14 +4,8 @@ module
 public import CFSG.Quasithin.Background.A312SporHSBase
 import all CFSG.Quasithin.Background.A312SporHSBase
 
-public import CFSG.Quasithin.Background.A312SporShapes
-public import CFSG.Quasithin.Background.A312SporHSInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListFamilies
-public import CFSG.Quasithin.Background.A312SporHSKInputs
-import Certificates.Kernel.HSA312.Y1
 import Certificates.Kernel.HSA312.Y2
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 
 public section

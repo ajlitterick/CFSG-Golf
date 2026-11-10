@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenTwEightTorusW
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenTwD4
-public import CFSG.LocalAnalysis.ComponentInitial.CLSFourGroupLargeReeTits
 
 public section
 

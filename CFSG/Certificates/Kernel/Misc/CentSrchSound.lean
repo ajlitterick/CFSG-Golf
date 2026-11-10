@@ -6,7 +6,6 @@ import CFSG.Certificates.Kernel.Spor.RawSiftK
 import CFSG.Certificates.Kernel.Spor.BaseSep
 public import CFSG.Certificates.NativeSchreierEnum
 public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
-public import Mathlib.Data.Fintype.Perm
 
 public section
 

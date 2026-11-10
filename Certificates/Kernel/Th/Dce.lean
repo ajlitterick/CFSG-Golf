@@ -2,11 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.Th.Gen.Dce
 public import Certificates.Kernel.Th.Assemble
-public import CFSG.Certificates.Kernel.Th.S.Data.DA_Sel
-public import CFSG.Certificates.Kernel.Th.S.Data.DB_Sel
-public import CFSG.Certificates.Kernel.Th.S.Data.K1_Sel
-public import CFSG.Certificates.Kernel.Th.S.Data.K2_Sel
-public import CFSG.Certificates.Kernel.Th.S.Data.K3_Sel
 public import CFSG.Certificates.Kernel.Th.S.RelNorm
 public import CFSG.Certificates.Kernel.Th.Checks2.DA_C_0
 public import CFSG.Certificates.Kernel.Th.Checks2.DA_C_1

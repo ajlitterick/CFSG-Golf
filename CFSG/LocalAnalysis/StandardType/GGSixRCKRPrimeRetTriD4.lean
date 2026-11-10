@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetTriD4D4
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
 
 public section
 

@@ -4,8 +4,6 @@ public import Certificates.Data.Kernel.TwE6Det.Defs
 public import Certificates.Data.TwE6Q2Determinants
 public import CFSG.Certificates.Kernel.E6WKSound
 public import CFSG.LieType.SeitzGeneration.ExcTorusUntw
-public import Mathlib.LinearAlgebra.Matrix.AbsoluteValue
-public import Mathlib.Data.ZMod.Basic
 public import CFSG.Blueprint.ChevalleyRootArtifact
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.SeitzGeneration.Lift

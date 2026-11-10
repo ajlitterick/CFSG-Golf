@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Spor.RawDefs
 public meta import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Omega8FrameData
 public meta import Certificates.Kernel.Sporadic.RawGen
 public meta import Certificates.Kernel.O8Frame9490.Base

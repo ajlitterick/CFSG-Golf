@@ -8,8 +8,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.Quasithin.Background.F7TwoDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 
 public section
 

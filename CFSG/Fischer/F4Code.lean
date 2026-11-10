@@ -2,7 +2,6 @@ module
 
 public import CFSG.Fischer.F4
 public import Certificates.Data.CFSGNative.F4.Basic
-public import Mathlib.Data.LawfulXor.Basic
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeDefs
 public import CFSG.LocalAnalysis.StandardType.GGResConjWire
 
 public section

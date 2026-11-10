@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSpSelf
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSpField
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticBInvolution
 

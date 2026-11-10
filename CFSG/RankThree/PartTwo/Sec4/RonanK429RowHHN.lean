@@ -1,10 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowHComp
-public import CFSG.Sporadic.Bridge.HNSurj
-public import CFSG.Sporadic.HNSchreier.Intrinsic
-public import CFSG.Sporadic.HNSchreier.ThreeCent
-public import CFSG.RankThree.PartOne.SPOR.Outer
 public import CFSG.GH74.GLS.Balance.SolvAPIDefs
 public import CFSG.Mathlib.LinearAlgebra.BilinForm.Determinant
 public import CFSG.Open.SplitBNPair
@@ -21,7 +17,6 @@ public import CFSG.RankThree.PartTwo.Sec14.Item142ResProofPGL
 public import CFSG.RankThree.PartTwo.Sec20.OneSteps
 public import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
 public import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
-public import CFSG.Walter.J1Props
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec18.Statements
 public import CFSG.RankThree.PartTwo.Sec18.SimsItem186HStatement
 import CFSG.RankThree.PartTwo.Sec18.Item186Two
 import CFSG.RankThree.PartTwo.Sec6.Item612Plus
@@ -9,7 +8,6 @@ import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageCompletion
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerPreimages
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestrictionCompletion
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.RankThree.PartTwo.Sec6.Item612Core
 import CFSG.RankThree.PartTwo.Sec6.Statements

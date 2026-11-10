@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7AVLeIntersection
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7SylowCardEight
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourSylowOfNormalizedInvolution
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourMapInjective
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.InvolutionNormalizerInfConjugate

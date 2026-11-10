@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.SubgroupLists.MitchellFrame
 public import CFSG.RankThree.SubgroupLists.MitchellIsotropic
 public import CFSG.RankThree.SubgroupLists.MitchellWeight
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.NoncommRing
 
 public section
 

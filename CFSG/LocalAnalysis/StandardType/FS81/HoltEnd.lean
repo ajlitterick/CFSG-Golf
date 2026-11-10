@@ -5,9 +5,6 @@ public import CFSG.Holt.H78.Theorem1
 public import CFSG.Holt.H78.Bridge
 public import CFSG.Holt.General.DLineTools
 public import CFSG.Holt.General.Simple
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.RankThree.PartTwo.Census.Alternating
-public import CFSG.LargeExtraspecial.A2ModOrdCard
 public import CFSG.Goldschmidt.Final
 public import CFSG.Goldschmidt.Statements
 public import CFSG.Goldschmidt.StatementsG4

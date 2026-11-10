@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.C25Core
 public import CFSG.Goldschmidt.Steps.G3aBorel
 public import CFSG.GH74.SmallRanks.PSL
-public import CFSG.LieType.BorelTits.Suzuki
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.Adapters.LinearFieldTransport
-public import CFSG.Sporadic.J1
 public import CFSG.Foundations
 public import CFSG.Goldschmidt.Statements
 public import CFSG.Goldschmidt.StatementsH
@@ -47,16 +43,9 @@ public import CFSG.Quasithin.Background.A3Structure37KeyBase
 public import CFSG.Quasithin.Background.A3Structure37Schur
 public import CFSG.Quasithin.Background.A3StructureFacts
 public import CFSG.Quasithin.Background.OrderingMax
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2RootGroups
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Bender1970.S3.Setup
 public import CFSG.Walter.JRFacts
 

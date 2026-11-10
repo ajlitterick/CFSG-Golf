@@ -1,9 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.Coxeter.Basic
-public import Mathlib.GroupTheory.Coxeter.Matrix
-public import Mathlib.SetTheory.Cardinal.Finite
-public import Mathlib.GroupTheory.Subgroup.Center
 public import CFSG.LocalAnalysis.StandardType.GGSpFrameCoxeterCard
 
 public section

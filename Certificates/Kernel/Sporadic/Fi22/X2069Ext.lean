@@ -7,7 +7,6 @@ public import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckBase
 public meta import CFSG.Monster.B.Fischer.Fi22OuterCheckBase
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

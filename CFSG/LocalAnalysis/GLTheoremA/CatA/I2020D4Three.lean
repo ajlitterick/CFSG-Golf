@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2020OrthOuter
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4ThreeOuterNormalForm
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRCore
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27D4AmbientGraphField
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQ
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRLift
 
 public section

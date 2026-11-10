@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSelectedTwistedE6
-public import CFSG.LocalAnalysis.StandardType.GGSelectedTwistedE6Cover
 public import CFSG.LocalAnalysis.StandardType.GGSelectedTwistedE6CarrierModel
 public import CFSG.LocalAnalysis.StandardType.GGSelectedTwistedE6RootPosition
 public import CFSG.LocalAnalysis.StandardType.GGSelectedMemberCover

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoCavQuotient
 public import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameCenter
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
 public import CFSG.GroupTheory.CenterlessInnerCentralizer
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.GroupTheory.PCore.SubgroupCore
 
 public noncomputable section

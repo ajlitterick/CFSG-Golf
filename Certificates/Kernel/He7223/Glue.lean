@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.He7223.Pts
 public import Certificates.Kernel.SchreierFam.He725F
 public import CFSG.Certificates.Kernel.Misc.WordPtsGroup
-public import CFSG.Certificates.Kernel.Spor.RawOrbHead
 
 public section
 

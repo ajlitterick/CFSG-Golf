@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThreeE6NonsplitFrame
-public import CFSG.LocalAnalysis.StandardType.GGKGForkTransfer
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeyl
 
 public section
 

@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGResJTwE6Lagrange
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeBLinearNs
 import CFSG.Quasithin.Vol2.Ch11L2Q5cF4Ord
-import CFSG.Timmesfeld.Orders.Bang
-import CFSG.LocalAnalysis.EvenSmallLie.CatalogOrdersLie
-import CFSG.LocalAnalysis.StandardType.GGPZWeylB
-import CFSG.LocalAnalysis.StandardType.GGPZWeylType
 
 public section
 

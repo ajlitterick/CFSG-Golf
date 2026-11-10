@@ -1,11 +1,7 @@
 module
 
-public import Certificates.Kernel.SuzPump.PumpSrc
-public import Certificates.Kernel.SuzPump.Pair
 public import Certificates.Kernel.SuzPump.PumpY
 public import Certificates.Kernel.Sporadic.OddCore.S8147D
-public import Certificates.Kernel.Misc.Perm.HexCmd
-public import Certificates.Data.Kernel.Spor.Text
 meta import Certificates.Kernel.SuzPump.PumpSrc
 import CFSG.Certificates.Kernel.Common.Harness
 

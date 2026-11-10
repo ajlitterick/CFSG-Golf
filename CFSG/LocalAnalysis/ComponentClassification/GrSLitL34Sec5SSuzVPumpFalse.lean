@@ -2,16 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5SWConfig
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5STwoSuzFacts
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSBFixedLayer
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitFixedSimple
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingSymmetric
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
-public import CFSG.LocalAnalysis.ComponentInitial.KProperPumpUpStatement
-public import CFSG.GroupTheory.SupCommute
 public import CFSG.GroupTheory.ConjTransport
 public import CFSG.GroupTheory.CoprimeActionSupport.NormalSubgroupSylowJoin
 public import CFSG.Holt.General.DLineTools
-public import CFSG.Open.FusionDefs
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalTwistedE6Export
 public import CFSG.ClassicalInvolution.ModelFacts.FundPerfectMain
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover
@@ -88,7 +81,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly
@@ -100,11 +92,6 @@ public import CFSG.Quasithin.Background.B1MoreElevenF
 public import CFSG.Quasithin.Background.B1MoreNineG
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 public import CFSG.RankThree.CentralLiftSO.SplitTorusWeyl

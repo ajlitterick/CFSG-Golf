@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteNbrWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTBFixNbrDefs
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL43
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkPSU
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkSixOne
-public import CFSG.LocalAnalysis.StandardType.GGWPlusNarrow5Defs
 
 public section
 

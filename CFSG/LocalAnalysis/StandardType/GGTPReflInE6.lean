@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPDefs
-public import CFSG.LocalAnalysis.StandardType.GGKGAdjDefs
 public import CFSG.LocalAnalysis.StandardType.GGKGAutDict
-public import CFSG.LocalAnalysis.StandardType.GGKGWeylRootFacts
 public import CFSG.LocalAnalysis.StandardType.GGKGLayersE6
 public import CFSG.LocalAnalysis.StandardType.GGKGLayersTheta
 public import CFSG.LocalAnalysis.StandardType.GGE6DepBlockLift

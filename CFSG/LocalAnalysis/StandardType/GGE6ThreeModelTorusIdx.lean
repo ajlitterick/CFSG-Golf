@@ -1,9 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Torus
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Blueprint.ChevalleyRootArtifact
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Arith

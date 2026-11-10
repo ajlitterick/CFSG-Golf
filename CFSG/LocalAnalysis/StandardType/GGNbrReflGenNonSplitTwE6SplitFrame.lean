@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTorus
-public import CFSG.LieType.Chevalley.FoldedWeylIdentification
-public import CFSG.LieType.Chevalley.GraphFixedRootMonomialQuotient
 public import CFSG.Timmesfeld.Orders.ExceptionalTwistedTorus
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4TorusCent
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-import CFSG.LieType.Chevalley.LangRootArithmeticDet
 import CFSG.RankThree.PartOne.TCX.Tri.TorusCentral
-import Mathlib.Algebra.Module.ZMod
 import CFSG.Certificates.WordSubgroupRel
 import CFSG.LieType.Multipliers.ProductKernel
 import CFSG.LieType.Multipliers.U42Bridge

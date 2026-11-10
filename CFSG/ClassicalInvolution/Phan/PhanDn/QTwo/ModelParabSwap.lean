@@ -3,9 +3,7 @@ module
 public import CFSG.ClassicalInvolution.Phan.PhanDn.QTwo.ModelParabTorus
 public import CFSG.ClassicalInvolution.Phan.PhanDn.PanelParabLe
 public import CFSG.ClassicalInvolution.Phan.PhanDn.StdFamilyGood
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDModelDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDModelCommute
-public import CFSG.LieType.Universal.Spin.Roots.TypeD
 public import CFSG.ClassicalInvolution.Models.LinearPairs
 public import CFSG.ClassicalInvolution.Phan.PhanDn.ChamberMoves
 public import CFSG.LocalAnalysis.StandardType.PhanEBridgeGeom

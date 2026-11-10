@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameCfg
 public import CFSG.LocalAnalysis.StandardType.GGStdUnitaryFourExcl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineClassical
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflDom
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

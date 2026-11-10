@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGResSideDatumGammaB3
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpModelTwo
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpCount
-public import CFSG.LocalAnalysis.StandardType.GGTBJLabelSides
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpRow
-public import CFSG.LocalAnalysis.StandardType.GGTBJFamilyInputs
 public import CFSG.LocalAnalysis.StandardType.GGTBJFamilyStages
 public import CFSG.LocalAnalysis.StandardType.GGTBJLinearSplitA
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrGate

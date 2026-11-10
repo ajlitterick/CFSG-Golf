@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGB36Defs
 public import CFSG.LocalAnalysis.StandardType.GGK0CompREMult
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUClauses
-public import CFSG.LocalAnalysis.StandardType.GGKacTable
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

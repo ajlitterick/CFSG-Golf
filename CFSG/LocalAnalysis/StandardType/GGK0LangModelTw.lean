@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.StandardType.GGLangUniform
 import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeTwE6
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtTwE6
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwFrob
 import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtUntw
 

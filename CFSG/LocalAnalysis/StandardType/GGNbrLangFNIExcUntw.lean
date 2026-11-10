@@ -1,15 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIRestr
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOne
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIVacChev
 public import CFSG.LocalAnalysis.StandardType.GGCanonicalToLegacy
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcInnHolds
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangModel
 public import CFSG.GroupTheory.IsComponentOfMap
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
-public import CFSG.Timmesfeld.Orders.Classical
 
 public section
 

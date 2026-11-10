@@ -1,13 +1,9 @@
 module
 
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 public import CFSG.GroupTheory.SupCommute
 public import CFSG.Mathlib.GroupTheory.FiniteCentralizerImage
 public import CFSG.Mathlib.GroupTheory.SectionImage
-public import CFSG.LieType.Simplicity.Exceptional
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.HardMathSupport.Meierfrankenfeld.Proving.E7Curtis.E7Arith
-public import TauCeti.GroupTheory.DerivedCentralQuotient
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD7BetaNormElements
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main

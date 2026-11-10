@@ -1,21 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwAutDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitSU
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypEigen
-public import CFSG.RankThree.PartOne.CTP.SeitzUSplit
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypFrame
 public import CFSG.LocalAnalysis.StandardType.GGTwSURank
-public import CFSG.ClassicalGroups.UnitaryFlag.ModelTransport
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUSigned
 import CFSG.LocalAnalysis.StandardType.GGKGForkLinNsB
-import CFSG.LocalAnalysis.StandardType.GGKGForkUSplitE
 import CFSG.LocalAnalysis.StandardType.GGKGForkUSplitOddE
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCentral
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHyperbolic
 import CFSG.LocalAnalysis.StandardType.GGStdPosC24HypDescent
-import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpPlus
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.CoverUniqueBound
 
 public section
 

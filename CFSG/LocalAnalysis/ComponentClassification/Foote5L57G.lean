@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5L57F
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

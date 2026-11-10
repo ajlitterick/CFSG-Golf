@@ -1,13 +1,8 @@
 
 module
 
-public import CFSG.Certificates.Kernel.ThDemp.OrbPtsBase
 
-public import CFSG.Certificates.Kernel.ThDemp.OrbStab
-public import CFSG.Certificates.Kernel.Th.Spec.FwdRel
 public import CFSG.Certificates.Kernel.ThDemp.OrbCent
-public import CFSG.Certificates.Kernel.ThDemp.OrbUnfold
-public import CFSG.Certificates.Kernel.ThDemp.Sound
 
 public section
 

@@ -13,7 +13,6 @@ import CFSG.GH74.Orders.LieType
 import CFSG.LieType.Chevalley.SignKernelComponentPerfect
 import CFSG.LieType.Ree.LargeReeEightTorus
 import CFSG.LocalAnalysis.ComponentClassification.AschbacherTightEmbeddingAction
-import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 import CFSG.LocalAnalysis.ComponentClassification.BlockMutualRanks
 import CFSG.LocalAnalysis.ComponentClassification.InvolutionGeneratedSubgroup
 import CFSG.LocalAnalysis.ComponentClassification.OrbitBlockConjugation
@@ -42,8 +41,6 @@ import CFSG.Open.MonsterY443Defs
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.C2A3Orbits
 import CFSG.Quasithin.Background.E2TwoCLie
-import CFSG.Quasithin.Background.F6CatRecogL2
-import CFSG.Quasithin.Background.F6CatRecogTools2
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.G64Case1
 import CFSG.Quasithin.Background.InternalSecRealB
@@ -121,10 +118,6 @@ import CFSG.RankThree.Classical.SteinbergBJSymplecticSquareZeroCentralizer
 import CFSG.SignalizerFunctorTheorem.NonLocal.Cross
 import CFSG.SignalizerFunctorTheorem.NonLocal.SpData
 import CFSG.SignalizerFunctorTheorem.NonLocalExc.Unipotent
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.PSL2Facts
-import CFSG.Walter.W67.Statements
 
 public section
 

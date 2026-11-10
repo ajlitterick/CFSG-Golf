@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.EvenTrialityTorusCoordinates
-public import CFSG.LieType.Chevalley.GraphFixedRankOneImage
 
 public noncomputable section
 

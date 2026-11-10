@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.CFSGNative.Co2Rank.Dfs
-public import Std.Data.HashMap
 
 public section
 

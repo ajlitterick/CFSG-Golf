@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpPf36H3Central
 import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpPf9Ctx8Frame
 import CFSG.ClassicalInvolution.Q3.Q3T7P24EngF05x
-import CFSG.GroupTheory.ThompsonAxB
 public import CFSG.ClassicalInvolution.Asc77.AscS22B
 public import CFSG.ClassicalInvolution.Asc77.AscS24BHEnd
 public import CFSG.ClassicalInvolution.Asc77.AscT7XFin

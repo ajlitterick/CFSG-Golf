@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154E3SL24Cover
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154E3SL24ConjRow
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154E3MixedSL4CA1BA
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC11V1Restrict
 
 public section
 

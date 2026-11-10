@@ -2,17 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.BRowFacts
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.BabyCoverGeneric
-public import CFSG.Monster.Existence.MilestoneInputs
-public import CFSG.Monster.Existence.BabyAmbient
-public import CFSG.Monster.Existence.BabyTableIIIOf
-public import CFSG.Monster.Existence.TwoPoint.ShapeOneHC
-public import CFSG.Monster.B.GSide.Setup
-public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.IndexTwo
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.Stroth21Aut
-public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.Assembly
-public import CFSG.Monster.B.TwoA.Amalgam.DerivedCoverMain
-public import CFSG.Monster.B.Pinned.Primes.SeedGL
-public import CFSG.Monster.B.E6.GStarStructure
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects
@@ -43,7 +33,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.LabeledBlockPermutation
 public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentralizer
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrCriticalStandard
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.BRow
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 

@@ -6,9 +6,6 @@ public import Certificates.Kernel.Census.HeC.W
 import all Certificates.Kernel.Census.HeC.Data
 public import Certificates.Kernel.LocalComp.HeFixBind
 public import CFSG.Certificates.Kernel.Common.ForallChunks
-public import Certificates.Data.Kernel.Census.HeConj2
-public import CFSG.Certificates.Kernel.SporSch.PairJ3CntSound
-public import CFSG.Sporadic.HeldB.OuterArithCheck
 
 public section
 

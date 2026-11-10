@@ -6,25 +6,13 @@ import CFSG.RankThree.PartTwo.Sec20.Item20Res6ProofAutQ8
 import CFSG.RankThree.PartTwo.Sec20.Item20Res6ProofPush
 public import CFSG.RankThree.PartTwo.Sec20.Item20Res9ProofHalfOdd
 import CFSG.RankThree.PartTwo.Sec20.Item20Res6ProofTools
-import CFSG.RankThree.PartTwo.Sec20.Step2054Proof
 import CFSG.RankThree.PartTwo.Sec18.Item186a
 import CFSG.RankThree.PartOne.K1214.Basic
-public import CFSG.RankThree.PartTwo.Sec18.Statements
 public import CFSG.RankThree.PartTwo.Sec20.OneSteps
 import CFSG.RankThree.PartTwo.Sec20.Item20Res11ProofKO3
 import CFSG.RankThree.PartTwo.Sec16.Item16Res6ProofAct
-public import CFSG.RankThree.PartTwo.Sec4.Notation
 import CFSG.RankThree.PartTwo.Sec20.Item20Res5ProofCyclic
-import CFSG.RankThree.PartTwo.Late.Uniqueness
-import CFSG.RankThree.PartTwo.Sec18.Tools
-import CFSG.RankThree.PartTwo.Sec20.Item20Res3ProofTrans
-import CFSG.RankThree.PartTwo.Sec20.Item20Res4ProofSeven
-import CFSG.RankThree.PartTwo.Sec20.Item20Res4ProofThompson
-import CFSG.RankThree.PartTwo.Sec20.Item20Res2ProofCases
-import CFSG.RankThree.PartTwo.Sec20.OneBasics
-import CFSG.RankThree.PartTwo.Sec3.TwoOfThreeNormal
 import CFSG.RankThree.PartTwo.Sec18.Item181ThreeProofThompson
-import CFSG.RankThree.PartTwo.Sec3.ThompsonFamilyG
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalDescentEndpoint
@@ -98,17 +86,11 @@ import CFSG.Monster.AxisCount.HSIdentRec7
 import CFSG.Monster.AxisCount.HSIdentSmall
 import CFSG.Open.SplitBNPair
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.A3Structure312Defs
 import CFSG.Quasithin.Background.B1Basic
 import CFSG.Quasithin.Background.B2FactorizationResidual
 import CFSG.Quasithin.Background.B4Statement
 import CFSG.Quasithin.Background.E1
-import CFSG.Quasithin.Background.E1Sec4
-import CFSG.Quasithin.Background.E1Sec5
-import CFSG.Quasithin.Background.E1Sec8
-import CFSG.Quasithin.Background.E1Solv
-import CFSG.Quasithin.Background.E1Twelve
 import CFSG.Quasithin.H13.StatementsL1
 import CFSG.Quasithin.Vol2.Ch10StatementsE
 import CFSG.Quasithin.Vol2.Ch10StatementsInputs
@@ -150,9 +132,6 @@ import CFSG.Sporadic.Presentation.McLExactInputs
 import CFSG.Sporadic.Schreier.RuLOdd
 import CFSG.Sporadic.Schreier.RuZClass
 import CFSG.StronglyEmbedded
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 import CFSG.YGroups.DCE.B433Check
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 

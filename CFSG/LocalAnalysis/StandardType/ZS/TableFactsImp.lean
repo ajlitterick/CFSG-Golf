@@ -10,7 +10,6 @@ import CFSG.LocalAnalysis.StandardType.ZS.TableFactsWeyl
 import CFSG.LocalAnalysis.StandardType.ZS.TableFactsModels
 import CFSG.LocalAnalysis.StandardType.ZS.TableFactsOrth
 import CFSG.LocalAnalysis.StandardType.ZS.TableWeyl
-import CFSG.LocalAnalysis.StandardType.ZS.TableCommon
 import CFSG.LocalAnalysis.StandardType.ZS.AdaptMonomial
 import CFSG.LocalAnalysis.StandardType.ZS.MonomialCard
 import CFSG.LocalAnalysis.StandardType.ZS.Monomial

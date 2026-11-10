@@ -1,16 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.StatementsC
-public import CFSG.Quasithin.Background.HSU3
 public import CFSG.Quasithin.Background.HSU3NPrime
-public import CFSG.Quasithin.Background.HStandard
-public import CFSG.Quasithin.Background.HSU3Unitary
 public import CFSG.Quasithin.Background.D2Tools
-public import CFSG.Quasithin.Background.D2Basic
 public import CFSG.Quasithin.Background.D2Transport
-public import CFSG.Quasithin.Background.HTransport
 public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.TableGeneric
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma99Inputs
 public import CFSG.LocalAnalysis.GLTheoremB.Prop98Defs
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.EvenClassicalFamily

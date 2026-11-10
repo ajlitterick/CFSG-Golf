@@ -3,8 +3,6 @@ module
 
 public import Certificates.Certificate3061Base
 
-public import CFSG.Monster.B.TwoA.Unitary.Stab891Inputs
-public import Certificates.Kernel.MonsterB.Co2Mem
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

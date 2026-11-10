@@ -3,15 +3,11 @@ module
 public import Certificates.Kernel.Sporadic.HS.L2273S
 public import Certificates.Kernel.Sporadic.HS.L2273C
 public import Certificates.Kernel.LocalQT.HSAut.F4146
-public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue2
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue3
-public import CFSG.Sporadic.SmallOddCore.HSLocalCheckInputs
-public import CFSG.Sporadic.SmallOddCore.HSCosetInputs
 public meta import CFSG.Sporadic.SmallOddCore.HSData
 public meta import CFSG.Sporadic.SmallOddCore.ClassSimple
 public meta import Certificates.Data.CFSGNative.PSL3Four.Basic
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

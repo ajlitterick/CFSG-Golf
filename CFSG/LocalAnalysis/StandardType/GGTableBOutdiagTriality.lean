@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.EvenTrialityAutomorphismNormalForm
 public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.EvenBN.GMSK.QuasiCentreSporadicBase
 public import CFSG.LocalAnalysis.EvenBN.GMSK.QuasiCentreSporadicA
 public import CFSG.LocalAnalysis.EvenBN.GMSK.QuasiCentreSporadicB
 public import CFSG.LocalAnalysis.EvenBN.GMSK.QuasiCentreSporadicC

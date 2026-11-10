@@ -4,12 +4,9 @@ public import Certificates.Kernel.Sporadic.Co1Row26683.ChecksM
 public import Certificates.Kernel.Sporadic.Co1Row26683.VecM
 public import Certificates.Kernel.Sporadic.Co1Row26683.GlueZ
 public import Certificates.Kernel.Co1B.C2043
-public import CFSG.Certificates.Kernel.SporSch.Co1MatWSound
 public import CFSG.Certificates.Kernel.SporSch.Co1HeisSound
 public import CFSG.Certificates.Kernel.SporSch.Co1ActLemmas
-public import CFSG.Certificates.Kernel.SporSch.Co1SplitSound
 public import CFSG.Sporadic.Co1Block.Classes
-public import CFSG.Sporadic.Co1Block.XFix
 public import CFSG.Sporadic.Co1Block.TwoBComp
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Enum.ZCSound

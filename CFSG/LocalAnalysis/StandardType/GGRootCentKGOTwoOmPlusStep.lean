@@ -1,16 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoOmPlusSemi
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmModel
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotEightOrthPlusLevi
 import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmHyp
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmRestr
 import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaRegular
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
-import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotEightOrthBasic
-import CFSG.ClassicalGroups.Orthogonal.Simple
-import CFSG.RankThree.OrthogonalInvolutions.Dickson
 
 public section
 

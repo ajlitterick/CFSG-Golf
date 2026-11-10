@@ -1,6 +1,5 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.PermData
 public import Certificates.Certificate1383006
 
 public section

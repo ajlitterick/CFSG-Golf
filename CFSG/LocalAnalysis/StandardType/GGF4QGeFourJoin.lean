@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourTwins
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylInfDefs
 public import CFSG.LocalAnalysis.StandardType.GGF4Absorption
-import CFSG.LocalAnalysis.StandardType.GGSecFiveMaxJoin
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBFixLine
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
 
 public section
 

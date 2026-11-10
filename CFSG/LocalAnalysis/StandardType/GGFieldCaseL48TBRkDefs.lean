@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVacLabel
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableB
 
 public section
 

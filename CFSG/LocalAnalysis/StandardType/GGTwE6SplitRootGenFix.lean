@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotSwapRankOneFixed
-public import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
 public import CFSG.RankThree.PartOne.KLAY.SL2
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotAlignLevi
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotClassesLevi

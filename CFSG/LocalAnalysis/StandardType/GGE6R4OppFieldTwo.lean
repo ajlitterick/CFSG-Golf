@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreePointwise
 public import CFSG.LocalAnalysis.StandardType.GGE6R1FieldTwo
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeFullCentre1585RowTableCHolds
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.CommonFactor
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167ExcRecDTwo
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotCatTypeDet
 
 public section
 

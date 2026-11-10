@@ -2,15 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJFrameBs
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviClass
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6Lang
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaCenter
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6RankOuter
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwE6Sylow
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflInner
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
-public import CFSG.LieType.SeitzGeneration.ExcTorusCount
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.Notation
-public import Mathlib.Algebra.Group.Hom.End
-public import Mathlib.Algebra.BigOperators.Fin
 public import Mathlib.Algebra.Module.Torsion.Field
 import Mathlib.Tactic.Abel
 

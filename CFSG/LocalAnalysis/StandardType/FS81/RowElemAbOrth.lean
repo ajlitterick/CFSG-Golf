@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.RowElemAb
 public import CFSG.LocalAnalysis.StandardType.FS81.OrthMaxTorus
 public import CFSG.LocalAnalysis.StandardType.GGFrameFSxOrth
-public import CFSG.RankThree.Literature.FSmithOrthogonal
-public import CFSG.RankThree.OrthogonalInvolutions.Witt
-public import CFSG.ClassicalGroups.Orthogonal.Matrix
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 
 public section
 

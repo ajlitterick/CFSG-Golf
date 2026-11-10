@@ -1,13 +1,10 @@
 module
 
-public import CFSG.Certificates.Kernel.Th.S.OutS
 public import CFSG.Certificates.Kernel.Th.S.Data.Ot_Sel
-import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Data.Kernel.LceSSeg
 public import CFSG.Certificates.Kernel.Bounds.Core3
 import CFSG.Certificates.Kernel.Bounds.LoadRoot
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.EachUnfold
 import CFSG.Certificates.Kernel.Common.RowsUnfold
 
 public section

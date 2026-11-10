@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res5ProofCover
 public import CFSG.RankThree.PartTwo.Census.Carrier.G2Three
-public import CFSG.Adapters.TauCetiExceptional.BridgeTransport
-public import Certificates.Data.R3E417.G23
 public import Certificates.Certificate8176
 public import Certificates.Certificate8007
 public import Certificates.Certificate8008

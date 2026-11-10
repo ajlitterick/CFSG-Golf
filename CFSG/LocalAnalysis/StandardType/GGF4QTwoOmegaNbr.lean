@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QTwoInputs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.ClassicalGroups.Orthogonal.OmegaMinus8ThreeLocalFrame
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeOmCent
 import CFSG.LocalAnalysis.StandardType.GGE6InnerDiagBoundThreeProof3
@@ -9,9 +8,7 @@ import CFSG.LocalAnalysis.StandardType.GGF4QTwoHypA
 import CFSG.LocalAnalysis.StandardType.GGF4QTwoOmegaEnd
 import CFSG.LocalAnalysis.StandardType.GGF4QTwoOmegaNbrCore
 import CFSG.LocalAnalysis.StandardType.GGHalfRowData
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 
 public section
 

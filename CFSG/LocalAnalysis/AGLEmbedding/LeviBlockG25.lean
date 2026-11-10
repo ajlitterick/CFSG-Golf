@@ -2,23 +2,16 @@ module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockG25Families
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsPL
-import CFSG.LocalAnalysis.AGLEmbedding.BlockToralCensusDispatch
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockReduce
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockReduceLevi
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockL33Reduce
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockQuotient
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockTargets
 import CFSG.LocalAnalysis.AGLEmbedding.A15ComponentsAux
-import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductionsIVTypes
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.BlockFieldIndexFiveTypes
-import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsSpTwo
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.JStarElimOrders
-import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsPLType
 import CFSG.LocalAnalysis.AGLEmbedding.BlockAltSevenPL
-import CFSG.HardMathSupport.Curtis.UnitaryLevi.PLTypeHolds
 public import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Pairs
 public import CFSG.Foundations
@@ -119,9 +112,6 @@ import CFSG.RankThree.PartOne.S10.ThetaContract
 import CFSG.RankThree.PartOne.S12.InputsBase
 import CFSG.RankThree.PartTwo.Sec19.Item194Used
 import CFSG.StronglyEmbedded
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

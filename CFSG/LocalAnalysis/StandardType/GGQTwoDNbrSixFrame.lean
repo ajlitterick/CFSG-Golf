@@ -8,15 +8,10 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCoord
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCoordC
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCoordStd
 import CFSG.LocalAnalysis.StandardType.GGNsq2QuotAut
-import CFSG.LocalAnalysis.StandardType.GGQTwoChartDefs
-import CFSG.LocalAnalysis.StandardType.GGQTwoChartTwoThreeCent
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPerm
-import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameModule
 import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameMain
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCoordA
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCoordStdA
 import CFSG.LocalAnalysis.StandardType.GGQTwoDSlConj
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 
 public section
 

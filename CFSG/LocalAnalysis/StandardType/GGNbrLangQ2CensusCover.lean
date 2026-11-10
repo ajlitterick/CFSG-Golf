@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusDefs
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6Bridge
-import CFSG.Fischer.Classification.Recognition.Basic
 
 public section
 

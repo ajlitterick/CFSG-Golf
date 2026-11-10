@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.CatalogueQ1Defs
-public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.Defs
 public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.Product
 public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.InnerCase
 public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.TrivialCase

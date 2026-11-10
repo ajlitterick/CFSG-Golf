@@ -1,28 +1,14 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.AscT7JFinal
-public import CFSG.ClassicalInvolution.Asc77.AscT7K11
-public import CFSG.ClassicalInvolution.Asc77.AscT7ERFinal
-public import CFSG.ClassicalInvolution.Asc77.AscT7DRFinal
-public import CFSG.ClassicalInvolution.Asc77.AscT7S2RL
-public import CFSG.ClassicalInvolution.Asc77.AscT7RH
-public import CFSG.ClassicalInvolution.Asc77.AscT7HS5
 public import CFSG.ClassicalInvolution.Asc77.AscT7HFinal
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15SCall
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15RSpModel
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15RSuModel
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15RInnerSL
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15RFixLift
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Inner
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Outer
 public import CFSG.ClassicalInvolution.Asc77.AscT7NI
 public import CFSG.ClassicalInvolution.Asc77.AscT7F2Main
 public import CFSG.ClassicalInvolution.Asc77.AscT7MOrth
 public import CFSG.ClassicalInvolution.Asc77.AscT7G2Fin
-public import CFSG.ClassicalInvolution.Asc77.AscT7L15
-public import CFSG.ClassicalInvolution.Asc77.AscT7L25
 public import CFSG.ClassicalInvolution.Asc77.AscT7Y3
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinRows
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinRowsOuter
 public import CFSG.ClassicalInvolution.Asc77.AscE18FromM
 public import CFSG.ClassicalInvolution.Asc77.AscT7AFinal

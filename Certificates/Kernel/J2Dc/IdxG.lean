@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.J2Dc.IdxGCheck
 public import Certificates.Kernel.J2Dc.Final
 public import CFSG.Certificates.Kernel.S151IdxGSound
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

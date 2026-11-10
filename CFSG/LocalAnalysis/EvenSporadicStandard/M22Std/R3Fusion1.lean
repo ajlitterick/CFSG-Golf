@@ -16,7 +16,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.OutXbarLift
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M23Std.KEngine2
 public import CFSG.Sporadic.Schreier.MathieuOddCore
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddKernelInvolutionFusion
 public import CFSG.Walter.J1
 
 public section

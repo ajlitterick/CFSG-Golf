@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Recipe
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootKillDefs
-public import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

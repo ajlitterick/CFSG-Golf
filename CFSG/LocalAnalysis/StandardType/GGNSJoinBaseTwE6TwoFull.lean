@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwE6TwoSplit
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwoAEightE
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueFSPoint
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteLower
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBWeylInfType
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP5TwE6
 import CFSG.LocalAnalysis.StandardType.GGB36JExcE6Core

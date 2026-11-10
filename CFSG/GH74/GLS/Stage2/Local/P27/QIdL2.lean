@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GH74.GLS.IVK.L2.ExistNotation
 public import CFSG.GH74.GLS.IVK.L2.Lemma12hc
 public import CFSG.GH74.GLS.IVK.L2.Fixed14a
 public import CFSG.GH74.GLS.IVK.L2.Lemma13

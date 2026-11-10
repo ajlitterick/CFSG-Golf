@@ -1,9 +1,6 @@
 module
 
-public import CFSG.Assembly.Defs
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.GroupTheory.FixedPointQuotientCard
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
 public import CFSG.GroupTheory.SupCommute
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T2021RankHolds
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.TightPairAndPureRank.CoverOneCore

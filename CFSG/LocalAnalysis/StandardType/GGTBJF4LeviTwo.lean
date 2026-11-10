@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4LeviPlus
 public import CFSG.HardMathSupport.Dickson.Bal207.FamF42Class
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerSmallF4Two
 import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusTransferCore
 
 public section

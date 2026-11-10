@@ -2,14 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFusionExceptionFull
 public import CFSG.LocalAnalysis.StandardType.GGFusionShadowComponents
-import CFSG.Assembly.GL83StatedBridge
 import CFSG.CharacterTheory.Burnside
 import CFSG.GH74.GLS.Stage4.Q9.Rigidity
 import CFSG.GroupTheory.OrderBelowSixtySolvable
-import CFSG.LocalAnalysis.SectionRank.OddCover.DegreeThree
-public import CFSG.LocalAnalysis.StandardType.GGHypThreeSixteenFlatMarking
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatRootCent
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummand
 public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofExcLayerBasic
 public import CFSG.LieType.ChevTwo.Layered
 public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofExc

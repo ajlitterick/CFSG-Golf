@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreDefs
-public import CFSG.Blueprint.Catalog
 public import CFSG.GroupTheory.PerfectCentralQuotient
 
 public section

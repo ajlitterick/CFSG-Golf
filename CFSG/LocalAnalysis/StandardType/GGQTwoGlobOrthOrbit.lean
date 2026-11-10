@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoGlobDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGlobFour
 public import CFSG.Fischer.Classification.Recognition.R3Count
-public import Mathlib.GroupTheory.GroupAction.Quotient
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 

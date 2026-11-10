@@ -8,7 +8,6 @@ import CFSG.RankThree.PartTwo.ExponentPrimeSmallRank
 import CFSG.GroupTheory.ABGLocalTools.OddOrderLocal
 import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.RankThree.PartTwo.Sec4.Census.Item44PartOne
-import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

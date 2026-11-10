@@ -1,18 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenKerQuot
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenTrans
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenFieldAut
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenOmega
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenSigma
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenClauses
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenCompGen
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenKerQuotGen
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenSigmaGen
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenTransGen
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenOrbitGen
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenThreeGen
 public import CFSG.ClassicalInvolution.WeakCT.Main
 public import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderE6Order
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32
@@ -49,7 +43,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

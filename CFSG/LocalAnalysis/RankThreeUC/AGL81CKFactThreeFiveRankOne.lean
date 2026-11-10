@@ -2,24 +2,15 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.K35CentralHolds
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineSixCentral
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.L34Sylow
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.CoreTwoSL34
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.K35Inner
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.LieCross
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.S3AmalgamBound.ThreeRankOneFinal
 public import CFSG.LieType.SeitzGeneration.SeitzStatus
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.KFactThreeRankOne
 public import CFSG.RankThree.ThinCatalog.OuterThreeFree
-public import CFSG.Sporadic.Bridge.J1
-public import CFSG.Sporadic.Schreier.J1Outer
 public import CFSG.Quasithin.H13.L32ACSkPfI
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyResidual
 public import CFSG.GroupTheory.PRankQuotientLift
-public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.Adapters.CatalogueFieldBridges.Linear
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-public import CFSG.HardMathSupport.Curtis.Coordinator.SeitzOuter.PSLnPlane
 public import CFSG.CGT.PushingUp.BenderBridge
 public import CFSG.CGT.PushingUp.BlockOrder
 public import CFSG.CGT.PushingUpLit.BHS6.OffenderNormalizes

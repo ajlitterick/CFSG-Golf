@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.MulHCmd
-public import Certificates.Data.Kernel.Spor.MulH
 meta import Certificates.Kernel.Sporadic.RawGen
 public meta import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeData
 import CFSG.Certificates.Kernel.Common.Harness

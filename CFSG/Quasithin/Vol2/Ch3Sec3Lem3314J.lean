@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3314F
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122ASimple
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3319A
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3319B
 

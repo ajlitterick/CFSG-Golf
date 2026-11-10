@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.BruhatCellFactorization
-public import CFSG.LieType.Chevalley.BruhatDecomposition
 
 public noncomputable section
 

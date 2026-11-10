@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Certificates.Kernel.SporSch.HNArr
-public import CFSG.Sporadic.HNSchreier.Seeds
 public import CFSG.Sporadic.HNSchreier.InvolCheckInputs
 
 public section

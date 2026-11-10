@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.E7CentPieces
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33C2FOLin
-public import CFSG.LocalAnalysis.SeitzReduction.E7PilotNeighbourLevi
-public import CFSG.RankThree.OrthogonalInvolutions.Witt
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
 public import CFSG.LargeExtraspecial.S4CEOmegaSpin
-public import CFSG.LieType.Universal.Spin.Generation.Eichler
-public import CFSG.LieType.Universal.Spin.Chevalley.Plus
-public import CFSG.ClassicalGroups.Orthogonal.Derived
 public import CFSG.LieType.SeitzGeneration.OmegaF2.Basic
 public import CFSG.ClassicalInvolution.SubnormalClosure
 public import CFSG.GH74.Generic.Front.Final

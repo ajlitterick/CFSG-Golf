@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGRCMonomialRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarBridge
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosureRefl
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcModel
-public import Mathlib.LinearAlgebra.Pi
-public import Mathlib.Algebra.Module.Pi
 
 public section
 

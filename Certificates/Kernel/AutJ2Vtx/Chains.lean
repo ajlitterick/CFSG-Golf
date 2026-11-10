@@ -15,7 +15,6 @@ public meta import CFSG.Sporadic.J2
 public import CFSG.Sporadic.SmallOddCore.LocalSpec
 public meta import CFSG.Sporadic.SmallOddCore.LocalSpec
 public meta import CFSG.Sporadic.Th.F2Spec
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

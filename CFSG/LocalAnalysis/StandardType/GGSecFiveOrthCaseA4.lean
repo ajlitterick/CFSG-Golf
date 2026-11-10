@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthSetup
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthAInf
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrWeylA
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthTyDim
 public import CFSG.LocalAnalysis.StandardType.GGP3LineNormalizer
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCoxeter
-public import CFSG.Monster.B.TwoA.Base.SymFiveAut
 
 public section
 

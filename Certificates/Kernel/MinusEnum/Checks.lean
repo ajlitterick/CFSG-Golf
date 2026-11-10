@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.MinusEnum.Data
-public import CFSG.Certificates.Kernel.LocalCompUnpack
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000

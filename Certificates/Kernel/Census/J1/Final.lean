@@ -12,10 +12,8 @@ public import Certificates.Kernel.Census.J1.N6
 public import Certificates.Kernel.Census.J1.P0
 public import Certificates.Kernel.Census.J1.P1
 public import Certificates.Kernel.Census.J1.P2
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicJ1W
 public import CFSG.Certificates.Kernel.Census.FSound
 public import CFSG.Certificates.Kernel.Census.FProof
-public import CFSG.Certificates.Kernel.Census.Sound
 public import CFSG.Certificates.Kernel.Common.ForallChunks
 public import CFSG.Certificates.Kernel.Census.ToMainExc
 public import CFSG.Certificates.Kernel.Spor.SiftEq

@@ -1,18 +1,10 @@
 module
 
-public import CFSG.Certificates.NativeSchreierArrays
-public import CFSG.Certificates.SchreierChainOrderGenerators
-public import CFSG.Sporadic.J1.VecSpec
-public import CFSG.Sporadic.Schreier.PairText
-public import CFSG.Sporadic.Schreier.PairClasses
-public import Certificates.Data.CFSGNative.MonsterB.Co2Data
-public import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import CFSG.Sporadic.Schreier.PairText
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.J1.Vec
-public import CFSG.Sporadic.Schreier.PairHSCertInputs
 public import Certificates.Certificate2218
 
 public noncomputable section

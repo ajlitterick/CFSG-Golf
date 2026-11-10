@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.Basic
 public import Mathlib.FieldTheory.Finite.Trace
 public import Mathlib.FieldTheory.ChevalleyWarning
-public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
 
 namespace CFSG
 end CFSG

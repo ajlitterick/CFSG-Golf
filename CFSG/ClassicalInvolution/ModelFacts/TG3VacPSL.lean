@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.TG3Common
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofPSL
 public import CFSG.ClassicalInvolution.Uniform.U5Model
 public import CFSG.ClassicalInvolution.ModelFacts.CF3All
 public import CFSG.ClassicalInvolution.Q3.OddCoreCentral

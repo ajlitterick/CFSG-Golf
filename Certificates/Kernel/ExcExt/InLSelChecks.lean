@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.ExcExt.InLSelTwin
 public import Certificates.Kernel.ExcExt.Data
 public import Certificates.Kernel.ExcExt.InLSelData
 import CFSG.Certificates.Kernel.Common.Harness

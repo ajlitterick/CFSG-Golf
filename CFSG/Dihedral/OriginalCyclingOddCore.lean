@@ -2,7 +2,6 @@ module
 
 public import CFSG.Dihedral.ASevenCyclingOddCore
 public import CFSG.Dihedral.PSL2CyclingOddCore
-public import CFSG.Dihedral.PrimeClassTransport
 public import CFSG.Dihedral.OriginalASevenPrimeNormalizer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourMapInjective
 import all CFSG.Dihedral.BlueprintDefs

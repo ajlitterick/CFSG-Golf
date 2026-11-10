@@ -3,14 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6BigLineDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6K1ThreeA2Orbit
 public import CFSG.LocalAnalysis.StandardType.GGTwE6LemmaKFinal
-public import CFSG.LocalAnalysis.StandardType.GGTwE6SigmaTorus
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24A2CubeOuter
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24A2CubeShape
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSU
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame.Order216
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFivePairRigid
-public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Normalizer
-public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Torus
 public import CFSG.LocalAnalysis.StandardType.GGTwE6D4RootFacts
 public import CFSG.Goldschmidt.Steps.G37Core
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.Basic
@@ -29,8 +23,6 @@ public import CFSG.Quasithin.Background.A3Structure314
 public import CFSG.Quasithin.Background.B15P4LayerDict
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.E2Statements
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
 public import CFSG.Quasithin.Background.InternalSecB56B
@@ -52,7 +44,6 @@ public import CFSG.Quasithin.Vol2.Ch11SecAFacts12b
 public import CFSG.Quasithin.Vol2.Ch11SecQ9bKGC
 public import CFSG.Quasithin.Vol2.Ch9KGFFQR
 public import CFSG.Quasithin.Vol2.Ch9KGFFQRCase
-public import CFSG.Walter.J1Props
 public import Certificates.Kernel.J4Count.Prim
 
 public section

@@ -3,13 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTorsionDefs
 import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherUnitary
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.UnitaryInnerExport
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Export
 import CFSG.RankThree.PartOne.KC.UnitaryGoodModel
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.Adapters.SpecialLinearPerfect
-import CFSG.LieType.Universal.Unitary.Clause0
-import CFSG.Open.StatedAPI
-import CFSG.Assembly.Subnormal
 
 public section
 

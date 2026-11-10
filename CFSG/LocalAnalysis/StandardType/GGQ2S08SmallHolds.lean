@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08Cells
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CellsCert
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08CellA7Full
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08CellA6FullK
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CellD7FullE
 
 public section

@@ -3,7 +3,6 @@ module
 
 public import Certificates.Data.Kernel.GammaUStepA.Class
 public import CFSG.Certificates.Kernel.GammaUStepA.Sound
-public import CFSG.Certificates.Kernel.GammaUCensusSound
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import Certificates.Data.Kernel.G24Tri
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.G24AutBase
-public import CFSG.Certificates.Kernel.Spor.PackWord
-import CFSG.Certificates.Kernel.Spor.PrimSound
 
 public section
 

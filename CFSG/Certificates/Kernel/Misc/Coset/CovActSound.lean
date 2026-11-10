@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.Misc.Coset.CovAct
 public import Certificates.Data.Kernel.Misc.Coset.CovActSym
 public import CFSG.Certificates.Kernel.Misc.Coset.ActSound
-public import CFSG.Certificates.CosetTableAction
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Certificates.Kernel.Misc.Coset.PG
 public import CFSG.GroupTheory.LocalCores.Fitting

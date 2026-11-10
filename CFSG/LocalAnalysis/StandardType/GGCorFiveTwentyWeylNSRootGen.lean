@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenTypeA
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylNS
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcRefl
 

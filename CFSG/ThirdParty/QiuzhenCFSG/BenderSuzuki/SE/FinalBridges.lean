@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.RankOne
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.ConjugateAction
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Compat
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
 

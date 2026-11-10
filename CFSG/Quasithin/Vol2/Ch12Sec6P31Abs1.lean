@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.Sylow
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
 
 public section

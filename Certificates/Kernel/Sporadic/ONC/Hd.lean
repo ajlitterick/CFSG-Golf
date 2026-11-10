@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.ONC.Defs
-public import Certificates.Kernel.Sporadic.ON.Gen
 
 public section
 

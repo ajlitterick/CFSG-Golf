@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResKnownGroup
 public import CFSG.LocalAnalysis.StandardType.GGRCKoneHyps
 public import CFSG.LocalAnalysis.StandardType.GGRCSmallOfCard
 public import CFSG.LocalAnalysis.StandardType.GGRCTransfer

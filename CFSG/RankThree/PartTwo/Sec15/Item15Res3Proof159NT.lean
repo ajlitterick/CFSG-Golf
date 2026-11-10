@@ -8,8 +8,6 @@ import CFSG.RankThree.PartTwo.Sec15.Item15Res3ProofL325Image
 import CFSG.RankThree.PartTwo.Sec15.Item1513Res3ProofTrans
 import CFSG.RankThree.PartTwo.KFacts.KS18MultProof
 import CFSG.RankThree.PartTwo.Sec19.Step1913
-import CFSG.RankThree.PartTwo.Sec15.Item1515ResProofLA7
-import CFSG.RankThree.PartTwo.Sec15.Item153
 import CFSG.RankThree.PartTwo.Sec5.Tools
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec14.Item147

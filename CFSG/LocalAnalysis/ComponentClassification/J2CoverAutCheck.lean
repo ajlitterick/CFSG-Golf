@@ -3,11 +3,7 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckBase
 
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckInputs
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutData
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutNative
 public import Certificates.Certificate10019
-public import Certificates.Data.CFSGNative.J2.Certificate
 public meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutData
 public meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutNative
 public meta import Certificates.Data.CFSGNative.J2.Certificate

@@ -1,12 +1,9 @@
 module
 
 public import CFSG.Assembly.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.Core
 public import CFSG.LocalAnalysis.SignalizerFunctor.NormalProduct
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Gorenstein.Chapter8_2
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.NormalizerLeNormalizerCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection5.Defs
 
 public section
 

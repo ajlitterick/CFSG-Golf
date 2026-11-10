@@ -3,10 +3,8 @@ module
 public import CFSG.RankThree.SubgroupLists.SchurCommutant
 public import CFSG.Open.StatedDefs
 public import CFSG.GroupTheory.PCore.Defs
-import CFSG.Open.StatedAPI
 import CFSG.GroupTheory.CoprimeActionSupport.FaithfulIrreduciblePCoreTrivial
 import CFSG.LocalAnalysis.UniquenessCase.UC22K318Flag
-import Mathlib.GroupTheory.Sylow
 
 public section
 

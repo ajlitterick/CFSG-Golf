@@ -6,18 +6,11 @@ public import CFSG.LocalAnalysis.StandardType.GGIntCartanDet
 
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepMove
 
-public import CFSG.LocalAnalysis.StandardType.GGResIBasic
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcReflLinear
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Bridge
-public import CFSG.LocalAnalysis.StandardType.GGPZCartanRank
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteNbrFix
 public import CFSG.LocalAnalysis.StandardType.GGTBTorCor
 public import CFSG.LocalAnalysis.StandardType.GGTBE6
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1E6Three
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeLinear
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallTypeA
 
 public section
 

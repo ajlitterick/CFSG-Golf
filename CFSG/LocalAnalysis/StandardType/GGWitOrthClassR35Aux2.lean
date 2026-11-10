@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGWitOrthClassR35Aux
 public import CFSG.LocalAnalysis.StandardType.GGWitOrthClassL51Aux
-public import CFSG.LocalAnalysis.StandardType.GGWitOrthClassR35Bridge
 public import CFSG.LocalAnalysis.StandardType.GGWitOrthClassR35Aux4
 
 public section

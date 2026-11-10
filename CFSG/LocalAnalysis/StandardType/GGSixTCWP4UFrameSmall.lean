@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UFrame
-import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClAltSix
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDet
 
 public section
 

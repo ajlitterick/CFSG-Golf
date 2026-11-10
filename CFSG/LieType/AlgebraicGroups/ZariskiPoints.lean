@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.PointSurjectivityExtension
-public import Mathlib.RingTheory.Spectrum.Prime.Topology
 
 public noncomputable section
 

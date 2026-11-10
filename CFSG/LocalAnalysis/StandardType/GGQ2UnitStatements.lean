@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2UnitFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 
 public section
 

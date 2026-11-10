@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNTPlaneInput
 public import CFSG.LocalAnalysis.StandardType.GGCentPerm
 public import CFSG.LocalAnalysis.StandardType.GGCentFrob
 public import CFSG.LocalAnalysis.StandardType.GGLangExhaust
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24A2CubeClass
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgE6Res2
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenAsm
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TwE6

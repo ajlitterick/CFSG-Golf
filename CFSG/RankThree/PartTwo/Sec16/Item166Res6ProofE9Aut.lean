@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec16.Item16KFactsProofQL
-import CFSG.RankThree.PartTwo.Sec16.Item166Res6ProofE9L
 import CFSG.RankThree.PartTwo.Sec16.Item166Res6ProofE9U
 import CFSG.RankThree.PartTwo.KFacts.K72L3Linear
 import CFSG.RankThree.PartTwo.KFacts.K72L3Unitary

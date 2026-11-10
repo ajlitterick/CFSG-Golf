@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.Chevalley.BorelStructure
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
 
 public noncomputable section
 

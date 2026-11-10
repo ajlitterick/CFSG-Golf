@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.D6Refl
-public import CFSG.LocalAnalysis.StandardType.FS81.LocalGen
 public import CFSG.LocalAnalysis.StandardType.FS81.BasisMonomial
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Monster.B.CTIB.DistThreeProductCore
 public import CFSG.Monster.B.CTIB.Rank2158Final
 public import CFSG.Monster.GMS.Facts.BabyTables
 public import CFSG.Monster.GMS.Facts.TableV

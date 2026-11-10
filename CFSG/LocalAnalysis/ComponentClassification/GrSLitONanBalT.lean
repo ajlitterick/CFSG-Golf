@@ -1,15 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitONanBalSig
-public import CFSG.LocalAnalysis.SignalizerFunctor.Maximality
 public import CFSG.SignalizerFunctorTheorem.SolvableTheorem
-public import CFSG.FeitThompson.OddOrderTheorem
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageCompletion
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerPreimages
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestrictionCompletion
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_6
 
 public section
 

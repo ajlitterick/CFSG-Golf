@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.BSevenGen
-public import CFSG.RankThree.PartOne.CTP.FusionSound
 
 public section
 

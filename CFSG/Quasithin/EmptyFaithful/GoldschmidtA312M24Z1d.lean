@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M24Z1c
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Alt
 
 public section
 

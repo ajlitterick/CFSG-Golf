@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.SporLatDcPair
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieu
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatLat
 public import CFSG.Quasithin.Background.HSporLatInputs
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeSubgroupConj
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeIndex
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeHyperplane
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixEToral
 
 public section

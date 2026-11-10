@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetTriD4
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeTriD4PinnedFrame
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeTriD4Model
-import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TriD4BridgeLongRoot
-import CFSG.LieType.CurtisTits.Perfect
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeTriD4PinnedExc
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetTriD4Setup
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetTriD4Cover

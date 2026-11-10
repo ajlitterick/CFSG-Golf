@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.A8Nbr476
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrInfData
 
 public section

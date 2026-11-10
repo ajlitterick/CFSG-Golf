@@ -1,17 +1,8 @@
 module
 
-public import CFSG.Assembly.GL83LieDefs
-public import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryTrace
-public import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryNorm
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherSemilinearData
 public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeTypeA
 public import CFSG.Models.PGLSimple
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
-public import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
 public import CFSG.RankThree.PartTwo.Census.OddClassical.UnitaryComponent
-public import CFSG.Timmesfeld.RankOne.SL2
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOne
 
 public section

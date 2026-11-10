@@ -1,15 +1,10 @@
 module
 
 import all CFSG.LocalAnalysis.StandardType.GGLieKnownR2SUNC
-import CFSG.LieType.Universal.Unitary.Roots
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2SUCoreOne
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSU
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2GeoSU
 public import CFSG.Timmesfeld.Transvection.ModelSUCore
-public import CFSG.Timmesfeld.Transvection.ModelSUTheta
-public import CFSG.Timmesfeld.Transvection.ModelSUPerp
 public import CFSG.Timmesfeld.Transvection.ModelSURadCard
-public import CFSG.Timmesfeld.Transvection.ModelRankSU
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindCTUnitaryMain
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
@@ -132,18 +127,6 @@ public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeLinearBlock
 public import CFSG.LocalAnalysis.StandardType.GGTDModelA
-public import CFSG.LocalAnalysis.StandardType.GGResXDatumAHL
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodePermutationDatum
 
 public noncomputable section

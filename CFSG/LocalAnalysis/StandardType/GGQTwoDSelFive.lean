@@ -7,10 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Odd
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1BaseU
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1LocalU
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Edge
-import CFSG.LocalAnalysis.StandardType.GGQTwoDSevenPrelim
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 
 public section
 

@@ -4,9 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec21.FF81S58Hyp
 public import CFSG.RankThree.PartTwo.Sec21.FF81S58Conj
 public import CFSG.RankThree.PartTwo.Sec21.FF81S58K
 import CFSG.RankThree.PartTwo.Sec21.FF81KFacts
-import CFSG.RankThree.PartTwo.Sec21.RudvalisFF81Sp6Transv
-import CFSG.RankThree.PartTwo.Sec21.FF81P51
-import CFSG.RankThree.PartTwo.Sec21.FF81Prop33
 import CFSG.RankThree.PartTwo.Sec21.FF81Prop51
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec32
 

@@ -1,46 +1,7 @@
 module
 
-public import CFSG.CGT.PushingUpLit.LIT.Foote.E1a
-public import CFSG.CGT.PushingUpLit.SolKNA.Quaternion
-public import CFSG.CGT.PushingUpLit.SolKNA.RankGe2Sz
-public import CFSG.CGT.PushingUpLit.SolKNA.SzSimpleProof
-public import CFSG.CGT.PushingUpLit.SolKR2.Top
-public import CFSG.CGT.PushingUpLit.Statements
-public import CFSG.LocalAnalysis.AGLEmbedding.AscEightFour
-public import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockInputs
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Finkelstein77.Lemma25HResidual
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2LocalCGT3
-public import CFSG.Milestones.CL_LIT_classical_involution_theorem
 public import CFSG.RankThree.PartOne.S12.SolInputs
-public import CFSG.RankThree.PartTwo.KFacts.KS44Sz
-public import CFSG.RankThree.PartTwo.Sec11.Item11CloseChain
-public import CFSG.RankThree.PartTwo.Sec11.Item11CloseNarrow
-public import CFSG.RankThree.PartTwo.Sec12.Item128Assembly
-public import CFSG.RankThree.PartTwo.Sec13.Item13Res5ProofCenter
-public import CFSG.RankThree.PartTwo.Sec17.Item17Res10ProofGTwoThree
-public import CFSG.RankThree.PartTwo.Sec18.Claim184LcProof
-public import CFSG.RankThree.PartTwo.Sec18.Item1810
-public import CFSG.RankThree.PartTwo.Sec18.Item181ThreeProof
-public import CFSG.RankThree.PartTwo.Sec18.Item183K
-public import CFSG.RankThree.PartTwo.Sec18.Item185
-public import CFSG.RankThree.PartTwo.Sec18.Item187F16Final
-public import CFSG.RankThree.PartTwo.Sec18.Item189K0Main
-public import CFSG.RankThree.PartTwo.Sec18.Item189KTypeProof
-public import CFSG.RankThree.PartTwo.Sec18.Item189O2
-public import CFSG.RankThree.PartTwo.Sec18.Item189QProof
-public import CFSG.RankThree.PartTwo.Sec18.Item18ResProofAlt1C
-public import CFSG.RankThree.PartTwo.Sec18.Item18ResProofHyp191
-public import CFSG.RankThree.PartTwo.Sec18.Item18ResProofRem187Q
-public import CFSG.RankThree.PartTwo.Sec18.SimsBridge189
-public import CFSG.RankThree.PartTwo.Sec18.SimsItem186H
-public import CFSG.RankThree.PartTwo.Sec18.Item189StepProofOddL2
-public import CFSG.RankThree.PartTwo.Sec18.Item189StepProofSeven
-public import CFSG.RankThree.PartTwo.Sec18.Item189StepProofO2Bound
-import CFSG.RankThree.PartTwo.Sec18.Item189StepProofO3
-import CFSG.RankThree.PartTwo.Sec18.Item189StepProofO2Direct
-import CFSG.RankThree.PartTwo.Sec18.Item189StepInspectI
-import Certificates.Certificate43
-import Certificates.Certificate3119
 public import Certificates.Certificate310101
 import CFSG.RankThree.PartTwo.Sec18.Item189StepInspectIJ1
 import CFSG.RankThree.PartTwo.Sec18.Item189StepInspectIL2Even
@@ -51,111 +12,27 @@ import CFSG.RankThree.PartTwo.Sec18.Item189StepInspectIU3Even
 import CFSG.RankThree.PartTwo.Sec18.Item189StepInspectIU3Odd
 import CFSG.RankThree.PartTwo.Sec18.Item189StepMKIndex
 import CFSG.RankThree.PartTwo.Sec18.Item189StepL16
-public import CFSG.RankThree.PartTwo.Sec18.Statements
-public import CFSG.RankThree.PartTwo.Sec18.SylowFiveTwo
-public import CFSG.RankThree.PartTwo.Sec18.SylowInner
-public import CFSG.RankThree.PartTwo.Sec18.SylowLcUnique
-public import CFSG.RankThree.PartTwo.Sec18.SylowOrbit
-public import CFSG.RankThree.PartTwo.Sec18.SylowTop
-public import CFSG.RankThree.PartTwo.Sec19.Census194.Dispatch
-public import CFSG.RankThree.PartTwo.Sec19.Census194.AltTen
-public import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194RankOne
-public import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194Psl
-public import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194Psu
-public import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194Sp
-public import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194SU
-public import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194Omega
-public import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194G2
-public import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194Small
-public import CFSG.RankThree.PartTwo.Sec19.F194Item316Leaves
-public import CFSG.RankThree.PartTwo.Sec19.F194Wide3
-public import CFSG.RankThree.PartTwo.Sec19.LitScopeProofStep202J
 public import CFSG.RankThree.PartTwo.Sec19.SimsItem316ScriptXCit
-public import CFSG.RankThree.PartTwo.Sec19.SimsSectionalTwoRankFour
 public import CFSG.RankThree.PartTwo.Sec19.SimsSolSeven
 public import CFSG.RankThree.PartTwo.Sec19.SimsTheoremCFoote
 public import CFSG.CGT.Foote82.Statements
-public import CFSG.RankThree.PartTwo.Sec20.Item203OneProof
 public import CFSG.RankThree.PartTwo.Sec20.Item208C134M
-public import CFSG.RankThree.PartTwo.Sec20.Item20Res12ProofKO3Layer
-public import CFSG.RankThree.PartTwo.Sec20.Item20Res5ProofCyclic
 public import CFSG.RankThree.PartTwo.Sec20.Item20Res5ProofThetaCert
-public import CFSG.RankThree.PartTwo.Sec20.Item20Res5ProofThree
-public import CFSG.RankThree.PartTwo.Sec20.Item20Res6ProofL2KFact
-public import CFSG.RankThree.PartTwo.Sec20.Item20Res7ProofCMem
-public import CFSG.RankThree.PartTwo.Sec20.Item20Res7ProofKY
-public import CFSG.RankThree.PartTwo.Sec20.Item20Res9ProofNormalAll
-public import CFSG.RankThree.PartTwo.Sec20.SimsAsc1412L2
-public import CFSG.RankThree.PartTwo.Sec20.SimsAscBridgeTypes
-public import CFSG.RankThree.PartTwo.Sec20.SimsAscBridgeClass
-public import CFSG.RankThree.PartTwo.Sec20.SimsAscBridgeJ1
-public import CFSG.RankThree.PartTwo.Sec20.SimsAscBridgeL3OddMeet
-public import CFSG.RankThree.PartTwo.Sec20.SimsFinalL2LemmaA
 public import CFSG.RankThree.PartTwo.Sec20.SimsItem204Holds
 public import CFSG.RankThree.PartTwo.Sec20.SimsWiring
-public import CFSG.RankThree.PartTwo.Sec20.SimsYKO3Five
-public import CFSG.RankThree.PartTwo.Sec20.Statements
 public import CFSG.RankThree.PartTwo.Sec3.J1SevenFactProof
-public import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
-public import CFSG.RankThree.PartTwo.Sec4.Item45Closed
-public import CFSG.RankThree.PartTwo.Sec4.Census.CoverCenterThreeRest
-public import CFSG.LocalAnalysis.ComponentClassification.GoldschmidtTDGriess
-public import CFSG.RankThree.PartTwo.Sec4.RonanK432Final
-public import CFSG.RankThree.PartTwo.Sec4.T444.DiagGriess
-public import CFSG.RankThree.PartTwo.Sec4.T444.Item434Consequences
-public import CFSG.RankThree.PartTwo.Sec6.Item641
-import CFSG.Blueprint.Catalog
-import CFSG.Blueprint.NativeSporadic
-import CFSG.CGT.PushingUpLit.SolKAb.Residue
 import CFSG.CGT.PushingUpLit.SolKNA.QuatLieInspection
-import CFSG.CGT.PushingUpLit.SolKNA.QuatLieWiredQCW
-import CFSG.LocalAnalysis.AGLEmbedding.AscEightFive
 import CFSG.LocalAnalysis.ComponentClassification.HallQ8Main
 import CFSG.LocalAnalysis.UniquenessCase.UCSingerL3
-import CFSG.Open.ClassicalInvolutionTheoremMilestoneDefs
-import CFSG.Open.Defs
-import CFSG.Open.GeneralizedFittingSelfCentralizingMilestoneDefs
-import CFSG.RankThree.PartTwo.Sec12.Item128Bar
-import CFSG.RankThree.PartTwo.Sec17.Item176StepsProofExcl
-import CFSG.RankThree.PartTwo.Sec18.Item181
 import CFSG.RankThree.PartTwo.Sec18.Item181ThreeProofKFactProof
 import CFSG.RankThree.PartTwo.Sec18.Item183ETProof
-import CFSG.RankThree.PartTwo.Sec18.Item183KStatements
-import CFSG.RankThree.PartTwo.Sec18.Item183One
-import CFSG.RankThree.PartTwo.Sec18.Item184a
 import CFSG.RankThree.PartTwo.Sec18.Item185HoldsInner
 import CFSG.RankThree.PartTwo.Sec18.Item188
 import CFSG.RankThree.PartTwo.Sec18.Item189ListOddRank
-import CFSG.RankThree.PartTwo.Sec18.Item189ListEven
 import CFSG.RankThree.PartTwo.Sec18.Item189ListL3
 import CFSG.RankThree.PartTwo.Sec18.Item189ListJ1
-public import CFSG.RankThree.PartTwo.Sec18.Item18ResProofStatements
 import CFSG.RankThree.PartTwo.Sec20.SimsAsc1412L3Holds
-public import CFSG.RankThree.PartTwo.Sec18.SimsItem186HStatement
-import CFSG.RankThree.PartTwo.Sec19.Item19Res3ProofAsc93
-import CFSG.RankThree.PartTwo.Sec19.LitScopeProof
 import CFSG.RankThree.PartTwo.Sec19.SimsTheoremC
-import CFSG.RankThree.PartTwo.Sec20.Item20Res11ProofKO3
-import CFSG.RankThree.PartTwo.Sec20.Item20Res5ProofSteps
-import CFSG.RankThree.PartTwo.Sec20.Item20Res6ProofCover
-import CFSG.RankThree.PartTwo.Sec20.Item20Res6ProofO2
-import CFSG.RankThree.PartTwo.Sec20.Item20Res6ProofUnique
-import CFSG.RankThree.PartTwo.Sec20.Item20Res7ProofL2Z
-import CFSG.RankThree.PartTwo.Sec20.Item20Res7ProofYKO3
-import CFSG.RankThree.PartTwo.Sec20.Item20Res8ProofYKO3
-import CFSG.RankThree.PartTwo.Sec20.OneFrontierClean
-import CFSG.RankThree.PartTwo.Sec20.OneFrontierCleanStatements
-import CFSG.RankThree.PartTwo.Sec20.OneSteps
-import CFSG.RankThree.PartTwo.Sec20.Step2054Proof
-import CFSG.RankThree.PartTwo.Sec3.Sims321
-import CFSG.RankThree.PartTwo.Sec20.Step204RestProof
-import CFSG.RankThree.PartTwo.Sec4.Item41Narrow
-import CFSG.RankThree.PartTwo.Sec4.Item423ResProof432
-import CFSG.RankThree.PartTwo.Sec4.Item423StepsProof432
-import CFSG.RankThree.PartTwo.Sec4.Item4443SL
-import CFSG.RankThree.PartTwo.Sec4.Statements
-public import CFSG.RankThree.PartTwo.Sec4.StatementsComponents
-import CFSG.RankThree.PartTwo.Sec4.T444.Item4443SLUsed
 public import CFSG.CGT.PushingUpLit.BHS6.NestedBasic
 public import CFSG.CGT.PushingUpLit.BHS7.BlockComm
 public import CFSG.CGT.PushingUpLit.BHS7.SevenThree
@@ -163,7 +40,6 @@ public import CFSG.CGT.PushingUpLit.BHS7.VFacts
 public import CFSG.CGT.PushingUpLit.Glue.ModuleTrivial
 public import CFSG.CGT.PushingUpLit.SolK.GenFourPSp
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95J3
-public import CFSG.GH74.GLS.IVK.Proofs2.Stmt111c
 public import CFSG.GH74.Generic.S45.LEvSporFacts
 public import CFSG.LargeExtraspecial.DWModelSplit
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddAssembly
@@ -179,7 +55,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma46d
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36AltPerm
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36MType
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36SporMult
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
 public import CFSG.LocalAnalysis.ComponentClassification.RestrictedStdFamilies
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsTitsPair
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Basic245C61

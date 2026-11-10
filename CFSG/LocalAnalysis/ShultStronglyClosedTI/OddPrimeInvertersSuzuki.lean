@@ -4,11 +4,7 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.OddPrimeInvertersBasic
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.OddPrimeInvertersFrobenius
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominatorSuzukiInvolutions
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionModelPairSuzukiTorus
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCentralCover
 public import CFSG.LieType.BorelTits.Suzuki
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Models
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma114Models
 
 public noncomputable section
 

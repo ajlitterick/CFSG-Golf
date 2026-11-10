@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2PlaneChainGroups
-public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
 import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
 import CFSG.LocalAnalysis.StandardType.GGLevTwoS4cAux
 

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRCSShadowBasic
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionAltCoreTwo
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionFlatFamilies
-public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionAltFamily
-public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionBridge
 public import CFSG.LocalAnalysis.ComponentInitial.KnownFourGroupDiagonalPump
 
 public section

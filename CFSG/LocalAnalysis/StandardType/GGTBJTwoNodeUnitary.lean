@@ -1,25 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitaryBlock
-public import CFSG.LocalAnalysis.StandardType.GGResJLineA3
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkTransport
 public import CFSG.RankThree.PartOne.KF.R9Levi
 public import CFSG.RankThree.PartTwo.Sec19.Item19Res6ProofUnitaryRank
-public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepair
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModel
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModelCoprime
-public import CFSG.LocalAnalysis.StandardType.GGResXDatumARank
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySplitRefl
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverTwo
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUModel
-public import CFSG.LocalAnalysis.StandardType.GGRoundFourSmallALinearBlock
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSU
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelPSU
 public import CFSG.RankThree.PartOne.KF.R9Model
 public import CFSG.RankThree.PartOne.KF.R9Plane
 

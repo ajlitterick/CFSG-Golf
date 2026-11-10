@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitConnEight
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitONanSignalizer
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.ONanLatticePar
 public import CFSG.Sporadic.Schreier.ONEightNormalizers
 public import CFSG.LieType.Universal.SpinOmega.Range

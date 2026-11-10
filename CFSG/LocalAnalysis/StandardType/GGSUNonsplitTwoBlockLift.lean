@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSUNonsplitTwoBlockFrame
 public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSU
-public import CFSG.RankThree.Classical2.UnitarySplitPrimeRank
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 
 public section
 

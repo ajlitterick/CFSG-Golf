@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NinePieces
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NineO2
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NineNorm
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NineCore
 public import CFSG.GroupTheory.PCore.SubgroupCore
-public import CFSG.GroupTheory.TwoReflections
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Timmesfeld.RankTwo.Presentation
-public import CFSG.LieType.Steinberg.PartBHalfSpace
 public import CFSG.LieType.TitsSimplicity
 
 public section

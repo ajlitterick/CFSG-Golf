@@ -1,42 +1,22 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2Plumb
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompChain
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigidTools
-public import CFSG.LieType.Universal.Unitary.Comparison
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGHolds
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualPSU
 public import CFSG.LocalAnalysis.StandardType.GGSixPositionDefs
-public import CFSG.LieType.Chevalley.E6GraphLeviIntersections
-public import CFSG.LieType.Chevalley.E6GraphLeviUnitary
-public import CFSG.RankThree.Chevalley.SteinbergBIRootSL2Tools
-public import CFSG.HardMathSupport.Lang.AnisoE6.ThirdA2Fixed
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.TwE6InnerCompFrames
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CorootCoreFuseFrame
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreSU
-public import CFSG.LieType.BorelTits.UnitaryForm
 public import CFSG.LocalAnalysis.StandardType.GGTwE6A5KModelTheta
-import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotHR6X
-import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotLeviCentralizer
-import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenFrame
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownDefs
-public import CFSG.RankThree.Classical2.SLnRootAutomorphism
-public import CFSG.RankThree.PartTwo.Sec11.KS11Lie4ProofSL2
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenActs
-import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreStab
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenUni
-import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnLine
-import CFSG.HardMathSupport.Timmesfeld.Steinberg.ToralCentralizerGenerated
 import CFSG.LocalAnalysis.StandardType.GGTwE6A5KModelFrame
 import CFSG.LocalAnalysis.StandardType.GGTwE6A5KModelLift
 import CFSG.LocalAnalysis.StandardType.GGTwE6A5KModelRat
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeLayerFrame
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherUnitary
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCover
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindUnitaryOdd
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeForm
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcTwE6One16
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCoreAssembly
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenPin
@@ -80,8 +60,6 @@ public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

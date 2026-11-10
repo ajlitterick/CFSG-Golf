@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityRank
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderOmegaOrth
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderOmegaGenFrame
 public import CFSG.LocalAnalysis.StandardType.GGWPlusD4TwoPieces
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeRank
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitOmFieldFrame
 public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneClassicalShearQuadratic
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryTransitivity
 
 public section
 

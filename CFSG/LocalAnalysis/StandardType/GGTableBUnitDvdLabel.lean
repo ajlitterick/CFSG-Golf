@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdMod
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUDvd
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLMod
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenVac
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdNbr
 
 public section

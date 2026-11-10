@@ -2,16 +2,12 @@ module
 
 public import CFSG.ClassicalInvolution.ModelFacts.Families
 public import CFSG.ClassicalInvolution.ModelFacts.Fundamental
-public import CFSG.Blueprint.Catalog
 public import CFSG.LieType.CurtisTits.Spin
 public import CFSG.LieType.Steinberg.G2.Extras
-public import CFSG.LieType.Steinberg.TwistedD4.Datum
 public import CFSG.LieType.Steinberg.TwistedD4.Perfect
 public import CFSG.LieType.Steinberg.TwistedE6.Datum
 public import CFSG.LieType.Steinberg.TwistedE6.Generation
-public import CFSG.LieType.Steinberg.Exceptional.Universal
 public import CFSG.LieType.Universal.Catalog
-public import CFSG.LieType.Universal.Unitary.Extras
 public import CFSG.Assembly.Subnormal
 public import CFSG.LieType.Universal.Spin.Generation
 public import CFSG.LieType.Universal.Spin.OddCT

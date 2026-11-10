@@ -1,14 +1,7 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec21.Item228CensusProofSplit
 public import CFSG.RankThree.PartTwo.Sec21.Item228Census2ProofOddModels
 public import CFSG.RankThree.PartTwo.Sec21.Item228Census2ProofSp4
-import CFSG.ClassicalGroups.Symplectic.Simple
-import CFSG.ClassicalGroups.Unitary.Simple
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_13
-import CFSG.RankThree.PartTwo.Sec4.Item47Bridges
-import CFSG.RankThree.PartTwo.Census.Classical.Bridges
-import CFSG.LieType.Simplicity.Exceptional
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication

@@ -2,15 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265ASp68Grp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Fam
-public import CFSG.Open.StatedDefs
-import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.HardMathSupport.Dickson.Bal207.LocalBalClassicalSpEight
 import CFSG.LieType.SeitzGeneration.OuterSpData
-import CFSG.LocalAnalysis.GLTheoremA.Basic
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265ASp68Fix
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265ASp68Z
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T263Rank
-import CFSG.RankThree.SteinbergR3ECASymplecticPrimeSubfield
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Cfg
 import CFSG.HardMathSupport.Dickson.Bal207.LocalBalClassical
 import CFSG.HardMathSupport.Dickson.Bal207.LocalBalRows

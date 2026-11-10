@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.UnitRAssembly
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcTw
-import CFSG.GroupTheory.ElementaryAbelianTransport
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMarkingE6TwRankOne
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRest
 
 public noncomputable section
 

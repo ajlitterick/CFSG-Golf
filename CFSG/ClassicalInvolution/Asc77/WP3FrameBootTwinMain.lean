@@ -2,13 +2,9 @@ module
 
 public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootTwinSide
 public import CFSG.ClassicalInvolution.Asc77.WP3FramePSCNine
-public import CFSG.ClassicalInvolution.Asc77.AscT7AHyp51Stmt
 public import CFSG.ClassicalInvolution.Asc77.AscIH8Thm678
 import CFSG.ClassicalInvolution.Asc77.AscT7AHyp51
 import CFSG.ClassicalInvolution.Asc77.AscE187Img
-import CFSG.ClassicalInvolution.Asc77.ModOApi
-import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
-import CFSG.ClassicalInvolution.Balance.PassTwoModelFacts
 public import CFSG.ClassicalInvolution.MilestoneAssemblyCore
 public import CFSG.Sporadic.Bridge.M11CheckInputs
 import CFSG.ClassicalInvolution.Asc77.AscE187Basic

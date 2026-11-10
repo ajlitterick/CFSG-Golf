@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowZReduce
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowZTransfer
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowZA8Shift

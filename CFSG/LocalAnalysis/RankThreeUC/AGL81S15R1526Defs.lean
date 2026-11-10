@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RowStmts
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
 
 public section
 

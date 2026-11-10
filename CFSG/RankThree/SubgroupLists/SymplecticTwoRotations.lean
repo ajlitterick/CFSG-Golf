@@ -5,7 +5,6 @@ public import CFSG.RankThree.SubgroupLists.SymplecticPartThreeBase
 public import CFSG.RankThree.SubgroupLists.MitchellDickson
 public import CFSG.RankThree.SubgroupLists.SymplecticSkewElations
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherFactsL2Maximal
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 
 public section
 

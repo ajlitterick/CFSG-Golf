@@ -1,25 +1,16 @@
 
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RRows
-public import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
-public import CFSG.LieType.Chevalley.WeylRoots
-public import CFSG.LieType.Steinberg.Adjoint.Pairs
 public import Certificates.Kernel.TcRes.Glue
 public import CFSG.Certificates.Kernel.TcRes.LeafSound
 public import CFSG.Certificates.Kernel.TcRes.KerSound
 public import CFSG.Certificates.Kernel.TcRes.ConjSound
 public import CFSG.Certificates.Kernel.TcRes.C1Glue
-public import CFSG.Certificates.Kernel.TcRes.MovedAnaSound
-public import CFSG.Certificates.Kernel.TcRes.LabSound
 public import CFSG.Certificates.Kernel.TcRes.SkewSound
 public import CFSG.Certificates.Kernel.TcRes.C3BodySound
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RC3FlagFree
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RC3Roots
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RC1Neg
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RFlag
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RFive
 public import CFSG.Certificates.Kernel.TcRes.C3TreeSound
 
 public section

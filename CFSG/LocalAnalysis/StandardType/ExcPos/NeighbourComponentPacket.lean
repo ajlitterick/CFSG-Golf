@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.UnitDefs
 import CFSG.LocalAnalysis.StandardType.ExcPos.PacketBasic
-import CFSG.LieType.Chevalley.RootCharacterConjugation
-import CFSG.LieType.Chevalley.ToralCentralizerBruhat
-import CFSG.LieType.Chevalley.GraphFixedE6DiagonalCubes
-import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
-import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.RationalComponentEq
 import CFSG.LocalAnalysis.StandardType.GGSixTCPSUNbr
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.ExcPosBasics
@@ -33,13 +28,7 @@ import CFSG.LocalAnalysis.ComponentClassification.LabeledBlockPermutation
 import CFSG.LocalAnalysis.ComponentInitial.PerfectOuterInjection
 import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 
 public section
 

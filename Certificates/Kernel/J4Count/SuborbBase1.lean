@@ -4,11 +4,7 @@ module
 public import Certificates.Kernel.J4Count.SuborbBase
 
 public import Certificates.Kernel.J4Count.FixZBase1
-public import Certificates.Kernel.J4Count.ChecksQ1
-public import Certificates.Kernel.J4Hub.Struct
-public import Certificates.Kernel.J4Q.Mat
 public import CFSG.Sporadic.J4.QT2LocX0CentMainBase1
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Quasithin.H13.J4CentralizerBase1
 public import Certificates.Kernel.J4Count.HOrderBase1
 public import Certificates.Kernel.SporSch.J4S.NoCP

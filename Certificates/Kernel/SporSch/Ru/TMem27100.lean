@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Ru.Gens
 public import Certificates.Kernel.LocalQT.PEnumD
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.TMemRuCheck
-public import CFSG.Certificates.Kernel.Common.Loop
 public import Certificates.Data.Kernel.L34K
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.TMemRuCheck
 import CFSG.Certificates.Kernel.Common.Harness

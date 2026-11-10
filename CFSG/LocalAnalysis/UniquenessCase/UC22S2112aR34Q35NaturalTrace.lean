@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Open.StatedDefs
-public import Mathlib.LinearAlgebra.Span.Defs
-public import Mathlib.SetTheory.Cardinal.Finite
 
 public section
 

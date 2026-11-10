@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.Sp6JConditionInputs
 public meta import CFSG.LocalAnalysis.EvenSmallLie.Sp6JConditionInputs
-public import CFSG.Sporadic.Schreier.CountSpec
 public meta import CFSG.Sporadic.Schreier.CountSpec
 
 public section

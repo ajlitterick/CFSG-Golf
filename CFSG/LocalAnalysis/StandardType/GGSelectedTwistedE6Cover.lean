@@ -1,16 +1,11 @@
 module
 
-public import CFSG.LieType.Steinberg.Minuscule.E6TorusLang
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourModel
 public import CFSG.LocalAnalysis.StandardType.GGSelectedTwistedE6
 public import CFSG.LocalAnalysis.StandardType.PhanEMinDescent
 public import CFSG.ClassicalInvolution.WeakCT.TwistedE6MinusculeFixedField
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvAtE6OddLemmas
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnLang
-public import CFSG.LocalAnalysis.StandardType.GGLangExhaust
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
 import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoExcOrbit
-import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeNCStdEnvelope
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusExcOrbit
 

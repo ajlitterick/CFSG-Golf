@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1016M5Defs
-public import Certificates.Certificate3024
 public import Certificates.Certificate10145
 public import Certificates.Certificate13670
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264SporCo15

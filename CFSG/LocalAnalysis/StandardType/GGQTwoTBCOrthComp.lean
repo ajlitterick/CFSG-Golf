@@ -1,16 +1,9 @@
 module
 
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Loc
-public import CFSG.HardMathSupport.Dickson.Bal207.OrthFixedType
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthInnerFixed
-public import CFSG.Assembly.Subnormal
 public import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenE6Components
-public import CFSG.RankThree.PartOne.KC.OrthogonalComponentFacts
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
-public import CFSG.RankThree.PartOne.S11d.OrthLayer
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldCentralizer
 public import CFSG.RankThree.PartOne.S11d.OutClassicalTwo
@@ -22,7 +15,6 @@ public import CFSG.RankThree.PartOne.S12.Sec15Items
 public import CFSG.RankThree.PartOne.S15K.FixedWitt
 public import CFSG.RankThree.PartOne.S15K.LayerModel
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Defs
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent

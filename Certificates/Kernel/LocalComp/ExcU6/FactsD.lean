@@ -5,7 +5,6 @@ public import Certificates.Kernel.LocalComp.ExcU6.DTexts
 public import Certificates.Kernel.LocalComp.ExcU6.D1
 public import Certificates.Kernel.LocalComp.ExcU6.D2
 public import Certificates.Kernel.LocalComp.ExcU6.D3
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

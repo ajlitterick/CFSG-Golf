@@ -2,14 +2,7 @@ module
 
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.R2Aux.CentEquiv
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.R2Aux.G2NoL2
-public import CFSG.HardMathSupport.Dickson.DefCharOuter.TrialityChar3.G2Weyl
-public import CFSG.HardMathSupport.Dickson.DefCharOuter.TrialityChar3.Bruhat
-public import CFSG.HardMathSupport.Dickson.DefCharOuter.TrialityChar3.FieldActorFixed
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.TriD4Aux.Three
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.G2Subgroup
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.D4G2All
-public import CFSG.RankThree.PartOne.KGD.D4T36Core
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4OutG2
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.TrialityChar3.Core
 
 public noncomputable section

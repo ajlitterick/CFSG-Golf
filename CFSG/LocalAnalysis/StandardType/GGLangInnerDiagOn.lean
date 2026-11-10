@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveInnAll
 public import CFSG.LocalAnalysis.StandardType.GGExcCompFieldInput
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
 
 public section
 

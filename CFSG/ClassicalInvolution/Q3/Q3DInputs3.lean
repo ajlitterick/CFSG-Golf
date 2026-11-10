@@ -1,14 +1,9 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3DStand
-public import CFSG.ClassicalInvolution.Q3.Q3DThm5
 public import CFSG.ClassicalInvolution.Uniform.U4Class
-public import CFSG.ClassicalInvolution.Uniform.UBranchProof
 public import CFSG.ClassicalInvolution.Uniform.U4Bstar
 public import CFSG.ClassicalInvolution.Uniform.U3IH8
-public import CFSG.ClassicalInvolution.Uniform.U3Thm7
-public import CFSG.ClassicalInvolution.Uniform.U3Thm8
-public import CFSG.ClassicalInvolution.Uniform.U5Three2
 public import CFSG.ClassicalInvolution.Uniform.U8Final
 public import CFSG.ClassicalInvolution.Uniform.U9G2
 public import CFSG.ClassicalInvolution.ModelFacts.TG3Final

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Defs
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1PairTriple
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1PairGrp
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Centralizer

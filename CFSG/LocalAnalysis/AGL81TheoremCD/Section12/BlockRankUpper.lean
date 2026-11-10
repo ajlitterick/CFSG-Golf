@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFive
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.JSubNormalizer
-import CFSG.LocalAnalysis.AGLEmbedding.RankTools
 import CFSG.GroupTheory.PRankCommutingSup
 import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoNFBar
-import CFSG.RankThree.PartTwo.Sec19.Item194Proof
 public import CFSG.GroupTheory.SylowNormalIndex
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27DiagGroup
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFour

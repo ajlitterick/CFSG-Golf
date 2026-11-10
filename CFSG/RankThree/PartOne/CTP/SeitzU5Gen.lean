@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.CTP.SeitzU5Alg
 public import CFSG.RankThree.PartOne.CTP.SeitzU5Span
-public import CFSG.ClassicalGroups.Unitary.Base
 public import CFSG.ClassicalInvolution.Phan.Standard
 
 public section

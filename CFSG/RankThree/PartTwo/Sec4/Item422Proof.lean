@@ -11,7 +11,6 @@ import CFSG.GroupTheory.Fitting.CharacteristicP
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.LocalAnalysis.LargeEvenClassification.CoprimeCommutators
 import CFSG.FeitThompson.OddOrderTheorem
-import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

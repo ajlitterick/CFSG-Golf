@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1Frame
 public import CFSG.LocalAnalysis.StandardType.GGTBRowUFrameAux
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallPosWeylSys
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallE8
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallRankDefs
 

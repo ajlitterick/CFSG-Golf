@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfLeviGlue
-public import CFSG.LocalAnalysis.StandardType.GGHalfStageADefs
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
 
 public section
 

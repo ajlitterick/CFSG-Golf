@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerComp
 import CFSG.HardMathSupport.Dickson.Bal207.OrthSU38Torus
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitarySixThreeCases
-import CFSG.LocalAnalysis.StandardType.GGPGLToralityBasic
 import CFSG.RankThree.PartTwo.Sec21.Item223CensusResProofCrossUnit
 import CFSG.Adapters.ClassicalCatalogLinearUnitary
 import CFSG.CharacterTheory.CyclicBlocks.Family
@@ -54,8 +53,6 @@ import CFSG.Quasithin.Background.C2PushThree
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.D2Cyclic
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1

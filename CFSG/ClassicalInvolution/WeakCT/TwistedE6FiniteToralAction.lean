@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.WeakCT.TwistedE6MinusculeFixedField
-public import CFSG.LocalAnalysis.StandardType.GGFinModelExists
-public import CFSG.LocalAnalysis.StandardType.GGFinModelTorus
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameCentralizer
 
 public noncomputable section

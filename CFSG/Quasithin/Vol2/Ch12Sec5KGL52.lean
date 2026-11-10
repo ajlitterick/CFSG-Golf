@@ -2,9 +2,7 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec5Pm
 public import CFSG.Quasithin.Vol2.Ch12Sec5KGM24
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherBorelOvergroups
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsL52Q1
-public import CFSG.Sporadic.Schreier.J4SSylow
 
 public section
 

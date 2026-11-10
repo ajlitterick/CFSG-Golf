@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMBlockCore
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.OrtHFixed
-public import CFSG.RankThree.PartOne.S11d.LieCentralizerPOmega
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResU3ThreeSolv
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.KeyAbstract
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.OrtHShell

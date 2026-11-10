@@ -6,7 +6,6 @@ public import CFSG.Certificates.Kernel.SporSch.J4SColsSound
 public import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.Spor.PackFld
 import CFSG.Certificates.Kernel.PackSetSound
-public import CFSG.Sporadic.Schreier.J4SSylowBase
 
 @[expose] public section
 

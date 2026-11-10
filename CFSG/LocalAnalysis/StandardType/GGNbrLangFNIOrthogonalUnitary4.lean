@@ -2,14 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOrthogonal
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIUnitary
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
 public import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedLift
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitarySemi
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreU
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveInnAll
 public import CFSG.LocalAnalysis.StandardType.GGL45TGSU
-public import CFSG.RankThree.Classical.SteinbergBTUnitarySubfield
 
 public section
 

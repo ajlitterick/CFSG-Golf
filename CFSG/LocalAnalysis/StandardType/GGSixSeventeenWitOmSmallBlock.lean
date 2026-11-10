@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmMain
-public import CFSG.RankThree.PartOne.KC.OrthogonalCommutatorScalar
 public import CFSG.RankThree.PartOne.KC.OrthogonalQPlusOnePlanes
 public import CFSG.RankThree.PartOne.KC.OrthogonalNormPlaneFactors
 

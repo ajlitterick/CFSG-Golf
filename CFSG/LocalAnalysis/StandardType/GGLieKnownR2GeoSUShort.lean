@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSUDefs
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Universal.Unitary.Extras
 public import CFSG.Timmesfeld.Transvection.OddModelHeis
 public import CFSG.Timmesfeld.LieEmbed.UnitaryIsometry
 

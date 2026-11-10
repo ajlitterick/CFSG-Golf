@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGReeB2SzPairDefs
-public import CFSG.LieType.Ree.LargeReeInvolutionCentralizersRankOne
 
 public section
 

@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNA8Seven
-public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 public import CFSG.LocalAnalysis.StandardType.GGHalfKnownGroups
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
-public import CFSG.LocalAnalysis.StandardType.GGSL9TwoProj
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenLift
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVPComp
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerTagsExcBasic
 public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 

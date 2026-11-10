@@ -1,11 +1,7 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.SylowThreeIncidence
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.MinimalCounterexample
-public import Mathlib.Combinatorics.SimpleGraph.Basic
 public import Mathlib.Combinatorics.SimpleGraph.Maps
-public import Mathlib.GroupTheory.Subgroup.Simple
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

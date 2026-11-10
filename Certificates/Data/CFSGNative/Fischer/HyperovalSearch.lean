@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.CFSGNative.Fischer.Hyperoval
 public import Certificates.Data.CFSGNative.F4.T46Simple
-public import Std.Data.HashMap
 
 public section
 

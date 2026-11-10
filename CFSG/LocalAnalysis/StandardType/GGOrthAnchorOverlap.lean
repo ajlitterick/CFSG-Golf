@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKFrameDefs
 public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Blocks
-public import Mathlib.GroupTheory.Perm.ViaEmbedding
 import CFSG.LocalAnalysis.StandardType.GGOrthAnchorTransition
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOmFrames
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorRecal

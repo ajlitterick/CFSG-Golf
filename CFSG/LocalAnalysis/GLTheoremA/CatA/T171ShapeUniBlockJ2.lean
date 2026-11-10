@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeUniBlockJ
-import CFSG.LocalAnalysis.GLTheoremA.CatA.L154UniPsu
-import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeUniBlockComm
-import CFSG.RankThree.PartOne.KF.UnitaryDiag
-import CFSG.Models.PGLSimple
-import CFSG.RankThree.PartOne.KC.UnitaryPrimaryField
-import CFSG.ClassicalGroups.Unitary.Simple
 
 public section
 

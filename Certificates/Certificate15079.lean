@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.SuzRecog.TwistTests
-import Certificates.Kernel.Sporadic.OddCore.SuzAB
 import Certificates.Kernel.Sporadic.OddCore.SuzFb
 
 public section

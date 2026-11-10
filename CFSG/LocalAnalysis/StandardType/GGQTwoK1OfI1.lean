@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoPairsLK
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

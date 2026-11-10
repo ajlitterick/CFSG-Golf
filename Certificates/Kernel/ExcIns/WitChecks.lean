@@ -1,7 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.ExcIns.Wit
-public import Certificates.Data.Kernel.ExcIns.Grow
 public import Certificates.Kernel.ExcExt.Data
 public import Certificates.Kernel.ExcIns.Data0
 public import Certificates.Kernel.ExcIns.Data2

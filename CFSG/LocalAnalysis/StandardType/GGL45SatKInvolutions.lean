@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGL45TorusHDefs
 public import CFSG.LocalAnalysis.StandardType.GGL45E67RankLift
 
 public section

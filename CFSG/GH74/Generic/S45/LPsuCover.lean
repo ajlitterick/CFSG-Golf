@@ -3,7 +3,6 @@ module
 public import CFSG.GH74.Generic.S45.LUniFix
 public import CFSG.GH74.Generic.S45.LCoverEq
 public import CFSG.GH74.Generic.S45.LOddG
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryHigher
 public import CFSG.GH74.Generic.S45.LUniLift
 
 public section

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section4.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section4.NuHatOrbit
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section4.Basic
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Defs

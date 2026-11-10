@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec13.F135LastDefs
 public import CFSG.RankThree.PartTwo.Sec13.F135LastLemmaF
 public import CFSG.RankThree.PartTwo.Sec13.F135LastLemma5
 public import CFSG.RankThree.PartTwo.Sec13.F135LastLift
@@ -9,8 +8,6 @@ public import CFSG.RankThree.PartTwo.Sec13.F135LastCover
 public import CFSG.RankThree.PartTwo.Sec13.F135LastKernel
 public import CFSG.RankThree.PartTwo.Sec13.F135LastThree
 public import Certificates.Kernel.ThCent.Leaves
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations.SteinbergCADefinitionNodes
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk5AnUT3
 public import CFSG.LieType.Ree.SuzukiSimple

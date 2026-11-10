@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveBElt
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveSl3Facts
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveLeviBlock
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveAlphaZeta

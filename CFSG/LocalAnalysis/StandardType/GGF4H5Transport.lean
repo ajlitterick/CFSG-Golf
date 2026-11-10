@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-public import Mathlib.GroupTheory.Coxeter.Inversion
 
 public section
 

@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LieType.Chevalley.MinimalBorelOvergroups
-public import CFSG.LieType.Chevalley.BruhatCellFactorization
 public import CFSG.LocalAnalysis.ComponentInitial.FourGroupChevalley
-public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.Perm.Cycle.Type
 
 public noncomputable section
 

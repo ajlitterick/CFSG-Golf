@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResIO2b
 public import CFSG.LocalAnalysis.StandardType.GGResIBasic
-public import CFSG.LocalAnalysis.StandardType.GGResIDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrCan
 public import CFSG.LocalAnalysis.StandardType.GGCellWitness
 public import Certificates.Kernel.ThCent.Leaves

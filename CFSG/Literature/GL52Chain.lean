@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Literature.GL52Basic
-public import CFSG.Sporadic.Schreier.CountSpec
 public meta import CFSG.Literature.GL52Basic
 public meta import CFSG.Sporadic.Schreier.CountSpec
-public import CFSG.Literature.GL52ChainInputs
 public import Certificates.Certificate2000
 
 public section

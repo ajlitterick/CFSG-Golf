@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.WeakBlockModuleData.GlaubermanNiles
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.LocalAnalysis.GLTheoremB.BlockDefs
-public import CFSG.LocalAnalysis.GLTheoremB.UniqDefs
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Open.StatedDefs
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.Fitting.CharacteristicP

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Open.GeneratedCore
 public import CFSG.LocalAnalysis.SectionRank.SubgroupRank
-public import TauCeti.Algebra.Group.Subgroup.Map
 
 public section
 

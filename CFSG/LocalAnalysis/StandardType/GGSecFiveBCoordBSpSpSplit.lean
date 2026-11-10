@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpSpDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpEquiv
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2EightModel
-import CFSG.ClassicalInvolution.Models.SymplecticPairs.ShortRoot
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects

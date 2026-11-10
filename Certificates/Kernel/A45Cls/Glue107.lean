@@ -5,14 +5,11 @@ public import Certificates.Kernel.A45Cls.Glue218c
 public import Certificates.Kernel.A45Cls.Checks5
 public import Certificates.Kernel.A45Cls.Checks6
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10F107Over
-public import Certificates.Data.OmegaS107Facts
-public import CFSG.Sporadic.Th.Max3.Data
 public import Certificates.Kernel.SporSch.Co2M.ThirdGlue
 public import Certificates.Certificate3042Base
 public import Certificates.Certificate3055Base
 public import CFSG.Certificates.Kernel.SporSch.Co2ThirdSound
 public import CFSG.Certificates.Kernel.SporSch.ThirdChainHPrelude
-public import CFSG.Certificates.Kernel.SporSch.ThirdDfsBase
 public import CFSG.Certificates.Kernel.SporSch.ThirdDfsPrelude
 public import CFSG.Sporadic.Co2Schreier.Centralizers
 

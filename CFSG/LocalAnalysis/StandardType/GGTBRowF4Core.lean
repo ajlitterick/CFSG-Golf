@@ -1,10 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBRowCoordFrame
-public import CFSG.LocalAnalysis.StandardType.GGF4AutWeylTorus
-public import CFSG.LocalAnalysis.StandardType.GGF4AutWeylTableB
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerF4
 public import CFSG.LocalAnalysis.StandardType.GGTBRowF4CoreAux
 
 public section

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166F2Blocks
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Cases
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Label
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Mult
-public import CFSG.Adapters.LinearFieldTransport
 public import CFSG.LocalAnalysis.ComponentClassification.GoldschmidtTDGriess
 public import CFSG.Adapters.StatedQuasisimple
 

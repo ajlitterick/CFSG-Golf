@@ -2,14 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylCompDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937Defs
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclic
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldDefs
-public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeMarking
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseNoBL5Aut
 import CFSG.LocalAnalysis.StandardType.GGNbrKGFieldExcPlusFix
 import CFSG.LocalAnalysis.StandardType.GGNbrKGFieldExcPlusRow
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixLabel
-import CFSG.RankThree.PartOne.KF.F122Sp
 
 public section
 

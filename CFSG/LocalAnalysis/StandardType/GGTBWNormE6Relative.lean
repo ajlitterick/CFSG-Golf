@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormFrame
-public import CFSG.LocalAnalysis.StandardType.GGTBTorRelE6Twisted
 public import CFSG.LocalAnalysis.StandardType.GGTorusE6RelativeAut
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelE6Split
 public import CFSG.LocalAnalysis.StandardType.GGTorusE6RelativeLangAut

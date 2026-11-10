@@ -1,10 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGappendixC.theorem_C
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection16.theorem_16_II
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.MinCE
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection3.PFsection3_9
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection8.PFsection8_8
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection12.PFsection12_7
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection14.PFsection14_1
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection14.PFsection14_Conclusion

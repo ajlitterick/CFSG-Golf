@@ -2,14 +2,7 @@ module
 
 public import CFSG.GH74.Generic.BProg.B3.S3Rk2Rank
 public import CFSG.GH74.Generic.BProg.B3.S3Rk1Basic
-public import CFSG.GH74.GLS.C3.Layer1.BackBasic
-public import CFSG.GH74.GLS.C3.Layer1.Th2Sig6
-public import CFSG.GH74.GLS.TwoThin.Equivariance
-public import CFSG.LieType.SteinbergBRTwoRankBound
-public import CFSG.LocalAnalysis.ComponentInitial.AlternatingFourGroup
-public import CFSG.LocalAnalysis.LargeEvenClassification.CommutingElementaryProduct
 public import CFSG.GH74.KGroups.L34Tables
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs
 public import CFSG.ClassicalInvolution.Models.Transfer
 public import CFSG.ClassicalInvolution.Models.UnitaryPairs

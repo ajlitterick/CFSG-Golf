@@ -1,12 +1,9 @@
 module
 
 public import CFSG.Sporadic.HNSchreier.InvolCheck
-public import CFSG.Sporadic.HNSchreier.RankData
-public import CFSG.Sporadic.HNSchreier.FAData
 public meta import CFSG.Sporadic.HNSchreier.InvolCheck
 public meta import CFSG.Sporadic.HNSchreier.RankData
 public meta import CFSG.Sporadic.HNSchreier.FAData
-public import CFSG.Sporadic.HNSchreier.RankCheckInputs
 public import Certificates.Certificate2105
 
 public section

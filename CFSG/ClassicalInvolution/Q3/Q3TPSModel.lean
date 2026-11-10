@@ -3,9 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3TPSMatCore
 public import CFSG.ClassicalInvolution.Q3.Q3ZLiftCover
 public import CFSG.ClassicalInvolution.Q3.Q3ZModel
-public import CFSG.ClassicalInvolution.SmallCases.EndpointsOrthPatternSpLift
-public import CFSG.ClassicalInvolution.RouteD.GapsAut
-public import CFSG.ClassicalInvolution.RouteD.LocalPair
 public import CFSG.ClassicalInvolution.Q3.Q3WADict
 public import CFSG.ClassicalInvolution.Q3.Q3WMain
 

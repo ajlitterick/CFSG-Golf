@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.QA45ElementaryAbelian
 public import CFSG.RankThree.GF2n.Parrott.QA45SylowFacts
-import CFSG.RankThree.GF2n.Parrott.LocalData
 import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 
 public section

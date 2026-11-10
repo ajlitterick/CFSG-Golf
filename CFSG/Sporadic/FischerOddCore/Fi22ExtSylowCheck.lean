@@ -4,14 +4,11 @@ module
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheckBase
 
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtCheck
-public import CFSG.Monster.B.Fischer.Fi22CoverCheckBase
-public import CFSG.Monster.B.Fischer.Fi22OrderCheck
 public import CFSG.Monster.B.Fischer.Fi22GraphCheck
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtCheck
 public meta import CFSG.Monster.B.Fischer.Fi22CoverCheckBase
 public meta import CFSG.Monster.B.Fischer.Fi22OrderCheck
 public meta import CFSG.Monster.B.Fischer.Fi22GraphCheck
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheckInputs
 public import Certificates.Certificate2069
 
 public section

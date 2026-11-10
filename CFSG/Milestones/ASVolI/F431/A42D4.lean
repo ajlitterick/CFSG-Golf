@@ -2,8 +2,6 @@ module
 
 public import CFSG.Milestones.ASVolI.F431.A42Engine
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qStd
-public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qYam
-public import CFSG.LieType.BorelTits.AllModels
 import all CFSG.Milestones.ASVolI.F4
 import all CFSG.Milestones.ASVolI.F4Conjugacy
 public import CFSG.LocalAnalysis.EvenBN.U4.Model.AutSection

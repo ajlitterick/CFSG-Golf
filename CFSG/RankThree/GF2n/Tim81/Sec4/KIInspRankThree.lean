@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.RankThree.GF2n.Tim81.Defs
 public import CFSG.LinearAlgebra.CharTwoRankThreeInvolutions
 public import CFSG.Quasithin.Background.OperatorJordanHolder
@@ -26,8 +25,6 @@ public import CFSG.Quasithin.EmptyFaithfulMultiple.Comparison15421Props
 public import CFSG.Quasithin.EmptyFaithfulMultiple.F618CompAlt
 public import CFSG.Quasithin.EmptyFaithfulMultiple.FFLinear
 public import CFSG.RankThree.GF2n.Statements
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Walter.Defs
 

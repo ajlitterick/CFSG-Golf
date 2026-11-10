@@ -1,10 +1,6 @@
 module
 
-public import Mathlib
 public import CFSG.Milestones.ASVolI.F4
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.MatrixModelCore
-public import CFSG.Quasithin.Recognition.UniquenessSystemDefs
 public import CFSG.Quasithin.Recognition.UniquenessSystemTriangulation
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic

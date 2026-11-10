@@ -4,7 +4,6 @@ public import CFSG.Timmesfeld.Bridge.Asc72WreathDefs
 import CFSG.GroupTheory.SwapCommute
 import CFSG.Timmesfeld.Bridge.Asc72WreathL2
 import CFSG.Timmesfeld.Bridge.Asc72WreathStruct
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.AschbacherCanonicalRemaining
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.ExceptionalEightPlaneCentralizer

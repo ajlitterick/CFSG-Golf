@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.StandardType.FF81.RootFusionE6Lines
 import CFSG.LocalAnalysis.StandardType.FF81.RootFusionE6Chain
 import CFSG.LocalAnalysis.StandardType.FF81.RootFusionE6Comm
 import CFSG.LocalAnalysis.StandardType.FS81.RootFusionGen
-import CFSG.LieType.Chevalley.AdjointCenter
 import CFSG.Timmesfeld.Orders.Classical
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
@@ -16,7 +15,6 @@ import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 import CFSG.LocalAnalysis.SectionRank.SporadicCover
 import CFSG.Sporadic.M23.M23Group
-import CFSG.Sporadic.Th.F2Spec
 
 public section
 

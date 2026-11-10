@@ -5,11 +5,9 @@ import CFSG.LocalAnalysis.StandardType.GGQTwoOrthRTwo
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorExt
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthogonalBlocks
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOmFrames
-import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.ChartsThreeFar
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.CompletionThreeTwo
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Extension
-import CFSG.Permutation.Embedding
 
 public section
 

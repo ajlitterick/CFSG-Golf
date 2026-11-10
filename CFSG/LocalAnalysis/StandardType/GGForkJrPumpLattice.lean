@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenTransfer
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenLift
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Thm3Step.S7.TwinFactsQ8Core
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import CFSG.Sporadic.Schreier.ClassSpec
 public import Certificates.Data.S7TwinCore
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf18CaseIB
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf21M20

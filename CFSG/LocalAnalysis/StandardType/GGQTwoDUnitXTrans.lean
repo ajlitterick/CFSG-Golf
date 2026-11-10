@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitNbr
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitXTransA
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDShared
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitRankTwo
-import CFSG.LocalAnalysis.StandardType.GGLinearFusionSLCent
 
 public section
 

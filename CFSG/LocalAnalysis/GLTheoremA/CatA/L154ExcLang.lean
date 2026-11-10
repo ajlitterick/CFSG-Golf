@@ -1,9 +1,7 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobRoot
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
-public import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
 public import CFSG.Yardstones.Md0ec50421ce4.Definitions
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerE8Five
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerResiduals
@@ -51,7 +49,6 @@ public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

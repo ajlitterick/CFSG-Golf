@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc4
-public import CFSG.Yardstones.M3f9567aba59d.TableBL
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc3
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExcReduction
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLResidualsUni2
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
 
 public section
 

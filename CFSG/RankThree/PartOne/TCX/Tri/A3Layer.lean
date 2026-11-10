@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.TCX.Tri.A3Parts
-public import CFSG.RankThree.PartOne.TCX.Tri.Skeleton
-public import CFSG.RankThree.PartOne.TCX.Tri.E2A1
 public import CFSG.RankThree.PartOne.KD4T.Certs
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
@@ -37,7 +35,6 @@ public import CFSG.RankThree.PartOne.TCX.Tri.A3Family
 public import CFSG.RankThree.PartOne.TCX.Tri.E2Kernel
 public import CFSG.RankThree.PartOne.TCX.Tri.Frame
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

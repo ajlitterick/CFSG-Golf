@@ -1,20 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigDichot
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigPairIndep
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigWCard
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigRestrict
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigCIrr
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigCKernel
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigCHyper
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08DatumCoxeter
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08DatumRefl
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08DatumConn
-public import CFSG.LocalAnalysis.StandardType.GGDepARefl
-public import CFSG.LocalAnalysis.StandardType.GGQTwoTransport
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08CoreAbs
-public import Mathlib.LinearAlgebra.Basis.VectorSpace
 
 public section
 

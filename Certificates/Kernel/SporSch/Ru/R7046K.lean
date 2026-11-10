@@ -6,7 +6,6 @@ public import Certificates.Data.Kernel.SporSch.RuOrbKG
 public import CFSG.Certificates.Kernel.LieCocycle.Fi22.Core
 public meta import CFSG.Quasithin.Recognition.RuRank3RuGraphDataInputs
 public meta import Certificates.Kernel.SporSch.Ru.QueueGen
-import Certificates.Kernel.Sporadic.RawGen
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.SporSch.Ru.QueueGen
 

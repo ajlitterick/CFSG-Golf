@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Background.Harris.Ln2.Rank
 public import CFSG.Quasithin.Background.Harris.Ln2.Full
 public import CFSG.Quasithin.Background.Harris.Ln2.NoForm
 public import CFSG.Quasithin.Background.Harris.Ln2.Wedge4
-public import CFSG.Quasithin.Background.SmithB42LnL4Models
 
 public section
 

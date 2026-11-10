@@ -1,14 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.SteinbergSFSingleCommFieldFusionDefs
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommFieldFusionFrob
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommLocalSixHGeneric
-public import CFSG.LocalAnalysis.SteinbergSFFullCenterRootNormalizersOrbit
-public import CFSG.LocalAnalysis.SteinbergSFFullCenterTorusComplementBase
-public import CFSG.LocalAnalysis.SteinbergSFSingleCommNextTwoCoresComplement
-public import CFSG.LocalAnalysis.SteinbergSFSingleCommLocalSixFNontrivial
-public import CFSG.LocalAnalysis.SteinbergSFSingleCommSquareFactorsBase
-public import CFSG.LocalAnalysis.SteinbergSFCentralInvolutionFusion
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19Defs
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2

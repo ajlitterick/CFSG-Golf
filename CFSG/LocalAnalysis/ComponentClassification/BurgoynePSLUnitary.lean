@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLGraph
-public import CFSG.LieType.Universal.Unitary.Clause0
-public import CFSG.LieType.Universal.Unitary.Comparison
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherGraphFieldInvolution
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLInner

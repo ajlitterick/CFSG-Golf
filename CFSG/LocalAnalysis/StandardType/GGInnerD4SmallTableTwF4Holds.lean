@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGTwF4FixOrderThree
 public import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofReeConj
 public import CFSG.RankThree.PartTwo.Sec8.Item87ProofGamma
 public import CFSG.Fischer.Classification.Recognition.CaseR3
-public import CFSG.LieType.Ree.LargeReeCenterTrivial
 public import CFSG.HardMathSupport.Dickson.SuzukiReeB.Helpers
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3AFix
 public import CFSG.Assembly.GL83StatedBridge

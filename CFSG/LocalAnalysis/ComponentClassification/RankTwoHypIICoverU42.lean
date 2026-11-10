@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoHypIICoverU42Check
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicPairCensus
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicYCriterion
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutTables
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeModel
 public import CFSG.Blueprint.SourceClassicalTransport
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound

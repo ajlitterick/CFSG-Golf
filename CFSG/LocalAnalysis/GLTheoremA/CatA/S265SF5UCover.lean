@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeForm
-public import Mathlib.GroupTheory.IsPerfect
-import CFSG.LieType.Steinberg.CentralExt.PerfectLift
 import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 import CFSG.RankThree.CentralLift.ClassicalCoverTools
 public import CFSG.LieType.BorelTits.CompleteFlag

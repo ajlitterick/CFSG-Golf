@@ -6,9 +6,6 @@ import CFSG.Timmesfeld.Bridge.Asc72Basic
 public import CFSG.GroupTheory.PCore.Defs
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.Timmesfeld.Opposite.Moufang
 public import CFSG.Timmesfeld.RankOne
 public import Mathlib

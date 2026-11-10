@@ -7,7 +7,6 @@ public import CFSG.Sporadic.FischerOddCore.Fi22CentData
 public meta import CFSG.Monster.B.Fischer.Fi22GraphCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckInputs
 import Certificates.Kernel.Co1B.GenTri2045
-import CFSG.Certificates.Kernel.Common.Harness
 
 #kc_repo #kc_ktree CFSG.KD.N2070 O "Certificates/Kernel/Sporadic/Fi22/data/ord2070.bin" 7020 4 28080 3042997870458489844
 

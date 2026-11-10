@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.SporSch.J4STok
 public import Certificates.Data.Kernel.SporSch.J4SCols
 public meta import CFSG.Certificates.Kernel.Common.Tab
 public meta import Certificates.Kernel.Sporadic.RawGen

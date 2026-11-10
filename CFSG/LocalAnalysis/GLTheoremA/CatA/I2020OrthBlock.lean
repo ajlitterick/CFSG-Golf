@@ -5,16 +5,7 @@ public import CFSG.Quasithin.Vol2.Ch12Sec9Lemma3SL3Lin
 public import CFSG.RankThree.CentralCover.SteinbergBNOrthogonalRepeatedSummands
 public import CFSG.RankThree.PartOne.KC.SymplecticIsotypicSpecial
 public import CFSG.RankThree.PartOne.KC.OrthogonalBlockQuasisimple
-public import CFSG.RankThree.PartOne.KC.OrthogonalPrimarySummands
-public import CFSG.RankThree.PartOne.KC.OrthogonalSelfDualBlock
-public import CFSG.RankThree.PartOne.KC.OrthogonalPairedBlock
 public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDickson
-public import Mathlib.GroupTheory.Sylow
-public import Mathlib.FieldTheory.Finite.Trace
-public import Mathlib.RingTheory.Norm.Defs
-public import Mathlib.LinearAlgebra.Pi
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.Balance.PassTwoConj
 public import CFSG.ClassicalInvolution.Models.LinearFrames
 public import CFSG.ClassicalInvolution.Models.LinearPairs
@@ -51,7 +42,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.RankThree.PartOne.KC.OrthogonalBinaryDickson
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

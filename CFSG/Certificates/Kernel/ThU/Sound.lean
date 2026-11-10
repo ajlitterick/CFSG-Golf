@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.ThU.Defs
 public import CFSG.Certificates.Kernel.Th.Spec.SylowAsm
 public import CFSG.Certificates.Kernel.Th.Spec.SylowOrbit
 public import CFSG.Certificates.Kernel.Th.Spec.FwdSlp
-public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 
 public section
 

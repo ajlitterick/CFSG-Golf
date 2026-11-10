@@ -1,20 +1,15 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec19.Item1923Defs
-import CFSG.RankThree.PartTwo.Sec18.SylowPlane
 import CFSG.RankThree.PartTwo.Sec18.Item185Count
 import CFSG.RankThree.PartTwo.Sec20.Item20Res8ProofAutQ8
 import CFSG.RankThree.PartTwo.Sec20.Item203OneProof
-import CFSG.RankThree.PartTwo.Sec20.OneBasics
 import CFSG.RankThree.PartTwo.Sec4.Item423Res4ProofHeis
 import CFSG.RankThree.PartTwo.Sec13.Item132
 import CFSG.RankThree.PartTwo.Sec13.Item133Mono
 import CFSG.RankThree.PartTwo.Sec19.Hyp1921Basic
 import CFSG.RankThree.PartTwo.Sec19.Hyp1921Frattini
 import CFSG.RankThree.PartTwo.Sec19.Hyp1921Quot
-import CFSG.RankThree.PartTwo.KFacts.L34Automizer
-import CFSG.RankThree.PartTwo.KFacts.L34Sections
-import CFSG.RankThree.Asc83Table.Automizer
 public import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU
 public import CFSG.LocalAnalysis.AGLEmbedding.Extremal
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant

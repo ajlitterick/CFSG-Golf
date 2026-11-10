@@ -1,8 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.GroupTheory.GroupAction.Basic
-public import Mathlib.Data.List.Dedup
 
 public section
 

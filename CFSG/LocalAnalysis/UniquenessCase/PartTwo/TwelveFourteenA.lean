@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
-public import CFSG.CGT.Timmesfeld75.Defs
-import CFSG.LocalAnalysis.SectionRank.Ccomm.ElementaryAut
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge4
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22n
-import CFSG.LieType.BorelTits.Basic
 
 public section
 

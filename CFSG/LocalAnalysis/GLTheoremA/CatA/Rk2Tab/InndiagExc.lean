@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.InndiagInner
 public import CFSG.RankThree.PartTwo.Sec21.CurtisTitsBridge
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Aut
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011I161a
-public import CFSG.LocalAnalysis.StandardType.MarkingSmall
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestG2
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestSmall
-public import CFSG.LargeExtraspecial.DW2AOut
 public import CFSG.ClassicalInvolution.WeakCT.TwistedE6Basic
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.RankThree.Asc83Table.Automizer

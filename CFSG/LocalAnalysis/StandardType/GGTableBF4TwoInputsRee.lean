@@ -1,17 +1,12 @@
 module
 
-public import CFSG.LieType.Simplicity.TitsElements
 public import CFSG.LieType.Ree.LargeReeFixedGroupOddCore
 public import CFSG.RankThree.SteinbergR3ELargeReeOrder
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.SectionRank.BruhatLift
 public import CFSG.LocalAnalysis.SectionRank.LargeRee.SLTwo
 public import CFSG.LocalAnalysis.SectionRank.LargeReeCover
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Defs
 
 public section

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharOn
 public import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharCoatom
 public import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharUniRadical
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherMaximalParabolics
-public import CFSG.ClassicalGroups.UnitaryFlag.ModelTransport
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry

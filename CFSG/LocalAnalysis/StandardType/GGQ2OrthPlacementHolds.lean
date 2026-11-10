@@ -2,14 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthPlacement
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthBlocks
-public import CFSG.LocalAnalysis.StandardType.GGQ2OrthRealization
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthInnerDiagData
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthEleH
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthSmallRank
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthTorusAut
 public import CFSG.LocalAnalysis.StandardType.GGQ2AutomizerCover
 public import CFSG.LocalAnalysis.StandardType.GGQ2FrameAmbient
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGQ2OrthFrameExists
 import CFSG.LocalAnalysis.StandardType.GGQ2OrthTorusAutHolds
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4Bstar
-public import CFSG.LieType.Chevalley.EvenE7E8AutomorphismNormalForm
-public import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
 
 public section
 

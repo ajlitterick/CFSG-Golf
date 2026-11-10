@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJXDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBJXClass
 public import CFSG.LocalAnalysis.StandardType.GGTBJXKernel
 public import CFSG.LocalAnalysis.StandardType.GGTBJXRefl
-public import CFSG.LocalAnalysis.StandardType.GGTBJXRoots
 public import CFSG.LocalAnalysis.StandardType.GGTBJReflPlain
 public import CFSG.LocalAnalysis.StandardType.GGTBJXNoncommAux
 public import CFSG.Sporadic.Schreier.J4SProfileNode

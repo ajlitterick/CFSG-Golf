@@ -7,9 +7,7 @@ import CFSG.LocalAnalysis.StandardType.GGTwE6LocalRankHolds
 import CFSG.LocalAnalysis.StandardType.GGTwE6R4RankSix
 import CFSG.LocalAnalysis.StandardType.GGTwE6TInHolds
 import CFSG.LocalAnalysis.StandardType.GGTwE6LemmaKFinal
-import CFSG.LieType.SeitzGeneration.HyperIrrGroup
 import CFSG.GroupTheory.ConjKerCenter
-import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

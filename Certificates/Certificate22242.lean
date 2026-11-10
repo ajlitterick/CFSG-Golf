@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4P1LAction
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4P1CheckSpecC
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4P1Facts
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4P1FbarRows
-import Certificates.Certificate22240
 import Certificates.Kernel.P1L43.Fbar
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4AZCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4DiagLa
@@ -37,9 +36,6 @@ public import CFSG.Open.GorensteinHaradaSectionalRankFourMilestoneDefs
 public import CFSG.Open.QuasithinDefs
 public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.RankThree.PartOne.KC.LinearCommutantSemi
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

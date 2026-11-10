@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3E7MClass
-public import CFSG.ClassicalInvolution.ModelFacts.E7ModelPair
 
 public section
 

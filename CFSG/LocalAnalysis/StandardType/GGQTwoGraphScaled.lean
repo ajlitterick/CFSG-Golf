@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
-public import Mathlib.Data.ZMod.Basic
 public import Mathlib.Algebra.Field.ZMod
 
 public section

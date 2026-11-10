@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLayerAbelianInd
-public import CFSG.LocalAnalysis.StandardType.GGLayerSubCoreFamily
 public import CFSG.LocalAnalysis.StandardType.GGTwE6LayerCentConverse
 public import CFSG.Adapters.CatalogueFieldBridges.Exceptional
-public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.TriD4Aux.Basic
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
 
 public section
 

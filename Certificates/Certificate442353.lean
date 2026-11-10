@@ -1,14 +1,6 @@
 module
 
 public import CFSG.LieType.Multipliers.U43Action
-public import Mathlib.GroupTheory.SpecificGroups.Quaternion
-public import Mathlib.GroupTheory.Commutator.Basic
-import CFSG.LieType.Multipliers.U43Data
-import CFSG.Certificates.NativeSchreierCard
-import CFSG.Sporadic.Bridge.TwoGen
-import CFSG.Timmesfeld.Orders.ClassicalLinear
-import CFSG.LieType.Multipliers.U43BridgeInputs
-import CFSG.LocalAnalysis.EvenSporadicStandard.M24Std.CU43Inputs
 import Certificates.Kernel.U43CentPlus.Final
 
 public section

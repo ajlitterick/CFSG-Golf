@@ -3,9 +3,6 @@ module
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BMShape
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Plane
 public import CFSG.Monster.B.TwoA.Amalgam.FischerNodes
-public import CFSG.Monster.B.TwoA.Amalgam.OrderThreeTT
-public import CFSG.Monster.B.TwoA.Amalgam.OrderThree
-public import CFSG.Monster.B.CTIB.FourClasses
 public import CFSG.Monster.B.CTIB.UniqueComponent
 public import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalThreeSporadicRank
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

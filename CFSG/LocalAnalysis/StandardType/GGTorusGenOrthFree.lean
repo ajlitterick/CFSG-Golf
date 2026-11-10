@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmFix
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenOrthKer
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthUnBlock
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusWitt
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmSmallBlock
 
 public section
 

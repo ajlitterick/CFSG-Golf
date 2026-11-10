@@ -4,7 +4,6 @@ public import CFSG.Quasithin.EmptyFaithful.S146zGClaim
 public import CFSG.Quasithin.EmptyFaithful.S146zGNum
 public import CFSG.Quasithin.EmptyFaithful.S146zGSwap
 public import CFSG.Quasithin.EmptyFaithful.S146zEMain
-public import CFSG.Quasithin.EmptyFaithful.S146zDSym
 public import CFSG.Quasithin.Background.GoldschmidtS146RQuot
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListAlt7
 public import CFSG.Quasithin.Background.B1More13A

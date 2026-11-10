@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepair
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepairLocal
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderClassicalSp
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderUO

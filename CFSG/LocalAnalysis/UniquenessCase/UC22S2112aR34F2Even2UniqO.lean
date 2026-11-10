@@ -1,13 +1,8 @@
 module
 
-public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Fundamental
 public import CFSG.LocalAnalysis.UniquenessCase.FundamentalLie
 import CFSG.ClassicalInvolution.Asc77.AscT7TTrace
-import CFSG.ClassicalInvolution.SmallCases.UpgradeCover
-import CFSG.ClassicalInvolution.Orders.Classical
-import CFSG.GH74.Orders.LieType
 import CFSG.LocalAnalysis.UniquenessCase.UC22FunCountAmbient
-import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitOrthogonalGeometry
 import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitOrthogonalAction
 public import CFSG.ClassicalInvolution.LBalance.Main
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover
@@ -34,7 +29,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsGen
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Perm.ChainSpec
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34F3Defs
 
 public section

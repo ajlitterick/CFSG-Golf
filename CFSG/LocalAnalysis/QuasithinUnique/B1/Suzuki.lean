@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.K1.ExceptionalSuzuki
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 import CFSG.Models.BenderSuzuki
 public import CFSG.Foundations
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

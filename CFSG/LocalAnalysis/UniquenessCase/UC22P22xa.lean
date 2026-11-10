@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
 import CFSG.Quasithin.Background.BlueprintB2Bridge
-import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 
 public section
 

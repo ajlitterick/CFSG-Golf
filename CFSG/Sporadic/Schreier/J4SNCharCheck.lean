@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Sporadic.Schreier.J4SNCharData
 public meta import CFSG.Sporadic.Schreier.J4SNCharData
-public import CFSG.Sporadic.Schreier.J4SKCent
 public meta import CFSG.Sporadic.Schreier.J4SKCent
 public import Certificates.Certificate2174
 

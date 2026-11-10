@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxSieveAux2
-public import CFSG.LocalAnalysis.AGLEmbedding.AltOuterOdd
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrdBMOut
-public import CFSG.HardMathSupport.Solomon.Coordinator.I14_20LieEnd
-public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2FamSpor
 
 public section
 

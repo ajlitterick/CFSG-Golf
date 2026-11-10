@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.OrbRow.Defs
 public import Certificates.Data.Kernel.PGrp
-public import Certificates.Data.Kernel.Spor.Chain
 
 public section
 

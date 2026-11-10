@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISUCoord
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSL
-public import CFSG.RankThree.Classical2.SLnRootPermutingFixedGroups
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotQ2OverlapValField
 import CFSG.HardMathSupport.Meierfrankenfeld.PSUScalar.WittTransport
-import CFSG.HardMathSupport.Timmesfeld.Torality.PeelBlockN
 import CFSG.LieType.Chevalley.E7Three.HeisenbergPair
 import CFSG.HardMathSupport.GuralnickMalle.CyclicTwo
 import CFSG.HardMathSupport.GuralnickMalle.FGeneral

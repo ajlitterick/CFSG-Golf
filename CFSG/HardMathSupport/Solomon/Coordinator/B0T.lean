@@ -5,7 +5,6 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.B0TSuzuki
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma27
 public import CFSG.RankThree.PartTwo.KFacts.KS14Sz
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 
 public section
 

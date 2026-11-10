@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixElevenKGModelInputs
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixElevenKGRound12Reduction
-import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRank
 import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankF4
 import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankE7
 import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankE8

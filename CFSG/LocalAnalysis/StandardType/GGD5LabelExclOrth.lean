@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGD5LabelGlue
-import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailFinal
 import CFSG.LocalAnalysis.StandardType.GGTwOmPlusHolds
 import CFSG.LocalAnalysis.StandardType.GGTwAutHolds
-import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeVac
 import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas
 import CFSG.LocalAnalysis.StandardType.GGQTwoVACOrth
 

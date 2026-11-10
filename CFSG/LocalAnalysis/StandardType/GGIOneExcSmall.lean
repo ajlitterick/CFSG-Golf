@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGIOneExcRootAs
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwo
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Two
 
 public section
 

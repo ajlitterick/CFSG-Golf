@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotAutDTwo
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotNonsplit
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviKer
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotLayer
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Balance
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Defs

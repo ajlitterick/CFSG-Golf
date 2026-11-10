@@ -2,23 +2,15 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinDefs
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniModel
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplitR
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeKnownSix
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeOrthTLift
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeOrthTBlock
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeOrthTFix
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.HardMathSupport.Dickson.Bal207.OrthFixedType
 import CFSG.LocalAnalysis.StandardType.GGFusionExceptionFull
 import CFSG.LocalAnalysis.StandardType.GGFusionShadowComponents
-import CFSG.Assembly.GL83StatedBridge
-import CFSG.CharacterTheory.Burnside
 import CFSG.GH74.GLS.Stage4.Q9.Rigidity
-import CFSG.GroupTheory.OrderBelowSixtySolvable
-import CFSG.LocalAnalysis.SectionRank.OddCover.DegreeThree
 import CFSG.RankThree.PartOne.S15K.FixedWitt
 import CFSG.RankThree.PartOne.S15K.LayerModel
 

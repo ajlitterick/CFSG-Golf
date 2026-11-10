@@ -1,13 +1,8 @@
 module
-public import Mathlib.Algebra.Group.Defs
 public import Mathlib.Data.Finite.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.Defs
-public import Mathlib.Algebra.Group.Subgroup.Lattice
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralOddRotationCentralizer
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-public import Mathlib.Algebra.Group.Subgroup.Pointwise
 
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

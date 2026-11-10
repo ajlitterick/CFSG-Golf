@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2UnitaryTwHom
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2IsogenyLift
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2IsogenyCenter
-public import CFSG.ClassicalInvolution.ModelFacts.FundamentalSL2Main
 public import CFSG.ClassicalInvolution.ModelFacts.ChevAutLift
 
 public section

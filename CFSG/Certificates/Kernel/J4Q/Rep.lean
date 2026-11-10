@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.J4Q.MatChk
 public import CFSG.Sporadic.J4.Setup
 import CFSG.Certificates.Kernel.Spor.PackFld
-import Mathlib.Data.Fintype.Card
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.TwistedE6.Weyl
-public import CFSG.LieType.Steinberg.Extras
 
 public noncomputable section
 

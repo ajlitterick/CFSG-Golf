@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyGL3Section
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyGL3Component
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerActorLayer
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts
 public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery

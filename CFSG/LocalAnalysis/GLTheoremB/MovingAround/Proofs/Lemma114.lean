@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GroupTheory.HyperplaneGeneration
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Defs
 public import CFSG.LocalAnalysis.GLTheoremB.PQuotientTools

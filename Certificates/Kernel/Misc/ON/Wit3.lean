@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.Native.ONTripleLocalCheckInputs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.RankThree.Native.ONTriplePresInputs
 
 set_option maxRecDepth 100000

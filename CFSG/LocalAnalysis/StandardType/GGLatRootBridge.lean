@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLatDefs
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.Blueprint.ChevalleyRoots
-public import CFSG.LieType.Chevalley.WeylRoots
-import CFSG.LieType.Chevalley.LangRootArithmeticDet
 
 public section
 

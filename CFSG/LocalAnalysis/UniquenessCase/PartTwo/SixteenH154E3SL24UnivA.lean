@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154E3SL24UnivB
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Lemma19
 
 public section
 

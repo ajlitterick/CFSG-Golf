@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.Section5KLFixed
 public import CFSG.RankThree.GF2n.Parrott.Section5LocalW
-public import CFSG.RankThree.GF2n.Parrott.CentralizerJoinH
 
 public section
 

@@ -3,10 +3,6 @@ module
 public import CFSG.GH74.GLS.LU.Local.A3InputsGH
 public import CFSG.GH74.GLS.LU.Local.FiveBundles
 public import CFSG.GH74.GLS.LU.Local.FiveSetup
-public import CFSG.GH74.GLS.LU.Local.Torus8
-public import CFSG.GH74.GLS.LU.Local.L3InvAll
-public import CFSG.GH74.GLS.IVK.Proofs2.Lemma44a
-public import CFSG.GH74.GLS.LU.Local.Assembly
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.CharacterTheory.Blocks.Defs

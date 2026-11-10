@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinTwoTvRank
 
 public section

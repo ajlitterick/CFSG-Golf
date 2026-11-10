@@ -2,14 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ZUniBlock
 import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.ThreeCoverBase
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.ThreeCoverClassical
 import CFSG.HardMathSupport.Solomon.Coordinator.I19_10FiCover
 import CFSG.Quasithin.Background.F6CatSLEps3Cover
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.Balance.PassTwoFinal
 public import CFSG.ClassicalInvolution.Models.LinearFrames
 public import CFSG.ClassicalInvolution.Models.LinearPairs
@@ -38,9 +33,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

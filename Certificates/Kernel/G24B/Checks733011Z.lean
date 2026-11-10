@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.G24B.Checks733011
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

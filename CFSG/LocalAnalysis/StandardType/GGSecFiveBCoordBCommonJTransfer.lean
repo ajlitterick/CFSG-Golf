@@ -1,14 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJNativeDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TransferData
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 import CFSG.LocalAnalysis.StandardType.GGTCJDescent
 import CFSG.GroupTheory.InnerCentralizerProjection
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 
 public section
 

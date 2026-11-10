@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.OutCyclicLift
 import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.OrthOdd
 import CFSG.RankThree.PartOne.MB3.OddOutOrthogonal
 import CFSG.HardMathSupport.Timmesfeld.DFour.OddRank
-import CFSG.LocalAnalysis.SectionRank.ClassicalEven.Orthogonal
 import CFSG.LocalAnalysis.SectionRank.ClassicalOdd.Orthogonal
 import CFSG.Assembly.QuasithinDefs
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
@@ -40,8 +39,6 @@ import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 import CFSG.Quasithin.Background.Basic
 import CFSG.RankThree.PartOne.KC.OrthogonalHighWittFixedSpace
 import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldFixed
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.ExcPos.LangFrameDefs
 public import CFSG.LocalAnalysis.StandardType.ExcPos.U1aBridge
 public import CFSG.LocalAnalysis.StandardType.ExcPos.U1aToral
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
 public import CFSG.LieType.Chevalley.TorusTupleLift
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3DictPhi
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreLang

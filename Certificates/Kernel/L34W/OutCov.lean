@@ -4,8 +4,6 @@ public import Certificates.Kernel.L34W.Outer
 public import Certificates.Kernel.LocalComp.L34SChk
 public import Certificates.Kernel.Sporadic.OddCore.PEnumCmd
 public import Certificates.Data.Kernel.L34W.OutCov
-public import Certificates.Data.Kernel.Spor.PEnum
-import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Kernel.L34W.OutCovData
 
 public section

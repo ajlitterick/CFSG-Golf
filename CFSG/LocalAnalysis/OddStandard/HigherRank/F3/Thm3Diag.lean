@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitL219C
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
-public import CFSG.LocalAnalysis.ComponentInitial.SwappedQuasisimple
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.Pattern
 public import CFSG.GH74.GLS.TwoThin.Basic
 public import CFSG.GH74.GLS.TwoThin.Pumpup
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
@@ -14,8 +12,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoActionFixedInvolutio
 public import CFSG.LocalAnalysis.ComponentClassification.TwoActionInvariantSylow
 public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicCongruenceCut
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

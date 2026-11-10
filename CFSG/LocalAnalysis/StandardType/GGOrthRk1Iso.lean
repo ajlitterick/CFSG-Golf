@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Pieces
-public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Omega
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Model
-import Mathlib.FieldTheory.Perfect
-import Mathlib.LinearAlgebra.Prod
 
 public section
 

@@ -2,22 +2,11 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch3xC58NSInputs
 public import CFSG.Quasithin.Vol2.Ch3xC58NSMPBC127
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C127Closed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C127EvenMain
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B113Final
 public import CFSG.Quasithin.Background.B15P4Layer2Final
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.TopFinal
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1J4OutFinal
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246A7Main
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C123Holds
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B42A57Final
 public import CFSG.Quasithin.Background.C129NativeLight
-public import CFSG.Quasithin.Background.C1GNBlockLemmas
-public import CFSG.Quasithin.Background.C1GNA7
 public import CFSG.Quasithin.Background.F6Basic
-public import CFSG.Quasithin.Background.A4Reduced
-public import CFSG.LocalAnalysis.QuasithinUnique.PushingUp.C1Blocks
-public import CFSG.LocalAnalysis.QuasithinUnique.GammaFamilies
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.Blocks.BrauerInduction

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.NT44.Pack
 public import Certificates.Kernel.NT44.Pack2
 public import Certificates.Kernel.NT44.Pack3
 public import Certificates.Data.Kernel.Misc.IdxMul

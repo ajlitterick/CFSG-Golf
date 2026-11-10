@@ -5,8 +5,6 @@ public import CFSG.OddTranspositions.PartThree.Twelve.SpChart
 public import CFSG.OddTranspositions.PartThree.Twelve.MarkedEmbedding
 import CFSG.OddTranspositions.WidthSylow
 import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.SolQuot.Hom
-import CFSG.OddTranspositions.PartFour.Fourteen.RootBlockSp
-import CFSG.OddTranspositions.PartFour.Fourteen.RootBlockOrth
 import CFSG.OddTranspositions.PartThree.Twelve.Five
 import CFSG.OddTranspositions.PartThree.Nine.Setup
 import CFSG.OddTranspositions.O4PairTenWidth

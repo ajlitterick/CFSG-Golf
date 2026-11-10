@@ -1,18 +1,10 @@
 module
 
-public import CFSG.Assembly.LargeEvenDefs
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSU
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoKGroup
-import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.ClassicalGroups.Unitary.Simple
-import CFSG.LieType.Universal.Unitary.Clause0
-import CFSG.LieType.Universal.Unitary.Comparison
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSUDiag
 import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdUnitaryDiag
-import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGMarkingSL
 import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSU
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
 
 public section
 

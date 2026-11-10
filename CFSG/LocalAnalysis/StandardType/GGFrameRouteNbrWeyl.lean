@@ -1,14 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBFix
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQSplit
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerCore
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTypeAFrame
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangRestRank
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangRest
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 
 public section
 

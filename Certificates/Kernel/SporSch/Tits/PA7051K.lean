@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Tits.Text
 public import Certificates.Data.Kernel.SporSch.OrbRec
 public import Certificates.Data.Kernel.SporSch.RuOrbKG

@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKD2SmallPieces1615
 public import CFSG.LocalAnalysis.StandardType.GGRawAutRestSmall
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestG2
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaInnerSU33
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNineGroups
 
 public section
 

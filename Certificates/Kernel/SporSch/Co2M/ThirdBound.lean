@@ -5,7 +5,6 @@ public import Certificates.Kernel.SporSch.Co2M.ThirdBoundBase
 
 public import Certificates.Kernel.SporSch.Co2M.ThirdGlue
 public import CFSG.Certificates.Kernel.SporSch.ThirdChainH
-public import CFSG.Certificates.Kernel.SporSch.OrbitBound
 public import Certificates.Kernel.SporSch.Ru.SmallFacts
 public import CFSG.Certificates.Kernel.SporSch.ThirdChainHPrelude
 public import CFSG.Certificates.Kernel.SporSch.ThirdDfsPrelude

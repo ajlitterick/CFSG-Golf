@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedCoreShapeDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresHerm
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepFactsBlock
-public import CFSG.RankThree.Classical.SteinbergBJUnitaryTwoBlock
 
 public section
 

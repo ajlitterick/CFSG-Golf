@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Common.Lce
 public import Certificates.Data.Kernel.Spor.Fi24NetPt
 
 public section

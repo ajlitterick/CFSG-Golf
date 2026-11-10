@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.Common.Bind
-public import CFSG.Certificates.Kernel.Common.LceS
 public import CFSG.Certificates.Kernel.Co1.Data.Co1B
 public import CFSG.Certificates.Kernel.Co1.Data.C1_Sel
 public import CFSG.Certificates.Kernel.Co1.Data.C2_Sel

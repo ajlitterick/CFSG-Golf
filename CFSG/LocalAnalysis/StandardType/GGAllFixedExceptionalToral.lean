@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamCentralizerSolvable
 public import CFSG.LocalAnalysis.StandardType.GGFieldOuterInvLangSetup
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreToralInd
 public import CFSG.RankThree.PartOne.KE6.EqpA24
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzExcOpenRest8b
 public import CFSG.RankThree.PartTwo.KFacts.AutPSUDet

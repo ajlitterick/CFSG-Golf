@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGStdPosRootKerDefs
 public import CFSG.LocalAnalysis.StandardType.GGStdPosRootKerKey
 public import CFSG.LocalAnalysis.StandardType.GGStdPosRootKerTorus
 public import CFSG.LocalAnalysis.StandardType.GGStdPosRootKerLift
-import Mathlib.Tactic.Group
 
 public section
 

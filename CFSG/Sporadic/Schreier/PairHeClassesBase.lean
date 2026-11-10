@@ -2,22 +2,16 @@
 module
 
 public import CFSG.Sporadic.HeldB.CertPChain
-public import CFSG.Sporadic.Schreier.PairHeCheck
 public import CFSG.Sporadic.Schreier.PairHeCountTwoBase
 public import CFSG.Sporadic.Schreier.PairHeTriple1Base
 public import CFSG.Sporadic.Schreier.PairCounts
 public import CFSG.Sporadic.Schreier.PairClassCover
-public import CFSG.Sporadic.HeldB.CertPChainData
-public import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.Schreier.PairHeCheckInputs
-public import Certificates.Data.CFSGNative.PairSchreier.Counts
 public meta import CFSG.Sporadic.Schreier.PairHeCheck
 public meta import CFSG.Sporadic.HeldB.HeBlocks
 public meta import CFSG.Sporadic.HeldB.CertPChainData
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.PairSchreier.Counts
 public import CFSG.Sporadic.Schreier.ImagePairs
-public import Mathlib
 
 public noncomputable section
 

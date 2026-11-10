@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatStepTwo
-public import CFSG.LocalAnalysis.StandardType.GGSixStepThreeCFSeventeenTable
 
 public section
 

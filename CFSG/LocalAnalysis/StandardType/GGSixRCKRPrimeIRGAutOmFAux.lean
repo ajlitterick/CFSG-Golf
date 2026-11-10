@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityModel
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotEightTrialityAut
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotEightAutNormal
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotGlobalGen
 public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotEightTrialityFamily
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
 public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotFiveMain

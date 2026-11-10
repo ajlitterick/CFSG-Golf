@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC6G.S29
-public import CFSG.LocalAnalysis.UniquenessCase.UC6G.S37
-public import CFSG.LocalAnalysis.UniquenessCase.UC6G.S35
-public import CFSG.LocalAnalysis.UniquenessCase.UCKInputs
-public import CFSG.RankThree.FFModules.Offenders
 public import CFSG.LocalAnalysis.UniquenessCase.UC6O633Defs
 public import CFSG.LocalAnalysis.UniquenessCase.UC6G.S9
 

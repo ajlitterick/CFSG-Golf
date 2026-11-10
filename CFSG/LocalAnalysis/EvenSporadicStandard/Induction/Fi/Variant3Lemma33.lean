@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Fi.Variant3Defs
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Lemma33
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Chain.Cover
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Chain.Links
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Transport
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingInclusion
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Common
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.ClosingAt

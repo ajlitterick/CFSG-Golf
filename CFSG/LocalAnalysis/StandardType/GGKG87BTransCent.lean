@@ -5,8 +5,6 @@ public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6Order3Defs
 import CFSG.RankThree.PartOne.KE8F.FamBruhat
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreStab
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompChain
-import CFSG.RankThree.PartOne.KE.SigmaCentralizer
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.Families
 import CFSG.HardMathSupport.Timmesfeld.Proving.ExistsOrderPCentralizer
 import CFSG.HardMathSupport.Timmesfeld.Proving.GLAPrimeCoreCentralizer

@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkSpRow
 public import CFSG.LocalAnalysis.StandardType.GGKGForkSpRoot
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameCenter
 
 public section
 

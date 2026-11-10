@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Data.Kernel.YModel.Model
 public import Certificates.Data.Kernel.Misc.RuCoverNet
 public import Certificates.Kernel.Misc.Coset.RuRhoA.Data

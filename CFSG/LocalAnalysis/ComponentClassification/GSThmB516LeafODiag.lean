@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GSThmB516LeafOFix
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB516LeafOFld
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB516LeafOConf
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog81X10OrthMain
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCOReduce
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOmegaField
 

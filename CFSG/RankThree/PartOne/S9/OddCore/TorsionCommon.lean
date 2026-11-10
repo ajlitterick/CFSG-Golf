@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartOne.S9.Defs
 import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -5,11 +5,7 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCTenSeven.Od
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCTenSeven.OddReePhi6Tools
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCTenSeven.OddReePhi6Sub
 import CFSG.Walter.ReeOrder.WardLocal.Four
-import CFSG.Walter.ReeOrder.JT.Section2
 import CFSG.Monster.B.GSide.HInnerFusion
-import CFSG.GroupTheory.CentralizerMap
-import CFSG.ClassicalInvolution.Orders.Ree
-import CFSG.Blueprint.Catalog
 import CFSG.GroupTheory.CommutingProductFixedSubgroup
 
 public section

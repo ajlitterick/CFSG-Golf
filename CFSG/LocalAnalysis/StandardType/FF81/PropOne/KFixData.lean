@@ -6,8 +6,6 @@ public import CFSG.Mathlib.GroupTheory.LayerFixedJ
 
 import CFSG.Mathlib.GroupTheory.CoprimeFixedLift
 import CFSG.Adapters.LieModelSimple
-import CFSG.Open.StatedAPI
-import CFSG.LocalAnalysis.StandardType.FF81.PropOne.JSylow
 import CFSG.CGT.Timmesfeld75.L2Pair
 import CFSG.CGT.Timmesfeld75.ListWCBasic
 import CFSG.ClassicalGroups

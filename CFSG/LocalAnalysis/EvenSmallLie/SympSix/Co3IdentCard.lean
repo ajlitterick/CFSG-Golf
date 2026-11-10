@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentDefs
 public meta import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentDefs
 public meta import CFSG.Certificates.CosetTablePresented
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentCardInputs
 public import Certificates.Certificate3090
 public import CFSG.Certificates.CosetTableColumns
 public import CFSG.Certificates.CosetTableShort

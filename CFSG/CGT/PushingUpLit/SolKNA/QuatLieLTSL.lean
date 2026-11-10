@@ -1,10 +1,6 @@
 module
 
 public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieLTAbs
-public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalLinear
-public import CFSG.ClassicalInvolution.ModelFacts.Models
-public import CFSG.ClassicalInvolution.RouteD.TypeABridge
-public import CFSG.ClassicalInvolution.WeakCT.Center
 public import CFSG.RankThree.Classical2.SLnRootPermutingFixedGroups
 public import CFSG.CGT.PushingUpLit.SolK.Inputs
 public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieRanges

@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6TwoOuterCharacter
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6TwoNativeActor
-public import CFSG.LocalAnalysis.StandardType.GGQ2ExcTwE6Cover
-public import CFSG.LocalAnalysis.ComponentInitial.BlockTwoFactor
 public import CFSG.LocalAnalysis.ComponentInitial.BlockTwoFactorSylowShape
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.LocalAnalysis.StandardType.GGResidualRk1UnitaryTwo
-public import CFSG.LocalAnalysis.StandardType.GGInnLocal
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
 
 public section
 

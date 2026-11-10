@@ -3,13 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBOrthPlus
 
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBPSL
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBRefl
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBAutCard
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 import CFSG.LocalAnalysis.StandardType.GGTorusWeylTypeEven
 import CFSG.LocalAnalysis.StandardType.GGTorusWeylTypePerm
-import CFSG.LocalAnalysis.StandardType.GGTDAutomizer
 
 public section
 

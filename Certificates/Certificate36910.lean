@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Certificate1020
 public import Certificates.Certificate1021
 public import Certificates.Certificate16949
 import Certificates.Kernel.ThPump.Glue

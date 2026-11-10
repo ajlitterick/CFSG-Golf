@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicHNC
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicHNTests
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicHNOTests
 public import CFSG.Sporadic.HNOddCore.SylD
 public import CFSG.Sporadic.HNOddCore.SixA

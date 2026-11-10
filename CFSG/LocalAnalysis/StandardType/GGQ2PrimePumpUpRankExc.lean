@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimePumpUpRank
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus
-public import CFSG.Adapters.TauCetiExceptional.EvenBridgeE6E7
-public import CFSG.Adapters.TauCetiExceptional.EvenBridgeE8
-public import CFSG.LieType.Chevalley.AdjointCenter
 
 public section
 

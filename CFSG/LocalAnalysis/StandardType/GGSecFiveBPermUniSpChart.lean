@@ -1,20 +1,14 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniDefs
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniLFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKFrameCore
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperRootModel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniModelTwoCenter
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneBlocks
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneCharts
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 import CFSG.ClassicalInvolution.WeakCT.SpSpGlue
-import CFSG.LieType.Universal.Symplectic
-import CFSG.Assembly.Subnormal
 
 public section
 

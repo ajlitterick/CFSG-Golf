@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.I32Layer
-public import CFSG.LocalAnalysis.ComponentClassification.OddKernelInvolutions
-public import CFSG.LocalAnalysis.ComponentClassification.TwoLayerTransport
 public import CFSG.ClassicalInvolution.LBalance.Main
 public import CFSG.ClassicalInvolution.LocalComponent.Layer
 public import CFSG.CGT.Timmesfeld75.L2Pair
@@ -31,7 +29,6 @@ public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerPreimages
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestrictionCompletion
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigCoords
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigBound
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigTest
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigRoFrame
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigBridge
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigRoExit
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoComponents

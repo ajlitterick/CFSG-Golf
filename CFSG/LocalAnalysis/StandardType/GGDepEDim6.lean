@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGDepEDefs
 public import CFSG.LocalAnalysis.StandardType.GGDepERelation
 public import CFSG.LocalAnalysis.StandardType.GGDepEFrame
 public import CFSG.LocalAnalysis.StandardType.GGDepAYFixed
 public import CFSG.LocalAnalysis.StandardType.GGResDepType
-public import CFSG.LocalAnalysis.StandardType.GGResLeaves
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 
 public section
 

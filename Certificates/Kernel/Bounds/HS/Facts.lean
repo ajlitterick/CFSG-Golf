@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Co2.Join
 public import Certificates.Kernel.Co2.Intro
 public import Certificates.Data.Kernel.HSKill
-public import CFSG.Certificates.Kernel.Bounds.HSAlt.Data.T_Sel
 public import CFSG.Certificates.Kernel.Bounds.HSAlt.Data.B_Sel
 public import CFSG.Certificates.Kernel.Bounds.HSAlt.Data.C_Sel
 public import CFSG.Certificates.Kernel.Bounds.HSAlt.Data.X2_Sel

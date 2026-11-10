@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeUC.Section5.ActionVocabulary
 import all CFSG.LocalAnalysis.RankThreeUC.Section5.ActionVocabulary
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.CoprimeStarSubgroupStructure
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.PrimeActionFixedFree
-public import CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 import all CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 
 public section

@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTorusMaxOrbitGroup
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxOvergroupDefs
 import CFSG.LocalAnalysis.StandardType.GGTorusMaxAssembly
 import CFSG.LocalAnalysis.StandardType.GGTorusMaxAssemblyAux
-import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.E78Sylow
 
 public section
 

@@ -3,12 +3,9 @@ module
 public import CFSG.RankThree.GF2n.Stroth80.Sec12Omega6PlusCfg
 import CFSG.RankThree.GF2n.Stroth80.GriessOrthSmall
 import CFSG.RankThree.GF2n.Stroth80.Sec7TailRecogGroup
-import CFSG.RankThree.GF2n.Stroth80.Sec78Z1
 import CFSG.RankThree.GF2n.Smith81.Sec217Perfect
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalORigidPlusFacts
-import CFSG.LieType.Universal.SpinOmega.Center
 import CFSG.Adapters.StatedClassicalOrders
-import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupSwap
 public import CFSG.RankThree.GF2n.Stroth80.Sec12SubWidth
 public import CFSG.RankThree.GF2n.Stroth80.Sec5NatStmt

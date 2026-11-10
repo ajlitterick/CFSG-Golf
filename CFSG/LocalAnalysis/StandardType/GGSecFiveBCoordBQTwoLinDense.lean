@@ -2,19 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBQTwoLinSparse
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts
 import CFSG.LocalAnalysis.StandardType.GGClassicalCentralImageLabel
-import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseCoords
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseRows
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpSp
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSp
 import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthKSLSchur
 import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagClassical
-import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 
 public section
 

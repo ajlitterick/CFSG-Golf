@@ -1,20 +1,14 @@
 module
 
 public import CFSG.LieType.Chevalley.KernelWeylStabilizer
-public import CFSG.LieType.Chevalley.ToralCentralizerBruhat
 public import CFSG.LieType.AlgebraicGroups.KernelRootBruhat
 public import CFSG.LieType.AlgebraicGroups.KernelRootGroup
-public import CFSG.LieType.AlgebraicGroups.ToralRootCover
-public import CFSG.LocalAnalysis.ComponentInitial.RootDiagonalConjugation
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart2
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcConn
 import CFSG.LocalAnalysis.SeitzReduction.EPilotRoots
 import CFSG.RankThree.PartOne.D4RC.Descent
-import CFSG.RankThree.PartOne.KE.ConjRootSpan
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E8KilledPlaneBlocksGeo
-import CFSG.LieType.Chevalley.SimplyLacedCommutation
 public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.WeylTorusAct
-import CFSG.LieType.Chevalley.FixedRootCentralizerGeneration
 import CFSG.RankThree.PartOne.TCX.ParabolicConj
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLevi
 import CFSG.HardMathSupport.Timmesfeld.Torality.LangAssembly

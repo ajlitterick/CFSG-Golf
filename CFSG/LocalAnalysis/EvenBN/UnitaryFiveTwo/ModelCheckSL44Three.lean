@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenBN.UnitaryFiveTwo.ModelCheckSL44Two
 public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 import all CFSG.Fischer.F4
-public import Mathlib.Algebra.Order.Ring.Star
 
 public section
 

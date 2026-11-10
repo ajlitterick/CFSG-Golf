@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Defs
-public import CFSG.LocalAnalysis.StandardType.GGFamLabelAssembly
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Descent
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4A1Alg
 

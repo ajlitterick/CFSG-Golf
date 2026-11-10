@@ -2,13 +2,10 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.MultiModelConn
 public import CFSG.ClassicalInvolution.RouteD.MultiModelConnC
-public import CFSG.ClassicalInvolution.RouteD.MultiModelOrthStar
 public import CFSG.ClassicalInvolution.RouteD.MultiModelOrthLayer
-public import CFSG.ClassicalInvolution.RouteD.MultiModelLayer
 public import CFSG.ClassicalInvolution.RouteD.MultiModelSp
 public import CFSG.ClassicalInvolution.RouteD.MultiModelSL
 public import CFSG.ClassicalInvolution.RouteD.MultiModelSU
-public import CFSG.ClassicalInvolution.RouteD.MultiModelShortB
 public import CFSG.ClassicalInvolution.RouteD.MultiModelShortMinus
 public import CFSG.ClassicalInvolution.RouteD.MultiModelShortF4
 

@@ -4,11 +4,7 @@ public import Certificates.Kernel.Sporadic.Suz.EndChecks
 public import Certificates.Kernel.Sporadic.Suz.EndChain
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicSuzEndK
 public import CFSG.Certificates.Kernel.SporSch.ChainKClasses
-public import CFSG.Certificates.Kernel.Spor.RawSound
-public import CFSG.Certificates.Kernel.Spor.SiftRSound
 public import CFSG.Sporadic.SuzOddCore.InvCentralizers
-import Mathlib.Tactic.IntervalCases
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 public import CFSG.Sporadic.SuzOddCore.InvCentralizerBounds
 

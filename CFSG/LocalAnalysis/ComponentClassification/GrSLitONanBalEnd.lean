@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitONanBalT
 public import CFSG.StronglyEmbedded.UniqueCosetBasic
 public import CFSG.Milestones.SE_simple_strong_embedding_models
 public import CFSG.Timmesfeld.Bridge.Asc72Bender
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

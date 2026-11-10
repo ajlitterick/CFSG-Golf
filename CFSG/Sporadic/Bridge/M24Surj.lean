@@ -1,16 +1,10 @@
 module
 
-public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.Sporadic.Presentation.M24Exact
 public import CFSG.Sporadic.Bridge.TwoGen
-public import Certificates.Data.CFSGNative.Bridge.SurjA
 public meta import Certificates.Data.CFSGNative.Bridge.SurjA
 public meta import Certificates.Data.CFSGNative.Mathieu.M24
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import Certificates.Certificate9123
-public import CFSG.Sporadic.Bridge.M24SurjInputs
 public import Certificates.Certificate9215
-public import Certificates.Certificate3017
 public meta import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import CFSG.Sporadic.Presentation.Common

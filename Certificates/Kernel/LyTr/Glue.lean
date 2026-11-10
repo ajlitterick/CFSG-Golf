@@ -4,14 +4,10 @@ public import Certificates.Kernel.LyTr.Checks243
 public import Certificates.Kernel.LyTr.ChecksR1
 public import Certificates.Kernel.LyTr.ChecksR1A
 public import Certificates.Kernel.LyTr.ChecksR1B
-public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
 public import Certificates.Kernel.Sporadic.OddCore.CentGlue
-public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
-public import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.Certificates.Kernel.Spor.MulHFSound
 public import CFSG.Certificates.Kernel.BfsPinAlg
-import Mathlib.Tactic.IntervalCases
 
 public section
 

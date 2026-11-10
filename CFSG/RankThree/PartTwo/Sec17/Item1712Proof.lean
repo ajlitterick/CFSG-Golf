@@ -5,9 +5,6 @@ import CFSG.RankThree.PartTwo.Sec6.Item64
 import CFSG.RankThree.PartTwo.Sec13.Item13Basic
 import CFSG.RankThree.PartTwo.Sec14.Item147
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
-import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeFactorization
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -20,7 +17,6 @@ public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.RankThree.Asc83Table.Automizer
 import CFSG.RankThree.PartTwo.Sec11.Data
 import CFSG.RankThree.PartTwo.Sec6.Statements

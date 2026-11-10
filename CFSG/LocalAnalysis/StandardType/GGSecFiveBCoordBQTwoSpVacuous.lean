@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKCent
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpFrameDefs
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 import CFSG.LocalAnalysis.StandardType.GGTBJFrameCorank
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

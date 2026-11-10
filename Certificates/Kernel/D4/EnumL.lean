@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.D4.L3Gens
-public import Certificates.Data.Item434D42
 public import Certificates.Kernel.B3S3.GenSl
 public meta import Certificates.Kernel.D4.L3Gens
 public meta import Certificates.Data.Item434D42

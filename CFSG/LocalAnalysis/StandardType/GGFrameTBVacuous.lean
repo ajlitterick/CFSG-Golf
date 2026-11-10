@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameTBInputs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwo
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoBstar
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTri
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestG2
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallTits

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcReal
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
 public import CFSG.LocalAnalysis.StandardType.ChevTwoMarking
 
 public section

@@ -4,7 +4,6 @@ public import CFSG.Certificates.Kernel.Spor.PK.BFS
 public import CFSG.Certificates.Kernel.Common.Loop
 public import CFSG.Sporadic.Th.TableSpec
 public import Certificates.Data.RouteP.Plane
-public import Mathlib
 
 public section
 

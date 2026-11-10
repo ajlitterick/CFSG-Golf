@@ -1,12 +1,8 @@
 module
 
 public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.LinearAlgebra.QuadraticForm.Basic
-public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.Basic
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank
 public import TauCeti.LinearAlgebra.QuadraticForm.Diagonal.Basic
-public import TauCeti.LinearAlgebra.QuadraticForm.Isometry
-public import Mathlib.LinearAlgebra.QuadraticForm.Prod
 public import TauCeti.LinearAlgebra.QuadraticForm.Prod
 public import TauCeti.LinearAlgebra.QuadraticForm.Radical
 

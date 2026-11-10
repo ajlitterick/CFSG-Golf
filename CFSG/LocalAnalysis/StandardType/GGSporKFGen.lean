@@ -2,13 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKF1F4At
 import CFSG.GroupTheory.BaerSuzuki.Helpers
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 import CFSG.GroupTheory.PrimeCorefreeQuasisimple
 import CFSG.GroupTheory.CoprimeActionSupport.NormalPSubgroupMeetsCenter
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.IG109
 import CFSG.LocalAnalysis.StandardType.GGSporKStepOne
-import CFSG.GroupTheory.Fitting.CharacteristicP
-import CFSG.GroupTheory.ABGLocalTools.Basic
 import CFSG.GroupTheory.CentralSylowComplement
 import CFSG.CharacterTheory.Blocks.Defs
 import CFSG.GH74.GLS.Defs

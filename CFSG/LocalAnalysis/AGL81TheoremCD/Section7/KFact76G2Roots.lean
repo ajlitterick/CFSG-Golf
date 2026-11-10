@@ -1,8 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.ExceptionsTransport.OddSplitGenerationFinal
-import CFSG.LieType.Chevalley.WeylRootTransport
-import CFSG.LieType.Chevalley.Braid
 
 public section
 

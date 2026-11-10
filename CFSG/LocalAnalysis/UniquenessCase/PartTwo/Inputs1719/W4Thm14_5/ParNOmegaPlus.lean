@@ -1,30 +1,18 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.StatementsRootModule
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs2
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S20
-public import CFSG.Quasithin.Background.A1bBasic
-public import CFSG.Quasithin.Background.D2Basic
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.ParNMinimal
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OmegaPlusFourSquare
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23bOmega4
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatParMax.ProdOvergroups
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatParMax.ProdFactors
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatParMax.ProdComponents
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatParMax.Transport
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23c.SylowLine
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.ReduceLine
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.SolvOmega4Plus
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Bar2Map
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.ProdPCore
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ProofsNinePointStab
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ProofsFiveKNshape
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ParabolicTransfer
-import CFSG.LocalAnalysis.UniquenessCase.UC22P21c
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-import CFSG.GroupTheory.ProdFactors
-import CFSG.Goldschmidt.Steps.G37CoreSetup
-import CFSG.Timmesfeld.Orders.Classical
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.CyclicBlocks.Family
@@ -94,7 +82,6 @@ import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddCentralFixed
 import CFSG.LocalAnalysis.ComponentClassification.GSThmB83Outer
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLit35AltConf
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLit35AltSmall
-import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1C3Props
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1S73Props
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1S74Defs
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1Solomon

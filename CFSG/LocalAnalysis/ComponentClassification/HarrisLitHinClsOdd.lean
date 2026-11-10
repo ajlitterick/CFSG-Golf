@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitHinSocle
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EUType
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EType
 
 public section
 

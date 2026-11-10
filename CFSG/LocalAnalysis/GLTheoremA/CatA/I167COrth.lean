@@ -5,10 +5,7 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthTrans
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthMinus
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CBridge
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CBridgePlus
-import CFSG.HardMathSupport.Dickson.I271.Support.OuterTransport
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsL33b
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.OrthInner
-import CFSG.SignalizerFunctorTheorem.Inheritance.TransportA.Fitting
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnOrth
 import CFSG.HardMathSupport.Dickson.I271.SporGenBM
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.RkBM

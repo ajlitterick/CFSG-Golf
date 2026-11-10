@@ -2,7 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.TwoPoint
 import CFSG.OddTranspositions.PartThree.EightNine.Main
-import CFSG.OddTranspositions.PartFour.SeventeenTwo
 
 public section
 

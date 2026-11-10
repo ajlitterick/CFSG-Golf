@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMarkingE6TwTorus
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6Coprime
 
 public section
 

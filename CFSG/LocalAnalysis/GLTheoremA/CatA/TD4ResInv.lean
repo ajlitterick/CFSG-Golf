@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.TD4ResDefs
-public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qLocStd
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qStdLocSyl
 public import CFSG.RankThree.PartTwo.Census.Carrier.D4EvenLevi

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGAdjDefs
 public import CFSG.LocalAnalysis.StandardType.GGKGOrthPairs
 
 public section

@@ -5,11 +5,8 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2SplitReflectedTor
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2InnerInvolutionFusion
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2TorusInvolutionDerived
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2SemilinearConjugationTransport
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldSquare
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2NonsplitTorusFixed
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseReflectedTorusNormalizer
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

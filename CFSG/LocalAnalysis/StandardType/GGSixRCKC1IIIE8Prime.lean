@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeConfigID
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
 import CFSG.LocalAnalysis.AGLEmbedding.SurvivorBlockInner
-import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
-import Mathlib.Tactic.NormNum
 
 public section
 

@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGRankOneTags
 public import CFSG.LocalAnalysis.StandardType.GGKGPosTagWeyl
 public import CFSG.LocalAnalysis.StandardType.GGRankOneSl2
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePresTags
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 
 public section
 

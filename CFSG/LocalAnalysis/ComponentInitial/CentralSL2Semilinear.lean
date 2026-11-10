@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.RootPairRestriction
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.FieldTheory.Finite.Basic
 
 public section
 

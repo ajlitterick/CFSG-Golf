@@ -1,12 +1,10 @@
 module
 
 public import Certificates.Kernel.OmegaEight.N3MW
-public import Certificates.Kernel.OmegaEight.PlusNodeData
 public import Certificates.Kernel.OmegaEight.PnSWEq
 public import CFSG.Certificates.Kernel.O8NodeSound
 public import CFSG.Certificates.Kernel.O8N3Sound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.O8MinusSound
 
 public section

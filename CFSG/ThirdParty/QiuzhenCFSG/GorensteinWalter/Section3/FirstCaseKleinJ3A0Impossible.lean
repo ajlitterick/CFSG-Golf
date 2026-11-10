@@ -1,11 +1,7 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinJ3CentralizerOdd
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinCardThreeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.CyclicTwoCoreA7
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.HhatQuotientS4
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeQuotientInversion
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

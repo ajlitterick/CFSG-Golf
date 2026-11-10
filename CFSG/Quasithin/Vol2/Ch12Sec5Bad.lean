@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec5L3Ex
-public import CFSG.Quasithin.Vol2.Ch12Sec5Hat7
 public import CFSG.Quasithin.Vol2.Ch12Sec5E49
 public import CFSG.Quasithin.Vol2.Ch12Sec5Gam
 public import CFSG.Quasithin.Vol2.Ch12Sec5KGL52

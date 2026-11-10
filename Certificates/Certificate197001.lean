@@ -2,10 +2,6 @@ module
 
 public import Certificates.Data.Holder1711.Om1Facts
 import Certificates.Kernel.Om1K.Cert
-import Certificates.Kernel.Om1K.OrbDefs
-import Certificates.Kernel.Om1K.Enum
-import CFSG.Certificates.Kernel.Common.Harness
-import Certificates.Kernel.Om1K.BDefs
 import CFSG.Certificates.Kernel.BfsPinSound
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 

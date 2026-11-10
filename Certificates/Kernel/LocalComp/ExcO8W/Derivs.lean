@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassical222ExcO8WInputs
 public meta import Certificates.Kernel.Sporadic.RawGen
-import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.Sporadic.RawGen
 
 public section

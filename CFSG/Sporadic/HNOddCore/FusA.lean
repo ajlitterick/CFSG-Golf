@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Sporadic.HNOddCore.SylowTwo
-public import CFSG.Sporadic.HNOddCore.ThreeInvol
 public import CFSG.Sporadic.HN.Local.ClassCount
-public import CFSG.Sporadic.HN.Local.AltInvolutions
 
 public noncomputable section
 

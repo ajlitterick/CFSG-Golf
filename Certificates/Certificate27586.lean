@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.TitsAschbacherNLocal
 public import Certificates.Kernel.EvenBN.K27586K
 public import Certificates.Kernel.EvenBN.K27586S
 public import Certificates.Kernel.EvenBN.K27586R
@@ -8,10 +7,8 @@ public import Certificates.Kernel.EvenBN.K27586F
 public import CFSG.Certificates.Kernel.EvenBN.BaseTwSound
 public import CFSG.Certificates.Kernel.EvenBN.Sift0Sound
 public import Certificates.Kernel.SporSch.Tits.Inv2266
-public import Certificates.Kernel.SporSch.Tits.Inv2266M
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawSiftK
-public import Certificates.Certificate7050Base
 
 public section
 

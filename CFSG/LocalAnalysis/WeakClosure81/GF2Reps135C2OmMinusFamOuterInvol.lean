@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusNFNW
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusNFRank
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusNFWeylEx
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusNFDefs
-import CFSG.RankThree.OrthogonalInvolutions.Conjugacy
 
 public section
 

@@ -1,14 +1,9 @@
 module
 
 public import CFSG.Fischer.Uniq.Graph
-public import CFSG.Timmesfeld.Bridge.Asc72Basic
-public import CFSG.Timmesfeld.Bridge.OddLocalDefs
 public import CFSG.Timmesfeld.Bridge.OddLocalBlock
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.Timmesfeld.Bridge.Asc72Triangle
 public import CFSG.Timmesfeld.Moufang.Three
 public import CFSG.Timmesfeld.RankOne

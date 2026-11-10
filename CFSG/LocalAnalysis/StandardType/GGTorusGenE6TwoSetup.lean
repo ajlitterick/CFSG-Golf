@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6TwoLang
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenExcTwoSetup
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidDescent
-public import CFSG.LocalAnalysis.ComponentInitial.RootDiagonalConjugation
 import CFSG.LocalAnalysis.StandardType.GGLangTwoPairAux
-import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
-import Mathlib.Algebra.CharP.CharAndCard
-import Mathlib.Algebra.CharP.Frobenius
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.LangTorusSylowFree
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LangFrame
 

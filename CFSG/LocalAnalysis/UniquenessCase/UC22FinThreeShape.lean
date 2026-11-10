@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
-public import CFSG.Open.StatedDefs
-public import Mathlib.FieldTheory.Finite.GaloisField
-import CFSG.Open.StatedAPI
-import CFSG.Open.StatedCenterThree
-import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.Adapters.LieModelOrders
-import CFSG.LieType.Steinberg.CentralExt.LinearPerfect
 import CFSG.Timmesfeld.Orders.Distinct
 import CFSG.LocalAnalysis.UniquenessCase.UC6N588D3
 import CFSG.LocalAnalysis.EvenBN.GMSK.SzFacts

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec5KGJ4Bar
-public import CFSG.RankThree.PartOne.K1214.Basic
 
 public section
 

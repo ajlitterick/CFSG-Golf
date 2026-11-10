@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus
 
 public section
 

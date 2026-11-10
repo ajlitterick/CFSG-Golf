@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKB5Native
-public import CFSG.Sporadic.Bridge.BBound
 import CFSG.LocalAnalysis.StandardType.GGSporKBMBridgeZ
 import CFSG.LocalAnalysis.StandardType.GGSporKBMTransportA
 

@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.McLaughlinOddBasic
-import Mathlib.LinearAlgebra.Dual.Lemmas
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.Module
-import Mathlib.Tactic.Ring
 
 public section
 

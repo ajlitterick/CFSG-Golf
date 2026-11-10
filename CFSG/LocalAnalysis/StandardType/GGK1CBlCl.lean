@@ -2,13 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1CBlDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideSpTypeGL
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeOrthSpDer
-public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear
-public import CFSG.RankThree.PartOne.KC.SymplecticIsotypicFixed
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.RootSp2
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearSmall
-public import CFSG.LieType.Universal.Symplectic
-public import CFSG.Open.StatedAPI
 
 public section
 

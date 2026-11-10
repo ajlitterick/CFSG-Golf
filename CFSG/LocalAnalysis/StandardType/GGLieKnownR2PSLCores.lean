@@ -1,17 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixLieKnownPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortTransport
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OddCenter
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2SpecialLinear
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2HighestRootCores
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2HighestRootLong
-public import CFSG.LieType.Steinberg.Classical.SpecialLinear
-public import CFSG.LieType.HighestRoot.RootsBasic
-public import CFSG.ClassicalInvolution.ModelFacts.WeylTransitive
-public import CFSG.ClassicalInvolution.ModelFacts.Families
-public import CFSG.LinearAlgebra.RootGroupSL.NormalizerX
 public import CFSG.LieType.Steinberg.CentralExt.LinearPerfect
 
 public section

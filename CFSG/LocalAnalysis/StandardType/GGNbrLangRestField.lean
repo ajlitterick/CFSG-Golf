@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangRestRank
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenVac
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinearLang
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinear
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSymplectic
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSpUSpLabels
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaConjLabels
 

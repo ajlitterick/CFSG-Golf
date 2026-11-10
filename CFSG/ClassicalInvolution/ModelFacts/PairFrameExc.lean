@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE6Main
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE7Main
-public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Main
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcF4Main
 
 public section

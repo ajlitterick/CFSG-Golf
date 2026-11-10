@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.TwistDce2.Rels
 public import CFSG.Certificates.Kernel.TwistDce.Words
 public import Mathlib.GroupTheory.FreeGroup.Basic
-public import Mathlib.Data.Fintype.Card
 public import Mathlib.Algebra.Group.End
 public import Mathlib.Data.Fintype.EquivFin
 public import Mathlib.Tactic.Bound.Init

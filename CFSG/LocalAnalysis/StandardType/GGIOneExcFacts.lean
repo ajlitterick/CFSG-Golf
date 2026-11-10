@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGIOneExcE6
 public import CFSG.LocalAnalysis.StandardType.GGIOneExcSmall
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeBstar
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
 
 public section

@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameSeven
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameSetup
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameRoot
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameSwap
 public import CFSG.LocalAnalysis.StandardType.FS81.RootD6Frame
 public import CFSG.LocalAnalysis.StandardType.FS81.CapE7
-public import CFSG.LocalAnalysis.StandardType.FS81.LocalOrthMono
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameNativeCentralizer
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FramePsiTau
 

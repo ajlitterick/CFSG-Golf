@@ -4,12 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeUniBlockComm
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInLinTransJ
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154UniPsu
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154UniMark
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeForm
-public import CFSG.RankThree.Classical.SteinbergBJUnitaryTwoBlock
-public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeModel
-public import CFSG.ClassicalGroups.Unitary.Simple
-public import CFSG.RankThree.PartOne.KC.UnitaryPrimaryField
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniCore
 public import CFSG.HardMathSupport.Dickson.Bal207.Glue
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.UnitaryInnerExport
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S2019UniBlocks

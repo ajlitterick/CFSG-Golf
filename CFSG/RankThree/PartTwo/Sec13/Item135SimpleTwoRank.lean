@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec13.Item135SimpleReduce
-public import CFSG.RankThree.PartTwo.Sec4.StatementsSporadic
 public import CFSG.RankThree.PartTwo.Census.DoubleCoverLift
 import CFSG.RankThree.PartTwo.Sec4.Census.DoubleCoverRanks
 import CFSG.RankThree.PartTwo.Sec4.Census.Item44RankTwoX
@@ -10,11 +9,6 @@ import CFSG.RankThree.PartTwo.Sec13.Item134Arg128FailHJ
 import CFSG.RankThree.PartTwo.Sec13.Item13Models
 import CFSG.RankThree.PartTwo.Sec17.Item17HeadProofPrime
 import CFSG.RankThree.PartTwo.KFacts.OutFixCentralThreeCover
-import CFSG.RankThree.PartTwo.NotationBlocks
-import CFSG.LocalAnalysis.SectionRank.SQT
-import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -29,7 +23,6 @@ public import CFSG.RankThree.PartTwo.Sec13.Item135Simple
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.RankThree.PartTwo.Sec14.Item145Bot
 
 public section

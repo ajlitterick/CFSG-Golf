@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront11
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import TauCeti.Algebra.Group.NormalizerQuotient.Conjugation
 
 public section

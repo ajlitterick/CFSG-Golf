@@ -5,12 +5,7 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineEightTwoProof
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineThreeListOf
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentAut
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineOneThreeWCGammaTools
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.LocalCore
-import CFSG.LocalAnalysis.PreuniquenessRankFour.Helpers
 import CFSG.LocalAnalysis.AGLEmbedding.CZeroSubnormalCommute
-import CFSG.LocalAnalysis.AGLEmbedding.CZeroBasic
-import CFSG.LieType.BorelTits.Basic
-import CFSG.Assembly.Subnormal
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

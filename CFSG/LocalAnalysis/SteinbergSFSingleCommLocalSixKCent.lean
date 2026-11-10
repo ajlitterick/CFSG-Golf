@@ -1,13 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommLocalSixKDefs
-public import CFSG.LocalAnalysis.SteinbergSFSingleCommRootStandardTorus
-public import CFSG.LocalAnalysis.SteinbergSFSingleCommLocalSixFNontrivial
-public import CFSG.LocalAnalysis.SteinbergSFSingleCommLocalSixFElementary
-public import CFSG.LocalAnalysis.SteinbergSFFullCenterWeylOvergroupsBase
-public import CFSG.LocalAnalysis.SteinbergSFFullCenterRootNormalizersOrbit
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bSylow
-public import CFSG.LocalAnalysis.SteinbergSFCentralInvolutionFusion
 
 public section
 

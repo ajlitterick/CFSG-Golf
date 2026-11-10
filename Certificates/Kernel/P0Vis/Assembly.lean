@@ -18,7 +18,6 @@ public import CFSG.Certificates.Kernel.P0RankK.Lift
 public import CFSG.Certificates.Kernel.P0RankK.QPres
 public import CFSG.Certificates.Kernel.P0RankK.AssemBits
 public import CFSG.Certificates.Kernel.Common.ForallChunks
-import Mathlib.Tactic.NormNum
 public import CFSG.Certificates.Kernel.P0RankK.VisGlue
 public import CFSG.Monster.B.TwoA.Sp8.P0RankSound
 

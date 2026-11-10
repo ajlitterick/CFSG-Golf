@@ -1,10 +1,6 @@
 module
 
-public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
-public import Mathlib.RepresentationTheory.Irreducible
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ExtendScalars
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.JacobsonDensity
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.SubrepresentationLattice
 
 namespace CFSG
 end CFSG

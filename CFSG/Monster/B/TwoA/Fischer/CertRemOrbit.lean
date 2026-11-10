@@ -1,16 +1,10 @@
 module
 
-public import CFSG.Monster.B.TwoA.Fischer.CertSeed
-public import CFSG.Monster.B.TwoA.Fischer.CertRemText
-public import Certificates.Data.CFSGNative.MonsterB.BinarySha
-public import Std.Data.HashSet
 public meta import CFSG.Monster.B.TwoA.Fischer.CertSeed
 public meta import CFSG.Monster.B.TwoA.Fischer.CertRemText
 public meta import Certificates.Data.CFSGNative.MonsterB.BinarySha
-public import CFSG.Monster.B.TwoA.Fischer.CertRemOrbitInputs
 public import Certificates.Certificate3069
 public import CFSG.Certificates.Kernel.MonsterB.Rem3069Sound
-import CFSG.Certificates.Kernel.MonsterB.FischerKSound
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGDepELLowPZA
 public import CFSG.LocalAnalysis.StandardType.GGDepELNatWord
-public import CFSG.LocalAnalysis.StandardType.GGTWLowEnum
 public import CFSG.LocalAnalysis.StandardType.GGTWLowOutE6Aux
 public import CFSG.LocalAnalysis.StandardType.GGTWLowPZA
 

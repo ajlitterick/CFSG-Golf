@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.HN1408.Tr2Defs
 public import Certificates.Kernel.HN1408.Cz1TData
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.ClassData
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.WordData
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

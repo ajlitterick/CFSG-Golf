@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwE6Sylow
 public import CFSG.LocalAnalysis.StandardType.GGTwE6LeviSplit
 public import CFSG.LocalAnalysis.StandardType.GGTwE6EnnolaSplit
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootKillWeyl
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenModel
 
 public section

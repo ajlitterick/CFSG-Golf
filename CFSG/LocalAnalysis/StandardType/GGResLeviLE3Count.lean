@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Nodes
-public import CFSG.LocalAnalysis.StandardType.GGPZCartanRank
-public import CFSG.LocalAnalysis.StandardType.GGForkF1
 
 public section
 

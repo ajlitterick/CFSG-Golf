@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLin
-public import Mathlib.Algebra.Module.Pi
-public import Mathlib.Data.Matrix.Mul
 
 public section
 

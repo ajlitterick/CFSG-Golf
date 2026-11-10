@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.L33.Fritz.KD8abBCent
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.L33.Fritz.KD8abAG
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.L33.Fritz.KD46NTri
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LieType.Ree.SuzukiSimple
 public import CFSG.LocalAnalysis.ComponentClassification.BlockCentralSylowEquality
 public import CFSG.LocalAnalysis.ComponentClassification.BlockFourFactorSupport
@@ -40,9 +39,6 @@ public import CFSG.Sporadic.Suz.Setup
 public import CFSG.Sporadic.Suz.W64Spec
 public import CFSG.Sporadic.Th.Chain
 public import CFSG.Sporadic.ThSchreier.AutCore
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import TauCeti.LinearAlgebra.QuadraticForm.Prod
 
 public section

@@ -1,35 +1,10 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection5.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.lemma_1_22
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.PLengthLemmas
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Gorenstein.Chapter8_2
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.Core
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.Core
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.CoprimeAction
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.CoprimeHall
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Conjugacy
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Core
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.TwoDimensionalOddOrder
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
-public import Mathlib.Algebra.CharP.Lemmas
-public import Mathlib.FieldTheory.Minpoly.Field
-public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 public import Mathlib.GroupTheory.IsPerfect
 public import Mathlib.GroupTheory.IsSubnormal
-public import Mathlib.GroupTheory.Commutator.Basic
 public import Mathlib.LinearAlgebra.GeneralLinearGroup.AlgEquiv
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 public import Mathlib.LinearAlgebra.Eigenspace.Semisimple
 
 namespace CFSG

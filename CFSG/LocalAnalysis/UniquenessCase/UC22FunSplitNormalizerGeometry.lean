@@ -1,17 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitAmbient
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitPermutationAction
-public import CFSG.ClassicalInvolution.Generic.Generation.DeltaClosureBasic
-public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitSymplecticGeometry
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitDegreeThreeGeometry
-public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitLinearGeometry
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitUnitaryGeometry
-public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitOrthogonalGeometry
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitOrthogonalAction
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitExceptionalGeometry
-public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitF4Geometry
-public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitSimplyLacedGeometry
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitTwistedE6Geometry
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitExceptionalAction
 public import CFSG.ClassicalInvolution.Asc77.WP3FrameChain

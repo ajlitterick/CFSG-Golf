@@ -1,14 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorsionExcDefs
 public import CFSG.LocalAnalysis.StandardType.GGTorsionExcField
 import CFSG.LocalAnalysis.StandardType.GGTorsionTwF4Card
-import CFSG.LocalAnalysis.StandardType.GGTorsionQuotComp
 import CFSG.LocalAnalysis.StandardType.GGTorsionQuot
 import CFSG.LocalAnalysis.StandardType.GGTorsionOrders
-import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityRoots
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialitySpin
-import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityModel
 import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityHolds
-import CFSG.LocalAnalysis.ComponentInitial.ThreeFactorFactor
 
 public section
 

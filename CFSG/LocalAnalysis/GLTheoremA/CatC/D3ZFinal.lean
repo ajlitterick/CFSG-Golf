@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3PRes
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3IInnerHolds
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ITitsD4
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3IField
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZField
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZCase
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZL10
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZA4

@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.RingTheory.SimpleModule.Basic
 public import CFSG.ThirdParty.BrauerInduction.Background.Rep.Invariants
 public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.Character.Basic
 public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.Simple

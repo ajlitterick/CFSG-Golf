@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBRowR1Defs
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR1Kg
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR1E7Split
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR1E7Det

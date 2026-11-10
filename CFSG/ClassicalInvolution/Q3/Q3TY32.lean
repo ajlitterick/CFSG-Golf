@@ -2,12 +2,9 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TPCtx
 public import CFSG.ClassicalInvolution.Q3.Q3TPChain
-public import CFSG.ClassicalInvolution.Q3.Q3TCP1
 public import CFSG.ClassicalInvolution.Q3.Q3TY3
 public import CFSG.ClassicalInvolution.Q3.Q3TY8
 public import CFSG.ClassicalInvolution.Q3.Q3TSRowSU4
-public import CFSG.ClassicalInvolution.RouteD.TypeULocal
-public import CFSG.ClassicalInvolution.Models.UnitaryFrames.Pairs
 public import CFSG.ClassicalInvolution.ModelFacts.TG3SmallSU
 public import CFSG.ClassicalInvolution.Q3.Q3TWRowTD
 public import CFSG.ClassicalInvolution.Q3.Q3TY1

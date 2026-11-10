@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.Finsupp.LinearCombination
 public import Mathlib.Tactic.LinearCombination
 public import Mathlib.Data.Matrix.Basic
 public import Mathlib.Data.ZMod.Defs

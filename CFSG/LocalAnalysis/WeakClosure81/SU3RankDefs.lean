@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.RankThree.Classical.OrthogonalOrderThree
-public import Mathlib.RingTheory.RootsOfUnity.Basic
 import CFSG.RankThree.CentralCover.HigherClassicalFourGroupWitness
 import CFSG.LieType.Universal.SpinOmega.Kernel
 import CFSG.RankThree.CentralCover.SymplecticFourGroupWitness

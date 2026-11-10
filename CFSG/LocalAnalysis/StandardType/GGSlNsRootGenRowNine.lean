@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenTwoAsm
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylNSRootGen
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourDom
 public import CFSG.LocalAnalysis.StandardType.GGRootGenQTwoQFour
 
 public section

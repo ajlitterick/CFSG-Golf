@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinRMChain
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSADefs
 import CFSG.LocalAnalysis.StandardType.GGRCWeylOfPerm
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
-import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCoxeter
 
 public section
 

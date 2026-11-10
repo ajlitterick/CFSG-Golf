@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1DDefs
-public import CFSG.Assembly.Subnormal
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympInnerExport
 
 public section

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGTwE6PlaneEnnola
 import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
-import CFSG.LocalAnalysis.StandardType.GGTwE6LeviSplit
 import CFSG.LocalAnalysis.StandardType.GGTwE6EnnolaSplit
 import CFSG.LocalAnalysis.StandardType.GGTwE6RootKillWeyl
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoRootSL2

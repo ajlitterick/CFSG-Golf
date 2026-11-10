@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma5_3
-public import Mathlib.GroupTheory.GroupAction.ConjAct
 
 namespace CFSG
 end CFSG

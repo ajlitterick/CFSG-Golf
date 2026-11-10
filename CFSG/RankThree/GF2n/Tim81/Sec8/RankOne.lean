@@ -5,14 +5,10 @@ public import CFSG.GroupTheory.TISylowLocal
 public import CFSG.Timmesfeld.Bridge.Asc72Bender
 public import CFSG.RankThree.PartOne.S15K.ProjSLBridge
 public import CFSG.Open.PGLModelStated
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.Models.BenderSuzuki
 public import CFSG.StronglyEmbedded.Catalog.Suzuki
 public import CFSG.CharacterTheory.Burnside
 public import CFSG.Timmesfeld.Bridge.RootSetsSyl
 public import CFSG.RankThree.PartTwo.KFacts.KS14Orders
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Foundations
 public import CFSG.GH74.SectionalRank
@@ -44,11 +40,6 @@ public import CFSG.RankThree.PartTwo.NotationBlocks
 public import CFSG.RankThree.PartTwo.Sec14.Std
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.Timmesfeld.Bridge.LocalA
 public import CFSG.Timmesfeld.Bridge.NoPolarConnected

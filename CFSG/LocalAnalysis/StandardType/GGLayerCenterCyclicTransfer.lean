@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticCover
 public import CFSG.RankThree.PartOne.S15K.CentralCover
 public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-public import CFSG.Assembly.Subnormal
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 
 public section

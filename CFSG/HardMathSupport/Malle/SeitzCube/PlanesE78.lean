@@ -2,9 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Malle.SeitzCube.E8CubeAll
 public import CFSG.HardMathSupport.Malle.SeitzCube.E7ThreeCube
-public import CFSG.LieType.SeitzGeneration.ExcPlaneSplit
-public import CFSG.LieType.SeitzGeneration.ExcPlaneBridge
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

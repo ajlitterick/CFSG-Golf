@@ -1,16 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Layer
 public import CFSG.LocalAnalysis.StandardType.FS81.BasisCoprimeCore
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Step
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Weak
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92JFacts
 public import CFSG.GroupTheory.PLayer.CentralQuotient
 public import CFSG.GroupTheory.PLayer.PIndex
 public import CFSG.HardMathSupport.Dickson.Sec6.UpD42Aux.InnOrthType
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FDefs
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Aux.Descent
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.Split
 public import CFSG.HardMathSupport.Solomon.Coordinator.C25Borel

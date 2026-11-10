@@ -1,24 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.StatementsC
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortySixA2
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S217Defs
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortySix
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.CartanRankBridge
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.CartanProductRank
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyFourTorus
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.CentralizingRank
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyFiveComponents
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Section17KFacts
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CharTwoTorus
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.U7CartanRankHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SylowCentralOuter
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankBound
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Facts13
-public import CFSG.LocalAnalysis.UniquenessCase.UC22DataExt
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
-public import CFSG.GroupTheory.CoprimeCentralizerCover
-public import CFSG.GroupTheory.ConjClosureCentralProduct
 public import CFSG.Timmesfeld.Orders.BangNotDvd
 public import CFSG.GroupTheory.PCore.SolvableRadical
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.RootLine

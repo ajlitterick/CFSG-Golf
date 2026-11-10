@@ -2,27 +2,19 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.FF81Defs
 public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.Models
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Comparator.Defs
 import CFSG.StronglyEmbedded
-import CFSG.StronglyEmbedded.MatrixGroups.SzModel
-import CFSG.RankThree.PartOne.LIT.RankProjective
 import CFSG.RankThree.PartOne.LIT.RankPSL3
 import CFSG.RankThree.PartOne.LIT.RankSuzuki
 import CFSG.RankThree.PartOne.LIT.RankMatrix
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.RankThree.PartOne.S15K.ProjSLBridge
 import CFSG.Open.PGLModelStated
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
 import CFSG.Models.BenderSuzuki
 public import CFSG.LieType.CurtisTits.Conclusion
 public import CFSG.LieType.Universal.Spin.Roots
 public import CFSG.LieType.Universal.Unitary
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.RankThree.PartTwo.Sec21.HoltCatalog
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 @[expose] public section
 

@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4LabelPieces
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestOriginalWeyl
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrLang
-public import Mathlib.GroupTheory.Coxeter.Inversion
 import CFSG.LocalAnalysis.StandardType.GGAutomizerJoinInduced
 import CFSG.LocalAnalysis.StandardType.GGF4A3Residual
 import CFSG.LocalAnalysis.StandardType.GGF4CoxeterSystem
@@ -14,7 +11,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBFixLine
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBMaxToPair
 import CFSG.LocalAnalysis.StandardType.GGF4SmallBook
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGSpJoinReflAlgebra
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallPosWeylSys
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallE8
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallRankDefs

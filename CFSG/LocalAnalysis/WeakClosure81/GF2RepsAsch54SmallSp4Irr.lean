@@ -1,15 +1,10 @@
 module
 
 public import CFSG.RankThree.SubgroupLists.MitchellQuasisimple
-public import CFSG.RankThree.SubgroupLists.SchurCommutant
-public import CFSG.Foundations.Basic
 public import CFSG.GH74.Defs
-public import CFSG.Open.StatedDefs
 
-import CFSG.GH74.SectionalRank
 import CFSG.RankThree.SubgroupLists.MitchellPartThreeProof
 import CFSG.RankThree.SubgroupLists.SymplecticFischerSp
-import CFSG.RankThree.SubgroupLists.SymplecticFischerOrth
 import CFSG.RankThree.SubgroupLists.SymplecticFischerUnitary
 import CFSG.RankThree.SubgroupLists.SymplecticFischerRefl
 import CFSG.LocalAnalysis.UniquenessCase.UC22K318Dich
@@ -17,7 +12,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UC22K318Even
 import CFSG.LocalAnalysis.UniquenessCase.UC6K318Low
 import CFSG.GH74.Generic.BProg.B2.PumpupTableL2
 import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch54Alt
-import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Equivalence
 import TauCeti.RepresentationTheory.CharacterTable.Solvable
 import CFSG.GH74.GLS.LU.Ident
 import CFSG.GH74.Generic.BProg.Stage2Frozen
@@ -81,8 +75,6 @@ import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E2TwoLieQuotLift
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Uniq
-import CFSG.Quasithin.Background.E4Solv
 import CFSG.Quasithin.Background.F9FiveStruct
 import CFSG.Quasithin.Background.F9G2
 import CFSG.Quasithin.Background.FFC7G

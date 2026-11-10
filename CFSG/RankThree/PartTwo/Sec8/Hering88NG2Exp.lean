@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.SmithB42G2Id
 public import CFSG.Quasithin.Vol2.Ch12Sec2OrbitG2Base
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.RankThree.PartTwo.Sec11.KS11Lie3ProofEight
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField

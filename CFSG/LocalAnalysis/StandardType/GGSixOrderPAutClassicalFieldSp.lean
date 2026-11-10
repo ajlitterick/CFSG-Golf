@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalInnerSp
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutGraphSp
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinberg
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSpUSp
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLRestField
 

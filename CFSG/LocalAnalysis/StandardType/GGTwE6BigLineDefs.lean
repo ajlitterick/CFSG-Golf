@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRowR3Defs
-public import CFSG.LocalAnalysis.StandardType.GGTwE6K1Transport
 public import CFSG.LocalAnalysis.StandardType.GGTwE6K1ThreeA2Two
 public import CFSG.LocalAnalysis.StandardType.GGTwE6K1LineAux
 

@@ -6,7 +6,6 @@ public import CFSG.Certificates.Kernel.Bounds.Ly.T3vData
 public import CFSG.Certificates.Kernel.Bounds.Ly.T4vData
 public import CFSG.Certificates.Kernel.Bounds.LyAlt.Rels
 public import CFSG.Certificates.Kernel.Bounds.LyAlt.Data.Const
-import CFSG.Certificates.Kernel.Bounds.Load
 
 open CFSG.Certificates
 

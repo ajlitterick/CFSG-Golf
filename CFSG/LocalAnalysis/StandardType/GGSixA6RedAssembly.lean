@@ -1,12 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedClDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedF4ClassDefs
-public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedNotShape
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedCenter
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedF4Proof
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedPSpCore
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedShapeSL

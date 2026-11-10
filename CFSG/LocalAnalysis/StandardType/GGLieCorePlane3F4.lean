@@ -5,12 +5,8 @@ public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4RecogA2in
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4RecogA2out
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4RecogB2
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Shapes
-public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Orbit
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.AltFacts4
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotCatTypeDet
 import CFSG.LocalAnalysis.OddStandard.HigherRank.YamadaG23.Y6F4AR
-import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
-import CFSG.LocalAnalysis.ComponentInitial.QuasisimpleRankOne
 import CFSG.Blueprint.OddStandardExact
 
 public section

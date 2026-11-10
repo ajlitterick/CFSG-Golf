@@ -5,10 +5,7 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenGlueB
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveSevenP
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenTwentyEight
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.PartOne
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.KGroupFacts
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.KGroupProofsC
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront08
-public import CFSG.LocalAnalysis.WeakClosure81.Eleven
 public import CFSG.LocalAnalysis.WeakClosure81.W19Min
 public import CFSG.Quasithin.Vol2.GoldschmidtF431UnPre
 

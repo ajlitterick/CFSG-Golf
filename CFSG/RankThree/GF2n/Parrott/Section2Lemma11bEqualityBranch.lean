@@ -3,17 +3,13 @@ module
 public import CFSG.RankThree.GF2n.Parrott.HPrimeJ1
 
 import CFSG.RankThree.GF2n.Parrott.Section2J0NormalFinal
-import CFSG.RankThree.GF2n.Parrott.Section3Commutator
-import CFSG.RankThree.GF2n.Parrott.CentralizerOrders
 import CFSG.RankThree.GF2n.Parrott.Cardinality
 import CFSG.RankThree.GF2n.Parrott.QA45SylowFacts
 import CFSG.RankThree.GF2n.Parrott.QA45InvolutionClasses
-import CFSG.RankThree.GF2n.Parrott.ActionZSimplicity
 import CFSG.RankThree.GF2n.Parrott.MemJOfIndexTwo
 import CFSG.Monster.Existence.StdOdd.Coprime
 import CFSG.GroupTheory.PGroup.LtInfNormalizer
 import CFSG.GroupTheory.CentralizerSylowFusion
-import CFSG.GroupTheory.ABGLocalTools.Basic
 import TauCeti.Algebra.Group.Subgroup.ZPowers
 public import CFSG.Blueprint.SourceGeckCorrespondence
 public import CFSG.GF2Type.Aschbacher1976

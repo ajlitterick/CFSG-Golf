@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGNbrHalfSplitArith
 public import CFSG.LocalAnalysis.StandardType.GGNbrPrimeFieldExcl
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitMarking
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 
 public section
 

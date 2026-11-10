@@ -3,7 +3,6 @@ module
 public import CFSG.Monster.B.Co2.PermArr
 public import Certificates.Data.CFSGNative.Schreier.SetOrbit
 public import Mathlib.Data.Set.Card
-public import Mathlib.Algebra.Group.Pointwise.Set.Scalar
 public import Mathlib.Algebra.Group.Action.Pointwise.Set.Basic
 public import Mathlib.Algebra.Group.Action.End
 public import Mathlib.Algebra.Group.Subgroup.Actions

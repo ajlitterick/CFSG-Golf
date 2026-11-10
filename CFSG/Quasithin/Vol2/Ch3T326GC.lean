@@ -19,7 +19,6 @@ public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
 public import CFSG.Quasithin.Background.B1
 public import CFSG.Quasithin.Background.B15P4LayerDict
 public import CFSG.Quasithin.Background.B1MoreSeven
-public import CFSG.Quasithin.Background.B1Solvable
 
 public section
 

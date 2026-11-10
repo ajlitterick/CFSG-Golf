@@ -4,7 +4,6 @@ public import CFSG.Monster.B.Dyadic.Facts
 public import CFSG.Certificates.Kernel.BabyMonster.LatStats
 public import Certificates.Kernel.BabyMonster.LatBind
 public import Certificates.Kernel.BabyMonster.LaneCont
-public import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BabyMonster.LatBind.All
 public import Certificates.Data.CFSGNative.MonsterB.DyadicFile
 

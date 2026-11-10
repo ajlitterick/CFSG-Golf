@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK0LQExt
-public import CFSG.LocalAnalysis.StandardType.GGKacTable
 public import CFSG.LocalAnalysis.StandardType.GGKacCompsSpec
-public import CFSG.Blueprint.ChevalleyRoots
 public import CFSG.Mathlib.Decide.Bounded
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKSmallComp
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplit
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKU33Bridges
-public import CFSG.LocalAnalysis.StandardType.GGTwoSignalizerNormal
 
 public section
 

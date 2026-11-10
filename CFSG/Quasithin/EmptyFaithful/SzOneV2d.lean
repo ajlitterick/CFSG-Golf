@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.SzOneL3
-public import CFSG.Quasithin.EmptyFaithful.S151b111
-public import CFSG.Quasithin.EmptyFaithful.S152NBasic
 public import CFSG.Quasithin.EmptyFaithful.SzR2Cent
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
@@ -99,7 +97,6 @@ public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
 public import CFSG.Sporadic.Schreier.M11
 public import CFSG.Sporadic.Schreier.M22
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 public import CFSG.Walter.PSL2Facts
 

@@ -3,8 +3,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzBtTG
 public import Certificates.Kernel.Sporadic.OddCore.SuzC1EV
-public import CFSG.Sporadic.SuzRecog.C1ModelCent
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.HeFixKFix
 

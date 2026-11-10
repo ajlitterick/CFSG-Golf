@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFGU
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFSU
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFOmFrame
-public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFTorus2
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFOm2
-public import CFSG.LieType.SemisimpleCentralizers.HeldCompTrivSU
 
 public section
 

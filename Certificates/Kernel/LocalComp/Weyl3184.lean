@@ -1,11 +1,8 @@
 module
 
 public import Certificates.Kernel.LocalComp.E8Tables
-public import Certificates.Kernel.Sporadic.RawGen
-public import Certificates.Data.Kernel.WeylE8.Refl
 public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.Spor.Loops
-public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylData
 public import Certificates.Kernel.LocalComp.WeylBase
 public meta import Certificates.Kernel.LocalComp.WeylBase
 import CFSG.Certificates.Kernel.Common.Harness

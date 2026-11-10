@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
 public import CFSG.LieType.Chevalley.GraphFixedE6DiagonalCubes
-public import CFSG.LieType.Chevalley.GraphFixedRootNormal
 
 public noncomputable section
 

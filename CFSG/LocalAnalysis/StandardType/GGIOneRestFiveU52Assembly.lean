@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveU52Layer
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveU52Reduction
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvModel
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverTwo
 
 public section
 

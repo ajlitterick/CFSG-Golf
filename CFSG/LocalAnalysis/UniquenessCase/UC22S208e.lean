@@ -1,16 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20o
-import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderAutSuzukiModel
-import CFSG.LocalAnalysis.SectionRank.SuzukiCover
 import CFSG.LocalAnalysis.EvenBN.GMSK.SzFacts
 import CFSG.SignalizerFunctorTheorem.McBride.Models.Suzuki.Local
 import CFSG.GroupActions.SelfCentralizingCoreOuterPrimeBound
-import CFSG.Blueprint.Catalog
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.Walter.PSL2Facts.Even
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2RootGroups
 import CFSG.LocalAnalysis.UniquenessCase.UC22P20p
 
 public section

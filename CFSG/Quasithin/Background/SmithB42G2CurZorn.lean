@@ -2,9 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.SmithB42G2Cur
 public import CFSG.Quasithin.Background.SmithB42G2IdRoots
-public import CFSG.LieType.Steinberg.Adjoint.Group
-public import CFSG.LieType.Chevalley.PinnedBridge
-public import CFSG.Timmesfeld.RankTwo.ModelG2
 
 public noncomputable section
 

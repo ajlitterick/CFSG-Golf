@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.M23Dc.SigmaDefs
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 set_option maxHeartbeats 0

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GS82PCSporBase
 public import CFSG.LocalAnalysis.ComponentClassification.TBLitPSLCover
-public import CFSG.LocalAnalysis.ComponentInitial.SLTwoInvolution
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.Blueprint.RecognitionDefs
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData

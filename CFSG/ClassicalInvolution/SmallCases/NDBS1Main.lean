@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBS1Cover
 public import CFSG.ClassicalInvolution.SmallCases.NDBG5Use
-public import CFSG.ClassicalInvolution.SmallCases.NDB5eMain
 
 public section
 

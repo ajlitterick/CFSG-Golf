@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch11SecO10X
-public import CFSG.Quasithin.H13.A7Offender
 
 public section
 

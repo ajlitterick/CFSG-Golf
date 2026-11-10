@@ -6,7 +6,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3T7W21P02
 public import CFSG.ClassicalInvolution.Q3.Q3SPN3Stmt
 public import CFSG.ClassicalInvolution.Asc77.AscT7PF
 public import CFSG.ClassicalInvolution.Q3.Q3URDict
-public import CFSG.ClassicalInvolution.Q3.Q3URStd
 
 public section
 

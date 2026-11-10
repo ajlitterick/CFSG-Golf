@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDB5Main
 public import CFSG.ClassicalInvolution.SmallCases.NDBGlue
-public import CFSG.ClassicalInvolution.SmallCases.NDB1Main
-public import CFSG.ClassicalInvolution.SmallCases.NDB3Main
 public import CFSG.ClassicalInvolution.SmallCases.NDB6Main
 
 public section

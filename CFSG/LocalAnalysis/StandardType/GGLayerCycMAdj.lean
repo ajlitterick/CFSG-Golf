@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycMInput
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicModelToral
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 
 public section
 

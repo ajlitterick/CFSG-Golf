@@ -1,9 +1,6 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec21.FF84S4Inputs
 public import CFSG.RankThree.PartTwo.Sec21.FF84S4KF43Act
-public import CFSG.RankThree.LocalRank.SolvablePrimeComplementCore
-public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent.Radical
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalM12
 public import CFSG.GroupTheory.Fitting.LayerTopBot
 public import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts

@@ -2,18 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongF4
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortF4Iso
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2HighestRootNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ItemThree
-public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
-public import CFSG.LieType.Chevalley.EvenF4AutomorphismNormalForm
 public import CFSG.GroupTheory.TitsSystem.Parabolic
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotAutD
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCentralizerTUStd
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotRoots
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationShortAdjoint
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.ClassicalInvolution.Balance.PassTwoFinal
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
@@ -30,7 +24,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2Even
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotToralCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 
 public section

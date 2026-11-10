@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk111cCSL2Mat
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk111cDefs
-public import Mathlib.FieldTheory.Finite.Basic
 public import CFSG.ThirdParty.BrauerInduction.Background.Group.PRegularClass
 
 public section

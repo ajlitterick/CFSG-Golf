@@ -1,8 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.F4TwoRoots
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.Tactic.IntervalCases
 
 public section
 

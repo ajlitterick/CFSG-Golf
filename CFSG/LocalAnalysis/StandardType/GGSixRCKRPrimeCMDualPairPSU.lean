@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUBlock
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDegreeParity
 import all CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPSU
 
 public section

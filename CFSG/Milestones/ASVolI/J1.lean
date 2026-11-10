@@ -1,16 +1,5 @@
 module
 
-public import Mathlib
-public import CFSG.Foundations.Basic
-public import CFSG.Open.Defs
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Blueprint.Catalog
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.Milestones.ASVolI.I1
-public import CFSG.Milestones.ASVolI.I2
-public import CFSG.Milestones.ASVolI.I3
-public import CFSG.Milestones.ASVolI.I6
 public import CFSG.Milestones.ASVolI.I7
 
 public section

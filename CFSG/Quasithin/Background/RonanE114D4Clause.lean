@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.RonanE114D4Model
-public import CFSG.Quasithin.Background.A3StructureDefs
 
 public section
 

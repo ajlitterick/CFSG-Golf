@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.HSp4Model
-public import CFSG.Quasithin.Background.G6Natural
 public meta import Mathlib.Algebra.Field.ZMod
 public meta import Mathlib.GroupTheory.Nilpotent
 public meta import Mathlib.GroupTheory.Perm.Sign

@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6A5KFrameDiag
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourToral
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenActs
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-import CFSG.LieType.Steinberg.CentralExt.PerfectLift
-import CFSG.LinearAlgebra.LinearGroups.Perfect
 import CFSG.RankThree.SubgroupLists2.SpectralBounds
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcSuNHom
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreHom
@@ -59,7 +56,6 @@ import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

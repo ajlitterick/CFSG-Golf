@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3Defs
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreStruct
-public import CFSG.Blueprint.Catalog
 
 public section
 

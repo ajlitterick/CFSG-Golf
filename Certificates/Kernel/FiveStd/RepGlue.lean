@@ -1,11 +1,6 @@
 module
 
 public import Certificates.Kernel.FiveStd.WGlue5
-public import Certificates.Kernel.FiveStd.NoInvGlue
-public import Certificates.Kernel.FiveStd.BaseGlue
-public import Certificates.Kernel.FiveStd.SylGlue
-public import Certificates.Kernel.FiveStd.DiagCheck
-public import Certificates.Kernel.FiveStd.CoverGlue
 public import Certificates.Kernel.FiveStd.WChk5
 
 public section

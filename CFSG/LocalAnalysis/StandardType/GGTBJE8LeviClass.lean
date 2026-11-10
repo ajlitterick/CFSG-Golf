@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviCore
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 
 public section
 

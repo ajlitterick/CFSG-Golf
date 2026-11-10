@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenVac
 
 public section

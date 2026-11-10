@@ -1,14 +1,8 @@
 module
 
 public import CFSG.Monster.Existence.MilestoneInputs
-public import CFSG.Monster.Existence.BabyTableIVOf
-public import CFSG.Monster.Existence.BabyW2Classes
-public import CFSG.Monster.B.CTIB.Rank2158Final
-public import CFSG.Monster.B.CTIB.FourClasses
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoRank
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1017Twist
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.Monster.B.Pinned.Primes.SeedGL
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
 public import CFSG.LargeExtraspecial.BridgeSetting
 public import CFSG.LargeExtraspecial.S3Asch

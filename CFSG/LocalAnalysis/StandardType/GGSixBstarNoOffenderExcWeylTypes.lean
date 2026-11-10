@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE8
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSylowE8Five
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Basic
 
 public section

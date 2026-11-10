@@ -1,35 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2711d
-public import CFSG.Walter.W67.W1Basic
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBFive
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBFiveCentRes
-public import CFSG.RankThree.Native.HSMcLFiveCentralizers
-public import CFSG.RankThree.Native.HSMcLSmall
-public import CFSG.HardMathSupport.Dickson.BMRows.Types
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporCo2
-public import CFSG.Monster.B.Pinned.Primes.FiveRelations
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMSevenEmb
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMSevenQ
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMSevenZCent
-public import CFSG.RankThree.PartOne.KS.HeSevenCentralizers
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMSevenShape
 public import CFSG.HardMathSupport.Dickson.BMRows.CensusM7
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabSuzA
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabSuzB
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabSuzQuasi
-public import CFSG.Sporadic.SuzOddCore.SmallModel
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo2Shape
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.U42
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
-public import CFSG.Sporadic.Co2Smith.GlC0JankoA
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1ThreeFinal
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1ThreeMoore
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMThreeALeech
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi24LeafShape
-public import CFSG.HardMathSupport.Timmesfeld.SporadicRank.Fi24
-public import CFSG.RankThree.Asc83Table.J3
-public import CFSG.HardMathSupport.Timmesfeld.Coordinator.SporadicRankData
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.RkBM
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMFiveHN
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMFiveShape

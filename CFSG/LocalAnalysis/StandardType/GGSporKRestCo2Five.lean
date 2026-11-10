@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestClosure
 public import Certificates.Certificate1023208
-public import CFSG.Sporadic.Co2
-public import CFSG.Sporadic.Bridge.Co2Surj
 public import CFSG.Sporadic.Presentation.Co2Exact
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableShort

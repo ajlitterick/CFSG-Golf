@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.ONEN.Defs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Schreier.ONCheckAuxInputs
 public import Certificates.Kernel.Sporadic.ON.Seven
 

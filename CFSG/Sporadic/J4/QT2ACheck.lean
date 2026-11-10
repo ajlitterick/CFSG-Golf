@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.J4.QT2ANative
 public meta import CFSG.Sporadic.J4.QT2ANative
 public import Certificates.Certificate4000
 

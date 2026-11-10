@@ -3,13 +3,7 @@ module
 public import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6FiveConjSix
 public import CFSG.LocalAnalysis.StandardType.GGOrdPToralF4Holds
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcHardTwE6
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ToralInner
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4Sylow
-public import CFSG.HardMathSupport.Lang.AnisoE6.TwPlane
-public import CFSG.HardMathSupport.Lang.AnisoE6.F4GraphFixed
-public import CFSG.RankThree.Chevalley.SteinbergBTTwistedE6ModelCover
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.GH74.Statements
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4Close
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpSuzukiCentralizer

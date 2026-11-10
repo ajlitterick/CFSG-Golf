@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticPlaneActions
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticSupport
 public import CFSG.LocalAnalysis.StandardType.GGQTwoRationalWeyl
 public import CFSG.LieType.SeitzGeneration.SpBlockPlanes
-public import CFSG.Sporadic.Suz.Setup
 
 public section
 

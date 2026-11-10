@@ -4,11 +4,8 @@ public import Certificates.Kernel.SporSch.Co3.Joint
 public import Certificates.Kernel.SporSch.Co3.Second
 public import Certificates.Kernel.Sporadic.M12Alt.Check
 public import CFSG.Certificates.Kernel.SporSch.MCountCSound
-public import CFSG.Sporadic.Schreier.Co3GenerationCheckInputs
 meta import CFSG.Sporadic.Schreier.Co3GenerationCheckInputs
-public import CFSG.Certificates.Kernel.Spor.SiftRSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.Schreier.M11Data
 
 public section

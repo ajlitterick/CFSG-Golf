@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.StatementB
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Defs
-public import CFSG.Quasithin.Background.B4Models
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusCuts
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelCoordinates
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.LineTransport
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.Adjust
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.Om6m
@@ -13,7 +10,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.Om6mBorel
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.Om6mParabolic
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.OmegaMinusFlag
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.FixedLineOmega
-import Mathlib.Algebra.CharP.CharAndCard
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.CyclicBlocks.Family
@@ -162,7 +158,6 @@ import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.C2PushThree
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -255,9 +250,6 @@ import CFSG.RankThree.PartTwo.Sec4.Census.WiringDoubleCover
 import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.NormalFormStabilizer
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.StabilizerLift
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.PSL2Facts
 
 public section
 

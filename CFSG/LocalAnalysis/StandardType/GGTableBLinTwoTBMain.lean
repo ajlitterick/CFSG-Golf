@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinTwoTBFrame
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLCover
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdLabel
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineL2Cover
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLMod
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinIrredDef
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoRestTwo
 
 public section
 

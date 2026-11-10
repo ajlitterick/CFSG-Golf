@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommLocalSixEAxis
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommPrincipalLayers
-public import CFSG.LocalAnalysis.SteinbergSFSingleCommNextTwoCoresComplement
 
 public section
 

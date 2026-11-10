@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Defs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Qdecomp
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32SharedLemma33
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32FocalAlperin
@@ -9,8 +8,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32NormalizerJ
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32OuterY
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.LinesCore
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.TypeIIEndgame41Aux
-import CFSG.LocalAnalysis.PreuniquenessRankFour.RankTwo
-import CFSG.RankThree.PartOne.S9.Planes.Basic
 import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section

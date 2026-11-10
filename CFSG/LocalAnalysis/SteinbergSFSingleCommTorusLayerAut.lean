@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommTorusLayerCore
-public import CFSG.RankThree.PartOne.KC.EvenSymplecticSL2Automorphisms
 
 public section
 

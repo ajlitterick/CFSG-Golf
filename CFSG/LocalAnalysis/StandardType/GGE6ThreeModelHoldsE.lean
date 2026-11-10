@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHolds
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelEFrame
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelCentE
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelLiftE
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelModuleME
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelShapeE
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelNormE
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelAutE
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelRecipeID
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelE6Kernel

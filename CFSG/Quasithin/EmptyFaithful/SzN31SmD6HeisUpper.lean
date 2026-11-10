@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.SzN31SmD6GrpB
-public import CFSG.Quasithin.EmptyFaithful.SzN31Basic
 public import CFSG.Quasithin.EmptyFaithful.SzN31CntLinB
 public import CFSG.Quasithin.EmptyFaithful.SzN31CntGrpB
 

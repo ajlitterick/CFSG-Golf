@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailBstar
-public import CFSG.RankThree.PartOne.LIT.RankAbstract
 
 public section
 

@@ -4,11 +4,7 @@ public import Certificates.Kernel.C232403.Checks
 public import Certificates.Kernel.LocalComp.WittCount
 public import Certificates.Kernel.LocalComp.WittWords
 public import Certificates.Kernel.Item434.M22Facts
-public import CFSG.Certificates.Kernel.Item434.PkSound
 public import CFSG.Certificates.Kernel.WittBadSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.FinCases
 
 public section
 

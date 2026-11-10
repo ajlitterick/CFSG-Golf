@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveNineteenL2
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qu
-public import CFSG.LocalAnalysis.UniquenessCase.UC6Syl
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic49U3.Case1Misc
 
 public section

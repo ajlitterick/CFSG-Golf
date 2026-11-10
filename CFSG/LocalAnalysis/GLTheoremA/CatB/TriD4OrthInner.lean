@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Defs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 import CFSG.LocalAnalysis.GLTheoremA.CatB.TriD4OrthComp
@@ -8,13 +7,6 @@ import CFSG.LocalAnalysis.GLTheoremA.CatB.TriD4OrthConj
 import CFSG.LocalAnalysis.GLTheoremA.CatA.D4XFIso
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S171Basic
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.OrthInner
-import CFSG.HardMathSupport.Solomon.Coordinator.B3LieCore
-import CFSG.LocalAnalysis.GLTheoremB.PCompBasics
-import CFSG.SignalizerFunctorTheorem.Inheritance.TransportA.Fitting
-import CFSG.Timmesfeld.Orders.Classical
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
@@ -52,16 +44,7 @@ public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
 public import CFSG.LocalAnalysis.LargeEvenClassification.TopScalarLiftSquare
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 import CFSG.Blueprint.LieModelAPI
 import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 import CFSG.GH74.GLS.Stage2.Local.P34Main

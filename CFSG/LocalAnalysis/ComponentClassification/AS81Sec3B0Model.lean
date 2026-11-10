@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3B0Rho
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3B0Omega
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3B0SuzCert
-public import CFSG.Sporadic.SuzOddCore.InvCentralizers
 public import CFSG.Sporadic.SuzOddCore.SylowFusion
-public import CFSG.Sporadic.SuzOddCore.InvGraphCheck
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointActionModels

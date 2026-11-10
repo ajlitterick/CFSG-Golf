@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKGAF4Defs
 public import CFSG.LocalAnalysis.StandardType.GGKGAF4Self
 public import CFSG.LocalAnalysis.StandardType.GGKGAF4Witness
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixPerfect
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveInnAll
 
 public section

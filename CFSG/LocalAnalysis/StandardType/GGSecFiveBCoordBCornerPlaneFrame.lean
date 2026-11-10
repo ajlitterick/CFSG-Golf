@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerDenseDefs
-import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixCoverModel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerModel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKFrameCore
 

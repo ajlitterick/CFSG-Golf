@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.FieldTheory.Finite.GaloisField
-public import Mathlib.FieldTheory.Finite.Basic
 public import Mathlib.RingTheory.Adjoin.PowerBasis
 public import Mathlib.LinearAlgebra.Dual.Lemmas
 

@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight91NotSL3Co
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight91PrimeCore
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight91OutCore
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.K33ExceptionalRanks
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Setup
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankBound
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallD4Par
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.CentralizingRank
@@ -92,11 +91,9 @@ public import CFSG.LocalAnalysis.GLTheoremB.Prop95Input18
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2AltFiveBlock3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2Families3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2HSFive3
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Cover
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Fusion
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Impure
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Kmax
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Port3CoreFree
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Residue3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2LeavesNarrow3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2SporDatum3

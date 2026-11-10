@@ -1,17 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7DKSqueezeDefs
-import CFSG.RankThree.PartOne.S11d.OrthLayer
-import CFSG.RankThree.PartOne.KC.OrthogonalLocalComponents
 import CFSG.RankThree.PartOne.S15K.OrthModel
-import CFSG.RankThree.PartOne.S11d.OrthCaseH
-import CFSG.RankThree.PartOne.KC.OrthogonalFixedBlock
-import CFSG.RankThree.PartOne.KC.OrthogonalSupportedBlocks
-import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgOrthogonal
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeOrthTBlock
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeOrthTFix
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 import CFSG.GroupTheory.IsComponentOfMap
 import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenGenB

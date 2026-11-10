@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaCenter
 
 public section
 

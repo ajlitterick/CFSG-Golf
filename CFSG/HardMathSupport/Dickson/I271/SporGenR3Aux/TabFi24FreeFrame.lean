@@ -2,11 +2,7 @@ module
 
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi24Dec
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi24FreeGen
-public import CFSG.GH74.QTGen4.Recog.G23.Words
-public import CFSG.RankThree.PartTwo.Sec4.Census.CoverCenterThreeRestCover
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi24FreeFacts
 public import Certificates.Certificate17568
-public import Certificates.Data.CFSGNative.Timmesfeld.Fi24Free
 
 public section
 

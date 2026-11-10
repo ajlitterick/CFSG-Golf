@@ -1,18 +1,7 @@
 module
 
-public import CFSG.Monster.B.TwoA.Census.XiFusion
-public import CFSG.Monster.VisCert.FrameOrbit
-public import Mathlib.GroupTheory.Perm.Cycle.Type
-public import CFSG.Monster.B.TwoA.Census.SymTrace
 public meta import CFSG.Monster.B.TwoA.Census.XiFusion
-public import CFSG.Monster.B.TwoA.Census.LatticeInvInputs
 public import Certificates.Certificate3021
-public import Certificates.Certificate3020
-public import Certificates.Certificate3015
-public import Certificates.Certificate3016
-public import Certificates.Certificate3017
-public import Certificates.Certificate3018
-public import Certificates.Certificate3019
 
 public noncomputable section
 

@@ -1,12 +1,9 @@
 module
 
 public import CFSG.RankThree.PartTwo.Census.Criteria
-public import CFSG.Blueprint.Catalog
-public import CFSG.Blueprint.ChevalleyWeyl
 public import CFSG.RankThree.PartTwo.Census.Carrier.G2ThreeCert
 public import CFSG.Quasithin.Background.G2UAdjoint
 public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.LieType.Chevalley.NativeMonomial
 import CFSG.RankThree.PartTwo.Census.OddClassical.UnitaryFourThree
 import CFSG.LieType.Chevalley.ExactG2FiniteOrder
 import CFSG.Adapters.TauCetiExceptional.BridgeG2

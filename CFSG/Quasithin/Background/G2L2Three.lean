@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.G2L2
-public import Mathlib.GroupTheory.Transfer
-public import Mathlib.GroupTheory.NoncommCoprod
 
 public section
 

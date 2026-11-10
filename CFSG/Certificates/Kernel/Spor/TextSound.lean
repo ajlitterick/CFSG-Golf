@@ -5,7 +5,6 @@ import CFSG.Certificates.Kernel.Spor.TextJoin
 import CFSG.Certificates.Kernel.Spor.PackFld
 import CFSG.Certificates.Kernel.Spor.HexText
 public import CFSG.Certificates.Kernel.Spor.RawDefs
-public import Certificates.Data.CFSGNative.Co3Schreier.Basic
 
 public section
 

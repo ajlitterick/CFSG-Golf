@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGReeB2SzPairDefs
 public import CFSG.RankThree.PartOne.SEITZ7.SzPair
-public import CFSG.LieType.Ree.SmallReeCollectionCheck
 
 public section
 

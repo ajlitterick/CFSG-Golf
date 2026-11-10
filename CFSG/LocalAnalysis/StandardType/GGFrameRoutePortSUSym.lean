@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Assembly.GL83LieDefs
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortRankSym
-import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortSUSymTorus
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortSUSymGens
 
 public section

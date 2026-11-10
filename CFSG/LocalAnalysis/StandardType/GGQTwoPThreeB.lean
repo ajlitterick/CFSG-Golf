@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBReduce
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylRest5
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
 

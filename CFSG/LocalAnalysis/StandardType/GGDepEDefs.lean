@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGDepASmall
-public import CFSG.LocalAnalysis.StandardType.GGDepAFrame
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 public import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 public import CFSG.LocalAnalysis.StandardType.GGDepAPerm
 

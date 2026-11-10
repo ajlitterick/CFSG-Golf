@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Census423Three.GoodGroupP
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Census423Three.DataGlue
 public import CFSG.RankThree.PartTwo.Sec21.Item228Census5ProofSp4
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res3ProofLieP
-public import CFSG.LieType.SeitzGeneration.SpFourThree
 public import CFSG.LieType.SeitzGeneration.SpFourScope
-public import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
 public import CFSG.Quasithin.Background.C1PackNat
 public import CFSG.Quasithin.Background.C1PackSolvBasic
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res3ProofAlt

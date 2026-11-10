@@ -1,11 +1,8 @@
 module
 
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabThCensus
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabThCentSInputs
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabThShapeS
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabThG2Rec
-public import CFSG.HardMathSupport.Dickson.Sec6.Up34SporAux.ThThree
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThThreeClose
 public import Certificates.Certificate17308
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.ConstrainedGen
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.SporRec

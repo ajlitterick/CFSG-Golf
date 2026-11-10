@@ -1,10 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Definitions
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma6_3
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.QdSLPCore
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.QdSLNotInvolvedOfDihedralSylowTwo
-import Mathlib.FieldTheory.Finite.Basic
 import Mathlib.GroupTheory.SpecificGroups.Quaternion
 
 namespace CFSG

@@ -1,8 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import CFSG.LocalAnalysis.EvenBN.Tits.I21Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2InvolutionFusion
 public import CFSG.Sporadic.Recognition.JankoWongPSLNine
 public import CFSG.Sporadic.SchreierLemmas.OuterAlternatingSix
 public import CFSG.LocalAnalysis.EvenBN.Tits.I21Outer

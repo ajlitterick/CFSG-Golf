@@ -1,16 +1,10 @@
 module
 
-public import Certificates.Data.TwoF4LieCheck
-public import CFSG.Sporadic.Schreier.TitsActionCheckInputs
-public import CFSG.Sporadic.Schreier.TitsCentralCheckInputs
-public import CFSG.Sporadic.Schreier.TitsAction
-public import Mathlib.Logic.Relation
 import Certificates.Kernel.TwoF4Lie.Checks
 import Certificates.Kernel.TwoF4Lie.Range
 import CFSG.Certificates.Kernel.TwoF4LieSound
 import CFSG.Certificates.Kernel.Enum.ZCSound
 public import CFSG.Quasithin.Recognition.RuTypeJ47Cert
-import CFSG.Sporadic.Schreier.TitsCentral
 public meta import CFSG.Sporadic.Schreier.TitsData
 public meta import CFSG.Sporadic.Schreier.TitsArrays
 public meta import CFSG.Sporadic.Schreier.TitsBasic
@@ -20,43 +14,12 @@ public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public meta import CFSG.Sporadic.Schreier.TitsCertCheck
 public meta import CFSG.Sporadic.Schreier.TitsLocalCheck
 public meta import CFSG.Sporadic.Schreier.TitsEnum
-public import CFSG.Sporadic.Schreier.TitsCertCheckInputs
-public import CFSG.Sporadic.Schreier.TitsLocalCheckInputs
-public import CFSG.Sporadic.Schreier.TitsPrimCheckInputs
 public meta import CFSG.Sporadic.Schreier.TitsLocal
 public meta import CFSG.Sporadic.Schreier.TitsActionCheck
 public meta import CFSG.Sporadic.Schreier.TitsOrbit
 public meta import CFSG.Sporadic.Schreier.TitsStabCheck
 public meta import CFSG.Certificates.NativeInvariantMerge
 public meta import Certificates.Data.CFSGNative.Schreier.Merge
-public import CFSG.Sporadic.Schreier.TitsStabCheckInputs
-public import CFSG.Quasithin.Recognition.RuRank3Tits13Inputs
-public import CFSG.Quasithin.Recognition.CertDataTitsOuter
-public import Certificates.Data.RuTypeJ47Inputs
-public import CFSG.Open.QuasithinDefs
-public import CFSG.Blueprint.MatrixSeedIdentification
-public import CFSG.Quasithin.Recognition.CertChain
-public import CFSG.Quasithin.Recognition.CertDataTits
-public import Certificates.Data.CFSGNative.YGroups.ExactCheck
-public import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Quasithin.Recognition.CertTitsInputs
-public import CFSG.Sporadic.Schreier.TitsOuter
-public import CFSG.Quasithin.Recognition.CertTitsSimpleMain
-public import CFSG.Quasithin.Recognition.CertTits
-public import CFSG.Blueprint.Catalog
-public import CFSG.Quasithin.Recognition.CertPermOuter
-public import CFSG.Quasithin.Recognition.CertTitsOuterInputs
-public import CFSG.Sporadic.Schreier.TitsStabCheck
-public import CFSG.Sporadic.Schreier.TitsOrbit
-public import CFSG.Quasithin.Recognition.CertMergeTargets
-public import CFSG.Quasithin.Recognition.CertDataTitsOvergroup
-public import CFSG.Quasithin.Recognition.CertTitsOvergroupCheckInputs
-public import Std.Data.HashMap
-public import CFSG.Sporadic.Schreier.TitsCentralCheck
-public import CFSG.Quasithin.Recognition.CertTitsJCheck
-public import CFSG.Quasithin.Recognition.CertVertexTable2
-public import CFSG.Quasithin.Recognition.CertTwoF4CheckInputs
-public import Certificates.Certificate7092
 public import Certificates.Certificate4180Base
 public import Certificates.Certificate7050Base
 

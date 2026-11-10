@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Co1Block.TwoACheckInputs
 public import CFSG.Sporadic.Co1Patterson.NativeQInputs
 public import Certificates.Kernel.Co1B.Iota
 import CFSG.Certificates.Kernel.Common.Harness

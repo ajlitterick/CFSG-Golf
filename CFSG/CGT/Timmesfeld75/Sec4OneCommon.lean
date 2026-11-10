@@ -1,11 +1,7 @@
 module
 
 public import CFSG.CGT.Timmesfeld75.Sec5One
-public import CFSG.CGT.Timmesfeld75.Sec3GlobalConj
-public import CFSG.CGT.Timmesfeld75.Sec3Six
-public import CFSG.CGT.Timmesfeld75.Sec215Local
 public import CFSG.CGT.Timmesfeld75.Sec3Thirteen
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.GroupTheory.ElemAbelianClosure
 
 public section

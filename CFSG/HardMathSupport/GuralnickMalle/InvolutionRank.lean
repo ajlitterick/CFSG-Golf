@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.GuralnickMalle.CyclicTwoBounds
-public import Mathlib.LinearAlgebra.Matrix.Rank
 
 public section
 

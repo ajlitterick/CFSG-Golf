@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.RF4.Basic
 public import CFSG.LieType.Steinberg.TwistedD4.Perfect
-public import CFSG.LieType.Ree.Mirror
 
 public section
 

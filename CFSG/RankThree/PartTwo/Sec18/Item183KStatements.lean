@@ -5,7 +5,6 @@ public import CFSG.RankThree.PartTwo.Sec12.Item124Bar
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.RankThree.Asc83Table.Automizer
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface

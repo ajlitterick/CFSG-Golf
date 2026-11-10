@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.LocalQT.PcOm
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBaseNative
 public import CFSG.Quasithin.Background.A312SporE8Check
 
 public section

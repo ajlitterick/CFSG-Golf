@@ -2,14 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelLieU3
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenVac
-import CFSG.LocalAnalysis.GLTheoremA.PComp
-import CFSG.LocalAnalysis.GLTheoremB.PCompBasics
-import CFSG.LocalAnalysis.GLTheoremA.Pump
 import CFSG.LocalAnalysis.GLTheoremA.S6.AltSetup
 import CFSG.HardMathSupport.Timmesfeld.Proving.OmegaPiGroup
-import CFSG.LocalAnalysis.GLTheoremB.GammaStarConj
-import CFSG.Foundations.KCoreOpen
-import CFSG.Fischer.F4
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.ClassicalInvolution.Balance.LocalBalance.Faithful
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools

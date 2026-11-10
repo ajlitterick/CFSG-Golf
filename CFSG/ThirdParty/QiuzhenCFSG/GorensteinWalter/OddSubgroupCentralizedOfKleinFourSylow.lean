@@ -4,8 +4,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralReflectionCen
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralRotationIndexTwo
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GWLemma21
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddSubgroupLeNormalIndexTwo
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Classification
-import Mathlib.GroupTheory.IndexNormal
 import Mathlib.Tactic
 
 namespace CFSG

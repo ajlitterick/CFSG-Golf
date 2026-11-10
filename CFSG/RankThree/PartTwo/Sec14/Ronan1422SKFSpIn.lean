@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Assembly.RankThreeEvenDefs
 public import CFSG.ClassicalGroups.Symplectic.Simple
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.KF148Sig.Reduction
 public import CFSG.Models.PGLOrders
-public import CFSG.RankThree.LocalRank.SolvablePrimeComplementCore
-public import CFSG.RankThree.PartTwo.KFacts.K71Sp4
-public import CFSG.RankThree.PartTwo.KFacts.K72Centralizer
 public import CFSG.RankThree.PartTwo.Sec4.Item47Bridges
 public import CFSG.RankThree.PartTwo.Sec6.BThreeCensusSp4Main
 public import CFSG.RankThree.PartTwo.Sec8.Item812Res10ProofSp48

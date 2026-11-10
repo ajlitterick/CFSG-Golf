@@ -6,10 +6,6 @@ import Certificates.Kernel.Fi24Rk.ChecksStab
 import Certificates.Kernel.Sporadic.Fi24K.C2077
 import CFSG.Certificates.Kernel.Fi22Rk.PbChecksN
 import CFSG.Certificates.Kernel.Fi22Rk.Uniq
-import CFSG.Certificates.Kernel.Spor.HexNumsSound
-import CFSG.Certificates.Kernel.Spor.RawSound
-import Certificates.Kernel.Sporadic.ON.Gen
-import Mathlib.Tactic.IntervalCases
 import CFSG.Sporadic.FischerOddCore.LabelSpec
 
 #kon_join CertificateChecks.KernelFi24Rk.K.lay0All CertificateChecks.KernelFi24Rk.K.lay0 16

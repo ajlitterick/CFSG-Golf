@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTypeDDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
 public import CFSG.LocalAnalysis.StandardType.GGTorusDWeyl
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDWeyl
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOrthogonalSemilin
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSpUSpLabels
 import all CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotFieldNormalizeSp
 
 public section
 

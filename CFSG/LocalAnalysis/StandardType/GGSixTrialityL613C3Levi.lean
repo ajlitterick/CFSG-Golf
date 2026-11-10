@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613C3Sylow
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2Outer
 public import CFSG.LieType.Chevalley.TorusTupleLift
 public import CFSG.Mathlib.RingTheory.RootsOfUnity.ZModUnits
-public import CFSG.Mathlib.RingTheory.UnitOrderOf
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcTD4Par
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Defs
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCoreAssembly
@@ -46,8 +45,6 @@ public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts

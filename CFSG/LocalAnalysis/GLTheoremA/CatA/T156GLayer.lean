@@ -3,14 +3,9 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I264bTools
-public import CFSG.LocalAnalysis.GLTheoremA.S10.CaseGamma
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiagInputs
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestSmall
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPCanon
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.OutCycCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I264bDesc
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS03KD264
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQ
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRLift
 
 public section

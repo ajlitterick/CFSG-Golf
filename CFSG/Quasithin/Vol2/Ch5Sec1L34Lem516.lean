@@ -2,15 +2,9 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch5Sec1L34Comp
 public import CFSG.Quasithin.Vol2.Ch5Sec1Facts
-public import CFSG.Quasithin.Vol2.Ch5Sec1Borel
 public import CFSG.Quasithin.Vol2.Ch5Sec2LocalL2
-public import CFSG.Quasithin.Background.A3Structure312Embed
-public import CFSG.Quasithin.Background.A4Reduced
-public import CFSG.Quasithin.Background.B2FactorizationR2
 public import CFSG.LieType.Ree.SuzukiOrder
 public import CFSG.Timmesfeld.Orders.ClassicalLinear
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.LieType.BorelTits.Suzuki
 import CFSG.Adapters.LieModelSmallOrders
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
@@ -35,7 +29,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.F2Equiv
@@ -52,12 +45,9 @@ public import CFSG.Quasithin.Vol2.Ch5Sec1L34Basic
 public import CFSG.Quasithin.Vol2.Ch5Sec1Lem5115
 public import CFSG.Quasithin.Vol2.Ch5Sec1Thm5114
 public import CFSG.Quasithin.Vol2.Ch5StatementsDS
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoReflLin
 public import CFSG.LocalAnalysis.StandardType.GGTBJReflLemma
-public import Mathlib.SetTheory.Cardinal.Finite
-public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.LinearAlgebra.Basis.VectorSpace
-public import Mathlib.LinearAlgebra.Dual.Lemmas
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 
 public section
 

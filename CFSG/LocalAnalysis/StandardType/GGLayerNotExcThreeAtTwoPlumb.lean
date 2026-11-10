@@ -7,14 +7,9 @@ import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerTagsExcBasic
 import CFSG.LocalAnalysis.StandardType.GGSixFieldFiveTagsRank
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.FieldCopy
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.Untw
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcMonomial
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcAssemblyE
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
-import CFSG.LocalAnalysis.SeitzReduction.E8PilotLevi
-import CFSG.LieType.Chevalley.SingleEdgePerfect
-import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwReduction
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwTorus
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuous
@@ -53,20 +48,13 @@ import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LangFrame
 import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.Quasithin.Background.A3Structure319
-import CFSG.Quasithin.Background.A3Structure36Base
-import CFSG.Quasithin.Background.A3Structure38Part3
 import CFSG.Quasithin.Background.F9FiveStruct
 import CFSG.Quasithin.Background.F9G2
 import CFSG.Quasithin.Background.F9Geometry
 import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.EmptyFaithful.S1421Defs
 import CFSG.Quasithin.EmptyFaithful.S142Statements
 import CFSG.Quasithin.H13.A5S1326

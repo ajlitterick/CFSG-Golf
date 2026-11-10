@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Co2Schreier.OrbitCheck
 public meta import CFSG.Sporadic.Co2Schreier.OrbitCheck
 public import Certificates.Certificate2054
 

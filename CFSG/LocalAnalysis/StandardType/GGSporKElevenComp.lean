@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSporKBMTransportB
 public import CFSG.LocalAnalysis.StandardType.GGSporKLamOrders
 public import CFSG.LocalAnalysis.StandardType.GGSporKPSubquot
 public import CFSG.HardMathSupport.Dickson.BMRows.M11Holds
-public import CFSG.HardMathSupport.Dickson.BMRows.M11Shape
-public import CFSG.Sporadic.Bridge.MonsterModels
-public import CFSG.RankThree.PartOne.SPOR.OuterM
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416SporAut168
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS10I1416Pass
 

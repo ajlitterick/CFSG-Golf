@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcTwF4Row
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcTwF4Fix
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcTwF4Eight
 

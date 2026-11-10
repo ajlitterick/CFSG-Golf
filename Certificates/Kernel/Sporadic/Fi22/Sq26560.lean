@@ -5,7 +5,6 @@ public import Certificates.Kernel.Sporadic.Fi22.E2067T
 public import Certificates.Data.Kernel.Spor.Pc2Base
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

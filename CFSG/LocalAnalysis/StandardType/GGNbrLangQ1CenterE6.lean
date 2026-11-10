@@ -1,18 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorUniDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1E6ThreeModel
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1CenterE6Model
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TwE6Three
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1E8
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelRecipeID
-public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Recipe
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeIndex
-public import CFSG.LocalAnalysis.StandardType.GGRootCentKGStructE6Diag
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeHat
-public import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldFixed
-public import CFSG.GroupTheory.IsComponentOfMap
 
 public section
 

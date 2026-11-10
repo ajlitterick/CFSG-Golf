@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.TL4OmegaAOFD4OP
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalFourSplitAction
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FHD4OddDef
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FHD4OddLev
 

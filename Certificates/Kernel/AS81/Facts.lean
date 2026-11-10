@@ -2,10 +2,6 @@ module
 
 public import Certificates.Kernel.AS81.Bind
 public import Certificates.Kernel.AS81.Checks
-public import CFSG.Certificates.Kernel.SporSch.TitsPrimSound
-public import CFSG.Certificates.Kernel.Spor.PrimSound
-public import CFSG.Certificates.Kernel.Spor.RawOrbHead
-public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Certificates.Kernel.Spor.PackFld
 import CFSG.Certificates.Kernel.Common.Harness
 

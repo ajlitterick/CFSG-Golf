@@ -1,10 +1,7 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.SporSch.GenPerms
 public import Certificates.Kernel.LocalQT.He4148.Glue
-public import Certificates.Data.Kernel.SporSch.MathieuOC
-public import Certificates.Data.Kernel.Spor.Prim
 public import CFSG.Sporadic.HeldB.InnerData
 public import CFSG.Sporadic.HeldB.OuterCentAux
 public meta import Certificates.Kernel.SporSch.Mathieu.Gen
@@ -12,7 +9,6 @@ public meta import CFSG.Sporadic.HeldB.InnerData
 public meta import CFSG.Sporadic.HeldB.OuterCentAux
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.Sporadic.HeldB.OuterCentData
 public meta import CFSG.Sporadic.HeldB.OuterCentData
 public import Certificates.Kernel.SporSch.Mathieu.Gen

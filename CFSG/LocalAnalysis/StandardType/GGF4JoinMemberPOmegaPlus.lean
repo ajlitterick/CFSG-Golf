@@ -1,14 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatJoinF4
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeF1POmegaPlus
-import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoCommon
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelectedPSU
-import CFSG.LocalAnalysis.StandardType.GGF4JoinMemberPSL
 import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoPOmegaPlus
 public import CFSG.LocalAnalysis.StandardType.GGSelectedSiegelPair
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinGuardedOmega
-import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaPlus
 import all CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpFPOmegaPlusFE
 import all CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEOmegaFourMinusPOmegaPlus
 

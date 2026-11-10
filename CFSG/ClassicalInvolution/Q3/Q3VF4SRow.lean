@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3VF4SDefs
 public import CFSG.ClassicalInvolution.Q3.Q3VF4SRowOrth
 public import CFSG.ClassicalInvolution.Q3.Q3E8BRowExc
-public import CFSG.ClassicalInvolution.Q3.Q3WAComp
 public import CFSG.ClassicalInvolution.Uniform.U8Final
 public import CFSG.ClassicalInvolution.RouteD.TypeF4TwinPerpCount
 public import CFSG.Sporadic.Schreier.J4SProfileNode

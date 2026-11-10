@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4H4ListSpOrth
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyU
 import CFSG.LocalAnalysis.StandardType.GGK1ScLin
 import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBCard
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBPSL
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVac
-import CFSG.LocalAnalysis.StandardType.GGTableBTwDThree
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineClassical
 
 public section
 

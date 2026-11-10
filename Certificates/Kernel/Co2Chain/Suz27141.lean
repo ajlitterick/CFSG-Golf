@@ -2,10 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.Suz2302
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.SuzOrderEightCheck
-public import CFSG.Certificates.Kernel.Spor.PrimSound
-public import CFSG.Certificates.Kernel.Spor.PackWord
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

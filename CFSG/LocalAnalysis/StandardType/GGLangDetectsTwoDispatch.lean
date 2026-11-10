@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangDetects
-import CFSG.LieType.Chevalley.OddRootPairPermutation
 import CFSG.LocalAnalysis.StandardType.GGLangDetectsTwoE
 import CFSG.LocalAnalysis.StandardType.GGLangDetectsTwoF4
 import CFSG.LocalAnalysis.StandardType.GGJ4dDetectTwoOuter

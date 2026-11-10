@@ -3,9 +3,7 @@ module
 public import CFSG.RankThree.GF2n.Tim79a34BigDirectCount
 public import CFSG.RankThree.GF2n.Tim79a34BigDirectGroup
 public import CFSG.RankThree.GF2n.Tim79a34BigEpsGe
-public import CFSG.RankThree.GF2n.Tim79a34BigNoInvComp
 public import CFSG.RankThree.GF2n.Tim79a34BigRoot
-public import CFSG.RankThree.GF2n.Tim79a34TwBound
 public import CFSG.GroupTheory.SupCommute
 public import CFSG.GroupTheory.SupMulCommutative
 

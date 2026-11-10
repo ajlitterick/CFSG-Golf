@@ -1,10 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Residual
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.V.Semidirect
-import Mathlib.GroupTheory.IndexNormal
-import Mathlib.LinearAlgebra.Dual.Lemmas
 
 namespace CFSG
 end CFSG

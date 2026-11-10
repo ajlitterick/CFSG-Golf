@@ -2,13 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.SylowRows
 public import CFSG.Sporadic.SmallOddCore.Co3FusionCheckInputs
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Rank
-public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizers
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import CFSG.Sporadic.Schreier.Co3Cert
-public import CFSG.Sporadic.Schreier.Co3Outer
-public import Certificates.Certificate2152
-public import Certificates.Certificate2158
 public import Certificates.Kernel.Sporadic.Co3.Hyp24438Glue
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.GroupTheory.LocalCores.Components

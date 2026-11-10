@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3ZAdjChain
 public import CFSG.ClassicalInvolution.Q3.Q3ZAdjSp
 public import CFSG.ClassicalInvolution.WeakCT.StandardPair
-public import CFSG.LieType.CurtisTits.Recognition
-public import CFSG.LieType.Universal.Symplectic
 
 public section
 

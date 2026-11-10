@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GLinGeom
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GDefs
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 
 public section
 

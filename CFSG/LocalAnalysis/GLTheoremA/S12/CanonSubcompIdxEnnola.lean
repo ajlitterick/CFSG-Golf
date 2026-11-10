@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxEnnolaDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GSympLabel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173AExtU33
 public import CFSG.CGT.Timmesfeld75.MultPrime
-public import CFSG.LocalAnalysis.StandardType.ChevTwoMarking
 public import CFSG.CGT.Timmesfeld75.Sec5FiveEng
 public import CFSG.CGT.Timmesfeld75.Sec5Nine
 public import CFSG.CGT.Timmesfeld75.Sec5Ten

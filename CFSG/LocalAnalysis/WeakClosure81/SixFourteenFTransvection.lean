@@ -2,10 +2,8 @@ module
 
 public import CFSG.Milestones.ASVolI.H1
 public import CFSG.LocalAnalysis.WeakClosure81.SixFourteenN2F4General
-public import CFSG.Quasithin.Background.D2Coprime
 public import CFSG.GroupTheory.FixVConj
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeBasic
-public import CFSG.LocalAnalysis.WeakClosure81.SixFourteenN2F4Module
 public import CFSG.Quasithin.Background.A1cModuleCoprime
 public import CFSG.Quasithin.Background.A3Structure312Facts
 public import CFSG.Quasithin.Vol2.Ch4Sec4L443E12Map

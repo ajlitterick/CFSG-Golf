@@ -1,8 +1,6 @@
 module
 
-import CFSG.Certificates.Kernel.Common.ForallTree
 import CFSG.Certificates.Kernel.Common.ForallTreeFrom
-import Mathlib.Tactic.IntervalCases
 import Certificates.Kernel.Sporadic.Fi24Seven.NegI
 public import Certificates.Kernel.Sporadic.Fi24Seven.GlueK
 import Certificates.Kernel.Sporadic.Fi24Seven.C00

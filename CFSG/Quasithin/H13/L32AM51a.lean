@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.H13.L32AM50l
 public import CFSG.Quasithin.H13.L32AC51h
 public import CFSG.Dihedral.GorensteinWalter.GLSemilinearDescent
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearDescentFixedBasis
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherScalarSquareSplit
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122AProved
@@ -20,8 +19,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M24Tight
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19Defs
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.Quasithin.Background.C1PackS1531Top
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.G64SymCase
 public import CFSG.Quasithin.Background.S1567Z4
@@ -41,10 +38,6 @@ public import CFSG.Quasithin.Vol2.Ch10SecA1012Three
 public import CFSG.Quasithin.Vol2.Ch10SecA1012Two
 public import CFSG.Quasithin.Vol2.Ch11SecA02NatFix
 public import CFSG.Quasithin.Vol2.Ch11SecA11Exists
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 public import Certificates.Kernel.J4Count.Cent11Base
 public import Certificates.Kernel.J4Count.Fix11
 

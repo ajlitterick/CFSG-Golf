@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.S13K.Sp6Comm
 public import CFSG.RankThree.PartOne.S13K.Comm136
-public import CFSG.RankThree.PartOne.S12.Sec138Loc
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

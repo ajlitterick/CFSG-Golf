@@ -8,7 +8,6 @@ public import TauCeti.Algebra.Lie.Orthogonal.TypeB.SpinCarrier.FixedPoints
 import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.GraphTwisted
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeB.Basic
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.TypeB.Basic
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Frobenius
 import all TauCeti.Algebra.CharP.Frobenius.Fixed

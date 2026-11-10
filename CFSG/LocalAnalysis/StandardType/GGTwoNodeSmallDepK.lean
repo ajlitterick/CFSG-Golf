@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRowKSide
 public import CFSG.LocalAnalysis.StandardType.GGSmallDepDefs
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepLarge
 

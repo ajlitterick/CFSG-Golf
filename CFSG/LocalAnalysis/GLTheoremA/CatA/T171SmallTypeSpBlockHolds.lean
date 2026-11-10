@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeSpBlockDim
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeSpMain
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Sp6
-public import CFSG.LieType.BorelTits.HeldFlagSp
-public import CFSG.Walter.Bender1970.S2.PGroup
 
 public section
 

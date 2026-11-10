@@ -3,30 +3,16 @@ module
 
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtCoverBase1
 
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtSylow
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtCoverCheck
-public import CFSG.Sporadic.FischerOddCore.LabelSpec
-import Mathlib.Tactic.Group
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtData
 public meta import CFSG.Monster.B.Fischer.Fi22OuterCheck
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtCoverCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheck
 public meta import Certificates.Data.CFSGNative.FischerOddCore.Checks
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtCheck
 public meta import CFSG.Monster.B.Fischer.Fi22CoverCheck
 public meta import CFSG.Monster.B.Fischer.Fi22OrderCheck
 public meta import CFSG.Monster.B.Fischer.Fi22GraphCheck
-public import CFSG.Monster.B.Fischer.Fi22GraphCheckInputs
-public import CFSG.Monster.B.Fischer.Fi22OuterCheckInputs
-public import CFSG.Monster.B.Fischer.PinnedChainInputs
-public import CFSG.Monster.B.Fischer.Fi22OrderCheckInputs
-public import CFSG.Monster.B.Fischer.Fi22OuterArrays
-public import CFSG.Monster.B.Fischer.Fi22OrderCheck
-public import CFSG.Monster.B.Fischer.Fi22CoverCheckInputs
-public import CFSG.Monster.B.Fischer.Fi22GraphCheck
 public import CFSG.Monster.B.Fischer.Fi22Cover
 
 public noncomputable section

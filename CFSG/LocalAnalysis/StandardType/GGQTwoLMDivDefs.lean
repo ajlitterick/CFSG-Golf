@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrame
-public import CFSG.Sporadic.Th.Max3.Core
 
 public section
 

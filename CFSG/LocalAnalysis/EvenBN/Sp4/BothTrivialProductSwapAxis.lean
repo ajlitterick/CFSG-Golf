@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialProductUnique
 public import CFSG.LocalAnalysis.EvenBN.Common.SL2TorusThree
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 
 public section
 

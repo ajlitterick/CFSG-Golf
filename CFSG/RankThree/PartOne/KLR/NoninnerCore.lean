@@ -6,11 +6,8 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogLargeR
 public import CFSG.RankThree.Chevalley.SteinbergBNComponentLocalCoreReduction
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.LargeReeFixed
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.ReeStabilizer
-public import CFSG.SignalizerFunctorTheorem.CatalogBridge.FieldGlue
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogRigidityCommon
 public import CFSG.RankThree.Chevalley.SteinbergCFPrimeFieldG2LocalCores
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LieType.Ree.SmallReeModelSchreier
@@ -22,14 +19,12 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.NormalFormStabilizer
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.StabilizerLift
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 
 public section

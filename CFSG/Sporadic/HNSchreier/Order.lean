@@ -4,12 +4,7 @@ public import CFSG.Sporadic.HNSchreier.Separating
 public import CFSG.Sporadic.HNSchreier.ChainCheck
 public import CFSG.Sporadic.Schreier.ONCompactSpec
 public import CFSG.Certificates.SchreierPointSiftSoundness
-public import Certificates.Certificate2096
-public import Certificates.Certificate2102
-public import Certificates.Certificate2107
 public import CFSG.Sporadic.HN
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Sporadic.HN.CertificateBase
 
 public noncomputable section

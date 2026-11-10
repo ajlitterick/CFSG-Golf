@@ -1,11 +1,7 @@
 module
 
 public import Certificates.Kernel.Fi22.Cone
-public import Certificates.Kernel.Fi22.Bray
-public import CFSG.Certificates.Kernel.Fi22.Bound.Data.Cov
-import CFSG.Certificates.Kernel.Fi22.Bound2.Checks.C_L
 import CFSG.Certificates.Kernel.Fi22.Bound2.Checks.M
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

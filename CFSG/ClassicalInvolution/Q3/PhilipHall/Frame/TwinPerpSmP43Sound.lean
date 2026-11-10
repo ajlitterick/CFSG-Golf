@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.P43Twin
 public import CFSG.ClassicalInvolution.Q3.ONanTA3SmallVerdictSound
-public import CFSG.ClassicalInvolution.Q3.ONanTA3SmallGood
 public import CFSG.ClassicalInvolution.Asc77.AscE187Cop
 public import CFSG.ClassicalInvolution.Asc77.AscFusionR7
 public import CFSG.ClassicalInvolution.Asc77.AscR10QVm

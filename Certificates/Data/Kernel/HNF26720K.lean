@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.Orders.Mat
-public import CFSG.Certificates.Kernel.Common.Loop
 
 public section
 

@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPay.Defs
 
-import CFSG.LieType.Chevalley.GraphFixedBruhatEquivariance
-import CFSG.LieType.Chevalley.C2E6FirstResidueLevi
-import CFSG.RankThree.Classical2.TwistedE6RationalOrder
 import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6TTRank
 import CFSG.LocalAnalysis.StandardType.GGLieCoreLang
-import CFSG.LocalAnalysis.StandardType.GGFinModelRat
-import CFSG.RankThree.PartOne.Q1327T.Item7D4W
 
 public section
 

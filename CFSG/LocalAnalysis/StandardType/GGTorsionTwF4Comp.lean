@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorsionDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
 public import CFSG.LocalAnalysis.StandardType.GGCompFieldLieModel
-public import CFSG.Adapters.ExceptionalCatalogReverse
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExcTw
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SRTReeF4
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType

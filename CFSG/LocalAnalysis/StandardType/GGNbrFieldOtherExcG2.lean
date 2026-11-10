@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcHead
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcRowG2
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcFixG2
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2Rows
 
 public section
 

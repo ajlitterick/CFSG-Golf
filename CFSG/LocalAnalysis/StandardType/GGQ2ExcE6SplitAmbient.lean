@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitTorus
-import CFSG.LieType.Chevalley.FoldedWeylIdentification
-import CFSG.LieType.Chevalley.GraphFixedBruhatEquivariance
-import CFSG.LieType.Chevalley.WeylNormalizerQuotient
-import CFSG.LieType.Steinberg.BruhatTwist
-import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeWeylDiagGen
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeNormalizer
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitWeyl
 

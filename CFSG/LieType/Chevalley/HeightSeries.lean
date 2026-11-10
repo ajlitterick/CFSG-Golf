@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.SimpleRootComplement
-public import Mathlib.GroupTheory.Nilpotent
 
 public noncomputable section
 

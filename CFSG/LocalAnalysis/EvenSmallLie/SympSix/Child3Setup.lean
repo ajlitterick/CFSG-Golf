@@ -4,14 +4,10 @@ public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3Defs
 public import CFSG.LocalAnalysis.EvenSmallLie.Children
 public import CFSG.LocalAnalysis.EvenSmallLie.CatalogOrdersLie
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBISp6LagrangianEvenSymplecticExclusion
-public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixMaximalElementaryRadicals
-public import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 public import CFSG.Sporadic.He.Simple
 public import CFSG.LocalAnalysis.SteinbergBVSp6DirectSimpleLayer
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUSp6LagrangianFullOddCore
 import CFSG.Adapters.LieModelOrders
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Chevalley.RootCommutator
 public import CFSG.LieType.Steinberg.Classical.SpinFrame
 public import CFSG.LieType.Steinberg.Exceptional.E6E7
@@ -28,7 +24,6 @@ public import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

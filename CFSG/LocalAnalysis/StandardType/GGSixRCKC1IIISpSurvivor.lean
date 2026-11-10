@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIISpSurvivorAux
-public import CFSG.LocalAnalysis.StandardType.GGSixRCK1416Defs
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompNormal
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSpRad
 public import CFSG.Quasithin.Vol2.GoldschmidtF431Loc442Klein
 public import CFSG.ClassicalGroups.Orthogonal.SiegelRT1Pair

@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoTBIrredJ
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoTBInputs
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Two
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLVac
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
 
 public section
 

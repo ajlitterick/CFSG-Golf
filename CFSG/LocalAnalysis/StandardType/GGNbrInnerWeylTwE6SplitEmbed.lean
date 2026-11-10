@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylOpenLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Dvd
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6Two
 public import CFSG.HardMathSupport.Lang.AnisoE6.FieldEmbed

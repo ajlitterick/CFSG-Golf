@@ -8,7 +8,6 @@ public import CFSG.Certificates.Kernel.KDenseP.MonFiveB.Mono4
 public import CFSG.Certificates.Kernel.KDenseP.MonFiveB.Mono5
 public import CFSG.Certificates.Kernel.KDenseP.MonFiveB.Mono6
 public import CFSG.Certificates.Kernel.KDenseP.MonFiveB.Mono7
-public import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Common.ListOf
 
 public section

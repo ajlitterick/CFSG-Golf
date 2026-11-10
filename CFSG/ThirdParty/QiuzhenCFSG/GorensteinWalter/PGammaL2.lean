@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedCoordinates
-public import Mathlib.Algebra.CharP.CharAndCard
-public import Mathlib.GroupTheory.SemidirectProduct
 
 namespace CFSG
 end CFSG

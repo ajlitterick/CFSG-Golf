@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.ConstructYSix
 import CFSG.ClassicalInvolution.WeakCT.SpCharts
-import CFSG.ClassicalInvolution.WeakCT.Blocks
 import CFSG.ClassicalInvolution.WeakCT.Standard
 
 public section

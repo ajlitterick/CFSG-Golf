@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CoreIrr
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CoreRed
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08CoreAbs
 
 public section
 

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixPositionDefs
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalOmegaMinusStd
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.WittOmega
-public import CFSG.LieType.Universal.Spin.Twisted.Datum
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoOrth
 public import CFSG.Quasithin.EmptyFaithful.S146zWJ
 public import CFSG.RankThree.PartOne.KFOUT3.KtySUBig
@@ -19,13 +17,8 @@ public import CFSG.GH74.GLS.Bg.Statements
 public import CFSG.GH74.GLS.Defs
 public import CFSG.GH74.SmallRanks.AltM11
 public import CFSG.Goldschmidt.Basic
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Interface
 public import CFSG.Holt.Fixed
 public import CFSG.LieType.SteinbergBROddSylowCore
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
-public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTightEmbeddingAction
 public import CFSG.LocalAnalysis.ComponentClassification.BlockCentralSylowEquality
 public import CFSG.LocalAnalysis.ComponentClassification.BlockFourFactorSupport
@@ -54,7 +47,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Containment
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdBasic
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_20
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_8Aut
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Open.SplitBNPair
 public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.Quasithin.Background.A1cA132Action
@@ -72,10 +64,6 @@ public import CFSG.Quasithin.Background.C2PushH129
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F918C12
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.F918C8
@@ -128,12 +116,6 @@ public import CFSG.RankThree.PartOne.S12.Sec1322Inputs
 public import CFSG.RankThree.PartTwo.Sec20.OneSteps
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.Schreier.J4SThree
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 
 public section
 

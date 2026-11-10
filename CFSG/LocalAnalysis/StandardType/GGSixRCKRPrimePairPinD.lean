@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairPinE6
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.RecogD
 
 public section
 

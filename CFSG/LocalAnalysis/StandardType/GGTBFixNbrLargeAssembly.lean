@@ -1,21 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLargeFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixNbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeKFixLineProducer
 public import CFSG.LocalAnalysis.StandardType.GGTBFixNbrXInnerWeyl
 public import CFSG.LocalAnalysis.StandardType.GGLargeRowKDatum
 public import CFSG.LocalAnalysis.StandardType.GGLargeRowCard
-public import CFSG.LocalAnalysis.StandardType.GGLargeRowShared
 public import CFSG.LocalAnalysis.StandardType.GGLargeRowFrame
 public import CFSG.LocalAnalysis.StandardType.GGLargeDepFixLineKG
-public import CFSG.LocalAnalysis.StandardType.GGResKnownGroup
-public import CFSG.LocalAnalysis.StandardType.GGResHdRoNarrowDefs
-public import CFSG.LocalAnalysis.StandardType.GGResXDichotomyDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMModuleDefs
-public import CFSG.LocalAnalysis.StandardType.GGRowKFrame
-public import CFSG.LocalAnalysis.StandardType.GGHLAutomizer
 
 public section
 

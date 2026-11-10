@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Asc94.He42Base
 public import CFSG.Quasithin.Vol2.Asc94.HeK4
-public import CFSG.Sporadic.Schreier.J4SOrder
 public import CFSG.Sporadic.Th.KernelPlanes
 public import CFSG.Sporadic.Th.Local
 public import CFSG.Sporadic.ThSchreier.AutCore

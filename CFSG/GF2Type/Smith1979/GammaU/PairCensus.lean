@@ -3,9 +3,7 @@ module
 public import CFSG.GF2Type.Smith1979.GammaU.Transport
 public import CFSG.GF2Type.Smith1979.GammaU.PairBridge
 public import CFSG.GF2Type.Smith1979.GammaU.ResidualPair
-public import CFSG.GF2Type.Smith1979.GammaU.Enum
 public import Certificates.Certificate16966
-public import CFSG.GF2Type.Smith1979.GammaU.CensusDefs
 import Certificates.Kernel.GammaU.BaseBridge
 public import Certificates.Certificate16968
 

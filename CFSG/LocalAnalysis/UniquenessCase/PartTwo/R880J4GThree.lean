@@ -1,13 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22R880J4G
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DataThree
 public import CFSG.LocalAnalysis.UniquenessCase.UCK35wHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.KIZHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight73Y
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.OuterJ4
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.K33PartialRanks
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight6xBExtraspecial
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight56Residual
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight56SpineChain
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight62CenterOfNormal
@@ -16,14 +14,9 @@ import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.InnerBarDecomp
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.CentralizerBarCyclic
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.CentralizerBarKernel
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.PartOneThree
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846g
 import CFSG.LocalAnalysis.UniquenessCase.UC7R71Three
 import CFSG.LocalAnalysis.UniquenessCase.UC22OddPRank
 import CFSG.LocalAnalysis.EvenSporadicStandard.J4Std.Layer0J4
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.LocalAnalysis.SectionRank.Sporadic.J4Local
-import CFSG.HardMathSupport.Timmesfeld.SporadicRank.Assembly
-import CFSG.Sporadic.J4
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.CGT.PushingUpLit.SolK.Inputs
 public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieLift
@@ -66,7 +59,6 @@ public import CFSG.HardMathSupport.Cooperstein.AlternatingGeometry.ClCaseI
 public import CFSG.HardMathSupport.Cooperstein.AlternatingGeometry.EightTenSevenOutcomes
 public import CFSG.HardMathSupport.Cooperstein.AlternatingGeometry.TwoGroupExtension
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.OrthMinus
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderTwistedE6
 public import CFSG.HardMathSupport.Solomon.Coordinator.InndiagLink
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3FATArith
@@ -122,8 +114,6 @@ public import CFSG.Quasithin.Background.B15P4LayerDict
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.D14Normal
 public import CFSG.Quasithin.Background.E2Statements
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
 public import CFSG.Quasithin.Background.GoldschmidtRankOneUnitary
@@ -215,7 +205,6 @@ public import CFSG.Sporadic.Recognition.McLASEnum
 public import CFSG.Sporadic.Recognition.McLASThreeCount
 public import CFSG.Sporadic.Schreier.Fi22Schreier
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
-public import CFSG.Walter.J1Props
 public import Certificates.Data.HSFiveCheck
 public import Certificates.Kernel.J4Count.Prim
 import CFSG.LieType.Simplicity.Basic

@@ -1,12 +1,10 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Ten.Steps
 public import CFSG.OddTranspositions.PartThree.Ten.SwapImage
 public import CFSG.OddTranspositions.PartThree.Ten.SwapBlocks
 import CFSG.OddTranspositions.PartThree.Ten.DalphaBlocks
 import CFSG.OddTranspositions.BlockGraph
 import CFSG.OddTranspositions.PartThree.Ten.SingletonBlock
-import CFSG.OddTranspositions.PartThree.Ten.WreathEndgame
 
 public section
 

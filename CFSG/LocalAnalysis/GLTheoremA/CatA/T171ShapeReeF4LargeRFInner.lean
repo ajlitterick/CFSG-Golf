@@ -1,13 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeReeF4Large
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeReeF4LargeMain
 import CFSG.HardMathSupport.Timmesfeld.LocalTwo.ReeF4Big.Layer
-import CFSG.RankThree.SteinbergR3ELargeReeOrder
-import CFSG.RankThree.PartOne.KLR.SectorAssembly
-import CFSG.RankThree.PartOne.KLR.SectorOrder
-import CFSG.RankThree.PartOne.KLR.SectorTori
-import CFSG.RankThree.PartOne.KLR.SectorSixTwelve
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.ClassicalInvolution.Asc77.AscE184Basic
 public import CFSG.ClassicalInvolution.Asc77.AscE184Graph

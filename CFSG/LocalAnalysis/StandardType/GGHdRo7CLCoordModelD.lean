@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordModelC
-public import CFSG.LocalAnalysis.StandardType.GGHdRo7CoprimeSplit
 public import CFSG.LocalAnalysis.StandardType.GGR4AutInn
-public import CFSG.RankThree.Classical.SteinbergBJCentralCoprimeLift
 public import CFSG.RankThree.PartTwo.Sec4.Item426A6Outer
 public import CFSG.RankThree.PartTwo.Sec4.Item426A6
 public import CFSG.RankThree.PartTwo.Sec4.Item426A6Inner

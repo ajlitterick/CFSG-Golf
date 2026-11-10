@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.S129061D
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

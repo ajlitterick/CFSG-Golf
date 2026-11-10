@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremB.GammaStarConj
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.Fischer.Classification.Recognition.Basic
 public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension

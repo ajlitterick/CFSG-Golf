@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetE7Frame
 
-import CFSG.Blueprint.ChevalleyRootGroups
-import CFSG.Foundations.QuasisimpleMulEquiv
-import CFSG.LieType.Chevalley.GraphFixedOrbitCollection
 import CFSG.LocalAnalysis.StandardType.GGFamTrivialRoots
 
 public section

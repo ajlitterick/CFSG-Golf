@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.SporSch.MathieuOC
 public import Certificates.Data.Kernel.Spor.Prim
-public import Certificates.Data.CFSGNative.Th.Tables
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import Mathlib.RingTheory.SimpleModule.Isotypic
 public import Mathlib.RingTheory.LittleWedderburn
 public import Mathlib.LinearAlgebra.Projectivization.Basic
-public import Mathlib.LinearAlgebra.Matrix.ToLin
 public import Mathlib.Data.FunLike.Fintype
 
 public section

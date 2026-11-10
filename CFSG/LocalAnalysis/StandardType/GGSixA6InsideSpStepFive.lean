@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpTorus
 public import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpPull
-public import CFSG.Assembly.LargeEvenDefs
 public import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndSmall
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveSpRootBig
 

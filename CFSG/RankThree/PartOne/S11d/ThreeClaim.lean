@@ -5,7 +5,6 @@ public import CFSG.RankThree.PartOne.S11d.SitSwap
 public import CFSG.RankThree.PartOne.S11d.FiveClaimAux
 import CFSG.RankThree.Coprime.InvolutionFixedRankBound
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
-import CFSG.RankThree.PartOne.S10.AmbientTheta
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -18,7 +17,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.LocalRank.SelectorCases

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeUC.Section6.IsFrobeniusKernelComplement
 import all CFSG.LocalAnalysis.RankThreeUC.Section6.IsFrobeniusKernelComplement
 public import CFSG.LinearAlgebra.ProjectiveRootSpaces.RootIrreducible
 public import CFSG.LinearAlgebra.ProjectiveRootSpaces.UnipotentSylow

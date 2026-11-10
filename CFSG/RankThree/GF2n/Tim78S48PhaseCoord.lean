@@ -5,13 +5,9 @@ public import CFSG.RankThree.GF2n.Tim78S48PhaseGen
 public import CFSG.RankThree.GF2n.Tim78S48PairBasic
 import CFSG.RankThree.GF2n.Tim77Prop24TwoL2
 import CFSG.CGT.Timmesfeld75.L2Aut
-import CFSG.RankThree.GF2n.NaturalDecomp
-import CFSG.RankThree.GF2n.Tim78S45Aux
 import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.RankThree.GF2n.Tim78S47
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

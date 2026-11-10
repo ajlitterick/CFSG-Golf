@@ -2,14 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.RootLine
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.U4CartanRank
-public import CFSG.Quasithin.H13.U4ParLevi
 public import CFSG.Quasithin.H13.U4ParYAmalgam
-public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsU4
-public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsUnitBorel
-public import CFSG.GroupTheory.CoprimeCentralizerTransport
-public import CFSG.GroupTheory.PGroup.RankTwoCommute
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 public import CFSG.CGT.PushingUpLit.CGT6K1.InnerEven
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypTorus
 public import CFSG.LieType.BorelTits.LeviOrder
@@ -26,11 +19,8 @@ public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.TorusBound
 public import CFSG.LieType.SeitzGeneration.RegimesExcFamilies
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S152N11
 public import CFSG.Quasithin.Vol2.Ch12Sec8NonabHatTen
 public import CFSG.Quasithin.Vol2.Ch5Sec1L34QConj

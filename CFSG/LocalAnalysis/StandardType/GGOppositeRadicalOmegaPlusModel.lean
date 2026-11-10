@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalOmegaFlag
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalOmegaDickson
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalSpUStd
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
-public import CFSG.LieType.BorelTits.Families
 
 public section
 

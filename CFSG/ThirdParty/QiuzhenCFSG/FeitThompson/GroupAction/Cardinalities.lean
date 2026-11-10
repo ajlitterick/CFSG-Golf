@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
-import Mathlib.SetTheory.Cardinal.NatCard
-import Mathlib.GroupTheory.QuotientGroup.Basic
 
 namespace CFSG
 end CFSG

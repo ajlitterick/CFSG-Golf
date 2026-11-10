@@ -3,12 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265FIdent
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265FAut
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Fam
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResAll
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQOrd
-public import CFSG.LocalAnalysis.SeitzReduction.RankOneCatSL2TypeDet
-public import CFSG.RankThree.PartOne.K133.KillL2
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-public import CFSG.LocalAnalysis.GLTheoremA.S10.CatDistinct
 public import CFSG.HardMathSupport.Malle.E27Lie.Cross.Index
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S2019A
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Cfg

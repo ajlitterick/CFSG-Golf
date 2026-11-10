@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKFlagCore
-public import Mathlib.LinearAlgebra.Transvection.Basic
-public import Mathlib.LinearAlgebra.SpecialLinearGroup
 
 public section
 

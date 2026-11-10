@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Spor.Raw
-public import Certificates.Data.Kernel.Spor.M11
 public import Certificates.Data.Kernel.Spor.MEnum
 
 public section

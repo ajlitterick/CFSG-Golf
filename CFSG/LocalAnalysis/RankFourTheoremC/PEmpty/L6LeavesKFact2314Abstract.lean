@@ -6,7 +6,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.ClassicalInvolution.ModelFacts.RootLength
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Statements
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

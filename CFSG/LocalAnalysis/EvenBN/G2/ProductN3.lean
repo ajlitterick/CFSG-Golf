@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.G2.ProductN2Char
-public import CFSG.LocalAnalysis.EvenBN.Common.ProductSplit
-public import CFSG.LocalAnalysis.EvenBN.Common.NaturalModuleBridge
-public import CFSG.LocalAnalysis.EvenBN.Common.TwoElementary
-public import CFSG.LocalAnalysis.EvenBN.TrialityD4.ProductN1Sylow
 
 public section
 

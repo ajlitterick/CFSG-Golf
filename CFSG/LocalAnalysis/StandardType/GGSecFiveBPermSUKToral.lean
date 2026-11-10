@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSUPosition
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypTorus
-public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenGen
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKFrameCore
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKCent
 

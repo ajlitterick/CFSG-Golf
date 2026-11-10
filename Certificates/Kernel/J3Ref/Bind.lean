@@ -1,10 +1,8 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.J3Cent
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.SporSch.PairJ3.Chain
 public import Certificates.Kernel.Sporadic.IntWordsCmd
-public import Certificates.Data.Kernel.Spor.Join
 public import Certificates.Data.J3Cls
 meta import Certificates.Data.J3Cls
 meta import CFSG.Sporadic.Schreier.PairJ3CheckInputs

@@ -1,24 +1,13 @@
 module
 
-public import CFSG.Open.StandardComponentRecognitionMilestoneDefs
-public import CFSG.Blueprint.RecognitionDefs
-public import CFSG.Blueprint.EvenStandardExact
-public import CFSG.Assembly.Reduction
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.Stroth22Native
 public import CFSG.Monster.B.GSide.HInnerFusionY3
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4D4Data
-public import CFSG.Sporadic.J4.QT2LocX0Native
 public import Certificates.Data.CFSGNative.J4.PentScan
-import Certificates.Kernel.J4Q.QTBase
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
 import Certificates.Kernel.HSA312.Struct
 import Certificates.Kernel.HSQuot.Final
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87F3Abs
-public import CFSG.Sporadic.Ly.Setup
 import CFSG.Sporadic.Ly.GenSpecBase
 public import CFSG.GroupTheory.TwoWeightData
 import CFSG.Sporadic.Ly.TwoWeightsSpecBase
@@ -26,37 +15,19 @@ import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P4S55LyHHBase
 public import CFSG.Monster.Existence.StdOdd.Defs
 public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
 public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
 public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
 public import CFSG.YGroups.Y443.Native.Swap13Word
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
-public import CFSG.Sporadic.Co2Smith.GlC0MarkInputs
-import Certificates.Kernel.Co2Smith.Cox
-import Certificates.Data.Kernel.Co2Smith.Mark
-import Certificates.Data.Kernel.Co2Smith.Cox
-import Certificates.Kernel.Co2Smith.LettersData
-import Certificates.Kernel.Co2Smith.CoxData
-import Certificates.Kernel.Co2Smith.MarkK
 public import Certificates.Data.TitsAschbacherFive
 public import Certificates.Kernel.EvenBN.Bind
 public import Certificates.Kernel.EvenBN.DWord
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HaradaModel.BasicCheck
 import Certificates.Kernel.HN1408.Basic
 public import CFSG.HardMathSupport.Foote.E27.TableSylow
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Fi.U62CoversLarge
-public import Certificates.Data.E27Table
-public import Mathlib.GroupTheory.GroupAction.ConjAct
-public import Mathlib.GroupTheory.Index
-public import Mathlib.Data.Finset.Card
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 import CFSG.Yardstones.M1442643da6f2.Reduction
 import CFSG.Yardstones.M1442643da6f2.Goals
-import CFSG.Milestones.CL_LIT_GH74_sectional_two_rank_four
-import CFSG.Milestones.CL_LIT_classical_involution_theorem
 import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.Thm54Reach.CTEvenResidualMilestone
 public import CFSG.CGT.A8S.N0EnumInputs
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinEdgeDefs
@@ -73,7 +44,6 @@ public import CFSG.ClassicalInvolution.Phan.Phan3KerA3
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6cTransport
 public import CFSG.ClassicalInvolution.Q3.Sec13End16N
 public import CFSG.ClassicalInvolution.Q3.TA3SOLCore
-public import CFSG.ClassicalInvolution.Q3.TA3SOLCoreRank
 public import CFSG.ClassicalInvolution.Q3.TA3SmallModelM12
 public import CFSG.ClassicalInvolution.SmallCases.Hat2A7S8Lift
 public import CFSG.GH74.E2.A6Sylow
@@ -103,7 +73,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4P1UTabs
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4OneComp
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitThm47Statement
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsRealModel
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsRealModelBase
 public import CFSG.LocalAnalysis.ComponentClassification.HSFLitA7Sec8MCFacts
 public import CFSG.LocalAnalysis.ComponentClassification.M12J2CoverExclusion
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCensusW
@@ -290,10 +259,6 @@ public import CFSG.Sporadic.Schreier.TitsQTModel
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
-public import CFSG.Sporadic.Th.KernelPlanesBase
-public import CFSG.Sporadic.Th.KernelSimpleBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Timmesfeld.ARS.CaseMSU
 public import CFSG.Timmesfeld.ARS.CaseMSpLevi
 public import CFSG.Timmesfeld.Bridge.RootSetsGate

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreOccurs
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
-import CFSG.LocalAnalysis.StandardType.GGLangCoroot
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreNormLe
 
 public section

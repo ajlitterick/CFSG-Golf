@@ -2,8 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Nine.FiveUnitaryLocal
 import CFSG.OddTranspositions.PartThree.Ten.SetupPerfect
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_8_27
-import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

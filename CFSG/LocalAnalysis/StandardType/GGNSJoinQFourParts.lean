@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinRMDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyNbrFieldRowsNarrow
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRowR3Glue
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyR3Rank
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 
 public section
 

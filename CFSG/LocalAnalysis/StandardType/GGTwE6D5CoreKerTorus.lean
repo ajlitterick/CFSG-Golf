@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import Mathlib.FieldTheory.IsAlgClosed.Basic
 import CFSG.HardMathSupport.Lang.TwE6Step3.LangTorusMonomial
-import Mathlib.Algebra.CharP.Two
 
 public section
 

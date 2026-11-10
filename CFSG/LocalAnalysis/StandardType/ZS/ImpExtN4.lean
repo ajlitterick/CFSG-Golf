@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 import CFSG.LocalAnalysis.StandardType.ZS.ExcMatricesRefl
 import CFSG.LocalAnalysis.StandardType.ZS.Basic
 import CFSG.LocalAnalysis.StandardType.ZS.RootMatrix
-import CFSG.LocalAnalysis.StandardType.ZS.CommutingRefl
 import CFSG.LocalAnalysis.StandardType.ZS.ReflProductOrder
 import CFSG.LocalAnalysis.StandardType.ZS.ImpExtRankThreeCard
 import CFSG.LocalAnalysis.StandardType.ZS.ImprimSupport

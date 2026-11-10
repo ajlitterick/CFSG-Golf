@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.Tits.Words2264
 public import Certificates.Data.TitsFiveLocal
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

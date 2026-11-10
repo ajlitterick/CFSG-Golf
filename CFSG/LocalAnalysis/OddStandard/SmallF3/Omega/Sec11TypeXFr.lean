@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FactsCInv
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FramePocket
 
 public section
 

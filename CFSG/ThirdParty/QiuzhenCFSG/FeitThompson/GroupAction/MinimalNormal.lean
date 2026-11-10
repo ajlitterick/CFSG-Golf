@@ -3,8 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Invariant
 
 import Mathlib.Algebra.Group.Subgroup.Finite
-import Mathlib.SetTheory.Cardinal.NatCard
-import Mathlib.Tactic.Basic
 
 namespace CFSG
 end CFSG

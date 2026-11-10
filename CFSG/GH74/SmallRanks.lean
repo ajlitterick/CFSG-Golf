@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GH74.SmallRanks.Basic
 public import CFSG.GH74.SmallRanks.PSL
 public import CFSG.GH74.SmallRanks.PSU3
 public import CFSG.GH74.SmallRanks.AltM11

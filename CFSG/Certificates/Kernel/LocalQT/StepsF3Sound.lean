@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.LocalQT.SecF3
-public import CFSG.Certificates.Kernel.LocalQT.Steps
 import all CFSG.Certificates.Kernel.LocalQT.Steps
 public import CFSG.Certificates.Kernel.LocalCompOps3Snd.Bridge
 public import CFSG.Certificates.Kernel.Spor.F3LaneSound

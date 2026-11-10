@@ -3,16 +3,9 @@ module
 
 public import CFSG.Sporadic.Schreier.J4SOddCheckBase
 
-public import CFSG.Sporadic.Schreier.J4SOddData
 public meta import CFSG.Sporadic.Schreier.J4SOddData
 public import Certificates.Certificate2176
-public import CFSG.Sporadic.Schreier.J4SSylowBase
-public import CFSG.Sporadic.Schreier.J4SCommGenBase
-public import CFSG.Sporadic.Schreier.J4SPrimes
 public meta import CFSG.Sporadic.Schreier.J4SKCentBase
-public import CFSG.Open.Defs
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

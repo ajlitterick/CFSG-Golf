@@ -1,16 +1,8 @@
 module
 
-public import Mathlib.GroupTheory.Commutator.Basic
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 public import Mathlib.LinearAlgebra.Matrix.IsDiag
-import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
-import Mathlib.GroupTheory.OrderOfElement
-import Mathlib.Tactic.Ring
-import Mathlib.Tactic.Abel
 import Mathlib.Tactic.NoncommRing
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.Push
-import Mathlib.Tactic.ByContra
 
 public section
 

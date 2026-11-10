@@ -1,10 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Gorenstein.Chapter8_2
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.Index
-public import Mathlib.GroupTheory.GroupAction.ConjAct
-public import Mathlib.Data.Set.Finite.Lemmas
 
 namespace CFSG
 end CFSG

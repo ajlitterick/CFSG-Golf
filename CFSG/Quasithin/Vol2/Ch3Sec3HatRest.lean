@@ -5,7 +5,6 @@ public import CFSG.Quasithin.Vol2.Ch3Sec3HatB
 public import CFSG.Quasithin.Vol2.Ch3Sec3G2Step28
 public import CFSG.RankThree.PartOne.K1214.Basic
 import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

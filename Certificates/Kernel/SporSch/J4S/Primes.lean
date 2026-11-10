@@ -1,9 +1,7 @@
 
 module
 
-public import Certificates.Kernel.SporSch.J4S.XY
 public import CFSG.Certificates.Kernel.SporSch.J4SPrimesSound
-public import CFSG.Certificates.Kernel.Spor.Loops
 meta import CFSG.Sporadic.Schreier.J4SPrimes
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.SporSch.J4S.NoCP

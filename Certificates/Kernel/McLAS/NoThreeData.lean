@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.MN
 public import Certificates.Kernel.Sporadic.OddCore.McLTwo
-public import Certificates.Kernel.Sporadic.OddCore.RowsCmd
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Data.Kernel.McLAS.NoThree
 meta import Certificates.Kernel.Sporadic.OddCore.MN
 meta import Certificates.Kernel.Sporadic.OddCore.McLTwo

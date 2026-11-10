@@ -1,18 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOppPlus
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenAvoidKG
-public import CFSG.LocalAnalysis.StandardType.GGF4OriginalRankOne
 import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenLabels
 import CFSG.LocalAnalysis.StandardType.GGSharedInvolution
-import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-import CFSG.LocalAnalysis.StandardType.GGF4QGeFourPlusForcing
-import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingPrime
 import CFSG.LocalAnalysis.StandardType.GGF4OriginalRankOnePlus
 import CFSG.LocalAnalysis.StandardType.GGK0ExcB3Holds
 

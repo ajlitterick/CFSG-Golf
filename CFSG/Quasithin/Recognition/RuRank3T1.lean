@@ -3,29 +3,13 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1Pipe
 public import CFSG.Quasithin.Recognition.RuRank3T1CertInputs
 public import CFSG.Quasithin.Recognition.RuRank3RuAut
-public import CFSG.Sporadic.Schreier.TitsIso
-public import CFSG.Sporadic.Schreier.TitsPrim
 public import Certificates.Certificate7088
 import Certificates.Kernel.RuT1.Data
-import Certificates.Data.Kernel.TitsOver.Check
 import Certificates.Kernel.Sporadic.Tits.Words2264
-import Certificates.Kernel.MaxD2.TitsD.Data
 import CFSG.Certificates.Kernel.Common.Each
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.MaxD2.Basic
-import CFSG.Certificates.Kernel.TitsOver.Base
 import CFSG.Certificates.Kernel.Spor.TextAtSound
 import Certificates.Kernel.TitsOver.TitsBase
-import CFSG.LocalAnalysis.StandardType.TitsGeneratorsBase
-import Mathlib.Tactic.IntervalCases
-public import Certificates.Certificate2247
-public import Certificates.Certificate2249
-public import Certificates.Certificate2253
-public import Certificates.Certificate2264
-public import Certificates.Certificate7045
-public import Certificates.Certificate7046
-public import Certificates.Certificate7047
-public import Certificates.Certificate7050
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.Interface
 

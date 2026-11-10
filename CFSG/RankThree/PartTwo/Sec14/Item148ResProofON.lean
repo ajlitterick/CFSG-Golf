@@ -9,7 +9,6 @@ import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
@@ -19,7 +18,6 @@ import CFSG.RankThree.PartTwo.KFacts.KS12MovesSL
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface46
 import CFSG.RankThree.PartTwo.Sec4.LThreePiSLOn
-import CFSG.Sporadic.Schreier.J4SProfileNode
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

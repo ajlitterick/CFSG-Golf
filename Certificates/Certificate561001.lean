@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.KappaDN
 public import Certificates.Kernel.EvenBN.K561001
 public import Certificates.Kernel.EvenBN.Bind
 import CFSG.Certificates.Kernel.Common.Harness

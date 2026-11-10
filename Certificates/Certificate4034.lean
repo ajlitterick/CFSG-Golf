@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRuDcInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRuKInputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCore
-public import Certificates.Certificate3172
 public import Certificates.Certificate4143
 import Certificates.Kernel.RuDc.Final
 import Certificates.Kernel.RuDc.Facts

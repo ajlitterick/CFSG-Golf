@@ -4,8 +4,6 @@ public import Certificates.Kernel.GL62.Glue
 import Certificates.Kernel.GL62.Checks
 import CFSG.Certificates.Kernel.GL62.Sound
 import CFSG.LocalAnalysis.OddStandard.AltStdSmall4GL62Basic
-import Mathlib.Data.Set.Card
-import Mathlib.Tactic.Group
 
 namespace CFSG.KC.GL62.F36405
 

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GSThmB8Odd
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog8Q3
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog8A6
 public import CFSG.Timmesfeld.Orders.ClassicalLinear
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSBRankProjectiveAction
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuot
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB83Outer

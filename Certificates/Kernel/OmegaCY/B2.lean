@@ -1,9 +1,6 @@
 module
 
 public import Certificates.Kernel.A45Cls.Glue107
-public import Certificates.Kernel.SporSch.Co2M.ThirdGlue
-public import Certificates.Certificate3042Base
-public import Certificates.Certificate3055Base
 
 set_option maxRecDepth 400000
 

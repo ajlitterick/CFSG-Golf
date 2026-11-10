@@ -1,26 +1,15 @@
 module
 
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Quasithin.Background.A3ComponentsBasic
-public import CFSG.Quasithin.Background.F1Hyp
-public import CFSG.LocalAnalysis.QuasithinUnique.PushingUp.Blocks
-public import CFSG.Quasithin.EmptyFaithful.S1421F112
 public import CFSG.Quasithin.Recognition.GoldschmidtF112RY9
 public import CFSG.Quasithin.Recognition.St84.Gen.L3qVertex
 import CFSG.GroupTheory.PCore.NormalPCoreOf
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtRk2ExclUp
 import CFSG.Quasithin.Recognition.St84.Gen.PerfectGen
 import CFSG.Quasithin.Recognition.GoldschmidtF112RSp44
-import CFSG.Quasithin.Vol2.Ch9Sec3FactsF112PfC
 import CFSG.Quasithin.Vol2.GoldschmidtF431L3LieModel
-import CFSG.Quasithin.Vol2.GoldschmidtF431SpBorel
-import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2BorelL3
 import CFSG.GH74.QTGen4.DSGen4.Leaf.L34ParabA
-import CFSG.LocalAnalysis.QuasithinUnique.GammaFamiliesBasic
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtRk2ExclLev
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtRk2ParL3
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

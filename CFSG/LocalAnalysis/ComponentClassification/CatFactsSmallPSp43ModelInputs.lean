@@ -4,21 +4,16 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallModelConj
 public import CFSG.GH74.KGroups.NativeChecks2
 public import CFSG.GH74.Exceptional.UnitaryFourTwo
 public import CFSG.GH74.Generic.Context
-public import CFSG.Adapters.RankTwoModelTransports
 public import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 public meta import CFSG.GH74.KGroups.NativeChecks2
 public meta import CFSG.Fischer.Classification.PartIII.Beta.Data
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43ModelData
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Generic.Shapes
 public import CFSG.GH74.Statements
 public import CFSG.LieType.CurtisTits.Conclusion
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public meta import Mathlib
 
 public section

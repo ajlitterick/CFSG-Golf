@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKFact2025Mat
-public import CFSG.Open.StatedDefs
 
 public section
 

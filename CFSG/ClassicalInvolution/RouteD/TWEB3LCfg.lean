@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.RouteD.TwinYStatements
 public import CFSG.ClassicalInvolution.RouteD.TWEAssemble
 
 public section

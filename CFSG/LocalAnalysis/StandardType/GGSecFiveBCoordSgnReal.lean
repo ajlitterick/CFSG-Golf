@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealSgnRealize
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThree
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordRefl
-import CFSG.LocalAnalysis.StandardType.GGSignedPermCount
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 
 public section
 

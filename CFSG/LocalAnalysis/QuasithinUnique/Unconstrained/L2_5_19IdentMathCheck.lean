@@ -1,16 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentMathNoLayer
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentMathData
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM22OuterData
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM23Data
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM24Data
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentMathNoLayer
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentMathData
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM22OuterData
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM23Data
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM24Data
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentMathCheckInputs
 public import Certificates.Certificate4149
 public import CFSG.Sporadic.Schreier.M24Base
 public meta import CFSG.Sporadic.Schreier.M24Base

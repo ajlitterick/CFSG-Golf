@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.Le4.S8CandChk
 public import Certificates.Kernel.TwoHSLe4.RawB
 public import Certificates.Kernel.TwoHSLe4.CandData
-import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.Le4.S8Raw
 public import CFSG.Certificates.Kernel.Common.Harness
 public import Std.Tactic.BVDecide.Normalize.Prop
 

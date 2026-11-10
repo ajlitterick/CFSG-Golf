@@ -1,17 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBranch
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthRefl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthSpinor
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthALRefl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarBridge
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMModuleDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-public import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
-import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.Basic
-import Mathlib.LinearAlgebra.QuadraticForm.Basic
 
 public section
 

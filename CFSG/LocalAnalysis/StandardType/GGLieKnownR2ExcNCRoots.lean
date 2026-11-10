@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ExcNC
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLattice
 public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpModel
 public import CFSG.ClassicalGroups.Symplectic.StandardForm
 public import CFSG.ClassicalGroups.Alternating.PointRadicalFixedCard
 

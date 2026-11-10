@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Defs
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelAssembly
-import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RationalA2Part2
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.SelectedLiteralPart2
-import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.JointShapesPart2
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.B2Inner
 import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallUnitary
-import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4UnField
 public import CFSG.LocalAnalysis.StandardType.GGFamAssembly
 
 public section

@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGTCJLabel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166FamA8Two
-public import CFSG.Adapters.LinearFieldTransport
 
 public section
 

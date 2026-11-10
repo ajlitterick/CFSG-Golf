@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.Adjoint.Cert
-public import Mathlib.Data.Nat.Digits.Defs
 
 public section
 

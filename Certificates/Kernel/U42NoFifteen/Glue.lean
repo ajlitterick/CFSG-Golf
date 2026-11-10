@@ -4,8 +4,6 @@ public import Certificates.Kernel.U42NoFifteen.WChecks
 public import Certificates.Kernel.QP45W.Glue
 public import CFSG.Certificates.Kernel.ConjWalkSound
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransvU42Check
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
-public import CFSG.GH74.KGroups.PermCheck
 
 public section
 

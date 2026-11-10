@@ -1,15 +1,9 @@
 
 module
 
-public import CFSG.Quasithin.H13.J4WordsBase
-public import CFSG.Certificates.ExtraspecialNormalForm
 public meta import Certificates.Data.CFSGNative.H13.J4Elems
 public meta import CFSG.Quasithin.H13.J4Defs
 public import CFSG.Quasithin.H13.J4CoreInputs
-public import CFSG.Quasithin.H13.J4WordsInputs
-public import CFSG.Quasithin.H13.J4Defs
-public import CFSG.Quasithin.H13.J4ChainSpec
-public import Certificates.Data.CFSGNative.H13.J4Elems
 
 @[expose] public noncomputable section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixFrameAux2
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixFrameAux4
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModuleTorus
 

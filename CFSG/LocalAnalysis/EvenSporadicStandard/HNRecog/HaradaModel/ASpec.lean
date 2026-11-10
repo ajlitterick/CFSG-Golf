@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HaradaModel.IotaP
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HaradaModel.WordSub
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HaradaModel.Coe
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HaradaModel.AParts
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.InvClasses
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HaradaModel.ACheck
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HaradaModel.Enum

@@ -1,14 +1,7 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.PermCheck
-public import CFSG.GH74.KGroups.Checks
-public import CFSG.GH74.KGroups.ClassCount
-public import CFSG.Sporadic.Mathieu.M11
 public meta import CFSG.GH74.KGroups.Checks
 public meta import CFSG.Sporadic.Mathieu.M11
-public import CFSG.GH74.KGroups.M11Inputs
 public meta import CFSG.GH74.KGroups.M11Inputs
 public import Certificates.Certificate5125
 

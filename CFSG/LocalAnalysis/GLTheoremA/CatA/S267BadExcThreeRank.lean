@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE7
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE8
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Basic
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE7Model
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE8Model
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerResiduals
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE6

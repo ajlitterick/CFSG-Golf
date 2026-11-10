@@ -4,7 +4,6 @@ public import CFSG.GH74.GLS.IVK.Lifted.QuatFixed
 public import CFSG.GH74.GLS.IVK.Lifted.InvSylow
 public import CFSG.GH74.GLS.IVK.Lifted.Std6Glue
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec4.Glue
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.QuasisimpleNotTwoGroupQuotient
 
 public section
 

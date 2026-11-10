@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.ForceLieTools
-public import CFSG.Open.StatedDefs
 public import CFSG.HardMathSupport.Foote.E27.Q2OrthMinus
 public import CFSG.HardMathSupport.Foote.E27.Q2OrthModel
 public import CFSG.HardMathSupport.Foote.E27.TableMat

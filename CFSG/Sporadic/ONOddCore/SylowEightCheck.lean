@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.Schreier.ONCheckSmallAux
 public meta import CFSG.Sporadic.Schreier.ONCheckSmallAux
-public import CFSG.Sporadic.ONOddCore.SylowEightCheckInputs
 public import Certificates.Certificate2129
 
 public section

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusLift
 public import CFSG.LocalAnalysis.StandardType.GGIrred937ExcWeylE8
-import CFSG.HardMathSupport.Timmesfeld.Torality.Conjugacy
-import CFSG.LieType.Chevalley.LangActualInvolutionReduction
 
 public section
 

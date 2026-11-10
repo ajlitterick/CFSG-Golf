@@ -1,17 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanFi22AltData
 public import Certificates.Kernel.Fi22Alt.Defs
 public import CFSG.Certificates.Kernel.Spor.TabWords
 import Certificates.Kernel.Fi22Alt.Checks
 import Certificates.Kernel.Fi22Guest.Final
 import Certificates.Kernel.Fi22Core.OrbData
-import Certificates.Kernel.Sporadic.ON.Gen
-import CFSG.Certificates.Kernel.Spor.RelTR
-import CFSG.Certificates.Kernel.Fi22.LettersSound
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Spor.Loops
-import Mathlib.Tactic.IntervalCases
 
 public section
 

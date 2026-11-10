@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.Generic.S3.Nbhd
-public import CFSG.GH74.Generic.Context
 public import CFSG.GH74.KGroups.L3EpsSylow
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X5bGroup
 

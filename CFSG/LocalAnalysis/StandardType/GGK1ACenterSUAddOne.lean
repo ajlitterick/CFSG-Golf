@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGK1ACenterTorsion
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQUni
 public import CFSG.LinearAlgebra.MatrixPlanes
 public import CFSG.RankThree.PartOne.KC.UnitaryHigherInnerPlaneLift
-public import Mathlib.GroupTheory.Index
 
 public section
 

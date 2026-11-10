@@ -1,9 +1,7 @@
 module
 
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.CoordProd
-public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.Normalizer
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.DegZero
-public import CFSG.LieType.Chevalley.RootCommutator
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Defs
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.NormalForm
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat

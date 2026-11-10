@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHalfCoords
 public import CFSG.LocalAnalysis.StandardType.GGHalfBasic
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaEq
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveTwoGroup

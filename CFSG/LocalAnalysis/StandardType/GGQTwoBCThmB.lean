@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBCCoord
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBCA
 public import CFSG.LocalAnalysis.StandardType.GGQTwoReflOrth
-public import CFSG.LocalAnalysis.StandardType.GGQTwoInvForm
-public import Mathlib.GroupTheory.Perm.Fin
-public import Mathlib.LinearAlgebra.Matrix.BilinearForm
 
 public section
 

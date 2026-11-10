@@ -1,9 +1,6 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.Q3TD3Dn
 public import CFSG.ClassicalInvolution.Q3.Q3TD3Orth
-public import CFSG.ClassicalInvolution.RouteD.TWS7Grp
-public import CFSG.ClassicalInvolution.ModelFacts.D4RigidFrame
 
 public section
 

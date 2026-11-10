@@ -1,11 +1,7 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec21.HeringFFStatement
 public import CFSG.LocalAnalysis.StandardType.GGF4QTwoFFInputs
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 public import CFSG.LocalAnalysis.StandardType.GGStdSpSixExcl
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQSplit
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 
 public section
 

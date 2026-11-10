@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.EighteenFourte
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.OmegaSixMinusFixTwo
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.MultNatCoords
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2214Rk
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoConfig
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoEscape
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrHom

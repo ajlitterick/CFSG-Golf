@@ -6,7 +6,6 @@ public import CFSG.Sporadic.Co2Schreier.ThreeCheckInputs
 public meta import Certificates.Kernel.SporSch.Co2M.EnumGen
 public meta import CFSG.Sporadic.Co2Schreier.ThreeCheckInputs
 meta import Certificates.Kernel.Misc.Perm.HexCmd
-import CFSG.Certificates.Kernel.Common.Harness
 import all Init.Data.Nat.Fold
 import all Init.Data.Range.Basic
 import all Init.Data.Array.Basic

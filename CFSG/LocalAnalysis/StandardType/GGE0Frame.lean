@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOTwoStarFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatKGDefs
 
 public section
 

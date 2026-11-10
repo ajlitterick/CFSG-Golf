@@ -6,7 +6,6 @@ public import Certificates.Kernel.SporSch.J1.ClsBfs
 public import Certificates.Kernel.SporSch.J1.CentK
 public import CFSG.Certificates.Kernel.SporSch.PtCntSound
 public import CFSG.Certificates.Kernel.SporSch.J1CentSound
-public import CFSG.Sporadic.Schreier.J1CentData
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

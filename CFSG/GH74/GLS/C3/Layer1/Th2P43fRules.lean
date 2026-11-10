@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.GLS.C3.Layer1.Th2P43fTerm
 public import CFSG.GH74.GLS.Stage2.Local.P27.L4Sylow
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.C3.Layer1.Th2P43fFrame
 
 public section

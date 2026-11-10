@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.McLaughlinOddKantorBasic
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.Module
 
 public section
 

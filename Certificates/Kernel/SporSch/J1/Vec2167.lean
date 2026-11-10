@@ -7,9 +7,6 @@ public import CFSG.Certificates.Kernel.SporSch.J1VecSound
 public import CFSG.Sporadic.Schreier.J1VecCheckInputs
 public meta import CFSG.Sporadic.Schreier.J1CertLit
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Data.ZMod.Basic
-import Mathlib.Data.Fintype.Basic
-import Mathlib.Tactic.FinCases
 
 public section
 

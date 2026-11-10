@@ -2,25 +2,17 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.CentQChar2Index
-public import CFSG.RankThree.PartTwo.Sec21.HoltCatalog
 public import CFSG.Assembly.StandardTypeRecognitionDefs
 import CFSG.Holt.General.CaseIReduced
 import CFSG.RankThree.PartOne.N143.AltRank
 import CFSG.RankThree.PartTwo.Census.Alternating
-import CFSG.RankThree.PartTwo.Census.Criteria
 import CFSG.RankThree.PartOne.Census3.Interface
 import CFSG.RankThree.OddKernel.ThreeComplementQuotient
 import CFSG.Adapters.LinearCatalog
 import CFSG.StronglyEmbedded.Catalog.Suzuki
 import CFSG.StronglyEmbedded.Catalog.Unitary
-import CFSG.StronglyEmbedded.MatrixGroups.SzModel
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.Comparator.Defs
-import CFSG.Models.BenderSuzuki
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_14
 public import CFSG.Assembly.LargeEvenGLABridge
 public import CFSG.Assembly.OpenBridges
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.CharacterTheory.Wreathed.NonabelianCentralizer
 import CFSG.Goldschmidt.Final
 import CFSG.Goldschmidt.Statements
@@ -50,19 +42,6 @@ import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 import CFSG.StronglyEmbedded
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralUniqueCentralInvolution
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.MinimalCounterexample
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PreambleHSU
 import CFSG.Walter.JRFacts
 
 public section

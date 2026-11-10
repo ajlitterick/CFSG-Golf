@@ -1,9 +1,7 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Ten.WreathEndgame
-public import CFSG.OddTranspositions.WreathBase
 import CFSG.OddTranspositions.PartThree.Ten.WreathRigidity
-import CFSG.OddTranspositions.WreathBaseMinimal
 import CFSG.Timmesfeld.Bridge.Asc72WreathConn
 import CFSG.Quasithin.Background.G118S3
 import CFSG.Quasithin.H13.GoldschmidtM22EndS3

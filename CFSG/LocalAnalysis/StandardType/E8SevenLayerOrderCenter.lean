@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.SupportedTorusFixedKernel
-public import CFSG.RankThree.PartOne.KE6.E8T3E6
-public import CFSG.RankThree.PartOne.KE.D4TranspositionInterface
 
 public section
 

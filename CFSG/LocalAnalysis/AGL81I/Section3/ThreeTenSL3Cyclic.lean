@@ -1,11 +1,5 @@
 module
 
-public import CFSG.CharacterTheory.PSL2Table.Basic
-public import CFSG.CharacterTheory.PSL2Table.Tori
-public import CFSG.Dihedral.Glauberman.DicksonMaxStructure
-public import CFSG.LocalAnalysis.AGL81I.Section3.SL2Cyclic
-public import CFSG.LocalAnalysis.AGL81I.Section3.SL3Arith
-public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeTenSL3DLeI
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeTenSL3MaxParFinal
 public import CFSG.GH74.GLS.Defs
 public import CFSG.GH74.GLS.Stage2.Local.Statements

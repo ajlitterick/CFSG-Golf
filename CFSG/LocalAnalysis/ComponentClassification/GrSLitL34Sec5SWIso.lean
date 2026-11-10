@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4End43WI
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisEndBL34Inputs
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4TCReduce
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Generic.Shapes
 public import CFSG.GH74.Statements

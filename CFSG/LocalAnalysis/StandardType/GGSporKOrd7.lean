@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKBSevenOrd
-public import CFSG.LocalAnalysis.StandardType.GGSporKLamOrders
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrdersB
-public import CFSG.LocalAnalysis.StandardType.GGSporKOrd7Defs
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrd7Rows
 
 public section

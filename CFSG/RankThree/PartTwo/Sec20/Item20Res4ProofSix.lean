@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec20.Item20Res3ProofLayers
 public import CFSG.RankThree.PartTwo.Sec20.Item20Res4ProofThompson
-public import CFSG.RankThree.PartTwo.Sec3.Sims321CountDef
 import CFSG.RankThree.PartTwo.Sec20.Item20Res3ProofComm
 import CFSG.RankThree.PartTwo.Sec18.Item182
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement

@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaFork
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusHolds
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaExcPlusAux
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
 
 public section
 

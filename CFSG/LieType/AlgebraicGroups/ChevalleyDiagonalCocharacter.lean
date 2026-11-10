@@ -1,6 +1,5 @@
 module
 public import CFSG.LieType.AlgebraicGroups.DiagonalCocharacter
-public import CFSG.LocalAnalysis.ComponentInitial.RootDiagonalConjugation
 public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 public import CFSG.LieType.AlgebraicGroups.RootWordRegular
 

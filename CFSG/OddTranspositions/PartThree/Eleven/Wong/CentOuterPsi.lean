@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentCardX
-import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentDiagA5
 import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentPsi
 
 public section

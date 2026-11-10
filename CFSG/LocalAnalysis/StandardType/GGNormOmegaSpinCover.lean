@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSpinEndpoint
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Models
 import CFSG.ClassicalGroups.Orthogonal.RingEquivDerived
-import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-import CFSG.LieType.Universal.SpinOmega.CommutatorEquiv
-import CFSG.Adapters.LinearFieldTransport
 
 public section
 

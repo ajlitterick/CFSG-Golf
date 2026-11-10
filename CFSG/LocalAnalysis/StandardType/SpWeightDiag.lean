@@ -1,19 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.SpFixedNorm
-public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
-public import Mathlib.LinearAlgebra.Eigenspace.Pi
-public import Mathlib.LinearAlgebra.Eigenspace.Semisimple
-public import Mathlib.LinearAlgebra.Semisimple
-public import Mathlib.LinearAlgebra.Matrix.ToLin
-public import Mathlib.LinearAlgebra.Matrix.Basis
-public import Mathlib.LinearAlgebra.StdBasis
-public import Mathlib.Algebra.DirectSum.Module
-public import Mathlib.Data.Fintype.EquivFin
-public import Mathlib.LinearAlgebra.Dimension.Constructions
-public import Mathlib.LinearAlgebra.Dimension.Free
-public import Mathlib.FieldTheory.Separable
-public import Mathlib.Algebra.Algebra.IsSimpleRing
 
 public section
 

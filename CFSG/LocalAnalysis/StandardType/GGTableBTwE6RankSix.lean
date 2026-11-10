@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6PerBstar
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Basic
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Check45Inputs
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutData
 
 public section
 

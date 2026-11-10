@@ -5,7 +5,6 @@ public import CFSG.Quasithin.Vol2.Ch11SKFA1TwoA
 public import CFSG.Quasithin.Vol2.Ch4Sec1Defs
 public import CFSG.Quasithin.Vol2.Ch11SecS12ZJ
 public import CFSG.Quasithin.Vol2.Ch11SecS12ZK
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIII.Basic
 
 public section
 

@@ -4,7 +4,6 @@ public import Certificates.Kernel.GMS78.P117Data
 public import Certificates.Data.Kernel.GMS78RuP117
 public import Certificates.Data.GMS78RuSPrimeCheck
 public import Certificates.Kernel.LocalComp.BlockGen
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

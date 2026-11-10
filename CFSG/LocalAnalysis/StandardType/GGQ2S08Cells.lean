@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08SmallCells
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08A6Cell
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CellsFull
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08E7Full

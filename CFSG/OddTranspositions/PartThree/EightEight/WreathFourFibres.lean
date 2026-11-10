@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.FaithfulBlocks
 public import CFSG.OddTranspositions.PartThree.Statements
 public import CFSG.OddTranspositions.PartThree.EightEight.WreathFourBlocks
-import CFSG.OddTranspositions.BlockGraph
 import CFSG.OddTranspositions.PartThree.Ten.DalphaBlocks
 import CFSG.OddTranspositions.PartThree.EightEight.FibreCentre
 import CFSG.OddTranspositions.PartThree.EightEight.Kernel

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3VF4SFrame
-public import CFSG.ClassicalInvolution.Q3.Q3VFrameTrans
 
 public section
 

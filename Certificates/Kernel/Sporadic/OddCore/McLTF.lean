@@ -4,7 +4,6 @@ public import Certificates.Kernel.Sporadic.OddCore.McLTK
 public import Certificates.Kernel.Sporadic.OddCore.McLTwoF
 public import Certificates.Kernel.Sporadic.OddCore.CentGlue
 public import CFSG.Certificates.Kernel.Spor.MulHAbsSound
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckBase
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue3
 

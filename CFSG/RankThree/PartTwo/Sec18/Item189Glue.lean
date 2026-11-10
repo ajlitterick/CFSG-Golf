@@ -10,7 +10,6 @@ import CFSG.RankThree.PartTwo.Sec20.Step208MSPairProof
 import CFSG.RankThree.PartTwo.Sec21.Item229Pre
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
 public import CFSG.RankThree.PartTwo.Sec20.OneTools
-import CFSG.Sporadic.Schreier.J4SSylowBase
 
 public section
 

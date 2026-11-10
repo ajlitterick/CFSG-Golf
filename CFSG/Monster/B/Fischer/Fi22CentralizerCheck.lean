@@ -4,14 +4,10 @@ module
 public import CFSG.Monster.B.Fischer.Fi22CentralizerCheckBase
 
 public import CFSG.Monster.B.Fischer.Fi22OuterCheck
-public import CFSG.Monster.B.Fischer.Fi22OrderCheck
-public import Certificates.Data.CFSGNative.Schreier.SetOrbit
 public meta import CFSG.Monster.B.Fischer.Fi22OuterCheck
 public meta import CFSG.Monster.B.Fischer.Fi22OrderCheck
 public meta import Certificates.Data.CFSGNative.Schreier.SetOrbit
-public import CFSG.Monster.B.Fischer.Fi22CentralizerCheckInputs
 public import Certificates.Certificate3148
-public import Certificates.Certificate3148Base
 
 public section
 

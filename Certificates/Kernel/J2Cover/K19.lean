@@ -7,8 +7,6 @@ public import Certificates.Kernel.J2Cover.K19R
 public import Certificates.Kernel.J2Cover.K19O
 public import Certificates.Kernel.J2Cover.EncTab
 public import CFSG.Certificates.Kernel.J2EnumSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

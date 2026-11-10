@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGAdjDefs
 public import CFSG.LocalAnalysis.StandardType.GGKGOrthPairs
 public import CFSG.RankThree.PartOne.KE.E6A3Sigma
-import CFSG.LieType.Steinberg.CentralExt.SL2CentrallyClosed
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotNeighbourParam
 import CFSG.LocalAnalysis.SeitzReduction.LinearPilotQ2FiveSixField
 public import CFSG.RankThree.PartOne.KE.SLnShape
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
@@ -73,7 +70,6 @@ import CFSG.LocalAnalysis.SeitzReduction.RankOneHypStarDef
 import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotAlignImagesSwap
 import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotUniqueTypeGraph
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.B1MoreElevenD
 import CFSG.Quasithin.Background.B1MoreElevenF
 import CFSG.Quasithin.Background.B1MoreNineG
@@ -81,11 +77,6 @@ import CFSG.Quasithin.Background.B4ModelsAction
 import CFSG.Quasithin.Background.B4ModelsIso
 import CFSG.Quasithin.Background.C2Basic
 import CFSG.Quasithin.Background.E1
-import CFSG.Quasithin.Background.E1Sec4
-import CFSG.Quasithin.Background.E1Sec5
-import CFSG.Quasithin.Background.E1Sec8
-import CFSG.Quasithin.Background.E1Solv
-import CFSG.Quasithin.Background.E1Twelve
 import CFSG.Quasithin.Background.E3Cent
 import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl
@@ -109,18 +100,6 @@ import CFSG.Sporadic.ON.SimpleBase
 import CFSG.Sporadic.Presentation.Ly
 import CFSG.Sporadic.Schreier.LyChain11
 import CFSG.Sporadic.Schreier.TitsOther
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 
 public section
 

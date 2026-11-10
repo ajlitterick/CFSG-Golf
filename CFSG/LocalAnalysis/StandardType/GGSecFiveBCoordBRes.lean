@@ -4,38 +4,15 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRankDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelCore
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKCent
-import CFSG.LocalAnalysis.StandardType.GGResIPumpLineTransfer
 import CFSG.LocalAnalysis.StandardType.GGResNonsingF4Three
-import CFSG.LocalAnalysis.StandardType.GGTwE6BadWeyl
-import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeFrame
-import CFSG.LocalAnalysis.StandardType.GGQTwoVACLinFrame
-import CFSG.Models.Blueprint
-import CFSG.Assembly.LargeEvenDefs
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
-import CFSG.LocalAnalysis.StandardType.GGPumpTwExcKnownHolds
 import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitE6Two
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoThree
 import CFSG.LocalAnalysis.StandardType.GGAutomizerGammaCard
-import CFSG.LocalAnalysis.StandardType.GGHalfKnownGroups
-import CFSG.LocalAnalysis.StandardType.GGHalfTorusFrame
-import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
-import CFSG.LocalAnalysis.StandardType.GGStdSubExist
 import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrHolds
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 import CFSG.LocalAnalysis.StandardType.GGTBJLabelJ
-import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthKSLOrder
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclReal
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourEnds
-import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
-import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
-import CFSG.LocalAnalysis.StandardType.GGAssemblyFiveDefs
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableCompactPresented
 public import CFSG.Certificates.CosetTableWalkC
@@ -73,10 +50,6 @@ public import CFSG.Sporadic.Presentation.ThBase
 public import CFSG.Sporadic.Schreier.M23
 public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
-public import CFSG.Sporadic.Th.KernelPlanesBase
-public import CFSG.Sporadic.Th.KernelSimpleBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 
 public section
 

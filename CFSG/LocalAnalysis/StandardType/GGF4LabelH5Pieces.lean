@@ -1,17 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGF4LabelPieces
 public import CFSG.LocalAnalysis.StandardType.GGF4H5SevenConfig
 public import CFSG.LocalAnalysis.StandardType.GGF4H5SevenBlocks
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGRealQFour
 public import CFSG.LocalAnalysis.StandardType.GGRealKGTorusComponents
 public import CFSG.LocalAnalysis.StandardType.GGSL7CentralCover
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTypeALift
 public import CFSG.GroupTheory.MulAutCongr
-import CFSG.LocalAnalysis.StandardType.GGCellWitness
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGen
-import CFSG.LocalAnalysis.StandardType.GGFixedRealizedConfig
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
 import CFSG.LocalAnalysis.StandardType.GGReflectionPairFix

@@ -5,7 +5,6 @@ public import Certificates.Kernel.RouteP.Lines.YL0
 public import Certificates.Kernel.RouteP.Lines.YL1
 public import Certificates.Kernel.RouteP.Y332.Check
 public import CFSG.Certificates.Kernel.RouteP.TreeBFS
-public import Certificates.Data.RouteP.Y332
 
 public section
 

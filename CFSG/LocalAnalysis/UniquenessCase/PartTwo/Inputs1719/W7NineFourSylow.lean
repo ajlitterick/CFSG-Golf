@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockBasic
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.ComponentModO2Sup
-public import CFSG.Quasithin.Background.A3ComponentsBasic
 public import CFSG.LocalAnalysis.AGLEmbedding.ZOneFacts
 public import CFSG.GroupTheory.PElementSubgroup
 public import CFSG.GroupTheory.SylowInfNormal
-public import CFSG.RankThree.PartOne.S12.Equivariance
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 public import CFSG.ClassicalInvolution.QuaternionStructure
 public import CFSG.ClassicalInvolution.WeakCT.Main
@@ -81,8 +77,6 @@ public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.G64ProofBasic
 public import CFSG.Quasithin.Background.RonanE111Defs

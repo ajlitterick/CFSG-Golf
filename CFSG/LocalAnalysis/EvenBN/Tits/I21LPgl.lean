@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.Tits.I21LA6Aut
-public import CFSG.LocalAnalysis.EvenBN.Tits.I21LA6AutPgl
 
 public section
 

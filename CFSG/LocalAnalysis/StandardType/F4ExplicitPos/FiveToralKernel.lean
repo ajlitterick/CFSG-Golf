@@ -1,13 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentInitial.RootDiagonalConjugation
-public import CFSG.RankThree.PartOne.KF4.Strings
-public import CFSG.LieType.Chevalley.F4FieldTwoEuclid
-public import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
-public import CFSG.LieType.AlgebraicGroups.ToralRootCover
-public import CFSG.RankThree.PartOne.KF4.Lattice3
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.SelectedLiteralPart2
-import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.OddShapesPart2
 
 public noncomputable section
 namespace CFSG.StandardType.F4ExplicitPos.FiveToralKernel

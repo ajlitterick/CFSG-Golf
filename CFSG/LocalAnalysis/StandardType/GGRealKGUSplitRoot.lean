@@ -1,28 +1,17 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealKG
-public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLayerGen
-public import CFSG.LocalAnalysis.StandardType.GGRealKGModelRoot
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenDefs
 import CFSG.LocalAnalysis.StandardType.GGRealKGCoverComp
 import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenModel
-import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenWeyl
 import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenLine
 import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenPair
 import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenCover
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflSp
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypTorus
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHyperbolic
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreU
-import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitFive
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLUnitaryCubic
 import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneUnitaryLabel
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
 import CFSG.LocalAnalysis.StandardType.GGOutTwoCommInnerHolds
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma1315b
 import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.P622K3ChevSimple
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Sec13g

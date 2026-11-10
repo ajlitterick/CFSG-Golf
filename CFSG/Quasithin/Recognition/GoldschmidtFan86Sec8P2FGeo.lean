@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec8P2FRel
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec8P1S82Base
-public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec8P1Z2Loc
-public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec8P1Z2Aff
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec8P1Z2Key
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec8P1S82Geo
 

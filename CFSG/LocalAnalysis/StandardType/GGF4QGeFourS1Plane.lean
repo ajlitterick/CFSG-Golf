@@ -1,17 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotBlocks
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotTorus
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticEndNode
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.TorusPSp
 import CFSG.LocalAnalysis.StandardType.GGRankOneShared
-import CFSG.ClassicalInvolution.Models.SymplecticPairs.RankOne
-import CFSG.ClassicalInvolution.Models.SymplecticPairs.ShortRoot
-import CFSG.ClassicalInvolution.Models.SymplecticPairs.Embed
-import CFSG.LieType.CurtisTits.Perfect
-import CFSG.Timmesfeld.Transvection.PresSp
-import Mathlib.Tactic.Group
 
 public section
 

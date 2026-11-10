@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.StatementsD
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenSixtyEight
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.ComponentTorus
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CharTwoTorus
 public import CFSG.LocalAnalysis.OddStandard.SmallAltFiveAlt5
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P21k
-public import CFSG.Quasithin.Background.A3Structure312Quotient
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
 public import CFSG.GH74.GLS.Stage2.Final.ModelOrd
 public import CFSG.GroupTheory.NormalizerQuotientQuotient
 public import CFSG.GroupTheory.SylowNormalizedByPGroup

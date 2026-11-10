@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowCoordFrame
 public import CFSG.LocalAnalysis.StandardType.GGF4AutWeylTableB
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteA4F4
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylNormAdjoint
 

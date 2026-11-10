@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.Stellmacher.L3YC.M23Sigma
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C127EvenMain
-import CFSG.Quasithin.Background.E2TwoProofSporM23
-import CFSG.Quasithin.Background.HSporLatMathieu
 
 public section
 

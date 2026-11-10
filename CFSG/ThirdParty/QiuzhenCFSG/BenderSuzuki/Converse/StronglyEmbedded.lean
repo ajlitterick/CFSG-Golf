@@ -1,9 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.Converse.PSL2
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.Converse.PSU3
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.Converse.Sz
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.Converse.Lift
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.FinalTheorem
 
 namespace CFSG

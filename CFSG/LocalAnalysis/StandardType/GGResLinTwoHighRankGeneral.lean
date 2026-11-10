@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResLinTwoStableTorus
 public import CFSG.LocalAnalysis.StandardType.GGResJOpenLabel
-public import CFSG.LocalAnalysis.StandardType.GGTBE6
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1CentLin
-public import CFSG.LocalAnalysis.StandardType.GGSignedPermCount
 
 public section
 

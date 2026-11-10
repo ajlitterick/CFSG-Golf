@@ -1,10 +1,7 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Defs
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.ShapeBlocks
-import CFSG.OddTranspositions.PartFour.LineTransport
 import CFSG.OddTranspositions.PartThree.EightFive.QNotCentralBlocks
-import CFSG.OddTranspositions.PartThree.EightSeven
 import CFSG.OddTranspositions.PartThree.Ten.DalphaBlocks
 
 public section

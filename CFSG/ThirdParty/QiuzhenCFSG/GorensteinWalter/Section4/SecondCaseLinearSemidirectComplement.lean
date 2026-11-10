@@ -1,8 +1,6 @@
 module
 
-public import Mathlib.GroupTheory.Complement
 public import Mathlib.GroupTheory.IsPerfect
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.PSL2
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonClassification
 import Mathlib.Tactic
 

@@ -1,13 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotSetup
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotCatTypeDet
 import CFSG.Timmesfeld.Transvection.PresSp
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsGen
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.LieType.Ree.LargeReeEightTorus
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
@@ -21,7 +18,6 @@ import CFSG.LocalAnalysis.SectionRank.LargeReeCover
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 import CFSG.Sporadic.Schreier.TitsOther
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.JRFacts
 
 public section

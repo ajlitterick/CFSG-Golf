@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrUnit
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrFixAlgC
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrFixAlgD
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 
 public section
 

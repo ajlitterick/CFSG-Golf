@@ -4,9 +4,6 @@ public import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.OutTriAux.D4GraphFiel
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.OutTriAux.D4Dual
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27D4Field
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27D4AmbientForm
-public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27D4Basic
-public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixedE6Adjoint
-public import CFSG.RankThree.PartOne.KGD.D4T36Core
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
@@ -60,7 +57,6 @@ public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.AlphaModSound
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanDiagOuterE6Adj
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.SporCaseThreeGen
 public import CFSG.LocalAnalysis.AGLEmbedding.SporadicBetaSmall
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 public import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
 public import CFSG.LocalAnalysis.GLTheoremA.S6.InputsAlt72
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Block
@@ -90,13 +86,8 @@ public import CFSG.Quasithin.Background.B69Core
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -172,9 +163,6 @@ public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
 public import CFSG.YGroups.DCE.B433Check
 public import Certificates.Kernel.J4Count.Prim
 

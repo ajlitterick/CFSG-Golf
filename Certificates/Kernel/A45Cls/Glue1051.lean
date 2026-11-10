@@ -1,12 +1,9 @@
 
 module
 
-public import Certificates.Kernel.A45Cls.Glue107
 public import Certificates.Kernel.A45Cls.CheckInv
 public import Certificates.Kernel.A45Cls.Checks10
 public import CFSG.LocalAnalysis.OddStandard.ONan76Sylow
-public import Certificates.Data.OmegaF1051Facts
-public import CFSG.Quasithin.H13.J4Core
 
 set_option maxRecDepth 400000
 

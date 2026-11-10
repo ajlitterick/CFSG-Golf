@@ -3,11 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBE6Cover
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE6
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusTransferCore
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaCenter
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Cover
 public import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6FiveSylow
 public import CFSG.LieType.Steinberg.CentralExt.GriessTwistedE6
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6PosLift
 public import CFSG.LieType.SeitzGeneration.ExcHigh.Product
 public import CFSG.LieType.Steinberg.CentralExt.GriessExceptional
 

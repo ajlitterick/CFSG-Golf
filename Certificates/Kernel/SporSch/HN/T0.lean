@@ -10,21 +10,11 @@ public import Certificates.Kernel.SporSch.HN.T0Inv
 public import Certificates.Kernel.SporSch.HN.T0Adj0
 public import Certificates.Kernel.SporSch.HN.T0Adj1
 public import Certificates.Kernel.SporSch.HN.T0Rank
-public import Certificates.Kernel.SporSch.HN.PtCR
 public import Certificates.Kernel.SporSch.HN.Pt2085
 public import CFSG.Certificates.Kernel.SporSch.HNT0Pts
 public import CFSG.Certificates.Kernel.SporSch.HNT0Rank
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporHNT0
-public import Certificates.Certificate2087
-public import Certificates.Certificate2094
-public import Certificates.Certificate2096
-public import Certificates.Certificate2099
-public import Certificates.Certificate2100
-public import Certificates.Certificate2102
-public import Certificates.Certificate2104
-public import Certificates.Certificate2107
 import CFSG.Certificates.Kernel.Common.ForallTree
-import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
 public import CFSG.Certificates.Kernel.BfsPinSound
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixFar
-public import CFSG.LocalAnalysis.StandardType.GGQTwoSixCharts
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixAlign
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixGens
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixPoint

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Solomon.Coordinator.WeakModel
 public import CFSG.HardMathSupport.Solomon.Coordinator.U38Main
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LpEpsMain
 

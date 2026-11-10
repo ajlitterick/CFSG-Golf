@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigInputs
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08StabDatumAllAux
 
 public section

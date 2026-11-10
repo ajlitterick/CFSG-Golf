@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.Sylow
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThFive
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.PairConj
 public import CFSG.Certificates.LiftedSchreierData
 public import CFSG.ClassicalInvolution.Balance.LocalBalance.Faithful
 public import CFSG.GH74.Statements
@@ -33,7 +32,6 @@ public import CFSG.LieType.Multipliers.U62Bridge
 public import CFSG.LieType.Multipliers.U62Kernel
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LieType.SteinbergBROddSylowCore
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 public import CFSG.LocalAnalysis.ComponentClassification.BlockCentralSylowEquality
 public import CFSG.LocalAnalysis.ComponentClassification.BlockFourFactorSupport
 public import CFSG.LocalAnalysis.ComponentClassification.BlockLargeProductInvolutions
@@ -74,13 +72,8 @@ public import CFSG.Quasithin.Background.B69Core
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -152,7 +145,6 @@ public import CFSG.RankThree.PartTwo.Sec21.Item229Diagram
 public import CFSG.RankThree.PartTwo.Sec21.Item23Tools
 public import CFSG.RankThree.PartTwo.Sec21.Membership
 public import CFSG.RankThree.PartTwo.Sec21.SylowThree
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.PartTwo.Sec4.Item47Diag
 public import CFSG.RankThree.PartTwo.Sec4.Item47LThree
 public import CFSG.RankThree.PartTwo.Sec4.Item47SpFour
@@ -167,10 +159,6 @@ public import CFSG.Sporadic.Schreier.RuLOdd
 public import CFSG.Sporadic.Schreier.RuZClass
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 public import Certificates.Kernel.J4Count.Prim
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 

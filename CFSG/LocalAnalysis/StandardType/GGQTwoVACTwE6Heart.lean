@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoVACSymp
-public import CFSG.LocalAnalysis.StandardType.GGTableBBstar
-public import CFSG.LocalAnalysis.StandardType.GGQTwoE6Realization
-public import CFSG.LocalAnalysis.StandardType.GGQTwoE6HeartWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTPNPCompQuasi
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACExc
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCavHeartReduction
 
 public section
 

@@ -1,11 +1,9 @@
 module
 
 public import CFSG.Sporadic.HN.LocalK
-import Certificates.Kernel.HNLocal.Fix
 import Certificates.Kernel.HNLocal.Orbit
 import Certificates.Kernel.HNLocal.Census
 public import CFSG.Certificates.Kernel.HNLocalSound
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

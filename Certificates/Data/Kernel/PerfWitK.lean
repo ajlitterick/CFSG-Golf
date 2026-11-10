@@ -1,9 +1,7 @@
 module
 
 public import Certificates.Data.Kernel.Spor.Prim
-public import CFSG.Certificates.Kernel.Enum.Defs
 public import CFSG.GH74.Generic.S45.PerfWitCheck
-public import Certificates.Data.CFSGNative.SporadicSchreier.Count
 
 public section
 

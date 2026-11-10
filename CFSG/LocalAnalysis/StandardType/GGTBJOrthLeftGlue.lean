@@ -2,13 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJOrthSide
 public import CFSG.LocalAnalysis.StandardType.GGTBJConfigUnpack
-public import CFSG.LocalAnalysis.StandardType.GGNbrTwE6Prop87
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpPlus
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNativeImageNormB
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeOrthTFix
 public import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentA6ClOmegaLin
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Orth
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentType
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmAmbientBlocks
 public import CFSG.RankThree.PartOne.KC.OrthogonalSplitCompletion
 import CFSG.RankThree.PartOne.KC.OrthogonalDeletionCoordinates

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2ExcCommon
 public import CFSG.Quasithin.Background.SmithB45TorD4
-public import CFSG.Quasithin.Background.SmithB42D4Main
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2D4Index
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic

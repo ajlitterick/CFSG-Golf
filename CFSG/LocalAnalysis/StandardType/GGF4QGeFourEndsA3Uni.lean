@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4H4JBlockUnitary
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux4
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux6
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux7
 import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeNbr
-import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 
 public section
 

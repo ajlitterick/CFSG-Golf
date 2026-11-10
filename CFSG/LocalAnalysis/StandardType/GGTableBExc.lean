@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcBstar
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcEndNode
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4
 public import CFSG.LocalAnalysis.SeitzReduction.E8PilotLevi
 public import CFSG.LocalAnalysis.SeitzReduction.E7PilotNeighbourLevi
 public import CFSG.LieType.Steinberg.CentralExt.OrthogonalPerfect

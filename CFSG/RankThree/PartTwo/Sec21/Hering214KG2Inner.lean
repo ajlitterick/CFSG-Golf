@@ -3,11 +3,8 @@ module
 public import CFSG.RankThree.PartTwo.Sec21.Hering214KConj
 public import CFSG.RankThree.PartTwo.Sec21.Hering214KSL3
 public import CFSG.RankThree.PartTwo.Sec21.Hering214KEig
-public import CFSG.Blueprint.Chevalley
-import CFSG.LieType.Chevalley.AdjointCenter
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Hom
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Sylow
-import CFSG.RankThree.PartTwo.Sec21.Item211LieProofBar
 import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.GroupTheory.BaerSuzuki
 public import CFSG.LocalAnalysis.ComponentClassification.BlockMutualRanks

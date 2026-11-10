@@ -5,7 +5,6 @@ public import CFSG.Quasithin.EmptyFaithfulMultiple.Lemma1544
 import CFSG.Quasithin.EmptyFaithfulMultiple.Lemma1543Linear
 import CFSG.Quasithin.Background.OrderingMax
 import CFSG.LocalAnalysis.SectionRank.Induction
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.Quasithin.Background.A1bPGroups
 

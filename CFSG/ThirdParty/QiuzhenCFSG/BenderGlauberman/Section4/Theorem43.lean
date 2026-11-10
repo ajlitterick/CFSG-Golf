@@ -2,10 +2,8 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section4.Lemma41
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section4.Lemma42
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section4.NuHatOrbit
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section4.ClassSumOddParity
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section4.ClassSumEvenParity
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Coherence
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Lemma33
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section4.Basic
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section4.Lemma41

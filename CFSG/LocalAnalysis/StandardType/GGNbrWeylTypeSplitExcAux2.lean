@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeSplitExcAux
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeSplitExcAux3
 
 public section

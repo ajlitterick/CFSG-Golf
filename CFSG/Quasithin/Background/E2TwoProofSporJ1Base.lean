@@ -4,13 +4,8 @@ module
 public import CFSG.Quasithin.Background.E2TwoProofSporGen
 public import CFSG.Quasithin.Background.E2TwoProofSporJ1Inputs
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicRep
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatPt
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatO2
-public import CFSG.Sporadic.J1.Simple
 public import CFSG.Sporadic.Schreier.J1Outer
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCore
-public import CFSG.Sporadic.J1.Setup
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivKindDiag
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
 import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerCenter
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosBlockAux3

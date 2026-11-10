@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9U3
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9U7Norm
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

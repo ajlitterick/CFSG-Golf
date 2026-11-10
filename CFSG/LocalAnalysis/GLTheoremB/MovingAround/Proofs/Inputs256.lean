@@ -2,23 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsSeitz
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs1415
-public import CFSG.LocalAnalysis.GL83PartI.I_22_5.Norm
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcCore
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.Rank
-public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelSporMathieu
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1FiveBAbs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416SporCo1Five
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416SporHN
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.LyFive
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-public import CFSG.HardMathSupport.Timmesfeld.Coordinator.ScopeBFrontier
-public import CFSG.HardMathSupport.Timmesfeld.Coordinator.SporadicBMData
-public import CFSG.HardMathSupport.Timmesfeld.Proving.SporadicOuterLeTwo
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.SporadicOne
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.List93IdNot2b
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.No5Co1Chev
-public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.TableComplete
-public import CFSG.Sporadic.Bridge.Catalogue
 public import CFSG.GH74.KGroups.L34Aut
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1Final
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3Spor3All

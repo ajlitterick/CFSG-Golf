@@ -3,8 +3,6 @@ module
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LpEpsUpper
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LpEpsTorus
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.NonsplitPlane
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.DiagOuter
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.LinearOuter
 import CFSG.LocalAnalysis.ComponentInitial.LinearHigherLinearAutNormal
 
 public section

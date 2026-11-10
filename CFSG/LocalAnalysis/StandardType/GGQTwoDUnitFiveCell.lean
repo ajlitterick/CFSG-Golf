@@ -1,38 +1,22 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDCells
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDGen
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBaseThm
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitFiveSetup
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitFiveLabel
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitFiveUnit
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitFiveFrame
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCoord
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBShape
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDispUC
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDispUA
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitTableP
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitNbrBA
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitNbr
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitTorus
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitXTransA
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthMember
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1
-import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Odd
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Edge
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1BaseU
-import CFSG.LocalAnalysis.StandardType.GGQTwoDL1LocalO
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthPair
-import CFSG.LocalAnalysis.StandardType.GGQTwoDSevenPrelim
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGSix
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySp
-import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 
 public section
 

@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PSLDims
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PSUPos
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PSpPos
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotQ2Sp4TwoRootSix
 public import CFSG.Mathlib.GroupTheory.PermCenter
 
 public section

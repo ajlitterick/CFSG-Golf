@@ -1,17 +1,12 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.RealizedTangentCurves
-public import CFSG.LieType.AlgebraicGroups.CentralizerInvolutionTangent
 public import CFSG.LieType.AlgebraicGroups.AdFixedTangentKer
 
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 import CFSG.LieType.AlgebraicGroups.RealizedTangentBound
 import CFSG.LieType.AlgebraicGroups.InnerInvolutionTorus
-import CFSG.LieType.AlgebraicGroups.G2ExceptionalComorphism
 import CFSG.LieType.Chevalley.PinnedTangentIndependence
 import CFSG.LieType.Chevalley.E7InvolutionFixedDim
-import Mathlib.LinearAlgebra.Basis.Defs
-import Mathlib.LinearAlgebra.Basis.Basic
 
 public noncomputable section
 

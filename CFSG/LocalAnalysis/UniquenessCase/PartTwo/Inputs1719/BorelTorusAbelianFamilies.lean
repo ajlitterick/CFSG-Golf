@@ -3,55 +3,36 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CharTwoTorus
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.LieBorelTorus
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsD4
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Triality
-public import CFSG.LieType.Steinberg.CentralExt.GriessNativeModels
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CartanQuotientTools
 public import CFSG.GroupTheory.NormalizerQuotientQuotient
 public import CFSG.GroupTheory.NormalizerQuotientOddCover
 public import CFSG.ClassicalGroups.SpecialLinear.QuasisimpleCoverUncond
-public import CFSG.Adapters.LinearCatalog
-public import CFSG.GH74.KGroups.PSLN
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsF4
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsU5Main
-public import CFSG.LieType.Chevalley.BorelSelfNormalizer
-public import CFSG.GroupTheory.QuasiDihedralFusion.Transport
 public import CFSG.LocalAnalysis.UniquenessCase.Lie.Suzuki
-public import CFSG.LieType.Ree.SuzukiBorelStructure
-public import CFSG.LieType.Chevalley.SylowOpposition
-public import CFSG.LieType.Chevalley.BruhatCellFactorization
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.L28Parabolic
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.I291R3ExDef
 public import CFSG.ClassicalGroups.Orthogonal.BorelQuotientAbelian
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsLie
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P20r
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P20v
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotSetup
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrSp
 public import CFSG.Quasithin.Background.C22PfG
 public import CFSG.Quasithin.SteinbergBIEvenLinearThreeThreeSylowAction
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 public import CFSG.LocalAnalysis.UniquenessCase.Lie.BorelSU
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagTriangular
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherSylow
 import CFSG.LocalAnalysis.ComponentInitial.BorelQuotientAbelian
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.HardMathSupport.Timmesfeld.LinearRank.GLValuation
 public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.ComponentInitial.QTNQRLinearUnitaryOuterDerived
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellBasic
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyTwo
 public import CFSG.Quasithin.Background.B5FinOut
 public import CFSG.Quasithin.Background.FFC4Tr2
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.Recognition.CertTwoLocalPair
 public import CFSG.Quasithin.SteinbergBICommonNormalizerTools
 public import CFSG.Quasithin.SteinbergBITwoThreeSL2
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

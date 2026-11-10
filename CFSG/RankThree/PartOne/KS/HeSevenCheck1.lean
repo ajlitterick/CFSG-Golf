@@ -1,8 +1,6 @@
 module
 
-public import CFSG.RankThree.PartOne.KS.HeSevenCheckDefs
 public meta import CFSG.RankThree.PartOne.KS.HeSevenCheckDefs
-public import CFSG.RankThree.PartOne.KS.PKitSimple
 public import Certificates.Certificate10053
 public meta import CFSG.RankThree.PartOne.KS.PKitSimple
 public meta import CFSG.RankThree.PartOne.KS.HeSevenData

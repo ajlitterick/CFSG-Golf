@@ -12,7 +12,6 @@ public import CFSG.CharacterTheory.Burnside
 public import CFSG.Fischer.Classification.Recognition.PSU6
 public import CFSG.LocalAnalysis.ComponentClassification.ClassicalModelStatedBridge
 public import CFSG.LocalAnalysis.RankTwoShapes.UnitaryFour.Bridge
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.Monster.B.TwoA.Census.PermClasses
 public import CFSG.RankThree.PartTwo.Sec14.Item14Res2ProofLBal

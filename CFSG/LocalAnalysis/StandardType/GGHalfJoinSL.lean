@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHalfJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinSLCard
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinSLCore
-public import CFSG.LocalAnalysis.StandardType.GGHalfKnownGroups
 import CFSG.GroupTheory.ElemAbelianClosure
 
 public section

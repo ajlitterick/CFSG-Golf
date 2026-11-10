@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagDefs
-import CFSG.LieType.Steinberg.Minuscule.Datum
-import CFSG.LieType.Steinberg.Exceptional.Fields
-import CFSG.LieType.Steinberg.TwistedE6.Datum
-import CFSG.LieType.Steinberg.TwistedE6.Generation
 
 public section
 

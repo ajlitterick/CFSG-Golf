@@ -1,11 +1,7 @@
 module
 
-public import CFSG.RankThree.CentralLift.LinearScalarCover
 public import CFSG.RankThree.CentralLift.ClassicalCoverTools
 public import CFSG.RankThree.CentralLiftU.EvenSplit
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearSplit
-public import CFSG.LocalAnalysis.SectionRank.OddCover.ScalarCover
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
 
 public section
 

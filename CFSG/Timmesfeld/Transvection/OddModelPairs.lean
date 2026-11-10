@@ -3,19 +3,12 @@ module
 public import CFSG.Timmesfeld.RankTwo.Levi
 public import CFSG.Timmesfeld.Transvection.PresSpRoots
 public import CFSG.Timmesfeld.Transvection.Statement
-public import CFSG.Open.StatedDefs
-public import CFSG.LieType.Universal.Unitary.Extras
-import CFSG.LieType.Universal.Unitary.Extras.Basic
 import CFSG.LieType.Universal.Unitary.Extras.Commutator
 import all CFSG.LieType.Universal.Unitary.Roots
-import Mathlib.Tactic
 public import CFSG.LieType.Steinberg.Isogeny.Lift
 public import CFSG.LieType.TitsSimplicity
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.Timmesfeld.RankOne
 
 public section

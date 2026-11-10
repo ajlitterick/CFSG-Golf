@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.S129060D
 public import Certificates.Kernel.Sporadic.Suz.Order2306
 public import Certificates.Data.Kernel.SporSch.Kappa
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

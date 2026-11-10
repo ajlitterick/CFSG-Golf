@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviEnnComp
 public import CFSG.LocalAnalysis.StandardType.GGTBJXClass
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.RationalTypeAModel
 
 public section
 

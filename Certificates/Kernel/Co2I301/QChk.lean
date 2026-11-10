@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Co2I301.Mats
 public import Certificates.Kernel.SporSch.Co2M.EnumQ
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

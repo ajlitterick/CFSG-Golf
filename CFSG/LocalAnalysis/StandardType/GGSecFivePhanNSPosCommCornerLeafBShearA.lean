@@ -1,9 +1,7 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.Algebra.CharP.Defs
 public import Mathlib.Tactic.NoncommRing
-public import Mathlib.Tactic.Module
 public import Mathlib.Tactic.LinearCombination
 
 public section

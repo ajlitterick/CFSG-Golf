@@ -2,10 +2,7 @@ module
 
 public import CFSG.RankThree.PartTwo.Census.Carrier.D4EvenLevi
 public import CFSG.LieType.Chevalley.FixedRootCentralizerGeneration
-public import CFSG.Blueprint.Catalog
 import CFSG.LieType.Chevalley.TrialityFullAmbientFixedGroup
-import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
-import CFSG.LocalAnalysis.RankThreeEvenClassification.Helpers
 import CFSG.RankThree.PartTwo.Census.Criteria
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -15,7 +12,6 @@ import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public noncomputable section
 

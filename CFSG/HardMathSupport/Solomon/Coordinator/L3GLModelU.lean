@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3BDeltaUMain
-public import CFSG.HardMathSupport.Solomon.Coordinator.L3BDeltaUPlane
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3GLMatrix
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools

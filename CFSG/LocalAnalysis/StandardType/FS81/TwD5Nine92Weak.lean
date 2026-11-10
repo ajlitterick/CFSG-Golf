@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Defs
 public import CFSG.LocalAnalysis.StandardType.FS81.D6InnerAux
 public import CFSG.LocalAnalysis.StandardType.FS81.BasisMonomial
 public import CFSG.LocalAnalysis.StandardType.FS81.N7MainBasic
-public import CFSG.LocalAnalysis.StandardType.FS81.RootLineRigidAux
 public import CFSG.GroupTheory.PCore.SubgroupCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
-public import Mathlib.GroupTheory.Sylow
 
 public section
 

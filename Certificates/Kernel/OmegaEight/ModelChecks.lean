@@ -11,7 +11,6 @@ public import Certificates.Kernel.OmegaEight.S0Data
 public import Certificates.Kernel.LocalComp.Omega1Chain
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.Stage1Q3Data
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

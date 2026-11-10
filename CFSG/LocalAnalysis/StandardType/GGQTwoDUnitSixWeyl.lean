@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixInner
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitTorus
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitWeylXA
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitWeylGen
 import CFSG.LocalAnalysis.StandardType.GGQTwoDCoxEvenOrbit
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMLin
 

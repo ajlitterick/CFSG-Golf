@@ -1,13 +1,8 @@
 module
 
-public import CFSG.GH74.GLS.Stage4.Q9.ModelBase
-public import CFSG.CharacterTheory.Blocks.BrauerInduction
-public import CFSG.CharacterTheory.Blocks.InnerProduct
 public meta import CFSG.GH74.GLS.Stage4.Q9.ModelBase
 public meta import Mathlib
-public import CFSG.GH74.GLS.Stage4.Q9.PermCharInputs
 public meta import CFSG.GH74.GLS.Stage4.Q9.PermCharInputs
-public import Certificates.Certificate5100
 public import Certificates.Certificate5101
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.Bounds.LyAlt.DceS5
 public import CFSG.Certificates.Kernel.LocalQTSecLemmas
-public import CFSG.Certificates.Kernel.Spor.OrdSound
 import all CFSG.Certificates.Kernel.Spor.OrdSound
 import all CFSG.Certificates.Kernel.LocalQTSecLemmas
 

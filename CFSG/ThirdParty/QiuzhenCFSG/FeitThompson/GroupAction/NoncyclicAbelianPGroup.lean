@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.Defs
 import Mathlib.RepresentationTheory.Submodule
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.CoprimeHall
 
 namespace CFSG

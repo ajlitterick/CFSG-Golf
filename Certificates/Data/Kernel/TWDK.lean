@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.DepASmall
 public import Certificates.Data.TwoDepSmall
 
 public section

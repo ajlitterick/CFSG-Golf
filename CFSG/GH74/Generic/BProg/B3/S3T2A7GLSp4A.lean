@@ -1,12 +1,7 @@
 module
 
 public import CFSG.GH74.Generic.Front.SpFld
-public import CFSG.GH74.Generic.ClassicalCerts
 public import CFSG.RankThree.SubgroupLists.SymplecticInvolutions
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticRepresentation
-public import Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Generic.Shapes
 public import CFSG.GH74.Statements
@@ -40,7 +35,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 public import CFSG.LocalAnalysis.SectionRank.CentralLift
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

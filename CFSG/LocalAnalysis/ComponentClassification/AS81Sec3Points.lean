@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3Model
-public import CFSG.LocalAnalysis.ComponentClassification.AS81Points
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Step15Kernel
-public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8G2Root
-public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8G2Centr
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExceptionalOut
 public import CFSG.LieType.Chevalley.EvenRootCommutatorF4
 public import CFSG.LocalAnalysis.ComponentClassification.AS81AffinePlane

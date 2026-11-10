@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCore
-public import Certificates.Data.CFSGNative.SporLat.Spec
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcAmbModel
-public import CFSG.LocalAnalysis.StandardType.GGQ2FrameSmall
 
 public section
 

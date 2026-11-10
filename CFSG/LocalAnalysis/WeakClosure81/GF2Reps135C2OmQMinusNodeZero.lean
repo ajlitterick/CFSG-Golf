@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusInterfaces
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusNonBinary
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusIsoNat
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusNFWeyl
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusLabels
-import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusLabel
 import CFSG.LieType.Steinberg.CurtisDatum.TorusSums
 
 public section

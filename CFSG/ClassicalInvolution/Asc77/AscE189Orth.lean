@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.AscE189OrthMain
-public import CFSG.ClassicalInvolution.Models.Transfer.Orthogonal
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthBridge
 
 public section
 

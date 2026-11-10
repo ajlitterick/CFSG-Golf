@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.MaxD2.L34.Enum
 public import Certificates.Kernel.MaxD2.L34.Data
-public import Certificates.Data.Kernel.MaxD2.Check
 public import Certificates.Data.Kernel.MaxD2.Pair
 public import Certificates.Data.L34InnerLocal
 import CFSG.Certificates.Kernel.Common.Harness

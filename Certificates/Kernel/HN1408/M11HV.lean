@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.HN1408.M11Data
-public import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Kernel.HN1408.M11Data
 meta import Certificates.Data.CFSGNative.SmallOddCore.Check
 public import CFSG.Certificates.Kernel.Bounds.Core3

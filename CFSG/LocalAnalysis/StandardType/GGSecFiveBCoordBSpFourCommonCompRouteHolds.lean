@@ -7,13 +7,9 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpFour
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBSpCoordFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneAxis
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBSplitFourRadical
-import CFSG.LocalAnalysis.StandardType.GGPumpupBalance
 import CFSG.LocalAnalysis.StandardType.GGStdTypeOddConj
-import CFSG.LocalAnalysis.StandardType.GGTPNDefs
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpSpSplit
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrAxis
-import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
 
 public section

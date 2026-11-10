@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB83Q3Step4
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
 
 public section
 

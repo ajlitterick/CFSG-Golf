@@ -6,11 +6,7 @@ import CFSG.LocalAnalysis.StandardType.GGLieOddCoverModel
 import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OddCenter
 import CFSG.LocalAnalysis.StandardType.GGTwistedLabelModels
 import CFSG.LocalAnalysis.UniquenessCase.Lie.Cover
-import CFSG.LieType.Steinberg.CentralExt.PSpEvenMultiplier
-import CFSG.LieType.Steinberg.CentralExt.SpinMinusCentrallyClosed
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieCover
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 
 public section
 

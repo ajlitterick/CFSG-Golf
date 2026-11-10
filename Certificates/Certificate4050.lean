@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1J2Data
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1J2CheckInputs
 import CFSG.Certificates.Kernel.LocalQTPipeSound
 import Certificates.Kernel.LocalQT.Pipe.C4050a
@@ -10,7 +9,6 @@ import Certificates.Kernel.LocalQT.Pipe.C4050e
 import Certificates.Kernel.LocalQT.Pipe.C4050r
 import Certificates.Kernel.LocalQT.Pipe.C4050b
 import Certificates.Kernel.LocalQT.Pipe.C4050p
-import Certificates.Kernel.LocalQT.Pipe.F4050
 import CFSG.Certificates.Kernel.Common.Harness
 public import Std.Data.HashMap
 

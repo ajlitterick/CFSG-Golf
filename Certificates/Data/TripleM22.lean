@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.HS.Cert
 public import CFSG.CGT.T75JM.M22PresInputs
 public import CFSG.Sporadic.HS.Group
 

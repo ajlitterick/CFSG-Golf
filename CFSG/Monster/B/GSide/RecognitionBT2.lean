@@ -5,8 +5,6 @@ public import CFSG.Monster.B.GSide.BT2C2
 public import CFSG.Monster.B.GSide.NotTwoCentral
 public import CFSG.Monster.B.GSide.EdgeAut
 public import CFSG.Monster.B.GSide.EdgeDCompat
-public import CFSG.Monster.B.GSide.G4Exclusions
-public import CFSG.Monster.B.GSide.G4TwoC
 public import CFSG.Monster.B.GSide.EdgeQCertOrbits
 public import CFSG.Monster.B.GSide.HInnerFusionI3
 public import CFSG.Monster.B.GSide.TriangleHom1782

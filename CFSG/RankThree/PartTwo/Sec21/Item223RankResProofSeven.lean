@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec21.Item223RankResProofCross
 public import CFSG.RankThree.PartTwo.Sec21.Item223RankResProofEigen
 import CFSG.LieType.Chevalley.OddPinnedComponents
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.LangRootArithmetic
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -19,7 +17,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Item47
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication
 import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter

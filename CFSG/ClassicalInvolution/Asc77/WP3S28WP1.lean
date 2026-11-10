@@ -5,10 +5,6 @@ public import CFSG.ClassicalInvolution.Asc77.WP3S28BR3
 public import CFSG.ClassicalInvolution.Asc77.WP3SCRP1
 import CFSG.ClassicalInvolution.Asc77.WP3FrameModelPSU
 import CFSG.ClassicalInvolution.Asc77.AscE187Img
-import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
-import CFSG.ClassicalInvolution.Balance.PassTwoModelFacts
-import CFSG.ClassicalInvolution.Balance.BootNoTriple
-import CFSG.ClassicalInvolution.SmallCases.DSplitDefs
 public import CFSG.ClassicalInvolution.Asc77.WP3S28BFuzzy
 public import CFSG.ClassicalInvolution.Asc77.WP3SCUProved
 import CFSG.ClassicalInvolution.Asc77.AscE187Cop

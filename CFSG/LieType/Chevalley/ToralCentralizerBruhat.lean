@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import CFSG.LieType.Chevalley.WeylNormalizerQuotient
-public import CFSG.LieType.Chevalley.SimpleWeylComplement
 
 public noncomputable section
 

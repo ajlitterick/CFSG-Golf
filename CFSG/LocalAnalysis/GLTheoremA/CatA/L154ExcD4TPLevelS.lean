@@ -17,7 +17,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.S4.ModCore
 public import CFSG.LocalAnalysis.GLTheoremA.S6.Lemma62AuxComp
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Proof
-public import CFSG.LocalAnalysis.SignalizerFunctor
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Certs
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang

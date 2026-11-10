@@ -5,10 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenRoot
 public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenModel
 public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenComp
 public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenGen
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerF4
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRestExc
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestExc
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4
 
 public section
 

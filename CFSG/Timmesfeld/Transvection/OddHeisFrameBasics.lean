@@ -1,20 +1,14 @@
 module
 
 public import CFSG.Timmesfeld.Transvection.OddPairs
-public import CFSG.Timmesfeld.Transvection.PresSU
 public import CFSG.Timmesfeld.Transvection.OddSU3Chord
 public import CFSG.Timmesfeld.Transvection.OddModelHeis
-public import CFSG.Timmesfeld.Transvection.GenerateRel
 public import CFSG.Timmesfeld.Transvection.OddCPart
 public import CFSG.Timmesfeld.Transvection.FrameResidue
-public import CFSG.LieType.Universal.Unitary.Roots.Levels
-import CFSG.Timmesfeld.Transvection.RelBuildField
 import CFSG.Timmesfeld.Transvection.OddPairsFrame
 import CFSG.Timmesfeld.Transvection.OddNormalize
 import CFSG.Timmesfeld.Transvection.OddSU3Torus
 import CFSG.Timmesfeld.Transvection.OddResidueBlock
-import CFSG.Timmesfeld.Transvection.PresSURankOne
-import CFSG.Timmesfeld.Transvection.RankThreeA2Coords
 public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.LocalAnalysis.LargeEvenClassification.C8FourSubgroupExhaustion
 public import CFSG.LocalAnalysis.LargeEvenClassification.C8FourSubgroupRanks

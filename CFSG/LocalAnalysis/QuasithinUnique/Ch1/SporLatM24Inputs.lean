@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRows
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieu
-public import CFSG.Blueprint.NativeSporadic
 public import Certificates.Data.CFSGNative.SporLat.Build
-public import Certificates.Data.CFSGNative.SporLat.Code
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatQuot
 
 @[expose] public section

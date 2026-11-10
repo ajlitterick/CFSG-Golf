@@ -2,13 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NineModelAux
 public import CFSG.LocalAnalysis.StandardType.FS81.OrthInner
-public import CFSG.LocalAnalysis.StandardType.FS81.OrthParity
 public import CFSG.LocalAnalysis.StandardType.FS81.RowElemAbOrth
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenOrthFixed
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1OmCBasic
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerD4MExt
 public import CFSG.ClassicalGroups.Orthogonal.CharTwoReflectGen
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 
 public section
 

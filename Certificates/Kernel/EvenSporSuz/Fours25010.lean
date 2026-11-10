@@ -6,7 +6,6 @@ public import Certificates.Kernel.Sporadic.OddCore.Suz26990
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoSuz.FoursCheck
 import all Certificates.Kernel.EvenSporSuz.Data
 import all Init.Data.List.SplitOn.Basic
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

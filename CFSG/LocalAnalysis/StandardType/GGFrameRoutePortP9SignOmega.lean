@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoOmMoves
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9Norm
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9Coord
-import CFSG.RankThree.OrthogonalInvolutions.OmegaClasses
 
 public section
 

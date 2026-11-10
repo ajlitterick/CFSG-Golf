@@ -2,11 +2,8 @@ module
 
 public import CFSG.Sporadic.Schreier.Co3Cert
 import Certificates.Kernel.E27Lie.Co3Facts
-import CFSG.Sporadic.Schreier.Co3Arrays
-import CFSG.Sporadic.Schreier.Co3OrderCheckInputs
 meta import CFSG.Sporadic.Schreier.Co3Cert
 meta import Certificates.Data.CFSGNative.Schreier.Check
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

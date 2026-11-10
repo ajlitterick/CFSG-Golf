@@ -3,8 +3,6 @@ module
 
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi23ThreeCBase
 
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi23Cent
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi23Twin
 public import Certificates.Certificate17340
 
 public section

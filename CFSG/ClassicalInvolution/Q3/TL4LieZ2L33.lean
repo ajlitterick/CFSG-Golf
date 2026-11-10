@@ -3,10 +3,8 @@ module
 public import CFSG.ClassicalInvolution.Q3.TL4LieZ2Ck
 public import CFSG.ClassicalInvolution.Q3.TL4LinkZ2Exit
 public import CFSG.ClassicalInvolution.Q3.TL4OddLieZ2
-public import CFSG.ClassicalInvolution.Q3.TA3SmallModels
 public import Certificates.Certificate55123
 public import CFSG.ClassicalInvolution.Q3.TA3SOLCore
-public import CFSG.ClassicalInvolution.Q3.TA3SOLCoreRank
 public import CFSG.ClassicalInvolution.Q3.TL4E3MuPass
 public import CFSG.ClassicalInvolution.Q3.TL4MF163L3
 public import CFSG.ClassicalInvolution.Q3.TL4MF163U3

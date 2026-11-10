@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.J2Cover.M22Bind
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperRootDefs
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA2
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperRootPerm
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperRootTransp
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 
 public section
 

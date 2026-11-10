@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoTBTvFrame
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoTBInputs
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Two
-public import CFSG.LieType.Chevalley.EvenF4AutomorphismNormalForm
 
 public section
 

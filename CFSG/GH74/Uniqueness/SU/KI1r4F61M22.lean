@@ -1,14 +1,7 @@
 module
 
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM22Outer
 public import CFSG.GH74.Uniqueness.SU.KI1r4F61Sp
-public import CFSG.GH74.Uniqueness.SU.KI1r4F61Mod
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM22OuterData
-public import Certificates.Certificate2195
-public import Certificates.Certificate2202
-public import Certificates.Certificate2203
-public import Certificates.Certificate3029
-public import Certificates.Certificate3157
 public import Certificates.Certificate5139
 public import CFSG.Foundations
 public import CFSG.GH74.Generic.Shapes
@@ -37,7 +30,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public import CFSG.Sporadic.Schreier.M23
 public import CFSG.Sporadic.Schreier.MathieuOddCore
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.Walter.J1
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

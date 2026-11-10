@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.CFSGNative.F4.Unitary
-import Certificates.Data.CFSGNative.F4.Basic
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Misc.KernelRfl
 import Std.Tactic.BVDecide.Normalize.BitVec

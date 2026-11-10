@@ -1,12 +1,8 @@
 module
 
-public import CFSG.RankThree.GF2n.Stroth80.HeringSec64Cor
 public import CFSG.RankThree.GF2n.Stroth80.HeringSec65NAbs
-public import CFSG.RankThree.GF2n.Stroth80.HeringSec65NBar
 public import CFSG.RankThree.GF2n.Stroth80.HeringSec65NNorm
 public import CFSG.RankThree.GF2n.Stroth80.HeringSec65NLam
-public import CFSG.RankThree.GF2n.Stroth80.Sec123SL2Grp
-public import CFSG.RankThree.GF2n.Stroth80.Sec123SL2Sylow
 
 public section
 

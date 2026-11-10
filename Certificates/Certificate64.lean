@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.RootOps.Instance
-import Certificates.Certificate113
-import Certificates.Certificate114
 import Certificates.Certificate60
 
 public section

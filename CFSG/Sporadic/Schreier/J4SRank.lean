@@ -5,18 +5,10 @@ public import CFSG.Sporadic.Schreier.J4SRankBase
 
 public import CFSG.Sporadic.Schreier.J4SRankCheck
 public import CFSG.Sporadic.Schreier.J4SThree
-public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Schreier.J4SCols
-public import CFSG.Sporadic.Schreier.J4SInvData
-public import CFSG.Sporadic.Schreier.J4SOrbits
 public meta import CFSG.Sporadic.Schreier.J4SOrbits
-public import CFSG.Sporadic.Schreier.J4SRankData
 public meta import CFSG.Sporadic.Schreier.J4SRankData
-public import CFSG.Sporadic.Schreier.J4SSylowData
 public meta import CFSG.Sporadic.Schreier.J4SSylowData
-public import CFSG.Sporadic.Schreier.J4SThreeDataInputs
 public meta import CFSG.Sporadic.Schreier.J4SKCent
-public import CFSG.Sporadic.J4.Local
 
 public noncomputable section
 

@@ -5,8 +5,6 @@ public import CFSG.RankThree.GF2n.Tim77Prop24
 public import CFSG.CGT.T75N.BenderCenter
 public import CFSG.CGT.T75N.UnitaryTwoGen
 public import CFSG.StronglyEmbedded.MatrixGroups.PSL2
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.Timmesfeld.Moufang.Three
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore

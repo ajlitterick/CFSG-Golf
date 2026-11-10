@@ -5,7 +5,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3MFODSimE
 public import CFSG.ClassicalInvolution.Q3.Q3MFODSim
 public import CFSG.ClassicalInvolution.Q3.Q3NMBlocks
 public import CFSG.ClassicalInvolution.Q3.ModelOddCentralizerGaussUnitary
-public import CFSG.ClassicalInvolution.SmallOrth.Orth3Center
 public import CFSG.ClassicalInvolution.SmallOrth.Orth3Split
 
 public section

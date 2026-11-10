@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGTwDescent
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelKGFrameE
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHolds
 
 public section
 

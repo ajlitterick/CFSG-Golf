@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneInputs
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompDefs
 
 public section

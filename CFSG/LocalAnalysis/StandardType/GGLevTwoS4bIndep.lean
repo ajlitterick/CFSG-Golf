@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS4bAux2
-import CFSG.LocalAnalysis.StandardType.GGWeylSimpleSystemsConj
-import CFSG.LieType.Steinberg.OfCartan
 
 public section
 

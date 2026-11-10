@@ -4,11 +4,8 @@ public import Certificates.Kernel.LocalComp.B0SuzData
 public import Certificates.Kernel.LocalComp.B0SuzMat
 public import Certificates.Kernel.Sporadic.OddCore.Suz2302
 public import Certificates.Data.Kernel.B0SuzK
-public import Certificates.Data.Kernel.BfsPin
-public import CFSG.Certificates.Kernel.LocalCompUnpack
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3Q0SuzTests
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3SHatTypeInputs
-import CFSG.Certificates.Kernel.Common.Harness
 import Certificates.Kernel.Sporadic.ON.Gen
 
 public section

@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOrthLowB
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOrthLow
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixComponentsUnitary
-public import CFSG.LieType.Universal.Unitary.Clause0
-public import CFSG.LieType.Universal.Unitary.Comparison
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherSemilinearInvolution
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

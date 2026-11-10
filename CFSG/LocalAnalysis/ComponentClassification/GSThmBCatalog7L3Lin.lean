@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
 public import CFSG.LocalAnalysis.ComponentClassification.OddClassSelectorULinear
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearHigherBPureGraph
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L3Orth

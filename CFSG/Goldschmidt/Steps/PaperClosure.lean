@@ -1,22 +1,17 @@
 module
 
-public import CFSG.Goldschmidt.OddCore
 public import CFSG.Goldschmidt.StatementsG4
 import CFSG.Goldschmidt.Steps.GAssembly
 import CFSG.Goldschmidt.Steps.G4
-import CFSG.Goldschmidt.Steps.G28
 import CFSG.Goldschmidt.Steps.G210
 import CFSG.Goldschmidt.Steps.G211
 import CFSG.Goldschmidt.Steps.G312
 import CFSG.Goldschmidt.Steps.GSz8Mult
 import CFSG.Goldschmidt.Steps.G36
-import CFSG.Goldschmidt.Steps.G3aBorel
 import CFSG.Goldschmidt.Steps.G3NewPair
 import CFSG.Goldschmidt.Steps.G51
-import CFSG.Goldschmidt.Steps.G52
 import CFSG.Goldschmidt.Steps.G53
 import CFSG.Goldschmidt.Steps.G54
-import CFSG.Goldschmidt.Steps.G55
 import CFSG.Goldschmidt.Steps.G56
 import CFSG.Goldschmidt.Steps.G61
 import CFSG.Goldschmidt.Steps.G62
@@ -50,7 +45,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstructi
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
 public import CFSG.LocalAnalysis.RankTwoShapes.AlperinFusion
 public import CFSG.Sporadic.Bridge.M11CheckInputs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 import CFSG.Adapters.GeneralizedFitting
 import CFSG.Walter.Bender1970.S1

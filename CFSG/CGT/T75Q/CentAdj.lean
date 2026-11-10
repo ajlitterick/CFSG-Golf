@@ -4,7 +4,6 @@ public import CFSG.CGT.T75Q.Cent
 public import CFSG.CGT.T75Q.Sec64Eight
 public import CFSG.CGT.T75I.CenFacts
 public import CFSG.CGT.T75I.CenX1
-public import CFSG.CGT.T75I.CenCM
 public import CFSG.CGT.T75I.Cen2
 public import CFSG.CGT.T75I.CenBasic
 public import CFSG.CGT.T75I.DMax
@@ -15,7 +14,6 @@ public import CFSG.CGT.Timmesfeld75.Sec4CaseITheoremX
 public import CFSG.CGT.Timmesfeld75.Sec4Three
 public import CFSG.CGT.Timmesfeld75.Sec68Stmt
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
 
 public section
 

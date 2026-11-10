@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetIota
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetPin
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetCompFinAux
-public import CFSG.LieType.Steinberg.Isogeny.E6
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviHom
-public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
-public import CFSG.LieType.CurtisTits.Recognition
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.UnitarySix.Sec3.C3920
 public import Certificates.Kernel.UnitarySix.Sec3.K3920
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

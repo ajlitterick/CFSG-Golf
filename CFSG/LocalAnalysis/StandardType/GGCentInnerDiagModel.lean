@@ -1,16 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagBlocks
-public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagLinear
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagUnitary
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagSp
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagOmega
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpDecomp
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpIsoOneLinear
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpIsoUnitary
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaDecomp
 public import CFSG.LocalAnalysis.StandardType.TableC.POmegaBlockDeg
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResU3ThreeSolv
 public import CFSG.RankThree.GF2n.Smith81.OrthE1KFLinear
 public import CFSG.ClassicalGroups.SpecialLinear.InvariantForms
 public import CFSG.ClassicalGroups.SpecialLinear.NaturalDualSum
@@ -19,7 +14,6 @@ public import CFSG.HardMathSupport.Dickson.Bal207.LocalBalClassical
 public import CFSG.HardMathSupport.Dickson.Bal207.LocalBalRows
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.SpTwo
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294KDOutTwE6
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtX1512DeltaA
 public import CFSG.RankThree.GF2n.Smith81.EStmt
 public import CFSG.RankThree.GF2n.Smith81.OrthE2Layer
 public import CFSG.RankThree.GF2n.Smith81.TiLane

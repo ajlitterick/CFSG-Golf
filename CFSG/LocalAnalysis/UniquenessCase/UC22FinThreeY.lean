@@ -1,15 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
-public import CFSG.Open.StatedDefs
-public import Mathlib.FieldTheory.Finite.GaloisField
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Bar13
 import CFSG.LocalAnalysis.UniquenessCase.UC22P20d
 import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge2
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearNative
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.LieType.Steinberg.CentralExt.LinearPerfect
-import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting

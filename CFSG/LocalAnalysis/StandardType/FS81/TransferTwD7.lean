@@ -1,16 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.RowSplit
 public import CFSG.LocalAnalysis.StandardType.FS81.CapE7
 public import CFSG.LocalAnalysis.StandardType.FS81.LocalOrthModels
 import CFSG.LocalAnalysis.StandardType.FS81.SplitEAux
-import CFSG.LocalAnalysis.StandardType.FS81.TwD7CentGen
 import CFSG.LocalAnalysis.StandardType.FS81.TwD7CentDecomp
 import CFSG.LocalAnalysis.StandardType.FS81.S7ModelAut
 import CFSG.LocalAnalysis.StandardType.FS81.S7Fusion
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerSymplecticOrth
 
 public section
 

@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGPumpTwLabLaneCD
 public import CFSG.LocalAnalysis.StandardType.GGPumpTwLabLaneExc
 public import CFSG.LocalAnalysis.StandardType.GGPumpTwLabLaneSmall
 public import CFSG.LocalAnalysis.StandardType.GGPumpTwLabCover
-public import CFSG.LocalAnalysis.StandardType.GGR4PumpTwKnownDefs
 
 public section
 

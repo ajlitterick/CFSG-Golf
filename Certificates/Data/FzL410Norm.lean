@@ -1,8 +1,6 @@
 module
 
 public import Mathlib.Data.ZMod.Basic
-public import Mathlib.Data.Fintype.Prod
-public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 
 public section
 

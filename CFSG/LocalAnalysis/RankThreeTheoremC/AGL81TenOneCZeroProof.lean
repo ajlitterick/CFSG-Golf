@@ -2,19 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGLHyp111ElevenTwentySeven
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransfer
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeASix
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeCfg
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeCore
-import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsPLType
-import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockStructure
-import CFSG.LocalAnalysis.AGLEmbedding.PhaseThreeConfig
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingSymmetric
-import CFSG.HardMathSupport.Curtis.UnitaryLevi.PLTypeHolds
-import CFSG.ClassicalGroups.Symplectic.Simple
-import CFSG.ClassicalGroups.Symplectic.ProjectivePerfect
 import CFSG.RankThree.PartTwo.Census.Carrier.SpinBBridge
-import CFSG.RankThree.PartOne.S12.Sec154Fin
-import CFSG.Assembly.Subnormal
 public import CFSG.Adapters.QiuzhenLegacy.FeitThompson.GroupAction.Quotient
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs

@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoExc
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
-public import CFSG.LieType.SeitzGeneration.ExcOuterLeOne.BigCell
-public import CFSG.Timmesfeld.RankOne.SL2
 public import CFSG.LocalAnalysis.StandardType.GGFinModelRat
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 
 public section
 

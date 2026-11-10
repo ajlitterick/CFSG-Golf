@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1ExcInputs
 import CFSG.LocalAnalysis.SeitzReduction.CrossCharCert
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestTypeDet
 import CFSG.LocalAnalysis.StandardType.KGLangS1ETypeDet
-import CFSG.Timmesfeld.Orders.ExceptionalTwisted
 import CFSG.LocalAnalysis.SeitzReduction.CrossCharInputs
 import CFSG.LocalAnalysis.SeitzReduction.RankOneBranches
 import CFSG.LocalAnalysis.SeitzReduction.RankOneHypStarDef

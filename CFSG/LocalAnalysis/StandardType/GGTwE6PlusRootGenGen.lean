@@ -2,15 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6PlusRootGenFrame
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenOmit
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenSL
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompChain
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenGen
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoLSS92Input
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenInput
-public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenModel
-public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenRoot
-public import CFSG.RankThree.Chevalley.SteinbergCAF4SplitPrimeTorus
-public import CFSG.LieType.Chevalley.TrialityFullAmbientFixedGroup
 
 public section
 

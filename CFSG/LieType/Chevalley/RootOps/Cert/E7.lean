@@ -5,13 +5,6 @@ public import CFSG.LieType.Chevalley.RootOps.Cert.E7Simple
 public import CFSG.LieType.Chevalley.RootOps.Cert.E7Conj0
 public import CFSG.LieType.Chevalley.RootOps.Cert.E7Conj42
 public import CFSG.LieType.Chevalley.RootOps.Cert.E7Conj84
-public import Certificates.Certificate54
-public import Certificates.Certificate55
-public import Certificates.Certificate56
-public import Certificates.Certificate57
-public import Certificates.Certificate58
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

@@ -9,11 +9,8 @@ public import CFSG.Certificates.Kernel.Orders.McL.Checks.R
 public import CFSG.Certificates.Kernel.Orders.McL.Checks.H
 public import CFSG.Certificates.Kernel.Orders.McL.Checks.D
 public import CFSG.Certificates.Kernel.Orders.McL.Checks.K
-public import CFSG.Certificates.Kernel.Orders.McL.Data.Pay
-public import CFSG.Certificates.Kernel.Orders.McL.Data.Sel
 import all CFSG.Blueprint.NativeSporadic
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.OrdSound
 
 public section

@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRank
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVac
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNinePGL
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmall
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwDThree
 
 public section
 

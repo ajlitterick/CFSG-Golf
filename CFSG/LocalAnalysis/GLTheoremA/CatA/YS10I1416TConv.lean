@@ -2,20 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS10I1416RBridge
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS10I1416ROdd
-public import CFSG.LocalAnalysis.StandardType.MarkingSmall
-public import CFSG.GH74.Exceptional.LinearFourTwo
-public import CFSG.Adapters.TauCetiExceptional.EvenAll
-public import CFSG.StronglyEmbedded.Catalog.Suzuki
-public import CFSG.Adapters.ExceptionalCatalogReverse
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Seitz2313Cover
-public import CFSG.LocalAnalysis.StandardType.ChevTwoLieModel
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
-public import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
-public import CFSG.Blueprint.SourceClassicalTransportOrthogonal
-public import CFSG.Adapters.RankTwoModelTransports
 
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.ClassicalInvolution.Asc77.AscE184Basic
 public import CFSG.ClassicalInvolution.Asc77.AscE184Graph

@@ -4,9 +4,6 @@ public import CFSG.ClassicalInvolution.Phan.PhanDn.QTwo.Defs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanPrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
 import CFSG.LocalAnalysis.StandardType.GGNSJoinRankOneOfRk1
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneCard
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import Mathlib.FieldTheory.Finite.GaloisField
 
 public section
 

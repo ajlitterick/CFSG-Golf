@@ -5,10 +5,6 @@ public import CFSG.HardMathSupport.Lang.SeitzPlane.TwE6FrameLayer
 public import CFSG.HardMathSupport.Lang.SeitzPlane.Tw6D4LayerData
 public import CFSG.RankThree.PartOne.D4RC.RxOrder
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.SeitzRows.F4ThreeOdd
-public import CFSG.LieType.Chevalley.TrialityExactFiniteOrder
-public import CFSG.RankThree.Chevalley.SteinbergBID4TrialityDescent
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.HardMathSupport.Timmesfeld.Proving.ExistsOrderPCentralizer
 public import CFSG.HardMathSupport.Timmesfeld.Proving.GLAPrimeCoreCentralizer
@@ -53,7 +49,6 @@ public import CFSG.RankThree.PartOne.KF4.KernelTools
 public import CFSG.RankThree.PartOne.KGD.D4QFrame
 public import CFSG.RankThree.PartOne.KGD.D4T36Frame
 public import CFSG.RankThree.PartOne.S8.Statements
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public noncomputable section
 

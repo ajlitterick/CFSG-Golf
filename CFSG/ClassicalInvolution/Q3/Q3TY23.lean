@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TY13
 public import CFSG.ClassicalInvolution.RouteD.TWT8Spin
-public import CFSG.ClassicalInvolution.RouteD.GapsFrBGen
 
 public section
 

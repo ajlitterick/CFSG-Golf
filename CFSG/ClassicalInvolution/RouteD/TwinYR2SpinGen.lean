@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinFrame
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15Gen
 public import CFSG.ClassicalInvolution.Balance.StrongPowOrthSide
 
 public section

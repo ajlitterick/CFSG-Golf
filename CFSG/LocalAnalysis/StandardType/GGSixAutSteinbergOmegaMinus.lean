@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaModel
 public import CFSG.RankThree.PartOne.AUTSL.OmegaOut
 public import CFSG.RankThree.PartOne.AUTSL.OmegaStab
-public import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Chevalley.OddF4CosetDescent
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit

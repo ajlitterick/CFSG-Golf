@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Yardstones.Mf4cdcdf2e013.Definitions
 public import CFSG.LocalAnalysis.UniquenessCase.UC6Inst
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S21a
 public import CFSG.LocalAnalysis.UniquenessCase.UC22K331Holds
@@ -8,16 +7,11 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.SEFive.Holds
 public import CFSG.CGT.PushingUpLit.TwoKHolds
 import CFSG.LocalAnalysis.UniquenessCase.UC6S6
 import CFSG.LocalAnalysis.UniquenessCase.UC22DichotomyHolds
-import CFSG.LocalAnalysis.UniquenessCase.UC22ListB
 import CFSG.LocalAnalysis.UniquenessCase.UC22K318Main
 import CFSG.RankThree.SubgroupLists.MitchellPartThreeProof
-import CFSG.RankThree.PartOne.TCB.SchreierFinal
-import CFSG.LocalAnalysis.UniquenessCase.UC22P20c
-import CFSG.LocalAnalysis.UniquenessCase.UC22P20d
 import CFSG.LocalAnalysis.UniquenessCase.UC22P20h
 import CFSG.LocalAnalysis.UniquenessCase.UC22P20x
 import CFSG.LocalAnalysis.UniquenessCase.UC22P20q
-import CFSG.LocalAnalysis.UniquenessCase.Lie.BorelSL
 import CFSG.LocalAnalysis.UniquenessCase.Lie.BorelSU
 import CFSG.LocalAnalysis.UniquenessCase.Lie.ExcFields
 import CFSG.LocalAnalysis.UniquenessCase.UC22S206x
@@ -119,7 +113,6 @@ public import Certificates.Data.CFSGNative.Co1.CoTwoAutOrbit
 public import Certificates.Data.HSFiveCheck
 import CFSG.CGT.PushingUpLit.BHS6.NestedBasic
 import CFSG.GH74.GLS.IVK.Proofs2.Ivk95J3
-import CFSG.GH74.GLS.IVK.Proofs2.Stmt111c
 import CFSG.GH74.Generic.S45.LEvSporFacts
 import CFSG.LargeExtraspecial.DWModelSplit
 import CFSG.LocalAnalysis.AGLEmbeddingD2.HSFiveCaseTwo
@@ -137,7 +130,6 @@ import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma46d
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36AltPerm
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36MType
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36SporMult
-import CFSG.LocalAnalysis.ComponentClassification.OddSelector
 import CFSG.LocalAnalysis.ComponentClassification.RestrictedStdFamilies
 import CFSG.LocalAnalysis.ComponentInitial.GL3TwoFixedModelCases
 import CFSG.LocalAnalysis.EvenSporadicStandard.CentralTwoJ3
@@ -157,7 +149,6 @@ import CFSG.RankThree.PartTwo.Census.Classical.EvenUnitary
 import CFSG.Sporadic.Fi24
 import CFSG.Sporadic.Recognition.LyonsFinalDist2
 import CFSG.Sporadic.Suz
-import CFSG.Walter.J1Props
 import CFSG.Walter.W67.W2Lemma26A
 
 public section

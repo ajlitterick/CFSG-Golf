@@ -1,13 +1,9 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.Sporadic.Suz.Order2306
 public import Certificates.Data.Kernel.PkPow
-public import Certificates.Data.Kernel.Spor.Prim
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.SuzInputs
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.SuzInputs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -18,9 +14,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Rows
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 meta import CFSG.GroupTheory.Fitting.CharacteristicP
 meta import CFSG.GroupTheory.LocalCores.Components

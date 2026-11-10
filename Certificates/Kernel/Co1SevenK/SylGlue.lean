@@ -2,10 +2,7 @@ module
 
 public import Certificates.Kernel.Co1SevenK.Syl
 public import CFSG.Certificates.Kernel.SporSch.Co1MatWSound
-public import CFSG.Certificates.Kernel.SporSch.Co1BfsSound
 public import CFSG.Certificates.Kernel.Co1Seven.CenSound
-public import CFSG.Certificates.Kernel.Co1F2Sound
-import Mathlib.Tactic.IntervalCases
 
 public section
 

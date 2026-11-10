@@ -1,12 +1,7 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.Lemma14KBasic
-public import CFSG.RankThree.GF2n.Parrott.MemJOfIndexTwo
 public import CFSG.RankThree.GF2n.Parrott.QA45InvolutionClasses
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-public import Mathlib.LinearAlgebra.LinearIndependent.Lemmas
-public import Mathlib.FieldTheory.Finiteness
-public import Mathlib.Algebra.Module.ZMod
 import all CFSG.RankThree.GF2n.Parrott.Section2Products
 
 public section

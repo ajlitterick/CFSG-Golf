@@ -2,14 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.AutModelRow
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.CenterAt
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.OuterFusion
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.OuterRow
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Common
-public import CFSG.Sporadic.HNOddCore.FusB
 public import CFSG.Sporadic.HNOddCore.OuterFix
-public import CFSG.Sporadic.HNOddCore.ThreeInvol
-public import CFSG.Sporadic.HNOddCore.Fusion
-public import CFSG.Sporadic.HNSchreier.FullAut
 import CFSG.Mathlib.GroupTheory.PermCommute
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -20,9 +14,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 
 public noncomputable section

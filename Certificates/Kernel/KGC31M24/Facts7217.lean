@@ -6,9 +6,6 @@ public import Certificates.Kernel.KGC31M24.Cnt
 public import Certificates.Kernel.KGC31M24.CosK
 public import CFSG.Certificates.Kernel.KGC31PBSound
 public import CFSG.Certificates.Kernel.KGC31PNormSound
-public import CFSG.Quasithin.Vol2.KGFactC31M24Data
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

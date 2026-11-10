@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 public import CFSG.Mathlib.GroupTheory.ConjCentralizer
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeConjAux
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs

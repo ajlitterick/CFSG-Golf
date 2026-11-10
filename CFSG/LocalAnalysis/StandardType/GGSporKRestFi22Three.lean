@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestClosure
 public import Certificates.Certificate1023007
-public import CFSG.Sporadic.Fi22.Simple
 public import CFSG.Sporadic.Bridge.Fi22Surj
 public import Certificates.Certificate131101
 public import Certificates.Certificate131101Base

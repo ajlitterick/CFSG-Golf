@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGJ4dStable
-public import CFSG.LocalAnalysis.StandardType.GGLangSixRoot
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24A2CubeClass
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeLangLayer
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcDiagramAutomorphisms
-public import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoOrders
-public import CFSG.Blueprint.ChevalleyRoots
 
 public section
 

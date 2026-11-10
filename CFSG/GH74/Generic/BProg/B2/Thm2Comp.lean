@@ -1,16 +1,11 @@
 module
 
 public import CFSG.GH74.Generic.BProg.B2.Defs
-public import CFSG.GH74.GLS.C3.Layer1.Th2Defs
 import CFSG.GH74.Generic.BProg.B1.PilotS1
 import CFSG.GH74.Generic.BProg.B2.T1Basic
 public import CFSG.GH74.GLS.C3.Layer1.St1PumpCalc
-public import CFSG.GH74.Generic.BProg.Stage2QS
-import CFSG.GH74.Generic.BProg.Stage1Split
 import CFSG.GH74.GLS.C3.Layer1.St1RigOrd
-import CFSG.GH74.GLS.C3.Layer1.St1RigStep
 import CFSG.GH74.GLS.C3.Layer1.Th2Pump
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CGT.Foote81L6.TStruct.DihSub
 public import CFSG.ClassicalInvolution.NormalQuaternion
 public import CFSG.GH74.GLS.C3.Layer1.Back112Iv2
@@ -20,21 +15,13 @@ public import CFSG.GH74.GLS.C3.Layer1.Th2Cent5
 public import CFSG.GH74.GLS.C3.Layer1.Thm1P31s
 public import CFSG.GH74.GLS.C3.Layer2.FusionTools
 public import CFSG.GH74.GLS.C3.Layer3.Main
-public import CFSG.GH74.GLS.IVK.L2.BN
-public import CFSG.GH74.GLS.IVK.L2.BorelFive
-public import CFSG.GH74.GLS.IVK.L2.Lemma114
-public import CFSG.GH74.GLS.IVK.L2.Lemma13fc
-public import CFSG.GH74.GLS.IVK.L2.Lemma14f
-public import CFSG.GH74.GLS.IVK.L2.Lemma19b
 public import CFSG.GH74.GLS.IVK.Lifted.Outer14
 public import CFSG.GH74.GLS.IVK.Lifted.Rnormal4
-public import CFSG.GH74.GLS.IVK.Prod.Lemma31
 public import CFSG.GH74.GLS.IVK.Proofs
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13e
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13g
-public import CFSG.GH74.GLS.IVK.Statements
 public import CFSG.GH74.GLS.LU.Ident
 public import CFSG.GH74.GLS.Stage1.Thm2.Recip.L284
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec4.Prop41
@@ -100,7 +87,6 @@ public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.Th.Max3.Core
 public import CFSG.Sporadic.Th.Simple
 public import CFSG.Sporadic.ThSchreier.AutCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Walter.Bender1970.S2
 public import CFSG.Walter.Bender1970.S3.Basic
 public import CFSG.Walter.Bender1970.S3.OStar

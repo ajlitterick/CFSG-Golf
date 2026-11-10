@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalUInner
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSpUUnitary
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLRestField
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinberg
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutGraph
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitarySemi
 
 public section
 

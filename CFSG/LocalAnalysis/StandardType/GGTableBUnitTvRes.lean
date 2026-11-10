@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvMain
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLCover
 
 public section
 

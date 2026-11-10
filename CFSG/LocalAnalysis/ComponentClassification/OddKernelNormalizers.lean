@@ -1,12 +1,5 @@
 module
 
-public import Mathlib
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-public import CFSG.Open.Defs
-public import CFSG.LocalAnalysis.ComponentClassification.LocalComponents
-public import CFSG.LocalAnalysis.ComponentClassification.TwoResidual
-public import CFSG.LocalAnalysis.ComponentClassification.OddKernel
-public import CFSG.LocalAnalysis.ComponentClassification.OddKernelTwoComponents
 public import CFSG.LocalAnalysis.ComponentClassification.CentralTwoKernelComponents
 
 public section

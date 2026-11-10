@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.FrameSigns
 public import CFSG.LocalAnalysis.StandardType.ZS.Basic
-public import CFSG.LocalAnalysis.StandardType.ZS.CommutingRefl
 public import CFSG.LocalAnalysis.StandardType.ZS.ReflProductOrder
 public import CFSG.LocalAnalysis.StandardType.ZS.MonomialBasic
 public import CFSG.Quasithin.Background.SimsG4Defs

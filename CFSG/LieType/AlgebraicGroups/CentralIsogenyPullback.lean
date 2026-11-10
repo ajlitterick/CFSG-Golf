@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.CentralProductMorphism
 public import CFSG.LieType.AlgebraicGroups.TensorCentralIsogeny
-public import TauCeti.Algebra.AlgebraicGroup.HopfIdeal.Points.Equalizer
 public import TauCeti.Algebra.AlgebraicGroup.CommHopfAlgCat.FiniteFlat
 public import TauCeti.RingTheory.Spectrum.Prime.Topology
 

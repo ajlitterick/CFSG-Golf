@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.J4.QT2LocFiveProofBase
 public import CFSG.Sporadic.J4.QT2LocX0MainBase
 
 @[expose] public section

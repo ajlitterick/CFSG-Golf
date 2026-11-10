@@ -1,12 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.McLInputs
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Rank
-public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizers
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import CFSG.Sporadic.SmallOddCore.McLData
-public import Certificates.Certificate2240
-public import Certificates.Certificate2241
 public import Certificates.Kernel.Sporadic.McLHyp.Glue
 
 public section

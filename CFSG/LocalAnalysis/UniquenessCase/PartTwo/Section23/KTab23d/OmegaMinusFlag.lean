@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Defs
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusCuts
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelCoordinates
 
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelTransport
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointPlusBorelBasic
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusResGroup
 import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
@@ -38,10 +36,6 @@ import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 import CFSG.LocalAnalysis.SectionRank.SporadicCover
 import CFSG.Sporadic.M23.M23Group
-import CFSG.Sporadic.Th.F2Spec
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 

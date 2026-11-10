@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Background.D2Basic
 public import CFSG.Quasithin.Background.B4ModelsSporadic
 public import CFSG.Quasithin.Background.E1Defs
 public import CFSG.Quasithin.Background.HDefs

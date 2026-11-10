@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45TorusHDefs
 public import CFSG.GroupTheory.CyclicModAbelianCommutators
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

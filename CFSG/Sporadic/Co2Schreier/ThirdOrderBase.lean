@@ -3,18 +3,13 @@ module
 
 public import CFSG.Sporadic.Co2Schreier.ThirdChainBase
 public import CFSG.Sporadic.Co2Schreier.Enum
-public import CFSG.Sporadic.Co2Schreier.ChainCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.Arrays
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.Co2Schreier.TextCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.Text
-public import CFSG.Sporadic.Co2Schreier.ThirdCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.WitCheck
 public meta import CFSG.Sporadic.Co2Schreier.SylowCheckBase
 public meta import CFSG.Sporadic.Co2Schreier.CoreCheckBase
 public meta import CFSG.Sporadic.Co2Cert.FaithfulCheck
-public import CFSG.Sporadic.Co2Cert.CheckInputs
-public import CFSG.Sporadic.Co2Cert.OrderCheckInputs
 
 @[expose] public noncomputable section
 

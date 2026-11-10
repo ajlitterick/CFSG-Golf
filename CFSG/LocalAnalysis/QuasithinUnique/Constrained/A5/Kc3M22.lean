@@ -1,19 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3M22Data
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3Two
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2FinM22
-public import CFSG.Sporadic.Mathieu.M22
-public import CFSG.Sporadic.Schreier.M22
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3M22Data
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3Cert
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3Fix
 public meta import CFSG.Sporadic.Mathieu.M22
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3M22Inputs
 public import Certificates.Certificate4078
-public import Certificates.Certificate4065
-public import Certificates.Certificate3029
-public import Certificates.Certificate3157
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public meta import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldAction

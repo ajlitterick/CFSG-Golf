@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GS82HConfigCore
-public import CFSG.LocalAnalysis.ComponentClassification.CanonicalPrimeComponentLift
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitGWCore
-public import CFSG.LocalAnalysis.ComponentClassification.LBalanceQuotient
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitTwoComp
-public import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
-public import CFSG.ClassicalInvolution.LBalance.Main
 public import CFSG.GH74.GLS.C3.Layer1.Th2CaseI
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
@@ -44,9 +38,6 @@ public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Open.GorensteinHaradaSectionalRankFourMilestoneDefs
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent.Radical
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

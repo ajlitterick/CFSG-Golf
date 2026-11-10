@@ -2,7 +2,6 @@ module
 
 public import CFSG.Open.StatedDefs
 public import CFSG.GroupTheory.PCore.Construction
-import CFSG.LieType.Universal.Spin.Forms
 import CFSG.ClassicalGroups.Orthogonal.Models
 import CFSG.ClassicalGroups.Orthogonal.Matrix
 import CFSG.ClassicalGroups.Orthogonal.ElementaryGroupIrreducible
@@ -13,7 +12,6 @@ import CFSG.GH74.GLS.Balance.SolvAPIDefs
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 import CFSG.LocalAnalysis.ComponentClassification.Helpers
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

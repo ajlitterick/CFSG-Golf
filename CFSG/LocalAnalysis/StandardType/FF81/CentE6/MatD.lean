@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.MatJ
-import CFSG.LinearAlgebra.LinearGroups.Generation
 import CFSG.Quasithin.Background.GoldschmidtS146PGroups
-import Mathlib.Data.Matrix.Block
-import Mathlib.LinearAlgebra.Matrix.Reindex
-import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 import CFSG.Foundations
 import CFSG.LieType.SteinbergBROddSylowCore
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -30,9 +26,6 @@ import CFSG.Quasithin.Background.OrderingMax
 import CFSG.Quasithin.SteinbergOuterPrimeControl
 import CFSG.Quasithin.Vol2.Ch1Local
 import CFSG.Sporadic.J4Base
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.Walter.Defs
 
 public section

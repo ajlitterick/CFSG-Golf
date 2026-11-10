@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSpBasic
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Intrinsic
 
 public section
 

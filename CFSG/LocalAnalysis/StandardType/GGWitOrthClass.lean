@@ -1,16 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
-import CFSG.LocalAnalysis.StandardType.GGWitOrthClassCrAux
 import CFSG.LocalAnalysis.StandardType.GGWitOrthClassDim3Aux3
-import CFSG.LocalAnalysis.StandardType.GGWitOrthClassL51Aux
-import CFSG.LocalAnalysis.StandardType.GGWitOrthNormal
-import CFSG.LocalAnalysis.StandardType.GGWitOrthTransport
 import CFSG.LocalAnalysis.StandardType.GGWitOrthClassR33Aux
-import CFSG.LocalAnalysis.StandardType.GGWitOrthClassR53Aux3
 import CFSG.LocalAnalysis.StandardType.GGWitOrthClassR53Aux4
 import CFSG.LocalAnalysis.StandardType.GGWitOrthClassR35Aux2
-import CFSG.LocalAnalysis.StandardType.GGWitOrthClassR34Aux2
 import CFSG.LocalAnalysis.StandardType.GGWitOrthClassR34Aux4
 
 public section

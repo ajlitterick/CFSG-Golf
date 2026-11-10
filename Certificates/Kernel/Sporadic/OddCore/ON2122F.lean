@@ -10,13 +10,7 @@ public import Certificates.Kernel.Sporadic.OddCore.ON2121
 public import Certificates.Kernel.Sporadic.OddCore.ON2123
 public import Certificates.Kernel.Sporadic.ON3.Elements
 public import CFSG.Certificates.Kernel.BfsPinUnpack
-public import CFSG.Certificates.Kernel.Spor.DecSLSound
-public import CFSG.Certificates.Kernel.Spor.RawOrbHead
 public import CFSG.Sporadic.ONOddCore.GraphEnum
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.NormNum
-public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSCDefs
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRTransfer
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUSigned
 
 public section
 

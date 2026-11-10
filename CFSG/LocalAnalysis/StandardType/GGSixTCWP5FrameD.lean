@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UE6
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs2
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5Act
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnLang
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Defs
@@ -50,7 +49,6 @@ public import CFSG.Quasithin.Vol2.Ch3Sec3InspF618Tools
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3315R
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3323B
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3324X
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcTw
 
 public section
 

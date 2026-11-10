@@ -2,36 +2,22 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJNativeDefs
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenDefs
-import CFSG.LieType.Universal.Spin.Forms
-import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaDict
 import CFSG.LocalAnalysis.StandardType.TableC.OrthGram
 import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaDecomp
-import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
 import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoOneLinear
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticTorus
 import CFSG.LocalAnalysis.StandardType.GGSixTCPSUDvd
-import CFSG.Adapters.RankTwoModelTransports
-import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagLinear
 import CFSG.LocalAnalysis.StandardType.GGTBJSpBlockAux
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154ThreeDvdLieA
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowOmMinusSplitAux1
 import CFSG.LocalAnalysis.StandardType.GGTBJFrameCorank
 import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenIso
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniSquare
-import CFSG.RankThree.GF2n.Stroth80.GriessOrthSmall
 import CFSG.LocalAnalysis.StandardType.GGResQTwoLinearJ
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJCoord
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflSp
 import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagOmegaQuasisimple
 import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenWeyl
 import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenComp
-import CFSG.LocalAnalysis.StandardType.GGHalfCentGroup
-import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs256q
 import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.OrtHFixed
-import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.AltIb.OmegaMinusSmall
-import CFSG.LieType.Universal.SpinOmega.Center
-import CFSG.GroupTheory.WeirSylow.OrthogonalTypes
 import CFSG.ClassicalGroups.Orthogonal.EichlerCentralizerScalar
 import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.KeyAbstract

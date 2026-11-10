@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLieOddCoverSplit
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OddCenter
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IPerfect
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoE7D6
-public import CFSG.LocalAnalysis.SeitzReduction.SeitzQ2OddSplit
 
 public section
 

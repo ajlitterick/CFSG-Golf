@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Misc.Perm.GH23LatData
-public import Certificates.Kernel.Co1B.GenTri2045
 
 public section
 

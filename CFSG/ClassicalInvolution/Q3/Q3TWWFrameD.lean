@@ -2,9 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TWWAdjD
 public import CFSG.ClassicalInvolution.Q3.Q3WChain
-public import CFSG.ClassicalInvolution.Q3.Q3ZAdjMain
 public import CFSG.ClassicalInvolution.WeakCT.TwistedTransport
-public import CFSG.ClassicalInvolution.WeakCT.SimplyLaced
 public import CFSG.ClassicalInvolution.WeakCT.TwistedE6Basic
 
 public section

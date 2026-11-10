@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CBlockOrthB
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CBlockLinC
 import CFSG.LocalAnalysis.GLTheoremA.CatA.H81Orth.Layer
-import CFSG.RankThree.PartOne.KC.OrthogonalRegularQuasisimple
 import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaRegular
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogQuadraticNormalForms
 
 public section
 

@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResUnitaryKRankFiveLDefs
 public import CFSG.LocalAnalysis.StandardType.GGResUnitaryRankNineK3
 public import CFSG.LocalAnalysis.StandardType.GGResE6TwoUnitaryK3
-public import CFSG.LocalAnalysis.StandardType.GGTBE6
-public import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGResThreeCensusLabel
 
 public section
 

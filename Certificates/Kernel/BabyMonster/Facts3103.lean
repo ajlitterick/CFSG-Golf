@@ -2,11 +2,8 @@ module
 
 public import CFSG.Certificates.Kernel.BabyMonster.LatStats
 public import Certificates.Kernel.BabyMonster.LatBind
-public import Certificates.Data.Kernel.BabyMonster.LatText
-public import Certificates.Data.CFSGNative.MonsterB.BinaryFiles
 public import CFSG.Certificates.Kernel.BabyMonster.CensusSound
 public import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.Ring
 public import CFSG.Certificates.Kernel.BabyMonster.LatBind.All
 
 public section

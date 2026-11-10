@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GTwE6Model
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
 
 public section
 

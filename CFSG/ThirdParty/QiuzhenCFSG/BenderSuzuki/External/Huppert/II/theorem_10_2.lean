@@ -1,11 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.Unitary
-import Mathlib.LinearAlgebra.Basis.Fin
-import Mathlib.LinearAlgebra.Determinant
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
-import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
 import Mathlib.LinearAlgebra.SesquilinearForm.Star
 
 namespace CFSG

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenForty
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.PermutingTorusLe
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankBound
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyFourTorus
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Section17KFactsSmallRank
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.L3AutRankHolds
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 public import CFSG.GroupTheory.PCore.SolvableRadical

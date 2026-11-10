@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.Norton.MON11_13.ThirteenEligibleDefs
-import Certificates.Certificate6007
 import Certificates.Kernel.KDenseP.Norton
 public import CFSG.YGroups.DCE.MaximalB
 public import CFSG.YGroups.Y443.Native.AlignB

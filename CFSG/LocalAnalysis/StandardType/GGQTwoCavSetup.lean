@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCavImage
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCentralizerLift
 public import CFSG.LocalAnalysis.StandardType.GGQTwoOriginalNormalizerLift
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
 
 public noncomputable section
 

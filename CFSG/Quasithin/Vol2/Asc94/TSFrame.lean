@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.Asc94.TSSetting
 public import CFSG.Quasithin.Vol2.Asc94.TSModel2
 public import CFSG.Quasithin.Vol2.Asc94.TSModel1b
-public import CFSG.Sporadic.Schreier.J4SOrder
 public import CFSG.Sporadic.Schreier.J4SSylow
 
 public section

@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcSplit
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeSmall
 public import CFSG.LocalAnalysis.StandardType.GGIOneExcFacts
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoThree
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 
 public section
 

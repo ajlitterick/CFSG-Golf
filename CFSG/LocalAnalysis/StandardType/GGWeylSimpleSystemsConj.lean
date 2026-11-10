@@ -1,19 +1,5 @@
 module
 
-public import TauCeti.LinearAlgebra.RootSystem.FiniteType.Basic
-public import Mathlib.GroupTheory.Coxeter.Basic
-public import Mathlib.Data.Int.Order.Units
-public import Mathlib.Tactic.Group
-public import CFSG.LieType.Steinberg.OfCartan
-public import CFSG.LieType.RootSystem.Basic
-public import Mathlib.Tactic.IntervalCases
-public import TauCeti.LinearAlgebra.RootSystem.Coxeter.Matrix
-public import CFSG.LocalAnalysis.StandardType.GGWeylCartan
-public import CFSG.LieType.RootSystem.Positivity
-public import Mathlib.Data.Set.Card
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-public import CFSG.LocalAnalysis.StandardType.GGResSideDatumDefs
 public import CFSG.LocalAnalysis.StandardType.GGWeylSimpleConjBasic
 public import CFSG.LocalAnalysis.StandardType.GGWeylSimpleConjCone
 

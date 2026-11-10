@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.SmithB45Frontier
-public import CFSG.Quasithin.Background.SmithB45Dich
 public import CFSG.Quasithin.Background.SmithB45D4
 public import CFSG.Quasithin.Background.SmithB45Tits
 public import CFSG.Quasithin.Background.SmithB45G2Main
@@ -11,15 +10,11 @@ public import CFSG.Quasithin.Background.SmithB45HatA6
 public import CFSG.Quasithin.Background.SmithB45Alt7
 public import CFSG.Quasithin.Background.SmithB45L2Main
 public import CFSG.Quasithin.Background.SmithB45U3Nat
-public import CFSG.Quasithin.Background.SmithB45SzNat
 public import CFSG.Quasithin.Background.SmithB45SL3Even
 public import CFSG.Quasithin.Background.SmithB45U33Main
 public import CFSG.Quasithin.Background.SmithB45Sp4Main
-public import CFSG.Quasithin.Background.SmithB45MatMain
 public import CFSG.Quasithin.Background.SmithB45M22HatMain
 public import CFSG.Quasithin.Background.SmithB45LnL4Main
-public import CFSG.Quasithin.Background.SmithB45Exc3A7
-public import CFSG.Quasithin.Background.SmithB45MatM22
 public import CFSG.Quasithin.Background.SmithB45MatM12
 public import CFSG.Quasithin.Background.SmithB45LnL5Main
 public import CFSG.Quasithin.Background.SmithB45DichHolds

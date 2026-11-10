@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.SpBranchExt
-public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.SpBranchOrbit
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.SpBranchKillSpec
-public import Mathlib.Data.Nat.Totient
-public import Mathlib.Data.Rat.Floor
-public import Mathlib.Data.Sym.Sym2.Init
-public import Mathlib.Tactic.NormNum.GCD
 
 public section
 

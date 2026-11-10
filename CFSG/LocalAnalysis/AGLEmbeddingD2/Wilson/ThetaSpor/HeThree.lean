@@ -3,20 +3,10 @@ module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThetaSpor.HeThreeBase
 
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThetaSpor.HeThreeSmall
-public import CFSG.Sporadic.HeldB.InnerClass
-public import CFSG.Sporadic.HeldB.CertPBridge
-public import CFSG.Sporadic.HeldB.CertPBridgeCheckInputs
-public import CFSG.Sporadic.HeldB.CertPChainData
-public import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.HeldB.HeBlocks
-public import CFSG.Sporadic.HeldB.OuterArithCheck
-public import Certificates.Data.CFSGNative.HeldB.Tests
 public meta import CFSG.Sporadic.HeldB.HeBlocks
 public meta import CFSG.Sporadic.HeldB.OuterArithCheck
 public meta import Certificates.Data.CFSGNative.HeldB.Tests
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
-public import Certificates.Data.CFSGNative.He.Certificate
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThetaSpor.HeThreeCheck
 
 public section

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdCore
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdBlock
-public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveRoot
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveUnitaryRoot
 
 public section

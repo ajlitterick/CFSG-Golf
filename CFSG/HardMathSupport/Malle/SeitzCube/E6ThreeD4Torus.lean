@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Malle.SeitzCube.E6ThreeD4Kernel
 public import CFSG.RankThree.PartOne.KE6.EqpOpp
-public import CFSG.RankThree.PartOne.S11c.G2Torus
 
 public noncomputable section
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Misc.Perm.HexCmd
-public import Certificates.Kernel.Sporadic.RawGen
 meta import CFSG.Sporadic.Schreier.TitsGraphCheckInputs
 import Mathlib.Data.Nat.Totient
 import Mathlib.Data.Rat.Floor

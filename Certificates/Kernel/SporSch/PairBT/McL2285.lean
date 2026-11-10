@@ -4,7 +4,6 @@ public import Certificates.Kernel.SporSch.PairBT.McLSylChk
 public import Certificates.Kernel.SporSch.PairBT.McLSylZ3
 public import CFSG.Sporadic.SmallOddCore.McLWords
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

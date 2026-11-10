@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRMat
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQTD4
-public import CFSG.RankThree.Chevalley.SteinbergCBTrialityTransposition
-public import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
-public import CFSG.LieType.Chevalley.GraphFixedParameterFields
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLevi
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotHR4
 public import CFSG.LocalAnalysis.SeitzReduction.E7PilotFieldNormalizeAutMain

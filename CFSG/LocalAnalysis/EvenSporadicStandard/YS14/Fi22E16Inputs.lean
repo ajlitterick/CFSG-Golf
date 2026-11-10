@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheckInputs
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckInputs
-public import CFSG.Monster.B.Fischer.Fi22OuterCheckInputs
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckInputs
 public meta import CFSG.Monster.B.Fischer.Fi22OuterCheckInputs

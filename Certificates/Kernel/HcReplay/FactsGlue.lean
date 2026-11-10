@@ -4,7 +4,6 @@ public import Certificates.Kernel.HcReplay.Facts
 public import Certificates.Kernel.HcReplay.SubsGlue
 import all Certificates.Data.Kernel.HcPack
 import all Certificates.Data.G23RecogGlueInputs
-public import Certificates.Data.G23RecogHFactsInputs
 import all Certificates.Data.G23RecogHFactsInputs
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.Fi22.AutH25290D
 public import Certificates.Kernel.Sporadic.Fi22.X2069Final
-public import Certificates.Kernel.Sporadic.Fi22.Ext2073
 public import Certificates.Kernel.Sporadic.Fi22.G3147
 import CFSG.Certificates.Kernel.Common.Harness
 

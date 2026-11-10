@@ -1,20 +1,14 @@
 module
 
-public import CFSG.Certificates.Kernel.BabyMonster.FiveMFacts
 public import CFSG.Certificates.Kernel.BabyMonster.FiveM.All
-public import CFSG.Certificates.Kernel.BabyMonster.Max15.Check0
 public import CFSG.Certificates.Kernel.BabyMonster.Max15.Check1
 public import CFSG.Certificates.Kernel.BabyMonster.Max15.Check2
 public import CFSG.Certificates.Kernel.BabyMonster.Max15.Check3
 public import CFSG.Certificates.Kernel.BabyMonster.Max15.Check4
 public import CFSG.Certificates.Kernel.BabyMonster.Max15.Check5
 public import Certificates.Kernel.BabyMonster.ChainN
-public import Certificates.Kernel.BabyMonster.FiveA.Basic
 public import Certificates.Kernel.BabyMonster.FiveM.Basic
 public import Certificates.Kernel.BabyMonster.FiveA.RankLin
-public import CFSG.Certificates.Kernel.BabyMonster.FiveM.RkA
-public import CFSG.Certificates.Kernel.BabyMonster.FiveM.RkAB
-public import CFSG.Certificates.Kernel.BabyMonster.FiveM.RkS
 
 public section
 

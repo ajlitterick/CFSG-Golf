@@ -2,14 +2,11 @@ module
 
 public import CFSG.Timmesfeld.Transvection.OddPairs
 public import CFSG.Timmesfeld.Transvection.OddLocal
-public import CFSG.Timmesfeld.Transvection.PresSU
 public import CFSG.Timmesfeld.Transvection.OddModelHeis
 import CFSG.Timmesfeld.Transvection.OddBC2Hom
 import CFSG.Timmesfeld.Transvection.OddBC2Comm
 import CFSG.Timmesfeld.Transvection.OddPairsCone
 import CFSG.Timmesfeld.Transvection.OddPairsModel
-import CFSG.Timmesfeld.Transvection.OddModelPairs
-import CFSG.Timmesfeld.Transvection.OddModelBC2Struct
 public import CFSG.Timmesfeld.ARS.ConfigTransfer
 public import CFSG.Timmesfeld.ARS.LinearMain
 public import CFSG.Timmesfeld.ARS.Sec8Levi

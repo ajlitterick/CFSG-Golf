@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2UnitaryCTRows
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindUnitaryOdd
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindCTUnitaryTransportOdd
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2GraphNeighbour
-public import CFSG.LieType.Steinberg.CentralExt.SUCentrallyClosed
-public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotSetup
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 public import CFSG.ClassicalInvolution.QuaternionStructure
 public import CFSG.Foundations

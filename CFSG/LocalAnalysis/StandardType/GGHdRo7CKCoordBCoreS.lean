@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CCoordDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoKey
 public import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpTorus
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSpNsComp
 import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpPull
 import CFSG.LocalAnalysis.StandardType.GGK1CBlSu
 import CFSG.LocalAnalysis.StandardType.GGK1CCoLabel

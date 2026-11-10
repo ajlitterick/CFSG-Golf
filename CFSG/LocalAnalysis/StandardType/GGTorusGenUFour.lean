@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkCoprime
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCover
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenUFourTwo
 
 public section

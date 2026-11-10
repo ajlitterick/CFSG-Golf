@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264SporFi24
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264SporFi23
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264SporFi22
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264SporFive
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264SporCo
-public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2FamSpor
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.Assembly
 public import CFSG.GH74.KGroups.L34Aut
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi24LeafShape

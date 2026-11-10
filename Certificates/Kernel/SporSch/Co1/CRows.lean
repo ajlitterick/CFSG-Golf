@@ -3,11 +3,9 @@ module
 
 public import Certificates.Kernel.SporSch.Co1.Split
 public import CFSG.Certificates.Kernel.SporSch.Co1GenSound
-public import CFSG.Sporadic.Schreier.Co1RigidCheckInputs
 public meta import Certificates.Kernel.SporSch.GenPerms
 public meta import CFSG.Sporadic.Schreier.Co1RigidCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

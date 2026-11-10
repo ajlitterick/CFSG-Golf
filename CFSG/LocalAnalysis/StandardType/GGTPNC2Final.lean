@@ -3,16 +3,11 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTPNC2Slices
 public import CFSG.LocalAnalysis.StandardType.GGTPNClassicalCover
 public import CFSG.LocalAnalysis.StandardType.GGTPNExcCover
-public import CFSG.LocalAnalysis.StandardType.GGTPNNarrowC6
-public import CFSG.LocalAnalysis.StandardType.GGTPNI1
 public import CFSG.LocalAnalysis.StandardType.GGTPNE6TwoSeven
 public import CFSG.LocalAnalysis.StandardType.GGTPNClGen
 public import CFSG.LocalAnalysis.StandardType.GGTPNNonExc
-public import CFSG.LocalAnalysis.StandardType.GGExcGen
-public import CFSG.LocalAnalysis.StandardType.GGTPNA8SevenR
 public import CFSG.LocalAnalysis.StandardType.GGE6TwoSevenComp
 public import CFSG.LocalAnalysis.StandardType.GGTPNI1Holds
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

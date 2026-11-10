@@ -1,29 +1,11 @@
 module
 
 public import CFSG.Blueprint.Catalog
-public import CFSG.Open.StatedDefs
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.LinearAlgebra.Matrix.Transvection
-import Mathlib.LinearAlgebra.Matrix.ToLin
-import Mathlib.LinearAlgebra.Basis.VectorSpace
-import Mathlib.LinearAlgebra.Pi
-import Mathlib.LinearAlgebra.Matrix.CharP
-import Mathlib.LinearAlgebra.LinearIndependent.Lemmas
-import Mathlib.LinearAlgebra.Matrix.Adjugate
-import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-import Mathlib.Tactic.NoncommRing
-import Mathlib.Tactic.Abel
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.FinCases
-import Mathlib.Tactic.Push
-import Mathlib.Tactic.Ext
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotNonsplitSL2
 import CFSG.CGT.Timmesfeld75.L2Real
 import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.AltIb.LinAux
-import CFSG.Open.StatedAPI
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofLeviModel
 import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinear
-import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.ONan.Cat3.Basic
 import CFSG.Quasithin.EmptyFaithful.R3cBase
 import CFSG.ClassicalInvolution.QuaternionStructure
@@ -44,18 +26,6 @@ import CFSG.Quasithin.Background.B5Statement
 import CFSG.Quasithin.Background.OrderingMax
 import CFSG.Quasithin.Vol2.Ch1Local
 import CFSG.Sporadic.J4Base
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 
 public section
 

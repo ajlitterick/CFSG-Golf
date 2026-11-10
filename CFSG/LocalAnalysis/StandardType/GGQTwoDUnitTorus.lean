@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDelete
 
 import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitUnitaryGeometry
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitWeylGen
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitWeylXA
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux4
 import CFSG.ClassicalInvolution.Asc77.AscIHSectG

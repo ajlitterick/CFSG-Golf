@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviCore
 public import CFSG.LocalAnalysis.StandardType.GGTBJLeviAssemble
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.WeylCharStab
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE6
 
 public section
 

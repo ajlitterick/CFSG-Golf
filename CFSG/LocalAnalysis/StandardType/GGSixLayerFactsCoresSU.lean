@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsSU
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresTransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
 
 public section
 

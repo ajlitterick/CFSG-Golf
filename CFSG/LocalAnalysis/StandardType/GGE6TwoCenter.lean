@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcTwoCompList
 public import CFSG.LocalAnalysis.StandardType.GGSixE6A24Centre
-public import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

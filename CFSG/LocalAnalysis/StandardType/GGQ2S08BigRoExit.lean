@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigRoFrame
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoCloseR4
 

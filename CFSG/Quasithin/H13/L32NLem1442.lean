@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.H13.L32NQ8Pow
 public import CFSG.Quasithin.H13.L32NItems143
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 
 public section
 

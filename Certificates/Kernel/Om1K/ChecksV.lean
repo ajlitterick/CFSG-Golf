@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.LocalComp.E8Tables
 public import Certificates.Kernel.Om1K.Defs
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Data.Holder1711.Om2Check

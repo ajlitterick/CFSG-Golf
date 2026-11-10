@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.U34InvolutionGen
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.U34InvolutionGenModel
-import Mathlib.Algebra.Group.Subgroup.Map
 import CFSG.GroupTheory.ConjKerCenter
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X5bModel
 import CFSG.CGT.T75A.OuterConj
@@ -26,9 +25,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.Asc1930
 public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.GroupTheory.HallHigmanPiCore
 import CFSG.LieType.Chevalley.LangRootArithmetic
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
@@ -39,8 +35,6 @@ import CFSG.RankThree.PartTwo.Sec14.Item148Steps
 import CFSG.RankThree.PartTwo.Sec8.Statements
 import CFSG.StronglyEmbedded.BenderUnitaryCenter
 import CFSG.StronglyEmbedded.ParityCriterion
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.Defs
 
 public section

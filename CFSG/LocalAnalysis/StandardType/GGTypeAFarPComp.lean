@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeNbr
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 
 public section
 

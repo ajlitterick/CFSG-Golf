@@ -11,8 +11,6 @@ import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilySuzukiComponen
 import CFSG.LocalAnalysis.UniquenessCase.UCFront09ThreePrime
 import CFSG.Quasithin.Background.F420Orders
 import CFSG.Quasithin.H13.NQCatSubnormalCore
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.BorelTits.CompleteFlag
@@ -59,8 +57,6 @@ import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureSylowAssembly
 import CFSG.Quasithin.Background.B15P4LayerDict
 import CFSG.Quasithin.Background.B1MoreNineG
 import CFSG.Sporadic.M23.M23Group
-import CFSG.Sporadic.Th.F2Spec
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonSplitTorus
 
 public section
 

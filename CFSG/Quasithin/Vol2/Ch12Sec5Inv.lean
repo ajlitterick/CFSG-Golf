@@ -1,8 +1,6 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 public import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
-public import Mathlib.LinearAlgebra.Dimension.RankNullity
 public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 public import Mathlib.Algebra.Field.ZMod
 

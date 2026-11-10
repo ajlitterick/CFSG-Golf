@@ -2,12 +2,6 @@ module
 
 public import CFSG.Sporadic.J4.Local
 public import CFSG.Sporadic.J4.TreeSpec
-public import CFSG.Sporadic.Th.GroupTheory
-import Certificates.Data.CFSGNative.J4.Orbit
-import Certificates.Data.CFSGNative.J4.Tables
-import Certificates.Data.CFSGNative.J4.Global
-import Certificates.Data.CFSGNative.J4.Local
-import Certificates.Data.CFSGNative.J4.Cert
 
 public section
 

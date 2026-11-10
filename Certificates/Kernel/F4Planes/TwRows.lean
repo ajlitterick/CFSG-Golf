@@ -6,7 +6,6 @@ public import Certificates.Kernel.F4Planes.ModelChk
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.EachTrue
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

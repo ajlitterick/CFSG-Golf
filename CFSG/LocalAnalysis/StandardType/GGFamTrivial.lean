@@ -1,14 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFamRatComp
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4ULang
-public import CFSG.LocalAnalysis.StandardType.GGExcCompSLDefs
 public import CFSG.LocalAnalysis.StandardType.GGLangFamily
-public import CFSG.LocalAnalysis.StandardType.GGLangAlgebraicRestriction
-public import CFSG.LocalAnalysis.StandardType.GGFamTrivialRoots
 public import CFSG.LocalAnalysis.StandardType.GGFamTrivialGamma
-import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FCover
 
 public section
 

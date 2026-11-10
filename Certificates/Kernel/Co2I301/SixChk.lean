@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Co2I301.SixData
 public import Certificates.Data.Kernel.Co2I301.Six
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUSigned
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankTransfer
 
 public section

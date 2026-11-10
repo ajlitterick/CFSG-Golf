@@ -2,9 +2,7 @@
 module
 
 public import Certificates.Kernel.OmegaEight.SB3873GU
-public import Certificates.Kernel.OmegaEight.FHom
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.SpBranchNfHom
-public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.SpBranchSAut
 
 public section
 

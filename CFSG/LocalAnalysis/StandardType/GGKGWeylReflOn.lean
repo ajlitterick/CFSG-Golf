@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGWeylReflCore
-public import CFSG.LocalAnalysis.StandardType.GGKGWeylRootFacts
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelModule
 public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 
 public section
 

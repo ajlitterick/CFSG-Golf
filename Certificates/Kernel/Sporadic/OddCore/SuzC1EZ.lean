@@ -6,9 +6,7 @@ public import Certificates.Kernel.Sporadic.OddCore.SuzC1EQ1
 public import Certificates.Kernel.Sporadic.OddCore.SuzC1EZ0
 public import Certificates.Kernel.Sporadic.OddCore.SuzC1EZ1
 public import Certificates.Kernel.Sporadic.OddCore.SuzC1EZ2
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib.Tactic.IntervalCases
 
 public section
 

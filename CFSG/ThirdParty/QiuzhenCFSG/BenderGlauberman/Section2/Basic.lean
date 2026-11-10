@@ -1,22 +1,9 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Defs
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.DihedralStructure
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section1
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.ClassFunctionHelpers
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.ClassFunction
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Congruence
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
-public import Mathlib.GroupTheory.SpecificGroups.Dihedral
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.CoprimeHall
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Defs
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Invariant
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
-import Mathlib.GroupTheory.PGroup
 
 namespace CFSG
 end CFSG

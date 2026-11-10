@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKD4Comm
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKElem
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKDefs
 import CFSG.LocalAnalysis.QuasithinUnique.K1.ExceptionalCatTriality
 
 public section

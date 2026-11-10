@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.UnitDefs
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3Pair
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
-public import CFSG.LocalAnalysis.StandardType.GGFamTameSuN
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankJReflection
 
 public section

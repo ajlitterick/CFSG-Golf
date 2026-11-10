@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.Foote5OddLiePSLGrOrth
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5OddLiePSLGrThree
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5OddLiePSLGrUnit
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSL
-public import Certificates.Kernel.ThCent.Leaves
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.Balance.BootstrapDischarge
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationInner
 public import CFSG.ClassicalInvolution.Balance.PassTwoFinal

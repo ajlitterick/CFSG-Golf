@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoModel
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoJEq
-import CFSG.LocalAnalysis.StandardType.GGHalfFiveCommutant
-import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviModel
 import CFSG.LocalAnalysis.StandardType.GGHalfFiveLayer
 import CFSG.Timmesfeld.RankTwo.Presentation
 

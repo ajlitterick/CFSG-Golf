@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.C129NativeSet
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246A7Main
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246A7NoBlock
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C127Closed
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C123Holds
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B42A57Final
@@ -14,31 +13,21 @@ public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
 public import CFSG.LocalAnalysis.ComponentInitial.FieldNineAlternatingSix
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.B4ModelsWitness
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackC129Solv
 public import CFSG.Quasithin.Background.F1Amalgam
 public import CFSG.Quasithin.Background.F2Equiv
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.RankThree.Asc83Table.PermTables
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.Sporadic.Schreier.M11
 public import CFSG.Sporadic.Schreier.M22
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

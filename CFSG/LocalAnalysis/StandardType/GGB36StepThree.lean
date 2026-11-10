@@ -2,22 +2,15 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGB36StepThreeInputs
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrowC6
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGB36LemmaRT
 public import CFSG.LocalAnalysis.StandardType.GGB36SelfCentU5
 public import CFSG.LocalAnalysis.StandardType.GGB36SelfCentOm8
-public import CFSG.LocalAnalysis.GLTheoremB.AutL34Bound
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsSeitz3
 public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.LieType.Steinberg.CentralExt.GriessUnitaryOdd
 public import CFSG.LieType.Steinberg.CentralExt.GriessOmegaEightTwo
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCenter
 public import CFSG.LocalAnalysis.StandardType.GGPRankBoundsSU
 public import CFSG.LocalAnalysis.ComponentClassification.ExactGenAut
-public import CFSG.Assembly.OrderReductions.FrattiniAutomorphisms
 public import CFSG.CGT.Timmesfeld75.OddCenter
 public import CFSG.CGT.Timmesfeld75.Sec5FiveEng
 public import CFSG.CGT.Timmesfeld75.Sec5Nine

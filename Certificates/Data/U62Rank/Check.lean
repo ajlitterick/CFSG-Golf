@@ -3,7 +3,6 @@ module
 public import Certificates.Data.U62Rank.Data
 public import Certificates.Data.CFSGNative.Fi22.Local
 public import CFSG.RankThree.Native.PermEnumeration
-public import CFSG.Monster.B.Fischer.ArrCert
 
 public section
 

@@ -4,7 +4,6 @@ public import Certificates.Kernel.Sporadic.Tits.ChainD
 public import Certificates.Kernel.Sporadic.Tits.ChainAP
 public import CFSG.Certificates.Kernel.Spor.PrimSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

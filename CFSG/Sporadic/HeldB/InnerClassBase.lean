@@ -5,29 +5,17 @@ public import CFSG.Sporadic.HeldB.InnerClassCheckBase
 public import CFSG.Sporadic.HeldB.OuterClassBase
 public import CFSG.Sporadic.HeldB.InnerRestrict
 public import CFSG.Sporadic.HeldB.CertPBridge
-public import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
-public import CFSG.Sporadic.HeldB.CertPBridgeCheckInputs
-public import CFSG.Sporadic.HeldB.CertPChainData
-public import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.HeldB.InnerCheckInputs
 public meta import CFSG.Sporadic.HeldB.InnerData
 public meta import CFSG.Sporadic.HeldB.Common
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
-public import CFSG.Sporadic.HeldB.InnerClassCheckInputs
 public meta import CFSG.Sporadic.HeldB.HeBlocks
 public meta import CFSG.Sporadic.HeldB.InnerCheck
 public meta import Certificates.Data.CFSGNative.HeldB.Tests
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
-public import CFSG.Sporadic.HeldB.OuterArithCheckInputs
 public meta import CFSG.Sporadic.HeldB.AutData
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.HeldB.HeBlocks
-public import CFSG.Sporadic.HeldB.OuterArithCheck
-public import Certificates.Data.CFSGNative.HeldB.Tests
 public meta import CFSG.Sporadic.HeldB.OuterArithCheck
-public import Certificates.Data.CFSGNative.He.Certificate
 public import CFSG.Sporadic.He
-public import CFSG.Sporadic.Th.F2Spec
 
 @[expose] public noncomputable section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.Alpha
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.NQRelab
-import Mathlib.Tactic.FinCases
 
 public section
 

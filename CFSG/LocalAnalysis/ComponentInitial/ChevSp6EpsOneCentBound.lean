@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneNormalizerStatements
-public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixDegree64LagrangianCompletion
-import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixCyclicKernel
-import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixDegree64NextBlock
 import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneNormalizerPtSylow
 
 public noncomputable section

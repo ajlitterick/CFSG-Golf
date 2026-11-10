@@ -1,25 +1,17 @@
 module
 
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.RankThree.PartTwo.Sec21.HeringFFStatement
 public import CFSG.HardMathSupport.Foote.FamilyReduction.ClassicalFive
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
-import CFSG.LocalAnalysis.StandardType.GGTableBTwoThree
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdLabel
-import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.I_11_3_Triple
 import CFSG.LocalAnalysis.WeakClosure81.NineTwoF
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerLiftLocal
 import CFSG.LocalAnalysis.LargeEvenClassification.WeakCoreDeltaTransfer
 import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011I161a2
-import CFSG.GH74.GLS.Stage2.Signalizer.Odd87Mult
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 public import CFSG.CGT.PushingUpLit.CGT6.SixFour
 public import CFSG.CGT.PushingUpLit.CGT6.SixSixteen
 public import CFSG.CGT.PushingUpLit.Glue.ClassXBasic
 public import CFSG.CGT.PushingUpLit.Glue.RadicalSylow
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeBasic
 public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.Quasithin.Background.B4Statement
@@ -29,11 +21,6 @@ public import CFSG.Quasithin.EmptyFaithful.S146zYFacts
 public import CFSG.Quasithin.EmptyFaithful.S146zYRes
 public import CFSG.Quasithin.H13.NQCoreP134Main
 public import CFSG.Quasithin.Vol2.Ch1Local
-public import CFSG.Walter.J1
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 import CFSG.GroupTheory.PCore.Transport
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrHom
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrLarge

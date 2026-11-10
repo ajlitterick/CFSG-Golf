@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3SelOrders
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoProjectiveFormulas
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

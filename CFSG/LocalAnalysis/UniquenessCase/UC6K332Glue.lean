@@ -1,8 +1,6 @@
 module
 
-public import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.Milestones.ASVolI.I2
-public import CFSG.Open.Defs
 import CFSG.LocalAnalysis.UniquenessCase.UC6N588A2
 
 public section

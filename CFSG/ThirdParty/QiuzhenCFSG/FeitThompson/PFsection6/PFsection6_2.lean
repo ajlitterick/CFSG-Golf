@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.PFsection6_1
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_8
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection5.PFsection5_6
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.DegreeBounds
 
 namespace CFSG
 end CFSG

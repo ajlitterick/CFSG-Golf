@@ -4,8 +4,6 @@ public import Certificates.Kernel.M12Cover.T25P
 public import CFSG.Certificates.Kernel.M12DecSound
 public import CFSG.Certificates.Kernel.M12TransGen
 public import Certificates.Kernel.LocalComp.BlockGen
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Data.List.Nodup
 
 public section
 

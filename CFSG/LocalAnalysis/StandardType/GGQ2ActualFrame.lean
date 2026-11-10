@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoInputs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoAmbModel
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXPosAmb
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixAux
 

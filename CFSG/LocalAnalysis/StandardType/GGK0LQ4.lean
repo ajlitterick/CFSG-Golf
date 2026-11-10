@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGK0LQDict
 public import CFSG.LocalAnalysis.StandardType.GGK0LQS3
 public import CFSG.LocalAnalysis.StandardType.GGK0LQAlgSetup
 public import CFSG.LocalAnalysis.StandardType.GGLangModelIndex
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame
 
 public section
 

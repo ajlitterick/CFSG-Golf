@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryLift
 
 public section
 

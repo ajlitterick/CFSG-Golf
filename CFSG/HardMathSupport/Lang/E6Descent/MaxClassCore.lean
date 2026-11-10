@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.Algebra.Module.LinearMap.End
 public import Mathlib.Tactic.Abel
 public import Mathlib.GroupTheory.OrderOfElement
 public import Mathlib.Tactic.Module

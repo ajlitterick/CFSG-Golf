@@ -1,8 +1,6 @@
 module
 
 public import Mathlib.Data.ZMod.Basic
-public import Mathlib.Data.Fintype.Card
-public import Mathlib.Data.Matrix.Mul
 public import Mathlib.LinearAlgebra.Matrix.Notation
 public import Mathlib.Tactic.NormNum.NatLog
 

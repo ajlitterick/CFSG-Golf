@@ -9,7 +9,6 @@ import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.RankThree.PartTwo.Sec4.Notation
-import CFSG.Sporadic.Schreier.J4SSylowBase
 
 public section
 

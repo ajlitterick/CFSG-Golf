@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 public import CFSG.LocalAnalysis.ComponentClassification.LBalanceNestedTransport
-public import CFSG.LocalAnalysis.ComponentClassification.LBalanceMinimalLifts
 
 public section
 

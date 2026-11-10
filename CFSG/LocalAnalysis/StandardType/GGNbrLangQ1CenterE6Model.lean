@@ -1,20 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLangTorusInnerDiagE6
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TwE6ThreeModel
-public import CFSG.LocalAnalysis.StandardType.GGE0E6InnNormal
 public import CFSG.LocalAnalysis.StandardType.GGE0TwE6InnNormal
-public import CFSG.LocalAnalysis.StandardType.GGE0ShapeContextToralAux2
-public import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.F4TwoLang
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.TwE6
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcMonomial
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToral
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeIndex
-public import CFSG.LocalAnalysis.StandardType.E6GraphNoneStepTwo
-public import CFSG.GroupTheory.ConjKerCenter
-public import CFSG.LieType.Chevalley.SingleEdgePerfect
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
 
 public section
 

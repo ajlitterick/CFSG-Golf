@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteQTwo
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteJoin
 public import CFSG.LocalAnalysis.StandardType.GGPhanSmallStrict
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7DSideCoord
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7DFrameOmega
-public import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
-public import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 
 public section
 

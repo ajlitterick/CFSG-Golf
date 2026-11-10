@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GKnown
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapGlue
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownOmegaPlus
-public import CFSG.LieType.Universal.SpinOmega.Center
 
 public section
 

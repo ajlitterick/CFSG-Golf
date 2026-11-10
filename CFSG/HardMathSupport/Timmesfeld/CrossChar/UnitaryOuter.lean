@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.OuterPlane
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoSemilinear
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Families

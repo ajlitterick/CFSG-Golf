@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.PhanEStdE6
 public import CFSG.LocalAnalysis.StandardType.PhanEStdGeom
-public import CFSG.LieType.Steinberg.Minuscule.BruhatExtras
 
 public section
 

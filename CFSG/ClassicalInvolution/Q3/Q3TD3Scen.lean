@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TD3Orth
-public import CFSG.ClassicalInvolution.RouteD.GapsPatternD
 
 public section
 

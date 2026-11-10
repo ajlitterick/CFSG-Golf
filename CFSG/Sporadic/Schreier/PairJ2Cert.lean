@@ -3,17 +3,10 @@ module
 
 public import CFSG.Sporadic.Schreier.PairJ2CertBase
 
-public import CFSG.Certificates.NativeSchreierArrays
-public import CFSG.Certificates.SchreierChainOrderGenerators
-public import CFSG.Sporadic.J1.VecSpec
-public import CFSG.Sporadic.Schreier.Enumeration
-public import CFSG.Sporadic.Schreier.PairText
-public import Certificates.Data.CFSGNative.PairSchreier.J2Data
 public meta import CFSG.Sporadic.Schreier.PairText
 public meta import Certificates.Data.CFSGNative.PairSchreier.J2Data
 public meta import Certificates.Data.CFSGNative.J1.Vec
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.Schreier.PairJ2CertInputs
 public import Certificates.Certificate2233
 public import Certificates.Certificate2233Base
 

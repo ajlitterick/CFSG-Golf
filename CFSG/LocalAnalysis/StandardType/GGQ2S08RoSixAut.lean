@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoSixComp
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoSixCmp
-public import CFSG.LieType.SeitzGeneration.HyperCoverUnitary
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
-public import CFSG.RankThree.Classical.OrthogonalOrderThree
 
 public section
 

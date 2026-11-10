@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 
-import CFSG.LocalAnalysis.StandardType.GGWitOrthCrAux2
 import CFSG.LocalAnalysis.StandardType.GGWitOrthL51Aux4
 
 public section

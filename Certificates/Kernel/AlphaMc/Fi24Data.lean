@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.WordsS
 public import Certificates.Data.Kernel.OrbK
-public import Certificates.Data.Kernel.AlphaGrpK
 public import Certificates.Data.Kernel.AlphaFunK
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.AlphaFi24Data
 import CFSG.Certificates.Kernel.Common.Harness

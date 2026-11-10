@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Tim79a34BigEpsTwo
-public import CFSG.RankThree.GF2n.Tim79a34BigData
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicOddCore
 
 public section

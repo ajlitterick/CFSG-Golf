@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item211Lie3ProofSpBlocks
-import Mathlib.Tactic.NoncommRing
 
 public section
 

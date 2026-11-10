@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDB3Main
-public import CFSG.ClassicalInvolution.Generic.TypeCSetup2P1
 
 public section
 

@@ -5,9 +5,6 @@ public import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutMain
 public import CFSG.ClassicalInvolution.Balance.StrongPowSuBlocks
 import CFSG.LocalAnalysis.StandardType.GGQTwoDGNUnitGen
 import CFSG.LocalAnalysis.StandardType.GGSuNsRootGenComp
-import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUBlock
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.Balance.PassTwoFinal
 public import CFSG.ClassicalInvolution.Models.LinearFrames
 public import CFSG.ClassicalInvolution.Models.LinearPairs

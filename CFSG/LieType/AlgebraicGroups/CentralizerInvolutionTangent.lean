@@ -1,14 +1,9 @@
 module
 
-public import CFSG.LieType.AlgebraicGroups.TangentSpace
-public import Mathlib.RingTheory.Smooth.Basic
-public import CFSG.LieType.AlgebraicGroups.InnerTwistDifferential
 public import CFSG.LieType.AlgebraicGroups.ConstructibleSubgroupIdeal
 public import CFSG.LieType.AlgebraicGroups.ThreeFixedQuotient
 public import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
-import CFSG.LieType.AlgebraicGroups.ConstructibleSubgroupClosed
 import CFSG.LieType.AlgebraicGroups.ToralCentralizerComponent
 import CFSG.LieType.AlgebraicGroups.FrobeniusDiagramComorphism
 import TauCeti.RingTheory.Smooth.GeometricallyReduced

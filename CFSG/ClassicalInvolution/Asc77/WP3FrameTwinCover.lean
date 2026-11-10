@@ -1,11 +1,8 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.WP3FramePSCCover
-public import CFSG.ClassicalInvolution.RouteD.TwinYP1Layer
 public import CFSG.ClassicalInvolution.RouteD.TwinYP1Frame
 import CFSG.ClassicalInvolution.Asc77.AscE187Img
-import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
-import CFSG.ClassicalInvolution.Balance.PassTwoModelFacts
 public import CFSG.ClassicalInvolution.MilestoneAssemblyCore
 public import CFSG.ClassicalInvolution.RouteD.TriageP1Rows
 public import CFSG.Sporadic.Bridge.M11CheckInputs

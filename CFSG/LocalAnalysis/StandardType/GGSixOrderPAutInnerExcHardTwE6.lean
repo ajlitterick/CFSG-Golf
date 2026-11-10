@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6ToralMax
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcSylowTorus
 public import CFSG.LocalAnalysis.StandardType.GGPRankBoundsExc
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSylow
-public import CFSG.LieType.SeitzGeneration.ExcTorusRankTw
 public import CFSG.LieType.SeitzGeneration.ExcTwistedClasses
 public import CFSG.LieType.SeitzGeneration.ExcTorusTwE6Three
 public import CFSG.LieType.SeitzGeneration.ExcTorusTwE6Four

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.RootFiveGroup
-public import Mathlib.GroupTheory.Commutator.Basic
-public import CFSG.GroupTheory.ABGLocalTools.OddInvolution
-public import CFSG.GH74.GLS.SP.GenOrder
-public import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentFusion
 public import CFSG.ThirdParty.BrauerInduction.Background.Group.Conjugacy
 public import CFSG.GH74.GLS.C3.Layer1.Th2HYGrp
 public import CFSG.Assembly.Subnormal

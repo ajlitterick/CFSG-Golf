@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.HNSchreier.PackedOrbitData
 public meta import CFSG.Sporadic.HNSchreier.IncludeOrbit
 public import CFSG.Sporadic.HNSchreier.IncludeOrbit
 

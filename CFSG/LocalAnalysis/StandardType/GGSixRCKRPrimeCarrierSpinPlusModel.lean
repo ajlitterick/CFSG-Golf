@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeReturnSpecs
-public import CFSG.LocalAnalysis.StandardType.GGRootDetectSpinPlus
-public import CFSG.LocalAnalysis.SeitzReduction.SeitzQ2OddSplitClassical
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootLine
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcActOuterPerfTriKac
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.KGLangTorusDatum
-public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeMarking
 
 public section
 

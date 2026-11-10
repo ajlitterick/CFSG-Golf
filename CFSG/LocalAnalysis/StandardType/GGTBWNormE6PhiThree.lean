@@ -2,11 +2,8 @@ module
 
 public import CFSG.Mathlib.LinearAlgebra.Matrix.SingerSL
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerE6ThreeLines
-public import CFSG.RankThree.PartOne.KE.E8TwoA2Family
-public import CFSG.LieType.Chevalley.GraphFixedOrbitCollection
 public import CFSG.LocalAnalysis.StandardType.GGPRankBoundsExc
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusTransferCore
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Aut
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE6
 public import CFSG.LocalAnalysis.StandardType.GGTBWNorm
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowZDet
@@ -30,13 +27,10 @@ public import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.Background.F2Equiv
 public import CFSG.Quasithin.Background.G2Relaxed
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S152N11
 public import CFSG.Quasithin.Vol2.Ch12Sec8NonabHatTen
 public import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.Stage1.Thm6.Glue.A7Cbar
-public import CFSG.GH74.GLS.Stage1.Thm6.Setup
 
 public section
 

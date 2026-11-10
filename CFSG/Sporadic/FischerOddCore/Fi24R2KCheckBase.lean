@@ -1,8 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.FischerOddCore.Fi24R2Data
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Sporadic.FischerOddCore.Fi24R2Data
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public import CFSG.Sporadic.FischerOddCore.Fi24R2KCheckInputs

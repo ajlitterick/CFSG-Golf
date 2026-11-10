@@ -7,8 +7,6 @@ import all CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionFourGroupComm
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Wielandt
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
 import CFSG.FeitThompson.OddOrderTheorem
-public import Mathlib.Algebra.Module.ULift
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas
 
 public noncomputable section
 

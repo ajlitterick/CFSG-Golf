@@ -1,11 +1,8 @@
 module
 
-public import CFSG.Quasithin.Vol2.KGFactSporLatInputs
 public import CFSG.Quasithin.Vol2.KGFactAutSylowSpor
 public import CFSG.Quasithin.Background.HSporLatMathieu
 public import CFSG.Quasithin.EmptyFaithful.S152WBase
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatExport
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM22
 public import Certificates.Certificate7143
 
 public section

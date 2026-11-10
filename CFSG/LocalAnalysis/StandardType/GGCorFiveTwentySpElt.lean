@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestGen
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflInner
 
 public section

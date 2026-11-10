@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFinModelBCTwClass
-public import CFSG.LocalAnalysis.StandardType.GGFinModelBCTwGen
 public import CFSG.LocalAnalysis.StandardType.GGFinModelBCTwLe
 public import CFSG.LocalAnalysis.StandardType.GGFinModelBCTwLong
 public import CFSG.LocalAnalysis.StandardType.GGFinModelBCTwShort

@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGA11NbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGA11L89B
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrPlumb
-public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
 
 public section
 

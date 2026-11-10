@@ -1,17 +1,10 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseFittingFixedPartCardDvd
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CentralizerSetupOddCoreNormal
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CentralizerSetupFittingNormal
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27IndexTwo
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.Proposition12
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.Omega
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

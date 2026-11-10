@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHyperbolic
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTorus
-public import CFSG.ClassicalGroups.UnitaryFlag.OrderSylow
 
 public section
 

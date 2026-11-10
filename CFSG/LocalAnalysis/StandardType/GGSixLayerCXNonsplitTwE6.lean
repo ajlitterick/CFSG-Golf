@@ -1,13 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitCentralMarking
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitTwE6Arith
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitTwE6Cover
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitTwE6Cyclic
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitTwE6FourDvd
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitTwE6Label
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitTwE6SixDvd
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitTwE6Tag
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitTwE6Ten
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitTwE6ThreeDvd
 

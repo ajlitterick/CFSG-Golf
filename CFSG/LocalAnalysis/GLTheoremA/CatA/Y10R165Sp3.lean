@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Sp2
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Concl
-public import CFSG.LieType.Universal.Symplectic
-public import CFSG.Timmesfeld.Transvection.PresSp
 public import CFSG.RankThree.GF2n.Stroth80.Sec3Zsig
 public import CFSG.LocalAnalysis.GL83PartI.I_27_9.Orbits
 public import CFSG.CGT.Timmesfeld75.Forms

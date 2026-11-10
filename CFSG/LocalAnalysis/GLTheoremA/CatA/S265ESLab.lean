@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Fam
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcomp
-public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
 import CFSG.LocalAnalysis.GLTheoremA.CatA.MILabel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Cfg
 

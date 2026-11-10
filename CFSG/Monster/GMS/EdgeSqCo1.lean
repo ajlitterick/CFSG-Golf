@@ -3,8 +3,6 @@ module
 public import CFSG.Monster.GMS.EdgeSqFact
 public import CFSG.Monster.GMS.S365Root
 public import CFSG.Sporadic.Co1.Module.TwoB
-public import Certificates.Data.CFSGNative.Co1.EdgeSq
-public import CFSG.Monster.GMS.EdgeSqCo1Inputs
 public import Certificates.Certificate10030
 public meta import CFSG.Monster.GMS.S365Root
 public meta import CFSG.Sporadic.Co1.Module.PairsCheck

@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.UniversalCoverMonster.Fi23InBInputs
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.UniversalCoverMonster.Fi23InBFacts
-public import Mathlib.LinearAlgebra.Matrix.Rank
 import Certificates.Kernel.BabyMonster.Fi23Img23
 
 public section

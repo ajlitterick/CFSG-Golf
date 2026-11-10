@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLangE8RecogBase
 public import CFSG.LocalAnalysis.StandardType.GGLangE8RecogClass
 public import CFSG.LocalAnalysis.StandardType.GGLangE8RecogDispatch
 public import CFSG.LocalAnalysis.StandardType.GGLangE8RecogFrame

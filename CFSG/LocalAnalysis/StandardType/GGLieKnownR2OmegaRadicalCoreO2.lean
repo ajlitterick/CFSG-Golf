@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalCore
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalFlag
 
 public section

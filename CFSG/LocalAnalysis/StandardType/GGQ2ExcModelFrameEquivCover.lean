@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcTwE6Defs
 import CFSG.LocalAnalysis.StandardType.GGQ2CoverComponents
-import Mathlib.GroupTheory.Sylow
 import CFSG.LocalAnalysis.StandardType.GGQ2SpRealization
 import CFSG.Walter.W67.Section6.Util
 import CFSG.GroupTheory.PerfectCentralQuotient
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 import CFSG.GroupTheory.ThreeTranspositions.FischerResidualConjBase
 import CFSG.RankThree.PartOne.FIS.VRelation
 

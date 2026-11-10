@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6RootLangTransitive
 public import CFSG.LocalAnalysis.StandardType.ExcPos.LangFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGFinModelBCTw
 public import CFSG.LocalAnalysis.StandardType.GGFinModelIndex
 public import CFSG.LocalAnalysis.StandardType.GGSelectedTwistedE6Scalar
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
 
 public noncomputable section
 

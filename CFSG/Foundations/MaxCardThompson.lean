@@ -2,8 +2,6 @@ module
 
 public import Mathlib.Algebra.Group.Subgroup.Finite
 public import Mathlib.Algebra.Group.Subgroup.Pointwise
-public import Mathlib.GroupTheory.Subgroup.Centralizer
-public import Mathlib.GroupTheory.Subgroup.Center
 
 public section
 

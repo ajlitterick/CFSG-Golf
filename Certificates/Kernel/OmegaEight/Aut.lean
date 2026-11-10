@@ -7,7 +7,6 @@ public import Certificates.Kernel.OmegaEight.AutChainOmP
 public import Certificates.Kernel.OmegaEight.NatData
 public import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

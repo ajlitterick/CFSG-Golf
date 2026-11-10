@@ -3,12 +3,8 @@ module
 
 public import CFSG.Quasithin.H13.J4WordsBase
 
-public import CFSG.Quasithin.H13.J4Defs
-public import CFSG.Quasithin.H13.J4ChainSpec
-public import Certificates.Data.CFSGNative.H13.J4Elems
 public meta import Certificates.Data.CFSGNative.H13.J4Elems
 public meta import Certificates.Data.CFSGNative.J4.Cert
-public import CFSG.Quasithin.H13.J4WordsInputs
 public import Certificates.Certificate7018
 
 public noncomputable section

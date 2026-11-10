@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwoDHighType
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171D4GraphLists
 
 public section

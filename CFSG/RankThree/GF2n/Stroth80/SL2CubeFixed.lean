@@ -2,11 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Stroth80.SL2CubeDim
 public import CFSG.RankThree.GF2n.Stroth80.SL2CubeSix
-public import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
-public import Mathlib.RingTheory.Coalgebra.IsFrobenius
-public import Mathlib.RingTheory.Etale.Weakly
-public import Mathlib.RingTheory.HopfAlgebra.Basic
-public import Mathlib.RingTheory.TotallySplit
 
 public section
 

@@ -1,9 +1,6 @@
 
 module
 
-public import CFSG.Monster.B.Fischer.PinnedChainData
-public import CFSG.Monster.B.Co2.PermArr
-public import CFSG.Certificates.SchreierChainOrderGenerators
 public meta import CFSG.Monster.B.Fischer.PinnedChainData
 public meta import CFSG.Monster.B.Co2.PermArr
 public import CFSG.Monster.B.Fischer.PinnedChainInputs

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerLift
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTor
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMPrimeCBase
-import CFSG.LocalAnalysis.ComponentInitial.GroupAlternatingCoverLift
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosCommCornerGrp
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinNC
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinCtx
 public import CFSG.ClassicalInvolution.Q3.Q3TY14
 public import CFSG.ClassicalInvolution.Q3.Q3TIYDefs
 public import CFSG.ClassicalInvolution.Q3.Q3TIVOr2

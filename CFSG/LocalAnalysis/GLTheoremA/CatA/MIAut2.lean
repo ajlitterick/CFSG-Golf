@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIAut
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.MITD4
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTriDiag
 
 public section
 

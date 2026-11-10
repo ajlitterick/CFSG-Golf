@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.KFacts.KS21U34CheckInputs
-public import CFSG.GH74.KGroups.FieldGF
 import all CFSG.GH74.KGroups.FieldGF
 import all CFSG.RankThree.PartTwo.KFacts.KS21U34CheckInputs
 

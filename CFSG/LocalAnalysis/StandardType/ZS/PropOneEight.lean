@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ZS.TableDefs
 import CFSG.LocalAnalysis.StandardType.ZS.LemmaOneFour
 public import CFSG.LocalAnalysis.StandardType.ZS.LemmaOneSixTen
 import CFSG.LocalAnalysis.StandardType.ZS.InitialPair
@@ -9,7 +8,6 @@ import CFSG.LocalAnalysis.StandardType.ZS.LemmaOneTwo
 import CFSG.LocalAnalysis.StandardType.ZS.Subquotient
 import CFSG.LocalAnalysis.StandardType.ZS.ThroughRefl
 import CFSG.LocalAnalysis.StandardType.ZS.PropOneEightSteps
-import CFSG.LocalAnalysis.StandardType.ZS.MovedAction
 import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 
 public section

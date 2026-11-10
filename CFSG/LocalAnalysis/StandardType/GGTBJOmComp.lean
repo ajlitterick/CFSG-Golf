@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockG
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmTauOm
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs141d2
 import CFSG.HardMathSupport.Dickson.Bal207.OrthSU38Comp
-import CFSG.RankThree.PartOne.S11d.OrthLayer
-import CFSG.RankThree.PartOne.KC.OrthogonalLocalComponents
-import CFSG.RankThree.PartOne.KC.OrthogonalBlockProduct
-import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13e

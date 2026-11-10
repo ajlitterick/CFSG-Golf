@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCover
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenLift
 
 public section

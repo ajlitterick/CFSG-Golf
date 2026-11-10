@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthIdentDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthNormIso
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDGNUnit
-public import CFSG.ClassicalGroups.Unitary.Transitivity
-public import CFSG.ClassicalInvolution.Phan.PhanDn.NormForm
-public import CFSG.ClassicalInvolution.Phan.PhanDn.DiagTorus
 
 public section
 

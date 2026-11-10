@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.Rbc.Defs
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.DiagonalLink
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Junction.Fs79.Layer
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingInclusion
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Common

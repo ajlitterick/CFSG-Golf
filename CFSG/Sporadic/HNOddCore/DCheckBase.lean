@@ -1,8 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.HNOddCore.InvArrays
-public import Certificates.Data.CFSGNative.ONSchreier.Compact
 public meta import CFSG.Sporadic.HNOddCore.InvArrays
 public meta import Certificates.Data.CFSGNative.ONSchreier.Compact
 public import CFSG.Sporadic.HNOddCore.DCheckInputs

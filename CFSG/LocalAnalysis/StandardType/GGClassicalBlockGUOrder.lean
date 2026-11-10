@@ -5,7 +5,6 @@ public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeModel
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.I292CaseBUniCard
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

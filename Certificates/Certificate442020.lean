@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.OmegaInv
-import Certificates.Certificate2012
 import Certificates.Kernel.A45Cls.CheckE16
 
 public section

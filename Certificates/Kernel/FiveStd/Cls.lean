@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.FiveStd.Data
 public import Certificates.Kernel.FiveStd.ClsData
 public import Certificates.Data.Kernel.FiveStdKOrb
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.EachTrue
 
 public section

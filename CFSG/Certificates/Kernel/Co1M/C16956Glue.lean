@@ -4,9 +4,7 @@ public import Certificates.Data.Kernel.Co1M.ThirteenScan
 public import CFSG.Certificates.Kernel.SporSch.Co1MatWSound
 public import CFSG.Certificates.Kernel.Co1Seven.CenSound
 public import CFSG.Certificates.Kernel.Co1BWordSound
-public import CFSG.Certificates.Kernel.VecKSound
 public import CFSG.Certificates.Kernel.Co1M.C16954Glue
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.Co1.Module.TwoBCert
 public import CFSG.Sporadic.Co1.Module.TwoBCertBase
 

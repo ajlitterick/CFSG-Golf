@@ -2,10 +2,8 @@ module
 
 public import Certificates.Kernel.HN1408.Words
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.WordData
-public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
 public import Certificates.Kernel.Sporadic.OddCore.CentGlue
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
-public import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.Certificates.Kernel.BfsPinAlg
 
 public section

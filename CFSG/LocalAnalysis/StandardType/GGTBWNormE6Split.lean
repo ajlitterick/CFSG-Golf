@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE6Torus
 public import CFSG.LocalAnalysis.StandardType.GGTBE6IndSplit
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvAtE6OddToral2
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosureRefl
 
 public noncomputable section
 

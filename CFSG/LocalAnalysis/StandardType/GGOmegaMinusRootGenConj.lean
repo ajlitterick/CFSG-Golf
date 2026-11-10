@@ -3,7 +3,6 @@ module
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenDefs
 import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalOmMinus
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticTorus
 import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenWeyl
 
 public section

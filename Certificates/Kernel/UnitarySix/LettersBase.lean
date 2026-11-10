@@ -2,10 +2,7 @@
 module
 
 public import Certificates.Kernel.UnitarySix.Gen
-public import CFSG.Certificates.Kernel.U6Sound
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeDataInputs
 public import Certificates.Kernel.UnitarySix.GenEq
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.C9NativeInputsBase
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.HuntClassBraidInputs
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaNativeDataBase

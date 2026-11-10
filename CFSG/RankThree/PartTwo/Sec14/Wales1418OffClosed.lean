@@ -2,29 +2,16 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec14.Liebeck1418BridgeHolds
 public import CFSG.RankThree.PartTwo.Sec14.Wales1418OffPoint
-public import CFSG.RankThree.PartTwo.Sec14.Ronan148MAssembly
 public import CFSG.RankThree.PartTwo.Sec14.Item1413Res5ProofPGL
 public import CFSG.RankThree.PartTwo.Sec14.Ronan149Holds
 public import CFSG.RankThree.PartTwo.Sec4.Wales430
-public import CFSG.RankThree.PartTwo.Sec4.Wales430Theta
-public import CFSG.RankThree.PartTwo.Sec4.Statements430L3
-public import CFSG.RankThree.PartTwo.Sec4.Statements417
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res6Proof
-public import CFSG.RankThree.PartTwo.Sec4.Item45Closed
-public import CFSG.RankThree.PartTwo.Sec4.StatementsComponents
-public import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
-public import CFSG.RankThree.PartTwo.Sec4.Census.CoverCenterThreeRest
-public import CFSG.RankThree.PartTwo.Sec4.T444.DiagGriess
 public import CFSG.RankThree.PartTwo.Sec4.Item413CoverProofClose47
-public import CFSG.LocalAnalysis.ComponentClassification.GoldschmidtTDGriess
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.I417J3
 public import CFSG.RankThree.PartTwo.Sec4.Item424Res7ProofG23
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res7ProofG2Odd
-public import CFSG.RankThree.PartTwo.Sec4.Item417Res7ProofD4Odd
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res7ProofG2
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res8ProofD4Even
-public import CFSG.RankThree.PartTwo.Sec21.ReeF4Conj2Proof
-public import CFSG.RankThree.PartTwo.Sec4.Item417Res7ProofTits
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res5ProofMcL
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res5ProofG23
 public import CFSG.RankThree.PartTwo.KFacts.KFOut3Holds
@@ -32,7 +19,6 @@ public import CFSG.RankThree.PartTwo.KFacts.KF430LiePG2
 public import CFSG.RankThree.PartTwo.KFacts.KF430LiePSU
 public import CFSG.RankThree.PartTwo.KFacts.KF430ONProof
 public import CFSG.RankThree.PartTwo.KFacts.KF1418MJProof
-public import CFSG.RankThree.PartTwo.Sec11.Item11CloseNarrow
 public import CFSG.HardMathSupport.Seitz.G2Noninner.Descent.OddNeThree
 public import CFSG.HardMathSupport.Seitz.G2Noninner.SubfieldPair.Final
 public import CFSG.LieType.SeitzGeneration.ExcOuterAssemblyV5

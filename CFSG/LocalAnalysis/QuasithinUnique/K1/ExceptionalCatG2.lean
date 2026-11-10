@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.ExceptionalCatCommon
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenAutomorphisms
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenInvolutions
-public import CFSG.LieType.Chevalley.SimpleRootComplement
-public import CFSG.LieType.Chevalley.IntrinsicSimplePairs
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.Blueprint.Catalog
 public import CFSG.Foundations
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.SpinGeom.Mem
 public import CFSG.LieType.SpinGeom.Count
 
 public section

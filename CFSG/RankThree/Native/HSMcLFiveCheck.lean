@@ -1,10 +1,5 @@
 module
 
-public import CFSG.RankThree.Native.HSMcLFiveData
-public import CFSG.RankThree.Native.HSMcLFiveAux
-public import CFSG.RankThree.Native.HSMcLSmallCheck
-public import CFSG.RankThree.Native.FiveKit
-public import CFSG.Sporadic.Schreier.PairMcLCheck
 public meta import CFSG.RankThree.Native.HSMcLFiveData
 public meta import CFSG.RankThree.Native.HSMcLFiveAux
 public meta import CFSG.RankThree.Native.HSMcLSmallCheck
@@ -20,7 +15,6 @@ public meta import CFSG.Monster.B.Fischer.InducedData
 public meta import CFSG.Monster.B.Mathieu.SylowCore
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.SmallOddCore.Check
-public import CFSG.RankThree.Native.HSMcLFiveCheckInputs
 public import Certificates.Certificate8128
 
 public noncomputable section

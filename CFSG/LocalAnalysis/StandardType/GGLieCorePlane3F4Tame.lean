@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Shapes
-public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Orbit
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4TameSuN
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3Pair
-public import CFSG.LocalAnalysis.StandardType.GGFamComponent
-public import CFSG.LocalAnalysis.StandardType.GGFamTameInner
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootKillWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsCoreDefs
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.KDenseP.AgreeB
 public import Certificates.Kernel.KDenseP.ReplayN
-public import Certificates.Kernel.KDenseP.Axis.Base
-public import CFSG.Certificates.Kernel.KDense.Data.Checks
 public import CFSG.Certificates.Kernel.KDenseP.MonThreeB.MonoAll
 public import CFSG.Certificates.Kernel.KDenseP.MonThreeB.C136220
 public import CFSG.Certificates.Kernel.KDenseP.MonThreeB.C136221
@@ -13,9 +11,6 @@ public import CFSG.Certificates.Kernel.KDenseP.MonThreeB.C136224
 public import CFSG.Certificates.Kernel.KDenseP.MonThreeB.C13638
 public import CFSG.Certificates.Kernel.KDenseP.MonThreeB.C13639
 import Certificates.Kernel.KDenseP.MonoTabL
-public import CFSG.Certificates.Kernel.KDenseP.MonThreeB.MonoEChk0
-public import CFSG.Certificates.Kernel.KDenseP.MonThreeB.MonoEChk1
-public import CFSG.Certificates.Kernel.KDenseP.MonThreeB.MonoEChk2
 
 public section
 

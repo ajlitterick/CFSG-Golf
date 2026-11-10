@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.TwoHS.HarCD
 public import Certificates.Kernel.TwoHS.HYOps
-public import Certificates.Data.Kernel.Spor.Chain
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

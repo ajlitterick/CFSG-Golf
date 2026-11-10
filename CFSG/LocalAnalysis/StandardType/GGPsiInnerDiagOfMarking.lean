@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceFive
 
 public section
 

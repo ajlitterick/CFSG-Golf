@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWS6Sign
-public import CFSG.ClassicalInvolution.RouteD.GapsOrthSpinOdd
 public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusOrth
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallWitt
 

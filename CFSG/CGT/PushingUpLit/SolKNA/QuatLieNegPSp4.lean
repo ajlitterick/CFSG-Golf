@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieTwin
-public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieNegPSp4Inputs
 public import Certificates.Certificate2012
 public import Certificates.Certificate77001
 import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
@@ -35,10 +34,6 @@ public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.S10.Defs
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import Certificates.Certificate43
 

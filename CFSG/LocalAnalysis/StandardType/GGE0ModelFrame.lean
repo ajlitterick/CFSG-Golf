@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGE0Frame
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvModelData
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.LocalAnalysis.StandardType.GGLemmaThreeThirteenFourteenP
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
-public import Mathlib.LinearAlgebra.Pi
 public import Mathlib.LinearAlgebra.Reflection
-public import Mathlib.Data.ZMod.Basic
 
 public section
 

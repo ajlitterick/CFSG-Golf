@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwenty
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveInputs
 public import CFSG.GroupTheory.GL52.SylowTools
 
 public section

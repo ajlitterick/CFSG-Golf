@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.Bg.Iii2.CMAux
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.Bg.Iii2.CMPU
 
 public section

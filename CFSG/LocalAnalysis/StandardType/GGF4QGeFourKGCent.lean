@@ -4,19 +4,10 @@ public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourL1
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourKGCentUnitary
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourKGCentOm
 import CFSG.LocalAnalysis.StandardType.GGKGCentPSUShort
-import CFSG.LocalAnalysis.StandardType.GGKGPosLocalHypTw
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
-import CFSG.LocalAnalysis.StandardType.GGKGPosSpStd
-import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOrb
 import CFSG.LocalAnalysis.StandardType.GGF4SharedRefl
 import CFSG.LocalAnalysis.StandardType.GGRankOneShared
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2Cross
 import CFSG.LocalAnalysis.StandardType.GGKGCentSpMatrix
-import CFSG.LocalAnalysis.StandardType.GGReflectionBasic
-import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4Facts
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.Timmesfeld.Transvection.PresSp
-import Mathlib.Tactic.Group
 
 public section
 

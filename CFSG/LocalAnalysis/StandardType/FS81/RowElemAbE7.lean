@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.RowElemAb
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBFull
 
 public section
 

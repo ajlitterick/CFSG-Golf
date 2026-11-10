@@ -1,32 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGF4N2RootAut
 public import CFSG.LocalAnalysis.StandardType.GGF4N2ActualH0
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
-import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
-import CFSG.LargeExtraspecial.S5Comp
 import CFSG.LocalAnalysis.RankThreeTheoremC.LayerNormal
-import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTwE6
-import CFSG.Quasithin.Recognition.St84.L2Group
-import CFSG.Quasithin.Vol2.Ch8Sec2L829CS5L2T
-import CFSG.GroupTheory.DisjointSupCard
-import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.GroupTheory.ElementaryAbelianTransport
-import CFSG.LocalAnalysis.ComponentClassification.Foote47L216KernelFour
-import CFSG.CGT.Timmesfeld75.L2Real
-import CFSG.Quasithin.Vol2.Ch8Sec2L828USL2Card
-import CFSG.ClassicalInvolution.WeakCT.Center
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotWeakCTBlocks
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 import CFSG.LocalAnalysis.StandardType.N2PlaneGroup
 import CFSG.LocalAnalysis.StandardType.GGF4N2MixedPower
 import CFSG.LocalAnalysis.UniquenessCase.UC6K36Gen
 import CFSG.GroupTheory.ConjTransport
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Gorenstein.Chapter8_2
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.NormalizerLeNormalizerCentralizer
 import CFSG.RankThree.PartOne.K159.PerfNormalizer
-import CFSG.LocalAnalysis.StandardType.GGF4N2OmegaK
 import CFSG.LocalAnalysis.StandardType.GGE0ShapeConjAux
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourEndsAbsorb
 import CFSG.LocalAnalysis.StandardType.GGF4N2GoodLine

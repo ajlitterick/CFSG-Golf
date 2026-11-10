@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Co2I301.Inputs
-public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public meta import CFSG.Sporadic.Co2I301.Inputs
 import Certificates.Kernel.Misc.Perm.HexCmd

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.SmithEKS
-public import CFSG.Certificates.Kernel.Common.Eval
 public import Certificates.Kernel.SmithEK.Pts
 public import Certificates.Kernel.SmithEK.Tab
 meta import Certificates.Kernel.SmithEK.GenC

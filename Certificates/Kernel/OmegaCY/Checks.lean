@@ -3,10 +3,8 @@ module
 public import Certificates.Kernel.A45Cls.Cls
 public import Certificates.Kernel.A45Cls.Grp3
 public import Certificates.Kernel.OmegaCY.Grp
-public import Certificates.Data.Kernel.A45Cls.Defs
 public import Certificates.Data.Kernel.OmegaCY.Gens
 public import Certificates.Data.Kernel.PermCent.CV
-public import Certificates.Data.OmegaT0
 
 set_option maxRecDepth 400000
 set_option maxHeartbeats 0

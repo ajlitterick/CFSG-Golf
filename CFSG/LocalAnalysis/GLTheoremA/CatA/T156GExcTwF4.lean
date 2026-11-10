@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GKnown
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GExcBase
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapTwF4
-public import CFSG.LocalAnalysis.StandardType.GGTwistedF4Diag
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevGeom
-public import CFSG.LieType.Simplicity.TitsModel
 
 public section
 

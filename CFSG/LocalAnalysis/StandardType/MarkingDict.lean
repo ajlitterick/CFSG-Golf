@@ -2,7 +2,6 @@ module
 
 public import CFSG.Assembly.LargeEvenDefs
 public import CFSG.Blueprint.Catalog
-public import CFSG.Open.StatedAPI
 
 public section
 

@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoTransfer
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixModuleAux
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixModuleAux2
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixModuleAux3
 
 public section

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.NoncyclicAbelianPGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
-public import Mathlib.GroupTheory.SpecificGroups.KleinFour
 
 namespace CFSG
 end CFSG

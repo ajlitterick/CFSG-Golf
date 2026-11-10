@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TwinYR2AtT
-public import CFSG.ClassicalInvolution.ModelFacts.CommutingFundamentalTwG2D4
 public import CFSG.ClassicalInvolution.Asc77.AscT3UG2D4
 public import CFSG.ClassicalInvolution.Balance.BootNoTripleStrong
 public import CFSG.ClassicalInvolution.RouteD.G2D4Ih8

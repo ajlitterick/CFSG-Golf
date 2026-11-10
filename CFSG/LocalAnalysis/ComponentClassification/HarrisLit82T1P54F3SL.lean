@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P54F3Spin
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P54SL
-public import CFSG.LieType.Steinberg.CentralExt.SLThree
-public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 public import CFSG.ClassicalInvolution.Asc77.Lemma310
 public import CFSG.ClassicalInvolution.Asc77.ThmEStatement
 public import CFSG.ClassicalInvolution.Asc77.WP1Section18
@@ -37,7 +34,6 @@ public import CFSG.LocalAnalysis.SectionRank.Ccomm.Critical
 public import CFSG.Open.QuasithinDefs
 public import CFSG.Sporadic.SmallOddCore.HSAut
 public import CFSG.Sporadic.SmallOddCore.J3Aut
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 
 public noncomputable section
 

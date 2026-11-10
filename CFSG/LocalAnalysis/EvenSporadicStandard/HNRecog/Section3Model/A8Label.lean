@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3Model.A8Abstract
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3Model.A8LabelCheck
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3Model.RowModel
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3Model.SubModelClass
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.InvClasses
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.ShapeGlue
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.TableIP
 public import Certificates.Certificate441705
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3.DerivedOf

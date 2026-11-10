@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Basic
 -- `import all`: `kappa`'s body is not `@[expose]`d, so at the default
 -- `.exported` import level of a `module` file it is loaded as an axiom
 -- (bodies of non-exposed definitions are stripped); the `h2.2.1` case of

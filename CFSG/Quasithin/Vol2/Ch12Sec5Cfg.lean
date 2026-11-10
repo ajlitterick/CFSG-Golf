@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.Ch12Sec5Pm
 public import CFSG.Quasithin.Vol2.Ch12Sec5KG
 public import CFSG.RankThree.PartTwo.Sec18.Components
-public import CFSG.LieType.SteinbergBRParabolicResidualImage
 public import CFSG.Quasithin.EmptyFaithful.R3c5Gen
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.LangRootArithmetic
@@ -24,7 +23,6 @@ public import CFSG.RankThree.PartTwo.Late.GammaZero
 public import CFSG.RankThree.PartTwo.Sec12.Notation
 public import CFSG.RankThree.PartTwo.Sec13.Statements
 public import CFSG.RankThree.PartTwo.Sec18.Notation
-public import CFSG.RankThree.PartTwo.Sec18.Tools
 public import CFSG.RankThree.PartTwo.Sec4.StatementsCensus
 public import CFSG.RankThree.PartTwo.Sec4.StatementsGraphField
 

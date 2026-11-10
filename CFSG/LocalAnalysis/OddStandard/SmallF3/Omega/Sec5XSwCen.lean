@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5XSwList
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

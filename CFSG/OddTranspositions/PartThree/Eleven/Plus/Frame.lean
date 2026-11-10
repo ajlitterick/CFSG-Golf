@@ -4,7 +4,6 @@ public import CFSG.OddTranspositions.PartThree.Eleven.Plus.Perm
 public import CFSG.OddTranspositions.PartThree.Eleven.PlusFacts
 public import Certificates.Certificate1383004
 
-import Mathlib.Algebra.Group.Subgroup.Pointwise
 
 public section
 

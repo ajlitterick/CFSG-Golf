@@ -1,10 +1,8 @@
 module
 
 public import CFSG.GF2Type.Smith1979.WidthFourKP.OmegaPlus.LayerData
-public import CFSG.LargeExtraspecial.AS35WQP45W2Data
 public import Certificates.Certificate21297
 public import CFSG.LargeExtraspecial.AS35WSp4
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo2U42
 
 public section

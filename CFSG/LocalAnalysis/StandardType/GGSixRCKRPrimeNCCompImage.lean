@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeNonclassicalSpecs
-import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicTransfer
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 
 public section
 

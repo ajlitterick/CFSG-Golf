@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6SplitFrame
-public import CFSG.LieType.Chevalley.GraphFixedSimplePairs
-public import CFSG.LieType.Chevalley.GraphFixedRankOneScalar
 
 public section
 

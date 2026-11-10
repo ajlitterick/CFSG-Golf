@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJTransfer
 import CFSG.LocalAnalysis.StandardType.GGTBJLift
 import CFSG.LocalAnalysis.StandardType.GGTCJDescent
-import CFSG.LocalAnalysis.ComponentInitial.FixedComponentCorrespondence
 import CFSG.GroupTheory.CentralizerSup
 
 public section

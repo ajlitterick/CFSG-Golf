@@ -1,8 +1,6 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSylow
 public import CFSG.HardMathSupport.Lang.TwE6Step3.SylowTorusSix
-public import CFSG.LieType.SeitzGeneration.ExcTorusRankTw
 public import CFSG.LieType.SeitzGeneration.ExcTwistedClasses
 public import CFSG.LieType.SeitzGeneration.ExcTorusTwE6Three
 public import CFSG.LieType.SeitzGeneration.ExcTorusTwE6Four
@@ -36,7 +34,6 @@ public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.Monster.B.Geometry.CoxeterWords
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime
@@ -70,7 +67,6 @@ public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClSpNbr
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.RootSp2
 
 public section
 

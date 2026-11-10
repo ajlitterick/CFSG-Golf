@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.Norton.MON11_13.ThirteenCheckDefs
-import Certificates.Certificate6007
 import Certificates.Kernel.KDenseP.Norton
 
 public section

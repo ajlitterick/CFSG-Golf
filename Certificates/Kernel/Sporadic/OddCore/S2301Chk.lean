@@ -4,7 +4,6 @@ public import Certificates.Kernel.Sporadic.OddCore.S2301Data
 public import Certificates.Kernel.Sporadic.OddCore.S2301Gens
 public import Certificates.Data.Kernel.Suz2301
 import Certificates.Kernel.Co1B.GenTri2045
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

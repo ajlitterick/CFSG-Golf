@@ -2,10 +2,7 @@ module
 
 public import CFSG.CGT.PushingUpLit.CGT6M.FiveInspTrans
 public import CFSG.RankThree.PartOne.S11c.G2Transport
-public import CFSG.LieType.Chevalley.ProductInjectivity
-public import CFSG.LieType.Chevalley.ExceptionalG2F4ModelSchreier
 public import CFSG.Sporadic.ThSchreier.AutCore
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
 

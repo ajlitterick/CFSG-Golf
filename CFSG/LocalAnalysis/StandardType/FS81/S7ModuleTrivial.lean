@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.FS81.S7E7Incl
 public import CFSG.LocalAnalysis.StandardType.FS81.S7CentDefs
 import CFSG.LocalAnalysis.StandardType.FS81.S7E7InclRange
 import CFSG.LocalAnalysis.SeitzReduction.EPilotHeisIrr
-import CFSG.LocalAnalysis.SeitzReduction.EnKLHeis
 import CFSG.Mathlib.Decide.Bounded
 
 public section

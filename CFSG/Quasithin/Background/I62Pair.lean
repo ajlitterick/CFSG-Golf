@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch10StatementsInputsAS3
-public import CFSG.Quasithin.Background.B2FactorizationBridge
 public import CFSG.Quasithin.Vol2.Ch10StatementsInputsAS
 
 public section

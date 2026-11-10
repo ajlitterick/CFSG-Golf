@@ -2,15 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4X11Ord
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBasic
-public import CFSG.LocalAnalysis.ComponentClassification.PComponentNormalizerEnlargement
 public import CFSG.LocalAnalysis.ComponentClassification.SolMaxPumpInputs
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4X11AltMain
-public import CFSG.ClassicalGroups.Symplectic.Simple
 public import CFSG.Sporadic.SuzOddCore.ExtModel
 public import CFSG.Sporadic.SuzOddCore.CTIComponents
 public import CFSG.CharacterTheory.Wreathed.DegreeThreeModelFullCenterProjective
 public import CFSG.GroupTheory.ABGDGroups.LinearEmbedding
-public import CFSG.Walter.AStar.Subnormal
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.CharacterTheory.Wreathed.OddLinearTwoAutomorphisms

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLLIDProof
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBReduce
 import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section

@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResE6DependentDualOrbits
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 import CFSG.LocalAnalysis.StandardType.GGFLWTree
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-import Mathlib.Tactic.FinCases
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.Ring
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Group
 import CFSG.LocalAnalysis.StandardType.ZS.ReflPair
 
 public section

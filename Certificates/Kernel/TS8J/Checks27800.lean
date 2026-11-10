@@ -5,7 +5,6 @@ public import Certificates.Kernel.Multipliers.U43BChain
 public import Certificates.Kernel.U43Rho.Data
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 meta import Certificates.Kernel.Misc.PackJson
 import Certificates.Kernel.Misc.PackJson
 

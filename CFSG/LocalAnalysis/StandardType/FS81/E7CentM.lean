@@ -3,12 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.E7CentPieces
 public import CFSG.LocalAnalysis.StandardType.FS81.L3TwoFixedPointFree
 public import CFSG.GroupTheory.CoprimeCosetFixed
-public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionMaximalPrimeNormalizer
 public import CFSG.GroupTheory.ClosurePairInvert
-public import Mathlib.Tactic.Group
 public import TauCeti.Algebra.Group.Subgroup.ZPowers
 public import TauCeti.Algebra.Group.Subgroup.ModularLaw
-public import TauCeti.GroupTheory.SemidirectProduct
 
 public section
 

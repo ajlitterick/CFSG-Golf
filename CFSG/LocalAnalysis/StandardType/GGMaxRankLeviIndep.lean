@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
 import CFSG.LocalAnalysis.StandardType.GGResDepType
-import CFSG.LocalAnalysis.StandardType.GGRCTypeADet
 import CFSG.LocalAnalysis.StandardType.GGIntCartanLeafKer
 import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepFrame
 import CFSG.LocalAnalysis.StandardType.GGDepAFrame

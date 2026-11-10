@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.Schreier.Co3CentralizerCheck
-public import CFSG.Sporadic.Schreier.Co3Sp6Check
 public meta import CFSG.Sporadic.Schreier.Co3CentralizerCheck
 public meta import CFSG.Sporadic.Schreier.Co3Sp6Check
-public import CFSG.Sporadic.Schreier.Co3FirstCheckInputs
 public import Certificates.Certificate2154
 
 public section

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K42c
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ExtraspecialFixedPoints
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.RepEquiv
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S9
 
 public section

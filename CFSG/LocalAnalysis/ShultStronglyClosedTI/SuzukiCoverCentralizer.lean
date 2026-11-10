@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCoverInvariants
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
 
 public noncomputable section
 

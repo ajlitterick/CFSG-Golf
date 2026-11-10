@@ -2,7 +2,6 @@
 module
 
 public import Certificates.Kernel.J4Count.HOrderBase
-public import CFSG.Sporadic.Schreier.J4SThreeBase
 public import CFSG.Sporadic.Schreier.J4SOdd276Base
 
 @[expose] public section

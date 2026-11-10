@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeExcPlusAux2
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitE6Two
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwo
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoThree
 
 public section

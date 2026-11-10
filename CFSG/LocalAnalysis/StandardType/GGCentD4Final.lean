@@ -1,21 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNTPlaneInput
 public import CFSG.LocalAnalysis.StandardType.GGCentD4Kernel
 public import CFSG.LocalAnalysis.StandardType.GGCentD4Layer
-public import CFSG.LocalAnalysis.StandardType.GGCentD4Theta
 public import CFSG.LocalAnalysis.StandardType.GGCentD4ThetaGraph
 public import CFSG.LocalAnalysis.StandardType.GGCentD4ThetaTorus
-public import CFSG.LocalAnalysis.StandardType.GGCentD4Alpha
-public import CFSG.LocalAnalysis.StandardType.GGCentD4Frob
-public import CFSG.LocalAnalysis.StandardType.GGCentD4Lang
 public import CFSG.LocalAnalysis.StandardType.GGCentD4Outer
 public import CFSG.LocalAnalysis.StandardType.GGCentD4NoTrans
-public import CFSG.LocalAnalysis.StandardType.GGCentD4Descent
-public import CFSG.LocalAnalysis.StandardType.GGCentD4RatUntw
-public import CFSG.LocalAnalysis.StandardType.GGCentD4RatTw
-public import CFSG.LocalAnalysis.StandardType.GGCentD4Fix
-public import CFSG.LocalAnalysis.StandardType.GGCentD4RIdent
 public import CFSG.LocalAnalysis.StandardType.GGCentD4Glue
 public import CFSG.LocalAnalysis.StandardType.GGCentD4PartU
 public import CFSG.LocalAnalysis.StandardType.GGCentD4PartT

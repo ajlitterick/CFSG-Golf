@@ -3,9 +3,6 @@ module
 public import CFSG.RankThree.PartOne.F106.OddRadSL2
 public import CFSG.RankThree.Chevalley.SteinbergCFTrialityToralSylow
 public import CFSG.RankThree.Chevalley.SteinbergCFTrialityToralQuasisimple
-public import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
-public import CFSG.LieType.Chevalley.TrialityExactFiniteOrder
-public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 public import CFSG.ClassicalInvolution.WeakCT.StandardPair
 public import CFSG.LieType.CurtisTits.SpecialLinear
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
@@ -25,8 +22,6 @@ public import CFSG.RankThree.PartOne.N143.Weyl613Defs
 public import CFSG.RankThree.PartOne.N143X.KF64WSimple
 public import CFSG.RankThree.PartOne.S11d.OutLinear
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Walter.Defs
 
 public section

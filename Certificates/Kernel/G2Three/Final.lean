@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Census.Carrier.G2ThreeData
 public import Certificates.Kernel.G2Three.Checks
 public import Certificates.Kernel.G2Three.Parse
 public import CFSG.Certificates.Kernel.G2Three.Tables

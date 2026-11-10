@@ -2,17 +2,10 @@ module
 
 public import Certificates.Kernel.Fi22.Fix
 public import CFSG.Certificates.Kernel.BindSubSound
-public import CFSG.Certificates.Kernel.LceSTabSound
-public import CFSG.Certificates.Kernel.Fi22.Bound2.Data.M
-public import CFSG.Certificates.Kernel.Fi22.Bound2.Data.X1_Sel
-public import CFSG.Certificates.Kernel.Fi22.Bound2.Data.X2_Sel
-public import CFSG.Certificates.Kernel.Fi22.Bound2.Data.X3_Sel
 import Certificates.Kernel.Co2.Intro
-import Certificates.Kernel.Fi22.Facts
 import CFSG.Certificates.Kernel.Fi22.Bound2.Checks.X1_H_0
 import CFSG.Certificates.Kernel.Fi22.Bound2.Checks.X2_H_0
 import CFSG.Certificates.Kernel.Fi22.Bound2.Checks.X3_H_0
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

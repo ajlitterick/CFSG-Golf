@@ -1,11 +1,8 @@
 module
 
 public import CFSG.ClassicalGroups.Orthogonal.OmegaMinus8ThreeLocalRealizers
-public import CFSG.Open.LocalVocabulary
-import CFSG.GroupTheory.UniqueElemSylow
 import CFSG.GroupTheory.WeirSylow.UniqueE27Orthogonal
 import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalOmMinus
-import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
 import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.ClassicalInvolution.Orders.OrthogonalCount
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound

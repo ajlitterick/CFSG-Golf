@@ -2,9 +2,6 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.ExactRootGroupBaseChange
 public import CFSG.LieType.Chevalley.LangPrimeFieldInvolutionTorus
-public import CFSG.LieType.Chevalley.LangAdjointDiagonalLift
-public import Mathlib.FieldTheory.AlgebraicClosure
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

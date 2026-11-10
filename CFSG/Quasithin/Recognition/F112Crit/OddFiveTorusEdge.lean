@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Recognition.F112Crit.OddFiveDefs
 public import CFSG.Quasithin.Recognition.F112Crit.BenderCartan
-public import CFSG.Quasithin.EmptyFaithful.SzF53BasGeo
 
 public section
 

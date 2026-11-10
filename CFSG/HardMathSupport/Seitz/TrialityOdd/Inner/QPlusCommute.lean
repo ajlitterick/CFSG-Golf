@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LieType.Steinberg.TwistedD4.Weyl
-public import CFSG.LieType.Steinberg.TwistedD4.Local
 public import CFSG.LieType.Steinberg.TwistedD4.RankOne
-public import Certificates.Certificate117
 
 public noncomputable section
 

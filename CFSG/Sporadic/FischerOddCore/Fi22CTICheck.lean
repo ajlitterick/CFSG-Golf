@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Sporadic.FischerOddCore.Fi22SylowCheck
 public meta import CFSG.Sporadic.FischerOddCore.Fi22SylowCheck
-public import CFSG.Sporadic.FischerOddCore.Fi22CTICheckInputs
 public import Certificates.Certificate2064
 
 public section

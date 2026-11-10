@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeBigHeart
-public import CFSG.LocalAnalysis.StandardType.GGWAutDefs
 import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeSixNeg
-import CFSG.LocalAnalysis.StandardType.GGQ2MixedCentreLin
 
 public section
 

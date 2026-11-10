@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSpNsTorus
 public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
-public import TauCeti.LinearAlgebra.BilinearForm.SymplecticBasis
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalAnisotropicPlaneRegular
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting

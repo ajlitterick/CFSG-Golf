@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGHalfE6CertDefs
 public import CFSG.LocalAnalysis.StandardType.GGHalfInnerPackage
 public import CFSG.LocalAnalysis.StandardType.GGHalfInnerUniq
 public import CFSG.LocalAnalysis.StandardType.GGHalfInnerLine
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
 public import CFSG.LocalAnalysis.StandardType.GGHalfRowData
 public import CFSG.Adapters.LieModelOrders
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover

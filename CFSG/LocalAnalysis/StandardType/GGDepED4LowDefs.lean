@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGDepED4PackDefs
-public import CFSG.LocalAnalysis.StandardType.GGDepED4Defs
-public import CFSG.LocalAnalysis.StandardType.GGDepEDefs
-public import CFSG.LocalAnalysis.StandardType.GGHLLines
 public import CFSG.LocalAnalysis.StandardType.GGTWSurvDefs
 public import CFSG.LocalAnalysis.StandardType.GGTWLowStmt
 

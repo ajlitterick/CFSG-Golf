@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937Defs
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5Marking
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerCore
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 
 public section
 

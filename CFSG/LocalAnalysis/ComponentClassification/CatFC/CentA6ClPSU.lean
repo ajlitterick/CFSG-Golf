@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentA6ClPSUGraph
-public import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentA6Transport
 
 public section
 

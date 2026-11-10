@@ -3,16 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGFinModelExists
 import CFSG.LocalAnalysis.StandardType.GGExcElemToralLangStep
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfSylow
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcMonomial
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
 import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCharE8
-import CFSG.HardMathSupport.Timmesfeld.Steinberg.FiveCharE8
-import CFSG.HardMathSupport.Timmesfeld.Steinberg.SevenCharE8
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToral
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSylow
-import CFSG.LieType.SeitzGeneration.ExcTorusE8One
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 import CFSG.Dihedral.DihedralFusionPrefixes
@@ -40,13 +33,7 @@ import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
 import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
 import CFSG.RankThree.PartOne.KE.E7FiveBlock
 import CFSG.RankThree.PartOne.KE.ThreeA1Group
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 
 public section
 

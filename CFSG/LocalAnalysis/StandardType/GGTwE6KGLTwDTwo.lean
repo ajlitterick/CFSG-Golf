@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLPairs
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLNoJ1MarkTriality
 import CFSG.Assembly.GL83StatedBridge
-import CFSG.Timmesfeld.Orders.ClassicalLinear
 
 public section
 

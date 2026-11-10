@@ -1,22 +1,17 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamD4Pin
-public import CFSG.LocalAnalysis.StandardType.GGFamIsolation
-public import CFSG.LocalAnalysis.StandardType.GGFamRatComp
 public import CFSG.LocalAnalysis.StandardType.GGFamTameTransfer
-public import CFSG.LocalAnalysis.StandardType.GGExcCompSLDefs
 public import CFSG.LocalAnalysis.StandardType.GGFamD4Index
 public import CFSG.LocalAnalysis.StandardType.GGFamProperComponent
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154NonCfgRank4
 public import CFSG.ClassicalInvolution.Q3.Q3TWWMinus
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Defs
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCoreAssembly
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24Plane
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24Red
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Rank4
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Rank4All
-public import CFSG.LieType.SeitzGeneration.SeitzStatus
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyU3Top
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotCTFieldCenter
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotClassesRoots

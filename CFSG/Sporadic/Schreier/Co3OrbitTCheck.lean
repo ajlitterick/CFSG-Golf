@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.Schreier.Co3OrbitZCheck
 public meta import CFSG.Sporadic.Schreier.Co3OrbitZCheck
 public import CFSG.Sporadic.Schreier.Co3OrbitTCheckInputs
-public import CFSG.Sporadic.Schreier.Co3StabItInputs
 public meta import CFSG.Sporadic.Schreier.Co3StabItInputs
 public import Certificates.Certificate2156
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.SuzRecog.B0GluingLift
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourAutomorphisms
 
 public section
 

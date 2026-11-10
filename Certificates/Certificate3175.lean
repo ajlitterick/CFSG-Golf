@@ -1,10 +1,7 @@
 
 module
 
-public import Certificates.Certificate3175Base
 
-public import CFSG.Monster.B.TwoA.Unitary.PlanesInputs
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408PlanesInputsBase
 public import Certificates.Kernel.MonsterB.Pl3175Data
 public import CFSG.Certificates.Kernel.MonsterB.U6GeoSound
 import CFSG.Certificates.Kernel.Common.Harness

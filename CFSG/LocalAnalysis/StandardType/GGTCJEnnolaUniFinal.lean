@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTCJEnnolaDefs
 import CFSG.LocalAnalysis.StandardType.GGTCJEnnolaUniComp
 import CFSG.LocalAnalysis.StandardType.GGTCJDivLin
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniData
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabel
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniScal
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GU64Glue
 
 public section
 

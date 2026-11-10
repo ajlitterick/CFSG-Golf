@@ -2,12 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourPlusRankOne
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourR3Comm
-import CFSG.LocalAnalysis.StandardType.GGF4OrigRep
 import CFSG.LocalAnalysis.StandardType.GGF4CommPair
-import CFSG.LocalAnalysis.StandardType.GGF4ReflGroup
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
-import Mathlib.Tactic.Group
 
 public section
 

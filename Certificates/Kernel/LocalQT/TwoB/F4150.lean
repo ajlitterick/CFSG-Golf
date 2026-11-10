@@ -7,10 +7,8 @@ public import Certificates.Kernel.LocalQT.TwoB.C4150H0
 public import Certificates.Kernel.LocalQT.TwoB.C4150H1
 public import Certificates.Kernel.LocalQT.SV.C4126TB
 public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
-public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
 public import CFSG.Certificates.Kernel.Spor.MulHFSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentSporHSTwoBInputs
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.SmallOddCore.ClassSimple
 public import CFSG.Sporadic.SmallOddCore.LocalSpec
 

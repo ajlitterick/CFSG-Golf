@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfField
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesSplit
-public import Mathlib.FieldTheory.Finite.Extension
 
 public section
 

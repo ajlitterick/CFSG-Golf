@@ -2,15 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGD5Defs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaLocal
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaNbr
 import CFSG.LocalAnalysis.StandardType.GGQTwoU5Bridges
-import CFSG.LocalAnalysis.GLTheoremA.CatB.Rank23
 import CFSG.RankThree.PartOne.S11c.OuterInner
-import CFSG.LocalAnalysis.GLTheoremA.CatA.S172AGrp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.H81Orth.Types
-import CFSG.LieType.Multipliers.U42
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CenterHopf
 
 public section
 

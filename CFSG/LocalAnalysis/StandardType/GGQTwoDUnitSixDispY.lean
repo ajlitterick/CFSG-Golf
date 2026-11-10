@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixDispBig
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixDispO
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixTableP
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixDispU
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixNbr
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixStd
 
 public section
 

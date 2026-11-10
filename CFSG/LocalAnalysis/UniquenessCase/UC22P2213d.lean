@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S22a
 public import CFSG.LocalAnalysis.UniquenessCase.UC22DataExt
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2213Defs
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2214a
 public import CFSG.LocalAnalysis.UniquenessCase.UC22InE229N
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2213b
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22a
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge
 
 public section

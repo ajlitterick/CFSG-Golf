@@ -2,13 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameTBExcPlus
 public import CFSG.LocalAnalysis.StandardType.GGFrameTBTwE6
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
 import CFSG.LocalAnalysis.StandardType.GGFrameTBSmall
 import CFSG.LocalAnalysis.StandardType.GGFrameTBSU
 import CFSG.LocalAnalysis.StandardType.GGFrameTBSUDvd
 import CFSG.LocalAnalysis.StandardType.GGFrameTBSp
 import CFSG.LocalAnalysis.StandardType.GGFrameTBOmega
-import CFSG.LocalAnalysis.StandardType.GGFrameTBTw
 
 public section
 

@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRealSgnDefs
 public import CFSG.LocalAnalysis.StandardType.GGOrthNsSgnLabel
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExc
 import CFSG.LocalAnalysis.StandardType.GGRealSgnTransfer
 import CFSG.LocalAnalysis.StandardType.GGRealKGOmegaSgn
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
 import CFSG.LocalAnalysis.StandardType.GGKGForkOrthRow
 
 public section

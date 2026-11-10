@@ -1,16 +1,9 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.ComponentClassification.InnAutDerived
 public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
-import CFSG.LocalAnalysis.ComponentClassification.InnAutDerivedUnitary
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SF5UClUniB
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3Uni
-import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeModel
-import CFSG.SignalizerFunctorTheorem.Inheritance.TransportA.Fitting
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
@@ -39,9 +32,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicCongruenceCut
 public import CFSG.LocalAnalysis.LargeEvenClassification.TopScalarLiftSquare
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.GroupTheory.Subgroup.Center
 import CFSG.RankThree.Classical2.CentralLiftCommutator
 import CFSG.LocalAnalysis.SectionRank.SignLines
 

@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6TwoComp
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenExcTwoFrame
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRTransfer
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSLTransfer
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcCoverRows
-public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotToral
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoThree
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoThreeIrred
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcThreeE6Cent
 

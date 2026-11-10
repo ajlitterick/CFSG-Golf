@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPositionDataDefs
 public import CFSG.ClassicalInvolution.WeakCT.Blocks
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.ShortRoot
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPositionDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveDataResDefs
 

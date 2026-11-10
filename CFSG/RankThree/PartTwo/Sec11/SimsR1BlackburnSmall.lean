@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Assembly.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.Omega
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.proposition_4_11
 

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1OddCoverLift
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIISUThreePlane
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryShortModel
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.Cover
-import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
 import CFSG.HardMathSupport.Dickson.I271.SporGen
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.NoComp
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.StepGen

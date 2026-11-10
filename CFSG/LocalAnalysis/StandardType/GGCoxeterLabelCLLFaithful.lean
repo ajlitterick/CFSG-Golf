@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
-public import CFSG.LieType.RootSystem.Form
-public import CFSG.LieType.RootSystem.Positivity
 public import CFSG.LinearAlgebra.IntegralCongruenceTorsionFree
 
 public section

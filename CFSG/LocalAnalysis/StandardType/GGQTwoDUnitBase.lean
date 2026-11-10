@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDInputs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDCells
 public import CFSG.LocalAnalysis.StandardType.GGQTwoChartTwoThreeCent
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrLang
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixPointRels
-public import CFSG.Certificates.CosetTableOrders
 public import CFSG.Certificates.CosetTableCompactColumns
 public import CFSG.Certificates.CosetTableIndexGe
 public import CFSG.Certificates.CosetTableShort

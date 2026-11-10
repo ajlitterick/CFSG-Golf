@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.Minuscule.CertInputs
-import Certificates.Certificate113
-import Certificates.Certificate114
 
 public section
 

@@ -1,14 +1,10 @@
 module
 
 public import CFSG.Open.StatedDefs
-public import Mathlib.GroupTheory.IsPerfect
-public import Mathlib.LinearAlgebra.BilinearForm.Basic
 import CFSG.RankThree.SubgroupLists.SymplecticTransvections
 import CFSG.LinearAlgebra.LinearGroups.QuadraticActions
 import CFSG.GH74.GLS.IVK.Proofs2.Ivk95LinSL
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Aux.L364Lin
-import Mathlib.LinearAlgebra.FiniteDimensional.Defs
-import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
 import TauCeti.LinearAlgebra.Determinant
 import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Centralizer
 

@@ -1,16 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieInnGoodInner
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Orth3Plane
-public import CFSG.LieType.SeitzGeneration.OrthMix
-public import CFSG.RankThree.PartOne.KC.OrthogonalCommutatorCore
-public import CFSG.RankThree.PartOne.KC.OrthogonalLocalComponents
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxOrthogonal
-public import CFSG.RankThree.PartOne.KC.OrthogonalD4WitnessBridge
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxSymplectic
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieOuter
-public import CFSG.RankThree.PartTwo.Census.Carrier.SpinBOdd
-public import CFSG.Adapters.TauCetiLieModels
 public import CFSG.GroupTheory.PCore.SubgroupCore
 public import CFSG.GroupTheory.SteinbergCBFTCores
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossSp

@@ -4,7 +4,6 @@ public import Certificates.Kernel.Co1B.PrimD2045
 public import Certificates.Kernel.Co1B.OrbK2045
 public import Certificates.Data.Kernel.MergeReplay
 public import Certificates.Data.Kernel.MergeG
-public import Certificates.Data.Kernel.Spor.Prim
 public meta import Certificates.Kernel.Co1B.GenTri2045
 import CFSG.Certificates.Kernel.Common.Harness
 

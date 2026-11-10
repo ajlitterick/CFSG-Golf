@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBC8
 public import CFSG.ClassicalInvolution.Asc77.AscAETFinal
-import CFSG.ClassicalInvolution.Asc77.ModOApi
 public import CFSG.ClassicalInvolution.Asc77.AscT8Setup
 public import CFSG.ClassicalInvolution.AschTight.Sec7L713E
 public import CFSG.ClassicalInvolution.Balance.BootNoTripleStrong

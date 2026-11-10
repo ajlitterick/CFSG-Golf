@@ -1,9 +1,7 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultBridge
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultReflPair
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultSimilar
-public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultTransport
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultTransportProj
 
 public section

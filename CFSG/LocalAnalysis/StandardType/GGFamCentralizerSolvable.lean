@@ -1,18 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFamAssembly
 public import CFSG.LocalAnalysis.StandardType.GGFamF4Assembly
-public import CFSG.LocalAnalysis.StandardType.GGFamComponent
-public import CFSG.LocalAnalysis.StandardType.GGFamTrivial
-public import CFSG.LocalAnalysis.StandardType.GGFamF4Trivial
-public import CFSG.LocalAnalysis.StandardType.GGFamRatComp
-public import CFSG.LocalAnalysis.StandardType.GGLangFamily
-public import CFSG.LocalAnalysis.StandardType.GGExcCompFieldInput
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UG7
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidDescent
-public import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.Quotient
 public import CFSG.GroupTheory.QuasisimplePSolvable
-public import CFSG.Quasithin.Background.A3ComponentsBasic
 
 public section
 

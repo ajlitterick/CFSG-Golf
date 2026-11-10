@@ -1,20 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeRank
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmFrame
-public import CFSG.LocalAnalysis.StandardType.GGTBJOmDefs
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenOrthFixed
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentType
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentTypeSum
 public import CFSG.HardMathSupport.Dickson.Bal207.LocalBalClassicalOrthTwoBasic
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockZ
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Interface
 public import CFSG.Holt.Fixed
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
-public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentLayer
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBaseIso

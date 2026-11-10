@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.J4Count.FixCPairBase
 
-public import Certificates.Kernel.J4Count.KFactsBase
 public import CFSG.Certificates.Kernel.J4FixCSoundBase1
 
 @[expose] public section

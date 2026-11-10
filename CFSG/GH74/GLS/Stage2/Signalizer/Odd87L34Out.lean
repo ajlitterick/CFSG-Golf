@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourAutomorphisms
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallL34Out
 import all CFSG.LocalAnalysis.ComponentClassification.PSL3FourActionData
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
@@ -13,9 +11,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreU
 public import CFSG.LocalAnalysis.SectionRank.CentralLift
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 
 public section
 

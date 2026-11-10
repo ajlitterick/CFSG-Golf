@@ -2,16 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1On
 public import CFSG.LocalAnalysis.StandardType.GGQ2LDatumOfWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwenty
 public import CFSG.LocalAnalysis.StandardType.GGTBRowCoordFrame
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-import CFSG.LocalAnalysis.StandardType.GGTBRowFrame
-import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
-import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
-import CFSG.LocalAnalysis.StandardType.GGTableBRank
 import CFSG.LocalAnalysis.StandardType.GGTBJWeyl
-import CFSG.LocalAnalysis.StandardType.GGStdSubExist
 import CFSG.LocalAnalysis.StandardType.GGE6DepXNotInL
 
 public section

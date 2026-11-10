@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplitR
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeRComp
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUClauses
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FSeitzB2

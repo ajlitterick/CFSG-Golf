@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5Tor
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBE7E8
-import CFSG.LieType.Steinberg.CentralExt.FieldTwoMultiplier
 
 public section
 

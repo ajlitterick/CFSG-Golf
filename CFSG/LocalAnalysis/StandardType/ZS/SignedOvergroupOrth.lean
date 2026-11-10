@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 import CFSG.LocalAnalysis.StandardType.GGWitSlpmConjAux
 import CFSG.LocalAnalysis.StandardType.ZS.Basic
-import CFSG.LocalAnalysis.StandardType.ZS.ClassReflClosure
 import CFSG.LocalAnalysis.StandardType.ZS.ClassReflOrder
 import CFSG.LocalAnalysis.StandardType.ZS.MonomialBasic
 import CFSG.LocalAnalysis.StandardType.ZS.MonomialStab

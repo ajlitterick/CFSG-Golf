@@ -3,12 +3,8 @@ module
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432OuterTools
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432Rows
 import CFSG.RankThree.PartTwo.Sec4.RonanK432RowL3Easy
-import CFSG.RankThree.PartTwo.KFacts.K72L3Field
-import CFSG.RankThree.PartTwo.KFacts.K72L3Omega
 import CFSG.RankThree.PartTwo.Sec4.Item47Unitary
-import CFSG.RankThree.SteinbergR3ELinearUnitaryOuterOrder
 import CFSG.Models.PGL
-import CFSG.Open.StatedDefs
 public import CFSG.Open.SplitBNPair
 public import CFSG.Quasithin.Vol2.Ch10StatementsE
 public import CFSG.Quasithin.Vol2.Ch10StatementsInputs

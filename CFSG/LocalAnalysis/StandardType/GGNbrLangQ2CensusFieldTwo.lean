@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusDefs
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1CentLin
-import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeTorus
-import CFSG.LocalAnalysis.StandardType.KGLangS1ALinTypeDet
 import CFSG.LocalAnalysis.StandardType.GGTPNThmRACoreLin
 import CFSG.HardMathSupport.Curtis.Coordinator.PerfThreeGLCore
 import CFSG.LocalAnalysis.ComponentClassification.GS82L34Omega

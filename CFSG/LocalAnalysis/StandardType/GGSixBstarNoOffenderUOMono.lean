@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarUniqueBasic
-public import Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset
-public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.GroupTheory.GroupAction.Quotient
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section

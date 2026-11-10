@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.LceSSeg
-public import CFSG.Certificates.Kernel.Common.LceS
 public import CFSG.Certificates.Kernel.Bounds.CJSuz2.Data.B_Sel
 public import CFSG.Certificates.Kernel.Bounds.Core3
 import CFSG.Certificates.Kernel.Bounds.LoadRoot

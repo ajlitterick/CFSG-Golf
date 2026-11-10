@@ -18,8 +18,6 @@ public import Certificates.Kernel.SporSch.HN.FixK.F13608Q4
 public import Certificates.Kernel.SporSch.HN.FixK.F13608Q5
 public import Certificates.Kernel.SporSch.HN.FixK.F13608Q6
 public import Certificates.Kernel.SporSch.HN.FixK.F13608Q7
-public import CFSG.Sporadic.HNSchreier.LocalOuter
-public import CFSG.Sporadic.HNSchreier.VectorData
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

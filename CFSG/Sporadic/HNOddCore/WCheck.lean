@@ -5,7 +5,6 @@ public import CFSG.Sporadic.HNOddCore.WCheckBase
 
 public import CFSG.Sporadic.HNOddCore.PCheck
 public meta import CFSG.Sporadic.HNOddCore.PCheck
-public import CFSG.Sporadic.HNOddCore.WCheckInputs
 public import Certificates.Certificate2093
 
 public section

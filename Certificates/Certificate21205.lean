@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate21205Base
 
-public import CFSG.LargeExtraspecial.AS35QCoSp6Spec
 import CFSG.Certificates.Kernel.C21205.CritSound
 import CFSG.Certificates.Kernel.C21205.ProdSound
 import Certificates.Kernel.C21205.SylowCheck

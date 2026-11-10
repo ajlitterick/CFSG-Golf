@@ -2,16 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKG87BTransDefs
 public import CFSG.LieType.Chevalley.TwistedE6NormalForm
-public import CFSG.LieType.Chevalley.TwistedE6NormalFormActors
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6Order3Defs
 public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 import all CFSG.LocalAnalysis.StandardType.GGKG87BTransRatAux
 import CFSG.LocalAnalysis.StandardType.GGKG87BTransWeyl
 import CFSG.LocalAnalysis.StandardType.GGKG87BTransCent
 import CFSG.LieType.Chevalley.CLSOddE7RationalEightGroup
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-import CFSG.LieType.Chevalley.TwistMap
-import CFSG.LieType.Chevalley.WeylRoots
 
 public section
 

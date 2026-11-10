@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGDepED4ReadDefs
 public import CFSG.LocalAnalysis.StandardType.GGDepED4L58RowDefs
 public import CFSG.LocalAnalysis.StandardType.GGDepED4RowSmall
 

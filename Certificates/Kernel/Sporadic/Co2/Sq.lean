@@ -5,7 +5,6 @@ public import Certificates.Kernel.Sporadic.Co2.HypT
 public import Certificates.Kernel.Sporadic.Co2.HypU
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -1,10 +1,7 @@
 module
 
-public import Certificates.Kernel.Sporadic.Tits.Sift2264
-public import Certificates.Kernel.SporSch.Tits.Common
 public import Certificates.Kernel.SporSch.Tits.Action2262
 public import Certificates.Kernel.Misc.Tits.Pi7092
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Data.Kernel.Spor.Join
 public import Certificates.Data.RuTypeJ47Inputs
 meta import Certificates.Data.RuTypeJ47Inputs

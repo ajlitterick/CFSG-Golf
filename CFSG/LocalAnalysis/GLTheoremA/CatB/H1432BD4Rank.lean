@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1432BD4Layer
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3FStable
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public noncomputable section
 

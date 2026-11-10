@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.H13.A5W1617c
-public import CFSG.Quasithin.Background.FFC4Three
 public import CFSG.CharacterTheory.Wreathed.SmallerRecognitionOriginalFieldQuaternionConjugation
 public import CFSG.Goldschmidt.Statements
 public import CFSG.Goldschmidt.StatementsG

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.Fi22.Letters
 public import Certificates.Data.Kernel.Spor.Row
-public import Certificates.Data.Kernel.Spor.Chain
 public import CFSG.Sporadic.Recognition.Fi22MultiplierInputs
 public import Certificates.Kernel.Sporadic.RowsWCmd
 public meta import Certificates.Data.CFSGNative.Bridge.SurjA

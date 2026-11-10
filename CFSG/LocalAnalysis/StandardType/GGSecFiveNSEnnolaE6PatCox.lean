@@ -6,9 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveDataResDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveDkForkLeaves
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRoots
-import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsBasic
-import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsPairs
-import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsWeyl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitWeylEquiv
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpupRoots
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpRoute

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432L3HardMat
-public import CFSG.RankThree.PartTwo.Sec4.RonanK432RowTools
 import CFSG.Quasithin.Background.A318PC4
-import CFSG.RankThree.PartTwo.Sec4.LThreePiIrred
 
 public section
 

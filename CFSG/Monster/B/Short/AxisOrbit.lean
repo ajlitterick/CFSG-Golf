@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.Generated.Centralizer
-public import CFSG.Monster.Griess.AutFinite
 
 public noncomputable section
 

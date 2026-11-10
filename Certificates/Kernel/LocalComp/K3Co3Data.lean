@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3SelK3SporDataB
 meta import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3SelK3SporDataB
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.RawSound
-public import Mathlib.GroupTheory.Schreier
 meta import Mathlib.GroupTheory.Schreier
 
 public section

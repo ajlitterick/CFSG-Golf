@@ -4,11 +4,7 @@ public import Certificates.Kernel.He7222.GlueFib
 public import Certificates.Kernel.He7222.GlueKs
 public import Certificates.Kernel.He7222.GlueNv
 public import Certificates.Kernel.He7222.GoodK
-public import Certificates.Kernel.He7222.InvK
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.OrbRow.LevelSound
-import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Spor.Loops
 
 public section
 

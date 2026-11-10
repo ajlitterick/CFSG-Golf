@@ -5,7 +5,6 @@ public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Hyp
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Pair
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Quandle
 public import CFSG.OddTranspositions.PartThree.EightFive.KBarSetup
-public import CFSG.OddTranspositions.WreathBase
 public import CFSG.OddTranspositions.WreathBaseMinimal
 public import CFSG.OddTranspositions.PartThree.Ten.SetupPerfect
 public import CFSG.Timmesfeld.Bridge.OddTranspGenL2

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.TheoremC.BorelSuzukiAut
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.TheoremC.BorelSuzukiTorus
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCoverCentralizer
-public import CFSG.StronglyEmbedded.MatrixGroups.SzModel
 
 public section
 

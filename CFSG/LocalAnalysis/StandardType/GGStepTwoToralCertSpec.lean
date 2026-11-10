@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcKGToralFrame
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompKac
 
 public section

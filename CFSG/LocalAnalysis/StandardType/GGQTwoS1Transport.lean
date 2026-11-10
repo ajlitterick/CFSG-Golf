@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoReflOrth
-public import CFSG.LocalAnalysis.StandardType.GGQTwoInvForm
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTransport
 
 public section

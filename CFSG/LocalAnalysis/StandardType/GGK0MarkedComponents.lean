@@ -1,17 +1,13 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK0MarkedKacIface1587
-public import CFSG.LocalAnalysis.StandardType.GGK1CoverBij
 public import CFSG.LocalAnalysis.StandardType.GGK1Cover
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelIndex
 public import CFSG.LocalAnalysis.StandardType.GGFamTameTransfer
 public import CFSG.LocalAnalysis.StandardType.GGLangExhaust
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RFam
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6TwoThree
 public import CFSG.LocalAnalysis.StandardType.GGTCJDatum
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267GenE6ThreeLang
-public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcLang
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.Basic
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.D4Dichotomy
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.E6Isotropic

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.Co1.ElemDag
 public import CFSG.Certificates.Kernel.SporSch.Co1SplitSound
-public import CFSG.Sporadic.Schreier.Co1SplitCheckInputs
 public meta import Certificates.Kernel.SporSch.Co1.GenDag
 public meta import Certificates.Kernel.SporSch.GenPerms
 public meta import CFSG.Sporadic.Schreier.Co1SplitCheckInputs

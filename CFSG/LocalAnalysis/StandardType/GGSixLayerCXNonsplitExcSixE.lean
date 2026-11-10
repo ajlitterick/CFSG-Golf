@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitExcTags
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixEMain
-public import CFSG.LieType.Chevalley.OrdinaryEOuterOrder
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2IsogenyCenter
-public import CFSG.LieType.Steinberg.CentralExt.MinusculeCenter
-public import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
 
 public section
 

@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.SporSch.J4S.Rank
 import CFSG.Certificates.Kernel.Common.Harness
-public import Certificates.Kernel.SporSch.J4S.NoCP
 
 public section
 

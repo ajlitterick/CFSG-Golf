@@ -5,9 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierA1Cover
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcActTorus
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcActNorm
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcData
-import CFSG.Mathlib.FieldTheory.InfiniteUnitPowers
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcField
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSplit
@@ -33,7 +30,6 @@ public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime
@@ -42,11 +38,9 @@ public import CFSG.RankThree.PartOne.KE.A2Family
 public import CFSG.RankThree.PartOne.KLR.Master
 public import CFSG.RankThree.PartOne.KLR.SectorAssembly
 public import CFSG.RankThree.PartOne.S8.Statements
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 import CFSG.Certificates.CentralKernel
 import CFSG.Certificates.CosetTableWalkC
 import CFSG.Certificates.FusionF2
@@ -116,7 +110,6 @@ import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureConjugation
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureProperPair
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureSylowAssemblyData
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureSylowAssemblyProper
-import CFSG.LocalAnalysis.SignalizerFunctor
 import CFSG.Monster.AxisCount.HSIdentBaby
 import CFSG.Monster.AxisCount.HSIdentRec0
 import CFSG.Monster.AxisCount.HSIdentRec1
@@ -138,11 +131,8 @@ import CFSG.Quasithin.Background.B69Core
 import CFSG.Quasithin.Background.C1GNSolvConnect
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918C6
 import CFSG.Quasithin.Background.FFC7G
 import CFSG.Quasithin.Background.FFC8A
@@ -212,10 +202,6 @@ import CFSG.Sporadic.SuzOddCore.GraphData
 import CFSG.Sporadic.SuzOddCore.SmallActionData
 import CFSG.Timmesfeld.RankOne
 import CFSG.Timmesfeld.Transvection.Statement
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.PSL2Facts
-import CFSG.Walter.W67.Statements
 import CFSG.YGroups.DCE.B433Check
 import Certificates.Kernel.J4Count.Prim
 

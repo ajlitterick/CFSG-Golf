@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExtPlaneLeaf
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExtCoverFrame
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_5
 
 public section
 

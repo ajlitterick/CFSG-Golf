@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenActorTools
 public import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-public import CFSG.LieType.CurtisTits.Recognition
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LieType.Chevalley.C2E6SubsystemBruhat
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
@@ -16,7 +14,6 @@ public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.Chevalley.SteinbergBTEvenF4Noninner
 public import CFSG.RankThree.Chevalley.SteinbergCEF4PlaneAssembly
 public import CFSG.RankThree.PartOne.KC.PlaneReduction
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Walter.Defs
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Open.StatedDefs
-public import CFSG.Open.LocalVocabulary
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Open.Defs
 

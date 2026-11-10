@@ -1,23 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166TwE6B
-public import CFSG.Timmesfeld.Orders.ExceptionalTwistedUnipotent
-public import CFSG.LieType.Chevalley.RootCommutator
-public import CFSG.LieType.Chevalley.ExceptionalFieldFourCoverLifts
-public import CFSG.LieType.Chevalley.HeightSeries
-public import CFSG.LieType.SteinbergBRTwoRankBound
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
-public import CFSG.Blueprint.ChevalleyRoots
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
-public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Interface
 public import CFSG.Holt.Fixed
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
-public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
 public import CFSG.LocalAnalysis.GLTheoremA.P51.Quaternion
 public import CFSG.LocalAnalysis.GLTheoremA.P55.Dihedral
@@ -28,7 +16,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.S11.InputsElim
 public import CFSG.LocalAnalysis.GLTheoremA.S3.Lemma35
 public import CFSG.LocalAnalysis.GLTheoremA.S6.Lemma62Aux
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Quasithin.Background.B1More13A
 public import CFSG.Quasithin.Background.B1More13Defs
 public import CFSG.Quasithin.Background.B1MoreEleven
@@ -36,7 +23,6 @@ public import CFSG.Quasithin.Background.B5Basic
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.C2Six
 public import CFSG.Quasithin.Background.InternalSecAutOn
 public import CFSG.Quasithin.Background.InternalSecB4

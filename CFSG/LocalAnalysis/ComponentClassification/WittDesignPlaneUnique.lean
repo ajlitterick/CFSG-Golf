@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignPlaneFrame
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignPlaneSquares
-public import CFSG.Monster.B.Classical.PlaneIncidence
 public meta import CFSG.Monster.B.Classical.PlaneData
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignPlaneSquares
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignPlaneUniqueInputs
 public import Certificates.Certificate2038
-public import Certificates.Certificate2037
 
 public noncomputable section
 

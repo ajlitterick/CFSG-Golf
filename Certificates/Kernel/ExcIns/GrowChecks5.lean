@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.ExcIns.Grow
 public import Certificates.Kernel.ExcExt.Data
 public import Certificates.Kernel.ExcIns.Data5
 import CFSG.Certificates.Kernel.Common.Harness

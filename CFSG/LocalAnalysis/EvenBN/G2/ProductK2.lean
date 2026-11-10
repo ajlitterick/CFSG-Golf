@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.G2.ProductLifts
 public import CFSG.LocalAnalysis.EvenBN.G2.ProductN3
-public import CFSG.LocalAnalysis.EvenBN.TrialityD4.ProductN1Sylow
 
 public section
 

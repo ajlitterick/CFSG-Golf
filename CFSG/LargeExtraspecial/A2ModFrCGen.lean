@@ -5,8 +5,6 @@ public import CFSG.ClassicalInvolution.WeakCT.TwistedRankOne
 public import CFSG.LieType.Universal.SymplecticExtras
 public import CFSG.ClassicalInvolution.WeakCT.Main
 public import CFSG.LieType.TitsSimplicity
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 
 public section
 

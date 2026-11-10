@@ -4,8 +4,6 @@ public import Certificates.Kernel.Co1B.Dag129070
 public import Certificates.Kernel.Co1B.IotaData
 public import Certificates.Data.Kernel.SporSch.Co1Cent
 public import Certificates.Data.Kernel.SporSch.Co1Heis
-public import Certificates.Data.Kernel.Co1F2
-public import Certificates.Data.Kernel.Co1B
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.Co1F0Check
 import CFSG.Certificates.Kernel.Common.Harness
 

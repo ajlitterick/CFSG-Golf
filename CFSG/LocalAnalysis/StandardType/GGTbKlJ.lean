@@ -4,7 +4,6 @@ import CFSG.LocalAnalysis.StandardType.GGTbKlLayer
 import CFSG.LocalAnalysis.StandardType.GGTbKlLabel
 import CFSG.LocalAnalysis.StandardType.GGTbKlTransport
 public import CFSG.LocalAnalysis.StandardType.GGTbKlSetup
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGTbKlWeight
 import CFSG.ClassicalGroups.Orthogonal.OmegaMinus8ThreeLocalType
 

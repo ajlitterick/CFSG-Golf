@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.Fi22.B450107K
 public import Certificates.Kernel.Sporadic.Fi22.Q450106
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

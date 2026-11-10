@@ -1,14 +1,7 @@
 
 module
 
-public import Certificates.Kernel.Sporadic.OddCore.SuzWK
-public import CFSG.Certificates.Kernel.Spor.FpBfsSound
-public import CFSG.Certificates.Kernel.Spor.PrimSound
-public import CFSG.Certificates.Kernel.Spor.RawSlSound
-public import CFSG.Certificates.Kernel.Spor.Loops
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import Certificates.Kernel.Sporadic.L2.Vtx
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

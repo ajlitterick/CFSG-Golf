@@ -2,11 +2,9 @@ module
 
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.B3S3.GenL
-public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.RankThree.Native.Fi22FiveArrays
 public meta import CFSG.RankThree.Native.Fi22FiveArrays
 public meta import Certificates.Kernel.B3S3.Gen
-public import CFSG.Monster.B.Fischer.Fi22OrderCheckInputs
 public meta import CFSG.Monster.B.Fischer.Fi22OrderCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
 public meta import CFSG.Monster.B.Fischer.Fi22OrderCheck

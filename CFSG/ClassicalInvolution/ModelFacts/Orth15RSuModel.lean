@@ -5,8 +5,6 @@ public import CFSG.ClassicalInvolution.ModelFacts.Orth15RSuLayerAGrp
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15RSuLayerB
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15OuterU4Model
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinRows
-public import CFSG.ClassicalInvolution.ModelFacts.Models
-import CFSG.ClassicalInvolution.RouteD.TypeULocal
 public import CFSG.ClassicalInvolution.Asc77.AscE184Basic
 public import CFSG.ClassicalInvolution.Asc77.AscE184Sec
 public import CFSG.ClassicalInvolution.Asc77.AscE186QuotOdd

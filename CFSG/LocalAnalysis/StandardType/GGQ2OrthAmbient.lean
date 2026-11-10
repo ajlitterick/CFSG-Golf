@@ -3,14 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthStatements
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthType
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagOmegaQuasisimple
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalEndNode
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofOMinusFacts
 public import CFSG.Blueprint.LieModelAPI
-public import CFSG.RankThree.PartOne.S11d.OrthModels
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofOAut
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofOCoords
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofOEightSwap

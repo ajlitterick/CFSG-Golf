@@ -3,12 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGRCMonomialRefl
 public import CFSG.LocalAnalysis.StandardType.GGRCMonomialHom
-public import Mathlib.LinearAlgebra.Basis.SMul
-public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
-public import Mathlib.Algebra.BigOperators.GroupWithZero.Finset
-public import Mathlib.GroupTheory.Perm.ClosureSwap
-public import Mathlib.Algebra.Group.Subgroup.Ker
-public import Mathlib.Algebra.Group.Subgroup.Map
 
 public section
 

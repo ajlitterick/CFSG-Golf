@@ -5,16 +5,12 @@ public import CFSG.Sporadic.Presentation.Fi24PrimeExact
 public import CFSG.Sporadic.Bridge.TableSurj
 public import CFSG.Sporadic.Bridge.Fi24Data
 public meta import CFSG.Sporadic.Bridge.Fi24Data
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import Certificates.Certificate9113
 public import Certificates.Certificate9207
-public import Certificates.Certificate1016
 public import CFSG.Sporadic.Bridge.HomSurj
 public meta import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import CFSG.Sporadic.Fi24.Faithful
 public import CFSG.Sporadic.Fi24.SepSpec
-public import Certificates.Certificate1016Base
 
 public section
 

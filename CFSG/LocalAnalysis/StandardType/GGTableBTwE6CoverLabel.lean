@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBCoverMarked
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Marked
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Rep
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Abs

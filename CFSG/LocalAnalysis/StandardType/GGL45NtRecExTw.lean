@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTriDiag
 public import CFSG.LocalAnalysis.StandardType.GGTwistedF4Diag
 public import CFSG.LocalAnalysis.StandardType.GGTriD4SchurHolds
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixReeModel

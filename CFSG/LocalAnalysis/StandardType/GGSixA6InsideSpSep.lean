@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoKey
 import CFSG.LocalAnalysis.StandardType.GGPRankBoundsEigen
-import CFSG.LieType.BorelTits.Symplectic
 
 public section
 

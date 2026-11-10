@@ -9,7 +9,6 @@ public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Hom
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Torus
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Sylow
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Diag
-import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExclusion
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpWedge
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A3NativeBasic

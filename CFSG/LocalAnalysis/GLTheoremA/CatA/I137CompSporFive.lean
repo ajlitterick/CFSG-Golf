@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I137CompList
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.SporTables
-public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2FamSpor
 
 public section
 

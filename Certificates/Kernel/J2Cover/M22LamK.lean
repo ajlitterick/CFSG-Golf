@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.J2Cover.M22TrK
-public import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Kernel.J2Cover.M22LamAux
 
 public section

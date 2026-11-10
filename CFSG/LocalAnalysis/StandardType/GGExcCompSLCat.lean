@@ -20,18 +20,9 @@ public import CFSG.Quasithin.Background.A3Structure319
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 public import CFSG.Quasithin.EmptyFaithful.S1421Defs
 public import CFSG.Quasithin.Vol2.Ch11SecAFacts03
-import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Certs
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TwE6
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.Transfer
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiag
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialPoly
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.OuterField
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.PlanesSetup
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidField
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidNorm
-import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaPlusIota
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphUnitaryNormal
 import CFSG.LocalAnalysis.SeitzReduction.LinearPilotQ2RowNeighbour
@@ -53,12 +44,8 @@ import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2RowOmegaClass
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2RowOmegaUnitaryRows
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2RowUnitaryCover
 import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotInvolutionTwoPartEvenInner
-import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
-import CFSG.RankThree.PartOne.KE.E7FiveBlock
-import CFSG.RankThree.PartOne.KE.E8D4Family
 import CFSG.RankThree.PartOne.KEXC.Basic
 import CFSG.RankThree.PartOne.TCX.Ree.Perm
-import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 
 public section
 

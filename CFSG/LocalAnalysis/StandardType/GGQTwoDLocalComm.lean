@@ -5,9 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGQTwoDNode
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRigidGen
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRigidPair
 import CFSG.LocalAnalysis.StandardType.GGQTwoDReflLin
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Gorenstein.Chapter8_2
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.NormalizerLeNormalizerCentralizer
 import CFSG.LocalAnalysis.StandardType.GGHyperplaneMem
 
 public section

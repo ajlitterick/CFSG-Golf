@@ -1,26 +1,10 @@
 module
 
-public import Mathlib
-public import CFSG.Open.SignalizerFunctorDefs
-public import CFSG.Blueprint.Catalog
-public import CFSG.LieType.Ree.SuzukiLocalData
-public import CFSG.SignalizerFunctorTheorem.CatalogBridge.FieldGlue
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.NonLocalizedStatements
-public import CFSG.SignalizerFunctorTheorem.NearModels.Suzuki.FieldAut
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.NearSz
 import CFSG.SignalizerFunctorTheorem.Inheritance.TransportA.NearPSolvable
 import CFSG.RankThree.PartOne.KE.SuzukiFinal
-import CFSG.RankThree.SteinbergR3ESuzukiFieldSplitting
-import CFSG.RankThree.SteinbergR3ESuzukiInvolutionCentralizers
 import CFSG.RankThree.SteinbergR3ELinearTwoFieldDescent
-import CFSG.LieType.BorelTits.Suzuki
-import CFSG.LieType.Ree.SuzukiMatrixIdentities
-import CFSG.LieType.Ree.SuzukiUnipotentStructure
-import CFSG.LieType.Ree.SuzukiSimple
-import CFSG.LieType.Ree.SuzukiPerfect
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.SuzukiBruhatNormalForm
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField
@@ -43,7 +27,6 @@ import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 import CFSG.Quasithin.Background.Basic
 import CFSG.RankThree.PartOne.S8.Statements
 import CFSG.StronglyEmbedded.ParityCriterion
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

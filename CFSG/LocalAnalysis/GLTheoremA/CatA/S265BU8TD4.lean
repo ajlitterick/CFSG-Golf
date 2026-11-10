@@ -2,17 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265QCfg
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I91T2
-import CFSG.LocalAnalysis.GLTheoremA.CatA.FRField
-import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResSmall
-import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResTwF4
-import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResTD4
-import CFSG.LocalAnalysis.GLTheoremA.CatA.FRCore
-import CFSG.LocalAnalysis.GLTheoremA.CatA.FPBasic
-import CFSG.LocalAnalysis.GLTheoremA.CatA.FQOrd
-import CFSG.LocalAnalysis.GLTheoremA.S10.Lemma102
-import CFSG.LocalAnalysis.GLTheoremA.S10.CatDistinct
-import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Cfg
 
 public section

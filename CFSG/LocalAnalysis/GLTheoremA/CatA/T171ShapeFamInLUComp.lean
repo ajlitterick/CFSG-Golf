@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBlockDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeCompDescProof
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLLinear
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.LinearInner
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S171Basic
 public import CFSG.Assembly.LargeEvenGLABridge
 public import CFSG.Assembly.OpenBridges

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 public import CFSG.LieType.Steinberg.CentralExt.PerfectCover
-public import Mathlib.GroupTheory.SchurZassenhaus
 
 public section
 

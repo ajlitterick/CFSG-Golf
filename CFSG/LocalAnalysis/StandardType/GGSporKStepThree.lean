@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKStepOne
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 
 public section
 

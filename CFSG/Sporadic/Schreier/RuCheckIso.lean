@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.Schreier.RuArrays
-public import Certificates.Data.CFSGNative.Ru.Data
 public meta import CFSG.Sporadic.Schreier.RuArrays
 public meta import Certificates.Data.CFSGNative.Ru.Data
-public import CFSG.Sporadic.Schreier.RuCheckIsoInputs
 public import Certificates.Certificate2251
 
 public section

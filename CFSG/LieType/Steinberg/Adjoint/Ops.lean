@@ -3,9 +3,6 @@ module
 public import CFSG.LieType.Steinberg.Adjoint.Cert
 public import CFSG.LieType.Chevalley.BraidWalk
 public import CFSG.Blueprint.ChevalleyInfinitesimals
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 public noncomputable section
 

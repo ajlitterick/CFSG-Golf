@@ -3,8 +3,6 @@ module
 
 public import CFSG.Sporadic.Co1.Module.PairsCheckBase
 
-public import CFSG.Sporadic.Co1.Module.Forms
-public import CFSG.Sporadic.Co1.Module.PairsCheckInputs
 public import Certificates.Certificate10076
 public meta import CFSG.Sporadic.Co1.Module.Forms
 public meta import Certificates.Data.CFSGNative.Co1.Data

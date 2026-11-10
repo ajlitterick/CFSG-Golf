@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLinDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSU
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwo
 import CFSG.ClassicalInvolution.WeakCT.SpinMinusCharts
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSp
-import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagSpin
 
 public section
 

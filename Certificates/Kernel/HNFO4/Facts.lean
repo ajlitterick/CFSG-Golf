@@ -12,7 +12,6 @@ public import Certificates.Kernel.HNFO4.Chk7
 public import Certificates.Kernel.HNFO4.Chk8
 public import Certificates.Kernel.HNFO4.Dist
 public import CFSG.Certificates.Kernel.HNFDfsSound
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.HNFOrb
 import CFSG.Certificates.Kernel.Common.ForallTree
 import CFSG.Certificates.Kernel.Fam.HNSeed.Checks.K
 

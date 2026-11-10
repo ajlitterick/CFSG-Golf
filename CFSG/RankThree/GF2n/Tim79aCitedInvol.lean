@@ -1,11 +1,5 @@
 module
 
-public import CFSG.Foundations.Basic
-public import CFSG.GroupTheory.PCore.Construction
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.Core
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Open.StatedDefs
-public import CFSG.Blueprint.Catalog
 public import CFSG.LargeExtraspecial.Timmesfeld.FStar
 public import CFSG.LocalAnalysis.OddStandard.Solomon75GH71Defs
 public import CFSG.LieType.Universal.Spin.Forms

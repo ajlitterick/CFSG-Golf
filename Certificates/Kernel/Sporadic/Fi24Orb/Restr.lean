@@ -3,14 +3,12 @@ module
 
 public import Certificates.Kernel.Sporadic.Fi24Orb.Psi
 public import CFSG.Certificates.Kernel.Spor.Fi24OrbTheory
-public import CFSG.Sporadic.Fi23.Setup
 import Certificates.Kernel.Sporadic.Fi24Fix.Init
 import Certificates.Kernel.Sporadic.Fi24Fix.Chain
 import Certificates.Kernel.Sporadic.Fi24Orb.M
 import Certificates.Kernel.Sporadic.Fi24Orb.Small
 import Certificates.Kernel.Fi23M.Facts
 public import CFSG.Sporadic.Fi23.Simple
-public import Certificates.Data.CFSGNative.Fi23.Certificate
 
 public section
 

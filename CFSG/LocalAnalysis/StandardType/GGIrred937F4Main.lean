@@ -1,18 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGIrred937F4Base
 public import CFSG.LocalAnalysis.StandardType.GGIrred937CompLemmas
 public import CFSG.LocalAnalysis.StandardType.GGIrred937F4TorA
 public import CFSG.LocalAnalysis.StandardType.GGIrred937F4BAssembly
 public import CFSG.LocalAnalysis.StandardType.GGIrred937F4Toral
 public import CFSG.LocalAnalysis.StandardType.GGIrred937F4Transfer
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937Defs
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
 public import CFSG.LocalAnalysis.StandardType.GGF4TwoNTMain
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMonomialIrred
 public import CFSG.LocalAnalysis.StandardType.GGF4TwoThreeCCentHolds
-public import CFSG.RankThree.Classical2.TwistedE6RationalOrder
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviSp6Hom
 
 public section
 

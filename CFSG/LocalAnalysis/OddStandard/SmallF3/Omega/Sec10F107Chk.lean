@@ -3,7 +3,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10ModelB0
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10ModelF1051Base
-public import Certificates.Data.OmegaS107Facts
 public import CFSG.Sporadic.Th.Max3.Data
 public import Certificates.Certificate3018
 

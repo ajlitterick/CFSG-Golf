@@ -31,7 +31,6 @@ public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.Sporadic.J4.QT2LocCntProof
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import Certificates.Data.HSFiveCheck
 
 public section

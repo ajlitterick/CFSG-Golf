@@ -1,17 +1,9 @@
 module
 
-public import Mathlib
-public import CFSG.Foundations.Basic
-public import CFSG.Open.QuasithinDefs
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Blueprint.Catalog
-public import CFSG.Milestones.ASVolI.I1
 public import CFSG.Milestones.ASVolI.I2
 public import CFSG.Quasithin.Background.I62Main
 public import CFSG.RankThree.GF2n.Tim77Prop24Two
 public import CFSG.CGT.PushingUpLit.SolKNA.SzSimpleProof
-public import CFSG.Timmesfeld.ARS.NaturalModule
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Foundations.HigherElementaryThompson
 public import CFSG.GH74.SmallRanks.PSL
 public import CFSG.RankThree.GF2n.Tim78Lemma218

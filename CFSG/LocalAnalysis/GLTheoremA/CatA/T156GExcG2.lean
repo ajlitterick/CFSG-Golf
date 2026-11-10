@@ -2,19 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GKnown
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GExcBase
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcGap
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapGlue
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevModel
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixAut
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixData
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangModel
-public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitzExcComp
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
-public import CFSG.LieType.Steinberg.G2.Perfect
-public import CFSG.Quasithin.EmptyFaithfulMultiple.G2TwoUnitary
-public import CFSG.Blueprint.ChevalleyParameterAddition
-public import CFSG.Blueprint.ChevalleySimpleRoots
-public import CFSG.ClassicalGroups.Unitary.Simple
 
 public section
 

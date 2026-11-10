@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UCKInputs
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.TwoDimensionalOddOrder
-public import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeFactorization
 public import CFSG.LocalAnalysis.UniquenessCase.UC1K462Basic
 public import CFSG.LocalAnalysis.UniquenessCase.UC1S4Defs462
 public import CFSG.LocalAnalysis.UniquenessCase.UCInspL2Abs

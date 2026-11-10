@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf9Lie
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinCentResComp
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscExitUGen
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpWz

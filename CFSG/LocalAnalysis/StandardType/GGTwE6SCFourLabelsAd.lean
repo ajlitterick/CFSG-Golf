@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourModel
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCoverSetting
 import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourNotToral
 import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Recipe
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 
 public section
 

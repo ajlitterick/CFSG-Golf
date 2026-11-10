@@ -2,7 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Nine.FinalCentral
 public import CFSG.OddTranspositions.PartThree.Nine.FinalUnitary
-public import CFSG.LargeExtraspecial.S111SHCor3
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.Misc.Sp6W
 public import Certificates.Kernel.Misc.Sp6W.Data
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

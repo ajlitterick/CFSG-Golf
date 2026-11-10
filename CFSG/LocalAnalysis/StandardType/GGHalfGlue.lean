@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfTorusNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGHalfBlockCentral
-public import CFSG.LocalAnalysis.StandardType.GGHalfBlockEmbed
-public import CFSG.LocalAnalysis.StandardType.GGHalfSlOnLevi
 
 public section
 

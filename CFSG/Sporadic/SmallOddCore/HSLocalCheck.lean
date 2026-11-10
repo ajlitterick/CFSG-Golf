@@ -1,11 +1,8 @@
 module
 
-public import CFSG.Sporadic.SmallOddCore.HSData
-public import CFSG.Sporadic.SmallOddCore.ClassSimple
 public meta import CFSG.Sporadic.SmallOddCore.HSData
 public meta import CFSG.Sporadic.SmallOddCore.ClassSimple
 public meta import Certificates.Data.CFSGNative.PSL3Four.Basic
-public import CFSG.Sporadic.SmallOddCore.HSLocalCheckInputs
 public import Certificates.Certificate2273
 
 public section

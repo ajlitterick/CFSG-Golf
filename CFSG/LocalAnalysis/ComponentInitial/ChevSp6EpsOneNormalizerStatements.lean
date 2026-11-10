@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUSp6LagrangianStatements
-public import Mathlib.GroupTheory.SemidirectProduct
-public import Mathlib.GroupTheory.SpecificGroups.Dihedral
 
 public noncomputable section
 

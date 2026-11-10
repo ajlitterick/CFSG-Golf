@@ -3,7 +3,6 @@ module
 public import Certificates.Data.CFSGNative.Fi23.Centralizer
 public import Certificates.Data.CFSGNative.Fi23.TrData
 public import Certificates.Data.CFSGNative.Fi22.LHData
-public import Std.Data.HashMap
 
 public section
 

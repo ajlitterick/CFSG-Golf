@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265FIdent
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265FAut
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Fam
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.HDescSuzuki
-public import CFSG.LocalAnalysis.EvenBN.GMSK.TypeDetBender
 public import CFSG.GroupTheory.CenterlessInnerCentralizer
 public import CFSG.GroupTheory.PLayer.PIndex
 public import CFSG.LocalAnalysis.GL83PartI.I713.Basic

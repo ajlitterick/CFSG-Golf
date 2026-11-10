@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.Fi24.CertificateBase
 import all CFSG.Sporadic.Fi24.CertificateBase
 
 public import Certificates.Certificate1016

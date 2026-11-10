@@ -4,7 +4,6 @@ public import Certificates.Kernel.LocalComp.Weyl3186K
 public import Certificates.Data.Kernel.WeylE8.U
 public import Certificates.Kernel.LocalComp.E8Tables
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

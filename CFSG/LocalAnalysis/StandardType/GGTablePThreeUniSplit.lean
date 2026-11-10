@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniHeld
 import CFSG.LocalAnalysis.StandardType.GGCentralExtTwoSubgroup
 import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSU
 import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherUnitary
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 
 public section
 

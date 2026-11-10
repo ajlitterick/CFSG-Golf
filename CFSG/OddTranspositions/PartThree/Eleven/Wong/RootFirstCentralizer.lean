@@ -5,15 +5,10 @@ public import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentDiagA5
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.SylowLift
 public import CFSG.Dihedral.BrauerSuzuki
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.U33.Outside.OutOrder8Hom
-public import CFSG.GH74.GLS.SP.GenOrder
 public import CFSG.GroupTheory.CommutingConjugatePair
-public import CFSG.GroupTheory.ABGLocalTools.Constraint
 public import CFSG.CharacterTheory.Semidihedral.Principal.CoprimeFixedPointLifting
-public import Mathlib.GroupTheory.Commutator.Basic
 import CFSG.Walter.ReeOrder.JT.PSL2
 public import CFSG.GH74.GLS.Bg.TwoGroups.Statements
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.Walter.ReeOrder.JT.Defs
 
 public section

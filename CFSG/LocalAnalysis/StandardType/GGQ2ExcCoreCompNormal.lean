@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreDefs
-import CFSG.LieType.Chevalley.ParabolicRadicalLevi
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaLocalJAux
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthInnerShape
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotMinusTenBasic
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDickson
 public import CFSG.HardMathSupport.Solomon.Coordinator.I14_20Alt
 public import CFSG.HardMathSupport.Solomon.Coordinator.I271HoldsBase
 public import CFSG.HardMathSupport.Solomon.Coordinator.ONCAutSix
@@ -35,8 +33,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

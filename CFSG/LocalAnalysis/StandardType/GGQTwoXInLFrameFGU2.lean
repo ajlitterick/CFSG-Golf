@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.SemisimpleCentralizers.HeldUnitaryComponents
-public import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryHermitian
 
 public section
 

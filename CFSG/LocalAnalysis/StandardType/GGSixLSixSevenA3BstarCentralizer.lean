@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.AlternatingEightNormalizerAction
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3OmEntry
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3OmEntryMinus
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbrTableB
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
-public import CFSG.LocalAnalysis.ComponentClassification.SymmetricLocalLinearFourTwo
 
 public section
 

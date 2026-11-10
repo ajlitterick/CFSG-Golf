@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB81Frontier
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmBInputs
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitMaximal
 public import CFSG.ClassicalInvolution.SmallCases.SectionalFourBranch
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.J3CheckInputs

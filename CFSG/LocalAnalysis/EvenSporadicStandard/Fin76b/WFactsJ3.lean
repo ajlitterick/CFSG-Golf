@@ -1,11 +1,6 @@
 
 module
 
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.WCheck
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.WJ3Check
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaJ3
-public import CFSG.Sporadic.SmallOddCore.J3DataInputs
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.RootFacts
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.WFacts
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.PinEJ3

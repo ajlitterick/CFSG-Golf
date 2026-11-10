@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormFrame
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusTransferCore
 public import CFSG.LocalAnalysis.StandardType.GGL45E67Center
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Aut
 public import CFSG.LocalAnalysis.StandardType.GGE6ToralInnerAction
 public import CFSG.LocalAnalysis.StandardType.GGE6M6cTransfer
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE6Toral

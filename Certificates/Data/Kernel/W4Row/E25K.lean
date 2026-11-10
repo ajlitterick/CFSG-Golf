@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.LocalQT.TcP
-public import Certificates.Data.Kernel.Spor.Chain
 
 public section
 

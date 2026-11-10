@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeKMInvol
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeKMUEq
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeKMCMain
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Fixed
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitFixedHe
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeGS36
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeKMCrit

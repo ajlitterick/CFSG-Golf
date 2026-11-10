@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLNoJ1Mark
-public import CFSG.Timmesfeld.Orders.ExceptionalTwisted
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatEvenExcOrders
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

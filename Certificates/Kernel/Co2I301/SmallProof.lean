@@ -4,11 +4,8 @@ public import Certificates.Kernel.Co2I301.ChainK0
 public import Certificates.Kernel.Co2I301.ChainL
 public import Certificates.Kernel.Co2I301.SixBind
 public import Certificates.Kernel.SporSch.Co2M.Words
-public import Certificates.Kernel.Sporadic.Co2.ChainA
 public import CFSG.Certificates.Kernel.Misc.ArrEnumUnpack
 public import CFSG.Certificates.Kernel.LocalQTCovTPrim
-public import CFSG.Certificates.Kernel.Spor.RawSound
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

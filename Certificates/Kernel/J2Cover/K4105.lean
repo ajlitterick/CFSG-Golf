@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.J2Cover.K19
 public import Certificates.Kernel.J2Cover.K4105E
 public import CFSG.Certificates.Kernel.J2EnumQSound
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

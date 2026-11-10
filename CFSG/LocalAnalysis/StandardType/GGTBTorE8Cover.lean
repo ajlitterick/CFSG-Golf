@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorTransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 public import CFSG.LieType.Steinberg.CentralExt.E8Even
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerF4Toral
 
 public noncomputable section
 

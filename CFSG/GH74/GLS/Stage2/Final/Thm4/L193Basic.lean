@@ -5,7 +5,6 @@ public import CFSG.GH74.GLS.Stage2.Bender.Thm1.Axb
 public import CFSG.GH74.GLS.Stage2.Final.Thm4.Defs18
 public import CFSG.GH74.GLS.Stage2.Local.Bar
 public import CFSG.GH74.Uniqueness.SU.SU1Basic
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

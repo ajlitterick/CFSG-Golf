@@ -11,14 +11,11 @@ public import CFSG.Quasithin.EmptyFaithful.S151S9TM23K
 import CFSG.Quasithin.EmptyFaithful.S151S9TJ2
 import CFSG.Quasithin.EmptyFaithful.S151S9TM12
 import CFSG.Quasithin.EmptyFaithful.S151S9TM22
-import CFSG.Quasithin.EmptyFaithful.S151S9TM23
 import CFSG.Quasithin.EmptyFaithful.S151S9UM22
 import CFSG.Quasithin.EmptyFaithful.S151S9UM23
-import CFSG.Certificates.Kernel.SporLatDcPair
 import all CFSG.Quasithin.Background.E2TwoProofSporJ2
 import all CFSG.Quasithin.Background.HSporLatMathieu
 import all CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M23Inputs
-import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Certificate4170
 
 set_option maxRecDepth 100000

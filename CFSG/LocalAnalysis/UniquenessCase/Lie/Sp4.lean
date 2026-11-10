@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherSylow
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherBorel
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23FiveTauGrp
 public import CFSG.Quasithin.Vol2.F134LieSp4Borel
 
 public section

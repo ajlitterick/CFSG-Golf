@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcCoverRows
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FrameSF
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6FrameCore
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Position

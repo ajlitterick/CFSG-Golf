@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.SporSch.LyFiveTb
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.RankThree.Native.LyFiveArrays
 import CFSG.Certificates.Kernel.Common.Eval

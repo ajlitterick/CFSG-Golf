@@ -2,13 +2,11 @@ module
 
 public import CFSG.Quasithin.Recognition.St84.AppTreeSAE
 public import CFSG.Quasithin.Recognition.St84.Gen.L2SectionBorel
-public import CFSG.LocalAnalysis.QuasithinUnique.Defs
 
 import CFSG.Quasithin.Recognition.St84.TransferVertex
 import CFSG.Quasithin.Recognition.St84.Gen.OTwoResL2
 import CFSG.Quasithin.Recognition.St84.Gen.CoprimeLift
 import CFSG.Quasithin.Recognition.St84.Gen.TransferL2Torus
-import CFSG.GroupTheory.FixedCosetCommutator
 public import CFSG.CharacterTheory.Wreathed.BrauerWongSylowCentralizer
 public import CFSG.CharacterTheory.Wreathed.OddKernelSylowQuotient
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
@@ -18,7 +16,6 @@ public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFiel
 public import CFSG.Timmesfeld.RankOne.Defs
 import CFSG.Dihedral.Glauberman.DicksonMaxB
 import CFSG.Quasithin.Recognition.Kleidman.F204.W2FFA5
-import CFSG.Quasithin.Recognition.St84.AppTreeL2
 import CFSG.Quasithin.Recognition.St84.AppTreeSAP2
 import CFSG.Quasithin.Vol2.Ch1Sec3A5Gen
 import CFSG.Quasithin.Vol2.KGFact3312A5

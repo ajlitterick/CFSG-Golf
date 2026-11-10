@@ -1,23 +1,16 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSlp
-public import CFSG.HardMathSupport.Dickson.Sec6.Up34SporAux.ThThreeInputs
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabThCensusInputs
-public import Certificates.Certificate1020
 public import Certificates.Certificate1021
 import Certificates.Kernel.ThCensus.Facts
 import Certificates.Kernel.ThCensus.Pin
 import Certificates.Kernel.ThCent.Consumers
-import CFSG.Certificates.Kernel.ThCent.PinSound
-import CFSG.Certificates.Kernel.Th.Spec.DceMat
 import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThLocalSound
-import CFSG.Sporadic.Th.Max3.AllConjFinal
 public import CFSG.Perm.CentralizerOrbit
 public import CFSG.Sporadic.Ly.ThreeBCount
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThCentSoundBase2
 import CFSG.Sporadic.ThSchreier.KernelAut

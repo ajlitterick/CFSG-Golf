@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LargeExtraspecial.OrthoF2Pairs57
-public import CFSG.ClassicalInvolution.WeakCT.Defs
 public import CFSG.LocalAnalysis.StandardType.FS81.RootS3SuppAux
 
 public section

@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNILinBlock
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNILinOuter
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOne
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorLinLift
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorLinR
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 import CFSG.LocalAnalysis.GLTheoremA.CatA.YS09Field
 import CFSG.HardMathSupport.Foote.ModuleExclusions.ProjectiveLinear
 

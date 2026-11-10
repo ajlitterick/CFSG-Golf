@@ -4,10 +4,8 @@ public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87SecX
 public import CFSG.GH74.GLS.Stage2.Local.P27.FullFG
 public import CFSG.GH74.GLS.Stage2.Local.P27.Leaf27DatumPlus
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87Psp4Datum
-public import CFSG.GH74.GLS.Stage2.Local.Prop27Br
 public import CFSG.GH74.GLS.Stage2.Local.P27M12Main
 import CFSG.GH74.GLS.Stage1.Thm4.Core98b
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.IVK.Lifted.GroupAux
 public import CFSG.GH74.GLS.IVK.Lifted.IIAutB
 public import CFSG.GH74.GLS.IVK.Lifted.Outer14

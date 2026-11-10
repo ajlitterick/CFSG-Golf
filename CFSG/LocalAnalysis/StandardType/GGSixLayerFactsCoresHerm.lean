@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresHermField
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresAlt
-public import CFSG.ClassicalGroups.UnitaryFlag.GramForm
-public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryOrder
 public import CFSG.LocalAnalysis.ComponentInitial.TwoPrimeSolvable
 
 public section

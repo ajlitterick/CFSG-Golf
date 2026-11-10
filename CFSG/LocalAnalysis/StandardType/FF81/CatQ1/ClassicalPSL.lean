@@ -1,15 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.Defs
-public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.ClassicalTorus
-public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.ClassicalTorusL
 public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.ClassicalCellSixL
 public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.ClassicalSubfieldL
 import CFSG.RankThree.PartOne.S11d.OutLinear
 import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 import CFSG.LieType.BorelTits.CompleteFlag
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.Defs
 
 public section

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairTwCover78Aux1
-public import CFSG.LieType.AlgebraicGroups.SupportedNativeLang
-public import CFSG.LieType.AlgebraicGroups.FrobeniusDiagramRealized
 
 public noncomputable section
 

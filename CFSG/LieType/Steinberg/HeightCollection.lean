@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.Collection
-public import Mathlib.Data.Fintype.Card
 public import Mathlib.GroupTheory.QuotientGroup.Basic
 public import Mathlib.GroupTheory.Commutator.Basic
 

@@ -8,7 +8,6 @@ public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.Universal.Spin.Roots
 public import CFSG.LieType.Universal.Unitary
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearDescentFixedBasis
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import CFSG.ClassicalInvolution.LBalance.Main
 import CFSG.ClassicalInvolution.ModelFacts.OddCover
@@ -33,7 +32,6 @@ import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

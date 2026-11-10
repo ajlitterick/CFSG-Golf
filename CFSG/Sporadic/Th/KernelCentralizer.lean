@@ -3,11 +3,7 @@ module
 
 public import CFSG.Sporadic.Th.KernelCentralizerBase1
 
-public import CFSG.Sporadic.Th.KernelCoset
-public import CFSG.GroupTheory.FixedPointCount
 public import CFSG.Sporadic.Th.Max3.AllConj
-public import CFSG.Sporadic.Th.Max3.Quotient
-public import CFSG.Sporadic.ThSchreier.AutAssembly
 public import Certificates.Kernel.ThCent.Leaves
 
 public section

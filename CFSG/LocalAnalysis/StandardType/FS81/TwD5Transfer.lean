@@ -1,18 +1,11 @@
 module
 
-public import CFSG.GroupTheory.BurnsideNormalComplement
 public import CFSG.GroupTheory.CharacteristicNormalizer
-public import CFSG.GroupTheory.CommutingProductFixedSubgroup
 public import CFSG.LocalAnalysis.StandardType.FS81.N6AllMat
 public import CFSG.LocalAnalysis.StandardType.FS81.N7MainRecOut
 public import CFSG.LocalAnalysis.StandardType.FS81.NoTransvCube
-public import CFSG.LocalAnalysis.StandardType.FS81.NoTransvSylow
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Defs
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Coxeter
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Local
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Mat
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
 public import CFSG.Mathlib.GroupTheory.CoxeterCentralLift
 
 public section

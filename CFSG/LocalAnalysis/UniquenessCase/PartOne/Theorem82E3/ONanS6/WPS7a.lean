@@ -1,22 +1,15 @@
 module
 
-public import CFSG.Goldschmidt.Steps.G3aAut
 public import CFSG.GroupTheory.CoprimeCentralizerTransport
 public import CFSG.GroupTheory.QuasisimpleOddCenterQuotient
 public import CFSG.GroupTheory.SylowComap
 public import CFSG.GroupTheory.SylowIntersectionControl.GomiFactsGF2Conj
-public import CFSG.LieType.Ree.SuzukiPerfect
-public import CFSG.LieType.Simplicity.Suzuki
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ThompsonGen
-public import CFSG.LocalAnalysis.AGLEmbedding.PushingUpLemmas
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.RankOneSz
-public import CFSG.Quasithin.Background.A3StructureDefs
 public import CFSG.Quasithin.Vol2.Ch12Sec6P31NoSzLtStar
 public import CFSG.RankThree.PartOne.F106.ZeroStar
 public import CFSG.RankThree.PartTwo.Sec16.Item167StepsProofNonsolv
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPS
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPS2b
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WS6
 public import CFSG.Holt.General.Basic
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsE
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs12d

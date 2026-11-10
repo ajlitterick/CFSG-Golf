@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneInput
-public import CFSG.LocalAnalysis.StandardType.GGCompFieldLieModel
 
 public section
 

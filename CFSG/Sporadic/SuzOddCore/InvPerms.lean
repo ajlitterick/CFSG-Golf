@@ -3,15 +3,10 @@ module
 
 public import CFSG.Sporadic.SuzOddCore.InvGraphCheckBase
 public import CFSG.Sporadic.SuzOddCore.SmallChain
-public import CFSG.Sporadic.SuzOddCore.ArraysCheckInputs
-public import CFSG.Sporadic.SuzOddCore.InvArrays
-public import CFSG.Sporadic.SuzOddCore.ArraysCheck
-public import Certificates.Data.CFSGNative.Schreier.Refine
 public meta import CFSG.Sporadic.SuzOddCore.InvArrays
 public meta import CFSG.Sporadic.SuzOddCore.ArraysCheck
 public meta import Certificates.Data.CFSGNative.Schreier.Refine
 public import CFSG.Certificates.LiftedSchreierData
-public import CFSG.Sporadic.Th.F2Spec
 
 public noncomputable section
 

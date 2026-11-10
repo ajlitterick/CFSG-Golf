@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaInner
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeB2der
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestG2
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTwF4
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOther
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaRegular
-public import CFSG.LocalAnalysis.StandardType.MarkingSmall
-public import Mathlib.GroupTheory.Perm.Centralizer
 
 public section
 

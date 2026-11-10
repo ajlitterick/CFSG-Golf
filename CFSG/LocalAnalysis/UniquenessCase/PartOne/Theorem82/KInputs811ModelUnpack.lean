@@ -1,11 +1,9 @@
 module
 
 public import CFSG.Blueprint.Catalog
-public import CFSG.Open.StatedDefs
 import CFSG.GroupTheory.WeirSylow.CrossRankForms
 import CFSG.GroupTheory.WeirSylow.UniqueE27Orthogonal
 import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
-import CFSG.Open.StatedAPI
 import CFSG.LieType.BorelTits.CompleteFlag
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointActionModels

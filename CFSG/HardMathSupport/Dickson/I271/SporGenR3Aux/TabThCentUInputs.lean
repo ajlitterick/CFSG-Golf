@@ -1,8 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabThCensusInputs
-public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SporThKit
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSevenInputs
 public meta import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabThCensusInputs
 public meta import CFSG.RankThree.PartTwo.Sec4.T444.Item434SporThKit
 public meta import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSevenInputs

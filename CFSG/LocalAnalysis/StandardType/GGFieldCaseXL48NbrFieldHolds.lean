@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseXL48NbrFieldD4
-public import CFSG.LocalAnalysis.StandardType.GGInndiagCommRest
 public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
 public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
 

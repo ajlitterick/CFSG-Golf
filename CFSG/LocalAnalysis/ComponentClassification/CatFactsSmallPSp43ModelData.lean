@@ -2,7 +2,6 @@ module
 
 public import CFSG.Fischer.Classification.PartIII.Beta.Data
 public import CFSG.Sporadic.Schreier.Enumeration
-public import Mathlib
 
 public section
 

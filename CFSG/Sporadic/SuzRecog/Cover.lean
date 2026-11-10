@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.SuzRecog.NativeType
 public import CFSG.Sporadic.SuzRecog.TwistCert
-public import CFSG.LieType.Multipliers.U42
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec2OmegaPts
 public import CFSG.Sporadic.Co1Patterson.TwistModel
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointPlusBorelModel

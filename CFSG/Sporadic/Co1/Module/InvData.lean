@@ -4,9 +4,7 @@ module
 public import CFSG.Sporadic.Co1.Module.InvDataBase
 
 public import CFSG.Sporadic.Co1.Module.InvGroup
-public import CFSG.Sporadic.Co1.Module.InvDataInputs
 public import Certificates.Certificate10070
-public import CFSG.Sporadic.Co1.Module.InvFamInputs
 public meta import CFSG.Sporadic.Co1.Module.FormsBase1
 public meta import CFSG.Sporadic.Co1.Module.OrbitsBase
 public meta import Certificates.Data.CFSGNative.Co1.Involutions

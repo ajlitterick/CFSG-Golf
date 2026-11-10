@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGTor
 import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
 import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailHolds
-import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTorus
 
 public section
 

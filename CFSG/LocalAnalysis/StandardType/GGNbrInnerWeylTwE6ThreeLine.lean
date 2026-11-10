@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6ThreeDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
 
 public section
 

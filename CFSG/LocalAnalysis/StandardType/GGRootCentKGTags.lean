@@ -2,15 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatKGDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneInputs
-import CFSG.Assembly.Subnormal
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.StandardType.GGSummandStructBasic
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentralizer
 import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandStructBasic
-import CFSG.LocalAnalysis.StandardType.GGSixStepTwoDefs
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummand
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.PerfectResiduals
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent.Radical
 
 public section

@@ -3,31 +3,17 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGResidualRk1Frame
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmTauOm
 public import CFSG.LocalAnalysis.StandardType.GGOrthFrameCore
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
-import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenDefs
-import CFSG.LocalAnalysis.StandardType.GGOrthFrameTransport
 import CFSG.LocalAnalysis.StandardType.GGOrthModelInputsHold
-import CFSG.LocalAnalysis.StandardType.GGOrthRk1GenPhan
-import CFSG.LocalAnalysis.StandardType.GGRealKGModelRoot
-import CFSG.LocalAnalysis.StandardType.GGRealKGSignedRefl
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrCoxOrder
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGTBJOmAutomizerAux
 import CFSG.LocalAnalysis.StandardType.GGResidualGenFrameRest
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwoE
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseOrthFrame
-import CFSG.LocalAnalysis.StandardType.GGOrthFramePairs
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameCenter
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameOfMarking
 import CFSG.LocalAnalysis.StandardType.GGResidualRk1FrameTwoSwap
 import CFSG.LocalAnalysis.StandardType.GGNbrD4TwoCenter
 import CFSG.LocalAnalysis.StandardType.GGResidualRk1ExcTops
 import CFSG.LocalAnalysis.StandardType.GGResidualExcRows
-import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwoE
-import CFSG.LocalAnalysis.StandardType.GGRk1ConclExSix
-import CFSG.LocalAnalysis.StandardType.GGResidualRk1UnitaryTwo
 import CFSG.LocalAnalysis.StandardType.GGExcPhanPayloadRk1
 import CFSG.LocalAnalysis.StandardType.GGResidualRk1ExcConj
 import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankOne

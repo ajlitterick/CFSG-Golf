@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.GLCoordHopf
 public import Mathlib.RingTheory.Localization.Away.Basic
-public import Mathlib.LinearAlgebra.Matrix.MvPolynomial
 
 public noncomputable section
 

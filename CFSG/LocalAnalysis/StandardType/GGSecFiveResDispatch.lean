@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanPrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanCharTwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanDData
 import CFSG.LocalAnalysis.StandardType.GGSecFiveMaxJoin
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylRest5
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanEDefs
 
 public section

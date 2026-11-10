@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.OmegaEight.Arr3009K
-public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeData
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

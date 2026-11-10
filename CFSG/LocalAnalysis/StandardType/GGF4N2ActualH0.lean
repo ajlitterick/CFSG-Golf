@@ -2,32 +2,15 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2JPacket
 public import CFSG.LocalAnalysis.StandardType.GGF4N2Alignment
-import CFSG.ClassicalInvolution.WeakCT.Center
-import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
-import CFSG.LocalAnalysis.StandardType.GGNbrBalancePumpup
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
 import CFSG.LocalAnalysis.ComponentClassification.GMS78Sec6Quot
-public import CFSG.LocalAnalysis.ComponentClassification.LBalanceAssemblyElement
 import CFSG.LocalAnalysis.StandardType.GGF4N2L323
-import CFSG.LocalAnalysis.StandardType.GGF4N2Rank
 import CFSG.RankThree.PartOne.K159.PerfNormalizer
-import CFSG.LocalAnalysis.GLTheoremA.S12.Lemma126
-import CFSG.Holt.General.OrbitCountBasic
 import CFSG.LocalAnalysis.GLTheoremA.CatB.H301Lift3
-import CFSG.LocalAnalysis.GLTheoremA.S10.StrongCover
-import CFSG.HardMathSupport.Solomon.Coordinator.I18_3Bridge
-import CFSG.HardMathSupport.Timmesfeld.Proving.GLAPPrimeCoreBasics
-import CFSG.GroupTheory.SupCommute
-import CFSG.GroupTheory.AllPSubgroupsIsCyclicOfPRankLeOne
 import CFSG.LocalAnalysis.StandardType.GGF4N2Schreier
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourEndsAbsorb
 import CFSG.LocalAnalysis.StandardType.GGE0ShapeConjAux
 public import CFSG.LocalAnalysis.StandardType.GGF4N2ChartCommute
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionLinear
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotThreeRecogOmegaOrth
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearAction
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGraphAction
 import CFSG.LocalAnalysis.GLTheoremA.CatB.H301Defs
 import CFSG.LocalAnalysis.GLTheoremA.CatB.H301Lift1
 import CFSG.LocalAnalysis.GLTheoremA.CatB.H301Lift2

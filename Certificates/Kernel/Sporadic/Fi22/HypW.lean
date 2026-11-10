@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.Fi22.HypCB
 public meta import Certificates.Kernel.Sporadic.Fi22.HypCB
 public meta import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Fi22Inputs
-public import Certificates.Kernel.Misc.Perm.HexCmd
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

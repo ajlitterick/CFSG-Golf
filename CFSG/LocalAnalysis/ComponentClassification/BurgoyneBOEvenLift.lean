@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBOEvenTwin
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBDInputs
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBDCover
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePOmegaEven
-public import CFSG.LieType.Steinberg.CentralExt.SpinMinus
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LieType.Steinberg.CentralExt.SpinMinusCentrallyClosed
 public import CFSG.LieType.Steinberg.CentralExt.SpinPlusCentrallyClosed
 

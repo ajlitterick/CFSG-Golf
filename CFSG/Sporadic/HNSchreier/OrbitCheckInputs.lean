@@ -1,7 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.HN.Data
-public import CFSG.Sporadic.HNSchreier.Data
 public import CFSG.Sporadic.HNSchreier.OrbitBuildInputs
 public import CFSG.Sporadic.HNSchreier.EmbeddedOrbit
 public meta import Certificates.Data.CFSGNative.HN.Data

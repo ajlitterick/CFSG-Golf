@@ -2,10 +2,8 @@ module
 
 public import Certificates.Kernel.Census.Suz.Data
 public import Certificates.Kernel.Sporadic.Suz.Chain2306
-public import Certificates.Data.Kernel.Census.PackedExc
 public meta import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicSuzData
 public meta import Certificates.Kernel.Sporadic.RawGen
-import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicSuzData
 
 public section

@@ -2,16 +2,10 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.RootComplement
 public import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
-public import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentLocal
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.OddCore
-public import CFSG.GH74.GLS.SP.GenOrder
 public import CFSG.GroupTheory.SteinbergCBFTFactorization
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.CentralizerControl
-public import Mathlib.Algebra.Group.TypeTags.Basic
-public import Mathlib.Tactic.Ring
 public import CFSG.LocalAnalysis.OddStandard.SmallAltFiveGeneral
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Residual
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
 
 public section
 

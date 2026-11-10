@@ -3,16 +3,11 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangAxisCases
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorJInputs
 public import CFSG.LocalAnalysis.StandardType.GGTriD4InnerCompDefs
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableB
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerElem
 import CFSG.LocalAnalysis.StandardType.GGStdSubNotLinearTwo
 import CFSG.LocalAnalysis.StandardType.GGStdSubLinearThree
 import CFSG.LocalAnalysis.StandardType.GGNbrLangTriD4Core
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneProof
-import CFSG.LocalAnalysis.StandardType.GGTriD4NoneMarking
-import CFSG.LocalAnalysis.StandardType.GGNbrLangRegStepZero
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclicLabels
 
 public section
 

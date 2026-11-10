@@ -1,13 +1,8 @@
 module
 
 public import CFSG.GroupTheory.CharacteristicNormalizer
-public import CFSG.GroupTheory.PRankLeOfSylowLe
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Lemma96C
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPFF2
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPL
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPZ
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPZs
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WS6
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.CaseOneONan
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22qs
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811K3Holds

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKStepFour
-public import CFSG.LocalAnalysis.StandardType.GGSporKStepZero
-public import CFSG.LocalAnalysis.StandardType.GGSporKStepOne
-public import CFSG.LocalAnalysis.StandardType.GGSporKStepThree
-public import CFSG.LocalAnalysis.StandardType.GGLemmaThreeThirteenBasic
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionDefining
 
 public section

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4SmallFFDefs
 public import CFSG.LocalAnalysis.StandardType.GGFFLocal
 public import CFSG.LocalAnalysis.StandardType.FS81.Defs
-public import CFSG.RankThree.PartTwo.Sec21.FF79Vocab
 public import CFSG.ClassicalInvolution.WeakCT.Defs
 public import CFSG.Timmesfeld.RankTwo.LevisExceptional
 public import CFSG.ClassicalInvolution.Phan.Blocks

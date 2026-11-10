@@ -1,14 +1,8 @@
 module
 
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.Subgroup.Simple
 public import CFSG.RankThree.GF2n.Stroth80.Sec4Classical
 public import CFSG.RankThree.GF2n.Stroth80.Sec123SL2Sylow
 public import CFSG.Quasithin.H13.NQRigidWMGroups
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import Mathlib.Algebra.Group.Subgroup.Finite
-public import Mathlib.Algebra.Group.Subgroup.Lattice
-public import Mathlib.Algebra.Group.Subgroup.Pointwise
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
@@ -28,8 +22,6 @@ public import CFSG.RankThree.GF2n.Tim79CentL
 public import CFSG.RankThree.GF2n.Tim79Mod
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Basic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

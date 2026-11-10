@@ -6,7 +6,6 @@ public import Certificates.Kernel.GammaU.CensusBridgeOK
 public import Certificates.Kernel.IdxFour.AutP
 public import Mathlib.Data.List.GetD
 public import CFSG.Certificates.Kernel.GammaUCensusConj
-public import CFSG.Certificates.Kernel.GammaUSigmaSoundBase
 
 set_option maxRecDepth 100000
 

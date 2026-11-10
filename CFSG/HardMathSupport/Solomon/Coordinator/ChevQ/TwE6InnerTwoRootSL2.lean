@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6RegularLieConj
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6RegularLieAux
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6RegularLieSL2
-public import CFSG.LieType.SeitzGeneration.HyperEx
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6LongRootTransport
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6RegularLieHeis
 

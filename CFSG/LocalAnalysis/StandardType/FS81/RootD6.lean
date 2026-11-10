@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.E7RecogDefs
 public import CFSG.LocalAnalysis.StandardType.FS81.RootD6ModelDefs
 public import CFSG.LocalAnalysis.StandardType.FS81.RootE8
-public import CFSG.LocalAnalysis.StandardType.FS81.S7Fusion
-public import CFSG.LocalAnalysis.StandardType.FS81.RootFusionGen
-public import CFSG.Blueprint.ChevalleyRootGroups
 
 public section
 

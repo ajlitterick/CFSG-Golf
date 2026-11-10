@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.AscB3C2
-public import CFSG.ClassicalInvolution.Asc77.AscT7Z10
 
 public section
 

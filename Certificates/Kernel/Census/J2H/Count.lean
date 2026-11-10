@@ -4,7 +4,6 @@ public import Certificates.Kernel.Census.J2H.Chains
 public import Certificates.Kernel.J2Cover.KerChains
 public import Certificates.Data.Kernel.J2Cover
 public import Certificates.Data.Kernel.J2H
-public import Certificates.Data.Kernel.Spor.Prim
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

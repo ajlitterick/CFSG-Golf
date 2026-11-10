@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestBasic
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoJProps
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveF4
-public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoJEq
-public import CFSG.RankThree.Chevalley.EvenPinnedRootSL2
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviBaseChange
 public import CFSG.ClassicalGroups.SpecialLinear.CyclicRootGroups
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyCover
@@ -25,7 +22,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Monster.B.Geometry.CoxeterWords
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime
@@ -50,7 +46,6 @@ public import CFSG.RankThree.PartOne.KE6.Phi6Excl
 public import CFSG.RankThree.PartOne.KE6.Phi6Frame
 public import CFSG.RankThree.PartOne.KF4.KernelTools
 public import CFSG.RankThree.PartOne.S8.Statements
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M24
 public import Certificates.Certificate1953

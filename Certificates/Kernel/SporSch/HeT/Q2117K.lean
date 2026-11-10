@@ -9,7 +9,6 @@ public import CFSG.Sporadic.HeldB.OuterCentCheckInputs
 public meta import CFSG.Sporadic.HeldB.OuterCentCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 
 public section
 

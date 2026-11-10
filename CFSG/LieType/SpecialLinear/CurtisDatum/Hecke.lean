@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LieType.SpecialLinear.CurtisDatum.Unipotent
-public import CFSG.LieType.Steinberg.BruhatWeyl
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherDescents
-public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCoxeter
 public import CFSG.Quasithin.Background.SmithCurtisHecke
-import Mathlib.Tactic.Group
 
 public section
 

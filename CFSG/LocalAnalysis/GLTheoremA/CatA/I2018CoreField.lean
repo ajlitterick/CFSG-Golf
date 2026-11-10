@@ -2,25 +2,15 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2018Facts
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FSimple
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsLin
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsUni
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsSympA6
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsOrth
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsExc
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldLin
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinPRed
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniRed
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniScal
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabel
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnSymp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnOrth
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnExc
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldUni
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldUniSig
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldSymp
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldOrth
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcRedV
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcFixG2
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcFixE6All
@@ -29,14 +19,6 @@ import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapTriD4
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapTwB2
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapTwF4
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GTriPiece
-import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-import CFSG.LocalAnalysis.StandardType.ChevTwoLieModel
-import CFSG.Adapters.TauCetiLieModels
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.AssemblyAll
-import CFSG.HardMathSupport.Solomon.Coordinator.B3LieCore
-import CFSG.LocalAnalysis.GLTheoremB.PCompBasics
-import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Export
 public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3LInput
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.LieQ.Derivation

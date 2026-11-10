@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7A3SideDefs
 import CFSG.LocalAnalysis.StandardType.GGHdRo7SULCoordModelA
-import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModel
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitaryCover
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 
 public section
 

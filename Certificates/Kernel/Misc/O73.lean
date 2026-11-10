@@ -4,7 +4,6 @@ public import CFSG.Certificates.Kernel.Misc.O73Defs
 public import Certificates.Kernel.Misc.O73Data
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Misc.KernelRfl
-import Mathlib.Tactic.IntervalCases
 public import Certificates.Data.Kernel.Misc.O73
 public import Mathlib
 

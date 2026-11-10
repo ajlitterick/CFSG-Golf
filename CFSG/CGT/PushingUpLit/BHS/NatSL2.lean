@@ -3,17 +3,12 @@ module
 public import CFSG.CGT.PushingUpLit.BHS.GlaubOne
 public import CFSG.CGT.PushingUpLit.BHS.GlaubSylow
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
-public import CFSG.CGT.PushingUpLit.BHS.Replacement
-public import CFSG.RankThree.PartOne.S9.Defs
 public import CFSG.Quasithin.Background.A1bBasic
 public import CFSG.Quasithin.Background.D2Offenders
 public import CFSG.Timmesfeld.ARS.NaturalModule
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.OddCritical
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

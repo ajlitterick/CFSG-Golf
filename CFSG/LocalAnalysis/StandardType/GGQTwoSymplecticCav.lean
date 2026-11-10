@@ -1,17 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQSplit
-public import CFSG.Assembly.GL83LieDefs
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitSpNsCore
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCavImage
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCavSetup
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCavQuotient
 public import CFSG.Open.StatedZModTwo
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGSpFrame
-public import CFSG.LocalAnalysis.SeitzReduction.SporadicRefineSpAut
 public import CFSG.GroupTheory.CenterlessInnerCentralizer
 public import CFSG.LieType.SeitzGeneration.OuterSpData
 public import CFSG.GroupTheory.PCore.SubgroupCore

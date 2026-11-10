@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6D5CoreDefs
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
-public import CFSG.LieType.AlgebraicGroups.ToralRootCover
 public import CFSG.LocalAnalysis.StandardType.GGTwE6D5CoreLang
 import CFSG.LocalAnalysis.StandardType.GGTwE6D5CoreFrame
-import CFSG.Foundations.QuasisimpleMulEquiv
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcRoots
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergRoot
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcModel
-public import CFSG.LieType.Ree.ExceptionalAutomorphismData
 
 public section
 

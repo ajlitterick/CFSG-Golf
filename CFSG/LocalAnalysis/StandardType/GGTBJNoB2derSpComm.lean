@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derDefs
 import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derSpIso
-import CFSG.ClassicalGroups.Symplectic.StandardForm
-import CFSG.ClassicalGroups.Alternating.Transvections
-import CFSG.LocalAnalysis.ComponentInitial.LinearIsometry
 
 public section
 

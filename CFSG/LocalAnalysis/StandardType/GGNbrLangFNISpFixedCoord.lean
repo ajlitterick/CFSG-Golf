@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNISpFixedCoordAux
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNISpPrimary
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNISpVecMap
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingIsometryBasis
-public import CFSG.ClassicalGroups.Symplectic.Model
 
 public section
 

@@ -1,21 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinResidual
-public import CFSG.GroupTheory.LocalCores.Components
-public import CFSG.LieType.AlgebraicGroups.IdentityComponentLang
-public import CFSG.LieType.AlgebraicGroups.ZariskiClosureFrobenius
-public import CFSG.LieType.AlgebraicGroups.RationalPointEndomorphism
-public import CFSG.Mathlib.RingTheory.UnitOrderOf
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalLowDimCoverageBasic
-public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Core
 public import CFSG.RankThree.Classical2.SLnFrobeniusFormFixed
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompChain
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ConnectedReflection
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ReflectionRadical
 public import CFSG.LocalAnalysis.StandardType.GGRootGenAvoidInduced
-public import CFSG.RankThree.PartOne.KE.SuzukiLangSp4Group
-public import CFSG.RankThree.PartOne.KE.ThreeA1Group
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyIdentityComponent
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
 

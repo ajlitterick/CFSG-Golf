@@ -1,9 +1,6 @@
 module
 
-public import CFSG.Quasithin.Recognition.Stroth.Weiss80Route
-public import CFSG.Quasithin.Background.F3PathCons
 public import CFSG.Quasithin.Recognition.Stroth.MoufangLittleNormal
-public import CFSG.Quasithin.Background.B6Defs
 public import CFSG.Quasithin.Vol2.GoldschmidtF431BNRad
 
 public section

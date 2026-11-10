@@ -6,7 +6,6 @@ public import Certificates.Kernel.Misc.Perm.J2CentB2
 public import Certificates.Kernel.Misc.Perm.J2CentB3
 public import CFSG.Certificates.Kernel.J2CentSound
 public import CFSG.Certificates.Kernel.J2Enum.Group
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.J2CoverSound
 
 public section

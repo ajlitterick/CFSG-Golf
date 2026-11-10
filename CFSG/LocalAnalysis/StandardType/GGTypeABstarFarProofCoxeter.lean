@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTypeAFrame
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 
 public section

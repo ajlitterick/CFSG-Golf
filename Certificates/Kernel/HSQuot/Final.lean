@@ -9,7 +9,6 @@ public import CFSG.Certificates.Kernel.LocalQTQuotSSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHSDcInputs
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsInputs
 import all CFSG.Certificates.Kernel.LocalQTPcWSound
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 200000
 

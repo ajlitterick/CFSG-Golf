@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.EmptyFaithful.S151S9TM24
 public import CFSG.Quasithin.EmptyFaithful.S151S9UTr
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M24Z1c
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
 
 public section
 

@@ -137,9 +137,6 @@ public import CFSG.RankThree.PartTwo.Sec17.Item17TailSteps
 public import CFSG.RankThree.PartTwo.Sec17.RouteProvers
 public import CFSG.RankThree.PartTwo.Sec17.RouteProvers142
 public import CFSG.RankThree.S4Free.SuzukiEight
-public import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
-public import CFSG.GroupTheory.LocalCores.Components
-public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.GroupTheory.ConjActionModPCore
 public import CFSG.LieType.ChevTwo.Layered
 

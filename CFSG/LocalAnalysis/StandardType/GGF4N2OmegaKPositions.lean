@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2OmegaK
 public import CFSG.LocalAnalysis.StandardType.GGF4N2JPositions
-public import CFSG.GroupTheory.SupCommute
-public import CFSG.LocalAnalysis.StandardType.GGTBJOmFrame
-public import CFSG.LocalAnalysis.StandardType.GGTBJOmCompFixed
 public import CFSG.RankThree.PartOne.KFR4.Frame
-public import CFSG.LocalAnalysis.StandardType.GGTBJFrameBs
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmTorusAut
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
 
 public section
 

@@ -1,27 +1,16 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec15.Item15Statements
-public import CFSG.RankThree.PartTwo.Sec15.HypS
 public import CFSG.RankThree.PartTwo.Sec16.Item169GeneralDefs
 public import CFSG.RankThree.PartTwo.Sec17.RouteWire15
 import CFSG.RankThree.PartTwo.Sec15.Item1511Meta
 import CFSG.RankThree.PartTwo.Sec15.Item1514Steps1515
-import CFSG.RankThree.PartTwo.Sec13.Item131Facts
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec13.Item138NMod9
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
-import CFSG.RankThree.PartTwo.Sec13.Naturality
-import CFSG.RankThree.PartTwo.Sec13.Item13Basic
-import CFSG.RankThree.PartTwo.Sec13.Item13Prod
-import CFSG.RankThree.PartTwo.Sec13.Item13Theta
-import CFSG.RankThree.PartTwo.Sec14.Item145Bot
 import CFSG.RankThree.PartTwo.Sec14.Concl142NHJInner
 import CFSG.RankThree.PartTwo.Sec6.Item612Plus
 import CFSG.RankThree.PartTwo.Sec4.Census.Lift46
 import CFSG.RankThree.PartTwo.KFacts.KS14Orders
-import CFSG.RankThree.PartTwo.Late.Transitivity
-import CFSG.LieType.BorelTits.Basic
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2

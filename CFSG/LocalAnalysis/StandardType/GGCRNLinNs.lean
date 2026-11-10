@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 import CFSG.HardMathSupport.Timmesfeld.Coordinator.ElemAbelianComplement
 import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeTorus
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
 import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

@@ -6,9 +6,7 @@ public import Certificates.Data.Kernel.ONOutK3.F
 import Certificates.Kernel.Sporadic.ON8.Lin
 import Certificates.Kernel.ONOutK3.Strong
 import CFSG.Certificates.Kernel.Spor.Mat3Sound
-import CFSG.Certificates.Kernel.Spor.PWord
 import CFSG.Certificates.Kernel.ONOutK3.WalkSound
-import Mathlib.Tactic.IntervalCases
 
 public section
 

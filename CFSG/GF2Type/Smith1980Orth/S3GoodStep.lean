@@ -3,7 +3,6 @@ module
 public import CFSG.GF2Type.Smith1980Orth.S3GoodRebase
 public import CFSG.GF2Type.Smith1980Orth.S3GoodConj
 public import CFSG.GF2Type.Smith1980Orth.S3Count
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LargeExtraspecial.S14SMEPath
 public import CFSG.LargeExtraspecial.S14SMHDefs
 public import CFSG.LargeExtraspecial.S14SMIDefs

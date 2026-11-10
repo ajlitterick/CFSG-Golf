@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGPinnedReturnDefs
 public import CFSG.LocalAnalysis.StandardType.GGLieBridgeHom
 public import CFSG.LocalAnalysis.StandardType.GGFinModelRat
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotSwapLiftBasic
-public import CFSG.LocalAnalysis.ComponentInitial.RootDiagonalConjugation
 
 public section
 

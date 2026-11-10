@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGStep
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeSLSpace
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeBlockTransfer
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeFPSL

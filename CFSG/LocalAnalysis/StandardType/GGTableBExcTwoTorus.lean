@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-public import CFSG.LieType.Steinberg.Adjoint.Pairs
 
 public section
 

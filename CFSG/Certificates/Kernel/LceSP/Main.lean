@@ -3,8 +3,6 @@ module
 public import CFSG.Certificates.Kernel.LceSP.Loops
 public import CFSG.Certificates.Kernel.LceSP.Popcount
 import Mathlib.Tactic.Group
-public import Certificates.Data.Kernel.LceSTab
-public import Mathlib.GroupTheory.Index
 import Mathlib.Algebra.Order.Field.Basic
 import Mathlib.Data.Rat.Cast.Order
 import Mathlib.Tactic.NormNum.Abs

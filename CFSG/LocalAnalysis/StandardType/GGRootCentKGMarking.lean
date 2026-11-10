@@ -5,8 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGReverseMarking
 import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneAlt6
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotQ2Sp4TwoRootSix
 import CFSG.LocalAnalysis.SeitzReduction.LinearPilotTorus
-import CFSG.ClassicalInvolution.Models.SymplecticPairs.RootSp2
-import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneCore
 
 public section

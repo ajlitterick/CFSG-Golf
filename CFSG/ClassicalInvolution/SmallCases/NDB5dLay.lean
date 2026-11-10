@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.SmallCases.NDB5dWC
 public import CFSG.ClassicalInvolution.SmallCases.NDB5dSp2
 public import CFSG.ClassicalInvolution.SmallCases.NDB5Main
-import CFSG.ClassicalInvolution.ModelFacts.LinearAutFrame
 
 public section
 

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2ThreeEltOfPm
 public import CFSG.LocalAnalysis.StandardType.GGQ2PmOfDatum
 public import CFSG.LocalAnalysis.StandardType.GGQ2PmHeartA
-public import CFSG.LocalAnalysis.StandardType.GGQ2LabelCartan
-public import CFSG.LocalAnalysis.StandardType.GGQ2LDatumDims
 
 public section
 

@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 import CFSG.LocalAnalysis.StandardType.GGQ2PrimeProp1010
-import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
-import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus
 import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBHalf
 import CFSG.LocalAnalysis.StandardType.GGTBTorE8Cover
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP10Cover

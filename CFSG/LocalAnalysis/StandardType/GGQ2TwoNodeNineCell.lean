@@ -1,14 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeBigCell
 public import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeHeartDatum
 import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeNineLin
 import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXOffI1Holds
-import CFSG.LocalAnalysis.StandardType.GGQTwoNbrDatumInner
-import CFSG.LocalAnalysis.StandardType.GGQTwoNbrLineStab
 import CFSG.LocalAnalysis.StandardType.GGQ2P3Hyp
 import CFSG.LocalAnalysis.StandardType.GGQ2PmWHeartA
-import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXDetCell
 
 public section
 

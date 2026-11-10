@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K21dStmt
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K21dU42Inputs
 public import CFSG.Quasithin.Vol2.GoldschmidtF431U42Perm
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermLatAlt
 public import Certificates.Certificate409001
 public import Certificates.Certificate2012
-import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
 import CFSG.Quasithin.Vol2.GoldschmidtF431U42Model
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs

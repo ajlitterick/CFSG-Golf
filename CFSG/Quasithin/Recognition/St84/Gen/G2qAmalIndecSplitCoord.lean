@@ -1,12 +1,9 @@
 module
 
 public import CFSG.Quasithin.Recognition.St84.Gen.NatSecDefs
-public import Mathlib.GroupTheory.Commutator.Basic
 
 import CFSG.Quasithin.Recognition.St84.Gen.SL2Semilinear
 import CFSG.CGT.Timmesfeld75.L2Defs
-import Mathlib.Tactic.FinCases
-import Mathlib.Tactic.Group
 
 public section
 

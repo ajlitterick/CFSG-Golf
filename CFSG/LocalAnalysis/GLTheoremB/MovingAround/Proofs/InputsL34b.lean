@@ -1,26 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Leaves
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims1245
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims1111b
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsL34
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma119
-public import CFSG.LocalAnalysis.GLTheoremB.PlaneAction
-import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.RankThree.PartOne.S9.Planes.Basic
-public import CFSG.RankThree.PartTwo.KFacts.L34Aut
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiMain
-import CFSG.RankThree.PartTwo.KFacts.AutPSLOrderThree
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherFieldInvolution
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherOuterQuotients
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KI2320Fix
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KI2320Main
-import CFSG.LargeExtraspecial.S12TriG2
-import CFSG.CharacterTheory.Burnside
-import CFSG.GroupTheory.SmallOrderNotSimple
-import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FIa
-import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FCover
-public import CFSG.HardMathSupport.Solomon.Proving.L34Cover
 import CFSG.LocalAnalysis.SectionRank.AmbientRank
 public import CFSG.GH74.KGroups.L34Aut
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef

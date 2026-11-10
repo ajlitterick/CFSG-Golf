@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Recognition.U33Defs
 import all CFSG.Quasithin.Recognition.U33Defs
 public import CFSG.RankThree.GF2n.Parrott.A1Section2Lemma13Sylow
 

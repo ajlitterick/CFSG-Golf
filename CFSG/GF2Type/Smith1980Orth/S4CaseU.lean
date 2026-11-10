@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GF2Type.Smith1980Orth.S4CaseT
-public import CFSG.GF2Type.Smith1980Orth.S4Siegel
 
 public section
 

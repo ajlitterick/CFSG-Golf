@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.LongRootPairs
-public import CFSG.LieType.Chevalley.StandardParabolicCells
-public import CFSG.LieType.Chevalley.ParabolicWeylStabilizer
 public import CFSG.LieType.Chevalley.KernelComponentRoots
-public import CFSG.LieType.Chevalley.GraphFixedCoordinateDetection
 public import CFSG.LieType.Chevalley.GraphFixedHighestRoot
 
 public section

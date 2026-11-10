@@ -7,7 +7,6 @@ public import Certificates.Kernel.Co2Smith.RefClsK
 public import Certificates.Kernel.Sporadic.Co2.Order
 public import CFSG.Certificates.Kernel.Co2Smith.RefineASound
 public import CFSG.Sporadic.Co2Smith.GlRefineFacts
-public import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

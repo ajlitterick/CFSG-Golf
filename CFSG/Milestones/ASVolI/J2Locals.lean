@@ -1,39 +1,20 @@
 module
 
 public import CFSG.Milestones.ASVolI.J2
-public import CFSG.Quasithin.Recognition.RuTypeJ27l
 public import CFSG.Quasithin.Recognition.RuTypeJ31c
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6M10
 public import CFSG.Quasithin.Recognition.RuTypeJ36a
-public import CFSG.Quasithin.Recognition.RuTypeAutA6b
-public import CFSG.LocalAnalysis.SectionRank.Ccomm.ElementaryAut
 public import CFSG.GH74.GLS.C3.Layer1.BkA6K
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DeterminantSquare
-public import CFSG.Quasithin.Recognition.RuTypeJ31b
 public import CFSG.GH74.GLS.C3.Layer1.Back91
 public import CFSG.GH74.GLS.C3.Layer1.BkL27K
 public import CFSG.GH74.GLS.C3.Layer1.Split
 public import CFSG.GH74.GLS.C3.Layer3.Main
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.IVK.A7.Glue
-public import CFSG.GH74.GLS.IVK.L2.BN
-public import CFSG.GH74.GLS.IVK.L2.BorelFive
-public import CFSG.GH74.GLS.IVK.L2.Lemma113
-public import CFSG.GH74.GLS.IVK.L2.Lemma114
-public import CFSG.GH74.GLS.IVK.L2.Lemma12ib
-public import CFSG.GH74.GLS.IVK.L2.Lemma12j
-public import CFSG.GH74.GLS.IVK.L2.Lemma12k
-public import CFSG.GH74.GLS.IVK.L2.Lemma13fc
-public import CFSG.GH74.GLS.IVK.L2.Lemma14f
-public import CFSG.GH74.GLS.IVK.L2.Lemma14j
-public import CFSG.GH74.GLS.IVK.L2.Lemma19b
-public import CFSG.GH74.GLS.IVK.Prod.Lemma31
 public import CFSG.GH74.GLS.IVK.Proofs
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13e
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13g
-public import CFSG.GH74.GLS.IVK.Statements
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Closed
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Statements
 public import CFSG.GH74.GLS.Stage1.Thm6.Sec12.Defs
@@ -41,7 +22,6 @@ public import CFSG.GH74.GLS.Stage1.Thm6.Sec12.Ext
 public import CFSG.LocalAnalysis.Asc75.Conj
 public import CFSG.RankThree.GroupTheory.SteinbergCEPrimeDimScalarCentralizer
 public import CFSG.RankThree.PartOne.S9.MinTwoAction.QuotientRep
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Walter.W67.Section5.Lemma57
 
 public section

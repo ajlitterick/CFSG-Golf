@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.S5Ext.Check
-public import Mathlib.Data.Fintype.Card
 public import Mathlib.Algebra.Group.Nat.Defs
 public import Mathlib.Data.Fintype.EquivFin
 

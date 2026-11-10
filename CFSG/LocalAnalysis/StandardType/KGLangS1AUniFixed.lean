@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPGLToralityBasic
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
 public import CFSG.GroupTheory.SteinbergBKSemilinearFixedBasis
 import CFSG.LocalAnalysis.StandardType.KGLangTorAUniFrame
 import CFSG.LocalAnalysis.StandardType.KGLangTorAUniLift
-import CFSG.LocalAnalysis.StandardType.KGLangTorAFields
 
 public section
 

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGB36JNonExc
 public import CFSG.LocalAnalysis.StandardType.GGALocalRank
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalCover
 public import CFSG.LocalAnalysis.StandardType.GGKacK1
-public import CFSG.LocalAnalysis.StandardType.GGMultTableCl
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmRAC4
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUKacV2
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUTableCl

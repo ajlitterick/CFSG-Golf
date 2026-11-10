@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKFactParabolicGenDatum
-public import CFSG.LieType.Chevalley.ParabolicRadicalLevi
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.Blueprint.Catalog
 
 public section
 

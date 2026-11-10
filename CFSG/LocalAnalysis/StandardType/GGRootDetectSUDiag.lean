@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectSUField
 public import CFSG.LieType.Universal.Unitary.Extras.RankOneLast
-public import CFSG.LieType.Universal.Unitary.Extras
 import all CFSG.LieType.Universal.Unitary.Roots
 
 public section

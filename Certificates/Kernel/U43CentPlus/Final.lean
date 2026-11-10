@@ -1,9 +1,6 @@
 module
 
 public import Certificates.Kernel.U43CentPlus.Plus
-public import CFSG.LieType.Multipliers.U43Action
-public import Mathlib.GroupTheory.SpecificGroups.Quaternion
-public import Mathlib.GroupTheory.Commutator.Basic
 
 public section
 

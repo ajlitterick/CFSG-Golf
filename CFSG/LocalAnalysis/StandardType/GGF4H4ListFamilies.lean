@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4LabelH4Pieces
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

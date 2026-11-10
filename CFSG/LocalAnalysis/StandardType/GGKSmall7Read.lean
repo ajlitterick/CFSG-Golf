@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKSmall7Defs
-public import CFSG.LocalAnalysis.StandardType.GGDepED4Pat6
 public import CFSG.LocalAnalysis.StandardType.GGDepED4Up7
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3T8E4Gen
 public import CFSG.ClassicalInvolution.Q3.Q3TIYPOutAll
 public import CFSG.ClassicalInvolution.Q3.Q3URDict
-public import CFSG.ClassicalInvolution.Q3.Q3URStd
 
 public section
 

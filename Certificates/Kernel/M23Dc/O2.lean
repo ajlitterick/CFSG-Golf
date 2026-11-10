@@ -2,12 +2,8 @@ module
 
 public import Certificates.Kernel.M23Dc.Final
 public import Certificates.Kernel.M23Dc.OtChecks
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRows
 public import CFSG.Certificates.Kernel.SporLatDcTupSound
 public import CFSG.Quasithin.Vol2.KGFactSporLatInputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatExport
-public import CFSG.Blueprint.NativeSporadic
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

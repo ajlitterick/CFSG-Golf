@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22P22q
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qa
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qt
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qd
-public import CFSG.LocalAnalysis.UniquenessCase.UC6Syl
-public import CFSG.LocalAnalysis.UniquenessCase.UC6Pgrp
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4IdxL2
 public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsCentModel
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB83Outer

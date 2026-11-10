@@ -1,22 +1,17 @@
 module
 
 public import Certificates.Kernel.Sporadic.OrdCommon
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Sporadic.J3K.Data
 public import CFSG.Sporadic.Bridge.TwoGen
 public import CFSG.Sporadic.J3.Group
-public import Certificates.Data.CFSGNative.J3.Data
 public import CFSG.Certificates.Kernel.Bounds.J3Alt.RelsTC
 public import CFSG.Certificates.Kernel.Orders.J3.RelsBind
 public import CFSG.Certificates.Kernel.Orders.J3.Checks.R
 public import CFSG.Certificates.Kernel.Orders.J3.Checks.H
 public import CFSG.Certificates.Kernel.Orders.J3.Checks.D
 public import CFSG.Certificates.Kernel.Orders.J3.Checks.K
-public import CFSG.Certificates.Kernel.Orders.J3.Data.Pay
-public import CFSG.Certificates.Kernel.Orders.J3.Data.Sel
 import all CFSG.Blueprint.NativeSporadic
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.OrdSound
 
 public section

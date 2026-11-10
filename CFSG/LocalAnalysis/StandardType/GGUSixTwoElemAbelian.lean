@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTorus
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoF4Transport
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeF4CubeScalar
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeF4Torus
-public import CFSG.Fischer.Unitary
-public import CFSG.ClassicalGroups.UnitaryFlag.GramForm
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoElemAbelianAux
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits

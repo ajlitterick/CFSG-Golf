@@ -2,8 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection15.corollary_15_9
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection2.PFsection2_1
-import Mathlib.GroupTheory.Schreier
-import Mathlib.Order.Preorder.Finite
 
 namespace CFSG
 end CFSG

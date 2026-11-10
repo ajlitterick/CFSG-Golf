@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreDefs
-public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyClosedLang
-public import CFSG.LieType.Chevalley.WeylNormalizerQuotient
-public import CFSG.RankThree.Chevalley.SteinbergCAF4SplitPrimeTorus
-public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningFrobenius
 public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningSemilinear
 
 public section

@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedE6Three
-public import CFSG.LocalAnalysis.StandardType.GGFamCentralizerSolvable
-public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourModel
 public import CFSG.LocalAnalysis.StandardType.GGTwE6D5CoreFrame
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreToralInd
-public import CFSG.LocalAnalysis.StandardType.GGAllFixedA8Seven
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.RankThree.PartOne.KE6.EqpA24
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldDescent
 
 public section

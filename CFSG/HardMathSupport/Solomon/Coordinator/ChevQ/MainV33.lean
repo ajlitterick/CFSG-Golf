@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.MainV31
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterHighD4Three3
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterHighD4Three4
 
 public section

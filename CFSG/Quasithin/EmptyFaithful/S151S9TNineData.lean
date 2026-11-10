@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.SporLat.Spec
 public import CFSG.Quasithin.EmptyFaithful.S151S9TData
 
 public section

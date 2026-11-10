@@ -1,14 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniJoinTwo
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseUniModel
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordConj
 import CFSG.LocalAnalysis.StandardType.GGQTwoSUThreeDiagonalComm
 import CFSG.LocalAnalysis.StandardType.GGSuNsRootGenRestrictedTriples
-import Mathlib.Tactic.Group
 
 public section
 

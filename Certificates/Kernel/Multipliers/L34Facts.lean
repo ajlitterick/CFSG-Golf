@@ -5,7 +5,6 @@ public import Certificates.Kernel.Misc.Coset.XL34R
 public import Certificates.Kernel.Misc.Coset.XL34B
 public import Certificates.Kernel.Misc.Coset.XL34C
 public import Certificates.Kernel.Multipliers.L34Lower
-public import CFSG.LieType.Multipliers.L34Data
 import all CFSG.LieType.Multipliers.L34Data
 import all CFSG.LieType.Multipliers.CoverWords
 import all CFSG.Certificates.PresentationLetters

@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGPumpupConj
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourTwins
 import CFSG.LocalAnalysis.StandardType.GGRankOneShared
 import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProper
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-import Mathlib.Tactic.Group
 
 public section
 

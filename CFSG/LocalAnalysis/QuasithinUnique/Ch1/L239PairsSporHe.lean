@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporHeWit
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporModel
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
-import CFSG.Blueprint.NativeSporadic
 
 public section
 

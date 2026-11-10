@@ -1,18 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotBlocks
-public import CFSG.Assembly.Defs
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSpCompPair
 public import CFSG.LocalAnalysis.StandardType.TableC.GramBlockRank
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpDecomp
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagBlocks
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpIsoOneLinear
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoAdj
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagLinear
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommSpRes
-public import CFSG.LocalAnalysis.StandardType.GGHalfCentGroup
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenSpGen
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU
 public import CFSG.LocalAnalysis.AGLEmbedding.IIIaResidualDefs

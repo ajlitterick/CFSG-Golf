@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Phan.Phan3SL3Pres
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
-public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.SL3PresData
 public import Certificates.Certificate753504
 public import CFSG.Certificates.CosetTableOrders
 public import CFSG.Certificates.NativeSchreierCard

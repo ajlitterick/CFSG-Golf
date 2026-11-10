@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264Co15Gen
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264SporCo17
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264SporHN3
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1FiveBase
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1FiveA
 public import Certificates.Certificate10145
-public import Certificates.Certificate13670
-public import Certificates.Certificate13671
 
 public section
 

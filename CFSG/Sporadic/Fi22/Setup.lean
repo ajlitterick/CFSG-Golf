@@ -5,7 +5,6 @@ public import CFSG.F3.ConjSpec
 public import CFSG.F3.SepSpec
 public import CFSG.Certificates.SchreierStabilizerGenerators
 public import CFSG.Sporadic.Fi22.Certificate
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

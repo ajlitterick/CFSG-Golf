@@ -1,37 +1,28 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec17.Item17Res11ProofHJ
 public import CFSG.RankThree.PartTwo.Sec17.N172Comb
 public import CFSG.RankThree.PartTwo.Sec17.N172Config
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148QDefs
 import CFSG.RankThree.PartTwo.Sec17.Item17Res9ProofLd
 import CFSG.RankThree.PartTwo.Sec14.Item1417
-import CFSG.RankThree.PartTwo.Sec14.Item14J2
 import CFSG.RankThree.PartTwo.Sec14.Item1411HJ
 import CFSG.RankThree.PartTwo.Sec14.Item14Res7ProofMemFix
 import CFSG.RankThree.PartTwo.Sec4.Sporadic.Item415
-import CFSG.RankThree.PartTwo.Sec13.Item134Sylow
 import CFSG.RankThree.PartTwo.Sec13.Item134Holds
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
 import CFSG.RankThree.PartTwo.Sec6.Item68
-import CFSG.RankThree.PartTwo.Sec6.Item65Tools
-import CFSG.RankThree.PartTwo.Sec17.Item176StepsProof172
 import CFSG.RankThree.PartTwo.Sec4.Census.Lift46
-import CFSG.Sporadic.J2
 import CFSG.RankThree.PartTwo.Sec17.Item17Res11ProofSec
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 import CFSG.RankThree.PartTwo.Sec14.Item14Tools
 import CFSG.RankThree.GroupTheory.SteinbergBYHyperplaneResidual
 import CFSG.RankThree.PartTwo.Sec14.Item147
-import CFSG.RankThree.PartTwo.Sec14.Item1411
 import CFSG.RankThree.PartTwo.Sec14.Concl142NHJInner
 import CFSG.RankThree.PartTwo.Sec5.Tools
 import CFSG.RankThree.PartTwo.Sec17.Item17TailEnd
 import CFSG.RankThree.PartTwo.Sec13.Item136
 import CFSG.RankThree.PartTwo.Sec13.Item134SylowBarT
-import CFSG.RankThree.PartTwo.Sec14.Concl143HJ
 import CFSG.RankThree.PartTwo.Sec15.Item1515StepsProofPoints
-import CFSG.LocalAnalysis.RankThreeEvenClassification.ThetaSolvableQuotient
 public import CFSG.RankThree.PartTwo.Sec14.Item148StepCases
 public import CFSG.RankThree.PartTwo.Sec14.Item148StepOne
 public import CFSG.RankThree.PartTwo.Sec14.Item148StepPoint

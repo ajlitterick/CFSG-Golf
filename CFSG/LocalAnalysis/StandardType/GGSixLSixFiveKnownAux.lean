@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVQuot
 public import CFSG.LocalAnalysis.StandardType.GGHypThreeSixteenFlatMarking
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.CoprimeHall
 
 public section
 

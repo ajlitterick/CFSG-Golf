@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117Out
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117Defs
 public import CFSG.HardMathSupport.Timmesfeld.DFour.Triality
-public import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldFixed
 
 public noncomputable section
 

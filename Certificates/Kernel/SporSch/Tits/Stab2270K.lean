@@ -5,7 +5,6 @@ public import Certificates.Kernel.Sporadic.Tits.Texts2268
 public import Certificates.Kernel.Sporadic.Tits.Bind2264
 public import CFSG.Certificates.Kernel.SporSch.TitsStabSound
 meta import CFSG.Sporadic.Schreier.TitsData
-public import CFSG.Certificates.Kernel.Spor.RawSlSound
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Schreier.TitsChain
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSmallDefs
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmall
 import CFSG.RankThree.PartTwo.Sec21.Item223RankResProofAut
 
 public section

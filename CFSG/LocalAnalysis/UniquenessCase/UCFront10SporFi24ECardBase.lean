@@ -2,11 +2,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporFi24ERigidBase
-public import CFSG.Sporadic.Fi24.Local
-public import CFSG.Sporadic.Fi24.OctadsInputs
-public import CFSG.Fischer.NoF25.Octads
-public import CFSG.Sporadic.Fi24.OctadAction
-public import CFSG.Sporadic.Fi24.OctadData
 public import CFSG.Sporadic.Fi24.Fi24EFacts
 public import CFSG.Sporadic.FischerOddCore.Fi24AlmostSimple
 public import CFSG.Sporadic.FischerOddCore.Fi24R2CompBase

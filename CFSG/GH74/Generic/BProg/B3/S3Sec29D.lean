@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.Generic.BProg.B3.S3Sec29A1
 public import CFSG.GH74.Generic.BProg.B3.S3Sec29Defs
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
 
 public section
 

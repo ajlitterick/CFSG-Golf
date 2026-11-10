@@ -3,16 +3,12 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerD4MGeom
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerD4MQuot
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerC3D4
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofOMinusFacts
-public import CFSG.ClassicalGroups.Orthogonal.Simple
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerC3
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264Parts
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Bridge
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105
 public import CFSG.LocalAnalysis.GLTheoremA.S10.InputsBeta
 public import CFSG.LocalAnalysis.GLTheoremA.S11.Defs
-public import CFSG.LocalAnalysis.GLTheoremA.S3.Inputs
-public import CFSG.LocalAnalysis.GLTheoremA.S4.Inputs
 public import CFSG.LocalAnalysis.GLTheoremA.S4S.I145GW
 public import CFSG.LocalAnalysis.GLTheoremA.S4S.KData
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Inputs

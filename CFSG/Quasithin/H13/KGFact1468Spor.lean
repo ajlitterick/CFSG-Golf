@@ -4,21 +4,9 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHeCertificate
 
 public import CFSG.Quasithin.H13.KGFact1468Gen
 public import CFSG.Quasithin.Background.A312SporHS
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatExport
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
-public import CFSG.Sporadic.Schreier.J4SLocalNodes
 public import CFSG.Sporadic.Schreier.J4SOuter
-public import CFSG.Sporadic.Schreier.J4SOrder
-public import CFSG.Sporadic.J4
-public import CFSG.Sporadic.J2
-public import CFSG.Sporadic.He.Simple
-public import CFSG.Sporadic.Mathieu.M11
-public import CFSG.Sporadic.Mathieu.M12
-public import CFSG.Sporadic.Mathieu.M22
-public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.Sporadic.Schreier.M23
-public import CFSG.Timmesfeld.Orders.ClassicalLinear
 import all CFSG.Blueprint.NativeSporadic
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
 import CFSG.Adapters.StatedClassicalSmallOrders

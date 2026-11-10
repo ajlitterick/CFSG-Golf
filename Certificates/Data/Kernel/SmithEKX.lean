@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.SmithEKM
 public import Certificates.Data.Kernel.SmithEKN
 
 public section

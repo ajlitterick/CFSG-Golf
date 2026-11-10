@@ -3,9 +3,6 @@ module
 public import Certificates.Data.GrSLitL34FactsCF23ONOutK3Data
 import Certificates.Kernel.ONOutK3.FOk
 import Certificates.Kernel.ONOutK3.Strong
-import Certificates.Kernel.ONOutK3.MatDefs
-import Certificates.Kernel.ONOutK3.FChk
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

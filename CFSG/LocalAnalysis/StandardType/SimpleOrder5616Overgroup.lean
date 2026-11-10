@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.SolvableOrSimpleDerived
-public import Mathlib.GroupTheory.GroupAction.Quotient
 public import Mathlib.GroupTheory.IndexNormal
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
 public import Mathlib.Algebra.AffineMonoid.Basic
 
 public section

@@ -2,10 +2,8 @@ module
 
 public import CFSG.LieType.Chevalley.E6GraphLeviUnitary
 public import CFSG.RankThree.PartOne.KC.UnitaryOrthonormalEigenbasis
-public import CFSG.Open.LocalVocabulary
 public import CFSG.LieType.SemisimpleCentralizers.HeldLangI5Torus
 import CFSG.ClassicalGroups.UnitaryFlag.GramForm
-import CFSG.Open.StatedCenterThree
 import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData

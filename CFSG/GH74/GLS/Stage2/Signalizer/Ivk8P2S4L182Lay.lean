@@ -2,12 +2,8 @@ module
 
 public import CFSG.GH74.GLS.Stage2.Final.Thm4.Basic
 public import CFSG.GH74.GLS.Stage2.Local.P34Perf
-public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87GrpSecG
-public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87L31Stmt
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87SubSec31Two
-public import CFSG.GH74.Uniqueness.SU.SU0GH
 public import CFSG.LocalAnalysis.ComponentInitial.PerfectNormalizerLayer
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.PSL2Table.BlocksProduct
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
@@ -36,10 +32,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.PerfectOuterInjection
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Critical
 public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

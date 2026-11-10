@@ -4,9 +4,7 @@ public import CFSG.HardMathSupport.Timmesfeld.DefChar.Families
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreExcGeneric
 public import CFSG.HardMathSupport.Timmesfeld.Balance.Basic
 public import CFSG.Adapters.TauCetiExceptional.EvenAll
-public import CFSG.LieType.Chevalley.EvenExceptionalActorCoverage
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4Par
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.Balance.LocalBalance.Faithful
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.Der61a

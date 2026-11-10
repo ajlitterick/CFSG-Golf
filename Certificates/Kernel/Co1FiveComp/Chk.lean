@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Co1FiveComp.Data
 public import Certificates.Kernel.Co1FiveK.Chk
 public import Certificates.Data.Kernel.Co1FiveComp
-public import CFSG.Certificates.Kernel.Spor.BindList
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

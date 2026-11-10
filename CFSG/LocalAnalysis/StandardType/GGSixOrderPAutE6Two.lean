@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagE6Model
 import CFSG.LocalAnalysis.StandardType.GGFinModelBridgeE6
 import CFSG.LocalAnalysis.StandardType.GGLieOddCover
-import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
 
 public section
 namespace CFSG.StandardType.RCKC1

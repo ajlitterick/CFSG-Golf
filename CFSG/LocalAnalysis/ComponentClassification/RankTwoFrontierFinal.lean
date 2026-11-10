@@ -1,14 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoFrontierLeaves
-import CFSG.LocalAnalysis.ComponentClassification.GMS78Sec5RuH1Final
-import CFSG.Sporadic.SuzRecog.MixedCell
-import CFSG.Sporadic.SuzRecog.SuzLeaf
-import CFSG.Sporadic.J2
-import CFSG.Sporadic.Suz.Simple
-import CFSG.Sporadic.He.Simple
-import CFSG.Sporadic.Ru
-import CFSG.Sporadic.Co1
 
 public section
 

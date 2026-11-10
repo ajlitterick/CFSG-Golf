@@ -1,17 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGTCJDatum
 public import CFSG.LocalAnalysis.StandardType.GGTCJLabel
 public import CFSG.LocalAnalysis.StandardType.GGTCJDivides
-public import CFSG.LocalAnalysis.StandardType.GGTCJDivOrth
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnOrthMark
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GSympLabel
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelTwo
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelPSU
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

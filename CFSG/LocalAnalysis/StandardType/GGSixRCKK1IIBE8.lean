@@ -1,15 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBPair
-public import CFSG.LocalAnalysis.SeitzReduction.LongRootPairsRoots
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
-public import CFSG.LieType.Steinberg.Adjoint.Group
-public import CFSG.LieType.Steinberg.Adjoint.Comm
-public import CFSG.LieType.Steinberg.Adjoint.ChevExtras
-public import CFSG.LieType.Steinberg.Adjoint.ExtraPairs
-public import CFSG.LieType.Steinberg.Adjoint.Presentation
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Form
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongExcDatum
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongExcC2
 public import CFSG.GroupTheory.SylowIntersectionControl.GomiLeviExc.E8
 

@@ -5,9 +5,6 @@ public import Certificates.Kernel.Sporadic.Fi22.F3151R
 public import Certificates.Kernel.Sporadic.Fi22.C2068Base
 public import Certificates.Kernel.Sporadic.Fi22.C3150
 public import CFSG.Certificates.Kernel.Spor.Coords3Sound
-public import CFSG.Monster.B.Fischer.Fi22CoverBase
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.RawSiftK
 
 @[expose] public section

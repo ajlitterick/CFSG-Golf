@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Malle.SeitzCube.E6ThreeSL3Data
 public import CFSG.LieType.Chevalley.ExceptionalLargeEvenCoverTorus
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompChain
 public import CFSG.HardMathSupport.Malle.SeitzCube.E6ThreeSL3

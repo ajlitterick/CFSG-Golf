@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS2bPhi
-import Mathlib.Algebra.Field.ZMod
 
 public section
 

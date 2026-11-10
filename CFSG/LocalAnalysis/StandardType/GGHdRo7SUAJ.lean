@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SUDefs
 import CFSG.LocalAnalysis.StandardType.GGHdRo7SUAJPerm
 import CFSG.LocalAnalysis.StandardType.GGRCLinRefl
-import CFSG.LocalAnalysis.StandardType.GGRCWeylConnected
 import CFSG.Quasithin.Background.F918V3T3
 
 public section

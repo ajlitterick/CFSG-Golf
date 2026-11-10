@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelA2BlockB
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelA2BlockC
 
 public noncomputable section

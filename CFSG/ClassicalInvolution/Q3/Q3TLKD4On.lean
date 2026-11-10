@@ -2,9 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TLKD4Sq
 public import CFSG.ClassicalInvolution.Q3.Q3TLKD4Fix
-public import CFSG.ClassicalInvolution.Q3.Q3TY13
-public import CFSG.ClassicalInvolution.ModelFacts.TG3D4Tri
-public import CFSG.ClassicalInvolution.RouteD.TypeDRecognition
 public import CFSG.ClassicalInvolution.RouteD.TWZSpinModel
 
 public section

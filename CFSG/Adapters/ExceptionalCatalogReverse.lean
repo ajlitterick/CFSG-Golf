@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Blueprint.Catalog
-public import CFSG.Assembly.InCatalog
 public import CFSG.RankThree.PartTwo.Census.Carrier.ReeF4Catalog
 import CFSG.Adapters.TauCetiExceptional.EvenAll
 import CFSG.Adapters.TauCetiExceptional.ReeBridge
@@ -10,10 +8,7 @@ import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTranspo
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 public import CFSG.Foundations
 public import CFSG.LieType.Chevalley.EvenRootCommutatorF4
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.LieType.Ree.SmallReeModelSchreier
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

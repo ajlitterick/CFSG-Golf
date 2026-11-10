@@ -1,10 +1,8 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6SAE8
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6CertBMem
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6ModelQ8Lib
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6h1
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6iPerm
 public import Certificates.Certificate517531
 
 public section

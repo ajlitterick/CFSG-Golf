@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootMain
-public import CFSG.ClassicalInvolution.Balance.Theorem5Fuzzy
 public import CFSG.ClassicalInvolution.Balance.BootNoTripleStrong
 public import CFSG.ClassicalInvolution.RouteD.G2D4Ih8
 

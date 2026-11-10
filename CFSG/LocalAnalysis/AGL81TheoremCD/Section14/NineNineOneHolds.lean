@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineNineOne
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineSevenOne
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineSixMoreoverProof
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.K35CentralHolds
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.K35Holds
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNormalComplementHolds
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K37Main
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineSevenOneFi22GenHolds
@@ -13,7 +10,6 @@ import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineSixInputOfMoreover
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.ThreeFiveA11InputHolds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.TwelveElevenNineSeven
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineSevenTwoGen
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CReduction
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.Co3Shape
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNFiveRed
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.ONThree

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTypeBDatum
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflInner
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenLift
 public import CFSG.LocalAnalysis.StandardType.GGTBTorDatum
 
 public section

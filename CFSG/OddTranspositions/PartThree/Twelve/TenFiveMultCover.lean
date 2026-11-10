@@ -1,16 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.GroupTheory.QuotientGroup.Basic
-public import Mathlib.GroupTheory.Index
-public import Mathlib.GroupTheory.OrderOfElement
-public import Mathlib.Data.ZMod.QuotientGroup
-public import Mathlib.Algebra.Group.Subgroup.Finite
-public import Mathlib.Algebra.Group.Subgroup.Map
-public import Mathlib.Algebra.Group.Subgroup.Ker
-public import Mathlib.GroupTheory.Subgroup.Center
-public import Mathlib.Algebra.Group.Subgroup.Lattice
-public import Mathlib.Algebra.Group.Subgroup.ZPowers.Basic
 public import Mathlib.Tactic
 
 public section

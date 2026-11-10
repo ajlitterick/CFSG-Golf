@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.ClassicalInvolution.AschTight.Sec7L98D
 
 public section

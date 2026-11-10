@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTPNRegimeDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmRABase
 public import CFSG.LocalAnalysis.StandardType.GGExcRERegimeDefs
 

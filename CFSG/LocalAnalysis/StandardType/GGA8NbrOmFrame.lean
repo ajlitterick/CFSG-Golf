@@ -1,15 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGA8NbrOmDefs
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrOmTorusMoves
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrGlueB
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrCoordSplit
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSp
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSpCompBlock
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSpComp
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinateRegular
-public import CFSG.RankThree.PartOne.S11d.OrthModels
 
 public section
 

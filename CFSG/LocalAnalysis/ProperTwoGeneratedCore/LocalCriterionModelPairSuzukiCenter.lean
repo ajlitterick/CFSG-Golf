@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCoverRootData
 public import CFSG.StronglyEmbedded.TheoremSE.BenderLowRank
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.InvolutionCore
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.RankOne
-public import Mathlib.Algebra.GroupWithZero.TransferInstance
 
 public noncomputable section
 

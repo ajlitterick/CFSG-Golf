@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Generic.CoreAssemblyPieces
 public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusPattern
 
 public section

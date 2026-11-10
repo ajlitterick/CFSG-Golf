@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.Fi22.R3147B7D
-public import Certificates.Kernel.Sporadic.RawTreeSplit
 
 public section
 

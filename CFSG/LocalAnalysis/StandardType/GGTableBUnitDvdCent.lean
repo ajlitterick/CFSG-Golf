@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerTypeADvdCent
 public import CFSG.LocalAnalysis.StandardType.GGTDCentFour
 
 public section

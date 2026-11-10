@@ -4,7 +4,6 @@ module
 public import CFSG.Certificates.Kernel.SporSch.Co2MSound
 public import CFSG.Certificates.Kernel.Spor.BindList
 public import Certificates.Kernel.Sporadic.Co2.FVecs
-public import CFSG.Sporadic.Co2Schreier.Arrays
 public meta import CFSG.Sporadic.Co2Schreier.Arrays
 public meta import CFSG.Sporadic.Co2Cert.FaithfulCheckInputs
 meta import Certificates.Kernel.Misc.Perm.HexCmd

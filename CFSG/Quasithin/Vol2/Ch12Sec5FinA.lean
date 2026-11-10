@@ -1,11 +1,8 @@
 module
 
-public import CFSG.Quasithin.Vol2.Ch12Sec5Lemmas
 public import CFSG.Quasithin.Vol2.Ch12Sec5Tr2
 public import CFSG.Quasithin.Vol2.KGFactOut
 public import CFSG.Quasithin.Vol2.GoldschmidtP778A5Setup
-public import CFSG.Quasithin.H13.LinearOrders
-public import CFSG.LocalAnalysis.RankThreeEvenClassification.Helpers
 public import CFSG.LocalAnalysis.QuasithinUnique.PushingUp.C5Counting
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.PlusFactors.Checks
-public import CFSG.Certificates.Kernel.BfsPinAlg
 public import CFSG.Certificates.Kernel.BfsPinBaseSound
 public import CFSG.Certificates.Kernel.Misc.PermWitSound
 import CFSG.Certificates.Kernel.Spor.RawOrbEval

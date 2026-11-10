@@ -1,13 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMStabDefs
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveInputs
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMStabNorm
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMStabTr
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMStabD
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMStabA
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMSel
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 
 public section
 

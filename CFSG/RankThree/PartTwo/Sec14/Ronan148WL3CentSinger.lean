@@ -5,10 +5,7 @@ import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentMat
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentQ8
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentInner
 import CFSG.RankThree.PartTwo.Sec4.RonanK432L3HardMat
-import CFSG.RankThree.PartTwo.Sec4.RonanK432Sylow
 import CFSG.RankThree.PartTwo.Sec12.ONanKS128Diag
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import Mathlib.LinearAlgebra.Matrix.CharP
 
 public section
 

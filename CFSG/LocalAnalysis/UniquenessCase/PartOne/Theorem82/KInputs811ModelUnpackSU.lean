@@ -4,11 +4,9 @@ public import CFSG.Blueprint.Catalog
 public import CFSG.GroupTheory.UniqueElemSylow
 public import CFSG.LieType.BorelTits.UnitaryForm
 public import CFSG.LieType.Universal.Unitary.Basic
-public import CFSG.Open.StatedDefs
 import CFSG.ClassicalGroups.Unitary.SUnThreeLocalTransport
 import CFSG.GroupTheory.WeirSylow.UniqueE27Unitary
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811ModelUnpack
-import CFSG.Open.StatedAPI
 public import CFSG.LieType.BorelTits.CompleteFlag
 
 public section

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordFullAux3
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordFullWnorm
-public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLAux
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Ly.SylTab
-public import CFSG.Sporadic.Schreier.LyCheckSylow
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

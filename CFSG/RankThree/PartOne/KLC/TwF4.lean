@@ -5,7 +5,6 @@ public import CFSG.RankThree.PartOne.KLC.Assembly
 public import CFSG.RankThree.PartOne.KEXC.ReeModel
 public import CFSG.RankThree.PartOne.KLR.SectorSixTwelve
 public import CFSG.RankThree.PartOne.KLR.SectorOrder
-public import CFSG.RankThree.SteinbergR3ELargeReeOrder
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LieType.Ree.SmallReeModelSchreier
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo

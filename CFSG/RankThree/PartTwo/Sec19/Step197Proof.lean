@@ -1,23 +1,13 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec19.Steps195
 public import CFSG.RankThree.PartTwo.Sec19.Step196Proof
 public import CFSG.RankThree.PartTwo.Sec17.Item17Statements
-public import CFSG.RankThree.PartTwo.Sec13.Item13Inputs
-public import CFSG.RankThree.PartTwo.Sec13.Item13Theta
 public import CFSG.RankThree.PartTwo.Sec13.Item13Prod
-public import CFSG.RankThree.PartTwo.Sec18.Statements
-public import CFSG.RankThree.PartTwo.Sec4.StatementsGraphField
 import CFSG.RankThree.PartTwo.Sec13.Item13NotSLTwo
 import CFSG.RankThree.PartTwo.Sec13.Item136E
-import CFSG.RankThree.PartTwo.Late.Uniqueness
-import CFSG.RankThree.PartTwo.Late.GammaZero
-import CFSG.RankThree.PartTwo.Late.Transitivity
-import CFSG.RankThree.PartTwo.Sec6.Item612Plus
 import CFSG.RankThree.PartTwo.Sec6.Item612
 import CFSG.RankThree.PartTwo.Sec19.O2Centralizer
 import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CoprimeQuotientRank
-import CFSG.RankThree.PartTwo.Sec18.Item181
 import CFSG.RankThree.PartTwo.Sec18.Item181b
 import CFSG.RankThree.PartTwo.KFacts.KS18OuterMain
 import CFSG.RankThree.PartTwo.Sec19.Step1910O2Proof

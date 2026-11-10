@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoTBSec
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTransport
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLVac
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLLine
 
 public section

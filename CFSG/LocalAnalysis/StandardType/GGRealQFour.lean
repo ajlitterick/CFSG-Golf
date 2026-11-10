@@ -1,28 +1,17 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCellWitness
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Lemma95C
 public import CFSG.Assembly.LargeEvenGLABridge
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyNbrFieldRows
 public import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
 public import CFSG.Assembly.OpenBridges
 public import CFSG.Goldschmidt.Basic
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Interface
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
-public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
 public import CFSG.LocalAnalysis.GLTheoremA.P51.Quaternion
 public import CFSG.LocalAnalysis.GLTheoremA.P55.Dihedral
 public import CFSG.LocalAnalysis.GLTheoremA.S3.Lemma35
 public import CFSG.LocalAnalysis.GLTheoremA.S6.Lemma62Aux
 public import CFSG.LocalAnalysis.GLTheoremA.S6.Setup
-public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
-public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 
 public section

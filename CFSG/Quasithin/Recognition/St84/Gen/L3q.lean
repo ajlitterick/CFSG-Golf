@@ -5,7 +5,6 @@ import CFSG.Quasithin.Recognition.St84.Gen.PerfectGen
 import CFSG.Quasithin.Recognition.GoldschmidtF112RSp44
 import CFSG.Quasithin.Recognition.St84.Gen.L3qVertex
 import CFSG.Quasithin.Vol2.GoldschmidtF431L3LieModel
-import CFSG.Quasithin.Vol2.Ch9Sec3FactsF112PfC
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

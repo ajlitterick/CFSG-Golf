@@ -3,7 +3,6 @@ module
 import Lean
 public import CFSG.LocalAnalysis.StandardType.GGNsq2QuotHyp
 import CFSG.LocalAnalysis.ComponentInitial.FixedComponentCorrespondence
-import CFSG.Assembly.Subnormal
 import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts

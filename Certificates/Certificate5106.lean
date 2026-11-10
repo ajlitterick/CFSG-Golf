@@ -5,7 +5,6 @@ import CFSG.Certificates.Kernel.OpsLayKSound
 import CFSG.Certificates.Kernel.OpsLayKSoundP
 import Certificates.Kernel.LocalComp.F3.McLSec
 import Certificates.Kernel.LocalComp.Fp.Ly
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

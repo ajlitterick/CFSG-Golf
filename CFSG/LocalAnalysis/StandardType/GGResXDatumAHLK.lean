@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResHdRoNarrowDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormNbr
 public import CFSG.LocalAnalysis.StandardType.GGResXDatumAHL
-public import CFSG.LocalAnalysis.StandardType.GGResXDatumARank
-public import CFSG.LocalAnalysis.StandardType.GGGammaHypsK
 
 public section
 

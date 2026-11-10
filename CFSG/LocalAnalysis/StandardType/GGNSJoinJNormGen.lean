@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJNormOfFrame
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNbrGenKNOfInputs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanOrb
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel

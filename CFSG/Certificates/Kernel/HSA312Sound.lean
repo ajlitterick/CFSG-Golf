@@ -4,14 +4,10 @@ public import Certificates.Data.Kernel.HSA312.Defs
 public import CFSG.Certificates.Kernel.LocalQTPcOmSound
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsInputs
 public import CFSG.Quasithin.Background.A312SporShapesCheck
-public import CFSG.Quasithin.Background.A312SporE8Check
 public import Certificates.Kernel.J4Count.FixCE
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

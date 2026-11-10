@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.HA7DataInputs
 public import CFSG.Quasithin.Background.HSp4A
-public import CFSG.Quasithin.Background.FixVZPowersMem
 import CFSG.Certificates.Kernel.Misc.RankOneSq
 
 public section

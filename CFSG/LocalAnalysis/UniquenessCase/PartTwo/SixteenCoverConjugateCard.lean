@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23Odd
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154E3OmegaE
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S21a
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22uc
 public import CFSG.Adapters.StatedClassicalSmallOrders
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple

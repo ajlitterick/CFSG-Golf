@@ -1,16 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrG1
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrG2
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrG3
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrG4
-public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrRecAuxModel
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGNsq2NbrBlock
-public import CFSG.LieType.Universal.Unitary.Clause0
 
 public section
 

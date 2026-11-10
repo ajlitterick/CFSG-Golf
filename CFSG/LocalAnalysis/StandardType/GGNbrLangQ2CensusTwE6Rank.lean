@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusDefs
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
 import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
 import CFSG.LocalAnalysis.StandardType.GGTBRowTwE6RankAux
 import CFSG.LocalAnalysis.StandardType.GGSmallKGInputsTwE6

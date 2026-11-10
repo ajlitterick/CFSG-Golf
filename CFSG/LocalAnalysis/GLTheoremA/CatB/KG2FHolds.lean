@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatB.KG2F
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I91T4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.HG2InnLabel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T266G2Holds
-public import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
-public import CFSG.LieType.Catalog.Realization
 
 public section
 

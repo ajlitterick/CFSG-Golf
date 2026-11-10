@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusUnitaryBasic
-public import CFSG.Open.LocalVocabulary
-import CFSG.LieType.BorelTits.UnitaryForm
 public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 public import CFSG.LieType.BorelTits.CompleteFlag
 

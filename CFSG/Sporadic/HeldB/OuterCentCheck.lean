@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Sporadic.HeldB.OuterCentAux
-public import CFSG.Sporadic.HeldB.OuterArithCheck
-public import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
 public meta import CFSG.Sporadic.HeldB.OuterCentAux
 public meta import CFSG.Sporadic.HeldB.OuterArithCheck
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
-public import CFSG.Sporadic.HeldB.OuterCentCheckInputs
 public import Certificates.Certificate2117
 
 public section

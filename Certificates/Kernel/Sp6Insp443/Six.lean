@@ -6,7 +6,6 @@ public import Certificates.Data.Kernel.A45Cls.Defs
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 import CFSG.Certificates.Kernel.Common.Each
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Common.Lce
 
 public section

@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmDiag
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmEigen
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmLevi
-import CFSG.ClassicalGroups.Orthogonal.Models
 import CFSG.HardMathSupport.Dickson.Sec6.I1431D4Aux.OrthL2.LeviComm
 import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotEightOrthPlusLevi
 import CFSG.RankThree.PartOne.KFCL.L4Block

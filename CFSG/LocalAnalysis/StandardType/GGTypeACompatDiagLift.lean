@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagLin
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTypeALift
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestBlocks
 public import CFSG.LocalAnalysis.StandardType.GGTypeAFarConfig
-public import CFSG.LocalAnalysis.StandardType.GGLinearFusionCyclic
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
 
 public section

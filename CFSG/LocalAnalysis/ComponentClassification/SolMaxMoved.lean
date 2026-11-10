@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.SolMaxProj
 public import CFSG.LocalAnalysis.ComponentClassification.Sol76Lemma212Steps
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

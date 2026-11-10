@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UG7
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtDatum
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtUntw
 
 public section
 

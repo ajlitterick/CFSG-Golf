@@ -2,11 +2,7 @@ module
 
 public import CFSG.RankThree.GF2n.Tim79aCitedInvol
 public import CFSG.LocalAnalysis.EvenBN.Tits.R2.CatalogSporTools
-public import CFSG.Sporadic.FischerOddCore.Fi22AllInv
-public import CFSG.Sporadic.FischerOddCore.Fi22FiveExact
-public import CFSG.Sporadic.FischerOddCore.Fi22LocalComp
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.Fi23NonsolvCent
-public import CFSG.Sporadic.Fi23.Simple
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.Fi24ShapeCentral
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.Fi24ShapeC
 public import CFSG.GH74.KGroups.U33

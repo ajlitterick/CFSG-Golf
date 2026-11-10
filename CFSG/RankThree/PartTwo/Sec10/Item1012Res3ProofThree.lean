@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec10.Item1012Res3Proof
 import CFSG.Alternating.Multipliers.Small
 import CFSG.GH74.Generic.GKFCover
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 import CFSG.LieType.Steinberg.CentralExt.PSLSmall
 import CFSG.RankThree.PartTwo.KFacts.K72SLPiCField
 public import CFSG.RankThree.PerfectCover.HopfFormula

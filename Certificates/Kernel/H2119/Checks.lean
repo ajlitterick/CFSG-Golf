@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.Hering2119K
 public import Certificates.Kernel.H2119.Data
 import CFSG.Certificates.Kernel.Common.Harness
 

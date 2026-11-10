@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangSolvBridge
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.F4StdKernel
-import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.F4TwoKernel
 import CFSG.LocalAnalysis.StandardType.GGLangSixRoot
 public import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.F4TwoClass
 public import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.F4TwoFrame

@@ -1,9 +1,6 @@
 module
 
-import Mathlib.Data.Nat.Factorization.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
-public import Mathlib.GroupTheory.Transfer
 
 namespace CFSG
 end CFSG

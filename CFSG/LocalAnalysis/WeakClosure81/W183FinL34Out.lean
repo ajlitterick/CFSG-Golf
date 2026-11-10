@@ -1,9 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk73G4L34
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourAutomorphisms
-public import CFSG.Open.LocalVocabulary
 
 public section
 

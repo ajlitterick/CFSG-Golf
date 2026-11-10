@@ -4,9 +4,6 @@ module
 public import Certificates.Kernel.UnitarySix.Struct3010Base
 
 public import Certificates.Kernel.UnitarySix.Letters
-public import CFSG.Certificates.Kernel.U6Sound3010S
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeData
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

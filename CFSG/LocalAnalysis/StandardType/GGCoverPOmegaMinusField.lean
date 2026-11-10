@@ -1,18 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCoverPOmegaMinus
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaMinus
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaModelMinus
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaConj
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaConjLabels
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitOmFieldDesc
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitOmRank
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsConj
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddEndMat
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinateRegular
 import CFSG.LocalAnalysis.EvenBN.G2.Automorphisms
 import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneClassicalSymplecticField
-import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A3NativeBasic
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Native
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeBasic

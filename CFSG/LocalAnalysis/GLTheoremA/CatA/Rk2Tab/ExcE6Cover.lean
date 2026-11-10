@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.ExcE6
-public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.E6ScBound
 public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.TwE6ScBound
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6Center
-public import CFSG.LieType.Chevalley.AmbientTwistedFrobeniusFixedNormalizer
 
 public section
 

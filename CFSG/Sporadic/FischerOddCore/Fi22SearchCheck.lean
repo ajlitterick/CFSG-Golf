@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.FischerOddCore.Fi22RelBoundCheck
-public import CFSG.Sporadic.FischerOddCore.Fi22CentOrderCheck
 public meta import CFSG.Sporadic.FischerOddCore.Fi22RelBoundCheck
 public meta import CFSG.Sporadic.FischerOddCore.Fi22CentOrderCheck
-public import CFSG.Sporadic.FischerOddCore.Fi22SearchCheckInputs
 public import Certificates.Certificate2071
 
 public section

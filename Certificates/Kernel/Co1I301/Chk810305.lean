@@ -1,13 +1,9 @@
 module
 
 public import Certificates.Kernel.Co1I301.Data810305
-public import Certificates.Kernel.Co1P.Defs
 public import Certificates.Kernel.Co1P.Chk21158
 public import Certificates.Kernel.Co1ThreeK.Letters
 public import Certificates.Data.Kernel.Co1I301K
-public import Certificates.Data.Kernel.Co1P
-public import Certificates.Data.Kernel.Co1BW
-public import Certificates.Data.Kernel.Co1F2
 public import Certificates.Data.Kernel.SporSch.Co1Bfs
 public import CFSG.Sporadic.Co1I301.Inputs
 import CFSG.Certificates.Kernel.Common.Harness

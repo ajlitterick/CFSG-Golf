@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.KGFact12617c
 public import CFSG.Quasithin.Vol2.KGFact12618f
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.GroupTheory.Perm.Fin
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.PSL2Table.BlocksProduct
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
@@ -23,7 +21,6 @@ public import CFSG.Permutation.UnitaryThreeRecognition.Model
 public import CFSG.Quasithin.Background.B5FinOut
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F6Amalgams
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.EmptyFaithful.S14110
@@ -32,9 +29,6 @@ public import CFSG.Quasithin.EmptyFaithful.T1531Final
 public import CFSG.Quasithin.EmptyFaithful.T1531InspStmt
 public import CFSG.Quasithin.Vol2.KGFact12614NoFF
 public import CFSG.Quasithin.Vol2.KGFact12617b
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

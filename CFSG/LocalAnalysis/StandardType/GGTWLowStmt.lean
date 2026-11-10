@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwoDepSmallS0
-public import Mathlib.GroupTheory.Coxeter.Matrix
 
 public section
 

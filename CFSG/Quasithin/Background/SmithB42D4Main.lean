@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.Background.SmithB42D4Line
 public import CFSG.Quasithin.Background.SmithB42D4Sep
 public import CFSG.Quasithin.Background.SmithB42D4Out
-public import CFSG.Quasithin.Background.SmithB42Families
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Triality
 
 public section
 

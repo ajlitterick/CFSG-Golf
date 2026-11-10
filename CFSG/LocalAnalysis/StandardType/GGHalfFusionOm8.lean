@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGHalfFusionOm8Data
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
 import CFSG.LocalAnalysis.StandardType.GGHalfJoinSLCard
 import CFSG.HardMathSupport.Foote.E27.LieTwo.OrthModel
 import CFSG.GH74.GLS.IVK.Proofs2.SylowCommute

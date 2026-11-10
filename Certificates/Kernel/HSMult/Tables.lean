@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.Bounds.Table
 public import Certificates.Kernel.HSMult.P2Route
 public import Certificates.Kernel.HSMult.C2Route
 import Certificates.Kernel.Bounds.Assemble

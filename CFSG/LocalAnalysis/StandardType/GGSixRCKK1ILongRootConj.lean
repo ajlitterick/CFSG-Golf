@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IDefs
-public import CFSG.ClassicalInvolution.ModelFacts.Models
-public import CFSG.LieType.HighestRoot.RootsUnitary
 
 public section
 

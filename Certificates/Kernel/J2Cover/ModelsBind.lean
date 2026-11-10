@@ -7,7 +7,6 @@ public import Certificates.Kernel.J2Cover.ClassOf
 public import Certificates.Kernel.LocalComp.Child3Lemmas
 public import Certificates.Kernel.LocalComp.BlockGen
 public import CFSG.Certificates.Kernel.DecTextSound
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckBase
 
 public section

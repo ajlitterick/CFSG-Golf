@@ -1,10 +1,8 @@
 module
 
-public import CFSG.Timmesfeld.Bridge.Asc72Basic
 public import CFSG.LocalAnalysis.WeakClosure81.SevenElevenCls
 import CFSG.OddTranspositions.PartThree.Ten.WreathClass
 import CFSG.OddTranspositions.PartThree.Ten.CentralSymSplit
-import CFSG.OddTranspositions.PartThree.Ten.WreathEndgame
 import CFSG.RankThree.SteinbergR3ELargeEvenLinearTwoCover
 public import CFSG.CGT.Timmesfeld75.Cfg214Gen
 public import CFSG.LargeExtraspecial.S9TIXC

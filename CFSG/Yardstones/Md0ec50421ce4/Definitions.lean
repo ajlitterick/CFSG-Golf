@@ -1,9 +1,6 @@
 module
 
-public import CFSG.Open.Catalog
-public import CFSG.Open.Defs
 public import CFSG.Open.GLADefs
-public import CFSG.Open.StatedDefs
 
 public section
 

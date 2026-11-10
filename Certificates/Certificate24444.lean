@@ -2,10 +2,6 @@ module
 
 public import CFSG.Sporadic.Co2Schreier.Defs
 public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizers
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-import Certificates.Certificate2060
-import Certificates.Certificate3115
-import Certificates.Certificate3117
 import Certificates.Kernel.Sporadic.Co2.HypGlue
 public import CFSG.Certificates.InvariantMerge
 

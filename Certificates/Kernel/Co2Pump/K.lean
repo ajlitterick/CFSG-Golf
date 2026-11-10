@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Co2Pump.Bind
 public import Certificates.Kernel.Misc.Perm.C2K
-public import Certificates.Data.Kernel.Spor.Text
 public import Certificates.Data.Kernel.MonsterB.BfsReplay
 import CFSG.Certificates.Kernel.Common.Harness
 

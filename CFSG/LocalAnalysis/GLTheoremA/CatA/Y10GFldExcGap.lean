@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcChev
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangChev
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwisted
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTriD4Conj
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangSz
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangReeF4
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownE6Model
 
 public section

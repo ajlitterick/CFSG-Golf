@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGKGCentOmMinus
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.TorusM8POmegaMinus
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentralizerBasic
-import Mathlib.Tactic.Group
 
 public section
 

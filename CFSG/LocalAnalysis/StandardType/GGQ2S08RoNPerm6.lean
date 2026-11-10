@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNPerm
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Gorenstein.Chapter8_2
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.NormalizerLeNormalizerCentralizer
 public import CFSG.GroupTheory.CoprimeActionSupport.NormalSubgroupSylowJoin
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNFullDiagonal
-public import Mathlib.GroupTheory.Sylow
 
 public section
 

@@ -1,28 +1,14 @@
 module
 
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.Cases
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.HypC
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.L34Sylow
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.Preamble
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.FourteenFifteenOne
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.CoreTwoL34
 import CFSG.Quasithin.Background.A3Structure318Star
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineTenBridge
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinResidual
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinTransport
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingSymmetric
-public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import CFSG.Open.PGLModelDefs
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinSubnormal
-import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
 import CFSG.GroupTheory.WielandtProductAux
 import CFSG.GroupTheory.PCore.PrimeSetCore
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.Quasithin.Vol2.Ch12Sec6P31Kl2
 import CFSG.Quasithin.Vol2.Ch12Sec2Lem8Cases
 import CFSG.Models.PGLOrders
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGLHyp111BaseIndexKappa
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineNineConseq
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineEightB
 import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8YCfgAct
 public import CFSG.GH74.GLS.Classes

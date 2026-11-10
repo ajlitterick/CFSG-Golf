@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylField
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylOpenLabels
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6Split
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLineDecomp

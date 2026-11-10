@@ -1,9 +1,6 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Remaining
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection12.lemma_12_1_a
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Wielandt.MatrixTrace
 
 namespace CFSG

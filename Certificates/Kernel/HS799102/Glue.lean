@@ -6,10 +6,8 @@ public import Certificates.Kernel.HS799102.ChainChecks
 public import Certificates.Kernel.HS799102.GlueChecks
 public import Certificates.Kernel.HS100.Chain
 public import CFSG.Certificates.Kernel.PCentExtCheck
-public import CFSG.RankThree.Native.HSMcLSmall
 public import CFSG.RankThree.Native.HSMcLFiveCentralizers
 import CFSG.Certificates.Kernel.Misc.ArrEnumUnpack
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Spor.RawOrbHead
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.PK.Perm.Inv

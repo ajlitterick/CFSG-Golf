@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveUDvdRZMod
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveUDvdRNode
-public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveUDvdEndNode
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdSwap
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvd63Model
-public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveUnitaryDvd
 
 public section
 

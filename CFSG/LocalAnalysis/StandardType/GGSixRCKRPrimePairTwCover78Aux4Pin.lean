@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairTwCover78Aux1
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairTwCover78Aux2
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairTwCover78Aux4
 
 public section

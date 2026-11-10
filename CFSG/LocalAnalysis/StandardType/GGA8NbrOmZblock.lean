@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrOmDefs
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrSpJSp4
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmBlock
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddLayer
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaMinusPiecesOrders
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotQ2OverlapOmMinus
 public import CFSG.RankThree.PartOne.S11d.OrthModels
 public import CFSG.LocalAnalysis.AGLEmbedding.TimmesfeldRouteAux

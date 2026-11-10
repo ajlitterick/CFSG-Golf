@@ -9,11 +9,8 @@ module
 -- Classification). Per the module-layering convention, the theorem moved upward;
 -- consumers (Section2/Basic.lean, Section2/Lemma23.lean) import this module.
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThree
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.MinimalNormalKleinFour
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGroupExtension
 
 namespace CFSG
 end CFSG

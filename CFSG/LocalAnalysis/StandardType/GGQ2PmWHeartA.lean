@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoWDatum
 public import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 import CFSG.LocalAnalysis.StandardType.GGHeartAPm
 import CFSG.LocalAnalysis.StandardType.GGTBTorCartan
-import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112K
 import CFSG.LocalAnalysis.StandardType.GGQTwoPmWDatum
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.LinearAlgebra.Finsupp.LinearCombination
 import CFSG.LocalAnalysis.StandardType.GGTBTorDefs
 
 public section

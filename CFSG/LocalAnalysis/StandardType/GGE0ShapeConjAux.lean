@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
 
 public section

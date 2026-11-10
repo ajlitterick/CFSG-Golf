@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LieType.Steinberg.CentralExt.SUCentrallyClosed
 public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.CoverMap
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.PerfectOddCoverLift
 public import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusUnitaryBasic
-public import CFSG.Open.Defs
 
 public section
 

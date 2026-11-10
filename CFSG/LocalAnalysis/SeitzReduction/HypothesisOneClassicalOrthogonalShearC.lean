@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneClassicalOrthogonalShearCSupply
 public import CFSG.ClassicalGroups.Orthogonal.Hyperbolic
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.Algebra.CharP.Two
-import Mathlib.Algebra.CharP.Reduced
-import Mathlib.Tactic.Module
 import Mathlib.Tactic.ReduceModChar
 
 public section

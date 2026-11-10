@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthUnFourNorm
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 
 public section
 

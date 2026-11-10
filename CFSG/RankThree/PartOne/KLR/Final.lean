@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartOne.KLR.Native
 public import CFSG.RankThree.PartOne.KLR.StarRad
 public import CFSG.RankThree.PartOne.KLR.SectorAssembly
 public import CFSG.RankThree.PartOne.KLR.SectorOrder

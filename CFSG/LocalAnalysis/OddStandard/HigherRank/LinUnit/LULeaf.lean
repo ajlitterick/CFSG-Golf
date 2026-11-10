@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Core
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.LinUnit.LUBlockTransfer
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.LinUnit.LUOrder
 public import CFSG.ClassicalInvolution.Asc77.WP1Section18
 public import CFSG.ClassicalInvolution.Asc77.WP1Section6
 public import CFSG.ClassicalInvolution.Balance.QNineFuzzyFree

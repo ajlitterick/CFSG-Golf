@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowF8OmAut
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowF8OmCoreTransport
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowF8Trans
-public import CFSG.LieType.SeitzGeneration.OuterOrthThreeData
-public import CFSG.Adapters.TauCetiLieModels
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.CGT.Timmesfeld75.Main
 public import CFSG.ClassicalInvolution.Asc77.AscE184Basic

@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2CoverLift
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongExcDatum
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongExcC2
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2HighestRootLong
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalIsogeny
 public import CFSG.ClassicalInvolution.ModelFacts.ChevAutLift
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalAdjoint

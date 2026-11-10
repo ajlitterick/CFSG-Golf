@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.J4.QT2ARadNative
 public import Certificates.Kernel.J4Q.QT2A
 public import Certificates.Kernel.J4Q.QT2AData
 import Certificates.Kernel.J4Q.Strs

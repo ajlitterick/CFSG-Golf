@@ -1,25 +1,9 @@
 module
 
-public import CFSG.Quasithin.Background.HMathieuCodeMask
-public import CFSG.Quasithin.Background.HMathieuNorm
 public meta import CFSG.Quasithin.Background.HMathieuCodeMask
 public meta import CFSG.Quasithin.Background.HMathieuCent
 public meta import CFSG.Monster.Code.Basis
-public import Certificates.Certificate2195
-public import Certificates.Certificate2196
-public import Certificates.Certificate2197
-public import Certificates.Certificate2198
-public import Certificates.Certificate2202
-public import Certificates.Certificate2204
-public import Certificates.Certificate2205
-public import Certificates.Certificate3017
-public import Certificates.Certificate3029
-public import Certificates.Certificate3046
-public import Certificates.Certificate3157
-public import CFSG.Quasithin.Background.HMathieuCodeCentInputs
 public import Certificates.Certificate7061
-public import Certificates.Certificate7060
-public import Certificates.Certificate7065
 
 public section
 

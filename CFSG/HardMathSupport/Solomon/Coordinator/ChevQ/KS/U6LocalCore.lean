@@ -2,20 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneUModel
 public import CFSG.HardMathSupport.Dickson.Bal207.LocalBalClassicalUniOuter
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThree
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87Open
-import Mathlib.GroupTheory.SchurZassenhaus
 import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8KAUGen
-import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.F4LocalOne
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryBalNonsplit
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryBalSplit
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryOuter
-import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossOrthBase
 import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossUniOuter
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryDiagonalOuterOrder
-import CFSG.RankThree.PartOne.KC.UnitaryOrthonormalEigenbasis
-import CFSG.RankThree.PartOne.KC.UnitaryPrimaryPairing
-import CFSG.RankThree.PartOne.KC.UnitaryRigidityLines
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneProjSlice
 import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FL4
 import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FL4Cases

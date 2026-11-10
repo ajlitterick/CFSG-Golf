@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.Co2Fuse
 public import CFSG.Certificates.Kernel.Co2Cls.Sound
 public import CFSG.Certificates.Kernel.Co2Cls.Glue
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Certificates.Kernel.BSeed.Sound
 public import CFSG.Certificates.NativeSchreierCard

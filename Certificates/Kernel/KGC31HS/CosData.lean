@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.KGC31HS.Data
 public import Certificates.Kernel.SporSch.Th.GenV4
 public meta import Certificates.Kernel.KGC31HS.Data
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Bounds.Core3
 import CFSG.Certificates.Kernel.Bounds.Load
 

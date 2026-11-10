@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTorusMaxOrbitE7
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxOrbitE8
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxWielandt
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxStruct
-import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE7
-import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE8
-import Mathlib.Tactic.FinCases
-import Mathlib.Tactic.LinearCombination
 
 public section
 

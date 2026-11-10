@@ -3,13 +3,7 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoL3EvenAg
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bLemma34
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoHypIIL3
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoHypIIYCriterion
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicOddCore
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoStandardDefs
-public import CFSG.LocalAnalysis.ComponentInitial.KProperSubgroup
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.Walter.PSL2Facts.Even
-public import CFSG.LieType.Ree.SuzukiOrder
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderAutLinear
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderSuzuki
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderUnitary

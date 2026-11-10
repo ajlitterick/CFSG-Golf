@@ -3,9 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec6.BThreeCensusLinear
 public import CFSG.RankThree.SubgroupLists.SymplecticReducible
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusWeylMatrices
-public import CFSG.Open.StatedAPI
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.SuzukiSimple
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.SectionRank.PRank

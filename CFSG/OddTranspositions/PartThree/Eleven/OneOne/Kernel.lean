@@ -2,7 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Frame
 public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Conj
-import CFSG.OddTranspositions.SixEight
 
 public section
 

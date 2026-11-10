@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Curtis.Coordinator.PLTypeDefs
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 public import CFSG.Quasithin.Background.HSp4A6Data
 public import CFSG.LargeExtraspecial.S7Perm
 

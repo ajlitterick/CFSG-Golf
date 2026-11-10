@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitF4Label
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitF4E78
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyElevenDefs
 

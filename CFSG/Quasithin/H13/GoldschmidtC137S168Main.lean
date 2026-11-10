@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.H13.GoldschmidtC137S168Rho
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_14
 public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.Blueprint.Catalog
 
 public section
 

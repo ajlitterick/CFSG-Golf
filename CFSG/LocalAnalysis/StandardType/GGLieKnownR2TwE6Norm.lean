@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Rad
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6NThmA
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6NPanel
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6NTor
 

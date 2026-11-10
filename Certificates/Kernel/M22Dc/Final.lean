@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.M22Dc.Bridge
 public import Certificates.Kernel.M22Dc.Lit
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatOfFacts
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

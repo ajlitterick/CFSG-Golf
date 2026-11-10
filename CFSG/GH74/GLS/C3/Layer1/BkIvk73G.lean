@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.GLS.C3.Layer1.BkL114SEAsm
 public import CFSG.GH74.GLS.C3.Layer1.BkIvk73Abs
-public import CFSG.LocalAnalysis.ComponentClassification.Foote5L53M
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5L55B
 
 public section

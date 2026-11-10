@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGFrameE78Facts
 import CFSG.LocalAnalysis.StandardType.GGFrameE78Refl
-import Mathlib.GroupTheory.QuotientGroup.Defs
-import Mathlib.GroupTheory.Coset.Card
-import Mathlib.GroupTheory.Index
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 
 public section

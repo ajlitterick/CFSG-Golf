@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwKGLayerDefs
-public import CFSG.LocalAnalysis.StandardType.GGKGLayerTransport
 public import CFSG.LocalAnalysis.StandardType.GGKGLayersTheta
 public import CFSG.LocalAnalysis.StandardType.GGTwE6EndNodeThreeCoroot
 

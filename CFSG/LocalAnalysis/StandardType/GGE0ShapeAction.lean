@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE0ShapeDefs
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeBruhat
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeLang
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeActionAux
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInBCDCharTwo
 
 public section

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKFlagDefs
 public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 public import TauCeti.RepresentationTheory.Unipotent.PowerOrder
-public import Mathlib.Tactic.Group
 
 public section
 

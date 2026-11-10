@@ -1,9 +1,7 @@
 module
 
 public import Certificates.Kernel.Co1FiveL.TrData
-public import Certificates.Data.Kernel.Co1Seven.Cen
 public import Certificates.Data.Kernel.Co1ClosP
-public import Certificates.Data.Kernel.SporSch.Co1Bfs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

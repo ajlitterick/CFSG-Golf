@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivExcTags
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcPilotNonsplit
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixENonsplit
-public import CFSG.LieType.Chevalley.D4TripleA2Lemmas
 
 public section
 

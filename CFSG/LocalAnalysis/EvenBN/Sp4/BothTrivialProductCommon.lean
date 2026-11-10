@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialProductUnique
 public import CFSG.LocalAnalysis.EvenBN.Sp4.ProductModel
-import CFSG.LocalAnalysis.EvenBN.Common.CoprimeQuotient
 import CFSG.LocalAnalysis.EvenBN.U4.CaseTwoNine
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 

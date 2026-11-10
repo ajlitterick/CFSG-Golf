@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.Open.Defs
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLPlainOrderPSU
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.Timmesfeld.Orders.ClassicalLinear
 import CFSG.Timmesfeld.Orders.ClassicalOmega
-import CFSG.LocalAnalysis.ComponentClassification.ClassicalModelStatedBridge
 import CFSG.RankThree.PartOne.F106.ConvOrdBound
 import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 import CFSG.LieType.Steinberg.Classical.SpinFrame
@@ -24,7 +20,6 @@ import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 import CFSG.LocalAnalysis.SectionRank.SporadicCover
 import CFSG.Sporadic.M23.M23Group
-import CFSG.Sporadic.Th.F2Spec
 import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

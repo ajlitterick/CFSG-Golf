@@ -1,28 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoAssemble
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08TwoNode
 public import CFSG.LocalAnalysis.StandardType.GGQ2PmHeartA
-public import CFSG.LocalAnalysis.StandardType.GGWAutDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoInputs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLemmaH4
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveInputs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixNbrDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeI1Rank
 import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeBig
 import CFSG.LocalAnalysis.StandardType.GGQ2ReflMovesLineWeyl
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylNS
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeABridge
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-import CFSG.LocalAnalysis.StandardType.GGReflectionBasic
-import CFSG.LocalAnalysis.StandardType.GGQTwoNbrLineStab
-import CFSG.LocalAnalysis.StandardType.GGQTwoAjSetting
-import CFSG.LocalAnalysis.StandardType.GGQ2MixedCentreRefl
 import CFSG.LocalAnalysis.StandardType.GGQ2P3Hyp
-import CFSG.LocalAnalysis.StandardType.GGQTwoK1OfI1
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CGT.PushingUpLit.T2KR.TorusSzData
-public import CFSG.CGT.PushingUpLit.T2KR.TorusSec3
 public import CFSG.CGT.PushingUpLit.T2KR.TorusAbs
 public import CFSG.CGT.T75M.SzData
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LinearAlgebra.ExtraspecialCyclotomicModule
-public import Mathlib.LinearAlgebra.BilinearForm.Basic
-public import Mathlib.Algebra.Polynomial.Expand
-public import Mathlib.FieldTheory.Finite.Basic
 
 public section
 

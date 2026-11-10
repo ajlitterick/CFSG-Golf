@@ -1,8 +1,6 @@
 module
 
-public import CFSG.RankThree.CentralLiftU.UnitaryThreeEven
 public import CFSG.RankThree.CentralLiftU.EvenTorus
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.Unitary
 public import CFSG.ClassicalGroups.UnitaryFlag.ModelTransport
 
 public section

@@ -2,7 +2,6 @@ module
 
 import Certificates.Kernel.J4Q.FormInv
 public import Certificates.Certificate3084Base
-public import Certificates.Data.CFSGNative.J4.Data
 
 public section
 

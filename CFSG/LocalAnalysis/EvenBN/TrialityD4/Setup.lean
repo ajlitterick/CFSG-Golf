@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.EvenBN.TrialityD4.InvariantsCenters
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.Native
 public import CFSG.LocalAnalysis.ComponentClassification.StandardRecognitionKernel
 public import CFSG.GroupTheory.QuasisimpleCommutingProductBound
-public import CFSG.Assembly.Reduction
-public import CFSG.Blueprint.Catalog
 public import CFSG.Open.StandardComponentRecognitionMilestoneDefs
 import CFSG.GroupTheory.ElementaryAbelianTransport
 

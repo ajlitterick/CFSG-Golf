@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviCore
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.OddShapesPart2
-public import CFSG.LieType.Chevalley.CLSOddToralOrdinaryComponentRootFactor
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.Chevalley.LangRootArithmeticDet
-public import CFSG.RankThree.PartOne.KE.CTLang
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteA4F4
 public import CFSG.LocalAnalysis.StandardType.GGTBJLeviAssemble
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.ExcResidual

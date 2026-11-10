@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcDiagramAutomorphisms
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcRootFamilyConjugacy
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcRootReflectionRelations
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylOuterTransport
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylReflectionOfFixedPoints
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylNormDefs

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGDepED4PrimeJ
 public import CFSG.LocalAnalysis.StandardType.GGTWZKLinear
 public import CFSG.LocalAnalysis.StandardType.GGTWZKUnitary
-public import CFSG.LocalAnalysis.StandardType.GGTWRowData
 
 public section
 

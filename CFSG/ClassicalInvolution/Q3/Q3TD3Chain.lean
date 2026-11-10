@@ -1,11 +1,8 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.Q3WATwinDRow
 public import CFSG.ClassicalInvolution.Q3.Q3TY8
 public import CFSG.ClassicalInvolution.Q3.Q3TCPartner
 public import CFSG.ClassicalInvolution.Q3.Q3EXOrthLarge
-public import CFSG.ClassicalInvolution.RouteD.TypeDChain
-public import CFSG.ClassicalInvolution.ModelFacts.FundNoncentralBridge
 public import CFSG.ClassicalInvolution.Q3.Q3TY5
 
 public section

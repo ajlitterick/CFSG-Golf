@@ -4,7 +4,6 @@ public import Certificates.Kernel.SporSch.Mathieu.Gen
 public import Certificates.Kernel.LocalComp.Child3Gen
 public import Certificates.Kernel.LocalComp.M12Cent.Words
 public meta import Certificates.Kernel.LocalComp.M12Cent.Words
-import CFSG.Certificates.Kernel.Common.Harness
 public meta import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutFusion
 public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutFusion
 

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBRowCoordFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBRowF4Core
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4
 
 public section
 

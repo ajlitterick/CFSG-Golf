@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGK2E6B5C2SPModel
 public import CFSG.LocalAnalysis.StandardType.GGK2E6C2SPClosure
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CAssembly
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.LocalAnalysis.StandardType.GGDepAConfig
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LinearAlgebra.RootGroupSL.Transport
 public import CFSG.LinearAlgebra.RootGroupSL.DatumEquiv
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
 
 public section
 

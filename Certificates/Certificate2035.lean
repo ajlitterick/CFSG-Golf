@@ -3,13 +3,10 @@ module
 
 public import Certificates.Certificate2035Base
 
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Hexads
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
-public import CFSG.Sporadic.Schreier.M22Data
 public meta import CFSG.Sporadic.Schreier.M22Data
 import Certificates.Kernel.LocalComp.M22Triples
 import Certificates.Kernel.LocalComp.M22TriplesNeg
-import Certificates.Data.CFSGNative.Mathieu.M22
 
 public section
 

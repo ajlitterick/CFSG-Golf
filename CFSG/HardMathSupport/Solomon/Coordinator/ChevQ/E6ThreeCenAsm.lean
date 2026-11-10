@@ -4,7 +4,6 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeCenDefs
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeCenSylow
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeCenWeyl
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeCenNormalizes
-import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeCenTorus
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeCenOB
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeCenOT
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeCenO3
@@ -71,7 +70,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly
@@ -86,8 +84,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

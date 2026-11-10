@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKFact2025Abs
-public import CFSG.Open.StatedDefs
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Generic.Certificates
 public import CFSG.GH74.Statements

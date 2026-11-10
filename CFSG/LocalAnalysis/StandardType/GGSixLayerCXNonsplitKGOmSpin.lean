@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmLift
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmModel
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivOmega
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClSp
 
 public section
 

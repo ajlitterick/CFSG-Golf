@@ -4,13 +4,11 @@ public import Certificates.Kernel.Sporadic.Co2Inv.Data
 public import Certificates.Kernel.Sporadic.Co2Inv.Mats
 public import CFSG.Certificates.Kernel.Co2InvS.Check
 public import Certificates.Kernel.Sporadic.Co2.FRows
-public import CFSG.Certificates.Kernel.Spor.Loops
 import all Init.Data.Nat.Fold
 import all Init.Data.Range.Basic
 import all Init.Data.Array.Basic
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Cover
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 400000
 set_option exponentiation.threshold 600

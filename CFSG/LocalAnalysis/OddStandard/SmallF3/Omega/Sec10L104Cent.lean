@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10KS3
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10TwoCore
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10K0Aux
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects

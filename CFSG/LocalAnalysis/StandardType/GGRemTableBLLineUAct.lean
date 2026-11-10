@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeLift
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerTypeADvdModel
 

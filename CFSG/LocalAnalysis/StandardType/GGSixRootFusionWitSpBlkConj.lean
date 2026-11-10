@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitSpBlkFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitSpBlkSwap
-public import CFSG.Sporadic.Suz.Setup
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 public import CFSG.YGroups.Y443.Native.CoverFactsA
 import Certificates.Kernel.KDense.Y443
 public meta import CFSG.YGroups.Y443.Native.Align

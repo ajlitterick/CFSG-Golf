@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.SporSch.Ly.CoverData
 public import Certificates.Kernel.SporSch.Ly.BS18009
 public import CFSG.Certificates.Kernel.Spor.TabWords
-public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Certificates.Kernel.Spor.RawSlSound
-import Mathlib.Tactic.IntervalCases
 
 public section
 

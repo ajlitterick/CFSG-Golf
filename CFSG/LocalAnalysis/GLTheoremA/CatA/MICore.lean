@@ -1,13 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIBase
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIInn
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.MITransport
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.MILabel
-public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGWitOrthL51Aux4
-public import CFSG.LocalAnalysis.StandardType.GGWitOrthClassCrAux
 
 public section
 

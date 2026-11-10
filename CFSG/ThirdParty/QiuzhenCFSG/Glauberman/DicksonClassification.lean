@@ -1,25 +1,6 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.PSL2
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import Mathlib.FieldTheory.Finite.GaloisField
-public import Mathlib.FieldTheory.Finite.Extension
-public import Mathlib.FieldTheory.Finite.Trace
-public import Mathlib.Algebra.CharP.CharAndCard
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import Mathlib.GroupTheory.SpecificGroups.Dihedral
-public import Mathlib.GroupTheory.SchurZassenhaus
-public import Mathlib.GroupTheory.GroupAction.Primitive
 public import Mathlib.GroupTheory.GroupAction.MultipleTransitivity
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.FinTwo
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonSylow
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonSmallAlternating
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonSplitTorus
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonNonsplitTorus
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonPSL2Partition
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonCounting
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonCase823
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_11
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_14
@@ -27,8 +8,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonUnipotent
 import Mathlib.LinearAlgebra.Eigenspace.Basic
 import Mathlib.Algebra.Polynomial.SpecificDegree
 import Mathlib.Algebra.BigOperators.Ring.Nat
-import Mathlib.GroupTheory.GroupAction.ConjAct
-import Mathlib.GroupTheory.Transfer
 
 namespace CFSG
 end CFSG

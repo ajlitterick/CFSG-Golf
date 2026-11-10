@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 public import CFSG.RankThree.SubgroupLists.UnitaryThreeFamily
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryField
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 
 public section
 

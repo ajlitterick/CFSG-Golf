@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Co2Census.CCDefs
 public import Certificates.Kernel.Co2Census.HPData
 public import Certificates.Kernel.Co2Census.CCData
-public import Certificates.Kernel.Co2Census.S0Data
 public import CFSG.Certificates.Kernel.Common.Cover
 
 public section

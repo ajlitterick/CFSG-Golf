@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2OrthTauMemOmega
 import CFSG.LocalAnalysis.StandardType.GGQ2OrthTorusAutCoord
 import CFSG.LocalAnalysis.StandardType.GGQ2OrthType
 import CFSG.LocalAnalysis.StandardType.GGQ2OrthBlocksGroup
-import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksCentExt
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagOmegaQuasisimple
 import CFSG.RankThree.PartOne.KF.ClsOmega
 

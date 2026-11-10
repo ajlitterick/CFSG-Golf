@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndLift
-public import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndSmall
 
 public section
 

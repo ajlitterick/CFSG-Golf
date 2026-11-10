@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Assembly.GL83LieDefs
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
@@ -8,9 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.RankThree.Asc83Table.Automizer
 public import CFSG.LinearAlgebra.SteinbergBQAutomizerPermutation
 public import CFSG.RankThree.PartOne.S12.Sec159Fin
-public import CFSG.LieType.Steinberg.CentralExt.PerfectCover
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 public import CFSG.LocalAnalysis.SectionRank.KGroupSectionClosure
 public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual

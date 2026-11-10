@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
 public import CFSG.GroupTheory.OddCentralQuotient
-public import Mathlib.Algebra.Group.Commutator
 
 public section
 

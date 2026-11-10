@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.HTD42QSound
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.HTD42Gen
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.D4TwoPlane
-public import Certificates.Certificate9415
 import CFSG.Certificates.Kernel.D4PlaneSound
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.Coordinator.Cover
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.ExceptionsTransport.FamilyProved

@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Monster.B.Fischer.InducedChecksInputs
-public import Certificates.Data.Kernel.SortTree
 
 public section
 

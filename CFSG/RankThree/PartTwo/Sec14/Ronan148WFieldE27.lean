@@ -2,10 +2,8 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148WU3Nine
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WFieldE27Red
-import CFSG.RankThree.PartTwo.Sec14.Ronan148WFieldE27Odd
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WFieldE27Even
 import CFSG.RankThree.PartTwo.Sec13.Item138NMod9
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseA
 import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.RankThree.Asc83Table.Automizer
 import CFSG.RankThree.PartTwo.Sec11.Data

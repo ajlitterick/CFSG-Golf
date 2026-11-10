@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISpSiegel
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSp
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISpPairAux
 public import CFSG.GH74.GLS.Bg.TwoGroups.Lemma21c
-public import CFSG.HardMathSupport.Curtis.Coordinator.PerfThreeOrthPieces
 public import CFSG.Quasithin.EmptyFaithful.S146zRSLB
-public import TauCeti.Algebra.Group.Subgroup.ZPowers
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.GH74.GLS.Bg.TwoGroups.Lemma21a
 
 public section

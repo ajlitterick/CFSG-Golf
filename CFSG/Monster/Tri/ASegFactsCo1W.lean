@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Monster.GMS.S365Facts
 public import CFSG.Monster.GMS.Leech.Linear
 public import CFSG.Sporadic.Co1.Module.Pairs
-public import CFSG.Monster.Tri.ASegFactsCo1WInputs
 public import Certificates.Certificate10046
 public meta import CFSG.Sporadic.Co1.Module.PairsCheck
 public meta import CFSG.Sporadic.Co1.Module.Orbits

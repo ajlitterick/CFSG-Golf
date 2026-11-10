@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.WeakCT.Defs
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.EvenClassicalLinearAut
 import CFSG.LieType.SpecialLinear.NormalizerLift.Lift
 import CFSG.ClassicalInvolution.WeakCT.AutExtend
-import CFSG.ClassicalInvolution.WeakCT.Center
 public import CFSG.ClassicalInvolution.Phan.Blocks
 public import CFSG.Foundations
 public import CFSG.GroupTheory.Fitting.CharacteristicP
@@ -19,8 +18,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.K1.EvenClassicalFamily
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.EvenClassicalLinearStrong
 import CFSG.ClassicalInvolution.WeakCT.StandardPair
 import CFSG.ClassicalInvolution.WeakCT.TorusAgree
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 
 public section
 

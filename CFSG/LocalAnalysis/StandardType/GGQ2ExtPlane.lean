@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExtPlaneInner
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExtPlaneAmb
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExtClassicalStatements
-public import CFSG.LocalAnalysis.StandardType.GGQ2PlaneShapes
 public import CFSG.LocalAnalysis.StandardType.GGQ2PlaneChainProofs
 public import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalInsideMoved
 

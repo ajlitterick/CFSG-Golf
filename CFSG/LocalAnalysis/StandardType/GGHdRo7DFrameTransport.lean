@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7DLModelDefs
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
 
 public section
 

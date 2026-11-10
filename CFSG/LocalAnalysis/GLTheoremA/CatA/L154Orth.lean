@@ -3,15 +3,7 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Holds
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldOrth
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S2019OrthInner
-public import CFSG.RankThree.PartOne.KC.OrthogonalCommutatorBridge
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaConjLabels
-public import CFSG.Adapters.TauCetiLieModels
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.OrthInner
-public import CFSG.ClassicalGroups.Orthogonal.Simple
-public import CFSG.ClassicalGroups.Orthogonal.Matrix
-public import CFSG.RankThree.PartOne.S11d.OrthModels
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
 
 public section
 

@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNTPlaneInput
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.FrameAct
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentPerm
 import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE6Data
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAut
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleLang
 
 public section
 

@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResU3ThreeSub
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniGeom
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylRest13Known
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNinePGL
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneUnitaryLabel
 public import CFSG.HardMathSupport.Lang.Proving.CubeNormOne
 

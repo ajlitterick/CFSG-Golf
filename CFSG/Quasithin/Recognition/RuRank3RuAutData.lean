@@ -5,14 +5,12 @@ public import CFSG.Quasithin.Recognition.RuRank3RuAutDataBase
 
 public import CFSG.Quasithin.Recognition.RuRank3RuGraphData
 public import CFSG.Quasithin.Recognition.RuRank3TitsCls
-public import CFSG.Sporadic.Schreier.TitsGraphCheck
 public meta import CFSG.Quasithin.Recognition.RuRank3RuGraphData
 public meta import CFSG.Quasithin.Recognition.RuRank3TitsCls
 public meta import CFSG.Quasithin.Recognition.RuRank3TitsSyl
 public meta import CFSG.Sporadic.Schreier.TitsGraphCheck
 public meta import CFSG.Sporadic.Schreier.RuOrbit
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Quasithin.Recognition.RuRank3RuAutDataInputs
 public import Certificates.Certificate7045
 
 public section

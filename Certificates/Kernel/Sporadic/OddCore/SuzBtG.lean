@@ -5,9 +5,7 @@ public import Certificates.Kernel.Sporadic.OddCore.SuzBtSF
 public import Certificates.Kernel.Sporadic.OddCore.SuzC1EG
 public import CFSG.Certificates.Kernel.Spor.SuzC1Base
 public import CFSG.Sporadic.SuzRecog.SuzL34.Bridge
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.HeFixKFix
-import Mathlib.Tactic.IntervalCases
 
 public section
 

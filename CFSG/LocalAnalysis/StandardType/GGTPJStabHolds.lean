@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTPDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPStabRefl
 public import CFSG.LocalAnalysis.StandardType.GGTPReflInE6
 public import CFSG.LocalAnalysis.StandardType.GGTPReflInTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 
 public section
 

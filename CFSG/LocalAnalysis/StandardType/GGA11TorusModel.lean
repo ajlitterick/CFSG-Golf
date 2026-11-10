@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGA11FrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGA11GraphAut
 
 public section

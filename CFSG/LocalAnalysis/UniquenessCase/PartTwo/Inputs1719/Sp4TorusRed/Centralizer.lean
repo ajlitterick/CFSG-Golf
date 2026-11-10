@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Sp4TorusRed.PointStab
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Sp4TorusRed.LeviStab
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusRegular
 import CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusInverters
 
 public section

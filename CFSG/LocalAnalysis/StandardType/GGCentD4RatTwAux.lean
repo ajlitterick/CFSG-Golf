@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneInput
-public import CFSG.HardMathSupport.Lang.D4Three.NormalForm
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 public import CFSG.HardMathSupport.Lang.D4Three.Outer
-public import CFSG.LieType.Chevalley.TrialityFullAmbientFixedGroup
-public import CFSG.RankThree.Chevalley.SteinbergCFTrialityNoninnerDescent
-public import CFSG.LieType.Chevalley.LangFiniteRootCentralizer
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.ExcTrialityOrient
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixedTriality2Final
 public import CFSG.RankThree.PartTwo.Sec11.Data

@@ -1,23 +1,13 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3Order
-public import CFSG.LocalAnalysis.ComponentClassification.InnAutDerived
 
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FDynTri
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoThree
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
 import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
 import CFSG.LocalAnalysis.GLTheoremA.S11.Lemma117
-import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofReeConj
 import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofReeCore
-import CFSG.RankThree.PartTwo.Sec8.Item87ProofGamma
-import CFSG.HardMathSupport.Lang.Triality.SylowInnerExt
-import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.OutReeF4
-import CFSG.LieType.ChevTwo.OppositeFixedExcReeModel
-import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcompIdx
-import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
-import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011LabUniq
-import CFSG.LocalAnalysis.EvenBN.GMSK.TypeDetBender
 import CFSG.Mathlib.Arithmetic.TwoPowModThree
 import CFSG.RankThree.PartTwo.Sec8.Item86ResProofTwo
 

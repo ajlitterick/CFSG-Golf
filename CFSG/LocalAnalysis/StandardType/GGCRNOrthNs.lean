@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailHolds
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTorus
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylPlusLiftSL2
 
 public section
 

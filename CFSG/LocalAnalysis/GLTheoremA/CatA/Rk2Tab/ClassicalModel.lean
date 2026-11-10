@@ -1,27 +1,15 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2TwAModel
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankTable
 public import CFSG.Adapters.ClassicalCatalogLinearUnitary
-public import CFSG.Adapters.ClassicalCatalogReverse
 public import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
-public import CFSG.Blueprint.SourceClassicalTransportOrthogonal
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.ClassicalArith
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.Shared
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Num
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20x
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankSmall
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankAlt
-public import CFSG.Adapters.TauCetiExceptional.EvenBridgeG2
-public import CFSG.Adapters.LinearFieldTransport
 public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
-public import CFSG.RankThree.PartTwo.Census.Carrier.SpinBBridge
-public import CFSG.RankThree.PartTwo.Census.Carrier.SpinDOdd
 public import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDOdd
-public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2Carrier
-public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-public import CFSG.Models
 public import CFSG.Quasithin.Background.A3Structure36BPrime
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32
 public import CFSG.HardMathSupport.Solomon.LocalBalance.PartIInputs

@@ -4,7 +4,6 @@ public import Certificates.Kernel.SporSch.Co1.AutK
 public import Certificates.Kernel.SporSch.Co1.Stab2148
 public import CFSG.Certificates.Kernel.SporSch.Co1TowerSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

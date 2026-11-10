@@ -3,12 +3,9 @@ module
 public import Certificates.Kernel.J2Cover.G5110
 public import Certificates.Kernel.J2Cover.M22Out
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.J2ECheck
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.J2ECheck
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Common
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 
 public section

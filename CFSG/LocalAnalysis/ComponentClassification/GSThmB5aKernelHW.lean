@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5bBasicHW
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5bTypesHW
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB58SubCPrimeA
 public import CFSG.Open.QuasithinDefs

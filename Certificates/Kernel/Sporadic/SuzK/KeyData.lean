@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.CFSGNative.Suz.Certificate
-public import Certificates.Data.Kernel.Spor.Row
 public import Certificates.Kernel.Sporadic.RowsWCmd
 public import Certificates.Kernel.Sporadic.OddCore.RowsCmd
 public meta import Certificates.Data.CFSGNative.Suz.Certificate

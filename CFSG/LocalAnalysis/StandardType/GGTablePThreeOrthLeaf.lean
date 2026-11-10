@@ -1,13 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinDefs
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniModel
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplitR
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeKnownSix
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeOrthShapeDefs
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeOrthShape
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinShape
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinJA1
@@ -16,7 +8,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinJNoD4Odd
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinJNoG2
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinJNoTriD4
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinJNoTwA2
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

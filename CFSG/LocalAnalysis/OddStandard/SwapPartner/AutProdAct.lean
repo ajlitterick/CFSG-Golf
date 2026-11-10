@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
 import Mathlib.GroupTheory.IsPerfect
 import CFSG.GH74.GLS.IVK.Proofs2.GHInvAltCent
-public import Mathlib.GroupTheory.Abelianization.Defs
 
 public section
 

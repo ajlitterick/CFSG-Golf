@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Tim79aSec2Basic
-public import CFSG.RankThree.GF2n.Tim77Prop24Core
 public import CFSG.CGT.Timmesfeld75.Sec3Thirteen
 public import CFSG.SignalizerFunctorTheorem.Glauberman.Steps678.PGroup
 public import CFSG.Foundations

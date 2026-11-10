@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeSpBlockCent
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentGrp
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeIso
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Sp6
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotTorus
-public import CFSG.HardMathSupport.Solomon.Coordinator.McLaughlinTypesForms
-public import CFSG.GroupTheory.Commutator.SupNormalizer
 
 public section
 

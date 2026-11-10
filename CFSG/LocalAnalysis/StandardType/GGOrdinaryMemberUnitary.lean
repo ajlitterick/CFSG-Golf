@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanSystem
 public import CFSG.LocalAnalysis.StandardType.GGPhanOneNodePosition
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteJoin
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Weyl
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSAPairAux
 
 public noncomputable section

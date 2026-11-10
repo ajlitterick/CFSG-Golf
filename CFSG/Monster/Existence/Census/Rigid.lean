@@ -2,11 +2,8 @@ module
 
 public import CFSG.Monster.AxisCount.DenseWord
 public import CFSG.Monster.B.TwoA.Census.CosetEnumBits
-public import CFSG.Monster.Visible.Kernel
 public meta import Certificates.Data.CFSGNative.MonsterAxis.Dense
-public import CFSG.Monster.Existence.Census.RigidInputs
 public import Certificates.Certificate6023
-public import Certificates.Certificate6007
 
 public section
 

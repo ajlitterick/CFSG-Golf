@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Background.JonesParshallG2Two
 public import CFSG.Quasithin.Background.P3G2Zorn
 public import CFSG.Quasithin.Background.FFC4CaseI
 public import CFSG.Quasithin.Background.FFC4Ext
@@ -16,7 +15,6 @@ public import CFSG.Quasithin.Background.A3Structure36BCommon
 public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
 public import CFSG.Quasithin.Background.A3Structure36BStar
 public import CFSG.Quasithin.Background.B5FinOut
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

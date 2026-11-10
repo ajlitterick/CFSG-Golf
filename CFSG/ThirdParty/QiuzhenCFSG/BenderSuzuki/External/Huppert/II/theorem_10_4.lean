@@ -2,8 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_10_2
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_8_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.Unitary
-public import Mathlib.Algebra.Ring.Action.End
 import Mathlib.FieldTheory.Finite.Trace
 import Mathlib.LinearAlgebra.Matrix.Hermitian
 

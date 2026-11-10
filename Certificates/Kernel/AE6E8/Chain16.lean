@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Spor.RawSound
 public import Certificates.Data.Kernel.AE6E8.Defs
 public meta import Certificates.Kernel.Sporadic.RawGen
 public meta import Certificates.Kernel.SporSch.Mathieu.Gen

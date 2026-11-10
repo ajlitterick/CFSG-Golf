@@ -4,7 +4,6 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporComp
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporCrit
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThFive
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThThreeClose
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.Sporadic
 public import Certificates.Certificate36910
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare

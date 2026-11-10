@@ -5,7 +5,6 @@ public import Certificates.Data.Kernel.L34W.Tab42
 public import Certificates.Data.GrSLitL34Sec5SWIsoCheck
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsRealModelBase
 public import CFSG.Certificates.Kernel.L34KSnd.Tab
-public import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.Certificates.Kernel.L34W.ModelSound
 public import CFSG.LieType.Multipliers.L34Upper
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsBorel

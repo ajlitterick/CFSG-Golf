@@ -4,12 +4,7 @@ public import CFSG.GH74.GLS.Stage2.Local.Defs
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec8.GrpBasic
 public import CFSG.GH74.GLS.Stage1.Thm6.Prod.Resid
 public import CFSG.RankThree.Transfer.Yoshida
-public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.GH74.GLS.Stage1.Thm2.Recip.Gen
-public import Mathlib.GroupTheory.IsSubnormal
-public import CFSG.FeitThompson.OddOrderTheorem
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Blocks.Defs
 public import CFSG.GH74.GLS.Defs
 public import CFSG.GH74.GLS.Stage1.Thm2.Recip.Comp
@@ -27,9 +22,7 @@ public import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Critical
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

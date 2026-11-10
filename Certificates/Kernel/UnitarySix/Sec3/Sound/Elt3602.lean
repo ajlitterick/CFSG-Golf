@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.UnitarySix.Sec3.Elt3602
 public import CFSG.Certificates.Kernel.U6Sec3ChainSound
-import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.UnitarySix.Sec3.E3602
 
 public section

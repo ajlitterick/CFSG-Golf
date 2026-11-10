@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentralizerBasic
-public import CFSG.ClassicalInvolution.Phan.Defs
 
 public section
 

@@ -2,36 +2,17 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinOutWeakPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinByType
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinRMDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQSplit
-import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameOfMarking
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaE6PatCox
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaE6Pat
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaE6PatRows
-import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
-import CFSG.LocalAnalysis.StandardType.GGOrthFrameCore
-import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameCenter
 import CFSG.LocalAnalysis.StandardType.GGStdUnitaryFourExcl
-import CFSG.LocalAnalysis.StandardType.GGNsq2Main
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSQ2U62Setup
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourTBSmall
-import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourUniOrd
 import CFSG.LocalAnalysis.StandardType.GGOrthDFourTwoPosition
 import CFSG.LocalAnalysis.StandardType.GGFrameFSxEndsCardJoinAux
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteEndNormal
-import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar
 import CFSG.LocalAnalysis.StandardType.GGResOrthogonalExactTwo
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamOutBase
-import CFSG.GroupTheory.ConjTransport
 
 public section
 

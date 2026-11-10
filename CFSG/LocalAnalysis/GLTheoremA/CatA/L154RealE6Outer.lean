@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154RealE6Inner
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcDataTw
-public import CFSG.LieType.Steinberg.Isogeny.TwistedE6
 
 public section
 

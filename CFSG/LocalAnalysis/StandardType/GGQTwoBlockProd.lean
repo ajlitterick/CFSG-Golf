@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoRMGen
 public import CFSG.LocalAnalysis.StandardType.GGQTwoChartBlocks
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBlockAsm
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixFarAsm
 public import CFSG.LocalAnalysis.StandardType.GGQTwoU5Row
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDegFrame
 
 public section
 

@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcRefl
-public import CFSG.LocalAnalysis.StandardType.GGTypeACompatFar
-public import CFSG.LocalAnalysis.StandardType.GGTypeAEndNodeBlock
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBTypeAMono
-public import CFSG.LocalAnalysis.StandardType.GGTypeAFarPerm
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTypeAIrred
 public import CFSG.LocalAnalysis.StandardType.GGTypeAFarActsVec
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 
 public section
 

@@ -4,7 +4,6 @@ public import CFSG.Open.SplitBNPair
 public import CFSG.GroupTheory.ABGLocalTools.Basic
 import CFSG.LocalAnalysis.UniquenessCase.UC22K108BigStar
 import CFSG.LocalAnalysis.UniquenessCase.UC22K108BN
-import CFSG.LocalAnalysis.QuasithinUnique.GammaFamiliesBasic
 import CFSG.Milestones.ASVolI.I2
 
 public section

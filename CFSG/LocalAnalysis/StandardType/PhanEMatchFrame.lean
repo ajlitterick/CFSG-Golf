@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.PhanEResFrame
 public import CFSG.LocalAnalysis.StandardType.PhanEFlagChart
-public import CFSG.LocalAnalysis.StandardType.PhanEClassify
-public import CFSG.LocalAnalysis.StandardType.PhanEStdBuildingData
 public import CFSG.LocalAnalysis.StandardType.PhanELocalGate
 public import CFSG.LocalAnalysis.StandardType.PhanELocalProd
 

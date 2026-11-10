@@ -8,11 +8,8 @@ import CFSG.LocalAnalysis.StandardType.GGSixE6TwoLabel
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoOrder3
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoT31Cent
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoSTheta
-import CFSG.LocalAnalysis.StandardType.GGSixE6A24Centre
 import CFSG.LocalAnalysis.StandardType.GGFamLabelDefs
 import CFSG.LieType.Chevalley.PosUnipotentSylow
-import CFSG.LocalAnalysis.SeitzReduction.LongRootPairs
-import CFSG.LocalAnalysis.SeitzReduction.LongRootPairsRoots
 import CFSG.SignalizerFunctorTheorem.NonLocalExc.ChevalleyPerm
 
 public section

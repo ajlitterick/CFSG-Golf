@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcU1Core
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.TriD4
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTriDiag
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTorality
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3FamPC
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LayerBridge

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.LocalComp.WittData
 public import Certificates.Kernel.LocalComp.M22Hexads
 public import CFSG.Certificates.Kernel.WittCntSound
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Certificates.Kernel.Spor.PK.Perm.Inv
 

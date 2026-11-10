@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1DDefs
-public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
 public import CFSG.LocalAnalysis.StandardType.GGK1CBlFF
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideKitTameGL
 public import CFSG.LocalAnalysis.ComponentInitial.ProjectiveUnitaryLocalComponentUnitary

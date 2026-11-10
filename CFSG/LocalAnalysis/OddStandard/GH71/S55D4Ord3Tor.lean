@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.OddStandard.GH71.S55D4Ord3Gen
 public import CFSG.LocalAnalysis.OddStandard.GH71.S55D4Ord3Weyl
 public import CFSG.LocalAnalysis.OddStandard.GH71.S55D4
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4WeylCases
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MonoIdx
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.TableC.HypDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixCtxKnownSupply
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
 
 public section
 

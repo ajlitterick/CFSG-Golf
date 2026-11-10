@@ -4,10 +4,8 @@ public import Certificates.Data.HePresImage
 public import Certificates.Kernel.CosetJ.HeImgData
 public import Certificates.Kernel.CosetJ.HeImgLit
 public import Certificates.Kernel.Sporadic.He.Rels
-public import Certificates.Kernel.Sporadic.OrdCommon
 import Certificates.Kernel.CosetJ.HeImgStr
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 import Certificates.Kernel.Sporadic.ON.Gen
 import all Certificates.Data.HePresData
 import all Certificates.Data.HePresCheck

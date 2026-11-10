@@ -3,17 +3,11 @@ module
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32L42Graph
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.SecondPointWThree
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.SecondPoint
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.SecondPointStageA
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.SecondPointWStruct
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.SecondPointTypes
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.PointConfigCore
-public import CFSG.LocalAnalysis.RankThreeTheoremC.GenericListPrune3
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic49U3.Lemma42Generic
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_10Lemmas
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic49U3.PSU3.Sylow
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Balance
 public import CFSG.LieType.Chevalley.RootCommutatorData

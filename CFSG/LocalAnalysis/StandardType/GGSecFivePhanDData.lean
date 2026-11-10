@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanPrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanCharTwoDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanSystem
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim

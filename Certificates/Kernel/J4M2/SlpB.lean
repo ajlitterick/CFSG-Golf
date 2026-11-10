@@ -1,11 +1,9 @@
 module
 
-public import Certificates.Data.Kernel.J4SlpB
 public import CFSG.Certificates.Kernel.J4SlpSound
 public import Certificates.Kernel.J4M2.C12607
 public import Certificates.Kernel.SporSch.J4S.InvP
 public import Certificates.Kernel.J4M2.C12611Checks
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4SlpPrefixData
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

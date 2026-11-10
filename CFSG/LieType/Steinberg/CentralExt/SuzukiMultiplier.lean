@@ -1,18 +1,14 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentInitial.CoprimeSeriesCoverTrivial
 public import CFSG.LieType.Steinberg.CentralExt.FiniteFieldPairing
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCoverTorus
 public import CFSG.LocalAnalysis.SectionRank.SuzukiCover
 public import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
-public import CFSG.LieType.Steinberg.CentralExt.CoprimeSplit
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.Steinberg.CentralExt.F4E8Multiplier
 public import CFSG.LocalAnalysis.ComponentInitial.CentralCoverAbelian
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Open.QuasithinDefs
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 
 public noncomputable section
 

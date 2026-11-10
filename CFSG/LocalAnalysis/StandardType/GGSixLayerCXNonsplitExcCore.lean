@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmTag
-public import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
 
 public section
 

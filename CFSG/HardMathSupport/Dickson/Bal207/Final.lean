@@ -3,24 +3,15 @@ module
 public import CFSG.HardMathSupport.Dickson.Bal207.D4Semilin
 public import CFSG.HardMathSupport.Dickson.Bal207.FamSp
 public import CFSG.HardMathSupport.Dickson.Bal207.LocalBalRows
-public import CFSG.HardMathSupport.Dickson.Bal207.Restate
 public import CFSG.HardMathSupport.Dickson.Bal207.SU38
-public import CFSG.Open.GriessAllModelsStatement
 import CFSG.HardMathSupport.Dickson.Bal207.D4Eight
-import CFSG.HardMathSupport.Dickson.Bal207.Dvd
-import CFSG.HardMathSupport.Dickson.Bal207.ExcG28
-import CFSG.HardMathSupport.Dickson.Bal207.ExcRee32
-import CFSG.HardMathSupport.Dickson.Bal207.ExcSz32
 import CFSG.HardMathSupport.Dickson.Bal207.ExcTits
-import CFSG.HardMathSupport.Dickson.Bal207.ExcU62
-import CFSG.HardMathSupport.Dickson.Bal207.Fam3D42
 import CFSG.HardMathSupport.Dickson.Bal207.Fam3D42LocalBal
 import CFSG.HardMathSupport.Dickson.Bal207.FamF42
 import CFSG.HardMathSupport.Dickson.Bal207.FamUni
 import CFSG.HardMathSupport.Dickson.Bal207.LocalBalClassicalOrth
 import CFSG.HardMathSupport.Dickson.Bal207.LocalBalClassicalSpFour
 import CFSG.HardMathSupport.Dickson.Bal207.LocalBalClassicalUni
-import CFSG.HardMathSupport.Dickson.Bal207.LocalBalD4Eight
 import CFSG.HardMathSupport.Dickson.Bal207.LocalBalRee32
 import CFSG.HardMathSupport.Dickson.Bal207.LocalBalU62
 import CFSG.HardMathSupport.Dickson.Bal207.NoSmallFive
@@ -30,9 +21,6 @@ import CFSG.HardMathSupport.Dickson.Bal207.SmallA6L28
 import CFSG.HardMathSupport.Dickson.Bal207.SmallU33
 import CFSG.HardMathSupport.Dickson.Bal207.SpSU38
 import CFSG.HardMathSupport.Dickson.Bal207.SU38FrameUniProof
-import CFSG.HardMathSupport.Dickson.Bal207.SzNorm
-import CFSG.HardMathSupport.Dickson.Bal207.SzParts
-import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
 public import CFSG.Adapters.ClassicalCatalogLinearUnitary
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
@@ -73,7 +61,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly
@@ -87,8 +74,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

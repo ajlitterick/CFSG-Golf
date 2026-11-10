@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.InvariantPrimeComplement
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.BFixedHyperplaneComplementCentralized
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.OrbitHasBFixedMember
-public import CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 import all CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 
 public section

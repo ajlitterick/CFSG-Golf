@@ -7,7 +7,6 @@ import Certificates.Kernel.J4.ChecksFix
 import Certificates.Kernel.J4.ChecksPts
 import Certificates.Kernel.J4.ChecksMFix
 import CFSG.Sporadic.Presentation.Common
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 
 public section

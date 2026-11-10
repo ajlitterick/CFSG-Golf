@@ -2,9 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.Isogeny.E6
 import CFSG.LocalAnalysis.StandardType.GGTBE6Cover
-import CFSG.LieType.Steinberg.CentralExt.MinusculeCentrallyClosed
-import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
-import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisE6.Lift
 public import CFSG.LieType.Chevalley.RootCommutatorData
 
 public section

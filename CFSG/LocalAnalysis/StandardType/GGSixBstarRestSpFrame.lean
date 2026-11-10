@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarRestSp
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticDiag
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticTorus
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSp
 public import CFSG.LieType.SteinbergBREvenSymplecticThreeRank
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction

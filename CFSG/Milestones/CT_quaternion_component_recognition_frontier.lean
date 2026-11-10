@@ -1,19 +1,11 @@
 module
 
-public import CFSG.Assembly.ComponentTypeDefs
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4D4Data
-public import CFSG.Sporadic.J4.QT2LocX0Native
 public import Certificates.Data.CFSGNative.J4.PentScan
-import Certificates.Kernel.J4Q.QTBase
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
 import Certificates.Kernel.HSA312.Struct
 import Certificates.Kernel.HSQuot.Final
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87F3Abs
-public import CFSG.Sporadic.Ly.Setup
 import CFSG.Sporadic.Ly.GenSpecBase
 public import CFSG.GroupTheory.TwoWeightData
 import CFSG.Sporadic.Ly.TwoWeightsSpecBase
@@ -26,9 +18,6 @@ import Certificates.Kernel.Misc.E6StdSlp
 public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
 public import CFSG.YGroups.Y443.Native.Swap13Word
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
-import CFSG.Milestones.CL_LIT_GH74_sectional_two_rank_four
 import CFSG.Yardstones.M1c8bff0b777b.Assembly
 import CFSG.Yardstones.M1c8bff0b777b.Goals
 public import CFSG.CGT.A8S.N0EnumInputs
@@ -192,10 +181,6 @@ public import CFSG.Sporadic.Schreier.TitsAutD
 public import CFSG.Sporadic.Schreier.TitsQTModel
 public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
-public import CFSG.Sporadic.Th.KernelPlanesBase
-public import CFSG.Sporadic.Th.KernelSimpleBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Timmesfeld.Moufang.A6
 public import CFSG.Timmesfeld.Moufang.Cases
 public import CFSG.Timmesfeld.Moufang.J2Check
@@ -214,7 +199,6 @@ import CFSG.RankThree.PartOne.S11d.OutClassicalTwo
 import CFSG.RankThree.PartOne.S11d.OutSymplectic
 import CFSG.RankThree.PartOne.S11d.PSLDescent
 import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
-import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

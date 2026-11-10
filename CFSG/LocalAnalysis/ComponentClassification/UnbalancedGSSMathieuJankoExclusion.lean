@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSCRankOneCen
 public import CFSG.LocalAnalysis.ComponentInitial.SLTwoInvolution
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.J1ModelTransport
 public import CFSG.Open.StatedDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import CFSG.Open.Defs
 
 public noncomputable section
 

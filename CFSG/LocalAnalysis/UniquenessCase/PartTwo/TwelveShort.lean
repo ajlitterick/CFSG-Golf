@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsE
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsHyp
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge4
 public import CFSG.LocalAnalysis.WeakClosure81.Eleven
 public import CFSG.LocalAnalysis.WeakClosure81.SixEleven

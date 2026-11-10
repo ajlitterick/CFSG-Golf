@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSelectedModelOfChevalley
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart11
-public import CFSG.LieType.Steinberg.Adjoint.Presentation
 
 public noncomputable section
 

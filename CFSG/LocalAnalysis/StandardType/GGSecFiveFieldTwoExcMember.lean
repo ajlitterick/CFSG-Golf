@@ -2,15 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoExcCore
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoE8Rows
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoMemberModels
-public import CFSG.LocalAnalysis.StandardType.GGSelectedPOmegaMinusLong
-public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAll
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwoDFour
 public import CFSG.LocalAnalysis.StandardType.GGLangRatCompFieldLen
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE78Kac
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame.SmallField
-public import CFSG.Quasithin.Background.GoldschmidtListedSolv
 
 public section
 

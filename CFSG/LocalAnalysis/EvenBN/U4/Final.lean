@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.U4.Main
 public import CFSG.LocalAnalysis.EvenBN.U4.CaseOneFinal
-public import CFSG.LocalAnalysis.EvenBN.U4.CaseTwoCenter
 public import CFSG.LocalAnalysis.EvenBN.U4.CaseTwoEleven
 public import CFSG.LocalAnalysis.EvenBN.U4.CaseTwoRootTwo
 public import CFSG.Certificates.WordSubgroupRel

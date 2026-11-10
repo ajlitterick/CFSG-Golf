@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.F4PilotHR4Basic
 public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneClassicalBasic
 public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneOddDerivation
 public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6InnerBasic
-public import CFSG.LieType.Ree.LargeReeA1Pair
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
@@ -24,9 +21,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneEInner
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 
 public section

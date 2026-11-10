@@ -1,13 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBG8
-public import CFSG.ClassicalInvolution.SmallCases.DSplitEdge
-public import CFSG.ClassicalInvolution.Asc77.AscT3Sym
-public import CFSG.ClassicalInvolution.Asc77.AscL62Main
-public import CFSG.ClassicalInvolution.Asc77.WP3LayerConj
-public import CFSG.ClassicalInvolution.Asc77.WP3L52Main
-public import CFSG.ClassicalInvolution.Generic.StepMember
-public import CFSG.ClassicalInvolution.Generic.Generation.DeltaClosureBasic
 public import CFSG.Assembly.BalancedOddCoreCompletion
 
 public section

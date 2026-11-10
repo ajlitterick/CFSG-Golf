@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Sporadic.FischerOddCore.Fi22CentOrderCheck
-public import Certificates.Data.CFSGNative.FischerOddCore.Checks
 public meta import CFSG.Sporadic.FischerOddCore.Fi22CentOrderCheck
 public meta import Certificates.Data.CFSGNative.FischerOddCore.Checks
 public import CFSG.Sporadic.FischerOddCore.Fi22SylowCheckInputs

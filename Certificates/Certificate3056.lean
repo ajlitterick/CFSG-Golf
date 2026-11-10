@@ -3,10 +3,6 @@ module
 
 public import Certificates.Certificate3056Base
 
-public import CFSG.Monster.B.TwoA.Co2Inv.SixCertInputs
-public import Certificates.Kernel.MonsterB.Six3056K
-public import CFSG.Certificates.Kernel.MonsterB.QFormSound
-public import CFSG.Certificates.Kernel.MonsterB.U6OrbSound
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

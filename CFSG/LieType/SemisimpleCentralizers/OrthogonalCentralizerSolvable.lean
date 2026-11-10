@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivOmega
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaFinal
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.PLengthLemmas
 public import CFSG.GroupTheory.QuasisimplePSolvable
-public import CFSG.Quasithin.Background.A3ComponentsBasic
 public import CFSG.LocalAnalysis.ComponentClassification.LiteratureLocalPComponentCore
 
 public section

@@ -8,8 +8,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundGenBaseW
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInLUComp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInOmGen
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.LinearFieldType
-public import CFSG.Adapters.CatalogueFieldBridges.Linear
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_13
 public import CFSG.GroupTheory.CentralizerSup
 public import CFSG.GroupTheory.ElemAbelianPlaneAction
 public import CFSG.GroupTheory.PLayer.PIndex

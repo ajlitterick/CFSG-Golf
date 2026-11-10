@@ -8,12 +8,7 @@ public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDPOmegaMinus
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepACore
 public import CFSG.ClassicalInvolution.SmallOrth.Orth3Block
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Om6
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
 public import CFSG.RankThree.PartOne.K159.RowFourFixed
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmas
-public import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalLowDimCoverageCases
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmFix
 public import CFSG.LocalAnalysis.ComponentClassification.EvenLieFieldExponent
 public import CFSG.RankThree.PartOne.TCP.AlModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CBlockOrthA

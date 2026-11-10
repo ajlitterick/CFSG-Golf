@@ -1,26 +1,12 @@
 module
 
-public import CFSG.LieType.Steinberg.Minuscule.ChevExtras
-public import CFSG.LieType.Steinberg.TwistedE6.Local
-public import CFSG.Timmesfeld.LieEmbed.FieldEmbed
 public import CFSG.LocalAnalysis.StandardType.GGSelectedF2
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortF4IsoLen
-public import CFSG.LieType.CurtisTits.TwistedE6
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalLowDimCoverageBasic
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5LayerGroup
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagPowers
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoCommon
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMarkingE6TwRankOne
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIField
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I142NLift
-public import CFSG.Assembly.Subnormal
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideTransport
 public import CFSG.LocalAnalysis.StandardType.GGInducedCentralizerComponents
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwisted
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKU33Transport
 
 public section
 

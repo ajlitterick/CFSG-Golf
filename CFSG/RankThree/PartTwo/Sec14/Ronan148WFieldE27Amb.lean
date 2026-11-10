@@ -1,13 +1,9 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiProjField
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 import CFSG.RankThree.PartTwo.Sec11.KS11LieProofAut
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148WU3Aut
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentConfig
-import CFSG.RankThree.PartTwo.Sec4.LThreePiFieldB
-import CFSG.RankThree.PartTwo.Sec4.LThreePiFrob
-import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 
 public section
 

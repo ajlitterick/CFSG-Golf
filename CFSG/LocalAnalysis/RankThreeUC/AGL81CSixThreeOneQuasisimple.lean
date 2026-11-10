@@ -5,61 +5,18 @@ public import CFSG.RankThree.SubgroupLists.SymplecticReducible
 public import Certificates.Certificate1022
 public import Certificates.Certificate7059
 public import Certificates.Certificate7023
-public import Certificates.Certificate1000
-public import Certificates.Certificate1001
-public import Certificates.Certificate1002
-public import Certificates.Certificate1003
-public import Certificates.Certificate1004
-public import Certificates.Certificate1005
-public import Certificates.Certificate1006
-public import Certificates.Certificate1007
-public import Certificates.Certificate1008
-public import Certificates.Certificate1009
-public import Certificates.Certificate1010
-public import Certificates.Certificate1011
-public import Certificates.Certificate1012
-public import Certificates.Certificate1013
-public import Certificates.Certificate1014
-public import Certificates.Certificate1015
-public import Certificates.Certificate1016
-public import Certificates.Certificate1017
-public import Certificates.Certificate1018
-public import Certificates.Certificate1019
-public import Certificates.Certificate1
-public import Certificates.Certificate10
-public import Certificates.Certificate11
-public import Certificates.Certificate12
-public import Certificates.Certificate2
-public import Certificates.Certificate3
-public import Certificates.Certificate4
-public import Certificates.Certificate44
-public import Certificates.Certificate5
-public import Certificates.Certificate6
-public import Certificates.Certificate7
-public import Certificates.Certificate110
-public import Certificates.Certificate42
-public import Certificates.Certificate43
-public import Certificates.Certificate8
-public import Certificates.Certificate9
-import TauCeti.LinearAlgebra.BilinearForm.SymplecticBasis
-import CFSG.RankThree.SubgroupLists.SymplecticTransvections
 import CFSG.RankThree.SubgroupLists.MitchellQuasisimple
 import CFSG.RankThree.SubgroupLists.MitchellPartThreeProof
 import CFSG.RankThree.SubgroupLists.SymplecticFischerSp
-import CFSG.RankThree.SubgroupLists.SymplecticFischerOrth
 import CFSG.RankThree.SubgroupLists.SymplecticFischerUnitary
 import CFSG.RankThree.SubgroupLists.SymplecticFischerRefl
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CSixThreeOneBasic
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenListCongr
-import CFSG.LocalAnalysis.UniquenessCase.UC22K318Flag
 import CFSG.LocalAnalysis.UniquenessCase.UC22K318Cases
 import CFSG.RankThree.CentralCover.SteinbergBNSL2Elements
-import CFSG.ClassicalInvolution.SL2Facts
 import CFSG.Adapters.CatalogueFieldBridges.Linear
 import CFSG.GroupTheory.CoprimeActionSupport.FaithfulIrreduciblePCoreTrivial
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.GroupTheory.PerfectCoverProduct
-import Mathlib.FieldTheory.Finite.GaloisField
 public import CFSG.Certificates.Kernel.Th.Gen.Dce
 public import CFSG.Certificates.Kernel.Th.Gen.DceStruct
 public import CFSG.Certificates.Kernel.Th.Gen.Fwd
@@ -101,16 +58,8 @@ import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsFieldAut
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.Permutation.AlternatingAutomorphism
 import CFSG.Quasithin.Background.A3Structure319
-import CFSG.Quasithin.Background.B4ModelsAction
-import CFSG.Quasithin.Background.B4ModelsIso
-import CFSG.Quasithin.Background.C2Inputs
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.Vol2.Ch11SecAFacts02
 import CFSG.Quasithin.Vol2.Ch11SecAFacts03
 import CFSG.Quasithin.Vol2.Ch11StatementsB
@@ -127,7 +76,6 @@ import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

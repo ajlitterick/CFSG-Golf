@@ -1,26 +1,13 @@
 
 module
 
-public import CFSG.Open.QuasithinDefs
-public import CFSG.Blueprint.MatrixSeedIdentification
-public import CFSG.Quasithin.Recognition.CertChain
-public import CFSG.Quasithin.Recognition.CertDataTits
-public import Certificates.Data.CFSGNative.YGroups.ExactCheck
-public import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Quasithin.Recognition.CertTitsInputs
 public import CFSG.Sporadic.Schreier.TitsOuter
 public import CFSG.Quasithin.Recognition.CertTitsSimpleMainBase
-public import CFSG.Quasithin.Recognition.CertTitsBase
-public import CFSG.Blueprint.Catalog
 import Certificates.Kernel.Misc.Tits.Chain8071
 import Certificates.Kernel.Sporadic.Tits.Order2264
 import Certificates.Kernel.Sporadic.OddCore.ChainCheckGlue
 import Certificates.Kernel.YModel.Basic
 import CFSG.Certificates.Kernel.Spor.DecLinesRead
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.Chevalley.RootCommutator
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -32,8 +19,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 
 @[expose] public section
 

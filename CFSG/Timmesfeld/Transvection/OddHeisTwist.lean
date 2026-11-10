@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Timmesfeld.Transvection.OddHeisFrameBasics
-public import CFSG.Timmesfeld.Transvection.RelBuildField
 import CFSG.Timmesfeld.Transvection.OddHeisAut
 import CFSG.Timmesfeld.Transvection.OddHeisTorusComm
 import CFSG.Timmesfeld.Transvection.OddHeisTorusDiag

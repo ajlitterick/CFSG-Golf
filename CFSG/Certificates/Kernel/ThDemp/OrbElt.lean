@@ -5,10 +5,6 @@ public import CFSG.Certificates.Kernel.ThDemp.OrbEltBase
 import all CFSG.Certificates.Kernel.ThDemp.OrbEltBase
 
 public import CFSG.Certificates.Kernel.ThDemp.OrbCent
-import Mathlib.GroupTheory.IndexNormal
-import Mathlib.Tactic.NormNum.Prime
-public import CFSG.Certificates.Kernel.ThDemp.OrbUnfold
-public import CFSG.Certificates.Kernel.ThDemp.Sound
 
 public section
 

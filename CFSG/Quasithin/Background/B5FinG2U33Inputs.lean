@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Background.JonesParshallG2Two
 public import CFSG.Quasithin.Background.B5FinOutAlt
 public import CFSG.Quasithin.Recognition.CertU33AutBound
 public import CFSG.Quasithin.Recognition.CertU33Simple
-public import CFSG.Quasithin.Recognition.CertU33Perm
 public import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryTrace
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.Quasithin.Background.F2Equiv

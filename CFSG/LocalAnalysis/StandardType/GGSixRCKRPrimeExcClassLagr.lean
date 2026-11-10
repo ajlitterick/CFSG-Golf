@@ -1,9 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGExcMaxToral
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcRelOneAt
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxMod
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxMinkowski
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcClassLagrAux
 
 public section

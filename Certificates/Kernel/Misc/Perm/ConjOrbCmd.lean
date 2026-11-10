@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Data.Kernel.ConjOrb
 public import Certificates.Data.Kernel.BfsPinKeys
-public import Certificates.Data.Kernel.Misc.PermClos
 public import CFSG.Certificates.Kernel.Misc.PermClosSound
 public meta import CFSG.Certificates.Kernel.Common.Tab
 public meta import Lean

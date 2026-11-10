@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSU
-public import CFSG.ClassicalGroups.Unitary.Form
 
 public section
 

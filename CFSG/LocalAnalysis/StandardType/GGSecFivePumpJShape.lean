@@ -10,7 +10,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFivePumpJSwap
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpJBlock
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpupRoots
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 
 public section
 

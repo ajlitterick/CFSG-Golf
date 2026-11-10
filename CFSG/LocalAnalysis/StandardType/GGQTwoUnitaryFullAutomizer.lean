@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoUnitaryHeartAutomizer
-public import CFSG.GroupTheory.CenterlessInnerCentralizer
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
 
 public section
 

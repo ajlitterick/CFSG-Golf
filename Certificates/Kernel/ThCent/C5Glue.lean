@@ -6,7 +6,6 @@ public import Certificates.Kernel.ThCent.C5C1
 public import Certificates.Kernel.ThCent.C5C2
 public import Certificates.Kernel.ThCent.C5C3
 public import CFSG.Certificates.Kernel.ThCent.Cent5Sound
-public import CFSG.Certificates.Kernel.Common.ForallTree
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.CubeFacts
 public import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalThreeSporadicRank
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Core

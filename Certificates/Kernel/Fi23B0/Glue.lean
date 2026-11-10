@@ -2,12 +2,9 @@ module
 
 public import Certificates.Kernel.Fi23B0.Data
 public import Certificates.Kernel.Fi23M.Keys
-public import CFSG.Sporadic.Fi23.Simple
 public import CFSG.Sporadic.Fi23.Classes
 import Certificates.Kernel.Fi23B0.Check
-import Certificates.Kernel.Fi23K.Chain
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib
 
 public section
 

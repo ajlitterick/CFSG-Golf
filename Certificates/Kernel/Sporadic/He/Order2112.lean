@@ -7,10 +7,8 @@ public import Certificates.Kernel.Sporadic.He.RelB2112
 public import Certificates.Kernel.Sporadic.He.RelC2112
 public import Certificates.Kernel.Sporadic.He.RelD2112
 public import CFSG.Sporadic.Bridge.HeSurj
-public import Certificates.Certificate9118
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

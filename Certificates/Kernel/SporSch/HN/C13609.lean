@@ -4,9 +4,7 @@ public import Certificates.Kernel.SporSch.HN.C13609K
 public import Certificates.Kernel.SporSch.HN.Pt2085
 public import CFSG.Certificates.Kernel.ConjKeySound
 public import CFSG.Certificates.Kernel.LocalQTSecLemmas
-public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Sporadic.HNSchreier.ThreeCent
-public import CFSG.Sporadic.HNSchreier.InvolSpec
 
 public section
 

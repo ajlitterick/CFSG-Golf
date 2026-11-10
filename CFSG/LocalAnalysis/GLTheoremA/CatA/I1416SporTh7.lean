@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416SporAutSylow
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416SporRows
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSeven
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KDL227SporRows
-public import CFSG.GroupTheory.OrderBelowSixtySolvable
 public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalModel
 public import CFSG.LieType.Multipliers.U62Sylow
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcF4O2

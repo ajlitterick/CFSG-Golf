@@ -1,12 +1,8 @@
 module
 
 public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Leaf.NormalizerAuxE6
-public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Leaf.NormalizerAuxBridge
 public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Leaf.NormalizerAuxGrp
 public import CFSG.RankThree.PartOne.KE6.Phi6A2A2
-public import CFSG.RankThree.Classical.SteinbergBYExchangedSL3
-public import CFSG.RankThree.Classical2.TwistedE6Phi3A2A2
-public import CFSG.LieType.Chevalley.GraphFixedCoordinateDetection
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Families
 public import CFSG.HardMathSupport.Timmesfeld.Proving.ExistsOrderPCentralizer

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.AE.Models
-public import Mathlib.GroupTheory.Perm.Sign
-public import Mathlib.Data.Fintype.Perm
-public import Mathlib.Data.Finset.Sort
-public import Mathlib.Data.Finset.Powerset
 public import CFSG.ClassicalInvolution.Q3.AE.Twins
 public import Mathlib.Algebra.BigOperators.Fin
 

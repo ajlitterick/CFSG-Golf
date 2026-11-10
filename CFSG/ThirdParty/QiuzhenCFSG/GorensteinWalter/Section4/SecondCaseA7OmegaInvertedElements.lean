@@ -4,11 +4,9 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddInvertedCentralizesNormalInverted
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CentralizerSetupFittingNormal
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CentralizerSetupOddCoreNormal
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27IndexTwo
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
 import Mathlib.GroupTheory.FixedPointFree
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

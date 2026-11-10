@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.SeitzRest7
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2311j2
 
 public section

@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit415PM
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit415PU
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma36Derive
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Steps
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Inputs56X
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisEnd413
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit415PE
 

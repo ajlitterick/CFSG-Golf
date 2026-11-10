@@ -2,8 +2,6 @@ module
 
 public import Mathlib.LinearAlgebra.Reflection
 public import Mathlib.LinearAlgebra.Dual.Lemmas
-import Mathlib.Tactic.Module
-import Mathlib.Tactic.LinearCombination
 
 public section
 

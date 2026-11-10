@@ -3,19 +3,11 @@ module
 public import CFSG.RankThree.PartTwo.Sec15.Item15Statements
 public import CFSG.RankThree.PartTwo.Sec15.Item15Tools
 public import CFSG.RankThree.PartTwo.Sec13.Item13Inputs
-public import CFSG.RankThree.PartTwo.Sec14.Item1411Chain
-import CFSG.RankThree.PartTwo.Sec13.Item131Facts
 import CFSG.RankThree.PartTwo.Sec13.Item133
-import CFSG.RankThree.PartTwo.Sec13.Item133Mono
 import CFSG.RankThree.PartTwo.Sec13.Item136Pair
 import CFSG.RankThree.PartTwo.Sec13.Item136PGL
-import CFSG.RankThree.PartTwo.Sec13.Item13Basic
-import CFSG.RankThree.PartTwo.Sec14.LBNatural
 import CFSG.RankThree.PartTwo.Sec14.Item147
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
 import CFSG.RankThree.PartTwo.Sec15.Item157
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -27,7 +19,6 @@ public import CFSG.RankThree.PartTwo.Sec15.HypR
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LieType.Ree.Endo
 public import CFSG.LieType.Chevalley.LangG2ClosureExceptional
-public import CFSG.LieType.Chevalley.LangFrobeniusFixedDerived
 
 public section
 

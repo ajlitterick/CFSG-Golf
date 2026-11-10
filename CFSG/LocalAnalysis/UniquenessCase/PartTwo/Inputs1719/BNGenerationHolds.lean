@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.BNGenerationReduction
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.BNGenerationSplit
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.BNGenerationSmall
-public import CFSG.Milestones.ASVolI.I2
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P218c
 
 public section

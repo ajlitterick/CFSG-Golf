@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.D4QK.Elts
 public import Certificates.Kernel.S63K.IData
 public import Certificates.Data.Kernel.S63K.ConjTree
-public import Certificates.Data.Kernel.SporSch.Co1Mat
 public import CFSG.Quasithin.Background.Harris.R1.D4VertWords
-import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.D4QK.TreeB
 public import Certificates.Kernel.D4QK.Trees
 

@@ -1,17 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGA24Defs
 public import CFSG.LocalAnalysis.StandardType.GGA24ExcPair
-public import CFSG.LocalAnalysis.StandardType.GGTPNRegimeDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPNClGen
 public import CFSG.LocalAnalysis.StandardType.GGTPNClassicalCover
 public import CFSG.LocalAnalysis.StandardType.GGTPNExcCover
 public import CFSG.LocalAnalysis.StandardType.GGTPNNonExc
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmRAC1
-public import CFSG.LocalAnalysis.StandardType.GGTPNNarrowC6
-public import CFSG.LocalAnalysis.StandardType.GGTPNI1
 public import CFSG.LocalAnalysis.StandardType.GGTPNI1Holds
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

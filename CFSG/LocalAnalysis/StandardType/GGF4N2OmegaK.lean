@@ -1,14 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2Frame
-public import CFSG.GroupTheory.CenterlessInnerCentralizer
 public import CFSG.LocalAnalysis.StandardType.GGF4N2JModelExclusions
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailHolds
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenIso
 public import CFSG.LocalAnalysis.WeakClosure81.W18ASNineOrthBridge
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointSchreier
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Std
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
 public import CFSG.GroupTheory.SubgroupCardMul
 public import CFSG.Holt.General.Basic
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015Defs

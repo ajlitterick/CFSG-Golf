@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoChartTwoThreeCent
-public import CFSG.ClassicalInvolution.Balance.StrongPowSuBlocks
 public import CFSG.ClassicalInvolution.Balance.StrongPowDiagDefs
 public import CFSG.GH74.L5U5.IdentUnitary
-public import CFSG.ClassicalInvolution.Phan.Center
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 public import CFSG.ClassicalInvolution.Balance.BootstrapDischarge
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationInner
 public import CFSG.ClassicalInvolution.Balance.StrongLocalBalanceGlue

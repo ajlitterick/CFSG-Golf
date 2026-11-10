@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfWeylTorusCoord
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinSignedPermGen
-public import CFSG.LocalAnalysis.StandardType.GGHalfBlockPerm
 
 public section
 

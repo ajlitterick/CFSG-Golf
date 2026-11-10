@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.SmallOddCore.HSCheckInputs
-public import CFSG.Sporadic.SmallOddCore.CentData
 
 public section
 

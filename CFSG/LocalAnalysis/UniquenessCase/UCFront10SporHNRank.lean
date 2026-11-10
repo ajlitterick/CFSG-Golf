@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Certificate10509
-public import CFSG.Sporadic.HNSchreier.Order
 public import CFSG.LocalAnalysis.QuasithinUnique.Defs
 public import CFSG.Assembly.QuasithinDefs
 

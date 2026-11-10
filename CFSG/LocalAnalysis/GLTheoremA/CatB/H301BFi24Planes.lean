@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1017Fi24
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicFi24TwoB
 public import Certificates.Certificate15027
 public import Certificates.Certificate101705
-import CFSG.RankThree.Native.ChainCentralizer
 
 public section
 

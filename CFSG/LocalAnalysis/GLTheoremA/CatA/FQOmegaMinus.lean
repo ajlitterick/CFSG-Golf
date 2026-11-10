@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQOmega
 public import CFSG.HardMathSupport.Lang.UnitaryAutomorphisms.OuterFixedPOmegaEven
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLevi
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotHR4
 public import CFSG.LocalAnalysis.SeitzReduction.E7PilotFieldNormalizeAutMain

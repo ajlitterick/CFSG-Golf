@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Common.Loop
 public import CFSG.Certificates.Kernel.Common.LceS
 public import CFSG.Certificates.Kernel.MonsterConv.PermValid
 public import CFSG.Certificates.Kernel.LieCocycle.Fi22.NwValid

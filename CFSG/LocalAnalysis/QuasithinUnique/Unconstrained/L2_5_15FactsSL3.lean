@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15FactsGen
-public import CFSG.Adapters.LinearFieldTransport
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public meta import Mathlib
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15FactsGen
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15FactsSL3Inputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15FactsSL3Raw
 public import Certificates.Certificate4145
 public meta import CFSG.CGT.Timmesfeld75.L2Pair
@@ -41,7 +38,6 @@ public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15Aux
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6
 public meta import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

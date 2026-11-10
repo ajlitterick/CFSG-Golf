@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGStructPSL
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoPSLCent
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGMarkingSL
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandStructPSL
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotInvolutionCentralizer
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotInvolutionCentralizerLevi
 import CFSG.LocalAnalysis.SeitzReduction.LinearPilotRestrictionField
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGSpCent
 import CFSG.LocalAnalysis.SeitzReduction.EPilotCentralizerHighBasic

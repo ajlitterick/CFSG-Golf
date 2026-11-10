@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import Certificates.Data.CFSGNative.Th.Tables
 public import Certificates.Data.CFSGNative.He.Certificate
 public import CFSG.Certificates.CosetTableCompactColumns
 public import Certificates.Data.HePresData

@@ -4,7 +4,6 @@ public import CFSG.GH74.Generic.BProg.B2.T3Rank
 import CFSG.GH74.Generic.BProg.B1.PilotS1
 import CFSG.GH74.Generic.BProg.B2.T1Basic
 import CFSG.GH74.Generic.BProg.Cor2Easy
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.Generic.BProg.B1.Stage3aRankNS
 import CFSG.ClassicalInvolution.Models.OrthogonalPairs
 import CFSG.ClassicalInvolution.Models.Transfer

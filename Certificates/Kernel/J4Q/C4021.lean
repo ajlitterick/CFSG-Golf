@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.J4.QTOutCommNative
 public import Certificates.Kernel.J4Q.CommBase
 public import Certificates.Kernel.J4Q.C4023
 import Certificates.Kernel.J4Q.AllN

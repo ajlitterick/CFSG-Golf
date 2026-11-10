@@ -1,7 +1,5 @@
 module
-public import CFSG.LieType.AlgebraicGroups.DiagonalCocharacter
 public import CFSG.LieType.AlgebraicGroups.IdentityComponentLang
-public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.WeylTorusAct
 public import CFSG.LieType.AlgebraicGroups.ChevalleyDiagonalCocharacter
 public import CFSG.LieType.Chevalley.MonomialCoroot
 

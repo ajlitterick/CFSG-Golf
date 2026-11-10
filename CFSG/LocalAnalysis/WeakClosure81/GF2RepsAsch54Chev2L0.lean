@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.EightEightDefs
-public import CFSG.Models
-public import CFSG.Adapters.TauCetiExceptional.EvenAll
 
-import CFSG.Adapters.TauCetiExceptional.EvenB1
-import CFSG.HardMathSupport.Timmesfeld.Tables.Census.ExcLargeRee
 import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.Bridge
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
-import CFSG.StronglyEmbedded.Catalog.Suzuki
 
 public section
 

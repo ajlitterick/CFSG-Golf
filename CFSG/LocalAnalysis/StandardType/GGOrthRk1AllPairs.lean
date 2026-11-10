@@ -2,14 +2,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenDefs
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Gen
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Pair
-public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Pieces
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1PiecesPos
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Fork
-public import CFSG.GH74.L5U5.ModelsPairsUnitary
-public import CFSG.ClassicalInvolution.Phan.StandardPair
-public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Signs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSAPairAux2
-public import Mathlib.FieldTheory.Finite.GaloisField
 
 public section
 namespace CFSG.StandardType

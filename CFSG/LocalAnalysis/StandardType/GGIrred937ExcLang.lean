@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE7Three
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE8Three
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE7E8Five
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxFixedRoot
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTorus
 public import CFSG.LocalAnalysis.StandardType.GGIrred937Lattice
 
 public section

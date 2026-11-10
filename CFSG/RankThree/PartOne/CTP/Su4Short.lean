@@ -10,8 +10,6 @@ public import CFSG.LieType.Universal.Spin.PlusCT
 public import CFSG.LieType.Universal.Spin.Structure
 public import CFSG.LieType.Universal.SpinOmega
 public import CFSG.RankThree.PartOne.CTP.Su4Plane
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

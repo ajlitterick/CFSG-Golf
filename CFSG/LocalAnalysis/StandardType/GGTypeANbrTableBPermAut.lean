@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTypeA
-public import TauCeti.GroupTheory.Perm.FinThree.Basic
 public import CFSG.Mathlib.GroupTheory.Perm.S3Kernel
 
 public section

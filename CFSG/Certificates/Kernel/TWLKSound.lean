@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTWLowCheck
-public import CFSG.LocalAnalysis.StandardType.GGTWLowPZA
 public import CFSG.Certificates.Kernel.TWDKSound
 public import CFSG.Certificates.Kernel.TWLK6Sound
 public import CFSG.Certificates.Kernel.TWLKHKSound
-public import Certificates.Data.Kernel.TWLKPZ
 
 public section
 

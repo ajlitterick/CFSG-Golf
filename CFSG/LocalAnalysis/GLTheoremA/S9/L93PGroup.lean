@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Basic
 public import CFSG.Goldschmidt.Steps.Sec82PGroup
 public import CFSG.Assembly.ComponentTypeDefs
-public import CFSG.LocalAnalysis.GLTheoremA.Lemma48
 
 public section
 

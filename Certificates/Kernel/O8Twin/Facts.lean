@@ -4,14 +4,9 @@ public import Certificates.Kernel.O8Twin.PNeg
 public import Certificates.Kernel.OmegaEight.Aut
 public import Certificates.Kernel.LocalComp.ExcGlue
 public import CFSG.Certificates.Kernel.S7TwinKSound
-public import CFSG.Certificates.Kernel.SporSch.ChainKEnum
 public import CFSG.Certificates.Kernel.SporSch.ChainKReps
-public import CFSG.Certificates.Kernel.SporSch.MathieuOCSound
-public import CFSG.Certificates.Kernel.SporSch.CodesImg
 public import CFSG.Certificates.Kernel.AE6CoreParse
-public import CFSG.Certificates.Kernel.HeGlueKGlue
 public import CFSG.Certificates.Kernel.Common.ForallChunks
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Certificates.Kernel.HeModelKSound
 public import CFSG.Certificates.Kernel.HexaKSound

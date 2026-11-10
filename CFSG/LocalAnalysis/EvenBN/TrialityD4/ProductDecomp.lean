@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.ProductN1Quot
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.ProductCommute
-import CFSG.LocalAnalysis.EvenBN.TrialityD4.FieldCaseSylow
 
 public section
 

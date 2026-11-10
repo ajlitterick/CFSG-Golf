@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Misc.ArrEnum
-public import Certificates.Data.Kernel.LocalQT.Perm
-public import CFSG.Certificates.Kernel.Enum.Defs
 
 public section
 

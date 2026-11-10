@@ -1,7 +1,6 @@
 module
 
 import Mathlib.Data.Nat.Choose.Dvd
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.Infrastructure
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.proposition_4_3_a
 
 namespace CFSG

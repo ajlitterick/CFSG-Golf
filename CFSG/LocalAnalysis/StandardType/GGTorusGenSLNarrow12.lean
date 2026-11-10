@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenSLNarrow12Defs
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSLPSL
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkNarrow11
 

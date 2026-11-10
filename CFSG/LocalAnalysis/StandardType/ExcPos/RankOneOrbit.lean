@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.ExcPos.ContainingComponent
 public import CFSG.LocalAnalysis.StandardType.ExcPos.RankOneWeyl
 public import CFSG.LocalAnalysis.StandardType.ExcPos.RankOneInner
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RootSpanMap
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart14
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.B113LieEngine
-public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Frames
 
 public section
 

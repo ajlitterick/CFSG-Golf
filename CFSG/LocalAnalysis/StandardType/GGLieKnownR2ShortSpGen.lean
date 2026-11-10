@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSpDefs
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.B113LieSpCent
 public import CFSG.Timmesfeld.Transvection.ModelSpGen
 public import CFSG.Timmesfeld.ARS.CaseEFrame
 public import CFSG.Timmesfeld.ARS.CaseMLevi

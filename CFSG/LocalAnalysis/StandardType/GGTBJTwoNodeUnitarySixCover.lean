@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModel
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofOne
-public import CFSG.LocalAnalysis.StandardType.GGTBTorDatum
 
 public section
 

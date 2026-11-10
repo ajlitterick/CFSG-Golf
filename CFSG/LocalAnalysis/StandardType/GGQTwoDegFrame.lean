@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDegDefs
 import CFSG.LocalAnalysis.StandardType.GGTDAutomizer
-import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofRefl
 import CFSG.LocalAnalysis.StandardType.GGQTwoDegFramePath
 import CFSG.ClassicalInvolution.Generic.TypeA
 

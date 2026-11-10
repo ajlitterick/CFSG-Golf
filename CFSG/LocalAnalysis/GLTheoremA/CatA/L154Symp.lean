@@ -5,14 +5,10 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Omega
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Fld
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154LinAbs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154LinT
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MICore
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GSympLabel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldSympMark
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnSympRed
 public import CFSG.Adapters.CatalogueFieldBridges.Symplectic
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneCore
 public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3LInput
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.LieQ.Derivation
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015Defs

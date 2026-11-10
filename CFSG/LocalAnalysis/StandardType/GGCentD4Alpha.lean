@@ -1,11 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNTPlaneInput
 public import CFSG.LocalAnalysis.StandardType.GGCentD4Diagram
 public import CFSG.LocalAnalysis.StandardType.GGCentD4HomExt
 public import CFSG.LocalAnalysis.StandardType.GGCentD4Theta
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentPerm
-public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCentralizer
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27D4Basic
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeSylow
 

@@ -2,11 +2,7 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleRankOne
-public import CFSG.RankThree.Chevalley.SteinbergBIRootSL2Tools
-public import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
-public import CFSG.LieType.Steinberg.Exceptional.Fields
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviBaseChange
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwReduction
@@ -26,7 +22,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Monster.B.Geometry.CoxeterWords
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime

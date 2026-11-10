@@ -13,7 +13,6 @@ import CFSG.LocalAnalysis.AGLEmbeddingD2.HeisParabolic
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.S3AmalgamBound.FFGroupStepFinal
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.S3AmalgamBound.F5Wired
 import CFSG.HardMathSupport.Meierfrankenfeld.AGL81.Final
-import CFSG.LocalAnalysis.AGLEmbedding.NoXBlockBridgeK
 import CFSG.LocalAnalysis.AGLEmbedding.BlockInvThree
 import CFSG.CGT.PushingUpLit.K1R.Dispatch
 import CFSG.LocalAnalysis.AGLEmbedding.Norton.MonsterTargets
@@ -23,7 +22,6 @@ public import CFSG.CGT.PushingUpLit.CGT6.SixSixteen
 public import CFSG.CGT.PushingUpLit.Glue.ClassXBasic
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.IVK.Proofs2.Stmt111c
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Closed
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Statements
 public import CFSG.GH74.GLS.Stage1.Thm6.Sec12.Defs
@@ -67,8 +65,6 @@ public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4RRepBa
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafOddB
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofComponentLift
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddCentralFixed
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenE6
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenTriality
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorOddE6
@@ -76,14 +72,11 @@ public import CFSG.LocalAnalysis.ComponentClassification.GMS78Lemma39
 public import CFSG.LocalAnalysis.ComponentClassification.GMS78Sec4
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeMax
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverModels
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
-public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinearSocle
 public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentralizer
 public import CFSG.LocalAnalysis.ComponentClassification.RestrictedSporCaseB
 public import CFSG.LocalAnalysis.ComponentClassification.RestrictedStdFamilies
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField
 public import CFSG.LocalAnalysis.ComponentInitial.GL3TwoFixedModelCases
-public import CFSG.LocalAnalysis.ComponentInitial.ProjectiveEigenspaceComponent
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LiftSaturate
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.WreathA3Sub3
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.WreathShortMap

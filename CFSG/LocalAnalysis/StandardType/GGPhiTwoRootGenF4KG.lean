@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenF4Gen
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenF4Frame
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenKG
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangCore
-public import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
 
 public section
 

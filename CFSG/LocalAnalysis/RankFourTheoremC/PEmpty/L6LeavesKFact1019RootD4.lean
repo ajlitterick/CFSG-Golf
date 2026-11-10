@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LieType.Steinberg.TwistedD4.Local
 public import CFSG.LieType.Steinberg.TwistedD4.Perfect
 public import CFSG.LocalAnalysis.SectionRank.ClassicalOdd.Basic
-public import CFSG.Blueprint.ChevalleyRoots
 public import CFSG.LocalAnalysis.SectionRank.CentralLift
 
 public section

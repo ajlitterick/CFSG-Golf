@@ -6,7 +6,6 @@ public meta import CFSG.Sporadic.HeldB.OuterArithCheck
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
 import Certificates.Kernel.SporSch.HeT.W2117
 import Certificates.Kernel.SporSch.HeT.C2117
-import Certificates.Certificate2112
 
 public section
 

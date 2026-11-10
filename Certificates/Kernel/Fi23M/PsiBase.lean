@@ -4,18 +4,12 @@ module
 public import Certificates.Kernel.Fi23M.Stab
 public import CFSG.Sporadic.Fi23.SimpleBase
 public import CFSG.Sporadic.Bridge.Common
-public import CFSG.Sporadic.Presentation.Fi23
-public import Certificates.Data.CFSGNative.Bridge.Fi23GPL
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import CFSG.Sporadic.Fi23.SetupBase
 import Certificates.Kernel.Sporadic.Fi23Br.Rels
-import Mathlib
 public import CFSG.Blueprint.MatrixSeedIdentification
 public import CFSG.F3.SepSpec
 public import CFSG.Perm.ChainSpec
 public import CFSG.Sporadic.Fi23.CertificateBase
 public import CFSG.Sporadic.Fi23.SlpSpec
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.Sporadic.Th.OrbitSpec
 
 public section

@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixEReduce
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 public import CFSG.RankThree.PartOne.KE8F.FamBruhat
-public import CFSG.LieType.Steinberg.Isogeny.E6
 import CFSG.ClassicalInvolution.Balance.LayerGenerationShortAdjoint
-import CFSG.RankThree.PartOne.KE.CTTorusFixed
-import CFSG.LieType.Chevalley.ToralCentralizerBruhat
 public import CFSG.Monster.B.Geometry.CoxeterWords
 public import CFSG.RankThree.PartOne.KE.A1SL2
 public import CFSG.RankThree.PartOne.KE.A1Torus

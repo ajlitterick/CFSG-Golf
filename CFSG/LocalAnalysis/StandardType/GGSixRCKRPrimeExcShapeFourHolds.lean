@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcShapeFour
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcShapeFourCount
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcShapeFourKac
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcShapeFourE6
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcShapeFourD4
 

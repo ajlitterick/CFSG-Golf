@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotHR6X
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotNeighbourStandard
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaThreeEndComp
 public import CFSG.GroupTheory.IsComponentOfMap

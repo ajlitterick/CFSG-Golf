@@ -2,15 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Fi.Variant3Lemma33
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Chain.LastProof
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Chain.Main
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Chain.DiagProof
 import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Junction.Final
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Fi.Variant3Six
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Fi.Variant3Row
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Fi.Variant3Outer
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Stage3
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Reduction
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.CoverBasic
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.GlobLemma39N
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBSTransport

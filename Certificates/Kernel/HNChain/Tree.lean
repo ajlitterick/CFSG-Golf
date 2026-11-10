@@ -1,14 +1,12 @@
 module
 
 public import CFSG.Certificates.Kernel.HNLocalSound
-public import CFSG.Certificates.Kernel.Orders.HN.Data.Const
 public import Certificates.Kernel.HNLocal.Data
 import Certificates.Kernel.HNLocal.Checks.K
 import Certificates.Kernel.HNLocal.Fix
 import CFSG.Certificates.Kernel.J4Hub.BlockSound
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Fam.Lin
-import CFSG.Open.Defs
 
 set_option maxRecDepth 400000
 

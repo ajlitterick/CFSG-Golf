@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CGT.Foote82.T66.MC1Steps
-public import CFSG.Open.StatedDefs
 public import CFSG.CGT.Foote82.T66.Steps
 public import CFSG.CGT.PushingUp.BenderBridge
 public import CFSG.CGT.PushingUp.BlockOrder
@@ -26,11 +25,9 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Monster.Code.Weights
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.RankThree.PartTwo.Sec19.Item194Used
 public import CFSG.RankThree.PartTwo.Sec19.SimsTheoremCTypes
 public import CFSG.RankThree.PartTwo.Sec6.Statements
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

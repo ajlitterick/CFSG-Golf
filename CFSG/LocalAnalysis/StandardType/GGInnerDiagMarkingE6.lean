@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSUExc
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSU
 public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherE6
-public import CFSG.LocalAnalysis.ComponentInitial.RootDiagonalConjugation
-public import CFSG.LieType.Steinberg.Isogeny.TwistedE6
-public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
 
 public section
 

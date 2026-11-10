@@ -2,9 +2,6 @@ module
 
 public import Mathlib.GroupTheory.SpecificGroups.Alternating
 public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.OrderOfElement
-public import Mathlib.GroupTheory.Subgroup.Centralizer
-public import Mathlib.GroupTheory.Commutator.Basic
 
 public section
 

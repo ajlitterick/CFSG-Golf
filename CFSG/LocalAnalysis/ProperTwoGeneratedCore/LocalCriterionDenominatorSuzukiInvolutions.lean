@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominatorCentralizers
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominatorCyclic
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCoverCentralizer
 
 public noncomputable section
 

@@ -5,7 +5,6 @@ public import Certificates.Kernel.OmegaEight.CPChains
 public import Certificates.Kernel.OmegaEight.ModelData
 public import Certificates.Kernel.OmegaEight.NatData
 public import Certificates.Kernel.LocalComp.Omega1Chain
-public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.Stage1ModelData
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

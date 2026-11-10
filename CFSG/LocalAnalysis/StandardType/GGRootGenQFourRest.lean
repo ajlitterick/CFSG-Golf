@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourDom
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenLabels
-public import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenLabels
 public import CFSG.LocalAnalysis.StandardType.GGRootGenExcLabels
-public import CFSG.LocalAnalysis.StandardType.GGRootGenQTwoQFour
 public import CFSG.LocalAnalysis.StandardType.GGRootGenSmallRankQFour
-public import CFSG.LocalAnalysis.StandardType.GGRootGenSpOrthSplitAvoid
 public import CFSG.LocalAnalysis.StandardType.GGSlDvdRootGenQFour
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenQFour
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenRowNine

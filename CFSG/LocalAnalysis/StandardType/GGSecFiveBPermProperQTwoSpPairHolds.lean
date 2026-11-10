@@ -4,17 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOffSpLeafDefs
 import CFSG.LocalAnalysis.StandardType.GGQTwoSpSmallBlocks
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKFrameOn
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniModelTwoCenter
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniLFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermProperQTwoSpPairLift
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBUniFourCharts
-import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBFixLine
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-import CFSG.LieType.Universal.Symplectic
-import CFSG.Assembly.Subnormal
 import CFSG.ClassicalInvolution.WeakCT.SpSpThreeConj
 
 public section

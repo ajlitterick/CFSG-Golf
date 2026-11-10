@@ -1,14 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimLinear
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeLinearNbr
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimUnitary
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimReduced
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySides
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySixOriginal
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.RankThree.PartOne.TCB.SchreierFinal
 
 public section
 

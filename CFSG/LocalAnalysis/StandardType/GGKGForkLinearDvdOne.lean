@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
-public import CFSG.LocalAnalysis.StandardType.GGKGForkLinearOne
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLinearDvd
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLinearDvdRoot
 

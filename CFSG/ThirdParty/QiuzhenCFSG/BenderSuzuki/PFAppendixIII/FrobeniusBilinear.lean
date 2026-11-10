@@ -2,9 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIII.Basic
 import Mathlib.Algebra.Module.ZMod
-import Mathlib.FieldTheory.Finite.GaloisField
-import Mathlib.LinearAlgebra.FreeModule.Finite.Matrix
-import Mathlib.LinearAlgebra.LinearIndependent.Lemmas
 
 namespace CFSG
 end CFSG

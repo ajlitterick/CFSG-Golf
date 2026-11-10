@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.ThCent.Perf7Glue
 public import Certificates.Kernel.ThCent.Plane31021Checks
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ThreeOneSporPlaneThData
 
 public section
 

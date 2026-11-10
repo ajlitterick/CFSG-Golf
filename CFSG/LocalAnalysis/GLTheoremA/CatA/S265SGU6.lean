@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5LayerMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Fam
-import CFSG.Adapters.LinearCatalog
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUModel
 import CFSG.Timmesfeld.Orders.ClassicalLinearThree
 import CFSG.Timmesfeld.Orders.ClassicalUnitaryThree
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32
@@ -37,13 +35,7 @@ public import CFSG.LocalAnalysis.GLTheoremA.S3.Inputs
 public import CFSG.LocalAnalysis.GLTheoremA.S4.Inputs
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 
 public section
 

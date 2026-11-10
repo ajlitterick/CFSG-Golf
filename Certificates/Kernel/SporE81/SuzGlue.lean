@@ -4,7 +4,6 @@ public import Certificates.Kernel.SporE81.SuzChecks
 public import CFSG.Certificates.Kernel.E81KSound
 public import CFSG.Certificates.Kernel.E81IKSound
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Spor.Loops
 
 public section
 

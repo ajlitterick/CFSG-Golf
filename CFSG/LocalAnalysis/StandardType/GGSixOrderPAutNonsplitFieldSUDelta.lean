@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitFieldSU
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagSUFrame
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdUnitary
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryMat
 
 public section
 

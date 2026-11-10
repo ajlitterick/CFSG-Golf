@@ -8,10 +8,6 @@ public import Certificates.Kernel.Census.HSC.N1
 public import CFSG.Certificates.Kernel.Census.ConjYProof
 public import CFSG.Certificates.Kernel.Common.ForallChunks
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicHSBase
-import CFSG.RankThree.Native.HSMcLAuxData
-import CFSG.Sporadic.Schreier.PairHSCert
-import Certificates.Data.CFSGNative.Schreier.Check
-import CFSG.RankThree.Native.HSMcLSmallCheckInputs
 public import CFSG.Certificates.Kernel.Census.ConjSound
 
 public section

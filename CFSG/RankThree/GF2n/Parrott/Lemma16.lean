@@ -3,14 +3,9 @@ module
 public import CFSG.RankThree.GF2n.Parrott.Lemma16FirstParagraph
 public import CFSG.RankThree.GF2n.Parrott.Lemma16SecondParagraph
 public import CFSG.RankThree.GF2n.Parrott.Lemma12
-public import CFSG.RankThree.GF2n.Parrott.HPrimeJ1
-public import CFSG.RankThree.GF2n.Parrott.ActionZSimplicity
-public import CFSG.RankThree.GF2n.Parrott.Section2Products
 public import CFSG.LocalAnalysis.GL83PartI.I_24_3.OmegaAux
 public import CFSG.GroupTheory.ClosurePairCommute
-public import CFSG.GroupTheory.ConjTransport
 public import CFSG.GroupTheory.ElementaryAbelianBasis
-public import TauCeti.Algebra.Group.Subgroup.ZPowers
 
 public section
 

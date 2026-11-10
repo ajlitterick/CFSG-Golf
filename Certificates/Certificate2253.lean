@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2253Base
 
-public import CFSG.Sporadic.Schreier.RuArrays
 import Certificates.Kernel.SporSch.Ru.C2253P
 
 public section

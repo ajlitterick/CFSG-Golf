@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632WeylDatum
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632Weyl
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeFullCentre1585RowTableAHolds
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeFullCentre1585RowTableBHolds
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeFullCentre1585RowTableCHolds
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1625Pieces
 
 public section
 

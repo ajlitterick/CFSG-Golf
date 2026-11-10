@@ -1,29 +1,18 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Item41Narrow
-public import CFSG.LocalAnalysis.ComponentClassification.TBLitInputs
 public import CFSG.RankThree.PartTwo.Sec4.Census.TripleCoverResidual
-public import CFSG.RankThree.PartTwo.Census.TripleCoverSuz
-public import CFSG.RankThree.PartOne.N143.LieLeaves
-public import CFSG.RankThree.PartOne.N143.LieThree
-public import CFSG.RankThree.PartOne.N143.LieHigh
 public import CFSG.RankThree.PartOne.N143.HighEven
 public import CFSG.RankThree.PartOne.N143.O7
-public import CFSG.RankThree.PartOne.N143.LieE6
 public import CFSG.RankThree.PartOne.N143.AltLeaves
-public import CFSG.RankThree.PartOne.N143.SectionListLie
 public import CFSG.RankThree.PartOne.S11c.ETypeRankThree
 public import CFSG.RankThree.PartOne.S11c.Co1Cover
 public import CFSG.RankThree.PartOne.MultRes.Sec68Closed
 public import CFSG.Sporadic.Bridge.Catalogue
-public import CFSG.Sporadic.Mathieu.M22
 public import CFSG.RankThree.PartTwo.Census.Sporadic.J3
 public import CFSG.RankThree.PartTwo.Census.OddClassical.UnitaryFourThree
 public import CFSG.RankThree.PartTwo.Census.Carrier.G2Three
 public import CFSG.RankThree.PartOne.N143.AltRank
-import CFSG.RankThree.PartTwo.Sec4.Census.Transfer
-import CFSG.RankThree.PartTwo.Census.Classical.Bridges
-import TauCeti.GroupTheory.SpecificGroups.CFSG.Index
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2

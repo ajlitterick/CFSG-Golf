@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelE6Cover
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoThree
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySplitRefl
 public import CFSG.LocalAnalysis.StandardType.GGResLeaf
 

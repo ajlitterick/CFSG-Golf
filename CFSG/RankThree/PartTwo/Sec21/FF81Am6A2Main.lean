@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.FF81Am6A2Lie
 public import CFSG.RankThree.PartTwo.Sec21.FF81Am6A2Norm
-public import CFSG.RankThree.PartTwo.Sec21.FF81Am6A2
-public import CFSG.RankThree.PartTwo.Sec21.HeringFFLKE9
 
 @[expose] public section
 

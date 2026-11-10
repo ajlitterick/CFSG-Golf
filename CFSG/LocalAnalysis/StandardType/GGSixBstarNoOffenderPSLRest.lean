@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderPSLRestSplit
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderPSLRestNonsplit
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderPSLRestSp
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderUOSU
 

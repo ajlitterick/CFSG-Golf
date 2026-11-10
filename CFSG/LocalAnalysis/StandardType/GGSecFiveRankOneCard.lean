@@ -1,12 +1,9 @@
 module
 
 public import CFSG.ClassicalInvolution.WeakCT.TwistedTransport
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 public import CFSG.ClassicalInvolution.WeakCT.Main
 public import CFSG.ClassicalInvolution.WeakCT.SpPair
 public import CFSG.ClassicalInvolution.WeakCT.TwistedE6Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 
 public section
 

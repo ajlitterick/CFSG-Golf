@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamMain
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKSmall
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKBender
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKSp4
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKSp4Odd
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKMathieu
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKL3
@@ -29,7 +28,6 @@ public import CFSG.Quasithin.Background.A3Structure38Part3
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.C2Inputs
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
 
 public section
 

@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UEig
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UGram
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UExc
-public import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
 
 public section
 

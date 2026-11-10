@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeFPOmegaMinus
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoPOmegaMinusRoot
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1ShortOmMAux
 
 public section

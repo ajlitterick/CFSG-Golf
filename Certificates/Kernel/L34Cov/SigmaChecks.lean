@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.L34Cov.Sigma
 public import Certificates.Kernel.L34W.Outer
 public import Certificates.Kernel.L34Cov.Words
-import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Kernel.L34Cov.SigmaData
 public import CFSG.Certificates.Kernel.Bounds.Core3
 import CFSG.Certificates.Kernel.Bounds.Load

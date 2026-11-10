@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryCoverOddKernel
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticCoverFour
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticCatalogCover
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticCoverHigher
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalSplitCoverCatalog
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalSplitCoverPrime
 public import CFSG.LocalAnalysis.ComponentInitial.NonsplitOrthogonalCoverFour

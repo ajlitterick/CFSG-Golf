@@ -10,16 +10,10 @@ public import Certificates.Kernel.HS100.FyThrT5
 public import Certificates.Kernel.HS100.FyThrT6
 public import Certificates.Kernel.HS100.Chain
 public import Certificates.Kernel.HS100.Five
-public import CFSG.Certificates.Kernel.BfsPinAlg
-public import CFSG.Certificates.Kernel.BfsPinBaseSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
-public import CFSG.Certificates.Kernel.Misc.ArrEnumUnpack
 public import CFSG.Certificates.Kernel.Co3Five.TailSound
 public import CFSG.Certificates.Kernel.Misc.ChainTailQSound
-public import CFSG.Certificates.Kernel.Spor.RawSlSound
 public import CFSG.Certificates.Kernel.Common.ForallChunks
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Misc.ChainTailSound
 
 public section

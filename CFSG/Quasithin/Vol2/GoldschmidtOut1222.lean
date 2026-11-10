@@ -10,7 +10,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X3AutIso
 public import CFSG.Quasithin.Recognition.CertU33AutBound
 public import CFSG.Quasithin.Recognition.CertU33Simple
 public import CFSG.Timmesfeld.Final.PSU33
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.NormalizedProductSylow
@@ -32,15 +31,11 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.F2Equiv
 public import CFSG.Quasithin.Vol2.Ch12Sec2Setting
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

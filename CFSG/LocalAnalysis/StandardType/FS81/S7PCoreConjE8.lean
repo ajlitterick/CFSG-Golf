@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.S7E7Incl
 import CFSG.LocalAnalysis.StandardType.FS81.S7E7InclRange
 import CFSG.LocalAnalysis.StandardType.FS81.S7RootSL2
-import CFSG.LocalAnalysis.SeitzReduction.E7PilotNeighbourLevi
 import CFSG.LocalAnalysis.SeitzReduction.E8PilotQ2SwapDescent
 import CFSG.GroupTheory.PCore.PCoreOfMulEquiv
 import CFSG.LocalAnalysis.SeitzReduction.E8PilotSwapLift

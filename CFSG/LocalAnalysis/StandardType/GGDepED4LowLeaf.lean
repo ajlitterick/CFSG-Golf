@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGDepED4LowDefs
 public import CFSG.LocalAnalysis.StandardType.GGDepED4LowLeafClose
-public import CFSG.LocalAnalysis.StandardType.GGPZE6Input
 
 public section
 

@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.Co3K.Checks
 public import Certificates.Kernel.Sporadic.Co3.FirstFacts
 public import CFSG.Certificates.Kernel.Co3KSound
-public import CFSG.Certificates.Kernel.Spor.SiftRSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

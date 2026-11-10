@@ -1,6 +1,5 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.FiveReflectionFischer
 public import CFSG.OddTranspositions.PartThree.Eleven.Five.FiveFormAux
 public import CFSG.ClassicalGroups.Orthogonal.Derived
 public import CFSG.ClassicalGroups.Orthogonal.Matrix

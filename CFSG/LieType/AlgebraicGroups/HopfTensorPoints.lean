@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.AlgebraicGroups.ZariskiPoints
 public import Mathlib.RingTheory.HopfAlgebra.TensorProduct
 public import Mathlib.RingTheory.HopfAlgebra.Convolution
-public import Mathlib.RingTheory.FiniteStability
 
 public noncomputable section
 

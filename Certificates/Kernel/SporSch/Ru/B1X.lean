@@ -1,11 +1,8 @@
 module
 
 public import Certificates.Kernel.SporSch.Ru.B1W
-public import Certificates.Kernel.SporSch.Ru.RowsGen
-public import CFSG.Certificates.Kernel.Spor.RawSlSound
 public import CFSG.Certificates.Kernel.BfsPinSound
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 
 public section
 

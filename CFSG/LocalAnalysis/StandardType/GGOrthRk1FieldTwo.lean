@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.StandardType.GGOrthRk1Iso
 import CFSG.LocalAnalysis.StandardType.GGOrthRk1Theta
 import CFSG.LocalAnalysis.StandardType.GGOrthFrameModel
 import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockGTwo
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 
 public section
 

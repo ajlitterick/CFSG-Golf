@@ -9,8 +9,6 @@ public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Sporadic.Ly
 public import CFSG.Sporadic.McL
 public import CFSG.Timmesfeld.Orders.Classical
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.Blueprint.RecognitionDefs
 public import CFSG.Certificates.WordSubgroupRel

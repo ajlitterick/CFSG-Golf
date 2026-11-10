@@ -1,13 +1,8 @@
 module
 
 public import CFSG.Quasithin.Background.GoldschmidtS146RAut
-public import CFSG.Quasithin.Background.GoldschmidtS146RProper
 public import CFSG.Quasithin.Background.GoldschmidtS146RFour
-public import CFSG.Quasithin.EmptyFaithful.S146F4
-public import CFSG.Quasithin.Background.GoldschmidtS146RArith
-public import CFSG.Quasithin.Background.E2Two
 public import CFSG.Quasithin.Background.E2TwoNoNStmt
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 
 public section

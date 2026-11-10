@@ -1,22 +1,16 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwo
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoCharts
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoKFrame
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoKBlocks
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoCrossing
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoCentralizer
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoPlacement
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLFrameSwap
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpLFrameMp
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
 import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
 import CFSG.LocalAnalysis.StandardType.FF81.TwoChartLinear
-import CFSG.LieType.Universal.SpecialLinear
-import CFSG.Assembly.Subnormal
 
 public section
 

@@ -1,12 +1,7 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossBase
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SymplecticPlane
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SymplecticOuter
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SymplecticFamily
-public import CFSG.RankThree.PartOne.KC.SymplecticNoninnerPlaneDescent
 public import CFSG.RankThree.SteinbergR3ECASymplecticPrimeSubfield
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoSemilinear
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SymplecticB
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore

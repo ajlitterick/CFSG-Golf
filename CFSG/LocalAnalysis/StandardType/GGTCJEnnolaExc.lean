@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTCJDivExc
 public import CFSG.LocalAnalysis.StandardType.GGTCJEnnolaDefs
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxEnnolaDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxEnnolaTrans
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcompIdxEnnola
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonTriLHolds
-public import CFSG.Adapters.TauCetiExceptional.EvenAll
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcomp
 
 public section

@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClMark
 public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FinalTorus
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
 
 public section
 

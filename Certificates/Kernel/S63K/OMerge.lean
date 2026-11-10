@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.S63K.OData
 public import Certificates.Data.Kernel.S63K.Low
 public import Certificates.Data.Kernel.MergeTG
-public import Certificates.Data.D4HexOverWords
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

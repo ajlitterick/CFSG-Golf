@@ -5,7 +5,6 @@ public import Certificates.Kernel.B433Alt.FixN
 public import Certificates.Kernel.B433Alt.FixI
 public import Certificates.Kernel.B433Alt.FixG
 public import Certificates.Kernel.B433Alt.Exact
-public import CFSG.Certificates.Kernel.Common.ForallTree
 
 set_option maxRecDepth 100000
 

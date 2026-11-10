@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKFlagCore
-public import CFSG.Timmesfeld.LieEmbed.UnitaryForms
 
 public section
 

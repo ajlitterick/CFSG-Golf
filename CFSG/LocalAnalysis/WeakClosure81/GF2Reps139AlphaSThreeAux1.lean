@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139Defs
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139Basic
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139AlphaE
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139AlphaSDesc
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139HHerm

@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLKnownInputs
 import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCoverSetting
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLSmall
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLParity
-import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
-import CFSG.LocalAnalysis.StandardType.GGTableB
 import CFSG.LocalAnalysis.StandardType.GGLayerTitsCent
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLTorusBridge
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLTorusTypeAPlus

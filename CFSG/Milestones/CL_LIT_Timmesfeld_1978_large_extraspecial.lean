@@ -1,14 +1,5 @@
 module
 
-public import CFSG.Open.TimmesfeldLargeExtraspecialMilestoneDefs
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Sporadic.Co2Smith.GlC0MarkInputs
-import Certificates.Kernel.Co2Smith.Cox
-import Certificates.Data.Kernel.Co2Smith.Mark
-import Certificates.Data.Kernel.Co2Smith.Cox
-import Certificates.Kernel.Co2Smith.LettersData
-import Certificates.Kernel.Co2Smith.CoxData
-import Certificates.Kernel.Co2Smith.MarkK
 import CFSG.LargeExtraspecial.S14Main
 import CFSG.LargeExtraspecial.BridgeOrder
 import CFSG.LargeExtraspecial.AS62C36Main
@@ -46,7 +37,6 @@ public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
 public import CFSG.Sporadic.Ly.OrbitSpec
-public import CFSG.Sporadic.Ly.PrimitiveBase
 public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyChain11

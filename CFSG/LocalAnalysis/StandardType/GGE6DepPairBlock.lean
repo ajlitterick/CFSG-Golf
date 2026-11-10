@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6DepPairBlockDefs
-public import CFSG.LocalAnalysis.StandardType.GGE6DepZpowersInf
-public import CFSG.LocalAnalysis.StandardType.GGE6DepNormalizerOfConj
 public import CFSG.LocalAnalysis.StandardType.GGE6DepCorootGamma
 public import CFSG.LocalAnalysis.StandardType.GGE6DepFixedByCentresGamma
 public import CFSG.LocalAnalysis.StandardType.GGE6DepMemOfConjEq

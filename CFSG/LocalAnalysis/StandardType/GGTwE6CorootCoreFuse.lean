@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CorootCoreFuseFrame
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsCoreDefs
 import CFSG.LieType.SeitzGeneration.ExcHighThree.TwConjCore
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Lang
 import CFSG.LocalAnalysis.StandardType.GGTwE6RootKernelCount
 import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
 import CFSG.RankThree.PartTwo.Sec11.KS11Lie5ProofConjLang

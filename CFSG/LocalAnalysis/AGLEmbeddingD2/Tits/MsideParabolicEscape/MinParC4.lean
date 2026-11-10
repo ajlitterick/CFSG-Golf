@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.MinParModel
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.MinParC4S
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.MinParC4Group
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.ChevGenCore
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.S3AmalgamBound.FFBlockLiftCtx
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVL34FF
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.L34BetaHPara

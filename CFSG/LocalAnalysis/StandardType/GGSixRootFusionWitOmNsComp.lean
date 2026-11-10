@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmCent
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivOmegaRegular
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaRegular
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalLowDimCoverageCases
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCOBlock
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinInteraction
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Background.HModChk
 public import CFSG.LocalAnalysis.ComponentClassification.ClassicalModelStatedBridge
 public import CFSG.Milestones.ASVolI.H1
 public import CFSG.Quasithin.Background.HCocBase

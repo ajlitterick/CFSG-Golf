@@ -1,18 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7DLModelDefs
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.LocalAnalysis.StandardType.GGHdRo7SULCoordModelA
 import CFSG.LocalAnalysis.StandardType.GGHdRo7DFrameTransport
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestCenter
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
-import CFSG.LocalAnalysis.SectionRank.EvenCover.SLTwo
 import CFSG.LocalAnalysis.AGLEmbedding.SymThreeCentralExt
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_14
-import CFSG.Mathlib.GroupTheory.PermCenter
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 
 set_option linter.style.haveILetI false
 

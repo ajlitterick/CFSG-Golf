@@ -2,45 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S213Rest15Cases
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S213Ident
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
-public import CFSG.Monster.Existence.StdOdd.Defs
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.RankThree.PartOne.CTP.FusionSound
-import CFSG.Sporadic.Bridge.BFusSevenGen
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
-public import CFSG.YGroups.Y443.Native.Swap13Word
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
-import CFSG.HardMathSupport.Foote.FamilyReduction.ClassicalFive
 import CFSG.LocalAnalysis.UniquenessCase.UC1K32
-import CFSG.CGT.PushingUpLit.CGT6.EmbEndSporThree
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846h
-import CFSG.LocalAnalysis.UniquenessCase.UC6K36EqlStarCat
-import CFSG.LocalAnalysis.UniquenessCase.UC6K36SporGe4
-import CFSG.LocalAnalysis.UniquenessCase.UC6K36ODCCent
-import CFSG.LocalAnalysis.UniquenessCase.UC6K316Out
-import CFSG.LieType.SeitzGeneration.SeitzStatus
-import CFSG.LocalAnalysis.UniquenessCase.UC6K36SporPairs
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SlotsFourAssembly
-import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIB
-import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIBSmall
 import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIBA6
-import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.StrongThree
-import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
-import CFSG.LocalAnalysis.UniquenessCase.UC6S9
-import CFSG.LocalAnalysis.UniquenessCase.UC6K47d
-import CFSG.LocalAnalysis.UniquenessCase.UC6Star36b
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.PartOneSixSeven
-import CFSG.LocalAnalysis.UniquenessCase.UC7P3BadNoStrongHolds
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.SEFive.Holds
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.CGT.Timmesfeld75.OddCenter
 public import CFSG.CGT.Timmesfeld75.Sec5FiveEng
@@ -83,11 +50,9 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.D1Frontier3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2AltFiveBlock3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2Families3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2HSFive3
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Cover
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Fusion
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Impure
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Kmax
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Port3CoreFree
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Residue3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2LeavesNarrow3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2SporDatum3

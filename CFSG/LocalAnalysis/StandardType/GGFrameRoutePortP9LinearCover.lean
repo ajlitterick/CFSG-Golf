@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9Wa
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeAut
 public import CFSG.LocalAnalysis.StandardType.GGSL7CentralCover
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinTwoTBFrame
 

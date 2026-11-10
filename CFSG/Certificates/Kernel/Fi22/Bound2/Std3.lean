@@ -1,9 +1,7 @@
 module
 
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Certificates.Kernel.Common.Lce
 public import CFSG.Certificates.Kernel.Common.LceS
-public import CFSG.Certificates.Kernel.Common.Loop
 public import CFSG.Certificates.Kernel.Fi22.Bound.Cov
 public import CFSG.Certificates.Kernel.Fi22.Bound.Rels
 public import CFSG.Certificates.Kernel.Fi22.Bound.Data.Cov

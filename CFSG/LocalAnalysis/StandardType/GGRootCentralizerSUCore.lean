@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerSUBasic
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionLinearSU
 public import CFSG.LocalAnalysis.StandardType.GGInvolutionClassSURoot
 public import CFSG.LieType.Steinberg.CentralExt.SUOddFieldThreeLevi
-public import CFSG.ClassicalGroups.Unitary.Finite
 
 public section
 

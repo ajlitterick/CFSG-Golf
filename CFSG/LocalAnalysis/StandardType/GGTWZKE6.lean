@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTWZK
 public import CFSG.LocalAnalysis.StandardType.GGTWZKE6Kac
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGK0MarkedKacCoverProducer
 public import CFSG.LocalAnalysis.StandardType.GGK0MarkedComponents
 public import CFSG.LocalAnalysis.StandardType.GGK0RationalProducerHolds
-public import CFSG.LocalAnalysis.StandardType.GGD4OddCentKLocal
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentJLevel
 
 public section

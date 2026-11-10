@@ -1,13 +1,7 @@
 module
 
 public import CFSG.Milestones.ASVolI.C6
-public import CFSG.LocalAnalysis.SectionRank.Ccomm.PGroupBasics
 public import CFSG.Quasithin.Background.C64Dihedral
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralGenerators
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246A7Rep
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B42Transport
-public import CFSG.Quasithin.H13.A7NatSchur
-public import CFSG.Quasithin.H13.VolIAltCoverSeven
 public import CFSG.CGT.PushingUpLit.LIT.Foote.GroupAux
 public import CFSG.ClassicalInvolution.QuaternionStructure
 public import CFSG.ClassicalInvolution.SmallCases.EvenLie.Chevalley
@@ -19,24 +13,11 @@ public import CFSG.GH74.GLS.C3.Layer1.BackLeaves
 public import CFSG.GH74.GLS.C3.Layer1.Split
 public import CFSG.GH74.GLS.C3.Layer3.Main
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.IVK.A7.Glue
-public import CFSG.GH74.GLS.IVK.L2.BN
-public import CFSG.GH74.GLS.IVK.L2.BorelFive
-public import CFSG.GH74.GLS.IVK.L2.Lemma113
-public import CFSG.GH74.GLS.IVK.L2.Lemma114
-public import CFSG.GH74.GLS.IVK.L2.Lemma12ib
-public import CFSG.GH74.GLS.IVK.L2.Lemma12j
-public import CFSG.GH74.GLS.IVK.L2.Lemma12k
-public import CFSG.GH74.GLS.IVK.L2.Lemma14f
-public import CFSG.GH74.GLS.IVK.L2.Lemma14j
-public import CFSG.GH74.GLS.IVK.L2.Lemma19b
-public import CFSG.GH74.GLS.IVK.Prod.Lemma31
 public import CFSG.GH74.GLS.IVK.Proofs
 public import CFSG.GH74.GLS.IVK.Proofs2.C3Ivk102L
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13g
-public import CFSG.GH74.GLS.IVK.Statements
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Closed
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Statements
 public import CFSG.GH74.GLS.Stage1.Thm6.Sec12.Defs
@@ -138,7 +119,6 @@ public import CFSG.Sporadic.Schreier.J4SCommGenBase1
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
 public import CFSG.Sporadic.Schreier.MathieuOddCore
 public import CFSG.StronglyEmbedded.MatrixGroups.PSL2
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Walter.Ree.Thompson2.BaseFin
 public import CFSG.Walter.ReeOrder.WardLocal
 public import CFSG.Walter.W67.Section8.Prop83

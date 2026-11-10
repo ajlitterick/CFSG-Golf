@@ -1,15 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightS1T3Set
-public import CFSG.Quasithin.Background.B4Models
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightS1T3NatEndA
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightS1T3NatIrr
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightS1T3IrrNat
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2TwentyTwoCapAltEquiv
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2TwentyTwoCapAltNorm
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenLin
-import CFSG.LocalAnalysis.WeakClosure81.GF2RepsIrr
-import CFSG.LocalAnalysis.RankThreeUC.GN15AltBaumComb
 import CFSG.LocalAnalysis.RankThreeUC.GN15AltBlockMod
 import CFSG.Quasithin.H13.A7NatSix
 import CFSG.GroupTheory.AlternatingThreeRank

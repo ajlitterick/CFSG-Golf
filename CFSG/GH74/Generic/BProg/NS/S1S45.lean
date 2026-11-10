@@ -1,12 +1,10 @@
 module
 
 public import CFSG.GH74.Generic.BProg.NS.Basic
-public import CFSG.GH74.Generic.S3.BFreeBasic
 public import CFSG.GH74.Generic.OnlyInvSources
 public import CFSG.GH74.Generic.AltDepth
 public import CFSG.GH74.Generic.S45.LLiftJ
 public import CFSG.GH74.Generic.S1.NbrCompFinal
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Sporadic.HN.CertificateBase
 public import CFSG.Sporadic.ON.SimpleBase
 

@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.EmptyFaithful.S143NM
 public import CFSG.Quasithin.EmptyFaithful.S143NL
 public import CFSG.Quasithin.EmptyFaithful.S151Basic
-public import CFSG.Quasithin.EmptyFaithful.S143IE
 public import CFSG.Quasithin.EmptyFaithful.S143NI
 
 public section

@@ -2,11 +2,7 @@ module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qLocBase
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qOutKb
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
-public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8D4D0
-public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8D4Res
 public import CFSG.LinearAlgebra.SL2MinimalFaithfulMatrix
-public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsD4Data
 
 public section
 

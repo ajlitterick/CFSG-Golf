@@ -3,9 +3,6 @@ module
 public import CFSG.LieType.Steinberg.CentralExt.GriessExceptional
 public import CFSG.LieType.Multipliers.Sz8
 public import CFSG.LieType.Steinberg.CentralExt.SuzukiMultiplier
-public import CFSG.StronglyEmbedded.Catalog.Suzuki
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Chevalley.EvenRootCommutatorF4
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoProjectiveFormulas

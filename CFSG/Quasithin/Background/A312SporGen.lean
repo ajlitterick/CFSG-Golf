@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListCore
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListAlt7
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCore
 public import CFSG.LocalAnalysis.QuasithinUnique.CatalogBridgeLinear
-public import CFSG.CharacterTheory.Burnside
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermIso
 
 public section

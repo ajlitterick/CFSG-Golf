@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeGlue
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitFamilies
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclicHolds
-import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRankDefs
 
 public section
 

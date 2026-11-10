@@ -1,15 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFSp2
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFSp4
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFGU2
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenSpTwoCentFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoCent
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeLayer
 public import CFSG.LieType.SemisimpleCentralizers.HeldCompTrivSU
-public import CFSG.LieType.Universal.Unitary.Clause0
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
 
 public section
 

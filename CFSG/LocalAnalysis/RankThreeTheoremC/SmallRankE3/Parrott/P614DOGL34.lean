@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup
-public import Mathlib.FieldTheory.Finite.GaloisField
 public import CFSG.Open.LocalVocabulary
 public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
 import CFSG.RankThree.PartTwo.KFacts.L34Aut

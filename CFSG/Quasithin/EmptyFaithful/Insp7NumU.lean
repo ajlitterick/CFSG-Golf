@@ -1,49 +1,13 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.Insp7NumT
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutModel
 
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115SporadicMathieu
-import CFSG.Sporadic.Schreier.MathieuOddCoreM23
 import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutOddCore
-public import Certificates.Certificate13
-public import Certificates.Certificate14
-public import Certificates.Certificate15
-public import Certificates.Certificate16
-public import Certificates.Certificate17
-public import Certificates.Certificate18
-public import Certificates.Certificate19
-public import Certificates.Certificate20
-public import Certificates.Certificate21
-public import Certificates.Certificate22
-public import Certificates.Certificate23
-public import Certificates.Certificate24
-public import Certificates.Certificate25
-public import Certificates.Certificate26
-public import Certificates.Certificate27
-public import Certificates.Certificate28
-public import Certificates.Certificate29
-public import Certificates.Certificate30
-public import Certificates.Certificate31
-public import Certificates.Certificate32
-public import Certificates.Certificate33
-public import Certificates.Certificate34
-public import Certificates.Certificate35
-public import Certificates.Certificate36
-public import Certificates.Certificate37
-public import Certificates.Certificate38
-public import Certificates.Certificate39
-public import Certificates.Certificate40
-public import Certificates.Certificate41
-public import Certificates.Certificate2196
-public import Certificates.Certificate2197
 public import Certificates.Certificate2204
-public import Certificates.Certificate10019
-public import Certificates.Certificate3139
 public import CFSG.Quasithin.H13.J4Core
 public import CFSG.Sporadic.Schreier.M23Check
-public import Certificates.Kernel.J4Count.FixCE
 import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 import CFSG.Sporadic.Schreier.MathieuOddCore
 import CFSG.Walter.J1

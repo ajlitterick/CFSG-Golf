@@ -29,9 +29,7 @@ public import CFSG.Quasithin.Background.A3Structure318Red
 public import CFSG.Quasithin.Background.A3Structure36A
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
 public import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
 public import CFSG.Quasithin.Background.A3Structure36BFrattini
 public import CFSG.Quasithin.Background.A3Structure36BHeisBase
 public import CFSG.Quasithin.Background.A3Structure36BHomocyclic
@@ -54,9 +52,6 @@ public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.B4ModelsIso
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
 public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeGroup
 public import CFSG.RankThree.PartTwo.Sec19.Item194Used
@@ -64,22 +59,16 @@ public import CFSG.StronglyEmbedded.BenderNormalSeries
 import CFSG.Certificates.Kernel.LocalCompTits.Span
 import CFSG.GH74.SmallRanks.AltM11
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4Quot
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C123Alt7
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.Quasithin.Background.C124B51Hyp
 import CFSG.Quasithin.Background.C124BlkTransfer
 import CFSG.Quasithin.Background.C124InterfaceDefs
 import CFSG.Quasithin.Background.C1GNC124
-import CFSG.Quasithin.Background.C2Inputs
 import CFSG.Quasithin.Background.HPairBridge
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Sporadic.Schreier.J4SProfileNode
 import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

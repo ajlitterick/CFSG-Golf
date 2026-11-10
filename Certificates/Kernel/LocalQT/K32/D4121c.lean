@@ -4,7 +4,6 @@ public import Certificates.Kernel.LocalQT.K32.D4121a
 public import Certificates.Kernel.SporSch.Mathieu.Gen2
 public import Certificates.Kernel.SporSch.Mathieu.Gen3
 public meta import Certificates.Kernel.LocalQT.K32.D4121a
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

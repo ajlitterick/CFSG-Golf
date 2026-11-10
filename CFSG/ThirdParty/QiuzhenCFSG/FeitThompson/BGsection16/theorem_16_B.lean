@@ -3,8 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection16.theorem_16_A
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection2.Basic
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection2.PFsection2_1
-import Mathlib.GroupTheory.Schreier
-import Mathlib.Order.Preorder.Finite
 
 namespace CFSG
 end CFSG

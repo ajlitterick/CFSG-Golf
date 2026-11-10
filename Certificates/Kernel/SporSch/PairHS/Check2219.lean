@@ -7,14 +7,10 @@ public import Certificates.Kernel.SporSch.PairHS.ClRecA
 public import Certificates.Kernel.SporSch.PairHS.ClRecB
 public import Certificates.Kernel.SporSch.PairHS.ClRunA
 public import Certificates.Kernel.SporSch.PairHS.ClRun
-public import CFSG.Certificates.Kernel.SporSch.PairKSound
 public import CFSG.Certificates.Kernel.SporSch.RuPresSound
-public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.Bounds.HSAlt.RelsTC
 public import CFSG.Sporadic.Presentation.HSExact
-public import CFSG.Sporadic.Bridge.TwoGen
 public import CFSG.Monster.B.Mathieu.ChainCheck
-public import CFSG.Sporadic.Schreier.PairHSCheckInputs
 public meta import CFSG.Sporadic.Schreier.PairHSCert
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.Schreier.Check
@@ -23,7 +19,6 @@ public import CFSG.Certificates.Kernel.SporSch.PairClTProof
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.Certificates.Kernel.Spor.PresCard
 public import CFSG.Sporadic.Presentation.Common
 

@@ -5,10 +5,6 @@ public import CFSG.RankThree.PartTwo.Sec14.Item1413Res3ProofOneR
 public import CFSG.RankThree.PartTwo.Sec14.Item1413Res3ProofL3
 import CFSG.RankThree.PartTwo.Sec14.Item1413Res2ProofM12Q
 import CFSG.RankThree.PartTwo.Sec14.Item143StepsProofLThree
-import CFSG.RankThree.PartTwo.Sec14.Concl142HJ
-import CFSG.RankThree.PartTwo.Sec14.Concl142NHJInner
-import CFSG.RankThree.PartTwo.Sec14.Item1413Res2ProofSimple
-import CFSG.RankThree.PartTwo.Sec13.Item131Facts
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
 import CFSG.RankThree.PartTwo.Sec13.Item13SLTwo
@@ -16,7 +12,6 @@ import CFSG.RankThree.PartTwo.Sec13.Item136PGL
 import CFSG.RankThree.PartTwo.Sec4.Census.Lift46
 import CFSG.RankThree.PartTwo.KFacts.KS14Orders
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ThetaRankThree
-import CFSG.Sporadic.Mathieu.M12
 public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Hexads
 public import CFSG.RankThree.Asc83Table.PermTables
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry

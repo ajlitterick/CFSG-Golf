@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22InvolutionsInputs
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
-import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Hexads
-import Certificates.Certificate2195
 meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22InvolutionsInputs
 import Certificates.Kernel.LocalComp.WittA2032
-import Certificates.Certificate2195
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinCentralizerLam
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinLeviPlane
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitSpNsDiag
 
 public section

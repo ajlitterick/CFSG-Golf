@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepAssembly
 public import CFSG.LocalAnalysis.StandardType.GGTWSurvDefs
 
 public section

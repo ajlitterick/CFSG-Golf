@@ -5,8 +5,6 @@ import CFSG.ClassicalInvolution.Balance.LayerGenerationShortAdjoint
 import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalIsogeny
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotAmalgam
 import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerE7
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.ClassicalInvolution.Balance.PassTwoFinal
 import CFSG.LieType.Ree.SmallReeModelSchreier
 import CFSG.LocalAnalysis.ComponentClassification.BadTwoComponentSubgroup

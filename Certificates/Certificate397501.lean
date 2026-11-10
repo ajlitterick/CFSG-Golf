@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.P43Twin
 import CFSG.Certificates.Kernel.ONanSmall.MapSound
-import CFSG.Certificates.Kernel.ONanSmall.CoverSound
 import CFSG.Certificates.Kernel.ONanSmall.CVGlue
 import Certificates.Kernel.ONanSmall.P43T
 public import Certificates.Data.Kernel.ONanSmall.P43Gen

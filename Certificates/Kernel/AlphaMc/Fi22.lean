@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.AlphaGrpK
 public import Certificates.Data.Kernel.AlphaFunK
 public import Certificates.Kernel.TcGen.Fi22
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.AlphaFi22Data

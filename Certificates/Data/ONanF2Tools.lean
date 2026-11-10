@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.ONanF2Model
-public import Mathlib.Algebra.Group.Commutator
 
 public section
 

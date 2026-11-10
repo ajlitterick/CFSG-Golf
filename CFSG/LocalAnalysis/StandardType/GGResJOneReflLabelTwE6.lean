@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
 import CFSG.LocalAnalysis.StandardType.GGExcFieldRankTwE6
 import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcSylowTorus

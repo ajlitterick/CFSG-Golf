@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MShDefs
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIAut
-import CFSG.LocalAnalysis.GLTheoremA.CatA.MIInnDiag
 import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04E6F
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.E6Field
 import CFSG.LocalAnalysis.GLTheoremA.S10.Bridge
-import CFSG.HardMathSupport.Timmesfeld.Proving.GLAComponentSelf
 public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3LInput
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.LieQ.Derivation

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T263SDLinBlock
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.LinearInner
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.CentralQuotient
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Export
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T263DXGlue
 public import CFSG.GroupTheory.QuasisimpleCenterDivisibility

@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTorusGenSpComp
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSpWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkCent
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSLTransfer
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoTableB
 public import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
 public import CFSG.ClassicalGroups.Symplectic.DiagonalTorusRank
 public import CFSG.SignalizerFunctorTheorem.NonLocal.Cross

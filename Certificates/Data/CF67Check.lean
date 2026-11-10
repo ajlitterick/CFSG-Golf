@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Sporadic.Schreier.CountSpec
 public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
 public meta import CFSG.Sporadic.Schreier.CountSpec
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 public meta import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore

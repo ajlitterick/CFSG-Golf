@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.S9InspV
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.S9InspC
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma32LeKOut
-import Mathlib.Tactic.Group
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem3GoldschmidtFacts
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem3WeakClosure
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExclusion

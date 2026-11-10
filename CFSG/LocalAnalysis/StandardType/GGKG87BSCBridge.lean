@@ -5,13 +5,7 @@ public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCTGraphTwisted
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeA2ConjLift
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeToralityProof
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeE6FourFusion
-import CFSG.LieType.Chevalley.E6GraphInvolutionFiniteReduction
-import CFSG.LieType.Chevalley.LangFrobeniusFixedDerived
 import CFSG.LieType.Steinberg.CentralExt.TwistedE6PosLift
-import CFSG.LieType.Steinberg.CentralExt.TwistedE6Center
-import CFSG.LieType.Steinberg.CentralExt.TwistedE6Coprime
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
 import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelKernelCore
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Defs
@@ -50,8 +44,6 @@ public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts

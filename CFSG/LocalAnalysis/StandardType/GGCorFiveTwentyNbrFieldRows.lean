@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyR3Rank
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveInputs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

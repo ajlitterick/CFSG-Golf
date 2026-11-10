@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Centralizer
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Pieces
-public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Frame
 public import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrame
 
 public section

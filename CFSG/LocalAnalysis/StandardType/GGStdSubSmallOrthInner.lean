@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthDefs
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeLift
 
 public section
 

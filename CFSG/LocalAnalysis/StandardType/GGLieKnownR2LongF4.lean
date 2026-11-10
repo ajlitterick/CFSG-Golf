@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongF4Datum
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongF4C2
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2HighestRootLong
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 
 public section
 

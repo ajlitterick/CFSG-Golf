@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.Spor.Fi24PairPcSound
-public import CFSG.Certificates.Kernel.Spor.Fi24NetPtSound
-public import CFSG.Certificates.Kernel.Spor.Fi24FixPSound
 public import CFSG.Sporadic.Schreier.J4SChain
 
 public section

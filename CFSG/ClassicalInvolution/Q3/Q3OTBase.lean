@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TLKAut
 public import CFSG.ClassicalInvolution.Q3.Q3NMTwin
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinSpin
 public import CFSG.ClassicalInvolution.RouteD.TWZSpinA
 public import CFSG.ClassicalInvolution.Asc77.WP3L52Main
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinModel

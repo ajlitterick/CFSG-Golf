@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinberg
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergRoot
 public import CFSG.LieType.Chevalley.EvenCanonicalFieldCentralizer
-public import CFSG.LieType.Chevalley.OddF4CosetDescent
-public import CFSG.LieType.Steinberg.Adjoint.Presentation
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField
 
 public section

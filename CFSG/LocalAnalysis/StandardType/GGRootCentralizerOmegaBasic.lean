@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotRootCentralizerPerfect
-public import CFSG.ClassicalGroups.Orthogonal.CharTwo
-public import CFSG.ClassicalGroups.Orthogonal.Restrict
-public import CFSG.LieType.Universal.SpinOmega.Reflections
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedBlock
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerSUBasic
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore
@@ -27,7 +22,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotSetup
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.RankThree.PartOne.KC.OrthogonalAutSemilinearBridge
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.Walter.JRFacts
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension

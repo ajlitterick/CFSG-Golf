@@ -1,23 +1,13 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSADefs
-import CFSG.ClassicalInvolution.Phan.Blocks
-import CFSG.LieType.Steinberg.CentralExt.SUThreeThree
 import CFSG.ClassicalInvolution.Models.UnitaryFrames
-import CFSG.ClassicalInvolution.Models.UnitaryPairs.RootSU2
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneCard
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylEltOfAutomizer
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInner
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNbrRefl
 import CFSG.LocalAnalysis.StandardType.GGRankOneRootMatch
 import CFSG.LocalAnalysis.StandardType.GGRankOneTags
-import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRank
 import CFSG.ClassicalInvolution.Models.LinearFrames.Frame
 import CFSG.ClassicalInvolution.Models.LinearPairs
 import CFSG.ClassicalInvolution.Models.UnitaryPairs

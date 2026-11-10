@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeRestCover
-public import CFSG.LieType.Steinberg.CentralExt.SUCentrallyClosed
-public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 
 public section
 

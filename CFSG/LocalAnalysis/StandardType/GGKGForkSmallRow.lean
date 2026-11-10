@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkTransfer
 public import CFSG.LocalAnalysis.StandardType.GGKGForkVacuous
 public import CFSG.LocalAnalysis.StandardType.GGTorusTBGroupCard
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmall
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmall
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanks
 
 public section
 

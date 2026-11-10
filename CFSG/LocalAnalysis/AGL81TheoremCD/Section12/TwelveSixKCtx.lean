@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.Defs
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveSixToNineStmt
-public import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockDefs
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTen
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveKer
 public import CFSG.GroupTheory.SylowNormalIndex
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27DiagGroup

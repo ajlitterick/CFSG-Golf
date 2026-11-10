@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.ConnectedToralLangFrobenius
 public import CFSG.LieType.AlgebraicGroups.E6GraphCentralizerLangCurves
-public import CFSG.LieType.AlgebraicGroups.E6GraphCentralizerLangWords
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

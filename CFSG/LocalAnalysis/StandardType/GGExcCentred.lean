@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGExcRERegimeDefs
 public import CFSG.LocalAnalysis.StandardType.GGExcGen
 public import CFSG.LocalAnalysis.StandardType.GGK0MainBSCentred
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUTableCentred
 public import CFSG.LocalAnalysis.StandardType.GGK1ScExcPair
-public import CFSG.LocalAnalysis.StandardType.GGTPNThmUKacV2
-public import CFSG.LocalAnalysis.StandardType.GGTPNThmULabel
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

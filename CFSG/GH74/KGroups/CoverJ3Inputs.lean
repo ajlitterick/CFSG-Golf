@@ -3,14 +3,10 @@ module
 public import CFSG.GH74.KGroups.CoverJ3Check
 public import CFSG.GH74.KGroups.CoverE16
 public import CFSG.GH74.KGroups.CoverRank
-public import CFSG.GH74.KGroups.Generic5
 public import CFSG.GH74.Generic.Shapes
 public meta import CFSG.GH74.KGroups.CoverJ3Check
 public meta import Certificates.Data.CFSGNative.Filter.Sec2
 public meta import Certificates.Data.CFSGNative.SectionRank.F2
-import CFSG.Blueprint.NativeSporadic
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GH74.Generic.Certificates
 public import CFSG.GH74.Statements
@@ -22,7 +18,6 @@ public import CFSG.LocalAnalysis.SectionRank.CentralLift
 public meta import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2
 public meta import CFSG.Open.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 
 public section
 

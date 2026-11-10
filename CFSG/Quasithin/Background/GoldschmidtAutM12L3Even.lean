@@ -2,12 +2,8 @@ module
 
 public import CFSG.Quasithin.Background.GoldschmidtAutM12Fam
 public import CFSG.Quasithin.Background.GoldschmidtAutM12Transfer
-public import CFSG.Quasithin.SteinbergCDLinearThreeSylowSixteen
 public import CFSG.RankThree.SteinbergR3ELinearUnitaryOuterOrder
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
 public import CFSG.LocalAnalysis.ComponentClassification.NormalizedProductSylow

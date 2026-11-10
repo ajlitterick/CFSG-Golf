@@ -1,19 +1,9 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Eleven.Statements
-public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Hyp
 import CFSG.OddTranspositions.PartThree.Eleven.OneOne.DerivedShared
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Pair
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Quandle
-public import CFSG.OddTranspositions.PartThree.EightFive.KBarSetup
 public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.KStructure
 
 import CFSG.OddTranspositions.PartThree.CardWidth
-import CFSG.GroupTheory.SylowOrbitCard
-import CFSG.OddTranspositions.PartThree.Eleven.GroupLemmas
-import CFSG.GH74.Generic.BProg.B2.L2Cover
-import CFSG.Milestones.ASVolI.I2Covers
-import CFSG.Timmesfeld.Bridge.Asc72ZAlt
 import CFSG.OddTranspositions.PartThree.LocalBenderCenter
 import CFSG.OddTranspositions.PartThree.EightFive.Transitive
 

@@ -1,9 +1,6 @@
 module
 
-public import Mathlib.GroupTheory.Transfer
 public import CFSG.Assembly.OrderReductions.InvariantSylow
-public import Mathlib.Order.CompletePartialOrder
-public import Mathlib.Tactic.ENatToNat
 
 public section
 

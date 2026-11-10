@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart2
-public import CFSG.LieType.AlgebraicGroups.ConnectedToralLangFrobenius
 public import CFSG.LocalAnalysis.SeitzReduction.EPilotRoots
-public import CFSG.RankThree.PartOne.KE.ConjRootSpan
 
 public section
 

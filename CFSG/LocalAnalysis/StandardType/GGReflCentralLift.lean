@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRCLinRefl
 public import CFSG.LocalAnalysis.StandardType.GGWitSlpm
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.LocalAnalysis.StandardType.GGKGReflection
 public import CFSG.RankThree.CentralCover.ReflectionRadical
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public noncomputable section
 

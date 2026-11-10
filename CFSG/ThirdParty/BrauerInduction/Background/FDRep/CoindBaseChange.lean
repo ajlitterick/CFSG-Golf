@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.Induced
 public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.CoindBasic
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.HexNumsGen
-public import CFSG.Sporadic.FischerOddCore.Fi24R2Data
 
 public section
 

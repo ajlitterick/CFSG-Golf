@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.TorusQSSp4Lin
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.TorusQSSp4Plane
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22d
 public import CFSG.GroupTheory.PCoreSurjective
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSpBasic
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge
 public import CFSG.RankThree.GF2n.Stroth80.CarterSec93TorusLift

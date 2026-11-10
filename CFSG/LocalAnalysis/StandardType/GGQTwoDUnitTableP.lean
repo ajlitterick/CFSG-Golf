@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitNbrB
-public import CFSG.LocalAnalysis.StandardType.GGTPNLineDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDTablePDefs
 
 import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA2

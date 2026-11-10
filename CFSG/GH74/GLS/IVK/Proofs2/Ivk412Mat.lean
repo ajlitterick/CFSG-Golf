@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk412Dih
 public import CFSG.GH74.GLS.Stage2.Final.ModelIVKFam
-public import CFSG.GH74.GLS.Stage2.Final.ModelLUSyl
-public import CFSG.GH74.GLS.Stage2.Final.ModelRefl
 public import CFSG.CharacterTheory.Blocks.Defs
 public import CFSG.GH74.GLS.Bg.TwoGroups.Statements
 public import CFSG.GH74.GLS.SP.Consistency

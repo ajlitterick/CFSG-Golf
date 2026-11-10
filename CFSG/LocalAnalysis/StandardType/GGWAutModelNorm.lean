@@ -1,15 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112K
-public import CFSG.LocalAnalysis.StandardType.GGQTwoQuandleD
-public import CFSG.LocalAnalysis.StandardType.GGQTwoBCNorm
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBCThmB
-public import CFSG.LocalAnalysis.StandardType.GGQTwoBCCoord
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterForkProofBCDExt
 public import CFSG.LocalAnalysis.StandardType.GGRCAbsIrred
-public import CFSG.LocalAnalysis.StandardType.GGReflClosedIndep
 public import CFSG.LocalAnalysis.StandardType.GGRCTypeADet
 public import CFSG.LieType.Universal.Spin.Roots.TypeD
 public import CFSG.ClassicalInvolution.RouteD.Entries

@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcRoots
-public import CFSG.LieType.Chevalley.OddToralInvolutionComponents
-public import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LayerBridge
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcRank
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Basic
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotFieldNormalizeTorus
 public import CFSG.LocalAnalysis.ComponentClassification.CatFC.DS81ExTorus

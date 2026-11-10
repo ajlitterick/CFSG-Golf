@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.Context
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.StatementsRootModule
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
 public import CFSG.Foundations.HigherElementaryThompson
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Conjugacy
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.CyclicBlocks.Family

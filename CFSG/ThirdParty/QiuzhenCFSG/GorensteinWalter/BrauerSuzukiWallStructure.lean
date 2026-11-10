@@ -4,16 +4,9 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.BrauerSuzukiWallIndex
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.BrauerSuzukiWallTISubset
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.BrauerSuzukiWallHall
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_2_a
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.ConjugateAction
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.PStability
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection10.lemma_10_8_a
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.NormalComplement
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.theorem_1_13
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection10.theorem_10_1_b
-import Mathlib.GroupTheory.GroupAction.SubMulAction
-import Mathlib.GroupTheory.Rank
-import Mathlib.GroupTheory.FixedPointFree
-import Mathlib.Tactic.Group
 
 namespace CFSG
 end CFSG

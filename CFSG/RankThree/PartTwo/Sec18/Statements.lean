@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec18.Notation
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.ABGLocalTools.Constraint
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -16,7 +14,6 @@ public import CFSG.RankThree.PartTwo.Sec13.Statements
 public import CFSG.RankThree.PartTwo.Sec4.StatementsCensus
 public import CFSG.RankThree.PartTwo.Sec4.StatementsGraphField
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

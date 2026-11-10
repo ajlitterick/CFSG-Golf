@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGRawAutRestCore
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangSz
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclicLabels
 public import CFSG.LocalAnalysis.ComponentInitial.InvolutionFixedFourGroupTransport
-public import CFSG.RankThree.SteinbergR3ESuzukiFieldSplitting
 public import CFSG.RankThree.PartTwo.KFacts.AutSz
 
 public section

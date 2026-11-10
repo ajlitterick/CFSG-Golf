@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResOrthogonalExactTwo
-public import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameCenter
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeOmMinusHolds
 
 public section

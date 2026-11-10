@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticBConjugation
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticBStated
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticBFieldConjugation
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticRepresentationOdd
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalDescentNormalization
 import CFSG.HardMathSupport.Meierfrankenfeld.LieOdd.QuadIsotropic
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingTransport
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBFixedCentralQuotient
@@ -18,9 +15,7 @@ public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.LieType.BorelTits.CompleteFlag
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalDescentEndpoint

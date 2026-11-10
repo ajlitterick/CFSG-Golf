@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.Co1Block.IotaCheckInputs
 public meta import CFSG.Sporadic.Co1Block.IotaData
 public meta import CFSG.Sporadic.Schreier.Co1StabCheck
 public meta import CFSG.Sporadic.Schreier.Co1ThreeLocal
@@ -16,10 +15,6 @@ public meta import Certificates.Data.CFSGNative.HS.SmallF2
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public import Certificates.Kernel.Co1B.Iota
-public import Certificates.Kernel.SporSch.Co2M.Local
-public import CFSG.Certificates.Kernel.RankThree.F2Perm
-public import CFSG.Certificates.Kernel.Spor.RawTreeDefs
-public import CFSG.Monster.B.Co2.PermArr
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

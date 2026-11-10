@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyEightDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitRest
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerTagsAssembly
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmRound8
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmTag
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitSpNsBlock
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitOmRest
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSpNsComp

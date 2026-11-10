@@ -1,16 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGF4N2JPositions
-public import CFSG.LocalAnalysis.StandardType.GGF4N2Frame
 public import CFSG.LocalAnalysis.StandardType.GGF4N2ChartAlign
 public import CFSG.LocalAnalysis.StandardType.GGF4N2CentralImageE6
 public import CFSG.LocalAnalysis.StandardType.GGF4N2NbrReflectionMinus
 public import CFSG.LocalAnalysis.StandardType.GGF4N2TorusTraceWitness
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
-import CFSG.LocalAnalysis.StandardType.GGTBRowSignedFrameAux
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.StandardType.GGE0ShapeConjAux
-import CFSG.ClassicalInvolution.Phan.Blocks
 
 public section
 

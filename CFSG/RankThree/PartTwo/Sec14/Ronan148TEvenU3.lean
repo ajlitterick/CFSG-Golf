@@ -1,22 +1,12 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TEvenDefs
-import CFSG.StronglyEmbedded
-import CFSG.StronglyEmbedded.BenderUnitaryBorel
-import CFSG.StronglyEmbedded.BenderBorelTransport
-import CFSG.StronglyEmbedded.MatrixGroups.SzModel
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma114Models
 import CFSG.CGT.PushingUp.BenderBridge
 import CFSG.CGT.Timmesfeld75.ListWCSzU3
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 import CFSG.Timmesfeld.Orders.Bang
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma44bOrd
 import CFSG.Adapters.RankThreeOutcomesReverse
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.RankThree.PartTwo.Sec4.LThreePiProj
 import CFSG.RankThree.PartTwo.Sec13.Item138NMod9
-import CFSG.RankThree.CentralLiftU.UnitaryThreeEven
-import CFSG.CharacterTheory.Burnside
 import CFSG.FeitThompson.OddOrderTheorem
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.ClassicalGroups.Symplectic.Simple

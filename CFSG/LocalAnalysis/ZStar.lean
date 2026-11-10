@@ -1,9 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ZStar.StepVI
-public import CFSG.LocalAnalysis.ZStar.TwoAdicStepVII
-public import CFSG.LocalAnalysis.ZStar.TwoAdicCharacterTerminal
-public import CFSG.LocalAnalysis.ZStar.TerminalAssembly
 public import CFSG.LocalAnalysis.ZStar.BrauerSuzukiFinal
 
 public section

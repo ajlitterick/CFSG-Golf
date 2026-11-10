@@ -3,14 +3,7 @@ module
 public import Certificates.Data.GH74EvSporCheck
 public meta import Certificates.Data.GH74EvSporCheck
 import Certificates.Kernel.GH74.J2Norm
-import Certificates.Kernel.GH74.J2Ev
-import CFSG.Certificates.Kernel.Lie.CT.Core
-import CFSG.Certificates.Kernel.Common.Harness
 import Certificates.Kernel.GH74.M12C4F
-import Certificates.Kernel.GH74.M12C4
-import CFSG.Sporadic.Schreier.PairJ2CertInputs
-import CFSG.Sporadic.Schreier.PairJ2CheckInputs
-import CFSG.Sporadic.SmallOddCore.J2CheckInputs
 meta import CFSG.Sporadic.SmallOddCore.J2Data
 meta import CFSG.Sporadic.Schreier.PairJ2Check
 

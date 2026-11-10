@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Chev2GlueReduction
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20k
-public import CFSG.Sporadic.Schreier.TitsOuter
-public import CFSG.Sporadic.Schreier.TitsCert
 public import CFSG.GroupTheory.PermutingProducts
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.KFactsNineteenR
 public import CFSG.Quasithin.Background.HTriPermute

@@ -1,18 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporM24Data
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporGood
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporBFS
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporHash
-public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.Sporadic.Schreier.Enumeration
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporM24Data
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporGood
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporBFS
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporHash
 public meta import CFSG.Sporadic.Mathieu.M24
 public meta import CFSG.Sporadic.Schreier.Enumeration
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporM24CheckInputs
 public import Certificates.Certificate4094
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups

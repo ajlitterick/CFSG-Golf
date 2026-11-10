@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 import CFSG.LocalAnalysis.StandardType.GGWitSlpmConjAux
-public import Mathlib.LinearAlgebra.Reflection
 import CFSG.LocalAnalysis.StandardType.GGWitSlpm
 
 public section

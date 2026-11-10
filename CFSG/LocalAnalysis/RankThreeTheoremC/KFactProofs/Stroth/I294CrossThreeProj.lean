@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Open.StatedDefs
-public import CFSG.Open.LocalVocabulary
 public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.Open.Defs
 
 public section
 

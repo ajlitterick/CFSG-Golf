@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldHCore
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Dvd
 public import CFSG.LocalAnalysis.StandardType.GGTwE6LeviSplit
 public import CFSG.LocalAnalysis.StandardType.GGTwE6EnnolaSplit
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootKillWeyl

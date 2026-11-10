@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.SporSch.RuVOrbSound
 public import Certificates.Kernel.VecCert.HS
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHSInputs
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Foundations
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

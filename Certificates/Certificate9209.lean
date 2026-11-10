@@ -3,12 +3,8 @@ module
 public import CFSG.Sporadic.HS
 public import CFSG.Sporadic.Presentation.HSExact
 public import CFSG.Sporadic.Bridge.TwoGen
-public import Certificates.Data.CFSGNative.Bridge.SurjA
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import Certificates.Data.CFSGNative.HS.Data
 import Certificates.Kernel.Sporadic.HS.Rels
 public import CFSG.Sporadic.Presentation.Common
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

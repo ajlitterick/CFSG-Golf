@@ -1,12 +1,7 @@
 module
 
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8L1Norm
-public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8L1Syl
-public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8Abs
-public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87Defs
-public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87Kind
 import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8C12Gen
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.Closed
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.IVK812Stmt

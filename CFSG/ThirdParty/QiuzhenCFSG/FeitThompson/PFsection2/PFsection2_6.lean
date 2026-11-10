@@ -4,9 +4,7 @@ public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection2.PFsection2_5
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection2.PFsection2_1
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection2.PFsection2_7
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection2.PFsection2_10
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection2.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection2.PFsection2_11
-import Mathlib.Algebra.Group.Pointwise.Set.Basic
 
 namespace CFSG
 end CFSG

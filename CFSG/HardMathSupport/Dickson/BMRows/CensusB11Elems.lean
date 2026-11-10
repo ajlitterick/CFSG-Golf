@@ -2,10 +2,7 @@ module
 
 public import CFSG.Monster.B.Final.SeedUnit
 public import CFSG.Monster.Existence.BabyTableIVOf
-public import CFSG.Monster.Existence.BabyTableIIIOf
-public import CFSG.Monster.Existence.BabyW2Classes
 public import CFSG.Permutation.SymmetricCoxeter
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 public import Certificates.Certificate17706
 
 public section

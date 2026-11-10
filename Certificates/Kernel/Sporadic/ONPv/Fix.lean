@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.ONPv.Facts
 public import Certificates.Kernel.Sporadic.ONNQ.Final
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.LineTwo
-public import CFSG.RankThree.Native.ONSevenDefs
 
 public section
 

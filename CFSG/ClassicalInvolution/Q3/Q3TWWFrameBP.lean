@@ -1,17 +1,12 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TWWAdjBP
-public import CFSG.ClassicalInvolution.Q3.Q3TWWAdjB
 public import CFSG.ClassicalInvolution.Q3.Q3WChain
 public import CFSG.ClassicalInvolution.Q3.Q3ZAdjMain
-public import CFSG.ClassicalInvolution.WeakCT.SpPair
-public import CFSG.ClassicalInvolution.WeakCT.SimplyLaced
 public import CFSG.ClassicalInvolution.WeakCT.TwistedTransport
 public import CFSG.ClassicalInvolution.WeakCT.DLWeakAgree
 public import CFSG.ClassicalInvolution.WeakCT.Main
 public import CFSG.ClassicalInvolution.WeakCT.TwistedE6Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 
 public section
 

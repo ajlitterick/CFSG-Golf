@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.ExactAffineRealizationGroups
 public import CFSG.LieType.AlgebraicGroups.RootWordBruhatCover
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

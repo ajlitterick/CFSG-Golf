@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoWDatumTransport
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCaseIIDual
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112WeylA
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112Lin
 
 public section

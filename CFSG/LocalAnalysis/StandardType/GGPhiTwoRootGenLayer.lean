@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGL45NtExcG2Three
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLBstar
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameCentralizer
 public import CFSG.LocalAnalysis.StandardType.GGWeylFamQuotSolvFin
-public import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
 public import CFSG.RankThree.Chevalley.SteinbergBTTrialitySplitPrimePlane
 
 public section

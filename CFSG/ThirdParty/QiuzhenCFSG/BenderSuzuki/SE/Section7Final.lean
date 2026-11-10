@@ -3,11 +3,9 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section7Proposition74
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.PStabilityReduction
 
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixII.proposition_1
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.InvolutionCore
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.StrongEmbeddingOddCore
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.CentralizerControl
 
 namespace CFSG
 end CFSG

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.AE.Models
-public import Mathlib.Data.Fintype.Perm
 public import CFSG.ClassicalInvolution.Q3.AE.Twins
 public import Mathlib.Algebra.BigOperators.Fin
 

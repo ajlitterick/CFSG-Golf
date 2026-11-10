@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SF0
-public import CFSG.Blueprint.Chevalley
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SF5UFix
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylPlusLiftTorus
 import CFSG.LocalAnalysis.StandardType.GGTableBExcTorus

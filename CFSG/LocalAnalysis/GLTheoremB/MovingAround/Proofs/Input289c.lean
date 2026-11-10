@@ -1,14 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Input289b2
-public import CFSG.Quasithin.Vol2.F134LieD4Cells
-public import CFSG.LieType.Chevalley.RootWeightOptimalParabolic
-public import CFSG.LieType.Chevalley.OrdinaryRootCentralizerGeneration
-public import CFSG.LieType.Chevalley.EvenTrialityTorusCoordinates
-public import CFSG.LieType.Chevalley.GraphFixedSimpleBruhat
-public import CFSG.LieType.Chevalley.FoldedWeylIdentification
-public import CFSG.LieType.Chevalley.GraphFixedBorelCoreCenter
-public import CFSG.Timmesfeld.Orders.ExceptionalTwistedUnipotent
 
 public section
 

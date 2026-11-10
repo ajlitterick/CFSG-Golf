@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCK1416Defs
 public import CFSG.GroupTheory.PCore.PCoreOfMulEquiv
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIISpSurvivor
 
 public section

@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.Coxeter.Length
-public import Mathlib.Algebra.Module.LinearMap.End
 public import TauCeti.GroupTheory.Coxeter.Parabolic
 
 public section

@@ -3,7 +3,6 @@ module
 public meta import Certificates.Kernel.Sporadic.OddCore.PEnumCmd
 public meta import Certificates.Data.CFSGNative.PSL3Four.Basic
 public meta import Lean
-public import CFSG.Certificates.Kernel.Spor.PEnumSound
 public import Certificates.Data.Kernel.Spor.HexAt
 public import Certificates.Kernel.Sporadic.OddCore.PEnumCmd
 

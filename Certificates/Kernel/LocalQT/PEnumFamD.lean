@@ -5,7 +5,6 @@ public meta import Certificates.Kernel.Sporadic.RawGen
 public meta import Certificates.Data.CFSGNative.PSL3Four.Basic
 public meta import CFSG.Certificates.Kernel.Common.Eval
 public meta import Lean
-public import Certificates.Data.Kernel.Spor.PEnum
 public import Certificates.Data.Kernel.Spor.HexAt
 public import Certificates.Kernel.LocalQT.PEnumD
 

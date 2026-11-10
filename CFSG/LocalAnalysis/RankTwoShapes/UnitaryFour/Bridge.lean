@@ -1,14 +1,11 @@
 module
 
 public import CFSG.Assembly.LowTwoRankDefs
-public import CFSG.Open.StatedDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Comparator.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.Unitary
 public import CFSG.Open.StatedAPI
 import CFSG.StronglyEmbedded.MatrixGroups.PSU3Model
 import CFSG.StronglyEmbedded.BenderBinaryHermitian
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_10_4
-import Mathlib.Tactic.NoncommRing
 public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.Models
 
 public section

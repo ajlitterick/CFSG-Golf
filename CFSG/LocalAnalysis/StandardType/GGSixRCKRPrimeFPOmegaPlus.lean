@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeF1POmegaPlus
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeM3POmegaPlus
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeOmegaFourMinus
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeSpinFlag
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoPOmegaPlusRoot
 
 public section
 

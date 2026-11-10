@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.H13.NQCatA314Gen
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtE68SporAsm
-public import CFSG.Quasithin.EmptyFaithful.S151S9TLat
 public import CFSG.Quasithin.Background.A312SporGen
 public import CFSG.Quasithin.Background.A3Structure314Defs
 

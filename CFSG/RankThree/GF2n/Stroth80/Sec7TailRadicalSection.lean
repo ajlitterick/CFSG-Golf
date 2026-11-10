@@ -1,18 +1,13 @@
 module
 
 public import CFSG.Foundations.Basic
-public import CFSG.GroupTheory.PCore.Construction
 public import CFSG.Open.StatedDefs
 public import CFSG.StronglyEmbedded.MatrixGroups.PSL2
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonClassification
-import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.Walter.Bender1970.S2.PSL2Overgroups
-import CFSG.Walter.PSL2Facts.Even
 import CFSG.LocalAnalysis.QuasithinUnique.CatalogBridgeLinear
 import CFSG.Assembly.OrderReductions.PermutationReduction
 import CFSG.CGT.PushingUpLit.CGT6.SixFourLTwo
 import CFSG.CharacterTheory.Burnside
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.PSL2
 import CFSG.CGT.PushingUp.BenderBridge
 import CFSG.CGT.PushingUp.BlockOrder
 import CFSG.CGT.PushingUpLit.BHS.SymNatOrbitsSL
@@ -33,7 +28,6 @@ import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 import CFSG.Permutation.AlternatingAutomorphism
 import CFSG.RankThree.PartTwo.Sec6.Statements
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 import CFSG.Walter.JRFacts
 import CFSG.Walter.PSL2Facts
 

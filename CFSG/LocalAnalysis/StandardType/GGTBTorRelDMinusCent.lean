@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelCoordinates
 public import CFSG.Timmesfeld.Orders.ClassicalAnisotropic
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSemilinearDataConjugation
 public import CFSG.Quasithin.Vol2.KGFactC31LieSylEig
-public import Mathlib.LinearAlgebra.Matrix.SchurComplement
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 
 public section

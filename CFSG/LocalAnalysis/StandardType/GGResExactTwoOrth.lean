@@ -21,7 +21,6 @@ import CFSG.LocalAnalysis.StandardType.GGHdRo7DStab
 import CFSG.LocalAnalysis.StandardType.GGHdRo7NoTV
 import CFSG.LocalAnalysis.StandardType.GGHdRo7SUGraph
 import CFSG.LocalAnalysis.StandardType.GGHdRo7XDatum
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

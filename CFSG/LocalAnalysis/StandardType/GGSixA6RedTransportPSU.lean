@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedLiftComponent
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSUDiag
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepACore
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDPSU
 public import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer

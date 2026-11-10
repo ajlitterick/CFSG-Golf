@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LargeExtraspecial.S8CBF3D4Param
-public import CFSG.LargeExtraspecial.S8CBF3D4Root
 
 public section
 

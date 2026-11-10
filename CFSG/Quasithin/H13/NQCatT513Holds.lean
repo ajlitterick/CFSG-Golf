@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.H13.NQCatT513PSL2
 public import CFSG.Quasithin.H13.NQCatT513L35
 public import CFSG.Quasithin.H13.NQCatT513U35
 

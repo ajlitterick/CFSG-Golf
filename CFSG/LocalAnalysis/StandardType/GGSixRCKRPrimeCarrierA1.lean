@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeReturnSpecs
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierA1Cover
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierA1Action
-import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcCtx
-import CFSG.LocalAnalysis.StandardType.GGRootDetectCore
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotSwapLiftSplit
 import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootLine
-import CFSG.LinearAlgebra.LinearGroups.Perfect
 
 public section
 

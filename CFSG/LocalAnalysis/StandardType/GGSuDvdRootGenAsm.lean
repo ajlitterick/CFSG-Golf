@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSuDvdRootGenWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSuDvdRootGenComp
 import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverTwo
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNinePGL
 
 public section
 

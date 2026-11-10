@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoRationalWeyl
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.TwE6InnerCompClass
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreRank
 public import CFSG.RankThree.PartOne.KE6.EqpOpp
-public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl
-public import CFSG.LieType.Chevalley.SimplyLacedFieldTwoCoverRoots
 public import CFSG.LieType.Chevalley.RootComponentType
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Certs

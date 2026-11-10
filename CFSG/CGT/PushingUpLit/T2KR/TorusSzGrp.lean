@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.GroupAction.Quotient
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotQ2OverlapOmMinus
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotMismatchTables
 import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalAdjoint
 import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLevi
 import CFSG.Foundations

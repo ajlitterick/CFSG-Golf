@@ -17,9 +17,6 @@ public import CFSG.LieType.Universal.Spin.Structure
 public import CFSG.LieType.Universal.SpinOmega
 public import CFSG.LieType.Universal.Unitary
 public import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

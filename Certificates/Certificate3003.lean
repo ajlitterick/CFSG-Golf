@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.HuntRankData
 import Certificates.Kernel.UnitarySix.Hunt3003
-import Certificates.Kernel.UnitarySix.M22Chunks
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

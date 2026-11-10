@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneInputs
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeAmbientCentralizerGeneration
-public import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeFactorization
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 
 public section

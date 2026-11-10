@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.TwoNodeSmall.ExclKSound
 import Certificates.Kernel.TwoNodeSmall.ExclChecks
-import CFSG.Certificates.Kernel.Common.ForallChunks
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallRankDefs
 public import Certificates.Kernel.TwoNodeSmall.ExclData
 

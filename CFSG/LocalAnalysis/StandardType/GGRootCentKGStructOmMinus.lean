@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGStructOmFrame
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmMinus
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGPiece
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
 
 public section
 

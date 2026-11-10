@@ -1,10 +1,7 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.Algebra.CharP.Two
 public import Mathlib.Tactic.LinearCombination
-public import Mathlib.Tactic.FinCases
 
 public section
 

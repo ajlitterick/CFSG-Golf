@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.H13.L32NItems143
 public import CFSG.Quasithin.Vol2.Ch12Sec8OneExist
-public import CFSG.Foundations.Basic
 
 public section
 

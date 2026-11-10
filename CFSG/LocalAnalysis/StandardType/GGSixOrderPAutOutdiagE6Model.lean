@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagModel
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagExcPpd
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitExcSixE
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixEMain
-public import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
-public import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
 
 public section
 

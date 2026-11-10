@@ -1,19 +1,11 @@
 module
 
 public import CFSG.GH74.GLS.C3.Layer1.Th2P812A7
-public import CFSG.GH74.GLS.C3.Layer1.Th2P85Bar
 public import CFSG.GroupTheory.Fitting.GeneralizedFittingOvergroup
-public import CFSG.LocalAnalysis.ComponentClassification.BadTwoComponentSubgroup
-public import CFSG.GH74.GLS.C3.Layer1.St1P41L42
-public import CFSG.GH74.GLS.Stage1.Thm2.Recip.Gen
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78F5EndB
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuot
 public import CFSG.LocalAnalysis.ComponentClassification.Walter86.GLSPumpupFoote
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23Pf3Lift
-public import CFSG.GroupTheory.SuzukiTwoGroupsBasic
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Simple59
-public import CFSG.GH74.GLS.Stage1.Thm3.Sec8.GrpBasic12
-public import CFSG.LocalAnalysis.ComponentClassification.LBalanceQuotient
 public import CFSG.LocalAnalysis.OddStandard.Solomon75Sec3Lemma33Cover
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.Der7
 public import CFSG.ClassicalInvolution.Asc77.AscE187Cop

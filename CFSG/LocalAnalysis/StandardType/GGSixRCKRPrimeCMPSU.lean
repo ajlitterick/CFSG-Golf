@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMAt
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMLiftsPSU
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMBlockExt
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMLiftPSU
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMExclPSU
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMBlockPSU
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeF1PSU

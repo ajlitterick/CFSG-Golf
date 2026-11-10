@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Milestones.ASVolI.F48.Rest.U52eFacts
-public import CFSG.Milestones.ASVolI.F48.Rest.U52eInputs2
-public import CFSG.Milestones.ASVolI.F48.Rest.Perm
 public import Certificates.Certificate7774
 public import Certificates.Certificate7775
 public import Certificates.Certificate7776

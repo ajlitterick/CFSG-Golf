@@ -4,9 +4,7 @@ public import CFSG.LieType.HighestRoot.CentLinear
 public import CFSG.LieType.HighestRoot.GenBasic
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Complement
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.RankOne
-public import CFSG.LieType.Universal.Symplectic
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

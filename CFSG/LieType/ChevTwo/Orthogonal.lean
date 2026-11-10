@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LieType.ChevTwo.Defs
-public import CFSG.LieType.ChevTwo.OrthogonalBasic
 public import CFSG.LieType.ChevTwo.OrthogonalAutLarge
 public import CFSG.LieType.ChevTwo.OrthogonalAutSmall
 public import CFSG.LieType.ChevTwo.OrthogonalAutEight

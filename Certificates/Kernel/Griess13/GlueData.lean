@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Griess13.Glue
-public import Certificates.Data.Kernel.M1F2
 public import CFSG.Monster.GMS.Griess13.GlueCertData
 public import Certificates.Kernel.Griess13.Data
 public meta import Certificates.Kernel.Griess13.GlueGen

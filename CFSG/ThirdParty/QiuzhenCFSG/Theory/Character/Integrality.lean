@@ -3,9 +3,6 @@ module
 public import Mathlib.Data.Complex.Basic
 public import Mathlib.Analysis.Complex.Polynomial.Basic
 public import Mathlib.RepresentationTheory.Character
-public import Mathlib.LinearAlgebra.Eigenspace.Charpoly
-public import Mathlib.RingTheory.IntegralClosure.Algebra.Basic
-public import Mathlib.GroupTheory.Index
 
 namespace CFSG
 end CFSG

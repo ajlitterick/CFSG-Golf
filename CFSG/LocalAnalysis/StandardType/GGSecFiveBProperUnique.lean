@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordSwaps
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
-import CFSG.LocalAnalysis.StandardType.GGLemmaThreeThirteen
 
 public section
 

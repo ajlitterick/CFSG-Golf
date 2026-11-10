@@ -3,17 +3,10 @@ module
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtS15223KcV2
 public import CFSG.Quasithin.EmptyFaithful.S152U21
 public import CFSG.Quasithin.EmptyFaithful.S146xThreeA
-public import CFSG.Quasithin.Vol2.Ch1Faithful
-public import CFSG.Quasithin.Background.A4Reduced
-public import CFSG.Quasithin.Background.A4Bridge
-public import CFSG.Quasithin.Background.A1aFStar
-public import CFSG.Quasithin.Background.OrderingMax
 public import CFSG.Quasithin.H13.LocDblCComp
-public import CFSG.Quasithin.Background.A3Structure38Basic
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SubnormalCore
 public import CFSG.Quasithin.Background.A1cTransferVariants
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.EmptyFaithful.S152UAut
 public import CFSG.Quasithin.EmptyFaithful.S152UGen2
 public import CFSG.Quasithin.EmptyFaithful.S152UOm4

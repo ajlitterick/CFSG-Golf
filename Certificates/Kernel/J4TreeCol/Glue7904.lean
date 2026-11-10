@@ -5,8 +5,6 @@ public import Certificates.Kernel.J4TreeCol.C7904
 public import Certificates.Kernel.J4TreeCol.Q7904
 public import CFSG.Certificates.Kernel.J4TreeCol.UnionSound
 public import Certificates.Data.CFSGNative.J4Tree.VerdictData
-public import CFSG.Milestones.ASVolI.C31.J4NP.VerdictColNode
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

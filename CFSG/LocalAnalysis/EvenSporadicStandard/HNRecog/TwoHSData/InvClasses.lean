@@ -3,12 +3,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.InvClassesBase
 
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.Basic
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.CheckSpec
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.Elems
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.InvCheck
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.SylowCover
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.WClassSpec
 public import Certificates.Certificate26771
 
 public section

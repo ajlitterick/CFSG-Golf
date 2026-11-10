@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sp6Cover.YChain
 public import Certificates.Kernel.Sporadic.OddCore.MulHCmd
-public import Certificates.Data.Kernel.Spor.MulH
 meta import Certificates.Kernel.Sporadic.RawGen
 meta import Certificates.Data.PhilipHallSp6Cover
 import CFSG.Certificates.Kernel.Common.Harness

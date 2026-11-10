@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5LayerGroup
-public import CFSG.Assembly.Subnormal
 
 public section
 

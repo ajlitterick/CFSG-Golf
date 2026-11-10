@@ -3,7 +3,6 @@ module
 public import CFSG.Monster.Schur.TripleCentral
 public import CFSG.Sporadic.Bridge.TwoGen
 public import Certificates.Certificate9700
-public import Mathlib.Order.CompletePartialOrder
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.Solvable
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.U33.Outside.OutGH23Vocab
 public import Certificates.Data.GH23Perm
 

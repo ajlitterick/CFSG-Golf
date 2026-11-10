@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModel
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Descent
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverTwo

@@ -2,9 +2,7 @@
 module
 
 public import CFSG.Certificates.Kernel.IdxFourLbarSound
-public import CFSG.Certificates.Kernel.IdxFourSiftSound
 public import CFSG.Certificates.Kernel.GammaUSigmaSoundBase
-public import CFSG.GF2Type.Smith1979.GammaU.Violation
 
 public section
 

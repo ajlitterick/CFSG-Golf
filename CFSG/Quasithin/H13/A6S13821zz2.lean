@@ -2,9 +2,6 @@ module
 
 public import CFSG.Quasithin.H13.A6S13821zy
 public import CFSG.Quasithin.H13.A6S13821zz
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects
 public import CFSG.CharacterTheory.Semidihedral.Local.FourQuaternionAutomorphisms
 public import CFSG.CharacterTheory.Wreathed.SmallerRecognitionOriginalFieldQuaternionConjugation
 public import CFSG.Dihedral.GorensteinWalter.GLSemilinearDescent
@@ -12,7 +9,6 @@ public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.GH74.Orders.LieType
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTightEmbeddingAction
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 public import CFSG.LocalAnalysis.ComponentClassification.BlockMutualRanks
 public import CFSG.LocalAnalysis.ComponentClassification.InvolutionGeneratedSubgroup
 public import CFSG.LocalAnalysis.ComponentClassification.OrbitBlockConjugation
@@ -43,8 +39,6 @@ public import CFSG.Open.MonsterY443Defs
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.C2A3Orbits
 public import CFSG.Quasithin.Background.E2TwoCLie
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.G64Case1
 public import CFSG.Quasithin.Background.InternalSecRealB
@@ -106,10 +100,6 @@ public import CFSG.Quasithin.Vol2.Ch5Sec1Lem5112Lie
 public import CFSG.RankThree.Classical.SteinbergBJSymplecticSquareZeroCentralizer
 public import CFSG.SignalizerFunctorTheorem.NonLocal.Cross
 public import CFSG.SignalizerFunctorTheorem.NonLocal.SpData
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 
 public section
 

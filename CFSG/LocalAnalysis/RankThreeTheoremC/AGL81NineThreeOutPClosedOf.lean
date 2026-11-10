@@ -1,15 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineThreeKFacts
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.LocalAnalysis.RankThreeTheoremC.OuterSylowGlue
-import CFSG.LocalAnalysis.AGLEmbedding.ChevTwoKill
 import CFSG.LocalAnalysis.RankThreeTheoremC.OuterProdPClosed
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineThreeProduct
-import CFSG.LocalAnalysis.SectionRank.SuzukiCover
-import CFSG.Adapters.LinearCatalog
 import CFSG.StronglyEmbedded.Catalog.Suzuki
-import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.CGT.Timmesfeld75.Statements

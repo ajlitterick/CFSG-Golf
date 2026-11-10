@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoTransfer
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaWeylAux4
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaRootsCore
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaRootsLift

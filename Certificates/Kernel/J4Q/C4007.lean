@@ -1,11 +1,8 @@
 module
 
-public import CFSG.Sporadic.J4.QT2LocHNative
 public import Certificates.Kernel.J4Q.IsetOk
 public import Certificates.Kernel.J4Q.IsetBr
-public import Certificates.Kernel.J4Q.Orbits
 public import Certificates.Kernel.J4Q.LocVec
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

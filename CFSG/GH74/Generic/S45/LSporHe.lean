@@ -2,9 +2,7 @@ module
 
 public import CFSG.Sporadic.HeldB.AutModel
 public import CFSG.Sporadic.HeldB.InnerClass
-public import CFSG.Sporadic.HeldB.OuterClass
 public import CFSG.GH74.Uniqueness.Bender.AutFixed
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 
 public section
 

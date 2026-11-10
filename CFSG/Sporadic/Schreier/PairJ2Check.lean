@@ -1,12 +1,8 @@
 module
 
-public import Certificates.Data.CFSGNative.PairSchreier.Core
-public import Certificates.Data.CFSGNative.PairSchreier.J2Data
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.PairSchreier.J2Data
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.Schreier.PairJ2CheckInputs
 public import Certificates.Certificate2234
 
 public section

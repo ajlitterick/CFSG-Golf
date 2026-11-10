@@ -5,10 +5,7 @@ public import Certificates.Kernel.SporSch.Co1Rank.TabB
 public import Certificates.Kernel.SporSch.Co1Rank.TabC
 public import Certificates.Kernel.Co1B.IotaData
 public import Certificates.Data.Kernel.SporSch.Co1Heis
-public import Certificates.Data.Kernel.SporSch.Co1MatW
 public import Certificates.Data.Kernel.SporSch.Co1Cent
-public import Certificates.Data.Kernel.Co1F2
-public import Certificates.Data.Kernel.Co1B
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.Co1RankCheck
 import CFSG.Certificates.Kernel.Common.Harness
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourSteps
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeNineStatements
-public import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TenThreeThreeTwelveCtx
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTwelveKerHolds
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.O812sixFi22
@@ -10,23 +9,11 @@ import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourOneAssembly
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourBlockFactsOf
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourJLeXSpor
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeDataOf
-import CFSG.HardMathSupport.Foote.Coordinator.Downstream
-import CFSG.CGT.PushingUpLit.TwoKHolds
-import CFSG.LocalAnalysis.AGLEmbedding.AscEightFour
-import CFSG.LocalAnalysis.AGLEmbedding.AscEightFive
-import CFSG.CGT.PushingUpLit.Glue.LocalFactorization
-import CFSG.LocalAnalysis.RankThreeTheoremC.D2LocalCGT3
-import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.BlockB.NineThree
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineNineOneHolds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineTwelveThirteenKerHolds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.KFactFi22SPEHolds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.KFactParabolicWCentHolds
-import CFSG.RankThree.PartOne.TCB.SchreierFinal
 import CFSG.LocalAnalysis.AGL81I.Section4.FourNineteenHolds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.KFactOddAutParabolicHolds
-import CFSG.LocalAnalysis.RankThreeTheoremC.OutCyclicThree
-import CFSG.LocalAnalysis.UniquenessCase.UC22P20x
-import CFSG.HardMathSupport.Foote.FamilyReduction.ClassicalFive
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeData
 public import CFSG.LocalAnalysis.AGLEmbedding.CZeroOrbitLines
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanIdentOffCharGen

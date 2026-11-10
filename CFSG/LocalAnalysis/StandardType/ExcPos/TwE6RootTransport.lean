@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6PairOneAssembly
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6RootLangTransitive
 import CFSG.LieType.AlgebraicGroups.ToralTwistSemilinearDatum
-import CFSG.LieType.Chevalley.GraphFixedOrbitCollection
 import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortTransport
 
 public noncomputable section

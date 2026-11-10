@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGUSixShSub
-import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGFrameCase
-import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGHeisCase
-import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGFieldType
 
 public section
 

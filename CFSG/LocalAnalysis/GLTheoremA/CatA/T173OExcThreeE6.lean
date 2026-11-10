@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcThreeCoprime
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcThreeE6Orbit
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcThreeE6Cent
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcThreeE6Layer
-public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotToral
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpine
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015Defs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015Transport

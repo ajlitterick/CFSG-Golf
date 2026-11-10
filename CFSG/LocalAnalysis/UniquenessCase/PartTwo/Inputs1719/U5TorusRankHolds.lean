@@ -4,11 +4,8 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.U5Cartan
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CartanQuotientBridge
 public import CFSG.LocalAnalysis.UniquenessCase.Lie.BorelSU
 public import CFSG.LocalAnalysis.UniquenessCase.Lie.ExcShared
-public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsUnitBorel
 public import CFSG.LocalAnalysis.UniquenessCase.UCKOutPB
-public import CFSG.GroupTheory.PGroup.ElemAbelianSq
-public import CFSG.RankThree.CentralLiftU.UnitaryTorus
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeMax
 public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentralizer

@@ -2,10 +2,7 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec5KGJ4Gen
 public import CFSG.Quasithin.Vol2.KGFactJ4M3KL
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4OvMain
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtFamJ4M2Lift
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtFamJ4M2Gen
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtFamJ4M3Ker
 public import CFSG.Quasithin.Vol2.Ch12Sec5KGM24
 public import CFSG.RankThree.PartOne.S10.PlaneContract
 

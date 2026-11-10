@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6Model
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6Weyl
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkLabel
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkTransport
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkCent
-public import CFSG.LocalAnalysis.StandardType.GGWPlusNarrow5Defs
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkNarrow11Defs
 
 public section
 

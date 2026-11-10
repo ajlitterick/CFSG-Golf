@@ -2,11 +2,7 @@ module
 
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinSocF4L2VCore
 public import Mathlib.NumberTheory.Multiplicity
-public import Mathlib.FieldTheory.Galois.Basic
-public import Mathlib.FieldTheory.Finite.GaloisField
 public import CFSG.ClassicalInvolution.Q3.TL4MF163Gam
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Mathlib.FieldTheory.Finite.Trace
 
 public section
 

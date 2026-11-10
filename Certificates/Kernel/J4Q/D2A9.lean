@@ -4,7 +4,6 @@ public import Certificates.Kernel.J4Q.Dec2K
 public import Certificates.Kernel.J4Q.Dec2Words
 public import Certificates.Kernel.J4Q.Dec2Data
 import Certificates.Kernel.J4Q.AllN
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

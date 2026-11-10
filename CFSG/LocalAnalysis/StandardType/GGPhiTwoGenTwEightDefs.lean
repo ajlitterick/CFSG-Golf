@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6TwoD4
 public import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6SU6Y
-public import CFSG.LieType.Chevalley.LangRootRankOne
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenInput
 public import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6SU6Unitary
 public import CFSG.RankThree.PartOne.CTP.SeitzFineU5

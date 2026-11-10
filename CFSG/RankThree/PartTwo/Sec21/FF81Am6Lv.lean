@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec21.FF81Am6Family
 public import CFSG.RankThree.Chevalley.SteinbergBNF4NativeA2
 public import CFSG.Open.StatedZModTwo
-public import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotAmalgam
 
 @[expose] public section
 

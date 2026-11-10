@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalLevi
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalDiag
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticEndNode
-import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 public import CFSG.LocalAnalysis.StandardType.GGKacExcB2
-public import CFSG.LocalAnalysis.StandardType.GGKacTable
 public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section

@@ -1,15 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmFour
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmHyp
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotPlusEightLeviBasic
-import CFSG.GroupTheory.LocalCores.Components
 import CFSG.Quasithin.Background.SzG11G94Solv
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
-import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotTorus
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandStructPSL
 
 public section
 

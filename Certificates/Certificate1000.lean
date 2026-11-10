@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate1000Base
 
-public import Certificates.Data.CFSGNative.Fischer.Xi22
 import Certificates.Kernel.Misc.LinesBridge
 import Certificates.Kernel.Misc.FischerDelta
 import Certificates.Kernel.Misc.HypBridge

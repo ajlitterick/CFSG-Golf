@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticComponent
-public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticComponentBounds
-public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticFrameDimensions
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticZeroBlock
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticMovingAutomizer
 

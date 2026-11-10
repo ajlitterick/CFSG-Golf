@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7A3Basic
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7DDefs
 public import CFSG.LocalAnalysis.StandardType.GGRCTransfer
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 
 public section
 

@@ -2,41 +2,19 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBRes
-import CFSG.LocalAnalysis.StandardType.GGForkA8NotReflHolds
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLabel
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermReflSigma
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniNbrLabel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSparseLinLabel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMemberNoPair
-import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrConj
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylInputHolds
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLabelRows
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelCore
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMemberAux
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNCells
 import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneHolds
-import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
-import CFSG.LocalAnalysis.StandardType.GGResNonsingularBase
 import CFSG.LocalAnalysis.StandardType.GGResNonsingF4Three
-import CFSG.LocalAnalysis.StandardType.GGTwE6BadWeyl
 import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrHolds
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGResIPumpLineTransfer
-import CFSG.LocalAnalysis.StandardType.GGPumpTwExcKnownHolds
 import CFSG.LocalAnalysis.StandardType.GGAutomizerGammaCard
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
-import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1DSmall
-import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordReflGroup
-import CFSG.LocalAnalysis.StandardType.GGResLeaf
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclReal
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNFrame
 public import Certificates.Certificate13657
 public import Certificates.Certificate7769
 

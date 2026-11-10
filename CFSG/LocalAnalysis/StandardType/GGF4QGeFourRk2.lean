@@ -1,14 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOrb
-public import CFSG.LocalAnalysis.StandardType.GGF4Rk2Core
 public import CFSG.LocalAnalysis.StandardType.GGF4PairRootLeviTransport
-import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk1
-import CFSG.ClassicalInvolution.Models.SymplecticPairs.TypeCPairs
-import CFSG.ClassicalInvolution.Models.SymplecticPairs.RankOne
-import CFSG.Timmesfeld.Transvection.PresSp
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.LinearCombination
 
 public section
 

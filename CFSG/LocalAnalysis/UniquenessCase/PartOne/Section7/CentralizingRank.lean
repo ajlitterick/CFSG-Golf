@@ -5,7 +5,6 @@ public import CFSG.RankThree.PartOne.S12.InputsSec15
 import CFSG.GroupTheory.PGroup.ElemAbelianSq
 import CFSG.HardMathSupport.Solomon.Proving.GLBCoreNormalizer
 import CFSG.LocalAnalysis.StronglyEmbedded.Normalizer
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

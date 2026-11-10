@@ -5,11 +5,9 @@ public import CFSG.OddTranspositions.PartFour.ThirteenListFiveForm
 import CFSG.OddTranspositions.PartFour.ThirteenListFiveEmbed
 import CFSG.OddTranspositions.PartFour.ThirteenListFiveLift
 import CFSG.OddTranspositions.PartFour.ThirteenList
-import CFSG.OddTranspositions.PartThree.Eleven.Minus.Pair
 import CFSG.OddTranspositions.PartThree.Eleven.MinusModel
 import CFSG.OddTranspositions.PartThree.Eleven.PlusWreath
 import CFSG.OddTranspositions.PartThree.FiveReflectionFischerConverse
-import CFSG.Timmesfeld.Bridge.Asc72YCount
 public import CFSG.LocalAnalysis.WeakClosure81.SevenElevenInputs
 import CFSG.CGT.T75E.Lemma26
 import CFSG.CGT.Timmesfeld75.Sec3TenCaseA

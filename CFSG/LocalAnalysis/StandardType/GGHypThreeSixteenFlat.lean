@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerRest
-public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionDefs
 
 public section
 

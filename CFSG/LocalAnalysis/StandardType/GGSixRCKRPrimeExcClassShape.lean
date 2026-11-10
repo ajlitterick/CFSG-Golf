@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcRelOneAt
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcClassHalf
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcClassLagr
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcOrbit

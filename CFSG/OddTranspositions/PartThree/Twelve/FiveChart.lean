@@ -2,9 +2,7 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.FiveDefs
 public import CFSG.OddTranspositions.PartThree.Twelve.SixComponent
-public import CFSG.OddTranspositions.PartThree.FiveReflection
 import CFSG.OddTranspositions.PartThree.Twelve.Seven
-import CFSG.OddTranspositions.PartThree.Twelve.Three
 import CFSG.OddTranspositions.PartThree.FiveReflectionFischer
 public import CFSG.OddTranspositions.PartFour.Fourteen.RootBlockFive
 import CFSG.OddTranspositions.PartFour.Fourteen.FivePlane

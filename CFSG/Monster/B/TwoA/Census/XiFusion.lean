@@ -1,21 +1,10 @@
 module
 
-public import CFSG.Monster.B.TwoA.Census.MonoXi
-public import CFSG.Monster.B.TwoA.Census.MonoClasses
-public import CFSG.Monster.Visible.XiPair
-public import CFSG.Monster.VisQuot.Image
-public import CFSG.Monster.B.TwoA.Census.DenseMat
 public meta import CFSG.Monster.B.TwoA.Census.DenseMat
 public meta import CFSG.Monster.B.TwoA.Census.MonoXi
 public meta import CFSG.Monster.B.TwoA.Census.MonoCert
 public meta import CFSG.Monster.Xi.Defs
-public import CFSG.Monster.B.TwoA.Census.XiFusionInputs
 public import Certificates.Certificate3020
-public import Certificates.Certificate3015
-public import Certificates.Certificate3016
-public import Certificates.Certificate3017
-public import Certificates.Certificate3018
-public import Certificates.Certificate3019
 
 public noncomputable section
 

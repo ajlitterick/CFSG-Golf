@@ -6,9 +6,7 @@ public import Certificates.Kernel.Sporadic.OddCore.SuzBtNF
 public import Certificates.Kernel.Sporadic.OddCore.SuzBtNC
 public import CFSG.Certificates.Kernel.Spor.BTupNSound
 public import CFSG.Sporadic.SuzRecog.SuzL34Cert.SoundCommon
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib.Tactic.IntervalCases
 
 public section
 

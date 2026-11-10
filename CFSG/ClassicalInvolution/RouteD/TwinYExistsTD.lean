@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallMinusSix
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedDChain
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedDDischarge
-public import CFSG.ClassicalInvolution.RouteD.GapsEnd4Final
 
 public section
 

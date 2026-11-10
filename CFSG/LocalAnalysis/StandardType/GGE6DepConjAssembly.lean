@@ -1,13 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6DepFrameL
-public import CFSG.LocalAnalysis.StandardType.GGE6DepNbrFacts
 public import CFSG.LocalAnalysis.StandardType.GGE6DepDatumRefl
 public import CFSG.LocalAnalysis.StandardType.GGE6DepStdPos
 public import CFSG.LocalAnalysis.StandardType.GGE6DepCentK
 public import CFSG.LocalAnalysis.StandardType.GGE6DepFrameK
 public import CFSG.LocalAnalysis.StandardType.GGE6DepKGlue
-public import CFSG.LocalAnalysis.StandardType.GGE6DepKNoTv
 public import CFSG.LocalAnalysis.StandardType.GGE6DepSetting
 public import CFSG.LocalAnalysis.StandardType.GGE6DepHpartGamma
 public import CFSG.LocalAnalysis.StandardType.GGE6DepNonIsoBridge

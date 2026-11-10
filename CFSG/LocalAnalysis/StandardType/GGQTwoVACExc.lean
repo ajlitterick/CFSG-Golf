@@ -1,20 +1,14 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoVACSymp
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2E7Rank
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2ExceptionalAction
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaExcPlusAux2
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48RkF4Holds
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkConfig
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkTwE6
 public import CFSG.LocalAnalysis.StandardType.GGF4OrderThreeRank
-public import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankF4Rank
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCavHeartReduction
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCavAutomizer
 
 public section
 

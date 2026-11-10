@@ -4,7 +4,6 @@ public import CFSG.GH74.Generic.BProg.B3.S3KG21dDesc
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.AutAlternatingFour
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeEquiv
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearRingEquiv
-public import Mathlib.FieldTheory.Finite.Basic
 
 public section
 

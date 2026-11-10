@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Universal.Spin.Datum
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoSiegelConj
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.WittOmega
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionCore

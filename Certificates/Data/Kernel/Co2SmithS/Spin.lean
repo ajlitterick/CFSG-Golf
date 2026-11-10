@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.CFSGNative.Co2Smith.Spin8
-public import Certificates.Data.CFSGNative.Co2Smith.Sp6Pres
 
 public section
 

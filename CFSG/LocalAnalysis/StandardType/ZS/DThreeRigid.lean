@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
-public import CFSG.Fischer.Classification.Orthogonal3.Forms
-public import CFSG.Fischer.Classification.Orthogonal3.Model
-import CFSG.Fischer.Classification.PartIII.Beta.Forms
-import CFSG.Fischer.Classification.PartIII.Beta.Transport
 import CFSG.LocalAnalysis.StandardType.ZS.DThreeTransport
 import CFSG.LocalAnalysis.StandardType.ZS.DThreeRigidForm
 import CFSG.LocalAnalysis.StandardType.ZS.DThreeRigidCount

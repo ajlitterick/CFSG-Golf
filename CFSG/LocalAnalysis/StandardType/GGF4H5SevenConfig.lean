@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGF4LabelPieces
 public import CFSG.LocalAnalysis.StandardType.GGFFSLSylow
 public import CFSG.LocalAnalysis.StandardType.GGSixFieldFiveProofSL
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 public import CFSG.RankThree.PartTwo.KFacts.K71Item119
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.RankThree.PartTwo.Sec12.Notation

@@ -2,9 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.HSp4A6Data
 public import CFSG.Quasithin.Background.HSp4Bridge
-public import CFSG.Quasithin.Background.HPairBridge
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierAlternatingSixCount
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Centralizer
 
 public section
 

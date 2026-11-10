@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Sp7
 public import CFSG.HardMathSupport.Solomon.Coordinator.McLaughlinTypesForms
-public import CFSG.SignalizerFunctorTheorem.NonLocal.SpTwoTwo
-public import CFSG.CGT.PushingUpLit.BHS.TwoSixteen
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTFinComm
 public import CFSG.GroupTheory.ElemAbelianPlaneAction
 public import CFSG.Goldschmidt.Steps.G310Comp

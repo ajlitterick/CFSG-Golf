@@ -2,13 +2,8 @@ module
 
 public import CFSG.Certificates.Kernel.SporSch.MOCChain
 public import Certificates.Data.Kernel.Spor.MCount
-public import CFSG.Certificates.Kernel.Spor.RawSound
 public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import CFSG.Monster.B.Mathieu.Order
-import CFSG.Certificates.Kernel.SporSch.ChainKEnum
-import CFSG.Certificates.Kernel.SporSch.ChainKOdd
 import CFSG.Certificates.Kernel.SporSch.ChainKRepsL
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 

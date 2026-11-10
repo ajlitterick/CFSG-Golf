@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.GL5B
 public import CFSG.Certificates.Kernel.F4M3BSound
 public import CFSG.CGT.Stroth77.Section1GL5Check
-import Mathlib.Tactic.IntervalCases
 
 public section
 

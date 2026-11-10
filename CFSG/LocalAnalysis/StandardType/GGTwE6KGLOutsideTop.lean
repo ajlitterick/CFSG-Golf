@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrOutsideInndiag
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-import CFSG.LocalAnalysis.StandardType.GGTableB
-import CFSG.LocalAnalysis.StandardType.Marking
-import TauCeti.GroupTheory.DerivedCentralQuotient
 
 public section
 

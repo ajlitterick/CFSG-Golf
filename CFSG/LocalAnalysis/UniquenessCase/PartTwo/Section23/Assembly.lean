@@ -10,10 +10,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ChoiceZ
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ChoiceZRepair
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section21.ProofsEleven
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KBorelSolvable
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.BZeroCentralizerZ
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.StatementsThirtySeven
-public import CFSG.Walter.PSL2Facts.Even
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Residual
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ProofsForty
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ProofsSix
 public import CFSG.LocalAnalysis.UniquenessCase.UC611f
@@ -86,10 +82,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.TwoThreeAEqVFi
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ProofsThree
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.TwoThreeOne
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.TwoThreeOneABound
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KGF2Rep417
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.GF2RepsA
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.GF2RepsNoO2Bridge
-public import CFSG.Open.GriessAllModelsStatement
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KGF2Rep417Diag.Cover
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KGF2Rep417Diag.Swap
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.IrrOnOmegaMinusFour
@@ -151,7 +143,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog81Conf
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog82L2
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit35AltConf
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit35AltSmall
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1C3Props
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1S73Props
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1S74Defs
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1Solomon

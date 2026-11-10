@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.RouteD.TWYLayer
 public import CFSG.ClassicalInvolution.Q3.Q3TY13
 public import CFSG.ClassicalInvolution.Q3.Q3TWY1
-public import CFSG.ClassicalInvolution.Q3.Q3EPQuot
 public import CFSG.ClassicalInvolution.Q3.Q3VF4Row
 public import CFSG.LieType.Chevalley.E7SupportedBruhat
 

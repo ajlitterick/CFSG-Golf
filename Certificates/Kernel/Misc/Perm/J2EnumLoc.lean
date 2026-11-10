@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.Misc.Perm.J2LocK2
 public import Certificates.Kernel.Misc.Perm.J2EnumS
-public import CFSG.Certificates.Kernel.Misc.SetCodesSound
-public import CFSG.Certificates.Kernel.Misc.EnumBfsMem
 import CFSG.Certificates.Kernel.Common.ForallChunks
 import CFSG.Certificates.Kernel.Common.Harness
 

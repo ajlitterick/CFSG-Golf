@@ -6,13 +6,10 @@ public import Certificates.Kernel.SporSch.Ru.JOrb
 public import Certificates.Kernel.SporSch.Ru.PresBound
 public import Certificates.Kernel.SporSch.Ru.Basic2247
 public import Certificates.Kernel.SporSch.Ru.C2253P
-public import CFSG.Certificates.Kernel.Spor.RawOrbSound
 public import CFSG.Sporadic.Schreier.RuLocalFactsBase
 public import CFSG.Sporadic.Schreier.RuCertData
-import CFSG.Sporadic.Presentation.RuExactInputs
 public import CFSG.Certificates.Kernel.Spor.SiftRSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.Schreier.RuChainSpec
 public import CFSG.Sporadic.Schreier.RuCheckLocalBase
 public import CFSG.Sporadic.Schreier.RuCheckOrbitsBase

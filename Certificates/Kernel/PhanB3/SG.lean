@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.PhanB3.SGData
 public import Certificates.Kernel.PhanB3.CTData
 public import Certificates.Kernel.Misc.Coset.ActBlocks
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

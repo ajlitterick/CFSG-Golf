@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3VF4SShape
 public import CFSG.ClassicalInvolution.Q3.Q3VF4SAdaptModel
 public import CFSG.ClassicalInvolution.Q3.Q3TPSChart
-public import CFSG.ClassicalInvolution.Q3.Q3WASNorm
 
 public section
 

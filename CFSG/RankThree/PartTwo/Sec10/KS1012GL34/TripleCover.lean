@@ -6,7 +6,6 @@ public import CFSG.RankThree.PartTwo.Sec10.KS1012GL34.Bridge
 import all CFSG.RankThree.PartTwo.Sec10.KS1012GL34.Bridge
 public import CFSG.RankThree.PartTwo.Sec4.Vocabulary
 public meta import CFSG.Fischer.F4
-import CFSG.Fischer.F4
 public meta import CFSG.RankThree.PartTwo.Sec10.KS1012GL34.Defs
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 

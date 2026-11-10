@@ -2,11 +2,8 @@ module
 
 public import CFSG.Sporadic.Co2
 public import CFSG.Sporadic.Bridge.TwoGen
-public import Certificates.Data.CFSGNative.Bridge.SurjA
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import Certificates.Data.CFSGNative.Co2.Data
 import Certificates.Kernel.Sporadic.Co2.Rels
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.SporSch.HN.GenF5T
 public import Certificates.Kernel.SporSch.HN.StrongK
 public import Certificates.Data.Kernel.SporSch.HNF5Rank
 public import CFSG.Sporadic.HNSchreier.RankCheckInputs

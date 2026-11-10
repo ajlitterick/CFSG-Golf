@@ -3,9 +3,6 @@ module
 public import CFSG.StronglyEmbedded.BenderNormalSeries
 public import CFSG.Quasithin.Vol2.GoldschmidtCor332Bender
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

@@ -1,17 +1,8 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Data.Finite.Defs
-public import Mathlib.Data.Nat.Prime.Defs
-public import Mathlib.GroupTheory.Frattini
-public import Mathlib.GroupTheory.Solvable
-import Mathlib.SetTheory.Cardinal.NatCard
-import Mathlib.Algebra.BigOperators.Group.Finset.Defs
-import Mathlib.GroupTheory.QuotientGroup.Basic
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Conjugacy
 
 namespace CFSG

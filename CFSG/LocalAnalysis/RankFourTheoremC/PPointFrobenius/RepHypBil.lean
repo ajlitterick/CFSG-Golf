@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.RankFourTheoremC.PPointFrobenius.HypDefs
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ElementaryAbelianAction
 import CFSG.LocalAnalysis.RankFourTheoremC.PPointFrobenius.HypModule
 import CFSG.LocalAnalysis.RankThreeTheoremC.PlaneModuleActions
-public import Mathlib.FieldTheory.Finiteness
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.BfsPin
-public import CFSG.Certificates.Kernel.Lie.CT.Core
 
 public section
 

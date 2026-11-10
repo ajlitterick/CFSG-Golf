@@ -2,15 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K37Setup
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.L34TypeCover
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.L34Sylow
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.CaseOneInnerAction
 import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KI2320Main
 import CFSG.HardMathSupport.Solomon.Coordinator.I25_3Quasi
-import CFSG.HardMathSupport.Solomon.Coordinator.L3BL34
 import CFSG.RankThree.PartTwo.KFacts.L34Centralizers
-import CFSG.RankThree.PartTwo.KFacts.AutKinds
-import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
-import CFSG.Open.PGLModelStated
 public import CFSG.Adapters.GeneralizedFitting
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
@@ -90,8 +85,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -137,8 +130,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.UniversalCoverMonst
 public import CFSG.Sporadic.Co2Schreier.ThirdChain
 public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

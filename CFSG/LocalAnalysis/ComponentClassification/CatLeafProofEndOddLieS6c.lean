@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofEndOddLieS6b
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4Classify
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4TwoComp
-public import CFSG.LinearAlgebra.LinearGroups.Generation
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSp
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4OutCard
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofEndOddLieS6a

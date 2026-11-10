@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGDepED4False
 public import CFSG.LocalAnalysis.StandardType.GGDepED4Pat1
 public import CFSG.LocalAnalysis.StandardType.GGDepED4Pat2
-public import CFSG.LocalAnalysis.StandardType.GGDepEFrame
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepAssembly
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
 public import CFSG.LocalAnalysis.StandardType.GGDepED4PackDefs
-public import CFSG.LocalAnalysis.StandardType.GGRCCaseIIBasic
 public import CFSG.Holt.H78.Sec4Prop46D
 public import CFSG.GH74.Uniqueness.Bender.UnitaryAut
 public import CFSG.Holt.General.Basic

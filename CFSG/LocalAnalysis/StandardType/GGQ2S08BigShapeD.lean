@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigBridge
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigDTest
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigDBound

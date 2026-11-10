@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Timmesfeld.Bridge.Asc72Triangle
 
 import CFSG.OddTranspositions.PartThree.EightSix.OFourMinus
 import CFSG.OddTranspositions.PartThree.EightSix.SecondKindSolvable

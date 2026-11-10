@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFrameIrred
 import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotToral
-import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwoTorus
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoDepSmallS0
 public import CFSG.LocalAnalysis.StandardType.GGTWSurvDefs
 public import CFSG.LocalAnalysis.StandardType.GGResXDatumAHL
 public import CFSG.LocalAnalysis.StandardType.GGHLAutomizer

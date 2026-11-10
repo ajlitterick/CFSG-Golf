@@ -18,7 +18,6 @@ public import CFSG.Monster.B.TwoA.Sp8.SubgeomFiveBase
 public import CFSG.Monster.B.TwoA.Sp8.SubgeomIsoBase
 public import CFSG.Monster.B.TwoA.Sp8.SubgeomStdBase
 public import CFSG.Monster.B.TwoA.Unitary.Twenty
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 
 public noncomputable section

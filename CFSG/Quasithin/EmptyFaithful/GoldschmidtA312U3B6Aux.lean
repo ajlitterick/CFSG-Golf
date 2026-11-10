@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.FieldTheory.Galois.Basic
 public import Mathlib.FieldTheory.Finite.GaloisField
 public import Mathlib.GroupTheory.Sylow
 public import Mathlib.Algebra.CharP.CharAndCard

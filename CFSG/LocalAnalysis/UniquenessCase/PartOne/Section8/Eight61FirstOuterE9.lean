@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight61FirstOutDvd
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.Parrott.OuterFixedBasic
 public import CFSG.GroupTheory.FixedPointQuotientCard
-import CFSG.Adapters.ExceptionalCatalogReverse
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.Chev3Exc
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 public import CFSG.Blueprint.LieModelAPI
@@ -17,7 +16,6 @@ public import CFSG.Goldschmidt.StatementsG2
 public import CFSG.Goldschmidt.StatementsG3
 public import CFSG.Goldschmidt.Steps.G37Core
 public import CFSG.GroupTheory.SteinbergCBFTCores
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.InndiagLink
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3FATArith
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3G515Core
@@ -49,7 +47,6 @@ public import CFSG.LocalAnalysis.AGLEmbeddingD2.PairMaximal
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.ScalarTorus
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Survivor
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.ThreeStrong
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsCentModel
 public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsFieldAut
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
@@ -93,13 +90,8 @@ public import CFSG.Quasithin.Background.B69Core
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -182,10 +174,6 @@ public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 public import Certificates.Kernel.J4Count.Prim
 
 public section

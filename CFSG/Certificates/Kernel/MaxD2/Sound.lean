@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.MaxD2.Test
 public import CFSG.Certificates.Kernel.MaxD2.Disj
 public import CFSG.Certificates.Kernel.MaxD2.Pair
 

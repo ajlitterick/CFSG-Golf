@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPrimed
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosPrimed
-import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 
 public section
 

@@ -3,8 +3,6 @@ module
 public import CFSG.LieType.Universal.Unitary.Basic
 public import Mathlib.LinearAlgebra.Matrix.SchurComplement
 import Mathlib.Tactic.NoncommRing
-import Mathlib.Tactic.Abel
-import Mathlib.Tactic.Ring
 
 public section
 

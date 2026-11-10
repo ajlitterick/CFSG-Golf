@@ -3,13 +3,10 @@ module
 
 public import Certificates.Certificate2031Base
 
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22HexadsInputs
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
 public meta import CFSG.Monster.B.Classical.PlaneData
 import Certificates.Kernel.LocalComp.M22Hexads
-import CFSG.Sporadic.Schreier.M22Data
 meta import CFSG.Sporadic.Schreier.M22Data
-import Certificates.Data.CFSGNative.Mathieu.M22
 
 public section
 

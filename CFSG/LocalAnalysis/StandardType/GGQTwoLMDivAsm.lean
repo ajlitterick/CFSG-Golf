@@ -1,21 +1,17 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMHelp
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivKind
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivLinkLift
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInner
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordFull
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivStab
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrame
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameA
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameB
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMPrimeA
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMModAug
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMModHm
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMModQm
-public import CFSG.LocalAnalysis.StandardType.GGQTwoRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLDefs
 
 public section
 

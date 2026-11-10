@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeConjCore
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeHyperplane
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeIndex
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveTorusSupp
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveRes
-public import CFSG.LocalAnalysis.StandardType.GGHalfCentSupp
-public import CFSG.LocalAnalysis.StandardType.GGHalfWeylTorusCoord
 
 public section
 

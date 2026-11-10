@@ -1,24 +1,9 @@
 module
 
-public import CFSG.ClassicalInvolution.LBalance.Glauberman
-public import CFSG.CGT.PushingUpLit.CGT6.Nine7Inv
 public import CFSG.CGT.PushingUpLit.CGT6.Nine7Main
-public import CFSG.Assembly.Defs
-public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherKnownGroupFacts
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitWeakCorr
-public import CFSG.GroupTheory.PCore.Defs
-public import CFSG.Foundations.QuasisimpleMulEquiv
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitInputs
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
-public import CFSG.Assembly.Reduction
-public import CFSG.Blueprint.Catalog
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitMaximal
 public import CFSG.LocalAnalysis.ComponentInitial.LocalBMaximalPropagation
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
-public import CFSG.Open.LocalVocabulary
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.OutWClass
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec3W12Comm
 public import CFSG.Blueprint.OddStandardExact

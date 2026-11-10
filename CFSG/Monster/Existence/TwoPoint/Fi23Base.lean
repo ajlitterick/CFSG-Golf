@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Monster.Existence.TwoA
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import CFSG.Monster.Existence.TwoPoint.Fi23Check
 public import CFSG.Sporadic.Bridge.Common

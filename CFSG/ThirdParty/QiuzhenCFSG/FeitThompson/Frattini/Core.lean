@@ -1,8 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.Frattini
-public import Mathlib.GroupTheory.PGroup
-import Mathlib.GroupTheory.SpecificGroups.Cyclic
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 

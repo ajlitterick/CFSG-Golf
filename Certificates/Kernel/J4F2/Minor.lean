@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartOne.S11c.J4Rep
 public import CFSG.RankThree.PartOne.S11c.J4LocalRank
 public import CFSG.Sporadic.Schreier.J4SOuter
-public import CFSG.Sporadic.Schreier.J4SCheck
 public import CFSG.RankThree.PartOne.S11c.J4RankInputs
 public import Certificates.Kernel.SporSch.J4S.Eta
 import CFSG.Certificates.Kernel.Common.Harness

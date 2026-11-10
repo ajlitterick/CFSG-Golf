@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianMatrix
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.GraphAutomorphism
 import all TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.GraphAutomorphism
 
 public section

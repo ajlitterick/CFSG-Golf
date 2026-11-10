@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.Spor.PK.PermOf
 public import CFSG.Certificates.Kernel.Spor.PK.Perm.Comp
 public import CFSG.Certificates.Kernel.Spor.PK.Perm.Make
 public import CFSG.Sporadic.Schreier.Enumeration
-public import Mathlib.Tactic.IntervalCases
 
 public section
 

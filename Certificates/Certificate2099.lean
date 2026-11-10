@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2099Base
 
-public import CFSG.Sporadic.HNSchreier.InvolCheckInputs
 public meta import CFSG.Sporadic.HNSchreier.SeedsCheck
 public meta import CFSG.Sporadic.HNSchreier.LocalCheckBase
 public import Certificates.Kernel.SporSch.HN.Invol2099

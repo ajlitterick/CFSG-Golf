@@ -1,8 +1,6 @@
 module
 
 public import CFSG.CGT.PushingUpLit.CGT6M.FiveHeisTransfer
-public import CFSG.Open.StatedDefs
-public import CFSG.RankThree.PartOne.S11c.UnitaryFiveData
 public import CFSG.RankThree.Classical.SteinbergBJUnitaryThreeInvolutions
 
 public section

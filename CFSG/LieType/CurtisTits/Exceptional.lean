@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.CurtisTits.Minuscule
 public import CFSG.LieType.CurtisTits.TwistedE6
-public import CFSG.LieType.Steinberg.Isogeny.E6
 public import CFSG.LieType.Steinberg.Isogeny.E7
 public import CFSG.LieType.Steinberg.Isogeny.TwistedE6
 

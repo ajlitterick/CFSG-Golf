@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUYModel
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUComp
-public import CFSG.LocalAnalysis.ComponentClassification.PerfectCentralQuotient
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36L4Twin
 import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant

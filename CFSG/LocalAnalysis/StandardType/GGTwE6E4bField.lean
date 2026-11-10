@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FixedA2SL3
-public import CFSG.LieType.Chevalley.OddDiagramFrobeniusFixedDerived
 
 public noncomputable section
 

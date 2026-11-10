@@ -2,18 +2,12 @@ module
 
 public import CFSG.Quasithin.Background.RonanE43Lift
 public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
-import Mathlib.Tactic.Group
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.QuasithinUnique.Setting
 public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CharacteristicPrimeLocal
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 
 public section
 

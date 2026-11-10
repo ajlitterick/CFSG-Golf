@@ -1,14 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6DepKDefs
-public import CFSG.LocalAnalysis.StandardType.GGE6DepKRefl
-public import CFSG.LocalAnalysis.StandardType.GGE6DepKAut
-public import CFSG.LocalAnalysis.StandardType.GGE6DepPerpDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPChain
 public import CFSG.LocalAnalysis.StandardType.GGTPDatumLift
 public import CFSG.LocalAnalysis.StandardType.GGE6DepKMatrix
 public import CFSG.LocalAnalysis.StandardType.GGE6DepKNoTv
-public import CFSG.LocalAnalysis.StandardType.GGE6DepModelRefl36
 
 public section
 

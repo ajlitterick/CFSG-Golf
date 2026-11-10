@@ -2,13 +2,8 @@ module
 
 public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootChain
 public import CFSG.ClassicalInvolution.Asc77.WP3FrameTwinP1
-public import CFSG.ClassicalInvolution.Asc77.WP3FramePSCMain
 import CFSG.ClassicalInvolution.Asc77.WP3FrameModelPSU
 import CFSG.ClassicalInvolution.Asc77.AscE187Img
-import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
-import CFSG.ClassicalInvolution.Balance.PassTwoModelFacts
-import CFSG.ClassicalInvolution.Balance.BootNoTriple
-import CFSG.ClassicalInvolution.SmallCases.DSplitDefs
 import CFSG.ClassicalInvolution.Asc77.AscE187Basic
 import CFSG.ClassicalInvolution.Asc77.AscE187Cop
 import CFSG.ClassicalInvolution.Asc77.AscThmABasic

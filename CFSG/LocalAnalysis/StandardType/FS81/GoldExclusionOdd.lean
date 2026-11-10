@@ -2,7 +2,6 @@ module
 
 public import CFSG.Open.GoldschmidtStronglyClosedAbelianMilestoneDefs
 import CFSG.Goldschmidt.OddCore
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 
 public section
 

@@ -2,17 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.Parrott.P614DeltaDefs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.Parrott.P614DOGSetup
-public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.K2.Defs
 import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.Parrott.P614DOGBar
 import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.Parrott.P614DOGL34
 import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.Parrott.P614DOGLemmaA
-import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.K2.Quotient
 import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.Parrott.P614CEPlane
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank65Plane
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L63Transport
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
-import CFSG.RankThree.PartOne.S9.Planes.Basic
-import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableCompactPresented
 public import CFSG.Certificates.CosetTableWalkC
@@ -105,7 +101,6 @@ public import CFSG.Quasithin.Background.B15P4LayerDict
 public import CFSG.Quasithin.Background.B1MoreNineG
 public import CFSG.Quasithin.Background.D14Normal
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.F1Amalgam
 public import CFSG.Quasithin.Background.F2Equiv
 public import CFSG.Quasithin.EmptyFaithful.S141Statements
@@ -168,11 +163,6 @@ public import CFSG.Sporadic.Schreier.RuLOdd
 public import CFSG.Sporadic.Schreier.RuZClass
 public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
-public import CFSG.Sporadic.Th.KernelPlanesBase
-public import CFSG.Sporadic.Th.KernelSimpleBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import CFSG.YGroups.Y443.Native.EdgeNoncommBase
 public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie

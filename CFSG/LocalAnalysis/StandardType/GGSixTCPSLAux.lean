@@ -6,12 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDPSL
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDegreeParity
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGMarkingSL
 public import CFSG.Quasithin.Vol2.Ch11SecS12ZI
-public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.GroupTheory.OrderOfElement
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.Algebra.Algebra.Subalgebra.Basic
-public import Mathlib.RingTheory.Adjoin.Basic
-public import Mathlib.Tactic.Group
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
 public import CFSG.LocalAnalysis.SectionRank.LargeRee.SuzukiData
@@ -21,9 +15,7 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Vol2.Ch11SecS12ZH
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

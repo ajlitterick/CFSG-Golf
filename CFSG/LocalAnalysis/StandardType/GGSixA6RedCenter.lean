@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedDefs
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
 public import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
-public import CFSG.LieType.Steinberg.Adjoint.Perfect
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.ClassicalGroups.Symplectic.DiagonalTorusRank
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Steinberg.CentralExt.SpCentrallyClosed

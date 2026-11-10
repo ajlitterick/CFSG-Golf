@@ -2,15 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch9Sec3L34QData
 public import CFSG.Quasithin.Background.Module
-public import Mathlib.Algebra.Group.Equiv.Finite
-public import Mathlib.Data.LawfulXor.Basic
-public import Mathlib.Data.Nat.Bitwise
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Basify
-public import Mathlib.Tactic.ENatToNat
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
-public import Mathlib.Topology.Sheaves.Presheaf
 public import Std.Tactic.BVDecide.Normalize.BitVec
 public import Std.Tactic.BVDecide.Normalize.Prop
 

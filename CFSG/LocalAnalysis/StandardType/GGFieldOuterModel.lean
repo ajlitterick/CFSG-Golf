@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvFieldTags
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.J2Cover.OrbData
 public import Certificates.Kernel.J2Cover.AutChain
 public import CFSG.Certificates.Kernel.J2OrbSound
-public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverModelsNative
 import CFSG.Certificates.Kernel.Common.Harness
 

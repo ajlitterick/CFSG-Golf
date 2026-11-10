@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinRMChain
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarData
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBarAux
 
 public section

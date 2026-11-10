@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RConj
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RDual
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RDualFrob
 
 public section

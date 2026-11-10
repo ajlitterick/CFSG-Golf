@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBCard
-public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
 public import CFSG.LocalAnalysis.StandardType.GGResIPumpLineA3Rows
 public import CFSG.LocalAnalysis.StandardType.GGResIPumpLineA3Signed
 public import CFSG.LocalAnalysis.StandardType.GGResIPumpLineA8

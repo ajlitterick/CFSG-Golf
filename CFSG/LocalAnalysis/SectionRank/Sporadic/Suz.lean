@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF3
 public import Certificates.Data.CFSGNative.SectionRank.Suz
 public meta import Certificates.Data.CFSGNative.SectionRank.Suz
-import CFSG.Blueprint.NativeSporadic
 public import Certificates.Certificate8030
-public import CFSG.Open.Defs
 
 public section
 

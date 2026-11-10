@@ -2,9 +2,7 @@ module
 
 public import CFSG.Quasithin.Recognition.CertChain
 public import CFSG.GroupActions.PrimitiveCoprimeSimplicity
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import Mathlib
 
 public section
 

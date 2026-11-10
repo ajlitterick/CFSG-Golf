@@ -1,11 +1,8 @@
 module
 
 public import Mathlib.RepresentationTheory.Irreducible
-public import Mathlib.RepresentationTheory.Subrepresentation
-public import Mathlib.Data.Nat.Prime.Defs
 public import Mathlib.Algebra.Field.ZMod
 public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
-public import Mathlib.RingTheory.SimpleModule.Basic
 public import Mathlib.RingTheory.Flat.FaithfullyFlat.Basic
 public import Mathlib.Algebra.Module.ZMod
 

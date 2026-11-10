@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.CentralExt.SLCentrallyClosed
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.Assembly.Subnormal
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Steinberg.Classical.SpinFrame

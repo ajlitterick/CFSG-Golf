@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K421OrbV
 public import CFSG.Monster.B.TwoA.Census.PermClasses
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K421LinDefK
 

@@ -1,21 +1,15 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
-public import CFSG.RankThree.PartOne.KC.CommonEigenbasis
 public import CFSG.LieType.SemisimpleCentralizers.HeldLangU64Ord
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGU6b
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeCompEq
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeQS
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeCQ
 public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
-public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicTransfer
 public import CFSG.LocalAnalysis.StandardType.GGAutomizerAbelianMatrix
 public import CFSG.LocalAnalysis.StandardType.GGPGLToralityEigenspace
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitarySixThreeCases
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField

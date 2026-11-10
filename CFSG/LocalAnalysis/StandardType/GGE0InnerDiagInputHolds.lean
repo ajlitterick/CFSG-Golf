@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE0Frame
-public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGE0ExcAdjHolds
 public import CFSG.LocalAnalysis.StandardType.GGE0ExcE6Holds
 public import CFSG.LocalAnalysis.StandardType.GGE0PSL

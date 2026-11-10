@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2009Base
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallConfP45Inputs
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3P45
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallConfChecks2
 import Certificates.Kernel.Census.CatFacts.C2009

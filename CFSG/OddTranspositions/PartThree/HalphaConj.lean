@@ -4,7 +4,6 @@ public import CFSG.OddTranspositions.FaithfulBlocks
 public import CFSG.OddTranspositions.HalphaQuotient
 public import CFSG.OddTranspositions.SixNineUnconditional
 
-import CFSG.OddTranspositions.BlockGraph
 import CFSG.OddTranspositions.PartThree.Eleven.OneOne.ConjShared
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.AschbacherCanonicalRemaining

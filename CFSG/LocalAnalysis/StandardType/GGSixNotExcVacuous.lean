@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixD4SmallVacuous
 public import CFSG.LocalAnalysis.StandardType.GGPRankBoundsSpEight
 public import CFSG.LocalAnalysis.StandardType.GGRootPlaneOm
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E7SylowFive
-public import CFSG.Timmesfeld.Orders.ClassicalOmega
-public import CFSG.Timmesfeld.Transvection.PresSp
 public import CFSG.GroupTheory.ElemAbelianRank
 public import CFSG.LieType.Chevalley.E7SupportedBruhat
 public import CFSG.LieType.SeitzGeneration.ExcTorusBlocks

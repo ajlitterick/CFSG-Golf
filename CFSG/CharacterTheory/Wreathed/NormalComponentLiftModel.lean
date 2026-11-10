@@ -1,13 +1,7 @@
 module
 
 public import CFSG.CharacterTheory.Wreathed.NormalComponentLiftLocal
-public import CFSG.CharacterTheory.Wreathed.ConditionalCompatibleModelData
-public import CFSG.CharacterTheory.Wreathed.FullCentralizerFromProjectiveModel
-public import CFSG.CharacterTheory.Wreathed.CentralSL2.Basic
 public import CFSG.LinearAlgebra.LinearGroups.Perfect
-public import CFSG.CharacterTheory.Wreathed.TwoPartArithmetic
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.BlockAtoms
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting

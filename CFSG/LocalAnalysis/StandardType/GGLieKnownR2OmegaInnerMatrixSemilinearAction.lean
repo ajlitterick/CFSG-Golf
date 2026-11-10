@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaInnerDefs
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaInnerRootTransport
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaInnerTriality
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaInnerAutomorphismCalc
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityModel
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Sporadic.SmallOddCore.McLLocalCheck
 public meta import CFSG.Sporadic.SmallOddCore.McLLocalCheck
-public import CFSG.LocalAnalysis.ComponentClassification.RestrictedSporMcLCheckInputs
 public import Certificates.Certificate2024
 
 public section

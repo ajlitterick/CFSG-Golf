@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGMaxRankSide
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankNotLevi
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankLeviIndep
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
 
 public section
 

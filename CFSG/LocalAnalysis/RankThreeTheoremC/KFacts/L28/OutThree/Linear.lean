@@ -2,16 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.L28.OutThree.Reduction
 public import CFSG.Open.StatedDefs
-import CFSG.Timmesfeld.Orders.ClassicalLinear
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma44bOrd
-import CFSG.LocalAnalysis.ComponentInitial.LinearTwoOuterOrder
 import CFSG.LocalAnalysis.ComponentInitial.QTNQRLinearUnitaryOuterDerivedLinear
 import CFSG.LocalAnalysis.ComponentInitial.QTNQRLinearUnitaryOuterDerivedUnitary
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryDiagonalOuterOrder
-import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-import CFSG.RankThree.SteinbergR3ELinearUnitaryOuterOrder
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.OrdinaryProofs.OutL5Proof
 import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 import CFSG.CGT.PushingUpLit.BHS.SymNatDefs

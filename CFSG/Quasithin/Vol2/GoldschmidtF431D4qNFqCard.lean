@@ -1,10 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qNFqSpec
-import CFSG.LieType.Chevalley.TrialityExactFiniteOrder
-import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
-import CFSG.LieType.Steinberg.TwistedD4.Perfect
 public import CFSG.Sporadic.Schreier.J4SSylow
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8D4D0
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qStructNorm

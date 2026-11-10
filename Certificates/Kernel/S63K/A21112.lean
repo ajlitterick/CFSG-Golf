@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LargeExtraspecial.S63CD4InputsA
 public import Certificates.Kernel.S63K.AChecks
 public import CFSG.Certificates.Kernel.S63K.EnumSound
 public import CFSG.Certificates.Kernel.S63K.PickSound

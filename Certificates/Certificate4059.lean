@@ -1,14 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1PermCheck
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1MathieuGen
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1PairCover
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1OuterGen
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M24Data
 public import CFSG.Sporadic.Schreier.M24
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M24CheckInputs
 import Certificates.Kernel.LocalQT.Syl.C4059
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

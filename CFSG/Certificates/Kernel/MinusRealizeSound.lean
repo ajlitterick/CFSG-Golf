@@ -4,8 +4,6 @@ public import Certificates.Data.Kernel.MinusRealize
 public import CFSG.Certificates.Kernel.MinusSecondKindSound
 public import CFSG.OddTranspositions.PartThree.Eleven.Five.Refl
 import all CFSG.OddTranspositions.PartThree.Eleven.Minus.RealizeCheck
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.FinCases
 
 public section
 

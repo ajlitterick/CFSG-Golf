@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIUniBlock
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOne
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIRows
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniData
 
 public section
 

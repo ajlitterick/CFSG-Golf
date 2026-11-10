@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterElevenInputs
-import Certificates.Certificate6007
 import Certificates.Kernel.KDenseP.E11
 public import CFSG.YGroups.DCE.MaximalB
 public import CFSG.YGroups.Y443.Native.AlignB

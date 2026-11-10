@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.Uniqueness.SU.KI1r3PowA
 public import CFSG.GroupTheory.FrattiniQuotient
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 
 public section
 

@@ -1,15 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamModels
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddInnerPSL
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddInnerModels
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofComponentLift
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddPSL
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearInner
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBProjectiveQuadraticStructure
-public import CFSG.LocalAnalysis.ComponentClassification.OddClassSelectorOrthLift
-public import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAutLQ
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoInnerQ
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixFrame
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixInnerAux
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixInnerAux2
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixInnerAux3
 
 public section
 

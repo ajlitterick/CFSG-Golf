@@ -2,19 +2,12 @@ module
 
 public import Certificates.Data.TwoF4LocCheck
 public import Certificates.Data.TitsLocData
-public import CFSG.Sporadic.Schreier.TitsActionCheckInputs
-public import CFSG.Sporadic.Schreier.TitsCentralCheckInputs
 public import Certificates.Certificate4180
-public import CFSG.Sporadic.Schreier.TitsCert
 public import Certificates.Kernel.TwoF4Lie.Glue
 import all Certificates.Kernel.TwoF4Lie.Glue
 import Certificates.Kernel.TitsLoc.Checks
 import Certificates.Kernel.TitsLoc.Gens
 import CFSG.Certificates.Kernel.TitsLocSound
-import CFSG.Sporadic.Schreier.TitsInv
-import CFSG.Sporadic.Schreier.TitsIso
-import CFSG.Sporadic.Schreier.TitsLocal
-import CFSG.Sporadic.Schreier.TitsAbelCheckInputs
 meta import CFSG.Sporadic.Schreier.TitsData
 meta import CFSG.Sporadic.Schreier.TitsArrays
 meta import CFSG.Sporadic.Schreier.TitsBasic
@@ -25,11 +18,8 @@ meta import CFSG.Sporadic.Schreier.TitsCentralCheck
 meta import Certificates.Data.CFSGNative.Schreier.Check
 meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
-import CFSG.Sporadic.Schreier.TitsInvCheckInputs
 meta import CFSG.Sporadic.Schreier.TitsAbelCheck
 public import Certificates.Certificate4182Base
-public import Certificates.Certificate7050Base
-public import Certificates.Data.CFSGNative.Schreier.Check
 
 set_option maxRecDepth 400000
 

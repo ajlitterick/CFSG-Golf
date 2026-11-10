@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3MFODSpin
 public import CFSG.ClassicalInvolution.Q3.Q3MFODSimE
 public import CFSG.ClassicalInvolution.Q3.Q3OTCplx
-public import CFSG.ClassicalInvolution.Q3.Q3NMOrth
 public import CFSG.ClassicalInvolution.Q3.Q3OTDict
 
 public section

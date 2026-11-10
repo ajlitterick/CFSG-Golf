@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2SubStab
-public import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 import CFSG.LocalAnalysis.StandardType.GGLargeDepNoSymPerm
 import CFSG.LocalAnalysis.StandardType.GGLargeDepOrder
 import CFSG.LocalAnalysis.StandardType.GGLargeDepRestrictAux

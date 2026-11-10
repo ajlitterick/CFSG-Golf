@@ -5,8 +5,6 @@ public import Certificates.Kernel.Sporadic.Fi22.N2070Sift
 public import Certificates.Kernel.Sporadic.Fi22.N3153Final
 public import Certificates.Kernel.Sporadic.Fi22.E2065Eq
 public import CFSG.Sporadic.FischerOddCore.Fi22RelBoundCheckInputs
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

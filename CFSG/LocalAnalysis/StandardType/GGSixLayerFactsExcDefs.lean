@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaFinal
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerE7
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.LocalAnalysis.SeitzReduction.E8PilotLevi
 
 public section

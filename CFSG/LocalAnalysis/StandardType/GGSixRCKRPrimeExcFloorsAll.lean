@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcFloorsE
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfTwoLocal
 
 public section
 

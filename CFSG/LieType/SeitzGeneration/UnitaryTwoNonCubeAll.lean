@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LieType.SeitzGeneration.UnitaryTwoNonCubeCore
 public import CFSG.LieType.SeitzGeneration.UnitaryTwoNonCubeToral
-public import CFSG.LieType.SeitzGeneration.InnerThreeUnitaryLeaves
 public import CFSG.LieType.SeitzGeneration.OuterUnitaryWide
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.WeakCT.StandardPair
 public import CFSG.LieType.CurtisTits.SpecialLinear
 public import CFSG.LieType.SeitzGeneration.ClassicalAssemblyClosed
@@ -61,9 +57,7 @@ public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.M23.M23Group
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

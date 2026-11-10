@@ -1,20 +1,7 @@
 module
 
-public import CFSG.HardMathSupport.Lang.E27Lie.TrialityThreeLayers
 public import CFSG.HardMathSupport.Lang.Triality.TraceKernel
 public import CFSG.HardMathSupport.Lang.Triality.Char3Sylow
-public import CFSG.LieType.Chevalley.RootCommutator
-public import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
-public import CFSG.LieType.Chevalley.RootConj
-public import CFSG.LieType.Chevalley.GraphFixedBruhatDecomposition
-public import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
-public import CFSG.LieType.Chevalley.GraphFixedBruhatEquivariance
-public import CFSG.LieType.Chevalley.GraphFixedCoordinateDetection
-public import CFSG.LieType.Chevalley.TrialityFullAmbientFixedGroup
-public import CFSG.LieType.Chevalley.TwistedE6NormalFormActors
-public import CFSG.LieType.Chevalley.TwistMap
-public import CFSG.LieType.Chevalley.OddTrialityAutomorphismNormalForm
-public import CFSG.LieType.Steinberg.BruhatTwist
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3LieRes
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.TrialityChar3.LayerRoots
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.TrialityChar3.D4Comm

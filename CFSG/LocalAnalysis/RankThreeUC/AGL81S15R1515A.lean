@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15LiftDefs
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankBase
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15LiftBasic
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15Row159
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1512E

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoBridge
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveInputs
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 

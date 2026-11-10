@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalOmegaMinusOpp
-public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalOpp
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalSpUOpp
 
 public section

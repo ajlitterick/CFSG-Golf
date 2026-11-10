@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBC0
-public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootCtx
 
 public section
 

@@ -1,7 +1,6 @@
 
 module
 
-public import Certificates.Kernel.SporSch.J4S.Eta
 public import Certificates.Kernel.SporSch.J4S.InvP
 public import CFSG.Quasithin.H13.J4ClassCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness

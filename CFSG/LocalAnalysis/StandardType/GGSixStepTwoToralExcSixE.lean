@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoToralExcSplit
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitExcSixE
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwelveDefs
 
 public section

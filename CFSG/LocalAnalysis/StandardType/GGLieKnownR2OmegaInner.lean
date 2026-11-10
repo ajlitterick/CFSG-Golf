@@ -1,13 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Universal.Spin.Datum
-public import CFSG.LieType.Universal.Spin.Twisted.Datum
-public import CFSG.ClassicalInvolution.ModelFacts.OrthAutMain
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaD4Inner
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaInnerTransport
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaInnerMatrix
 
 public section
 

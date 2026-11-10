@@ -2,19 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenA7FourBlocks
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154E3Cond
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC34UniqueP
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23NeKer
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.ElevenNineBasic
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154Kernel
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC7Eseven
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23Sylow
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23ATwoConj
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenInfra
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenUniqueMax
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2214b
-import CFSG.Quasithin.Background.C1GNA7
-import CFSG.Quasithin.Background.FFC8A
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.PerfectResiduals
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC13BCAAux
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1677ThreeTools
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightF8Nat

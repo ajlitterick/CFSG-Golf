@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagBlocks
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagConcl
 public import CFSG.LocalAnalysis.StandardType.GGSteinbergCorrection
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneDefs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepACore
 public import CFSG.LieType.SemisimpleCentralizers.HeldLinearComponents
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 public import CFSG.GroupTheory.ConjTransport
 
 public section

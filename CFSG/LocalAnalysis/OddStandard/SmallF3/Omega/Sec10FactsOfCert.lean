@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10Bundles
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10Fact1051
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10Fact107c
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10Fact218
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FactAutAb
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FactBCert
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FactCE16
@@ -15,7 +13,6 @@ public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FactInvB
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FactK5
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FactN7
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FactOuterI4mCert
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FactPockets
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FactQ2m
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FactSylow
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec11FactAutQ

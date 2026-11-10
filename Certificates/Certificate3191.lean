@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaParH1Cert
 meta import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaParH1Data
-import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaParH1Data
 import Certificates.Kernel.UnitarySix.H1W
 public import Mathlib
 import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaParFormsData

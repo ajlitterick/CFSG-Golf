@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenComp
 public import CFSG.LocalAnalysis.StandardType.GGRootGenAvoidReflFamily
 public import CFSG.LocalAnalysis.StandardType.GGRootGenAvoidCenterPrime
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusLarge
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
 public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenModel
 public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenRoot

@@ -1,11 +1,9 @@
 
 module
 
-public import CFSG.Sporadic.Fi24.SetupBase
 import all CFSG.Sporadic.Fi24.SetupBase
 
 public import CFSG.Sporadic.Fi24.Certificate
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

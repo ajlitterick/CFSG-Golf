@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.BabyMonster.CTIB.OrbTree
 public import Certificates.Kernel.BabyMonster.CTIB.CosetQData
 public import Certificates.Kernel.LocalComp.BlockTac
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.NatItemsGz
 import CFSG.Certificates.Kernel.Common.Repo
 

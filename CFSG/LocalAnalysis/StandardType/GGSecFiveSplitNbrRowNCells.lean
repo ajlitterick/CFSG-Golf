@@ -1,15 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNFrame
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineClassical
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExc
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
 import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneTransfer
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNsLiftOmega
 import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailFinal
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanGlue
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanProjection
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanMemberOut
@@ -8,11 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1MovingLine
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1Absorb
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1SolvBlock
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinRankOneOfRk1
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
-import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 
 public section
 

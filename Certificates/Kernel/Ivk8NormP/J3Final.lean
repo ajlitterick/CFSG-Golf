@@ -4,17 +4,8 @@ public import Certificates.Kernel.Ivk8NormP.J3
 public import Certificates.Certificate55105
 public import Certificates.Kernel.Sporadic.OddCore.J3PGGlue
 public import CFSG.Certificates.Kernel.Ivk8NormPRes
-public import CFSG.Certificates.Kernel.Ivk8NormSound
-public import CFSG.Certificates.Kernel.Census.CatFacts.PkEnum
-public import CFSG.Certificates.Kernel.Spor.PK.CertBridge
-public import CFSG.Certificates.SchreierChainOrder
-public import CFSG.Certificates.Kernel.Spor.MulHSound
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8S12NormP
 public import CFSG.Sporadic.SmallOddCore.J3
-public import CFSG.Sporadic.Schreier.PairJ3Order
-import CFSG.Certificates.Kernel.Spor.RawOrbHead
-import Mathlib.Tactic.IntervalCases
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A

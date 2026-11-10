@@ -4,10 +4,6 @@ public import CFSG.ClassicalInvolution.SmallCases.NDBE4S2
 public import CFSG.ClassicalInvolution.SmallCases.NDBE6Side
 import CFSG.ClassicalInvolution.SmallCases.NDB5Layer
 import CFSG.ClassicalInvolution.Asc77.WP3SCUGenA
-import CFSG.ClassicalInvolution.Asc77.WP3ChainVGen3
-import CFSG.ClassicalInvolution.Asc77.WP3FrameLieE
-import CFSG.ClassicalInvolution.Asc77.WP3LayerHyp
-import CFSG.ClassicalInvolution.Asc77.WP3L52Main
 import CFSG.Timmesfeld.ARS.CaseEFrame
 import CFSG.Timmesfeld.ARS.CaseMLevi
 import CFSG.Timmesfeld.ARS.Sec12Center

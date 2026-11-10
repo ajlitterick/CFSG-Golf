@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GroupTheory.ABGLocalTools.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.CyclicSylow
 import CFSG.GroupTheory.SteinbergBKOddNoncyclicRankTwo
 
 public section

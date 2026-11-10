@@ -6,7 +6,6 @@ public import CFSG.Sporadic.J4.QTNative
 import all Init.Data.String.Legacy
 import all Init.Data.String.Slice
 import all Init.Data.String.Search
-import Batteries.Data.String.Lemmas
 
 public section
 

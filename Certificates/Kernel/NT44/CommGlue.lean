@@ -7,17 +7,13 @@ import Certificates.Kernel.NT44.Inv
 import Certificates.Kernel.NT44.Pair
 import CFSG.Certificates.Kernel.Misc.IdxMulSound
 import CFSG.Certificates.Kernel.Misc.ConjTree
-import CFSG.Certificates.Kernel.Spor.PrimSound
 import CFSG.Certificates.Kernel.Spor.RawSiftK
-import CFSG.Certificates.Kernel.Spor.RawOrbHead
 import CFSG.Certificates.Kernel.Misc.ArrBind
 import CFSG.Certificates.Kernel.Misc.RowsBind
 import CFSG.Certificates.Kernel.Misc.ArrEnumUnpack
 import CFSG.Certificates.Kernel.Misc.PermClosSound
 import CFSG.Certificates.Kernel.Enum.ZCSound
 import CFSG.Certificates.Kernel.LocalQTCovTPrim
-import CFSG.Certificates.Kernel.BfsPinAlg
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 400000
 set_option quotPrecheck false

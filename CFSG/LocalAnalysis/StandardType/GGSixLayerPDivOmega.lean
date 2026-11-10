@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivOmegaCent
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivSUTag
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaReduce
 
 public section
 

@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRCLinRefl
 public import CFSG.LocalAnalysis.StandardType.ZS.Basic
 public import CFSG.LocalAnalysis.StandardType.ZS.MarkedWeyl
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.LocalAnalysis.StandardType.GGF4AutWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE8Split
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA
-public import CFSG.LieType.Chevalley.EvenQuadraticGraphFieldDescent
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.E8FiveTwoNorm
 
 public section

@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 public import Mathlib.Algebra.Polynomial.SpecificDegree
-public import Mathlib.FieldTheory.Finite.Basic
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.RingTheory.AdjoinRoot
 public import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
-public import Mathlib.Tactic.ComputeDegree
 
 public section
 

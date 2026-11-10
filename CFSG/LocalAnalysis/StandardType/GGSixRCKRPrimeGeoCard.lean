@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import Mathlib.LinearAlgebra.LinearIndependent.Defs
-public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-public import Mathlib.SetTheory.Cardinal.Finite
 
 public section
 

@@ -3,8 +3,6 @@ module
 public import Certificates.Data.Kernel.J4Q.Mat
 public import Certificates.Data.Kernel.Spor.PCount
 public import CFSG.Sporadic.GLQ.RegisterProgram
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
-public import CFSG.Open.Defs
 
 public section
 

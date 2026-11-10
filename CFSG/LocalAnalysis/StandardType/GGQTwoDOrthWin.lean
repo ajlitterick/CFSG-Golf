@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthCentr
 public import CFSG.LocalAnalysis.StandardType.GGUnitaryTwoResidual
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentralizerBasic
 public import CFSG.RankThree.PartOne.S11d.OrthModels
 public import CFSG.ClassicalInvolution.Phan.PhanDn.PanelStab
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExclusion

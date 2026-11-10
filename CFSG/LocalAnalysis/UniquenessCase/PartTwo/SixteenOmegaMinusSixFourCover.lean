@@ -2,20 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC6Fix
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.OmegaSixMinusHolds
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.OmegaSixMinusK
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC165Model
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenNaturalThreeCoverParabolic
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.BarSubBar2
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofOMinusFacts
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.Unitary
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.Orthogonal
-public import CFSG.LieType.Steinberg.CentralExt.GriessClassical
 public import CFSG.RankThree.PartOne.Q1327F.Common
-public import CFSG.RankThree.PerfectCover.HopfFormula
-public import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
-public import CFSG.Blueprint.LieModelAPI
-public import CFSG.Adapters.LieModelSimple
-public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.CGT.PushingUpLit.BHS5.FiveFive
 public import CFSG.ClassicalGroups.Symplectic.StatedSpTransport

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.CosetTablePresented
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixPointInputs
 public import Certificates.Kernel.Bounds.Family
 

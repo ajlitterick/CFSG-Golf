@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpFrame
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166SpBlocks2
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticDiag
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotBlocks
 public import CFSG.RankThree.PartOne.KFCL.SpPerm
 public import CFSG.RankThree.PartOne.KC.SymplecticFullCentralizerTransvection
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticTwoRadical
 public import CFSG.Assembly.LargeEvenGLABridge
 public import CFSG.Assembly.OpenBridges
 public import CFSG.ClassicalInvolution.Balance.LocalBalance.Faithful

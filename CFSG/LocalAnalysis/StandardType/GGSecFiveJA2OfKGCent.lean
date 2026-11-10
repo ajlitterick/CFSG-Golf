@@ -1,20 +1,14 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBranchInputs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosPrimed
-import CFSG.LocalAnalysis.StandardType.GGSecFiveJReflOfCore
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreHolds
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentRank
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentRoot
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentRootJoin
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentPosDef
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylEltOfAutomizer
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGen
 import CFSG.LocalAnalysis.StandardType.GGStdPosTagData
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL1OddLeaves
-import CFSG.Timmesfeld.ARS.CaseERootSys
 
 public section
 

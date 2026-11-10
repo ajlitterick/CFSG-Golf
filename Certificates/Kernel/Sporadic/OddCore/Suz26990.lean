@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.Suz2302
 public import Certificates.Kernel.LocalQT.PEnumD
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.SuzPinCheck
-public import CFSG.Certificates.Kernel.Common.Loop
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.SuzPinCheck
-import CFSG.Certificates.Kernel.Common.Harness
 
 namespace CertificateChecks.KernelSpor.S26990
 

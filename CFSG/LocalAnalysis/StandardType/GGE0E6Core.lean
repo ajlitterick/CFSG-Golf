@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE0ModelFrameOn
-public import CFSG.LocalAnalysis.StandardType.GGE0ExcNoSuzukiReeAt
-public import CFSG.LocalAnalysis.StandardType.GGE0E6InnNormal
 public import CFSG.LocalAnalysis.StandardType.GGE0ExcNoSuzukiReeE6Holds
 public import CFSG.LocalAnalysis.StandardType.GGE0E6Act
 public import CFSG.LocalAnalysis.StandardType.GGE0MarkBridge
-public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagConcl
-public import CFSG.LieType.Chevalley.AdjointCenter
 
 public section
 

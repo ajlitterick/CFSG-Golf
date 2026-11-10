@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.FischerOddCore.Fi22CentCheck
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheck
 public import CFSG.Monster.B.Fischer.Fi22GraphBoundCheck
-public import Certificates.Data.CFSGNative.FischerOddCore.Checks
 public meta import CFSG.Sporadic.FischerOddCore.Fi22CentCheck
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheck
 public meta import CFSG.Monster.B.Fischer.Fi22GraphBoundCheck

@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.WeylE8.TList
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylTData
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.ComponentInitial.Finkelstein1977Commuting
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylData
 public import CFSG.RankThree.Native.PermEnumeration

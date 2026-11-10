@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpSmP43Sound
-public import CFSG.ClassicalInvolution.Q3.TA3SmallConcrete
-public import CFSG.ClassicalInvolution.SmallCases.NobqSmall
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
 
 public section

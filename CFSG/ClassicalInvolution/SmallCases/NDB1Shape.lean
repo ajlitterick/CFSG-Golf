@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBStmt
 public import CFSG.ClassicalInvolution.SmallCases.NDB1Model
-public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootCtx
 public import CFSG.ClassicalInvolution.Asc77.AscE189Basic
 public import CFSG.ClassicalInvolution.Asc77.AscE189Model
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15InnerL4Std

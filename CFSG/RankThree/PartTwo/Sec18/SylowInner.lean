@@ -13,7 +13,6 @@ import CFSG.RankThree.PartTwo.Sec18.SylowLcUnique
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
 public import CFSG.RankThree.PartTwo.Late.Item2010
 public import CFSG.RankThree.PartTwo.Sec18.Components
-public import CFSG.RankThree.PartTwo.Sec18.Tools
 
 public section
 

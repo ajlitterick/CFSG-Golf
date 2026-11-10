@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLRestOutdiag
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherGraphFieldInvolution
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUProjectivePlanePureFieldMatrix
-public import CFSG.RankThree.Classical2.MatrixFrobeniusLang
 public import CFSG.GroupTheory.ABGLocalTools.SL2FieldAutSemilinear
 
 public section

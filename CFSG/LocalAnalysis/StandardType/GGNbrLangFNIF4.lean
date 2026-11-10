@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIExcUntw
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIRows
 
 public section
 

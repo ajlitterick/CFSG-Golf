@@ -7,7 +7,6 @@ import CFSG.Walter.PSL2Facts.Even
 import CFSG.SignalizerFunctorTheorem.McBride.Models.PSL2Even.Arithmetic
 import CFSG.SignalizerFunctorTheorem.McBride.Models.PSL2Even.Aut
 import CFSG.SignalizerFunctorTheorem.McBride.Models.PSL2Even.Dickson
-import CFSG.SignalizerFunctorTheorem.McBride.Models.PSL2Even.S3
 import CFSG.SignalizerFunctorTheorem.McBride.Models.PSL2Even.Setup
 
 public section

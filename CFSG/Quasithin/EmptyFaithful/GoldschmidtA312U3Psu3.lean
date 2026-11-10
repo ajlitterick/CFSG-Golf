@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3L3
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3Psu3Ord
 public import CFSG.Quasithin.EmptyFaithful.T1515eC
-public import CFSG.RankThree.SubgroupLists.UnitaryThreeFamily
-public import CFSG.RankThree.SubgroupLists.FieldThreeFamilies
 public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
@@ -47,8 +45,6 @@ public import CFSG.Quasithin.Background.E3Gen
 public import CFSG.Quasithin.Background.InternalSecData
 public import CFSG.Quasithin.Background.InternalSecIso
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S1417Glue
 public import CFSG.Quasithin.EmptyFaithful.S1421Defs
 public import CFSG.Quasithin.EmptyFaithful.S151cA2

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.GH72.PGammaL2Local
 public import CFSG.GroupTheory.CentralSylowComplement
 public import CFSG.GroupTheory.GroupAction.CoprimeFiniteSubgroups
-public import CFSG.GroupTheory.ThompsonAxB
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2InnerAction
 
 public section
 

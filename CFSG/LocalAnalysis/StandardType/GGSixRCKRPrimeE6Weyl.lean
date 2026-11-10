@@ -2,10 +2,7 @@ module
 
 public import Certificates.Certificate715001
 public import Certificates.Data.E6WeylDivisors
-public import CFSG.RankThree.E6.RootLatticeTools
 public import CFSG.LieType.SeitzGeneration.ExcTorusCount
-public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeChar
-public import CFSG.LieType.Chevalley.SimplyLacedCommutation
 public import CFSG.LieType.Chevalley.LangRootArithmeticDet
 public import CFSG.Blueprint.ChevalleyRootArtifact
 

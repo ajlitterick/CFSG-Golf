@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.Algebra.Group.Action.Pointwise.Set.Basic
-public import Mathlib.Data.Fintype.Card
 public import Mathlib.Algebra.Group.Action.End
 public import Mathlib.Algebra.Group.Subgroup.Lattice
 public import Mathlib.Data.Fintype.EquivFin

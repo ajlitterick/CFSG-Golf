@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.MonsterB.Max2Tower
 public meta import Certificates.Data.CFSGNative.MonsterB.Max2Tower
 public import CFSG.Monster.Code.Bits
 public import CFSG.Monster.B.Gen.OrbitChain

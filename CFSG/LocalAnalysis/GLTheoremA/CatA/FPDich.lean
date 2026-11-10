@@ -10,7 +10,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.S10.InputsSetup
 public import CFSG.LocalAnalysis.GLTheoremA.S6.Lemma62AuxComp
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Proof
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.RankThree.PartTwo.Census.Carrier.SpinDBridge
 
 public section

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalCoreTwo
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSymplectic
 import CFSG.ClassicalGroups.Symplectic.StandardForm
 import CFSG.ClassicalGroups.Alternating.PointRadicalFixedCard
 

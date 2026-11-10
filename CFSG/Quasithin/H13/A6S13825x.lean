@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.H13.A6S13825w
 public import CFSG.Quasithin.H13.A6S13825b
 public import CFSG.Quasithin.H13.A6S1372L76H
-public import CFSG.Quasithin.Background.SmithB42LnL4Dim
 public import CFSG.Quasithin.Background.SmithB42LnL4Ident
 public import CFSG.Quasithin.Background.SmithB45LnL4Main
 public import CFSG.Quasithin.EmptyFaithful.S152He7Nat
@@ -21,7 +20,6 @@ public import CFSG.GH74.SmallRanks.AltM11
 public import CFSG.LieType.SteinbergBRTwoRankBound
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNine
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNineInvolutions
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalDescentEndpoint
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalFiveStructure
@@ -56,8 +54,6 @@ public import CFSG.Open.SplitBNPair
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
 public import CFSG.Quasithin.Background.C1PackS15212C
 public import CFSG.Quasithin.Background.C1PackS1531Top
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.G64Case1
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -101,13 +97,7 @@ public import CFSG.RankThree.PartOne.S11d.OutUnitary
 public import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 public import CFSG.Sporadic.J4.QT2LocProof
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

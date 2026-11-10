@@ -1,8 +1,5 @@
 module
 
-public import CFSG.GH74.GLS.C3.Layer2.FinModelEmb
-public import CFSG.GH74.GLS.C3.Layer2.FinModelEnum
-public import CFSG.GH74.GLS.C3.Layer2.NumMoved
 public import CFSG.GH74.GLS.C3.Layer2.FinModelFactsData
 public import CFSG.GH74.GLS.C3.Layer2.FinModelFactsGeneric
 public meta import Mathlib.GroupTheory.SpecificGroups.Alternating

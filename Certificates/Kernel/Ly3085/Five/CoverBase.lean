@@ -9,13 +9,11 @@ public import Certificates.Kernel.LyFiveL1.Tree2
 public import Certificates.Kernel.LyFiveL1.Tree3
 public import Certificates.Kernel.LyFiveL1.Base
 public import Certificates.Kernel.Ly3085.SqueezeBase
-public import CFSG.Certificates.Kernel.Common.ForallChunks
 public import Certificates.Kernel.Ly3085.DischargeBase
 public import Certificates.Kernel.Ly3085.FactsBase
 public import Certificates.Kernel.Ly3085.O1Count
 public import Certificates.Kernel.Ly3085.O2Count
 public import Certificates.Kernel.Ly3085.O34Count
-public import Certificates.Kernel.Ly3085.SimpleBase
 
 @[expose] public noncomputable section
 

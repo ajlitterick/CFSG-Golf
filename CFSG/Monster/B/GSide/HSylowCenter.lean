@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Monster.B.GSide.HClasses
-public import CFSG.Monster.B.TwoA.Sp8.Par1Center
-public import CFSG.Monster.B.TwoA.Unitary.Stab891
-public import CFSG.Monster.B.Cbar.SylowControl
 
 public noncomputable section
 

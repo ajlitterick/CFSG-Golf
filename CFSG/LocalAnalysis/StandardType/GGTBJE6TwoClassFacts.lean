@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6TwoLower
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6SplitFoldFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6Class
-public import CFSG.LocalAnalysis.StandardType.GGLangRatComp
 
 public section
 

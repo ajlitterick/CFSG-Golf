@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2088Base
 
-public import CFSG.Sporadic.HNOddCore.PCheckInputs
 public meta import CFSG.Sporadic.HNOddCore.QCheck
 public meta import Std.Data.HashMap
 import Certificates.Kernel.Sporadic.OddCore.HN2088

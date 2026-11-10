@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.J4.QT2LocCntNative
 public import Certificates.Kernel.J4Q.LocM
 public import Certificates.Kernel.J4Q.Orb
 import Certificates.Kernel.J4Q.AllN

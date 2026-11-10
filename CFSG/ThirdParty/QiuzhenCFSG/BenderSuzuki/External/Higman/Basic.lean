@@ -2,10 +2,7 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIII.Basic
 public import Mathlib.GroupTheory.Frattini
-public import Mathlib.GroupTheory.Nilpotent
-public import Mathlib.GroupTheory.QuotientGroup.Basic
 public import Mathlib.Algebra.Module.ZMod
-import Mathlib.Order.RelSeries
 
 namespace CFSG
 end CFSG

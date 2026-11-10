@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassical222ExcU
 public import Certificates.Data.Kernel.LocalComp.ExcDerivSq
 public meta import Certificates.Kernel.LocalComp.ExcU6.Gen
 public meta import Certificates.Kernel.Sporadic.RawGen
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Common.Eval
 public import Certificates.Kernel.Sporadic.RawGen
 

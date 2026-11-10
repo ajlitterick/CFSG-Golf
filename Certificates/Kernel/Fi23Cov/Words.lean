@@ -4,7 +4,6 @@ public import Certificates.Kernel.Fi23Cov.Base
 public import Certificates.Kernel.Fi23R.Sound
 public import CFSG.Sporadic.Bridge.Fi23Surj
 public import CFSG.Certificates.Kernel.Spor.RawOrbEval
-public import Certificates.Kernel.Fi23M.Psi
 import all Certificates.Kernel.Fi23M.Psi
 import all CFSG.Sporadic.Bridge.Common
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation

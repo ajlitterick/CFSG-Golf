@@ -3,20 +3,12 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4JoinE8Orbit
 public import CFSG.LocalAnalysis.StandardType.GGSelectedRootPair
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatJoinF4
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoCommon
 import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagAdjoint
 import CFSG.LocalAnalysis.StandardType.GGRankOneTagsA
 import CFSG.LocalAnalysis.StandardType.GGRankOneTagsE
-import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
 import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PSLCores
 import CFSG.LocalAnalysis.StandardType.GGSelectedTwistedE6Scalar
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGTyLabelAux
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGTyLabelE
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAll
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
-import CFSG.ClassicalInvolution.ModelFacts.Families
-import CFSG.LocalAnalysis.StandardType.GGRootDetectSpinPlus
 import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoExcOrbit
 import CFSG.LocalAnalysis.StandardType.GGSelectedPOmegaMinusLongField
 

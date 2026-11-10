@@ -5,10 +5,6 @@ public import CFSG.Certificates.Kernel.Census.RootConjSound
 public import Certificates.Data.Kernel.Census.PackedRootBit
 import Certificates.Kernel.Census.Fi22Roots
 import Certificates.Kernel.Sporadic.Fi22.X2069Final
-import CFSG.Certificates.Kernel.Spor.SiftRSound
-import CFSG.Certificates.Kernel.Census.Sound
-import Certificates.Kernel.Census.Fi22RDefs
-import Certificates.Kernel.Census.Fi22PkU
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Foundations.Basic
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bDefs

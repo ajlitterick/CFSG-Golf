@@ -1,10 +1,8 @@
 module
 
-public import Mathlib.Algebra.MvPolynomial.Basic
 public import Mathlib.RingTheory.Localization.Away.Basic
 public import Mathlib.RingTheory.Localization.InvSubmonoid
 public import Mathlib.RingTheory.MvPolynomial.Basic
-public import Mathlib.RingTheory.Polynomial.Basic
 
 public noncomputable section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallLeafSpin
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallCross
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallChain
-public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusSmallLeaf
 
 public section
 

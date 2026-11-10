@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
-public import CFSG.ClassicalInvolution.ModelFacts.Models
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortF4IsoLen
-public import TauCeti.Algebra.Group.Subgroup.Map
 
 public section
 

@@ -1,16 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSparseTwDFourSplitDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseDefs
-public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
-public import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
 public import CFSG.RankThree.PartOne.KC.OrthogonalSplitCompletion
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
 
 import CFSG.RankThree.PartOne.KC.OrthogonalSplitFar
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSparseOrthCharts
-import CFSG.Adapters.SpecialLinearPerfect
 import CFSG.LocalAnalysis.StandardType.GGTBJOrthLeft
 import CFSG.LocalAnalysis.StandardType.GGTBJOrthNbr
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSparseSp
@@ -19,8 +14,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrAxis
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseRows
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpSp
 import CFSG.LocalAnalysis.StandardType.GGQuadMinusSpinCover
-import CFSG.ClassicalGroups.Orthogonal.IsometryConj
-import CFSG.RankThree.PartOne.S10.EmbeddingTransport
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSparseTwDFourCrossing
 
 public section

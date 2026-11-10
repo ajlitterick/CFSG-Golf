@@ -6,7 +6,6 @@ public import CFSG.Monster.GMS.Griess13.Gluing
 public import Certificates.Certificate10035
 public meta import CFSG.Monster.GMS.Griess13.Data
 public meta import Mathlib
-public import CFSG.Sporadic.Suz.Setup
 
 public section
 

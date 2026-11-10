@@ -4,22 +4,6 @@ module
 public import CFSG.YGroups.Y443.Native.HomBase
 public import CFSG.YGroups.Y443.CentralProjection
 public import CFSG.YGroups.Y443.Native.EdgeNoncommInputs
-public import CFSG.Monster.AxisCount.DenseNative
-public import CFSG.YGroups.Defs
-public import CFSG.YGroups.Exact.Y322Inputs
-public import CFSG.YGroups.Y322CentralInputs
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.YGroups.Y443.Native.OrderRelInputs
-public import CFSG.YGroups.Y443.Native.PairRelAInputs
-public import CFSG.YGroups.Y443.Native.PairRelBInputs
-public import CFSG.YGroups.Y443.Native.PairRelCInputs
-public import CFSG.YGroups.Y443.Native.PairRelDInputs
-public import CFSG.YGroups.Y443.Native.Words
-public import CFSG.Monster.AxisCount.DenseWord
-public import CFSG.Monster.Griess.ThreeVectorSeparation
-public import CFSG.Monster.Griess.Invariance.Diagonal
-public import CFSG.Monster.Griess.Invariance.Octad.Basic
-public import Certificates.Data.CFSGNative.YGroups.Y443.Witness
 public meta import CFSG.YGroups.Y443.Native.Words
 public meta import Certificates.Data.CFSGNative.MonsterAxis.Dense
 public meta import Certificates.Data.CFSGNative.YGroups.Y443.MonsterWords

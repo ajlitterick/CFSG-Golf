@@ -4,8 +4,6 @@ public import CFSG.LieType.Steinberg.Minuscule.FiniteDescent
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2IsogenyCenter
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.E6HeisenbergAux.PairAuxSc
 public import CFSG.RankThree.PartOne.KF.ClsLiftS3
-public import Mathlib.FieldTheory.IsSepClosed
-public import Mathlib.FieldTheory.IsAlgClosed.Basic
 public import CFSG.ClassicalInvolution.ModelFacts.ChevAutLift
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
 public import CFSG.LieType.Steinberg.CentralExt.F4E8Multiplier

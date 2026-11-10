@@ -2,9 +2,7 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.Hering214KRoot
 public import CFSG.RankThree.PartTwo.Sec21.Hering214KEig
-public import CFSG.RankThree.SubgroupLists.SymplecticTransvections
 public import CFSG.RankThree.SubgroupLists.SymplecticBaseChange
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherAutomorphismData
 public import CFSG.GroupTheory.BaerSuzuki
 public import CFSG.LocalAnalysis.ComponentClassification.BlockMutualRanks
 public import CFSG.LocalAnalysis.ComponentClassification.TwoActionProperEmbedding

@@ -1,17 +1,11 @@
 module
 
-public import CFSG.Sporadic.Th.Setup
 public import CFSG.Open.LocalVocabulary
-public import Certificates.Certificate1020
 public import Certificates.Certificate1021
-public import Certificates.Certificate1022
-import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThCentSound
 import Certificates.Kernel.ThLocal.E81Facts
 import Certificates.Kernel.ThLocal.Glue
 import Certificates.Kernel.ThCensus.Pin
 import Certificates.Kernel.ThCent.Consumers
-import CFSG.Certificates.Kernel.ThCent.PinSound
-import CFSG.Certificates.Kernel.Th.Spec.DceMat
 import CFSG.Sporadic.Th.Max3.AllConjFinal
 import CFSG.GroupTheory.ElementaryAbelianTransport
 

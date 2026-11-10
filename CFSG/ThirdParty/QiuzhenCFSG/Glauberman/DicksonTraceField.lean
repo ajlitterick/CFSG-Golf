@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonClassification
-import Mathlib.LinearAlgebra.Matrix.Trace
 
 namespace CFSG
 end CFSG

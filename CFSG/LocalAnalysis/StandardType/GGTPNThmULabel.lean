@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmULabelTransport
 public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.Blueprint.SourceClassicalTransport
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.MITransport
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MatrixFieldTransport
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitFixedSimple
 
 public section
 

@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Aut
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE6
 import CFSG.LocalAnalysis.StandardType.GGL45E67Center
-import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOther
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagCartan
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.GuralnickMalle.EndFieldDescent.Basic
 public import CFSG.HardMathSupport.GuralnickMalle.EndFieldDescent.Curtis
 public import Mathlib.Algebra.Algebra.ZMod
 

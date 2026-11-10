@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJNoRankOneDefs
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormDeterminant
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherIsotropicRadical
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitarySemi
-public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSU
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherUnitary
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGRootDetectSU
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.RankThree.PartTwo.Sec12.Notation

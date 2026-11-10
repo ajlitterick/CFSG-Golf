@@ -1,25 +1,15 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.PermCheck
-public import CFSG.GH74.KGroups.Checks
-public import CFSG.GH74.KGroups.NativeChecks
 public import CFSG.GH74.KGroups.NativeChecks2
-public import CFSG.Blueprint.Catalog
 public import CFSG.GH74.KGroups.PermAction
 public import CFSG.Quasithin.Recognition.CertF8
 public import CFSG.LieType.Ree.SuzukiOvoidAction
-public import CFSG.LieType.Ree.SuzukiLocalData
-public import CFSG.LieType.Ree.SuzukiOvoidWeyl
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.Suzuki
 import CFSG.LieType.Ree.SuzukiOrder
 import CFSG.LieType.Simplicity.Suzuki
 public meta import CFSG.GH74.KGroups.Checks
 public meta import CFSG.GH74.KGroups.NativeChecks
 public meta import CFSG.GH74.KGroups.NativeChecks2
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.PSL2
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.Unitary
 public meta import Mathlib
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.RowsCmd
 public import Certificates.Kernel.Sporadic.RowsWCmd
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Data.CFSGNative.He.Certificate
 public meta import Certificates.Data.CFSGNative.He.Certificate
 

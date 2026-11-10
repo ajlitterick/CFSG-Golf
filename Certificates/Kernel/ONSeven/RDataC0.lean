@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.OrbRecGen
-public import Certificates.Kernel.B3S3.Gen
 public import Certificates.Kernel.B3S3.GenSl
 public import Certificates.Kernel.ONSeven.RDefs
 public meta import Certificates.Kernel.Sporadic.OrbRecGen

@@ -8,9 +8,6 @@ public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1Seven
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1Three
 public import Certificates.Certificate36909
 public import Certificates.Data.Co1Pump
-import CFSG.Assembly.Subnormal
-import CFSG.LocalAnalysis.ComponentClassification.LocalComponents
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierAlternatingSixCount
 public import CFSG.Sporadic.J4.QT2LocProof
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
@@ -79,7 +76,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

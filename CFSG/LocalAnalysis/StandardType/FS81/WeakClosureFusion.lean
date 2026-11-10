@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.Pieces
 public import CFSG.LocalAnalysis.StandardType.FS81.Realized
-public import CFSG.LocalAnalysis.StandardType.FS81.RowElemAb
 public import CFSG.LocalAnalysis.StandardType.FS81.RowElemAbE7
 public import CFSG.LocalAnalysis.StandardType.FS81.RowElemAbOrth
 public import CFSG.LocalAnalysis.StandardType.FS81.RowFacts

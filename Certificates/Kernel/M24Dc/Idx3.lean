@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24DcInputs
 public import CFSG.Quasithin.EmptyFaithful.S151S9TM24Inputs
 public import CFSG.Certificates.Kernel.SporLatDcPair
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowZReduce
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowZE6Torus
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoSevenFrame

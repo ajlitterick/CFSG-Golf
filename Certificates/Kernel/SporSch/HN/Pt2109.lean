@@ -7,10 +7,8 @@ public import Certificates.Kernel.SporSch.HN.FixK.P2109G0
 public import Certificates.Kernel.SporSch.HN.FixK.P2109G1
 public import Certificates.Kernel.SporSch.HN.FixK.P2109G2
 public import Certificates.Kernel.SporSch.HN.FixK.P2109G3
-public import Certificates.Kernel.SporSch.HN.FixK.Spec
 public import CFSG.Certificates.Kernel.SporSch.HNXPtLSound
 public import CFSG.Certificates.Kernel.VecKTrees
-public import CFSG.Sporadic.HNSchreier.ThreeCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

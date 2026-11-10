@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.SEITZ6.G2MU
 public import CFSG.RankThree.PartOne.SEITZ6.G2Pair
-public import CFSG.LocalAnalysis.ComponentInitial.CentralSL2Semilinear
 public import CFSG.ClassicalInvolution.WeakCT.StandardPair
 public import CFSG.LieType.CurtisTits.SpecialLinear
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
@@ -15,7 +14,6 @@ public import CFSG.RankThree.PartOne.KC.LinearEndpointStatements
 public import CFSG.RankThree.PartOne.KC.PlaneReductionGeneral
 public import CFSG.RankThree.PartOne.S11d.OutLinear
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Defs
 
 public section

@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevGeom
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevModel
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevRecipe
-public import CFSG.LieType.Steinberg.G2.Perfect
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagCartan
 
 public section
 

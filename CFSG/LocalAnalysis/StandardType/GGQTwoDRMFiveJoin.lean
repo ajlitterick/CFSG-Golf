@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMBridge
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMFiveLin
-import CFSG.LocalAnalysis.StandardType.GGQTwoDRMFormB
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMSat
-import CFSG.LocalAnalysis.StandardType.GGQTwoGlobSelected
 import CFSG.LocalAnalysis.StandardType.GGFLWReflForm
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMFiveNorm
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMFiveOrbit

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreM6Defs
-public import CFSG.LocalAnalysis.StandardType.GGLatRootBridge
 public import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompatDefs
 
 public section

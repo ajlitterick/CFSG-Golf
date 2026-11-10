@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.HSporLatInputs
-public import CFSG.Sporadic.Schreier.M23Gens
 
 public section
 

@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGQTwoDCoxEvenOrbit
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMFormA
 import CFSG.LocalAnalysis.StandardType.GGWitOrthPolar
 import CFSG.LocalAnalysis.StandardType.ZS.ClassReflClosure
-import CFSG.LieType.Universal.SpinOmega.Reflections
 
 public section
 

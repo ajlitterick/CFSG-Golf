@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas
-public import Mathlib.GroupTheory.Index
 import Mathlib.Tactic
 
 namespace CFSG

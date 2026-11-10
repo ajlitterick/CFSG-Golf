@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRuleSpFourD4
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

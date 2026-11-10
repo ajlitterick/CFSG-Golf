@@ -1,11 +1,6 @@
 module
 
 public import Certificates.Kernel.J3Ref.RecC
-public import Certificates.Kernel.Sporadic.OddCore.MulHCmd
-public import Certificates.Kernel.LocalQT.PEnumD
-public import CFSG.Certificates.Kernel.Common.Each
-public import Certificates.Data.Kernel.Spor.PEnumB
-public import Certificates.Data.Kernel.Spor.MulHQ
 meta import Certificates.Data.J3Cls
 public meta import CFSG.Sporadic.SmallOddCore.J3LocalCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoReflCut
-public import CFSG.LocalAnalysis.StandardType.GGQTwoTableBI1
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGD5LabelGlue
-import CFSG.LocalAnalysis.StandardType.GGKGASp
 import CFSG.LocalAnalysis.StandardType.GGResF4ExactTwo
 
 public section

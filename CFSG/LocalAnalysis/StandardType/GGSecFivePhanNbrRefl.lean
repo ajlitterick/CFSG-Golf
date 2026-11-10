@@ -1,15 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanPrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosHolds
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosPrimed
 import CFSG.LocalAnalysis.StandardType.GGStdPosLocalConj
 import CFSG.LocalAnalysis.StandardType.GGStdPosTableBPos
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRank
 
 public section
 

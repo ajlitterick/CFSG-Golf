@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.Bounds.Fi23Alt.Route
-import CFSG.Certificates.Kernel.Bounds.Load
 
 open CFSG.Certificates
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartOne.CTP.PhanFour
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSAPairAux
 
 public section

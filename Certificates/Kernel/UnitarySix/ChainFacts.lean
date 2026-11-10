@@ -4,9 +4,6 @@ module
 public import Certificates.Kernel.UnitarySix.ChainFactsBase
 
 public import Certificates.Kernel.UnitarySix.KQFacts
-public import Certificates.Kernel.UnitarySix.ASTQ
-public import Certificates.Kernel.UnitarySix.PQ
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

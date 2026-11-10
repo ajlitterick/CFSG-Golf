@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.McLAS.Pair
-public import Certificates.Data.Kernel.Spor.Mathieu
-public import CFSG.Certificates.Kernel.Spor.PackWord
 
 public section
 

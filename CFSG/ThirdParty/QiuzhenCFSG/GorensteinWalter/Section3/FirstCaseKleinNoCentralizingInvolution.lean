@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinTwoCoreNoCentralize
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinVUInvolution
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralThreeNoOrderSix
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

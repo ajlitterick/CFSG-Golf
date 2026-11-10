@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJTypeBDatum
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeAd
 public import CFSG.LocalAnalysis.StandardType.GGTBRowE6Equiv
 public import CFSG.LocalAnalysis.StandardType.GGTBJFrameBs
 import CFSG.LocalAnalysis.StandardType.GGTBJLeviAssemble
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpElt
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestTypeA
 
 public section
 

@@ -5,7 +5,6 @@ public import Certificates.Kernel.Sporadic.OddCore.Outer26100F
 public import Certificates.Kernel.Sporadic.OddCore.Beta24603F
 public import Certificates.Kernel.Sporadic.OddCore.S16J3Sift27810
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaJ3
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TC3HModel
 
 public section
 

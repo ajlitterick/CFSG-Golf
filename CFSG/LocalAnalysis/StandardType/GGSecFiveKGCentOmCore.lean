@@ -8,7 +8,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentOmTail
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentOmFour
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoOmPlusAut
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoOmPlusAutFour
-import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityModel
 
 public section
 

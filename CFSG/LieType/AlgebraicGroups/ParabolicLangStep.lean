@@ -4,9 +4,7 @@ public import CFSG.ClassicalInvolution.ModelFacts.TwistedLeviDescent
 public import CFSG.RankThree.PartOne.D4RC.ParaConn
 public import CFSG.LieType.AlgebraicGroups.ConnectedToralLangFrobenius
 public import CFSG.LieType.Chevalley.ParabolicSelfNormalizing
-public import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
 public import CFSG.LieType.Chevalley.GraphFixedParabolicLevi
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLeviToral
 
 public section

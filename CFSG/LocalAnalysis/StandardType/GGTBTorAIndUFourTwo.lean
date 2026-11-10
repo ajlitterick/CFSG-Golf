@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusInducedTransfer
-public import CFSG.LocalAnalysis.StandardType.GGTDModelU
-public import CFSG.LocalAnalysis.StandardType.GGTDModelAssemble
 public import CFSG.LocalAnalysis.StandardType.GGK1ScUni
 public import CFSG.LocalAnalysis.StandardType.GGTBTorAIndHolds
 

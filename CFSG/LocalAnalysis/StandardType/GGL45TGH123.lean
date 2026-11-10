@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45TGCent
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 
 public section
 

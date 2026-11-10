@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Certificates.WordSubgroup
 public import CFSG.Sporadic.Recognition.PresentedWordsClosure
-import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.Presentation.ThInputs

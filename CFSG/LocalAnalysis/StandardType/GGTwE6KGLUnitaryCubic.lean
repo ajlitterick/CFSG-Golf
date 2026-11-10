@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLKnownInputs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLUnitaryCubicLabel
-import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherUnitary
-import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcompIdx
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDet
 import CFSG.LocalAnalysis.ComponentClassification.InnAutDerivedUnitary
-import CFSG.LocalAnalysis.ComponentClassification.CentralCoverLemmasAFaithful
 
 public section
 

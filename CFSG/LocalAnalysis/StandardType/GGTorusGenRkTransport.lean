@@ -1,22 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBPosition
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkComp
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-public import CFSG.LocalAnalysis.StandardType.GGNbrTwE6Prop87
-public import CFSG.LocalAnalysis.StandardType.GGTDModelU
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepOrder
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdSmall
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA2
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Bridge
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySplitRefl
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModelCoprime
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Main
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitaryDatum
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
 
 public section
 

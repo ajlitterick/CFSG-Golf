@@ -5,11 +5,7 @@ public import CFSG.Adapters.TauCetiExceptional.EvenAll
 public import CFSG.Adapters.TauCetiExceptional.ReeBridge
 public import CFSG.StronglyEmbedded.Catalog.Suzuki
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
-public import CFSG.Models
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
-public import CFSG.Blueprint.Catalog
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Ree.SmallReeModelSchreier
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

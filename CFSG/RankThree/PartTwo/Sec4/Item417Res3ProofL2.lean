@@ -1,12 +1,8 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res3ProofTools
-import CFSG.RankThree.PartTwo.Sec4.ProjSLEquiv
 import CFSG.RankThree.PartTwo.Census.OddClassical.LinearTwo
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2CoprimeSylowCyclic
 import CFSG.Dihedral.Glauberman.DicksonMaxUp
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.LangRootArithmetic
@@ -44,7 +40,6 @@ public import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.YGroups.Y322Central
 
 public section

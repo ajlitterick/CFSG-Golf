@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5RC0Input
 public import CFSG.LocalAnalysis.StandardType.GGLieBridgeHolds
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3DictPhi
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
 import CFSG.LocalAnalysis.StandardType.GGLangAlgebraic
 import CFSG.LocalAnalysis.StandardType.GGA6GlueTransport
 

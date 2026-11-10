@@ -3,9 +3,7 @@ module
 
 public import Certificates.Kernel.Sporadic.L2C.G1Base
 public import Certificates.Kernel.Sporadic.L2.Vtx
-public import CFSG.Sporadic.SuzRecog.LevelTwoCheck
 public import CFSG.Sporadic.SuzRecog.ModelGroupsKit
-import Mathlib.Tactic.IntervalCases
 
 public section
 

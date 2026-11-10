@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaConjLabels
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddEndMat
-public import CFSG.RankThree.PartOne.KC.OrthogonalCommutatorSemilin
-public import CFSG.RankThree.PartOne.KC.OrthogonalCommutatorFix
 public import CFSG.GroupTheory.MulAutCongr
 public import CFSG.RankThree.PartOne.KC.LinearCommutantFactors
-public import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldFixed
 
 public section
 

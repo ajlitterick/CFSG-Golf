@@ -1,9 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.Symmetric
-public import Mathlib.GroupTheory.Perm.Basic
-public import Mathlib.Algebra.Module.Pi
-public import Mathlib.Data.ZMod.Basic
 public import Mathlib.Tactic
 
 public section

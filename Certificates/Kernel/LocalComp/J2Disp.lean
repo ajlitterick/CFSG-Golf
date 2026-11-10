@@ -4,7 +4,6 @@ public import CFSG.Certificates.Kernel.DecTextSound
 public import CFSG.LocalAnalysis.ComponentClassification.M12J2CoverExclusion
 public import CFSG.LocalAnalysis.ComponentClassification.CentralCoverTransferCocycle
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverModelsNative
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverModelsTables
 meta import Certificates.Kernel.LocalComp.NatsGen
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Foundations.QuasisimpleMulEquiv

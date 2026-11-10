@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Open.StatedDefs
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 import CFSG.Open.StatedAPI
 
 public section

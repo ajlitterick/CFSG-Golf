@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.Steinberg.KernelComponentSizes
 public import CFSG.LocalAnalysis.StandardType.GGFamRatComp
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 
 public section
 

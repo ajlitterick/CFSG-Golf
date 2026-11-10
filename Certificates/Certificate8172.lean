@@ -1,10 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Toolkit.Statements
-public import CFSG.RankThree.PartTwo.Toolkit.RawGL
-public import CFSG.RankThree.PartTwo.Toolkit.Cocycle
-public import CFSG.RankThree.PartTwo.Toolkit.PermTab
-public import CFSG.RankThree.SubgroupLists.DicksonGL2
 public import CFSG.RankThree.PartTwo.Toolkit.BloomMonoStdInputs
 import Certificates.Kernel.Misc.Perm.BloomMono
 

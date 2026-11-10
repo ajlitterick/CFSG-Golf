@@ -1,7 +1,5 @@
 module
 
-public import CFSG.RankThree.PartOne.KE6.Tw6A2A2Case
-public import CFSG.RankThree.PartOne.KE6.Tw6D4Case
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwInnerLineData
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitTwE6SixDvdCard
 public import CFSG.RankThree.PartOne.KE.E8TwoA2Family

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicLinear
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-public import CFSG.LieType.Steinberg.CentralExt.SUCentrallyClosed
-public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.PartOne
-public import Certificates.Kernel.Sporadic.Fi22.C3151
 
 public section
 

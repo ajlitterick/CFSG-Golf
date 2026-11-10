@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoUnitaryFullAutomizer
-public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcEmb
-public import Mathlib.GroupTheory.IsPerfect
 
 public noncomputable section
 

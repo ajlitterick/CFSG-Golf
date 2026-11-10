@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.TS8WrK
 import CFSG.Certificates.Kernel.Common.JsonGz
-import CFSG.Certificates.Kernel.Common.EachTrue
 import CFSG.Certificates.Kernel.Common.RowsForall
 import CFSG.Certificates.Kernel.Common.Repo
 

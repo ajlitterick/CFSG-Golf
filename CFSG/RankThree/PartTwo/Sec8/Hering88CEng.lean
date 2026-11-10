@@ -1,13 +1,10 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec8.Hering88Swap
-public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 public import CFSG.RankThree.PartTwo.KFacts.KS6OuterIndexProof
 import CFSG.RankThree.PartTwo.Sec8.Item86ResProofChoice
 import CFSG.RankThree.PartTwo.Sec10.Sec10XProofSym
 public import Certificates.Kernel.ThCent.Leaves
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.LangRootArithmetic
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
@@ -49,7 +46,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Item47CasesExc
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 public import CFSG.RankThree.PartTwo.Sec8.Item89Res2ProofStepOne
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
@@ -94,7 +90,6 @@ import CFSG.RankThree.PartTwo.Sec21.Item229Diagram
 import CFSG.RankThree.PartTwo.Sec21.Item23Tools
 import CFSG.RankThree.PartTwo.Sec21.Membership
 import CFSG.RankThree.PartTwo.Sec21.SylowThree
-import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.PartTwo.Sec8.Item83ProofDefs
 import CFSG.RankThree.PartTwo.Sec8.Item86ResProofOmega
 import CFSG.RankThree.PartTwo.Sec8.Standing

@@ -1,9 +1,5 @@
 module
 
-public import CFSG.RankThree.PartOne.KC.EvenSymplecticFourRootAxisStructure
-public import CFSG.LocalAnalysis.SteinbergSFFullCenterWeylOvergroupsBase
-public import CFSG.LocalAnalysis.SteinbergSFFullCenterTorusComplementBase
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bSylow
 public import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialProductAxis
 
 public section

@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGRealKGFiveRows
 import CFSG.LocalAnalysis.StandardType.GGKGForkOneDone
 import CFSG.LocalAnalysis.StandardType.GGRealKGLinNsRoot
 import CFSG.LocalAnalysis.StandardType.GGRealKGSpRoot
-import CFSG.LocalAnalysis.StandardType.GGRealKGUSplitRoot
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineTwF4
 
 public section
 

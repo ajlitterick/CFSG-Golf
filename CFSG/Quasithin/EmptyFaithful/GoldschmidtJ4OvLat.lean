@@ -1,13 +1,11 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtFamJ4Hj
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M24Lat
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.Quasithin.Background.A1cA132Action
 public import CFSG.Quasithin.Background.A1cA133Three
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.F6Amalgams
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.EmptyFaithful.S1417Sylow

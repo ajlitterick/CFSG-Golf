@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.GroupAction.Quotient
 public import Mathlib.GroupTheory.Index
 
 public section

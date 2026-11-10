@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.SporSch.Co2M.Span
 public import Certificates.Kernel.SporSch.Co2M.Local
-public import CFSG.Sporadic.Co2Schreier.CoreCheckInputs
 public meta import Certificates.Kernel.SporSch.Co2M.EnumGen
 public meta import CFSG.Sporadic.Co2Schreier.Arrays
 public meta import CFSG.Sporadic.Co2Cert.Data

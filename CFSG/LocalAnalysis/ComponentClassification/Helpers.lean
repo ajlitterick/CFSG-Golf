@@ -1,10 +1,6 @@
 module
 
-public import Mathlib
 public import CFSG.Mathlib.GroupTheory.Basic
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-public import CFSG.Open.Defs
-public import CFSG.Open.OrderForm
 public import CFSG.Foundations.KCoreOpen
 
 public section

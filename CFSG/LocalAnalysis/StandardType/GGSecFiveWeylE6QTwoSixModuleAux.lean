@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoTransfer
-public import Mathlib.Algebra.Module.ZMod
 
 public section
 

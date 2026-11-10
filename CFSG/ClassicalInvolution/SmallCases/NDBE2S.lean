@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.SmallCases.NDBE0Stmt
 public import CFSG.ClassicalInvolution.SmallCases.NDBE2SModel
 import CFSG.ClassicalInvolution.SmallCases.NDBC7
-import CFSG.ClassicalInvolution.SmallCases.NDBC4
 import CFSG.ClassicalInvolution.SmallCases.NDB1Shape
 
 public section

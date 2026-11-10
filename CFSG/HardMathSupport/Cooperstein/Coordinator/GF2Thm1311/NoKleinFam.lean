@@ -4,7 +4,6 @@ public import CFSG.HardMathSupport.Cooperstein.Coordinator.GF2Thm1311.NoKlein
 import CFSG.RankThree.PartOne.S11d.OutClassicalTwo
 import CFSG.RankThree.PartOne.S11d.OutSymplectic
 import CFSG.RankThree.PartOne.S11d.OutUnitary
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3Q8Psl2
 import CFSG.Assembly.RankThreeEvenDefs
 import CFSG.Quasithin.SteinbergCBAlternatingAut

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsCoreDefs
-public import CFSG.LieType.AlgebraicGroups.ToralRootCover
-public import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
 import CFSG.LocalAnalysis.StandardType.GGTwE6NormSmallThreeCount
 import CFSG.LocalAnalysis.StandardType.GGTwE6RootKernelCount
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5Lin

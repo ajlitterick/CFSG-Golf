@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2CoverLift
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongTwE6
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongTwE6Iso
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LinkTwE6
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2FixedPointOdd
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2CoverNC
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortTransport
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2HighestRootNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ExcNCRoots
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6LongRootPsiAdd
 public import CFSG.LieType.Chevalley.E6PinnedAdjoint

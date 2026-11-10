@@ -4,7 +4,6 @@ public import CFSG.OddTranspositions.PartFour.Fourteen.OFour.MinusModel
 public import CFSG.OddTranspositions.PartFour.Fourteen.OFour.CaseAFactsOfModel
 import CFSG.OddTranspositions.PartFour.Fourteen.OFour.MinusField
 import CFSG.LocalAnalysis.EvenBN.Common.SL2CentralTwoSplit
-import CFSG.Timmesfeld.Bridge.RootStructR2Higman
 public import CFSG.CGT.T75E.Lemma26
 public import CFSG.CGT.Timmesfeld75.Sec3TenCaseA
 public import CFSG.CGT.Timmesfeld75.Sec4CaseIBasic

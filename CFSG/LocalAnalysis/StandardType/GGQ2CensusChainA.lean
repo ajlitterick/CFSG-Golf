@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2CensusFrame
 public import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalCatalogueU
 public import CFSG.LocalAnalysis.StandardType.GGQ2InLCoverFrame
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 import CFSG.Mathlib.Perm.ChainSwap
 
 public section

@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Sporadic.Co1.Module.InvGroupBase
-public import CFSG.Sporadic.Co1.Module.InvDataInputs
 public import CFSG.Sporadic.Co1.Module.InvFamInputs
 public meta import CFSG.Sporadic.Co1.Module.FormsBase
 public meta import CFSG.Sporadic.Co1.Module.OrbitsBase

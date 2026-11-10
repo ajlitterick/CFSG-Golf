@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.LocalComp.BfsGen
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.SporSch.Th.GenV4
 public import CFSG.Certificates.Kernel.BfsPinSliceSound
 public import Certificates.Data.Kernel.BfsPinBase
@@ -9,7 +8,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicFi24TwoB
 meta import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicFi24TwoBK
 meta import Certificates.Kernel.Sporadic.RawGen
 import CFSG.Certificates.Kernel.Common.Harness
-import Certificates.Kernel.Sporadic.ON.Gen
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.GeneralizedFitting
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

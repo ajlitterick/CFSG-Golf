@@ -4,8 +4,6 @@ module
 public import Certificates.Certificate5140Base
 import all Certificates.Certificate5140Base
 
-public import CFSG.GH74.KGroups.L34TablesBase
-public import CFSG.GH74.Uniqueness.SU.KI1r4L34ModelInputs
 import CFSG.Certificates.Kernel.PermCent.CVSound
 import Certificates.Kernel.PermCent.K5140
 import Certificates.Kernel.PermCent.K5140Side

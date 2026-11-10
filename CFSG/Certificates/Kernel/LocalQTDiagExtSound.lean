@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermExt
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermExt
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermLat
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermEnc
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermExtCheck
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermIso
 
 public section
 

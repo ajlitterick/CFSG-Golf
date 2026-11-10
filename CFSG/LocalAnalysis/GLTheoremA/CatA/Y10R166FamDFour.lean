@@ -9,13 +9,8 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Iso
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Cases
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2EUp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.TablesHolds
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.UpperShared
-public import CFSG.LocalAnalysis.StandardType.GGLinearSemisimpleBasic
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSp
 public import CFSG.ClassicalInvolution.SmallOrth.PlusFourMain
-public import CFSG.LocalAnalysis.RankThreeEvenClassification.Helpers
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotSwapParam
-public import CFSG.LinearAlgebra.SL2MinimalFaithfulMatrix
 public import CFSG.GroupTheory.GeneratorBounds
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcAction
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Lemma106107

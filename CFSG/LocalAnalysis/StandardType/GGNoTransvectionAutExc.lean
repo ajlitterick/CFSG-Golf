@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNoTransvectionAutFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesSplit
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLRound
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthLTwD
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyElevenDefs
-public import CFSG.LieType.Chevalley.LangRootArithmeticDet
 
 public section
 

@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK1ADefs
 public import CFSG.LocalAnalysis.StandardType.GGK1AGlEnd
 public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.RankThree.PartOne.KC.UnitaryPrimaryAlgebra
 public import CFSG.RankThree.PartOne.KC.UnitaryRigidityBlock
-public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeModel
-public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
 public import CFSG.RankThree.PartOne.KC.UnitaryGoodSetting
 
 public section

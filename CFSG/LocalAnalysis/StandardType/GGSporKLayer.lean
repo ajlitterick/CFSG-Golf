@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKBMPreds
-import CFSG.Assembly.Subnormal
 import CFSG.GroupTheory.Fitting.LayerTopBot
-import CFSG.GroupTheory.Fitting.CharacteristicP
 
 public section
 

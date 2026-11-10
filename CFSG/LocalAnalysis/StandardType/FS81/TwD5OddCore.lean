@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.OddCoreOrthRows
-public import CFSG.LocalAnalysis.StandardType.FS81.OddCoreTransvOrth
 public import CFSG.LocalAnalysis.StandardType.FS81.NoTransvOrthOff
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Fus
 

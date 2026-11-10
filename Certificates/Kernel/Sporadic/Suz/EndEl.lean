@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.Suz.EndChecks
 public import Certificates.Kernel.Sporadic.Suz.EndChain
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

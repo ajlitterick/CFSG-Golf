@@ -3,8 +3,6 @@ module
 
 public import Certificates.Kernel.LocalComp.WittL34
 public import CFSG.Quasithin.Recognition.L34AmalgamIsoRefInputs
-public import CFSG.Quasithin.Recognition.L34AmalgamIsoGLInputs
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

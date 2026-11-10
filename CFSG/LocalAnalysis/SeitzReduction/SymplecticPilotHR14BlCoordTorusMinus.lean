@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14BlModelTorus
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindOmegaMinusPiecesNormal
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindOmegaMinusPiecesLevi
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotSetup
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaPlusIota
 
 public section

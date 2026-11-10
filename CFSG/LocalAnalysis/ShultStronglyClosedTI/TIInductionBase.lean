@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.OrderTwoEmbedding
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.LocalInductionDatum
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.ElementaryHull
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Compat
 
 public noncomputable section
 

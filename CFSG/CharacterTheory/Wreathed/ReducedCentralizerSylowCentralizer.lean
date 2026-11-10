@@ -2,7 +2,6 @@ module
 
 public import CFSG.CharacterTheory.Wreathed.FullCentralizerFromProjectiveModel
 public import CFSG.CharacterTheory.Wreathed.ReducedCentralizerSylowCentralizerSupport
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
 
 public section

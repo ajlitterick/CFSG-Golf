@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePrimDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneCard
-public import CFSG.LocalAnalysis.StandardType.GGSimplyLacedTits
 public import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
 public import CFSG.LocalAnalysis.StandardType.GGHalfCentGroup
 

@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2Rank
-public import CFSG.LocalAnalysis.StandardType.GGTBJOmFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmAutomizer
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusOmega
 public import CFSG.GH74.E2.DirectProd
-public import CFSG.LocalAnalysis.StandardType.GGTBRowSignedFrameAux
 public import CFSG.Mathlib.GroupTheory.MulAutProd
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
 
 public section
 

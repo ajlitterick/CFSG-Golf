@@ -1,14 +1,11 @@
 module
 
-public import CFSG.Sporadic.Schreier.TitsArrays
-public import CFSG.Sporadic.Schreier.TitsBasic
 public meta import CFSG.Sporadic.Schreier.TitsData
 public meta import CFSG.Sporadic.Schreier.TitsArrays
 public meta import CFSG.Sporadic.Schreier.TitsBasic
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
-public import CFSG.Sporadic.Schreier.TitsCertCheckInputs
 public import Certificates.Certificate2264
 
 public section

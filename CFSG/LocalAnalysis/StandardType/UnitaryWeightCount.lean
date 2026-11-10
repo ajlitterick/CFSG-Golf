@@ -1,18 +1,7 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.ToLin
 public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-public import Mathlib.LinearAlgebra.Dimension.Free
-public import Mathlib.LinearAlgebra.Dimension.Constructions
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.Data.Fintype.Card
-public import Mathlib.Algebra.Field.Basic
-public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
-public import Mathlib.Tactic.Ring
 public import Mathlib.Tactic.LinearCombination
-public import Mathlib.Tactic.ByContra
-public import Mathlib.Tactic.Push
-public import Mathlib.Tactic.NormNum
 
 public section
 

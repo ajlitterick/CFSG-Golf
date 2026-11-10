@@ -2,14 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GS82HDefs
 public import CFSG.LocalAnalysis.ComponentClassification.GS82DPrimeDefs
-public import CFSG.LocalAnalysis.ComponentClassification.GSLitFixedLayer
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7QPUGlue
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitTwoComp
 public import CFSG.GH74.GLS.TwoThin.Basic
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.Pattern
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherComponentInvolutionFitting
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherComponentInvolutionMoved
@@ -30,9 +26,6 @@ public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerPreimages
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestrictionCompletion
 public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Open.GorensteinHaradaSectionalRankFourMilestoneDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

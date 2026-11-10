@@ -4,13 +4,9 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourCertificateBase
 import all CFSG.LocalAnalysis.ComponentClassification.PSL3FourCertificateBase
 
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourActionData
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourGroupSpec
-public import Certificates.Data.CFSGNative.PSL3Four.Certificate
 public meta import Certificates.Data.CFSGNative.PSL3Four.Certificate
 import all CFSG.LocalAnalysis.ComponentClassification.PSL3FourActionData
 public import Certificates.Certificate2022
-public import Certificates.Certificate2022Base
 
 public section
 

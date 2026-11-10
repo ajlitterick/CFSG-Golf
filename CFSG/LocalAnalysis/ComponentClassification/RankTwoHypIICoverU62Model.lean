@@ -3,14 +3,9 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoHypIICoverU62Facts
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoHypIICoverSylow
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicPairCensus
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutTables
 public import CFSG.LargeExtraspecial.SMod20AutReal
-public import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
-public import CFSG.Fischer.T46Simple
-public import CFSG.Fischer.Polar.Basic
 public import CFSG.RankThree.PartOne.KP.Fi22Unitary
 public import CFSG.RankThree.SteinbergR3ELinearUnitaryOuterOrder
-public import CFSG.Sporadic.Th.Max3.Data
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicGenCensus
 public import CFSG.Monster.Code.Weights
 

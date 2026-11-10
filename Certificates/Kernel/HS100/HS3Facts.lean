@@ -3,13 +3,9 @@ module
 public import Certificates.Kernel.HS100.HS3Data
 public import Certificates.Kernel.HS100.Chain
 public import Certificates.Kernel.HS100.Five
-public import CFSG.Certificates.Kernel.BfsPinAlg
-public import CFSG.Certificates.Kernel.BfsPinBaseSound
 public import CFSG.Certificates.Kernel.Misc.ArrBind
-public import CFSG.Certificates.Kernel.Misc.ArrEnumUnpack
 public import CFSG.Certificates.Kernel.Misc.ChainTailSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

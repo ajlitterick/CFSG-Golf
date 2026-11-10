@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
-import Mathlib.GroupTheory.Nilpotent
 import Mathlib.Tactic
 
 namespace CFSG

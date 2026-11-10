@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.ProductN2
 public import CFSG.LocalAnalysis.EvenBN.GMSK.LayerRankOne
-import CFSG.LocalAnalysis.EvenBN.TrialityD4.FieldCaseSylow
 import CFSG.LocalAnalysis.EvenBN.Common.StandardNormalClosure
 import CFSG.LocalAnalysis.SteinbergBKOddNormalQuotientStandard
 import CFSG.LocalAnalysis.EvenBN.GMSK.ConsumerSections

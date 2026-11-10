@@ -1,17 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.EighteenFourteenK
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.Table137Opp
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.OmegaSixMinusNonsingStab
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.OmegaSixMinusSingStab
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.OmegaSixMinusFixTwo
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofOMinusFacts
-public import CFSG.LieType.Universal.Symplectic
-public import CFSG.Timmesfeld.Transvection.PresSp
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotSetup
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22d
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2214Rk
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 public import CFSG.CGT.PushingUpLit.CGT6.SixFour
 public import CFSG.CGT.PushingUpLit.CGT6.SixSixteen
 public import CFSG.CGT.PushingUpLit.Glue.RadicalSylow
@@ -90,8 +81,6 @@ public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -162,8 +151,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Census.WiringDoubleCover
 public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.NormalFormStabilizer
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.StabilizerLift
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
 
 public section
 

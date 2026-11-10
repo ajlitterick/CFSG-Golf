@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUBlock
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepToral
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepWitt
 
 public section
 

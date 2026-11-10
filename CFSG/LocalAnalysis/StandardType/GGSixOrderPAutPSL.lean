@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAut
-public import CFSG.LocalAnalysis.StandardType.GGHypSixTypeA
 
 public section
 

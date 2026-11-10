@@ -9,9 +9,6 @@ import CFSG.LocalAnalysis.StandardType.GGLangRatBFixedPerfect
 import CFSG.LocalAnalysis.StandardType.GGLangRatBDiagFixed
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TypeASplitAct
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcSuNHom
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSU
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.BigAnyTorus
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX2E6TFrame
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcActOuterPerfTriKac
 import CFSG.RankThree.PartTwo.Sec13.K135MultPrime

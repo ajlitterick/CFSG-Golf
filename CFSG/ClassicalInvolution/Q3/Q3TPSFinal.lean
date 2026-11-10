@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3TPSShort
 public import CFSG.ClassicalInvolution.Q3.Q3TPSRow
 public import CFSG.ClassicalInvolution.Q3.Q3TPChain
-public import CFSG.ClassicalInvolution.Q3.Q3TPCtx
-public import CFSG.ClassicalInvolution.Q3.Q3TCP1
 public import CFSG.ClassicalInvolution.Q3.Q3TY3
 public import CFSG.ClassicalInvolution.Q3.Q3TY1
 public import CFSG.ClassicalInvolution.Q3.Q3WATwinDRow

@@ -1,14 +1,9 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossLinTwoBase
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAction
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossBase
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.LinearOuter
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.OuterPlane
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.Dihedral.GorensteinWalter.GLSemilinearDescent
 public import CFSG.GH74.GLS.IVK.L2.FixedSL

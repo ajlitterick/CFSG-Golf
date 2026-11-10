@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45KGCentre
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
-public import CFSG.RankThree.CentralCover.SteinbergBNCoverPairingCore
 
 public section
 

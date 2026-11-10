@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcGeo
-public import CFSG.LocalAnalysis.StandardType.GGL45NtCoreStruct
 public import CFSG.LocalAnalysis.StandardType.GGL45NtGeoNormGlue
 public import CFSG.LocalAnalysis.StandardType.GGL45NtRecHolds
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.KC.PlaneReduction
-public import CFSG.RankThree.LocalRank.SolvablePrimeComplementCore
 
 public section
 

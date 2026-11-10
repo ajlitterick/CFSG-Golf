@@ -8,9 +8,7 @@ public import CFSG.LocalAnalysis.StandardType.GGInnerD4SmallActorsHolds
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4SmallTableG2Holds
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4SmallTableTriD4Holds
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4SmallTableTwF4Holds
-public import CFSG.LocalAnalysis.StandardType.GGInnerD4RAContracts
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4RegimeDefs
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

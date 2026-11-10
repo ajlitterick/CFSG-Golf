@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Monster.B.TwoA.Base.WCls
 public import CFSG.Monster.B.Co2.Simple
 public import CFSG.Monster.B.TwoA.Base.TwoPair
 

@@ -1,7 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.MonsterB.PacketCheck
-public import CFSG.Monster.B.Rep4371.GlueDefs
 public import CFSG.Certificates.Kernel.MonsterB.Rep4371XNf
 public import CFSG.Certificates.Kernel.MonsterB.Rep4371XPins
 public import CFSG.Certificates.Kernel.KDense.Data.Fix
@@ -19,7 +17,6 @@ import CFSG.Certificates.Kernel.MonsterB.Rep4371XC.Misc
 import CFSG.Certificates.Kernel.MonsterB.Rep4371XC.OctSign
 import CFSG.Certificates.Kernel.KDense.Data.Checks
 import Certificates.Kernel.BabyMonster.PktShape
-import Certificates.Kernel.BabyMonster.ForallLt
 public import Certificates.Data.Kernel.KDense.LetterOK
 public import Certificates.Data.Kernel.KDense.Plan
 public import Mathlib.LinearAlgebra.Finsupp.LinearCombination

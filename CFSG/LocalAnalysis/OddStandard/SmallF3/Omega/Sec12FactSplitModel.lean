@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec12L122Split
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10ModelB0
 public import Certificates.Certificate442009
 
 public section

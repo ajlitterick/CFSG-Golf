@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGDepAFrame
 public import CFSG.LocalAnalysis.StandardType.GGResKnownGroup
-public import CFSG.LocalAnalysis.StandardType.GGResSideDatumDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBFixNbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGResXDatumA
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
 
 public section
 

@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigDichot
-public import CFSG.LocalAnalysis.StandardType.GGDepARefl
-public import CFSG.LocalAnalysis.StandardType.GGRCMonomial
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormOrthFour
 public import CFSG.LocalAnalysis.StandardType.GGQ2ShapeDNoForm
 

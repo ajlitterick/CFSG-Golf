@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.Co3SurjData
 public import Certificates.Kernel.LocalComp.Co3SurjTData
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

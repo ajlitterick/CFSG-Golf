@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UC22S218U4
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 import CFSG.LocalAnalysis.UniquenessCase.UC22S218Aut
 import CFSG.GroupTheory.PGroup.ElemAbelianSq
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

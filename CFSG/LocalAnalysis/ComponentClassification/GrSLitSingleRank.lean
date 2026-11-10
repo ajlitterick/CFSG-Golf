@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InputsEnd46
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitSingle
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitLemma41Outer
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

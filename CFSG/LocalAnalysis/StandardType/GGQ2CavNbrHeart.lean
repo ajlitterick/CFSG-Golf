@@ -2,12 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySides
 public import CFSG.LocalAnalysis.StandardType.GGQTwoUnitaryCav
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCavImageOrder
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCavHeartImage
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08TwoNodeBasics
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 
 public section
 

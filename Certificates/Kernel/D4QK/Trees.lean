@@ -4,7 +4,6 @@ public import Certificates.Kernel.D4QK.Data
 public import Certificates.Data.Kernel.SporSch.Co1BfsSeg
 public import CFSG.Certificates.Kernel.Common.EachTrue
 public import CFSG.Certificates.Kernel.Common.ForallChunks
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPSU
-public import Mathlib.LinearAlgebra.SesquilinearForm.Basic
 import all CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPSU
 
 public section

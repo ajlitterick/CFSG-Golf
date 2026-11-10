@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RLangLabel
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RFam
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6KernelExit
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcInnerD4FixMain
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265CDynE
-public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcLang
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsTwAux.RatLayer
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsTwAux.ExcD4Layer
 public import CFSG.LocalAnalysis.StandardType.GGFamAssembly

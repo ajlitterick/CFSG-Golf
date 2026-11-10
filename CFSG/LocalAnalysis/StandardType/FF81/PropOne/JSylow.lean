@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.JStruct
 import CFSG.Adapters.LieModelSimple
 import CFSG.Adapters.StatedClassicalOrders
 import CFSG.Adapters.StatedSLTwoField
-import CFSG.LocalAnalysis.StandardType.GGFFSLSylow
 import CFSG.CGT.Timmesfeld75.L2Pair
 import CFSG.CGT.Timmesfeld75.ListWCBasic
 import CFSG.ClassicalGroups

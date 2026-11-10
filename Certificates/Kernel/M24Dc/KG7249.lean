@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Quasithin.Vol2.Ch12Sec5KGM24KInputs
 public import Certificates.Data.Kernel.M24QSpan
 public import Certificates.Kernel.M24Dc.Idx3
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 set_option maxHeartbeats 0

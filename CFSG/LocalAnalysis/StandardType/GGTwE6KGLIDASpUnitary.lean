@@ -3,13 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLIDADefs
 public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympInnerExport
-import CFSG.LinearAlgebra.LinearGroups.UnitaryOrder
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenSymplecticNormalForm
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgSymplectic
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLIDASpComp
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLIDASpFixed
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLIDAUnitaryBridge
-import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoProjectiveFormulas
 import CFSG.GroupTheory.PCore.SubgroupCore
 import CFSG.GroupTheory.SteinbergCBFTCores

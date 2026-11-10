@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Quasithin.Background.C35InspSmall
-public import CFSG.Quasithin.Background.C35InspL3
 public import CFSG.Quasithin.Background.C35InspSp4
 public import CFSG.Quasithin.Background.C35InspG2
-public import CFSG.Quasithin.Background.C35InspD4
 public import CFSG.Quasithin.Background.C35InspF4
-public import CFSG.Quasithin.Background.C35InspL45D
 public import CFSG.Quasithin.Background.C35InspA8E
 public import CFSG.Quasithin.Background.C35InspLeviAll
 public import CFSG.Certificates.WordSubgroupRel

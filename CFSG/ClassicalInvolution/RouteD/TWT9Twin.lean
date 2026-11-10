@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWS6SCount
-public import CFSG.ClassicalInvolution.RouteD.TWYPlane
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinFrame
 
 public section
 

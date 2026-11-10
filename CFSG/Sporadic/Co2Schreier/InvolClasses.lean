@@ -1,25 +1,10 @@
 module
 
-public import CFSG.Sporadic.Co2InvCheck
 import Certificates.Kernel.Sporadic.Co2Inv.Recs
-import Certificates.Kernel.Sporadic.Co2Inv.Data
-import Certificates.Data.Kernel.Co2InvS
 import CFSG.Certificates.Kernel.Common.Cover
-import CFSG.Sporadic.Co2InvCheckInputs
-import CFSG.Certificates.Kernel.Enum.Defs
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Co2InvS.Check
-import Mathlib.Algebra.BigOperators.Group.Finset.Basic
-import Mathlib.Tactic.IntervalCases
 import CFSG.Certificates.Kernel.Co2Count.FuseRank
 public import CFSG.Sporadic.Co2Schreier.Classes
-public import Certificates.Certificate2049
-public import Certificates.Certificate2050
-public import Certificates.Certificate2060
-public import Certificates.Certificate3115
-public import Certificates.Certificate3116
-public import Certificates.Certificate3117
-public import Certificates.Certificate3118
 public import CFSG.Sporadic.Co2Schreier.ThirdE
 
 public noncomputable section

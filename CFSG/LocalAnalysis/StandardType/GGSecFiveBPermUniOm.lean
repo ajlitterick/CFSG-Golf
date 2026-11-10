@@ -1,17 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniDefs
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
-public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Defs
-public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotGenTwoWindows
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniLFrame
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOmJoin
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
-import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Models
-import CFSG.LieType.Universal.SpinOmega.Center
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOmFrames
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKCalib
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Extension

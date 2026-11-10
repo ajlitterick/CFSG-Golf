@@ -2,9 +2,7 @@ module
 
 public import CFSG.RankThree.PartOne.KE.SuzukiLangSp4Group
 public import CFSG.RankThree.PartOne.KE.SuzukiLangSp4Aut
-public import CFSG.LieType.AlgebraicGroups.TwistedOrbitSurjectivity
 public import CFSG.LieType.AlgebraicGroups.G2ExceptionalComorphism
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

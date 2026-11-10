@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC22K331Basic
 public import CFSG.Quasithin.Background.HSporLatMathieu
 public import Certificates.Certificate1089001
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatO2
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4L4Alt8
 
 public section

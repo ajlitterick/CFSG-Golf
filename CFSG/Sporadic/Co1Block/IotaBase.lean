@@ -6,9 +6,6 @@ public import CFSG.Sporadic.Schreier.Co1StabLift
 public import CFSG.Sporadic.Co2Schreier.ThirdOrder
 public import CFSG.Sporadic.Co2Schreier.Centralizers
 public import CFSG.Sporadic.Schreier.MathieuSylowAutSpec
-public import CFSG.Sporadic.Co2Schreier.Tuples
-public import CFSG.Sporadic.Co2Schreier.Chains
-public import CFSG.Sporadic.Co1Block.IotaCheckInputs
 public meta import CFSG.Sporadic.Co1Block.IotaData
 public meta import CFSG.Sporadic.Schreier.Co1StabCheck
 public meta import CFSG.Sporadic.Schreier.Co1ThreeLocal
@@ -22,33 +19,19 @@ public meta import Certificates.Data.CFSGNative.Co1.Data
 public meta import Certificates.Data.CFSGNative.HS.SmallF2
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
-public import CFSG.Sporadic.Co2Schreier.ChainCheckInputs
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.Co2Schreier.TextCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.Text
-public import CFSG.Sporadic.Schreier.Co1AutCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co1ChainCheck
 public meta import CFSG.Sporadic.Schreier.Co1AutData
 public meta import CFSG.Sporadic.Schreier.Co1OrbEnumCheck
 public meta import CFSG.Sporadic.Schreier.Co1FullOrbCheck
 public meta import Certificates.Data.CFSGNative.Th.Tables
 public meta import Certificates.Data.CFSGNative.Th.Orbit
-public import CFSG.Sporadic.Schreier.Co1FullOrbCheckInputs
-public import CFSG.Sporadic.Schreier.Co1OrbEnum
-public import CFSG.Sporadic.Schreier.Co1ThreeLocal
-public import CFSG.Sporadic.Schreier.Co1XSet
-public import CFSG.Sporadic.Schreier.Co1LiftCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co1LiftData
 public meta import CFSG.Sporadic.Co2Cert.Data
-public import CFSG.Sporadic.Schreier.Co1SplitCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co1ElemThreeCheck
 public meta import CFSG.Sporadic.Schreier.Co1ElemData
 public meta import CFSG.Sporadic.Schreier.Co1ElemThreeData
-public import CFSG.Sporadic.Schreier.Co1StabCheckInputs
-public import CFSG.Sporadic.Schreier.Co1ThreeLocalInputs
-public import Certificates.Data.CFSGNative.Co1.Data
-public import CFSG.Sporadic.Co2Cert.CheckInputs
-public import CFSG.Sporadic.Co2Cert.OrderCheckInputs
 public import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 public import CFSG.Sporadic.Schreier.MathieuOddCoreOuter
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords

@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBOEvenTwin
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOFormEven
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBDInputs
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneDXTri
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

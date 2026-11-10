@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.JonesParshallG2Two
-public import Mathlib.GroupTheory.Sylow
 
 public section
 

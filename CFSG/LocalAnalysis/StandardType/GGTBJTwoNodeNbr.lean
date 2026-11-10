@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceSchreier
 public import CFSG.LocalAnalysis.StandardType.GGK1ADvd
-public import CFSG.LocalAnalysis.StandardType.GGResRows
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeLinear
 
 public section

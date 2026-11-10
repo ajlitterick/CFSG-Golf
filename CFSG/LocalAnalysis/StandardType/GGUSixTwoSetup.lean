@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModel
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTransfer
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveUDeltaNode
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdCore
 
 public section
 

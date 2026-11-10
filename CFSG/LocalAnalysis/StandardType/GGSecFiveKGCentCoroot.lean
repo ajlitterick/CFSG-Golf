@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInner
 public import CFSG.Timmesfeld.ARS.CaseEWeight
-import CFSG.LocalAnalysis.StandardType.GGRankOneTorus
 import CFSG.LocalAnalysis.StandardType.GGStdPosTorusFix
 import CFSG.LocalAnalysis.StandardType.GGStdPosRootKerTorus
-import CFSG.LieType.Steinberg.BruhatWeyl
-import Mathlib.Tactic.Group
 
 public section
 

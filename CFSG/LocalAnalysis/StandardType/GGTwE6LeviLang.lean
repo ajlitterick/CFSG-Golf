@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsCoreDefs
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeToralityTw
-public import CFSG.LieType.SeitzGeneration.ExcHighThree.KillsRootGroup
-public import CFSG.RankThree.Chevalley.SteinbergBTE6HighestRootGraph
 import CFSG.LocalAnalysis.StandardType.GGTwE6RootKernelCount
 import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.Normalizer
-import CFSG.LocalAnalysis.SeitzReduction.EPilotRoots
 
 public section
 

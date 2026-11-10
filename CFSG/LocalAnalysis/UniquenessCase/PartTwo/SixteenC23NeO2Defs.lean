@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23NeDefs
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsWeakClosure
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefsB
 
 public section

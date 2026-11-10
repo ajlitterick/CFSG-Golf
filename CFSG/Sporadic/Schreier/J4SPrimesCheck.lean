@@ -3,13 +3,8 @@ module
 
 public import CFSG.Sporadic.Schreier.J4SPrimesCheckBase
 
-public import CFSG.Sporadic.Schreier.J4SPrimes
 public meta import CFSG.Sporadic.Schreier.J4SPrimes
 public import Certificates.Certificate2178
-public import CFSG.Sporadic.Schreier.J4SSylowBase
-public import CFSG.Open.Defs
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

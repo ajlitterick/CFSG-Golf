@@ -3,10 +3,7 @@ module
 public import CFSG.HardMathSupport.Lang.E27Lie.MinusToralCore
 public import CFSG.HardMathSupport.Lang.E27Lie.TrialityOdd
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnSubB
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnH90
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnWeyl
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnFixedLine
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4FixedLine
 public import CFSG.LocalAnalysis.OddStandard.GH71.S55D4Ord3Fr
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLeviToral
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4TorusFrame

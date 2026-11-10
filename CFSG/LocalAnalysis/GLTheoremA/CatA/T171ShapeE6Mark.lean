@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralDefs
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6MarkLie
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamChar2Ambig
-import CFSG.LocalAnalysis.GLTheoremA.ExcClubList
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreSix
-import CFSG.LocalAnalysis.SeitzReduction.CrossCharCert
 import CFSG.Blueprint.LieModelAPI
 import CFSG.Blueprint.OddStandardExact
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb

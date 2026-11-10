@@ -3,14 +3,10 @@ module
 public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.Alt
 public import CFSG.HardMathSupport.Timmesfeld.Tables.Alt.Main
 public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.I_11_2_RedDefs
-public import CFSG.HardMathSupport.Timmesfeld.Coordinator.Tables112Families
-public import CFSG.Open.StatedDefs
 public import CFSG.Assembly.LowTwoRankDefs
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma99Inputs
 public import CFSG.LocalAnalysis.GLTheoremB.Prop98Defs
 public import CFSG.LocalAnalysis.SectionRank.Alternating
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_4
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.Defs
 
 public section
 

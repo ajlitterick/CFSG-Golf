@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Basic
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitLayerTools
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78Basic
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4TwoCentralCore
-public import CFSG.LocalAnalysis.ComponentClassification.PComponentNormalizerEnlargement
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrTwoLocalTools
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Generic.Shapes
 public import CFSG.GH74.Statements

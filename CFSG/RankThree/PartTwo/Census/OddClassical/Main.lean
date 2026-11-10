@@ -1,17 +1,12 @@
 module
 
-public import CFSG.RankThree.PartTwo.Census.Interface
 public import CFSG.RankThree.PartTwo.Census.Suzuki
 public import CFSG.RankThree.PartTwo.Census.OddClassical.LinearWitness
-public import CFSG.RankThree.PartTwo.Census.OddClassical.LinearComponent
 public import CFSG.RankThree.PartTwo.Census.OddClassical.LinearTwo
-public import CFSG.RankThree.PartTwo.Census.OddClassical.SymplecticWitness
 public import CFSG.RankThree.PartTwo.Census.OddClassical.SymplecticComponent
-public import CFSG.RankThree.PartTwo.Census.OddClassical.UnitaryWitness
 public import CFSG.RankThree.PartTwo.Census.OddClassical.UnitaryComponent
 public import CFSG.RankThree.PartTwo.Census.OddClassical.SmallThree
 public import CFSG.RankThree.PartTwo.Census.OddClassical.LinearFourThree
-import CFSG.RankThree.PartTwo.Census.Criteria
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
 public import CFSG.LocalAnalysis.SectionRank.SignLines

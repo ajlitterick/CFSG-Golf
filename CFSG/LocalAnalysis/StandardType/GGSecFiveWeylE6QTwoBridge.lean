@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoJoin
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoBridgeDefs
 public import CFSG.LocalAnalysis.StandardType.GGN2Defs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoPrime
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoPsi
@@ -9,9 +8,7 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoUnitaryJoin
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmega
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaJoin
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaMinusEnd
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoConclusion
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas
-public import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
 public import CFSG.LargeExtraspecial.BridgeOrder
 public import CFSG.LargeExtraspecial.S14C12RSHolds
 public import CFSG.LargeExtraspecial.AS62EnumInputs

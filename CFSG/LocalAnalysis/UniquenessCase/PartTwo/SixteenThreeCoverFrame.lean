@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.SylowThreeFrame
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154ThreeCovers
 import CFSG.GroupTheory.CoprimeCentralizerRank
 import CFSG.GroupTheory.PGroup.CardCoprime
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthIdent
-public import CFSG.ClassicalInvolution.Phan.StandardPair
-import CFSG.LocalAnalysis.StandardType.GGFixedTwoKernelTransport
-import CFSG.GH74.L5U5.ModelsPairsUnitary
 
 public section
 

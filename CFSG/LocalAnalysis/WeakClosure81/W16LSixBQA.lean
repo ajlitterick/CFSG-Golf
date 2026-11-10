@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.W16Gt2OrbitHyp
-public import CFSG.LocalAnalysis.WeakClosure81.SevenThreeTI
-public import CFSG.LocalAnalysis.WeakClosure81.ThirteenTwo
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.AschbacherCanonicalRemaining
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.ExceptionalEightPlaneCentralizer

@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.claim_5
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section2.corollary
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section2.proposition_1_b
 import Mathlib.Algebra.BigOperators.Ring.Nat
 import Mathlib.Algebra.Field.MinimalAxioms
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card

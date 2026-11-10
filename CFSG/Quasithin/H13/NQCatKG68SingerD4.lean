@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.H13.NQCatKG68Singer
-public import CFSG.Quasithin.H13.NQCatLieCartanD4
 public import CFSG.Quasithin.H13.NQCatLieCentralD4
 
 public section

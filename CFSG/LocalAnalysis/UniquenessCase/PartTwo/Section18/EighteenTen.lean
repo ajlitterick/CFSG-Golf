@@ -3,16 +3,10 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.Statements
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.XBarShapeCong
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.BarSubBar2Kernel
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.StatementsD
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenTI
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveShort
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveTen
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenGlueB
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22ui
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.ConjClosureSimple
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenInfra
 public import CFSG.Quasithin.Vol2.Ch10SecQ3CBkA
-public import CFSG.GH74.GLS.IVK.L2.ExistCyclic
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKFactParabolicCoverAbstract
 public import CFSG.GroupTheory.SteinbergCBFTSCN
 public import CFSG.Adapters.Certificate43Check
@@ -59,7 +53,6 @@ public import CFSG.Quasithin.Background.A3Structure319
 public import CFSG.Quasithin.Background.C1PackS15212C
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.FFC4Real
 public import CFSG.Quasithin.Background.FFC4Res
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

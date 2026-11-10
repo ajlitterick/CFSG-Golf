@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestLevi
 public import CFSG.LieType.Chevalley.C2E6D4Faithful
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-public import CFSG.LieType.Chevalley.C2E6SubsystemBruhat
-public import CFSG.LieType.Chevalley.ProductInjectivity
-public import CFSG.LieType.Chevalley.E6GraphLeviRealization
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotLeviYGroupAction
 public import CFSG.LieType.Chevalley.C2E6ExactRootRestrictions
 public import CFSG.LieType.Chevalley.C2E6StandardBetaStar

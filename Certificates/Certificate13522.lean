@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.I19_10FiInputs
 import Certificates.Kernel.I242.Gens
-import CFSG.Certificates.Kernel.BfsPinUnpack
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000

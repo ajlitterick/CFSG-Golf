@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResL3ThreeTor
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalCoreLine
-public import CFSG.LocalAnalysis.StandardType.GGPGLTorality
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherOuterQuotients
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Normalizer
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 
 public section
 

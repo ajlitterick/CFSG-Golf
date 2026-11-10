@@ -1,19 +1,13 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniModel
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniLift
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeU5Shape
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniSplit
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeU5Par
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeOutRank
-import CFSG.LocalAnalysis.StandardType.GGSUNonsplitTwoBlockRestrict
 import CFSG.LocalAnalysis.StandardType.GGSUNonsplitTwoBlockLift
-import CFSG.RankThree.PartOne.KF.UnitaryDiag
-import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeModel
 import CFSG.LocalAnalysis.StandardType.GGL45FixA2Arith
 import CFSG.Assembly.E6FourLabelArith
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
-import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryNorm
 
 public section
 

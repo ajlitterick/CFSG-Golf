@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Hom
-public import CFSG.RankThree.PartTwo.KFacts.AutG2
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommGTwoChev
 public import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockGTwoData

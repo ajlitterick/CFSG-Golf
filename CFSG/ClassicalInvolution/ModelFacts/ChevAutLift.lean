@@ -6,9 +6,6 @@ public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
 public import CFSG.LieType.Steinberg.CentralExt.Split
 public import CFSG.LieType.Steinberg.Isogeny.E6
 public import CFSG.LieType.Steinberg.Isogeny.E7
-public import CFSG.LieType.Steinberg.Minuscule.BruhatExtras
-public import CFSG.LieType.Steinberg.Minuscule.ChevExtras
-public import CFSG.LieType.TitsSimplicity.Core
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 
 public section

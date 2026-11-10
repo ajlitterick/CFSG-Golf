@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundGenField
-public import CFSG.LocalAnalysis.StandardType.GGPGLToralityBasic
 
 public section
 

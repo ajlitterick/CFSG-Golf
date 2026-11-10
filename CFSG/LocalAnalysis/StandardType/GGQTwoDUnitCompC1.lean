@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCompA1
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCompB4
-public import CFSG.ClassicalInvolution.Phan.Defs
 import CFSG.GH74.L5U5.IdentUnitary
 import CFSG.ClassicalInvolution.WeakCT.Main
 

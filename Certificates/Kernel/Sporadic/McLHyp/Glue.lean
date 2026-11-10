@@ -6,17 +6,9 @@ public import Certificates.Kernel.Sporadic.McLHyp.E8
 public import Certificates.Kernel.Census.McLN
 public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
 public import CFSG.Certificates.Kernel.Spor.CommBaseSound
-public import CFSG.Certificates.Kernel.Spor.SiftRSound
-public import CFSG.Certificates.Kernel.Spor.PcompFacts
 public import CFSG.Certificates.Kernel.Enum.ZCSound
 public import CFSG.RankThree.PartTwo.KFacts.K426McL
-public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizers
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Rank
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.McLInputs
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.GroupTheory.HallHigmanPiCore
@@ -31,7 +23,6 @@ public import CFSG.RankThree.PartTwo.Sec4.StatementsCensus
 public import CFSG.RankThree.PartTwo.Sec4.StatementsComponents
 public import CFSG.Sporadic.SmallOddCore.McLCheckInputs
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 
 public section

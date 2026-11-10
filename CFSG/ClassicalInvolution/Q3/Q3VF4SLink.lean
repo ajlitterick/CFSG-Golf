@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3VF4SLayer
 public import CFSG.ClassicalInvolution.Q3.Q3WASTClosure
 public import CFSG.ClassicalInvolution.Q3.Q3E8BShape
 public import CFSG.ClassicalInvolution.RouteD.TypeF4TwinPerpLayer
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.TypeCGeneration
 public import CFSG.ClassicalInvolution.RouteD.TypeF4PatternShape
 
 public section

@@ -3,18 +3,12 @@ module
 public import CFSG.Quasithin.Recognition.St84.Gen.D4qAmalBorel
 
 import CFSG.Quasithin.Recognition.Stroth.Str86Frame
-import CFSG.Quasithin.Background.F1Cartan
 import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalIndecSec
 import CFSG.Quasithin.Recognition.St84.Gen.L2SectionHall
-import CFSG.CGT.Timmesfeld75.L2Defs
-import CFSG.LieType.BorelTits.Basic
-import Mathlib.Algebra.CharP.Two
-import Mathlib.Tactic.Group
 public import CFSG.GroupTheory.PCore.Transport
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldAction
 public import CFSG.Quasithin.Recognition.St84.Gen.CoprimeComplement
 public import CFSG.Quasithin.Recognition.St84.Gen.SL2TorusAut
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 public import CFSG.Timmesfeld.RankOne.Defs
 import CFSG.Certificates.Kernel.LocalCompTits.Span
@@ -24,13 +18,8 @@ import CFSG.LocalAnalysis.AGLEmbedding.Reduction
 import CFSG.LocalAnalysis.AGLEmbedding.TwoCoreObstruction
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionNormalTwoFixedPointHull
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionThreePointFullTransport
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L238BridgeAlt57SL
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L238BridgeAlt57Sp4
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureConjugation
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureProperPair
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureSylowAssemblyData
@@ -40,25 +29,6 @@ import CFSG.Open.SplitBNPair
 import CFSG.Quasithin.Background.A1cA132Action
 import CFSG.Quasithin.Background.A1cA133Three
 import CFSG.Quasithin.Background.A3Structure314Defs
-import CFSG.Quasithin.Background.A3Structure318Red
-import CFSG.Quasithin.Background.A3Structure36A
-import CFSG.Quasithin.Background.A3Structure36BAction
-import CFSG.Quasithin.Background.A3Structure36BBase
-import CFSG.Quasithin.Background.A3Structure36BCase3Base
-import CFSG.Quasithin.Background.A3Structure36BCasesBase
-import CFSG.Quasithin.Background.A3Structure36BCommonBase
-import CFSG.Quasithin.Background.A3Structure36BFrattini
-import CFSG.Quasithin.Background.A3Structure36BHeisBase
-import CFSG.Quasithin.Background.A3Structure36BHomocyclic
-import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
-import CFSG.Quasithin.Background.A3Structure36BStarBase
-import CFSG.Quasithin.Background.A3Structure36Base
-import CFSG.Quasithin.Background.A3Structure37Base
-import CFSG.Quasithin.Background.A3Structure37Comm
-import CFSG.Quasithin.Background.A3Structure37Frattini
-import CFSG.Quasithin.Background.A3Structure37KeyBase
-import CFSG.Quasithin.Background.A3Structure37Schur
-import CFSG.Quasithin.Background.A3Structure38Part3
 import CFSG.Quasithin.Background.B1More13A
 import CFSG.Quasithin.Background.B1More13Defs
 import CFSG.Quasithin.Background.B1MoreEleven
@@ -70,7 +40,6 @@ import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.D2Cyclic
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F3
 import CFSG.Quasithin.Background.F6Amalgams
 import CFSG.Quasithin.Background.F6CatSetting
@@ -80,7 +49,6 @@ import CFSG.Quasithin.Background.SmithB42Vacuous
 import CFSG.Quasithin.EmptyFaithful.Gold14610F618StructFieldExt
 import CFSG.Quasithin.EmptyFaithful.Gold14610F618StructPGL
 import CFSG.Quasithin.EmptyFaithful.Gold14610F618StructSimple
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.EmptyFaithful.S14110
 import CFSG.Quasithin.EmptyFaithful.S143Pre
 import CFSG.Quasithin.EmptyFaithful.S14610Q1
@@ -119,7 +87,6 @@ import CFSG.RankThree.S4Free.Statement
 import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

@@ -4,8 +4,6 @@ module
 public import Certificates.Kernel.Sporadic.Fi22.T2068
 public import Certificates.Kernel.Sporadic.Fi22.F1OuterT
 public import Certificates.Kernel.Sporadic.Fi22.F1OuterS
-public import Certificates.Kernel.Sporadic.RawGen
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import CFSG.Monster.B.Fischer.Fi22CoverCheckInputs
 public meta import CFSG.Monster.B.Fischer.Fi22OuterData
 import CFSG.Certificates.Kernel.Common.Harness

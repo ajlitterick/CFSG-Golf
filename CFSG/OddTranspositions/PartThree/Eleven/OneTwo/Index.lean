@@ -1,14 +1,7 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Eleven.Statements
-public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Hyp
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Pair
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Quandle
-public import CFSG.OddTranspositions.PartThree.EightFive.KBarSetup
 public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.Frame
-public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.Kernel
 public import CFSG.OddTranspositions.PartThree.CardWidth
-public import CFSG.GroupTheory.SylowOrbitCard
 public import CFSG.Holt.PermFactsInvolutions
 
 public section

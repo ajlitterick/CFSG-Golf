@@ -1,11 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3T8B14E
-public import CFSG.ClassicalInvolution.Q3.Q3T8B14L
 public import CFSG.ClassicalInvolution.Q3.Q3T8B12
-public import CFSG.ClassicalInvolution.Q3.Q3T8E4A
-public import CFSG.ClassicalInvolution.Q3.Q3T8E4B
-public import CFSG.ClassicalInvolution.Q3.Q3T8B01
 
 public section
 

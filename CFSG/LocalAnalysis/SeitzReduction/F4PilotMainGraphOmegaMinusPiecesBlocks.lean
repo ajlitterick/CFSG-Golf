@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaMinusPiecesOrders
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaMinusTorus
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -34,9 +32,6 @@ public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Open.QuasithinDefs
 public import CFSG.RankThree.PartOne.KC.OrthogonalAutSemilinearBridge
 public import CFSG.RankThree.PartOne.KC.OrthogonalEvenMinusExtraction
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.Walter.JRFacts
 
 public section

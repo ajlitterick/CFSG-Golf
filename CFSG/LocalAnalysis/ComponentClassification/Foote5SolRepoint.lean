@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5SolIdent
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5SolPsp4
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitSolomonFamily
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitStep
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitLBalance
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddFixedNormalizer
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrSourceChange
 public import CFSG.LocalAnalysis.ComponentClassification.HSFLitWeakMaximal
 
 public section

@@ -4,16 +4,11 @@ public import CFSG.RankThree.PartTwo.Sec4.T444.Item434RemG24Mat
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherDefs
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherKit
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8G2LeviA2
-public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8G2TorusConj
 public import CFSG.LieType.Chevalley.OrdinaryRootCentralizerGeneration
 public import CFSG.LocalAnalysis.EvenSmallLie.GTwoFour.Centralizers
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExceptionalG2Four
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434CharThreeU3
-public import CFSG.Adapters.TauCetiExceptional.EvenBridgeG2
 public import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
-import CFSG.RankThree.PartTwo.Sec4.T444.Item434AltPerm
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.RankThree.PartTwo.Sec12.Notation

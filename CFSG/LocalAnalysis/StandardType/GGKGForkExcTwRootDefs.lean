@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwCent
-public import CFSG.LieType.Chevalley.LangRootRankOne
 
 public section
 

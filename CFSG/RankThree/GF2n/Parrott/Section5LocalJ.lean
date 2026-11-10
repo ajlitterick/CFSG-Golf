@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.FixDimIII
-public import CFSG.RankThree.GF2n.Parrott.CommutatorDetermined
 public import CFSG.RankThree.GF2n.Parrott.Section4CentreSylow
 
 public section

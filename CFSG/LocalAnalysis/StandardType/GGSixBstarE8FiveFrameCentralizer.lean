@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameDiag
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveWeylFaithful
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveIsotropic
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeWeylDiagGen
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyCover

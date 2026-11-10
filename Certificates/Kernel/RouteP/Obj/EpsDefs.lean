@@ -5,7 +5,6 @@ import CFSG.Certificates.Kernel.Common.Repo
 public import Certificates.Kernel.RouteP.Data.Obj
 public import Certificates.Data.Kernel.Spor.Fi24NetPt
 public import CFSG.Certificates.Kernel.RouteP.EpsTree
-public import Mathlib
 
 #kc_repo #kc_ktree CFSG.KD.RouteP EPD "Certificates/Kernel/RouteP/Obj/data/eps.bin" 4096 4 16384 11204058601439063724
 

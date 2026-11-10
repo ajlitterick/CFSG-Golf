@@ -5,7 +5,6 @@ public import CFSG.RankThree.PartTwo.Census.Exceptional.TwistedE6
 public import CFSG.Adapters.TauCetiExceptional.EvenAll
 public import CFSG.RankThree.Chevalley.SteinbergCFTrialityCommutingSL2
 public import CFSG.LargeExtraspecial.DWRtTwisted
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.GraphTwisted
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.AmbientGroup

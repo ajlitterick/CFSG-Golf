@@ -2,9 +2,7 @@ module
 
 public import CFSG.Monster.B.Final.Elements
 public import CFSG.Monster.B.Gen.Transfer
-public import CFSG.Monster.B.Gen.Generation
 public import CFSG.Monster.B.Gen.Max2Assembly
-public import CFSG.Monster.B.Gen.EbarPairing
 
 public section
 

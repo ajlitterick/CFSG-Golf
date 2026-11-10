@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6Levi
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviFive
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpPlus
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGResJPrimeLarge
 
 public section

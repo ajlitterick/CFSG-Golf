@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExc
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcE6
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcTwE6Root
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMarkingE6TwRankOne
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6Torus
 
 public section
 

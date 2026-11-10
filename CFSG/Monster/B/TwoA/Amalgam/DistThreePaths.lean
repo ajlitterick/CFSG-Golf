@@ -2,10 +2,7 @@ module
 
 public import CFSG.Monster.B.TwoA.Amalgam.DistThreeDefs
 public import CFSG.Monster.B.TwoA.Amalgam.EightOrbitsPres
-public import CFSG.Monster.B.TwoA.Amalgam.TypeFour
-public import CFSG.Monster.B.TwoA.Amalgam.TriangleCore
 public import CFSG.Monster.B.TwoA.Amalgam.Exact3510Core
-public import CFSG.Monster.B.TwoA.Amalgam.DistTwoInst
 public import CFSG.Monster.B.E6.StdF4Fiber
 public import CFSG.Monster.B.TwoA.Amalgam.EightOrbitsQuot
 

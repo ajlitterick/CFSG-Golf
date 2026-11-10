@@ -1,9 +1,6 @@
 module
 
 public import Certificates.Kernel.EvenBN.Lists
-public import Certificates.Kernel.Sporadic.Tits.LocS
-public import Certificates.Kernel.Sporadic.Tits.LocJ
-public import Certificates.Kernel.SporSch.Tits.GenSurv
 public import Certificates.Data.Kernel.SporSch.TitsCnt
 meta import Certificates.Data.TitsAschbacherE32
 

@@ -2,10 +2,6 @@ module
 
 public import Certificates.Kernel.HeLoc.Seven2Chain
 public import Certificates.Kernel.HeLoc.MemDefs
-public import Certificates.Kernel.Sporadic.He.Chain2112
-public import Certificates.Kernel.SporSch.PairJ3.GenClT
-public import Certificates.Kernel.SporSch.Ru.RowsGen
-public import CFSG.Certificates.Kernel.SporSch.PairJ3CntSound
 public meta import CFSG.RankThree.PartOne.KS.HeSevenCheckDefs
 import CFSG.Certificates.Kernel.Common.Harness
 

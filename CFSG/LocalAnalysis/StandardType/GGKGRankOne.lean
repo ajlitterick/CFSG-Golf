@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGAdjDefs
 public import CFSG.LocalAnalysis.StandardType.GGKGOrthPairs
 import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4ZRootTorus
 import CFSG.LieType.Chevalley.OrthogonalSemilinearFixedCells

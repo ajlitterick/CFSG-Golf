@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeTriD4FrameDefs
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcTwD4Layer
-public import CFSG.RankThree.PartOne.KD4L.TriNu
 public import CFSG.RankThree.Chevalley.SteinbergBID4TrialityConjugacy
-public import CFSG.LieType.Chevalley.ExactNormalFormE
-public import CFSG.LieType.Ree.Endo
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
 public import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel

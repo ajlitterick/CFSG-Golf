@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJLabelSides
 public import CFSG.LocalAnalysis.StandardType.GGTBJFamilyStages
 public import CFSG.LocalAnalysis.StandardType.GGResSevenNbr
 public import CFSG.LocalAnalysis.StandardType.GGResTrialityNbr
-public import CFSG.LocalAnalysis.StandardType.GGTCJD4Tag
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRCClassify
-public import CFSG.LocalAnalysis.StandardType.GGRCSignedClass
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoCloseDefs
 
 public section

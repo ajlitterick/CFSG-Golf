@@ -3,10 +3,6 @@ module
 public import CFSG.RepresentationTheory.SzMartineau.Relations
 public import CFSG.RepresentationTheory.SzMartineau.Cocycle
 public import CFSG.RepresentationTheory.SzMartineau.SzTwo
-public import Mathlib.Algebra.CharP.Two
-public import Mathlib.Tactic.FinCases
-public import Mathlib.Tactic.Positivity
-public import Mathlib.Tactic.Ring
 
 public section
 

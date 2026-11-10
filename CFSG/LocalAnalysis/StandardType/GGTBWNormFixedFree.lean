@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormCenterless
 public import CFSG.LocalAnalysis.StandardType.GGResCentBoundLin
-public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofLinPerm
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofRefl
 public import CFSG.HardMathSupport.Solomon.Coordinator.I28_14SymAut
 public import CFSG.Mathlib.GroupTheory.PermCenter

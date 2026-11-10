@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.MinusFrame.SmallChecks
 public import Certificates.Kernel.MinusFrame.Glue
-public import CFSG.Certificates.Kernel.BfsPinAlg
-public import CFSG.Certificates.Kernel.BfsPinBaseSound
 public import CFSG.Certificates.Kernel.Misc.PermWitSound
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 

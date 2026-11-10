@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesFields
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerActorBinary
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1Basic
-public import CFSG.Quasithin.Background.SmithCurtisBasic
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisExc.OffenderUnits
 import CFSG.RankThree.PartOne.S11d.OrthRankBase
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisExc.BinRep

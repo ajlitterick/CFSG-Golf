@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelA5Model
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelA5HypModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCentral
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHyperbolic
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreU
 public import CFSG.LocalAnalysis.StandardType.GGKGForkUSplitC1
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ParabCensus.Unitary
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockToralCensusDefs

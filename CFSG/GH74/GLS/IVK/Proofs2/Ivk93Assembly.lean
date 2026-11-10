@@ -5,7 +5,6 @@ public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Sp4
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Exc
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Bender
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Ree
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Mathieu
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93M12
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93J1
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93J2

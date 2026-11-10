@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeDefs
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeU6SizeField
 import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5ClassPg
 import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5FieldBound
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
 
 public section
 

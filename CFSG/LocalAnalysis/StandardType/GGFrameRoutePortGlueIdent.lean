@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueIdentW
-public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueIdentDefs
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP10Exc
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP10E6Split
-public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP10E6Pos
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP10E6Norm
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP10E6Real
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP8dSmall

@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldDefs
-public import CFSG.Blueprint.Catalog
-import CFSG.LocalAnalysis.StandardType.MarkingSmall
 import CFSG.RankThree.PartTwo.KFacts.AutSz
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 import CFSG.StronglyEmbedded.ParityCriterion

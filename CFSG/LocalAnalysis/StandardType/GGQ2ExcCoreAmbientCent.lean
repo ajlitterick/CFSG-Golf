@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreAmbientRefl
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreAmbientSep
 import CFSG.LocalAnalysis.StandardType.GGL45NtLattice
-import CFSG.RankThree.Chevalley.SteinbergCAF4SplitPrimeTorus
-import CFSG.LieType.Chevalley.E6EvenRootTorus
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 
 public section
 

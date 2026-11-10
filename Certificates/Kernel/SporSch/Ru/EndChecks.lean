@@ -2,12 +2,10 @@ module
 
 public import Certificates.Kernel.SporSch.Ru.EndData
 public import Certificates.Kernel.SporSch.Ru.EndR
-public import Certificates.Kernel.SporSch.Ru.Lines
 public import Certificates.Kernel.SporSch.Ru.JChain
 public import Certificates.Kernel.SporSch.Ru.RowsGen
 public import CFSG.Certificates.Kernel.SporSch.AnyN
 public import Certificates.Data.Kernel.SporSch.MathieuOC
-public import Certificates.Data.Kernel.Spor.Raw
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

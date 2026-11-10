@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormLinearPrime
-public import CFSG.LocalAnalysis.StandardType.GGPGLToralityCaseB
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormQuotMove
-public import Mathlib.FieldTheory.Finite.Basic
 
 public noncomputable section
 

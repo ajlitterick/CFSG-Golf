@@ -1,9 +1,6 @@
 module
 
-public import Certificates.Kernel.SporSch.Co2M.EnumQ
-public import CFSG.Certificates.Kernel.SporSch.MatInj
 public import CFSG.Sporadic.Co2Schreier.IndexNineInputs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Co2I301.SpecSixAux
 
 public section

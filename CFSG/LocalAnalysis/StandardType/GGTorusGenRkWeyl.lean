@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkInE
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBPosition
 public import CFSG.LocalAnalysis.StandardType.GGSuDvdRootGenWeyl
 
 public section

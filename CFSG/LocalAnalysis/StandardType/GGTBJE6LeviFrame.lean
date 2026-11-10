@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviCore
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviEnnola
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviSplitModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Basic
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesWeylPTorsion
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoToralExcAdj
 

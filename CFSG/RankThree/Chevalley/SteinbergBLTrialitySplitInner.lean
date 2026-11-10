@@ -3,9 +3,6 @@ module
 public import CFSG.RankThree.Chevalley.SteinbergCFOddG2SplitInnerActor
 public import CFSG.RankThree.Chevalley.SteinbergCFTrialityToralMain
 public import CFSG.RankThree.Chevalley.SteinbergCFTrialityNoninnerDescent
-public import CFSG.LieType.Chevalley.GraphFixedSimplePairs
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LieType.Chevalley.EvenTrialityOuterInvolutions
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
@@ -14,7 +11,6 @@ public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Walter.Defs
 
 public noncomputable section

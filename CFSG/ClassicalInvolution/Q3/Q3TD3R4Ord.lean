@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TY13
-public import CFSG.ClassicalInvolution.Q3.Q3EPQuot
 public import CFSG.ClassicalInvolution.ModelFacts.TG3D4Tri
 public import CFSG.ClassicalInvolution.RouteD.TWS7Ord
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.U4.CaseOneFusion
-public import CFSG.LocalAnalysis.EvenBN.Common.Endgames
 public import CFSG.LocalAnalysis.EvenBN.Common.FreeSeries
 public import CFSG.LocalAnalysis.SteinbergBNPerfectFirstTransferExclusion
 

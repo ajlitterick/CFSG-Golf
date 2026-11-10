@@ -3,9 +3,7 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3TY37
 public import CFSG.ClassicalInvolution.Q3.Q3TY35
 public import CFSG.ClassicalInvolution.Q3.Q3TY34
-public import CFSG.ClassicalInvolution.Q3.Q3TY19
 public import CFSG.ClassicalInvolution.Q3.Q3TY8
-public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusSmallZ
 
 public section
 

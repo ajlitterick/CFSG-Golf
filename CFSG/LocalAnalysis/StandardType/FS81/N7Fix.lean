@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.N7Split
 public import CFSG.LocalAnalysis.StandardType.FS81.N7FixCore
 public import CFSG.LocalAnalysis.StandardType.FS81.N7FixPlumb
 public import CFSG.LocalAnalysis.StandardType.FS81.GoldExclusion

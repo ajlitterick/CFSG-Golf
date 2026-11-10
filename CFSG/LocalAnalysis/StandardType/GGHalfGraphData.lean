@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfGraphE6
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagE
-public import CFSG.LocalAnalysis.StandardType.GGCompatNbrSomeDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSpProofHalf
 
 public section
 

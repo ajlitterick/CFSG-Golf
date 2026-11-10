@@ -4,7 +4,6 @@ public import Certificates.Data.M23ThreeKD
 public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 import CFSG.Certificates.Kernel.M23Three.CentBound
 import CFSG.Certificates.Kernel.PermCent.SmallBSound
-import CFSG.Certificates.Kernel.Census.CatFacts.PkEnum
 import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
 import Certificates.Kernel.M23Three.Checks
 public import Certificates.Data.Kernel.PermCent.CV

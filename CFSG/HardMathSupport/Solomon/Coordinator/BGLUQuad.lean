@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.Algebra.Ring.Equiv
 public import Mathlib.Tactic.LinearCombination
 public import Mathlib.Tactic.Module
 public import Mathlib.Tactic.FieldSimp

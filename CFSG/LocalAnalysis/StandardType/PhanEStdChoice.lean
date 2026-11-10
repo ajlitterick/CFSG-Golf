@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.PhanEStdGeom
-public import CFSG.LocalAnalysis.StandardType.PhanEStdTransport
 public import CFSG.LocalAnalysis.StandardType.PhanEFiniteField
-public import CFSG.LieType.Steinberg.Exceptional.Fields
 public import CFSG.LocalAnalysis.StandardType.PhanEStdE6Input
 public import CFSG.LocalAnalysis.StandardType.PhanEStdE7Input
 public import CFSG.LocalAnalysis.StandardType.PhanEStdE8Input

@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGL45NtClTransfer
 public import CFSG.LocalAnalysis.StandardType.GGL45NtClRecipes
 public import CFSG.LocalAnalysis.StandardType.GGL45NtClLinBlocks
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinear
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
-public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUNotDvd
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.Linarith
 
 public noncomputable section
 

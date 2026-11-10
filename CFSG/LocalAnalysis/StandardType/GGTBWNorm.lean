@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHLDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-public import CFSG.LocalAnalysis.StandardType.GGPropFourOneTransfer
 public import CFSG.LocalAnalysis.StandardType.GGStdSubExist
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmallLabel
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineClassicalLabel
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormMpCellLabels

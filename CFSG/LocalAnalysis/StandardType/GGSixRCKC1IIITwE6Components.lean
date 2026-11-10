@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIITwE6Prime
 public import CFSG.LocalAnalysis.StandardType.GGCompListMarked
-import CFSG.LocalAnalysis.StandardType.GGReverseMarking
 import CFSG.LocalAnalysis.StandardType.GGExcTwoCompListsRE
 import CFSG.LocalAnalysis.StandardType.GGK0CompREMult
 import CFSG.LocalAnalysis.StandardType.GGK0ExcB3Holds

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.theorem_6_4
 
 public section

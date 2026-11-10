@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBase
 public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseOrthFrame
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaE6Pat
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaE6PatCox
 import CFSG.LocalAnalysis.StandardType.GGStdUnitaryFourExcl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSQ2U62Setup
@@ -12,7 +11,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFivePumpCount
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourTBSmall
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaE6PatRows
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameOfMarking
-import CFSG.LocalAnalysis.StandardType.GGOrthFramePairs
 import CFSG.LocalAnalysis.StandardType.GGOrthRk1Centralizer
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameCenter
 import CFSG.LocalAnalysis.StandardType.GGQTwoPThree

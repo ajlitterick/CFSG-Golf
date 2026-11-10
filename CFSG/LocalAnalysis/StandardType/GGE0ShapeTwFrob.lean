@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE0ShapeDefs
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeContextRankAux
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
 
 public section
 

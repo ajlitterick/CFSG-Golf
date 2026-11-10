@@ -1,16 +1,10 @@
 module
 
-public import CFSG.Assembly.Defs
 public import CFSG.Assembly.LargeEvenDefs
-public import CFSG.Open.StatedDefs
-import CFSG.LieType.Universal.Symplectic
-import CFSG.LocalAnalysis.StandardType.MarkingSmall
 import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-import CFSG.Foundations.QuasisimpleMulEquiv
 import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneAlt6
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotQ2Sp4TwoRootSix
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResU3ThreeSolv
-import CFSG.GroupTheory.OrderBelowSixtySolvable
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.A6Leaf
 import CFSG.Certificates.CentralKernel
 import CFSG.Certificates.CosetTableWalkC
@@ -21,25 +15,11 @@ import CFSG.GH74.GLS.C3.Layer1.Back91
 import CFSG.GH74.GLS.C3.Layer1.Split
 import CFSG.GH74.GLS.C3.Layer3.Main
 import CFSG.GH74.GLS.Defs
-import CFSG.GH74.GLS.IVK.A7.Glue
-import CFSG.GH74.GLS.IVK.L2.BN
-import CFSG.GH74.GLS.IVK.L2.BorelFive
-import CFSG.GH74.GLS.IVK.L2.Lemma113
-import CFSG.GH74.GLS.IVK.L2.Lemma114
-import CFSG.GH74.GLS.IVK.L2.Lemma12ib
-import CFSG.GH74.GLS.IVK.L2.Lemma12j
-import CFSG.GH74.GLS.IVK.L2.Lemma12k
-import CFSG.GH74.GLS.IVK.L2.Lemma13fc
-import CFSG.GH74.GLS.IVK.L2.Lemma14f
-import CFSG.GH74.GLS.IVK.L2.Lemma14j
-import CFSG.GH74.GLS.IVK.L2.Lemma19b
-import CFSG.GH74.GLS.IVK.Prod.Lemma31
 import CFSG.GH74.GLS.IVK.Proofs
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13e
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13g
-import CFSG.GH74.GLS.IVK.Statements
 import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Closed
 import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Statements
 import CFSG.GH74.GLS.Stage1.Thm6.Sec12.Defs
@@ -140,8 +120,6 @@ import CFSG.Quasithin.Background.C2PushThree
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.D2Cyclic
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2
 import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
@@ -210,7 +188,6 @@ import CFSG.Sporadic.Schreier.J1QT
 import CFSG.Sporadic.Schreier.TitsOther
 import CFSG.Sporadic.SuzOddCore.GraphData
 import CFSG.Sporadic.SuzOddCore.SmallActionData
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 import CFSG.Walter.Bender1970.S1
 import CFSG.Walter.Bender1970.S2
 import CFSG.Walter.PSL2Facts

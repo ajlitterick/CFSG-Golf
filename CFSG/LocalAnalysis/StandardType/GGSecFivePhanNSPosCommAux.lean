@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
 public import CFSG.LocalAnalysis.StandardType.UnitaryCenterScalar
-import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.LieType.Steinberg.CentralExt.SUThree
 import CFSG.RankThree.PartOne.S15K.CentralCover
-import CFSG.GroupTheory.ElemAbelianClosure
-import Mathlib.Tactic.Group
 
 public section
 

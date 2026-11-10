@@ -47,10 +47,6 @@ public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.FFC4Res
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
 public import CFSG.Quasithin.Background.InternalSecFF

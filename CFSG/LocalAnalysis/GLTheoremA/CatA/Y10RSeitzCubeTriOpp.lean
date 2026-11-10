@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.ChevTwo.OppositeFixedExcTri
 public import CFSG.LieType.Chevalley.TrialityFullAmbientFixedGroup
-public import CFSG.LieType.Chevalley.FixedRootCentralizerGeneration
-public import CFSG.LieType.Chevalley.SylowOpposition
 public import CFSG.GroupTheory.WielandtProductLocal
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalExcTwOpp
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -12,7 +10,6 @@ public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageCompletion
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerPrimeCompatibility
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestrictionCompletion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

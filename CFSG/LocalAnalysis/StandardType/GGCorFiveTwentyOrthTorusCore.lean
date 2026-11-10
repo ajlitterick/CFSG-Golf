@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusWitt
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneCoord
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
 
 public section
 

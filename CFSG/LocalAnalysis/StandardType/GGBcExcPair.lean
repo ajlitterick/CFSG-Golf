@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGBcDefs
 public import CFSG.LocalAnalysis.StandardType.GGKacTableShapes
 public import CFSG.LocalAnalysis.StandardType.GGTPNExcKacDatum
-public import CFSG.LocalAnalysis.StandardType.GGKacExcB2
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

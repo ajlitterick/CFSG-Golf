@@ -1,7 +1,5 @@
 module
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GeneratorRank
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.theorem_4_18_a
 
 namespace CFSG

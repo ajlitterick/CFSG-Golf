@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanEData
-public import CFSG.LocalAnalysis.StandardType.PhanDLift
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRest
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinHCRowDefs
 public import CFSG.ClassicalInvolution.Phan.PhanDn.MainA
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanSystem
-import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRank
 public import CFSG.ClassicalInvolution.Models.LinearPairs
 public import CFSG.ClassicalInvolution.WeakCT.SpPair
 public import CFSG.ClassicalInvolution.WeakCT.TwistedE6Basic

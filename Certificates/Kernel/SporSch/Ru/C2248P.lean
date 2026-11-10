@@ -8,7 +8,6 @@ public import Certificates.Kernel.SporSch.Ru.CNFacts
 public import Certificates.Kernel.SporSch.Ru.SmallFacts
 public import Certificates.Kernel.SporSch.Ru.R2257P
 public import Certificates.Kernel.SporSch.Ru.Rows2
-public import CFSG.Sporadic.Schreier.RuCheckCentersInputs
 public meta import CFSG.Sporadic.Schreier.RuCheckSylow
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Schreier.RuCheckLocalBase

@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate5123Base
 
-public import CFSG.GH74.KGroups.L34AutInputs
 import CFSG.Certificates.Kernel.PermCent.KGrpCSound
 import Certificates.Kernel.PermCent.K5138
 import Certificates.Kernel.PermCent.KG5123A

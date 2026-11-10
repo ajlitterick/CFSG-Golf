@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXGraphLinDefs
 import CFSG.LocalAnalysis.StandardType.GGWAutModelNorm
-import CFSG.LocalAnalysis.StandardType.GGQTwoDWeyl
-import CFSG.LocalAnalysis.StandardType.GGQTwoDCoord
 
 public section
 

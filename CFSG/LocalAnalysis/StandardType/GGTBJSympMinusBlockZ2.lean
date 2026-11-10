@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusBlockZ
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 
 public section
 

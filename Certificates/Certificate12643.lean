@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.KS155.J2E4Data
 public meta import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.KS155.J2E4Data
-import Certificates.Certificate10019
 import Certificates.Kernel.C12643.Check
 
 public section

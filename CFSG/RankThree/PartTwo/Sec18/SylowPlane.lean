@@ -2,22 +2,12 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec18.SylowWStar
 public import CFSG.RankThree.PartTwo.Sec18.Statements
-import CFSG.RankThree.PartTwo.Sec20.OneBasics
 import CFSG.RankThree.PartTwo.Sec20.Item203OneProof
 import CFSG.RankThree.PartTwo.Sec18.Item18ResProofTools
-import CFSG.RankThree.PartTwo.Sec18.Item186a
 import CFSG.RankThree.PartTwo.Sec4.Item423Res4ProofHeis
 import CFSG.RankThree.PartTwo.Sec13.Item133Mono
 import CFSG.RankThree.PartTwo.Sec11.Item116H3Rank
 import CFSG.RankThree.PartTwo.Sec4.T444.L34Shape
-import CFSG.RankThree.PartTwo.KFacts.L34Automizer
-import CFSG.RankThree.Asc83Table.Automizer
-import CFSG.RankThree.GroupTheory.SteinbergBYHyperplaneResidual
-import CFSG.GroupTheory.PerfectResidualNodes
-import CFSG.RankThree.PartTwo.Sec18.Claim184LcProof
-import CFSG.RankThree.PartTwo.Sec18.Item184a
-import CFSG.RankThree.PartTwo.Sec18.Item181
-import CFSG.RankThree.PartTwo.Late.GammaZero
 import CFSG.RankThree.PartTwo.Late.Transitivity
 import CFSG.LocalAnalysis.ComponentInitial.GL3TwoFixedModelSelector
 import CFSG.Milestones.CL_LIT_Gorenstein_Walter_L_balance

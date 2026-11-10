@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectExcCore
 public import CFSG.LieType.Ree.LargeReeExceptionalFullCentralizer
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 
 public section

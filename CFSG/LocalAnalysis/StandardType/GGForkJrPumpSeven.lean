@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGNbrHalfSplitArith
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTables
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitMarking
-public import CFSG.LocalAnalysis.StandardType.GGNbrPrimeFieldExcl
 
 public section
 

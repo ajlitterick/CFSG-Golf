@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TY41
-public import CFSG.ClassicalInvolution.RouteD.TwinSmallLeaf
 
 public section
 

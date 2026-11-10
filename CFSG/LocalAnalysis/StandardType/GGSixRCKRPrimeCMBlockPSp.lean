@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMConverseSU
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagModel
-public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagLinear
-public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagSp
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommSpRes
 
 public section
 

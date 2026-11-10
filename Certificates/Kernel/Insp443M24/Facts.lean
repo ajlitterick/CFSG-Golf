@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.Insp443M24.Checks
 public import Certificates.Kernel.KGC31M24.Facts7217
-public import Certificates.Data.Insp443M24
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.AlgebraicGroups.G2ExceptionalProjection
 public import CFSG.LieType.AlgebraicGroups.AdjointTangentAction
 import CFSG.LieType.AlgebraicGroups.InnerInvolutionTorus
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

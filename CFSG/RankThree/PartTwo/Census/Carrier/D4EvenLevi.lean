@@ -3,9 +3,7 @@ module
 public import CFSG.RankThree.PartTwo.Census.Carrier.G2EvenRank
 public import CFSG.LieType.Chevalley.GraphFixedParabolicLevi
 public import CFSG.LieType.Chevalley.GraphFixedRankOneImage
-public import CFSG.LieType.Chevalley.GraphFixedCompatibleDiagonal
 public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-import CFSG.Blueprint.ChevalleyStrings
 public import CFSG.Blueprint.ChevalleyRootArtifact
 import CFSG.GroupTheory.ElementaryAbelianTransport
 

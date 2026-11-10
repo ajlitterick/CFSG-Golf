@@ -1,19 +1,13 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSLCent
-import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
 import CFSG.LocalAnalysis.StandardType.GGStdPosACore
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpJFrame
-import CFSG.LocalAnalysis.StandardType.GGTypeAFarActsVec
 import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagLin
-import CFSG.LocalAnalysis.StandardType.GGLinearFusionCyclic
-import CFSG.LocalAnalysis.StandardType.GGLinearFusionFrame
 import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
 import CFSG.LocalAnalysis.StandardType.GGSixLinearModelOmega
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpLFrameAlign
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpLFrameSplit
 public import CFSG.LocalAnalysis.StandardType.GGTypeAFarPerm

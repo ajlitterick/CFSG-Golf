@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.Commutator.Basic
 public import Mathlib.GroupTheory.Index
 public import Mathlib.Tactic.Group
 

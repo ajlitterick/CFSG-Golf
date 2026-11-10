@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGIrred937F4Base
 public import CFSG.LocalAnalysis.StandardType.GGIrred937F4BDescent
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralWeyl
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralBlocks
-public import CFSG.HardMathSupport.Timmesfeld.Torality.F4Block
 
 public section
 

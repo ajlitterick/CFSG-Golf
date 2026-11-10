@@ -3,14 +3,11 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaCore
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperRootDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMemberNoPair
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
 import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCubeHolds
-import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRank
 import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCube
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1DSmall
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

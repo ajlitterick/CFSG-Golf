@@ -3,14 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLangRatFixedChassis
 public import Certificates.Certificate13659
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.BigAnyStep
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimple
 import CFSG.LocalAnalysis.StandardType.GGLangCoroot
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigid
-import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl
-import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
-import CFSG.LieType.Chevalley.WeylRoots
-import CFSG.LieType.Chevalley.KernelComponentRoots
-import CFSG.HardMathSupport.Timmesfeld.RootAut.Orbit
 import CFSG.LocalAnalysis.StandardType.GGLangRatCentreSqInner
 import CFSG.LocalAnalysis.StandardType.GGLangRatNegOneFrame
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc

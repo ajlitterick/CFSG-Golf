@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.TwoF4Lie.Data
 public import Certificates.Data.Kernel.TwoF4LieK
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

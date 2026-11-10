@@ -34,10 +34,6 @@ import CFSG.RankThree.PartTwo.Sec4.Statements423
 import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.RankThree.PartTwo.Sec8.Steps
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.PSL2Facts
-import CFSG.Walter.W67.Statements
 
 public section
 

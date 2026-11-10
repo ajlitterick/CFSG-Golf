@@ -1,14 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldFixGraph
-public import CFSG.Sporadic.SmallOddCore.HeLocalCheck
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourCertificate
 public meta import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldFixGraph
 public meta import CFSG.Sporadic.SmallOddCore.HeLocalCheck
 public meta import CFSG.Sporadic.SmallOddCore.ClassSimple
 public meta import Certificates.Data.CFSGNative.PSL3Four.Basic
 public meta import Certificates.Data.CFSGNative.PSL3Four.Certificate
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldFixIsoCheckInputs
 public import Certificates.Certificate2020
 
 public section

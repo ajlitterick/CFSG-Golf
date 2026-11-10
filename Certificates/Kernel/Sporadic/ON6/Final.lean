@@ -7,9 +7,6 @@ public import Certificates.Kernel.Sporadic.ON6.ChecksQ
 public import CFSG.Certificates.Kernel.Spor.ChainGKSound
 public import Certificates.Kernel.Sporadic.ON5.Final
 public import CFSG.Sporadic.Schreier.ONCheckSmallInputs
-public import CFSG.Sporadic.Schreier.ONCheckSmallInputs
-import Certificates.Kernel.Sporadic.ON.Gen
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.LocalCompSPCode
 import CFSG.LocalAnalysis.ComponentInitial.Finkelstein1977Commuting
 

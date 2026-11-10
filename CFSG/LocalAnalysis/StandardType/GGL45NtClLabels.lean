@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
-public import CFSG.LocalAnalysis.StandardType.GGL45NtClRecipes
 public import CFSG.LocalAnalysis.StandardType.GGL45NtClLinCore
 public import CFSG.LocalAnalysis.StandardType.GGL45NtClUniCore
 public import CFSG.LocalAnalysis.StandardType.GGL45NtClOrthCore

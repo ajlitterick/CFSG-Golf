@@ -2,14 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33SRCommon
 public import CFSG.LocalAnalysis.ComponentClassification.BMCaseBabySchreier
-public import CFSG.Monster.B.CTIB.FourClasses
-public import CFSG.Monster.B.CTIB.CoreCensus
-public import CFSG.Monster.B.CTIB.Rank2158
-public import CFSG.Monster.B.CTIB.Rank2158Witness
 public import CFSG.Monster.B.CTIB.DistThreeProductFinal
 public import CFSG.Monster.B.GSide.HInnerFusion
-public import CFSG.Monster.B.Cbar.Simple
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 public import CFSG.ClassicalInvolution.Models.LinearPairs
 public import CFSG.ClassicalInvolution.SubnormalClosure
 public import CFSG.ClassicalInvolution.WeakCT.Main

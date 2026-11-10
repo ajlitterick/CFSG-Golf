@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2LU4Weyl
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHyperbolic
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneUnitaryLabel
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalSCRows
 

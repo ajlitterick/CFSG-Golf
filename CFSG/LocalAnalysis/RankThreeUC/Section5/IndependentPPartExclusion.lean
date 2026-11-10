@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.ProofSupport.PPartAnnihilation.PPartAnnihilation
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.CharacteristicPrimeSubgroup
-public import CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 import all CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 
 public section

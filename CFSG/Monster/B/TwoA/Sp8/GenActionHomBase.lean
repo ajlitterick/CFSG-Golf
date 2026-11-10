@@ -2,32 +2,7 @@
 module
 
 public import CFSG.Monster.B.TwoA.Sp8.GenActionGenBase
-public import TauCeti.LinearAlgebra.BilinearForm.Isometry
 public meta import CFSG.Monster.B.TwoA.Sp8.GenActionGenBase
-public import CFSG.Monster.B.TwoA.Sp8.GenActionConjBase
-public import CFSG.Monster.B.TwoA.Sp8.LiftsInputs
-public import CFSG.Monster.B.TwoA.Sp8.A8Inputs
-public import CFSG.Monster.B.TwoA.Sp8.GenActionLiftsInputs
-public import CFSG.Monster.B.TwoA.Sp8.GenActionDiffInputs
-public import CFSG.Monster.B.TwoA.Sp8.GenActionConjInputs
-public import Certificates.Data.CFSGNative.MonsterB.Short
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import CFSG.Certificates.Kernel.AxisPlane.Orbit
-public import Certificates.Data.Kernel.VisFrame.Gens
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
-public import CFSG.Monster.B.TwoA.Co2Inv.ConjCertInputs
-public import CFSG.Monster.B.TwoA.Co2Inv.FrameCertInputs
-public import CFSG.Monster.B.Rep4371.SmallFaithfulBase
-public import CFSG.Monster.B.Gen.Max2AssemblyBase
-public import CFSG.Monster.B.Gen.PacketGenerationBase
-public import CFSG.Monster.B.Gen.EbarPairing
-public import CFSG.Monster.B.Cbar.SimpleAux
-public import CFSG.Monster.B.Rep4371.FaithfulImageInputs
-public import CFSG.Monster.B.TwoA.Base.WCls
-public import CFSG.Monster.B.TwoA.Census.PermBFS
-public import CFSG.Monster.B.TwoA.Co2Inv.Data
-public import CFSG.Monster.B.TwoA.Co2Inv.RowsInputs
 
 @[expose] public noncomputable section
 

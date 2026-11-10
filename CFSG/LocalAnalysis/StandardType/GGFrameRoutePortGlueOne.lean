@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP8
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTransport
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwo
 import CFSG.LocalAnalysis.StandardType.GGHalfFiveInnAll
 import CFSG.GroupTheory.ElementaryAbelianTransport
 public import Certificates.Kernel.ThCent.Leaves

@@ -14,8 +14,6 @@ import all CFSG.Blueprint.NativeSporadic
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import CFSG.Certificates.Kernel.Common.Harness
 import Certificates.Kernel.Sporadic.BrChain
-import Certificates.Kernel.Sporadic.OrdCommon
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

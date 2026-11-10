@@ -7,8 +7,6 @@ public import Certificates.Kernel.Co1KOrb.Glue
 public import Certificates.Kernel.Co1M.G16954
 public import Certificates.Kernel.Co1FiveK.GlueB
 public import CFSG.Certificates.Kernel.Co1PumpFixSound
-public import CFSG.Certificates.Kernel.SporSch.Co1ActLemmas
-public import CFSG.Sporadic.Co1Block.Perm
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1FiveBase
 import all Init.Data.Nat.Fold
 import all Init.Data.Range.Basic

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
-public import CFSG.CGT.PushingUpLit.BHS.Replacement
-public import CFSG.RankThree.PartOne.S9.Defs
 public import CFSG.Quasithin.Background.A1bBasic
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer

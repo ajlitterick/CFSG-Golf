@@ -1,15 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
-public import CFSG.LieType.CurtisTits.Reduction
-public import CFSG.LieType.Steinberg.PartB
 import CFSG.LocalAnalysis.StandardType.GGStdPosCardScalar
 import CFSG.LocalAnalysis.StandardType.GGStdPosTorusFix
-import CFSG.LocalAnalysis.StandardType.GGPresentation
-import CFSG.LieType.Steinberg.BruhatWeyl
-import CFSG.LieType.RootSystem.Parabolic
-import Mathlib.RingTheory.RootsOfUnity.Basic
-import Mathlib.Tactic.Group
 
 public section
 

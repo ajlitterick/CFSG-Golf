@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.BarSubBar2
 import all CFSG.LocalAnalysis.UniquenessCase.PartTwo.BarSubBar2
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC6Fix
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.OmegaSixMinusHolds

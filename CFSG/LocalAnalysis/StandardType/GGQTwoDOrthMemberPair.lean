@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthMemberTrans
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthPaths
 import CFSG.LocalAnalysis.StandardType.GGQTwoDModelMain
-import CFSG.LocalAnalysis.StandardType.GGQTwoSU34Aux5
 
 public section
 

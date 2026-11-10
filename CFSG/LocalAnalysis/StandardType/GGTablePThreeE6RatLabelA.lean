@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabel
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSL
 import CFSG.LocalAnalysis.GLTheoremA.CatC.RationalTypeAModel
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAll
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAut
 import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ExcInnTypeA
 import CFSG.LocalAnalysis.GLTheoremA.CatA.KD147cMat
 import CFSG.LocalAnalysis.GLTheoremA.S10.Bridge

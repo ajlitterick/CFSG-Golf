@@ -5,14 +5,12 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.LowDimSection.GLTwo
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.LowDimSection.GLThree
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.LowDimSection.SpFour
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.LowDimSection.Out
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.LowDimSection.Defs
 public import CFSG.Quasithin.Background.DicksonPerfectPSL2
 public import CFSG.RankThree.PartOne.KF.BloomClose
 public import CFSG.RankThree.PartTwo.Sec4.Census.Item44ThreeGL
 public import CFSG.RankThree.SubgroupLists.MitchellQuasisimple
 public import CFSG.RankThree.SubgroupLists.MitchellPartThreeProof
 public import CFSG.RankThree.SubgroupLists.SymplecticFischerSp
-public import CFSG.RankThree.SubgroupLists.SymplecticFischerOrth
 public import CFSG.RankThree.SubgroupLists.SymplecticFischerUnitary
 public import CFSG.RankThree.SubgroupLists.SymplecticFischerRefl
 public import CFSG.RankThree.PartOne.TCB.SchreierFinal

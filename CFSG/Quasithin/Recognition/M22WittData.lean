@@ -3,12 +3,7 @@ module
 public import CFSG.Quasithin.Recognition.M22UniqueSystem
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
 public meta import CFSG.Quasithin.Recognition.M22UniqueData
-public import Certificates.Certificate2031
-public import Certificates.Certificate2035
-public import Certificates.Certificate2195
 public import Certificates.Certificate7042
-public import Certificates.Certificate7041
-public import Certificates.Certificate3029
 public import CFSG.Quasithin.Recognition.UniquenessSystemCriterion
 public import CFSG.Quasithin.Recognition.UniquenessSystemPairs
 public import CFSG.Quasithin.Recognition.UniquenessSystemRecognition

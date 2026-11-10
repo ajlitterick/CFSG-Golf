@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSUNonsplitTwoBlockCyc
 public import CFSG.RankThree.PartOne.KC.UnitaryPrimarySelfDual
-public import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryNorm
 public import Mathlib
 
 public section

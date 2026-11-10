@@ -3,8 +3,6 @@ module
 public import Mathlib.GroupTheory.Sylow
 import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
 import CFSG.GroupTheory.CoprimeActionSupport.NormalSubgroupSylowJoin
-import Mathlib.Algebra.Group.Subgroup.Pointwise
-import Mathlib.GroupTheory.Coset.Card
 import CFSG.Open.Defs
 
 public section

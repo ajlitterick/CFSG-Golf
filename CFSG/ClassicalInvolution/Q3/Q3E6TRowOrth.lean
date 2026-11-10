@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3E8BRowOrth
 public import CFSG.ClassicalInvolution.Q3.Q3E6TRowArith
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6PerpOrth
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.GroupTheory.OddKernelImage
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 public import CFSG.GroupTheory.SubgroupOfLattice
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Complements
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 public import CFSG.GroupTheory.SteinbergBSQuotientLifting
 public import CFSG.LocalAnalysis.StandardType.GGOTwoPrimeMap
@@ -58,9 +56,7 @@ public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeSetting
 public import CFSG.RankThree.PartOne.KC.UnitaryLiftBlocks
 public import CFSG.RankThree.PartOne.KF.UnitaryModel
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

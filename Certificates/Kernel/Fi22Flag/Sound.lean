@@ -4,9 +4,7 @@ public import Certificates.Kernel.Fi22Flag.ChkDefs
 public import Certificates.Kernel.Fi22Syl.Final
 public import CFSG.Sporadic.Fi22.Classes
 import Certificates.Kernel.Fi22Flag.Checks
-import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib
 
 public section
 

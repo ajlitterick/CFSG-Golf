@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Monster.B.Classical.UnitarySixCounts
-public import Mathlib.Combinatorics.SimpleGraph.StronglyRegular
 public import CFSG.Monster.B.Classical.UnitarySixPoints
-public import Mathlib.LinearAlgebra.Projectivization.Cardinality
 
 public section
 

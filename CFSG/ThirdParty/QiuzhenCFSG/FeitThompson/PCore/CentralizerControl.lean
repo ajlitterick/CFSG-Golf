@@ -6,18 +6,12 @@ import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.ActionTriviality
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.CoprimeAction
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.CyclicSylow
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.Core
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Faithful
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.CentralizerCondition
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.CoprimeHall
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.NormalSubgroups
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
-import Mathlib.GroupTheory.SpecificGroups.ZGroup
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Core
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.BaerCore
 
 namespace CFSG
 end CFSG

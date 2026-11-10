@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBE6IndTwistWeyl
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviHom
-public import CFSG.LieType.Chevalley.GraphFixedCompatibleDiagonal
-public import CFSG.LieType.Steinberg.CentralExt.SUThree
 public import CFSG.LocalAnalysis.StandardType.GGTwE6LangRank
-public import CFSG.LieType.Chevalley.GraphFixedSchreier
 
 public noncomputable section
 

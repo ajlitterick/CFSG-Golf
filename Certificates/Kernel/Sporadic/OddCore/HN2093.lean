@@ -5,7 +5,6 @@ public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Sporadic.OddCore.LinesCmd
 public import CFSG.Certificates.Kernel.Spor.DecLinesRead
 public import CFSG.Sporadic.HNOddCore.WCheckInputs
-public import CFSG.Sporadic.Schreier.ONPermArr
 meta import CFSG.Sporadic.HNOddCore.WCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
 

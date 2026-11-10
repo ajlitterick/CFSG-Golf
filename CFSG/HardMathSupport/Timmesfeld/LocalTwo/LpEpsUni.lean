@@ -4,7 +4,6 @@ public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LpEpsUpper
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LpEpsTorus
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryDiag
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryBalPlane
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryOuter
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryFamily
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField
 

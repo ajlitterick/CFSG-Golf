@@ -2,12 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBH3T5
 import CFSG.ClassicalInvolution.SmallCases.NDBH1
-import CFSG.ClassicalInvolution.SmallCases.NDBC1
 import CFSG.ClassicalInvolution.Q3.StrongBalance
-import CFSG.ClassicalInvolution.Asc77.WP3FrameStar
-import CFSG.ClassicalInvolution.Balance.BootstrapAlphaDelta
-import CFSG.ClassicalInvolution.Balance.PassTwo
-import CFSG.ClassicalInvolution.Generic.StepQuasisimple
 import CFSG.ClassicalInvolution.Q3.OddCoreCentral
 
 public section

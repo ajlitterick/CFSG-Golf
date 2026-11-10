@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KOdd2Abs
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

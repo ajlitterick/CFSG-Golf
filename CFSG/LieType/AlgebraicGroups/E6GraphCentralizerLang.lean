@@ -2,11 +2,7 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.E6GraphCentralizerLangOrbits
 public import CFSG.LieType.AlgebraicGroups.ConnectedToralLang
-public import CFSG.LieType.Chevalley.GraphFixedRootNormal
-public import CFSG.LieType.Chevalley.GraphFixedOrbitCollection
 public import CFSG.LieType.Chevalley.E6SignedGraphBruhat
-public import CFSG.LieType.Chevalley.E6SignedGraphCollection
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

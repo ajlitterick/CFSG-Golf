@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.B2Module
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.CenBOdd
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.CenTauSylow
-import Mathlib.FieldTheory.Finite.Basic
-import Mathlib.GroupTheory.Nilpotent
 
 @[expose] public section
 

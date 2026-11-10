@@ -4,11 +4,7 @@ module
 public import Certificates.Kernel.SporSch.Ru.Gens
 public import Certificates.Kernel.SporSch.Ru.JChain
 public import Certificates.Kernel.Misc.Tits.Text
-public import Certificates.Kernel.Sporadic.RawGen
-public import Certificates.Kernel.Misc.Perm.HexCmd
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Quasithin.Recognition.RuRank3RuIsoDataInputs
-public import Certificates.Data.Kernel.SporSch.RuK
 meta import CFSG.Quasithin.Recognition.RuRank3RuIsoDataInputs
 import CFSG.Certificates.Kernel.Common.Harness
 

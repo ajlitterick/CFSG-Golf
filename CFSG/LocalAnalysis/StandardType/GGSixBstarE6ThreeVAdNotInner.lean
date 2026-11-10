@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeFaithful
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotFieldNormalizeTorus
-public import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
 public import CFSG.HardMathSupport.Lang.Proving.CubeClassField
 
 public section

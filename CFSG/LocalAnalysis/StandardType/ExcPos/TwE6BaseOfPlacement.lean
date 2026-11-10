@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6FrameDefs
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6Datum
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6OrbitClause
-public import CFSG.LocalAnalysis.StandardType.GGLieBridgeHom
 public import CFSG.LocalAnalysis.StandardType.GGLieBridgeComp
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreCentOrbit
 

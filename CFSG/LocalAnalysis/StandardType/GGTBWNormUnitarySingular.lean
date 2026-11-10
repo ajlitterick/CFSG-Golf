@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormFixedFree
 public import CFSG.LocalAnalysis.StandardType.GGTDModelUPerm
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitaryCover
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosureRefl
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcModel
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosBlockAux3
-public import CFSG.ClassicalInvolution.Balance.StrongPowSuBlocks
 
 public section
 

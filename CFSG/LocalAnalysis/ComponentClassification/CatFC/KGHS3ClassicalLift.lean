@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFC.KGHS3Config
 public import CFSG.LocalAnalysis.ComponentClassification.CatFC.KGHS3Lift
-public import CFSG.Open.StatedDefs
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Rows
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 
 public section

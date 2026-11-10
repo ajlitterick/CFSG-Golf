@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Struct
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Base
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92StepAux
 
 public section

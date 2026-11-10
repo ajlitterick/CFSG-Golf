@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Recognition.St84.TransferG24Data
-public import CFSG.GroupTheory.AlternatingFive.NaturalModule
 public import CFSG.GroupTheory.AlternatingFive.TwoCoreQuotient
 public import CFSG.Quasithin.Background.SpecialPGroupCenter
 public import CFSG.GroupTheory.KleinFourCocycle
@@ -10,9 +9,6 @@ public import CFSG.Quasithin.Recognition.St84.TreeBase
 public import CFSG.Quasithin.Recognition.St84.G24Tools
 public import CFSG.Quasithin.Recognition.St84.G24Data
 public import CFSG.Quasithin.Recognition.Stroth.Y9Transport
-public import CFSG.Quasithin.Recognition.F112J2Act
-import CFSG.Quasithin.Background.C35InspSp4A
-import CFSG.Quasithin.Recognition.GoldschmidtF112RPerfect
 public import CFSG.CGT.PushingUpLit.BHS.OffenderInternal
 public import CFSG.GroupTheory.PrimeCorefreeQuasisimple
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldNaturalAction

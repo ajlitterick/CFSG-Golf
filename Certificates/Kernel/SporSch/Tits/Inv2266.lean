@@ -6,7 +6,6 @@ public import Certificates.Kernel.SporSch.Tits.Inv2266ENk
 public import Certificates.Kernel.SporSch.Tits.Inv2266ENc
 public import Certificates.Kernel.SporSch.Tits.Inv2266K
 public import Certificates.Kernel.SporSch.Tits.Inv2266D2
-public import CFSG.Certificates.Kernel.Spor.SiftRSound
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

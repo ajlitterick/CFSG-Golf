@@ -1,6 +1,5 @@
 module
 public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.QuotientGroup.Basic
 import Mathlib.Tactic
 
 namespace CFSG

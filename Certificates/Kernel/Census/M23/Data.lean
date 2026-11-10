@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Census.M23.Chain
-public import Certificates.Data.Kernel.Census.Packed
 import CFSG.Certificates.Kernel.Common.JsonGzC
 import CFSG.Certificates.Kernel.Common.Repo
 

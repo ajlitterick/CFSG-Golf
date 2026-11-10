@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosure
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Defs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
 public import CFSG.LocalAnalysis.StandardType.GGSignedPermCount
 public import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpFrame
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 
 public section
 

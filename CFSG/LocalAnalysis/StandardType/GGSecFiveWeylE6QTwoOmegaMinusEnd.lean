@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaMinusCard
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoUnitaryAux
 import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.WeakBlockModuleData.SixLieOutOrth
 import CFSG.GroupTheory.MulAutTrivialOnSubgroup
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 import CFSG.LocalAnalysis.StandardType.GGF4QTwoHypA
 import CFSG.GroupTheory.OddAbelianInvolutionDecomp
 

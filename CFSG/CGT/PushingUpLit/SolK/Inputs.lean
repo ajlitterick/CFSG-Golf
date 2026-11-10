@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTightEmbeddingData
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherKnownGroupFacts
-public import CFSG.RankThree.PartOne.S12.PushingUp
 public import CFSG.CGT.PushingUp.Defs
 public import CFSG.CGT.Timmesfeld75.Defs
 

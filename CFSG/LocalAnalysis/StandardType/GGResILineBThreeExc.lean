@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGResILineAutBound
 public import CFSG.LocalAnalysis.StandardType.GGKGAF4Aut
 public import CFSG.LocalAnalysis.StandardType.GGPumpTwExcKnownHolds
-public import CFSG.LocalAnalysis.StandardType.GGTableB
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
 
 public section
 

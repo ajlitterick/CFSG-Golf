@@ -3,29 +3,13 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEsu
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSExcl
-public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLDefs
 import Lean
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnolaLabel
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGQTwoNativeGen
 public import CFSG.LocalAnalysis.StandardType.GGNbrU63
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsu
 import CFSG.LocalAnalysis.StandardType.GGQTwoNbrG1
 import CFSG.LocalAnalysis.StandardType.GGQTwoNbrRecAuxKb
-import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
 import CFSG.LocalAnalysis.StandardType.GGTorusGenRkComp
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeBlock
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSU
-import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSU
-import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutMain
-import CFSG.ClassicalInvolution.Balance.StrongPowSuBlocks
 
 public section
 

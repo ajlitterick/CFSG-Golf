@@ -3,14 +3,12 @@ module
 
 public import CFSG.GH74.GLS.C3.Layer2.L5A1Base
 
-public import CFSG.GH74.GLS.C3.Layer2.L5Fin
 public meta import Mathlib.GroupTheory.SpecificGroups.Alternating
 public meta import CFSG.GH74.GLS.C3.Prop121.ModelFive
 public meta import CFSG.GH74.GLS.C3.Layer2.FinModelDefs
 public meta import CFSG.GH74.GLS.C3.Layer2.FinModelEmb
 public meta import CFSG.GH74.GLS.C3.Layer2.NumMoved
 public meta import CFSG.GH74.GLS.C3.Layer2.L5Fin
-public import CFSG.GH74.GLS.C3.Layer2.L5A1Inputs
 public meta import CFSG.GH74.GLS.C3.Layer2.L5A1Inputs
 public import Certificates.Certificate5045
 

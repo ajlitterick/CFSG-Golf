@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Census.Carrier.G2ThreeData
 public meta import CFSG.RankThree.PartTwo.Census.Carrier.G2ThreeData
 public import Certificates.Certificate8150
 public meta import Mathlib

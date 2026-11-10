@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GWLemma21
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Definitions
 import Mathlib.Tactic
 

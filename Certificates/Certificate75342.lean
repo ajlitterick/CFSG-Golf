@@ -1,24 +1,11 @@
 module
 
-public import CFSG.Sporadic.Co2Cert.Cert
 public import CFSG.Sporadic.Co2Schreier.Defs
 import Certificates.Kernel.Asch54.Co2GenP
-import Certificates.Kernel.Sporadic.Co2.Order
 import Certificates.Kernel.SporSch.Co2M.FratG
-import Certificates.Certificate2049
-import Certificates.Certificate2060
-import Certificates.Certificate3115
-import Certificates.Certificate3117
 import CFSG.Certificates.Kernel.Asch54.Co2Sound
-import CFSG.Certificates.Kernel.Spor.RawTreeSound
-import CFSG.Certificates.Kernel.Spor.RawOrbHead
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Spor.RawSiftK
 import CFSG.Certificates.Kernel.Spor.SiftBKProof
-import CFSG.Certificates.Kernel.Spor.PrimSound
-import CFSG.Certificates.NativeSchreierCard
 import CFSG.Sporadic.Co2Schreier.Chains
-import CFSG.Sporadic.Co2Cert.Order
 import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutTables
 import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBSSuzFacts
 import CFSG.Certificates.Kernel.Common.Harness

@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4RestLocal
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLNonsplitRank
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviSp6B3
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotTwistLevi
 public import CFSG.RankThree.Chevalley.SteinbergBNF4NativeA2
-public import CFSG.LieType.Ree.LargeReeA1Pair
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Pairs
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
@@ -24,7 +20,6 @@ public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotToralCentralizer
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 
 public section

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkSixLift
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUAct
-public import CFSG.LocalAnalysis.RankThreeEvenClassification.AbelianComplementConjugacy
 
 public section
 

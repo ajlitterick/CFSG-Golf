@@ -4,16 +4,13 @@ public import CFSG.LocalAnalysis.ComponentInitial.PerfectCentralQuotientOuter
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherRankOneSchreier
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCentralCover
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionClassFreeAffineHullAutomorphisms
 public import CFSG.LieType.BorelTits.Suzuki
 public import CFSG.StronglyEmbedded.MatrixGroups.PSU3Model
-import CFSG.Models.BenderSuzuki
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LieType.Ree.SuzukiSimple
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public noncomputable section
 

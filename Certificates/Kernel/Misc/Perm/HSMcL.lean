@@ -1,15 +1,11 @@
 module
 
-public import CFSG.RankThree.Native.HSMcLAuxData
-public import CFSG.Sporadic.Schreier.PairHSCert
-public import Certificates.Data.CFSGNative.Schreier.Check
 public import CFSG.RankThree.Native.HSMcLSmallCheckInputs
 public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Certificates.Kernel.Misc.PairCountSound
 public import CFSG.Certificates.Kernel.Misc.PermClosSound
-public import CFSG.Monster.B.Co2.PermArr
 import Certificates.Kernel.Misc.Perm.HexCmd
 import CFSG.Certificates.Kernel.Common.Harness
 meta import CFSG.RankThree.Native.HSMcLSmallCheckInputs

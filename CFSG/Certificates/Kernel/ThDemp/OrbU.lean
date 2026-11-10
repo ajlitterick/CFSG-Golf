@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Certificates.Kernel.ThDemp.OrbPtsBase
-import Mathlib.Tactic.IntervalCases
 
 public section
 

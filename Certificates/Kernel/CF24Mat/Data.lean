@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.LocalComp.SurjGen
 public import Certificates.Data.GSThmBCatalog7CF24
 meta import Certificates.Data.CFSGNative.Bridge.SuzGPL

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.HS100.ChainData
 public import Certificates.Data.Kernel.BfsPinBase
 public import Certificates.Data.Kernel.Misc.ArrEnum

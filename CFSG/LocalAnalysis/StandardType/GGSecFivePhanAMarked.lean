@@ -1,15 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanADefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPhanA5Defs
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanPrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGPhanMarkedA
-public import CFSG.LocalAnalysis.StandardType.GGPhanCentralQuotient
-public import CFSG.LocalAnalysis.StandardType.GGPropFiveTwentyOneDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanSystem
 import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagUnitary
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Weyl
-import CFSG.GH74.L5U5.IdentUnitary
 
 public section
 

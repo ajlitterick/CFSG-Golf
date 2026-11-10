@@ -7,7 +7,6 @@ public import Certificates.Kernel.Sporadic.J3K.ChecksW
 public import Certificates.Kernel.Sporadic.J3K.ChecksR
 public import CFSG.Certificates.Kernel.Spor.SlpCard
 public import CFSG.Certificates.Kernel.Spor.VOrbSound
-public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Certificates.Kernel.Spor.TabWords
 public import CFSG.Certificates.Kernel.Bounds.J3Alt.RelsTC
 public import Certificates.Certificate9119
@@ -16,11 +15,7 @@ import CFSG.Certificates.Kernel.LocalCompSPCode
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
-public import Mathlib
 import CFSG.LocalAnalysis.ComponentInitial.Finkelstein1977Commuting
 
 public section

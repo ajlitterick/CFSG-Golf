@@ -3,12 +3,7 @@ module
 public import Certificates.Kernel.J4Q.X0
 public import CFSG.Sporadic.J4.QT2LocCntNative
 import Certificates.Kernel.J4Q.Strs
-public import CFSG.Blueprint.MatrixSeedIdentification
 public import CFSG.Certificates.Kernel.J4Q.RepQT
-public import CFSG.Certificates.SchreierStabilizerGenerators
-public import CFSG.Sporadic.J4.ParSpec
-public import CFSG.Sporadic.J4.Setup
-public import Certificates.Data.Kernel.J4Q.MatChk
 
 public section
 

@@ -1,16 +1,10 @@
 module
 
-public import CFSG.Monster.GMS.S365CentPathSpec
-public import CFSG.Monster.GMS.S365CentRootSpec
-public import CFSG.Monster.GMS.S365CentDefs
-public import Certificates.Data.CFSGNative.Co1.S365CentWit
-public import CFSG.Monster.GMS.S365CentWitSpecInputs
 public import Certificates.Kernel.Co1M.C10037
 public import Certificates.Kernel.Co1M.Wit10040
 public import Certificates.Kernel.Co1M.Data10040
 public import CFSG.Certificates.Kernel.Co1M.GmsWitSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic
 
 public section
 

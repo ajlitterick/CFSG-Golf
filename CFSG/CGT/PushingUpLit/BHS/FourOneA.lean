@@ -2,7 +2,6 @@ module
 
 public import CFSG.CGT.PushingUpLit.BHS.FourDefs
 public import CFSG.CGT.PushingUpLit.BHS.GlaubThmOne
-public import CFSG.Quasithin.Background.B19Basic
 public import CFSG.Quasithin.Background.D2Offenders
 
 public section

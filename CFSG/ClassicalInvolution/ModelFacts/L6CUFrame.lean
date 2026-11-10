@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.L6CUBase
-public import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryHermitian
 
 public section
 

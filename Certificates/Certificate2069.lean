@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2069Base
 
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckBase
 public meta import CFSG.Monster.B.Fischer.Fi22CoverCheckBase
 public meta import CFSG.Monster.B.Fischer.Fi22OrderCheck

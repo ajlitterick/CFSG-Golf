@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamTameOrbit
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimple
 
 public section
 

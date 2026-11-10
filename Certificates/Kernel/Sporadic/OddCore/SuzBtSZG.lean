@@ -2,11 +2,8 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzBtZG
 public import Certificates.Kernel.Sporadic.OddCore.SuzBtSZF
-public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3B0Model
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.HeFixKFix
-import Mathlib.Tactic.IntervalCases
 
 public section
 

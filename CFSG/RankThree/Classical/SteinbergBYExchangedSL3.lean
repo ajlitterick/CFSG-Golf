@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.Classical2.SLnRootPermutingFixedGroups
-public import CFSG.LieType.CurtisTits.Recognition
 public import CFSG.Assembly.Subnormal
 
 public section

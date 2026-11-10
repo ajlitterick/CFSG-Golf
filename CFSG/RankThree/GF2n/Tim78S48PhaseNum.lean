@@ -4,8 +4,6 @@ public import CFSG.RankThree.GF2n.Tim78S48PhaseCoord
 public import CFSG.RankThree.GF2n.Tim78S48PhaseFrob
 public import CFSG.RankThree.GF2n.Tim78S48PhaseCartan
 import CFSG.CGT.Timmesfeld75.L2Aut
-import CFSG.RankThree.GF2n.Tim78S45Aux
-import CFSG.RankThree.GF2n.Tim78Involution
 import CFSG.RankThree.GF2n.Tim78Layers
 import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore

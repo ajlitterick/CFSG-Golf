@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434CharThree
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434CharThreeL3Tools
 import CFSG.LieType.Steinberg.CentralExt.SLCentrallyClosed
-import CFSG.RankThree.PartTwo.Sec4.T444.Item434AltPerm
 import CFSG.RankThree.PartTwo.Sec5.Tools
 import CFSG.RankThree.PartTwo.Source.GammaTwoSubgroups
 public import Certificates.Kernel.ThCent.Leaves

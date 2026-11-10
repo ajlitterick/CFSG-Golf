@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitTableP
 
 import CFSG.LocalAnalysis.GLTheoremA.CatB.H1016M3TwE6Rank
-import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoRank
-import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDispEA
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDispUA
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDispUC

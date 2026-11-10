@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveF4
 import CFSG.Quasithin.Vol2.Ch12Sec6P31Kl2
-import CFSG.Adapters.LinearFieldTransport
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.LieType.Multipliers.ProductKernel
 import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
@@ -15,8 +13,6 @@ import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 import CFSG.LocalAnalysis.SectionRank.TitsCover
 import CFSG.Open.StatedCenterThree
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M12
 import CFSG.Sporadic.Mathieu.M24

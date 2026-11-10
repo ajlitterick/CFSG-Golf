@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixComp
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDeleteA
-import CFSG.ClassicalInvolution.Phan.Center
-import CFSG.ClassicalGroups.Unitary.Finite
 import CFSG.LocalAnalysis.StandardType.GGNsq2QuotNorm
 
 public section

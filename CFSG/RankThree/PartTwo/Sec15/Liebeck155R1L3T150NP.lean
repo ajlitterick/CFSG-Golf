@@ -11,13 +11,8 @@ import CFSG.LieType.SteinbergBRUnitaryThreePerfect
 import CFSG.RankThree.PartTwo.Sec4.Item417Res7ProofD4Odd
 import CFSG.LargeExtraspecial.S8CBF3D4Sect
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OParab
-import CFSG.LieType.BorelTits.Twisted
 import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThmEWPf20U3Model
 import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.L3Sylow
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-import CFSG.Models.BenderSuzuki
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalGroups.Symplectic.Simple
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.LangRootArithmetic
@@ -43,7 +38,6 @@ public import CFSG.RankThree.PartTwo.Sec4.RonanK429Rows
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432Rows
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.Certificates.Kernel.Spor.ONKSound
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting

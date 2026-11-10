@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24DcInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatOfFacts
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatExport
 public import CFSG.Certificates.Kernel.SporLatDcPair
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieu
 
 set_option maxRecDepth 100000
 

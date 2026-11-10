@@ -1,20 +1,10 @@
 module
 
-public import CFSG.LieType.AlgebraicGroups.ClosedIdentityComponentFunctorial
-public import CFSG.LieType.AlgebraicGroups.TorusGroupClosed
-public import CFSG.LieType.AlgebraicGroups.CoordinateConjugation
-public import CFSG.LieType.AlgebraicGroups.DiagonalSubgroupTorus
 public import CFSG.LieType.AlgebraicGroups.TorusPointSubgroups
 public import CFSG.LieType.Chevalley.DiagonalCharTwo
-public import CFSG.LieType.AlgebraicGroups.ExactAffineRealization
-public import CFSG.LieType.AlgebraicGroups.ZariskiClosureFrobenius
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeNonToralCent
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeNonToralEmbed
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeNonToralClauses
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeNonToralCyclic
 public import CFSG.Permutation.FiveTransitive.KernelImageGeneration
-public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourToral
-public import CFSG.RankThree.PartOne.KE.D4LayerAlgebraic
 public import CFSG.LocalAnalysis.StandardType.GGE6MaximalCentralizerTorsion
 
 public noncomputable section

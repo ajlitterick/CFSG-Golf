@@ -1,22 +1,14 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixAux
-public import CFSG.LocalAnalysis.StandardType.GGTBJTypeDDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBJTypeDSupported
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
-public import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrCompare
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoMoves
 import CFSG.LocalAnalysis.StandardType.GGTorusWeylTypeEvenAux
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNormPlaneCoord
 public import CFSG.LocalAnalysis.StandardType.GGQTwoOrthogonalBlocks
-public import CFSG.Permutation.Embedding
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOmFrames
-public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Blocks
 public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.BlockGeneration
-public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.BlockCast
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitOmBlkCore
 
 public section

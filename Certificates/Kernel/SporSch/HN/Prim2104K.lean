@@ -1,9 +1,6 @@
 module
 
-public import Certificates.Kernel.SporSch.HN.Prim2104Data
 public import Certificates.Kernel.SporSch.HN.PtR
-public import Certificates.Data.Kernel.SporSch.HNXSub
-public import CFSG.Certificates.Kernel.Local.HN.X.Data
 public import Certificates.Kernel.SporSch.HN.PrimK.I0
 public import Certificates.Kernel.SporSch.HN.PrimK.I1
 public import Certificates.Kernel.SporSch.HN.PrimK.O0

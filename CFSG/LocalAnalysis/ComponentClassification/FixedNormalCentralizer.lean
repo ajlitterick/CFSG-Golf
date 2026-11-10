@@ -1,17 +1,7 @@
 module
 
-public import Mathlib
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-public import CFSG.Open.Defs
-public import CFSG.LocalAnalysis.ComponentClassification.Components
-public import CFSG.LocalAnalysis.ComponentClassification.LocalComponents
-public import CFSG.LocalAnalysis.ComponentClassification.TwoComponents
-public import CFSG.LocalAnalysis.ComponentClassification.OddKernelTwoComponents
 public import CFSG.LocalAnalysis.ComponentClassification.TwoComponentTransport
-public import CFSG.LocalAnalysis.ComponentClassification.CentralTwoKernelComponents
-public import CFSG.LocalAnalysis.ComponentClassification.FixedCommutingProduct
 public import CFSG.LocalAnalysis.ComponentClassification.OddKernelNormalizers
-public import CFSG.LocalAnalysis.ComponentClassification.InvolutionDiagonal
 public import CFSG.LocalAnalysis.ComponentClassification.PerfectCentralQuotient
 
 public section

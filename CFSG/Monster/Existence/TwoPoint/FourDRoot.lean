@@ -3,7 +3,6 @@ module
 public import CFSG.Monster.B.E6.StdF4Points
 public import CFSG.Monster.B.E6.GStarStructure
 public import CFSG.Monster.Existence.TwoPoint.FourDGroup
-import Mathlib.Tactic.Group
 
 public section
 

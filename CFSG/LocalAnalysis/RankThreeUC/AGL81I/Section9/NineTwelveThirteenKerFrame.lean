@@ -2,12 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTen
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineNineConseq
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.Base
 import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTwelveThirteenKerSetup
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenKStar
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenLayer
-import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.CGT.Timmesfeld75.Statements

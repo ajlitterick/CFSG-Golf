@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkOneDone
 public import CFSG.LocalAnalysis.StandardType.GGResHigherFieldI1
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGen
 
 public section
 

@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGRealKGThreeE6NonsplitLayer
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6NonsplitThreeHolds
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLatticeElt
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThree
-public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicExcSix
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwoTorus
 public import CFSG.LocalAnalysis.StandardType.GGL45E67Center
 
 public section

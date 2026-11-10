@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CGT.Timmesfeld75.Sec3Eleven
-public import CFSG.CGT.Timmesfeld75.Sec3TenCaseB3
 public import CFSG.CGT.Timmesfeld75.Sec3TenCaseB8
 public import CFSG.CGT.Timmesfeld75.Sec3TenCaseA
 

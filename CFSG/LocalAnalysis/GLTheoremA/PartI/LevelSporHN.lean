@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelSporCo
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNFiveShape
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNFiveRed
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HNFiveOrders
-public import CFSG.Sporadic.HNSchreier.Simple
-public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.KF148ONA7.SevenCent
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3SporFiveKit
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.ClassicalInvolution.Asc77.AscE184Basic
 public import CFSG.ClassicalInvolution.Asc77.AscE184Graph

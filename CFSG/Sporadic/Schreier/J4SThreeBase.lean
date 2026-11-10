@@ -4,19 +4,10 @@ module
 public import CFSG.Sporadic.Schreier.J4SThreeDataBase
 public import CFSG.Sporadic.Schreier.J4SOuterBase
 public import CFSG.Sporadic.Schreier.J4SInvolutionBase
-public import CFSG.GroupActions.SubgroupStabilizerOuterBound
-public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Schreier.J4SCols
-public import CFSG.Sporadic.Schreier.J4SFiveBase
-public import CFSG.Sporadic.Schreier.J4SPointwise
 public meta import CFSG.Sporadic.J4.PrimSpec
-public import CFSG.Sporadic.Schreier.J4SOrbitsBase
 public meta import CFSG.Sporadic.Schreier.J4SOrbitsBase
-public import CFSG.Sporadic.Schreier.J4SPrimes
 public meta import CFSG.Sporadic.Schreier.J4SPrimes
-public import CFSG.Sporadic.Schreier.J4SThreeDataInputs
 public meta import CFSG.Sporadic.Schreier.J4SKCentBase
-public import CFSG.Sporadic.J4.Local
 
 @[expose] public noncomputable section
 

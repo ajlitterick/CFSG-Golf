@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4X11Ord
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafOddB
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafInputs
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBasic
-public import CFSG.LocalAnalysis.ComponentClassification.PComponentNormalizerEnlargement
-public import CFSG.ClassicalGroups.Symplectic.Simple
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.LieType.Multipliers.ProductKernel

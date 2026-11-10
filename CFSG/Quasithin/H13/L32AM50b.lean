@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.H13.L32AM50a
-public import CFSG.Quasithin.H13.L32AC50c
 public import CFSG.Quasithin.H13.L32AC36j
 public import CFSG.Quasithin.H13.L32A705a
 public import CFSG.Quasithin.Background.SmithB42Alt7Ctx

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRCSShadowBasic
-public import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
 
 public section
 

@@ -2,13 +2,7 @@ module
 
 public import CFSG.Quasithin.H13.NQCatT513Lat
 public import CFSG.Quasithin.Background.A312SporJ1
-public import CFSG.Sporadic.Schreier.J1Faithful
-public import CFSG.Sporadic.Schreier.J1Order
-public import CFSG.Sporadic.Schreier.ImagePairs
-public import CFSG.Sporadic.Schreier.J1Tables
-public import CFSG.Sporadic.Schreier.J1CountCheckInputs
 public import Certificates.Certificate7193
-import CFSG.Blueprint.NativeSporadic
 
 public section
 

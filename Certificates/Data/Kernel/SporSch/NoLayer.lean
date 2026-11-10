@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.SporSch.MathieuOC
 public import Certificates.Data.Kernel.Spor.MEnum
-public import Certificates.Data.Kernel.Spor.Prim
 public import CFSG.Certificates.Kernel.Spor.BindList
 public import CFSG.Certificates.Kernel.Spor.RawSound
 

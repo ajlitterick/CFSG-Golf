@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogLargeReeNormalForm
 public import CFSG.LieType.Ree.LargeReeModelSchreier
 public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTriality
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 
 public section

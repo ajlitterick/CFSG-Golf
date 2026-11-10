@@ -1,10 +1,6 @@
 module
 
-public import CFSG.GH74.GLS.C3.Prop121.Card7H1
 public import CFSG.GH74.GLS.C3.Prop121.Card7H2
-public import Mathlib.Data.List.Sublists
-public import Mathlib.Data.List.ProdSigma
-public import Mathlib.Data.List.Nodup
 public meta import CFSG.GH74.GLS.C3.Prop121.Card7H1
 public meta import Batteries.Data.List.Basic
 public meta import Mathlib.Algebra.Group.End

@@ -1,9 +1,6 @@
 module
 
 public import Certificates.Data.J3Cover3
-public import Certificates.Kernel.Sporadic.RawGen
-public import Certificates.Kernel.Misc.Perm.HexCmd
-public import Certificates.Kernel.Sporadic.IntWordsCmd
 public meta import Certificates.Data.J3Cover3
 public meta import Certificates.Kernel.J3Ref.Bind
 import CFSG.Certificates.Kernel.Common.Harness

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangKGInputs
-public import Mathlib.GroupTheory.Index
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellBaumannTools
 import CFSG.Quasithin.Vol2.Ch12Sec8OneFlag
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellBasic

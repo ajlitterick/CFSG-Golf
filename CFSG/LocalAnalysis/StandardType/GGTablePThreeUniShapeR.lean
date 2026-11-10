@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniShapeDefs
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplitR
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniLiftThree
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniLift
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniRank
@@ -9,12 +8,8 @@ import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeR
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniNonCubeR
 import CFSG.Assembly.GL83StatedBridge
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsCaseLSU
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeForm
 import CFSG.LocalAnalysis.StandardType.GGSUNonsplitTwoBlockRestrict
 import CFSG.LocalAnalysis.ComponentClassification.BurgoyneUNormal
-import CFSG.LinearAlgebra.LinearGroups.UnitaryFourOrder
-import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryField
-import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.LocalAnalysis.ComponentClassification.BurgoyneUSlice
 
 public section

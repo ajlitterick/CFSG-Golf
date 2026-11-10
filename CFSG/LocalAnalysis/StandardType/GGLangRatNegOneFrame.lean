@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangRatCentreStmts
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
-import CFSG.HardMathSupport.Timmesfeld.RootAut.Count
 
 public section
 

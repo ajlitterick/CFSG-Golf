@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP10E6Pos
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP10E6Model
 public import CFSG.LocalAnalysis.StandardType.GGQTwoE6Realization
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryDesc
 
 public section
 

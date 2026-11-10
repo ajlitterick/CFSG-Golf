@@ -6,7 +6,6 @@ public import CFSG.Certificates.Kernel.BfsPinAlg
 public import CFSG.Certificates.Kernel.BfsPinBaseSound
 public import CFSG.RankThree.Native.HSMcLFiveCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.BfsPinSound
 
 public section

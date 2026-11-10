@@ -2,7 +2,6 @@ module
 
 import Lean
 public import CFSG.LocalAnalysis.StandardType.GGNsq2QuotAut
-public import CFSG.Assembly.GL83LieDefs
 
 public section
 

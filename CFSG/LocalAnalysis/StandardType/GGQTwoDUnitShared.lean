@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCoord
-public import CFSG.ClassicalInvolution.Balance.StrongPowSuBlocks
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitRankTwo
-import CFSG.LocalAnalysis.StandardType.GGQTwoSU34
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBlock
 import CFSG.LocalAnalysis.StandardType.GGQTwoSixGensWindows
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixDefs

@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.MS93.S46I469
 public import CFSG.Quasithin.MS93.S46X3Lin
 public import CFSG.Quasithin.MS93.S46SL2Sec
-public import CFSG.Quasithin.Background.G2SL2
 public import CFSG.Quasithin.MS93.S46T
 public import CFSG.Quasithin.Background.G13Core
 public import CFSG.Quasithin.Background.G1Module

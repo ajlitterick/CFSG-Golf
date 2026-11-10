@@ -3,13 +3,10 @@ module
 public import Certificates.Kernel.AS91Sx.SxX
 public import Certificates.Kernel.AS91Sx.SxY
 public import Certificates.Kernel.AS91Sx.SxCls
-public import CFSG.Certificates.Kernel.SporSch.MathieuClsSound
-public import CFSG.Certificates.Kernel.SporSch.MathieuOC2Sound
 public import CFSG.Certificates.Kernel.SporSch.ChainKCount
 public import CFSG.Certificates.Kernel.Spor.BindList
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Sporadic.SmallOddCore.CentSpec
-import Mathlib.Tactic.IntervalCases
 
 public section
 

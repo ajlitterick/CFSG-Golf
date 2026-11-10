@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Background.SmithB42LnL4Models
 public import CFSG.Quasithin.Background.SmithB42LnL4Gen
 public import CFSG.Quasithin.Background.SmithB45LnRank
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7Iso

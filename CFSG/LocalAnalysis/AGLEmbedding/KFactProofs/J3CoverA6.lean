@@ -1,17 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallSmallPKFacts
-public import CFSG.Sporadic.Bridge.TwoGen
 public meta import Certificates.Data.CFSGNative.Bridge.SurjA
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3CoverGroup
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3CoverOver
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3SylowPrim
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3SylowGroup
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3Sylow
 public import Certificates.Certificate9465
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting

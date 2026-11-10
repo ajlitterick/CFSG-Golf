@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2008Base
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallConfA8Inputs
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3A8Data
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallConfChecks2
 import Certificates.Kernel.Census.CatFacts.C2008

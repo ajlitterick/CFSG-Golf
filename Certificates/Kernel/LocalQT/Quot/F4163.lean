@@ -4,7 +4,6 @@ public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312RuY2Inputs
 public import Certificates.Kernel.LocalQT.Quot.C4163
 public import Certificates.Kernel.LocalQT.Quot.F4080
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312RuY2Inputs
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 200000
 

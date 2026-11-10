@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.G23RecogWordsInputs
-public import CFSG.Certificates.CosetTablePresented
 public import Certificates.Kernel.Bounds.Family
 
 open CFSG.CosetTable CFSG.GH74.QTGen4.Recog.G23

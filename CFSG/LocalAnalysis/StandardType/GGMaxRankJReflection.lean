@@ -3,32 +3,11 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGResMaxRankModel
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankE8Typed
 public import CFSG.LocalAnalysis.StandardType.GGLangExhaust
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
 public import CFSG.LocalAnalysis.StandardType.GGExcMaxToral
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.PlanesSetup
-public import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
-public import CFSG.LocalAnalysis.ComponentInitial.EscapingNotAlternating
-import CFSG.RankThree.PartOne.K133H.WeylKey
-import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCharE8
-import CFSG.LieType.AlgebraicGroups.ToralCentralizerIdentity
 
-public import CFSG.Alternating.Multipliers.OddKernel
-public import CFSG.CGT.PushingUpLit.BHSSym.Coxeter
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsTwAux.RatLayer
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TypeASplitConj
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TypeASuConj
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralChain
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralWeyl
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompChain
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSU
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAll
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAut
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
-public import CFSG.LieType.Chevalley.SignKernelPositiveRepresentatives
-public import CFSG.LieType.Chevalley.SimplyLacedFieldTwoCoverRoots
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.KD147cMat
-public import CFSG.LocalAnalysis.StandardType.GGFamIsolation
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelAssembly
 public import CFSG.LocalAnalysis.StandardType.GGLangWSLGamma
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RFam
@@ -38,11 +17,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 public import CFSG.RankThree.Classical2.SLnConjLemmas
 public import CFSG.RankThree.Classical2.SLnFrobeniusFormFixed
 
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTorus
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2UnitaryBasic
-public import CFSG.LieType.Chevalley.OrthogonalFixedOrbitMaps
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylTorusAut
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneCoord
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylOuterTransport
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsTwAux.ExcD4Layer

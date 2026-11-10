@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.Suz.Text2306
 public import Certificates.Kernel.Sporadic.SuzInv.Text1
-public import Certificates.Kernel.Misc.Perm.HexCmd
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Sporadic.SuzRecog.ChartTransferTests

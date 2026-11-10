@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMemberAux
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKnownDefs
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
 
 public section
 

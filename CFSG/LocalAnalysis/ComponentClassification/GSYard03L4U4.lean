@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSYard03Defs
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.ComponentClassification.GSYard02CoverL4U4
 import CFSG.GH74.Generic.S1.Exo.UniDescentAdj
 import CFSG.GH74.GLS.IVK.Proofs2.OddTools

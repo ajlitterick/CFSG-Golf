@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.CFSGNative.MonsterB.IntertwinerData
-public import Certificates.Data.CFSGNative.HS.SmallF2
 
 public section
 

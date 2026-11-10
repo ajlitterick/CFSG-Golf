@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Co1Patterson.AmalgamNative
-public import CFSG.Sporadic.Co1Patterson.AmalgamRigidInputs
 public import CFSG.Sporadic.Co1Patterson.TwistNativeCore
 public import Certificates.Certificate21158
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointPlusBorelModel

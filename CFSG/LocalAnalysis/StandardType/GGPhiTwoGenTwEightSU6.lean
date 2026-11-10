@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenTwEightDefs
-import CFSG.ClassicalInvolution.Phan.Standard
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigid
-import CFSG.LieType.Chevalley.E6GraphLeviTheta
 import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotQ2SwapRowOverlapModel
-import CFSG.RankThree.Chevalley.SteinbergBIRootSL2Tools
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFiveOrbit
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFiveRigid
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFiveTw

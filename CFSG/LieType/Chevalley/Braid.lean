@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.BraidWalk
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

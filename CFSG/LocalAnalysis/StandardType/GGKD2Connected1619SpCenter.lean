@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Contracts
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotTorus
 
 public section

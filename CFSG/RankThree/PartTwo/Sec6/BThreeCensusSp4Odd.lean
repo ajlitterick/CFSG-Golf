@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec6.BThreeCensusSp4
 public import CFSG.RankThree.PartTwo.Sec6.BThreeCensusSL3
 public import CFSG.RankThree.PartTwo.KFacts.AutPSp4Odd
 public import CFSG.RankThree.PartTwo.Sec4.Item47Bridges
-import CFSG.GH74.GLS.IVK.L2.Fixed
 import CFSG.LocalAnalysis.ComponentInitial.SymplecticPerfectCoverOuterPrime
 import CFSG.ClassicalGroups.Symplectic.ProjectivePerfect
 import CFSG.RankThree.SubgroupLists.CentralThreeLift
@@ -22,7 +21,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Item47Witness
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 public import CFSG.RankThree.PartTwo.Sec4.ProjSLEquiv
 public import CFSG.RankThree.PartTwo.Sec8.Statements
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

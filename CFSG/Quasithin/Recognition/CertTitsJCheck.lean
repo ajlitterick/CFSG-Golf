@@ -3,10 +3,6 @@ module
 
 public import CFSG.Quasithin.Recognition.CertTitsJCheckBase
 
-public import Std.Data.HashMap
-public import CFSG.Sporadic.Schreier.TitsStabCheck
-public import CFSG.Quasithin.Recognition.CertTitsEnum4
-public import CFSG.Quasithin.Recognition.CertVertexTable
 public meta import Std.Data.HashMap
 public meta import CFSG.Sporadic.Schreier.TitsData
 public meta import CFSG.Sporadic.Schreier.TitsArrays
@@ -21,7 +17,6 @@ public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public meta import CFSG.Quasithin.Recognition.CertTitsEnum4
 public meta import CFSG.Quasithin.Recognition.CertVertexTable
-public import CFSG.Quasithin.Recognition.CertTitsJCheckInputs
 public import Certificates.Certificate8073
 
 public section

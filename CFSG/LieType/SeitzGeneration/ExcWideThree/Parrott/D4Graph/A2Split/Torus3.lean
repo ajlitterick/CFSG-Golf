@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2Split.Torus
-public import CFSG.HardMathSupport.Lang.D4Three.DiagSquare
 
 public section
 

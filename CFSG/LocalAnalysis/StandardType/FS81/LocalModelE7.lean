@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.LocalModelE7Realized
 public import CFSG.LocalAnalysis.StandardType.FS81.RowSplit
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoBstar
 
 public section
 

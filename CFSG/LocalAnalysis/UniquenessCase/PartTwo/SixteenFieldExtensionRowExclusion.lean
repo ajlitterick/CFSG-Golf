@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenFieldExtensionExclusion
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightF8Pred
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenKbar
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CenterHopf
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S16RankF
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC4R51

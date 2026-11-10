@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Census.Pg.ClsData
 public import Certificates.Kernel.Census.Pg.ClsOrb
 import CFSG.Certificates.Kernel.Common.Harness
 

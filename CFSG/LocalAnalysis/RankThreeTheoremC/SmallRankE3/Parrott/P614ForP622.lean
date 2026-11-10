@@ -18,13 +18,8 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.Parrott.Final
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.Parrott.OuterFixedMain
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.Parrott.InnerFusionMain
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.Parrott.LThreeEpsCase
-import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.Families
 import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.L62Qrank
-import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.L62Catalog
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.K3.CatalogQLie
-import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.TableComplete
-import CFSG.HardMathSupport.Timmesfeld.Coordinator.ScopeBFrontier
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.CharacterTheory.CyclicBlocks.Family
@@ -125,7 +120,6 @@ public import CFSG.Quasithin.Background.B15P4LayerDict
 public import CFSG.Quasithin.Background.B1MoreNineG
 public import CFSG.Quasithin.Background.D14Normal
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.F1Amalgam
 public import CFSG.Quasithin.Background.F2Equiv
 public import CFSG.Quasithin.EmptyFaithful.S141Statements
@@ -190,11 +184,6 @@ public import CFSG.Sporadic.Schreier.RuLOdd
 public import CFSG.Sporadic.Schreier.RuZClass
 public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
-public import CFSG.Sporadic.Th.KernelPlanesBase
-public import CFSG.Sporadic.Th.KernelSimpleBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import CFSG.YGroups.Y443.Native.EdgeNoncommBase
 public import Certificates.Data.CFSGNative.Co1.CoTwoAutData

@@ -1,13 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestBasic
-public import CFSG.LieType.Chevalley.ProductInjectivity
-public import CFSG.LieType.Chevalley.E6GraphLeviRealization
-public import CFSG.LieType.Chevalley.TwistedE6EvenCoverLifts
-public import CFSG.LieType.Chevalley.HeightSeries
-public import CFSG.LieType.Chevalley.SimplyLacedFieldTwoCoverRoots
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section

@@ -2,13 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKG82Defs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
-public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6ClassesReps
-public import CFSG.LieType.Chevalley.E6GraphInvertedRootRotation
-public import CFSG.LieType.Chevalley.E6GraphRootSL2Basic
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import CFSG.LieType.Chevalley.D4TripleA2Lemmas
-public import CFSG.Blueprint.ChevalleyRootGroupsTriangular
-public import CFSG.LieType.Chevalley.GraphFixedHighestRoot
 
 public section
 

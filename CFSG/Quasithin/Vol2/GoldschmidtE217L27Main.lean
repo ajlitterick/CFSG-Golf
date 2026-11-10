@@ -1,12 +1,10 @@
 module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtE217R3Red
-public import CFSG.Quasithin.Vol2.GoldschmidtE217R3TwoC
 public import CFSG.Quasithin.Vol2.GoldschmidtE217L27Cent
 public import CFSG.Quasithin.Vol2.GoldschmidtE217L27Quot
 public import CFSG.Quasithin.Vol2.GoldschmidtE217L27Orc
 public import CFSG.Quasithin.Vol2.GoldschmidtE217L27Loc
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerNilp
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerParab1
@@ -14,7 +12,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerSect4
 public import CFSG.Quasithin.Background.A1cA132Action
 public import CFSG.Quasithin.Background.A1cA133Three
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.F6Amalgams
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.EmptyFaithful.S1417Sylow

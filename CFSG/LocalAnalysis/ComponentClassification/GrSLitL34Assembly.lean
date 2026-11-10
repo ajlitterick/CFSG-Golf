@@ -1,19 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Steps
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitTypeClosure
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitReach39
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitThmBReach
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitReduction
-public import CFSG.LocalAnalysis.ComponentClassification.GSFMReduction
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldBasic
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitFixedL34
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5bLemma514G
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitGeneral
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitWGroup
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Central
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34CentralZ
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwoOddFourGroups
 public import CFSG.LocalAnalysis.ComponentClassification.Foote47P3Gen
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitE8Generation

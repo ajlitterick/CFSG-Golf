@@ -1,13 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.TableC.HypDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixTCPSLAux
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSLEmbed
 public import CFSG.LocalAnalysis.StandardType.GGSixTCBlockField
 public import CFSG.LocalAnalysis.StandardType.GGSixTCLiftGroup
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDCommute
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.CompPSL
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeLift
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitary
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUModel
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeRestMult
 public import CFSG.CharacterTheory.Burnside
 public import CFSG.RankThree.PartOne.LSTD.ClsB
@@ -21,7 +20,6 @@ public import CFSG.RankThree.PartOne.LSTD.StdFam
 public import CFSG.RankThree.PartOne.LSTD.Transport
 public import CFSG.RankThree.PartTwo.Census.Classical.EvenUnitary
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

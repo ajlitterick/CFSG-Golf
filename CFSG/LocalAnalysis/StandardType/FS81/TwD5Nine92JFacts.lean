@@ -1,19 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Layer
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma27
-public import CFSG.RankThree.PartOne.S11d.OrthModels
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentType
 public import CFSG.RankThree.PartOne.S15K.FamilyForms
-public import CFSG.LocalAnalysis.StandardType.FS81.OrthParity
 public import CFSG.RankThree.PartOne.S11d.OrthSplitAbs
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.Open.StatedAPI
 public import CFSG.LocalAnalysis.StandardType.FS81.D6NormAux
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowF8D4Rank
 public import CFSG.LocalAnalysis.GLTheoremA.S4.L49b
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotRootCentralizerPerfect
 public import CFSG.LieType.SeitzGeneration.OrthSdLines
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentLayer
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBaseIso

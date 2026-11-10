@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2TwAModel
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Num
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Arith
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoRank
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcF4TwoTorus
-public import CFSG.LieType.SeitzGeneration.ExcTorusRankF4
-public import CFSG.LieType.SeitzGeneration.ExcTorusBlocks
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.AlmostSimpleBExcF4
 public import CFSG.HardMathSupport.Lang.AnisoE6.FieldEmbed
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32

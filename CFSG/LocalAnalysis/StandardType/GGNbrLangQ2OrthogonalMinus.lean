@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2OrthogonalPlus
-public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaSec
-public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenIso
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2OffRows
 import CFSG.GroupTheory.IsComponentOfMap
 

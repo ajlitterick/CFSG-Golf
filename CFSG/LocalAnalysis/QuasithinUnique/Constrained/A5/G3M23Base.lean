@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermEnc
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermLat
 public import CFSG.Blueprint.NativeSporadic
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermLat
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3M23BaseInputs
 public import Certificates.Certificate4063
 
 public section

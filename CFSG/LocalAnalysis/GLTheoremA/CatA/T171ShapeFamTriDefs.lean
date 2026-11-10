@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeCompDesc
-public import CFSG.LieType.Chevalley.GraphFixedData
-public import CFSG.Open.StatedDefs
 public import CFSG.GroupActions.SubgroupStabilizerOuterBound
-public import CFSG.LocalAnalysis.ComponentClassification.FixedCommutingProduct
 public import CFSG.LocalAnalysis.ComponentClassification.InnAutDerived
-public import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
 
 public section
 

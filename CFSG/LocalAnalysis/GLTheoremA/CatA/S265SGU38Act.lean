@@ -2,19 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Fam
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIAut
-public import CFSG.LocalAnalysis.GLTheoremA.S9.Defs
-import CFSG.Adapters.TauCetiLieModels
 import CFSG.GroupTheory.PLayer.Transport
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BAct
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SF6
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CLayer
-import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-import CFSG.LocalAnalysis.GLTheoremA.PComp
-import CFSG.LocalAnalysis.GLTheoremA.S10.Lemma103
-import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherUnitary
-import CFSG.LocalAnalysis.StandardType.GGReverseMarking
 import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClHerm
-import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Cfg
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Bridge
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105

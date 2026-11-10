@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPSL
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelPSL
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoRootConversePSL
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Position
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepACore
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDPSL
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDCommute
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.CompPSL
 

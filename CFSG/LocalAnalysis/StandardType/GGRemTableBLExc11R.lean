@@ -2,16 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc9R
 public import CFSG.LocalAnalysis.StandardType.GGE6InnerDiagBoundThreeProof
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeSCFourOdd
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6RankFive
-public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusHolds
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBHalf
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelInputs
 public import CFSG.LocalAnalysis.StandardType.GGF4TwoNTMain
 public import CFSG.LocalAnalysis.StandardType.GGTBFixTableB
 public import CFSG.LocalAnalysis.StandardType.GGTwF4SUThreeRank
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsBoth
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
 public import CFSG.LocalAnalysis.StandardType.GGF4TwoThreeCCentHolds
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldInnerDiag
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsToral

@@ -1,16 +1,12 @@
 
 module
 
-public import CFSG.Sporadic.SmallOddCore.J3DataInputs
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.RootFacts
 
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.WCheck
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.WJ3Check
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaJ3
 public import Certificates.Certificate24609
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Common
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaSq
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddKernelInvolutionFusion
 
 public section
 

@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneCoord
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneCoordModel
-public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneEltDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrFrameNineTransfer
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUSigned
 
 public section
 

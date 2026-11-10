@@ -3,12 +3,7 @@ module
 public import CFSG.Milestones.ASVolI.F431.A35LieI
 public import CFSG.Milestones.ASVolI.F431.A35D4
 public import CFSG.Milestones.ASVolI.F45.TitsModel
-public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsDModel
-public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsDZid
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsDClause
-public import CFSG.Quasithin.Recognition.CertTitsTwoLocal
-import CFSG.Milestones.ASVolI.F4
-import CFSG.Milestones.ASVolI.F4Conjugacy
 public import CFSG.Milestones.ASVolI.F431.Done
 public import CFSG.Milestones.ASVolI.F431.L39Final
 public import CFSG.Milestones.ASVolI.F431.L40

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408
 public meta import CFSG.Monster.B.TwoA.Unitary.Action
 public meta import CFSG.Monster.B.Co2.Data
 public meta import CFSG.Monster.B.TwoA.Unitary.NData
@@ -8,19 +7,6 @@ public meta import CFSG.Monster.B.TwoA.Unitary.Orbit1408Data
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
 public import Certificates.Certificate3081
-public import Certificates.Certificate3041
-public import Certificates.Certificate3042
-public import Certificates.Certificate3061
-public import Certificates.Certificate3079
-public import Certificates.Certificate3014
-public import Certificates.Certificate3017
-public import Certificates.Certificate3019
-public import Certificates.Certificate3025
-public import Certificates.Certificate3026
-public import Certificates.Certificate3028
-public import Certificates.Certificate16016
-public import CFSG.Monster.B.Co2.MatrixAction
-public import CFSG.Monster.B.Co2.MatrixW
 
 public noncomputable section
 

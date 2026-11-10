@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.RootD6EltDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBFull
-public import CFSG.LocalAnalysis.SeitzReduction.EPilotRootSL2Basic
 public import CFSG.GroupTheory.TwoWeightData
 
 public section

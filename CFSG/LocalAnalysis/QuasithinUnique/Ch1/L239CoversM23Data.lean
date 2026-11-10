@@ -1,16 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239CoversM11
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239CoversCycle
-public import CFSG.Sporadic.Bridge.M23Surj
-public import CFSG.Sporadic.Schreier.M23
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239CoversBasic
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239CoversM11
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239CoversCycle
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239CoversM23DataInputs
 public import Certificates.Certificate4086
-public import Certificates.Certificate9214
 public meta import CFSG.Sporadic.Bridge.M11CheckInputs
 
 public section

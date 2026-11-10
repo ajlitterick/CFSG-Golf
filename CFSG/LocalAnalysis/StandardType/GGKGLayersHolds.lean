@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGLayersE6
 public import CFSG.LocalAnalysis.StandardType.GGKGLayersGlue
-public import CFSG.LocalAnalysis.StandardType.GGKGMult
 public import CFSG.LocalAnalysis.StandardType.GGKGRankOne
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelKGFrameE
 

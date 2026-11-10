@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.ReflExt.Checks708606a
 public import Certificates.Kernel.ReflExt.Checks708606b
 public import CFSG.Certificates.Kernel.ReflExt.NineKSound
-import CFSG.Certificates.Kernel.Common.ForallChunks
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallRankDefs
 
 namespace CFSG.KD.NK708606

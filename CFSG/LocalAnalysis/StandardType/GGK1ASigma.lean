@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK1ADefs
 public import CFSG.LocalAnalysis.StandardType.GGK1ALift
 public import CFSG.RankThree.SteinbergR3ECALinearPrimaryBlocks
-public import CFSG.LocalAnalysis.StandardType.GGK1SigmaAbs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 public import CFSG.LocalAnalysis.StandardType.GGSUNonsplitTwoBlockPair
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandStructPSL
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
 public import CFSG.HardMathSupport.Curtis.UnitaryLevi.DualPoly
 
 public section

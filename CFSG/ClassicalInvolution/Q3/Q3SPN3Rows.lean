@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3SPN3Frame
 public import CFSG.ClassicalInvolution.Q3.Q3TLKOdd
 public import CFSG.ClassicalInvolution.Q3.Q3TLKD4On
-public import CFSG.ClassicalInvolution.ModelFacts.TG3OrthTags
 
 public section
 

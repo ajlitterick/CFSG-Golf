@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.HSFiveU35Data
-public import Certificates.Data.MaxD2Heis
 
 public section
 

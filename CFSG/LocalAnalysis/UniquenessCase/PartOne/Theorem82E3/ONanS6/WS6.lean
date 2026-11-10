@@ -1,36 +1,18 @@
 module
 
-public import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoDefs
-public import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.J4Eleven
-public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.StrongThree
 public import CFSG.LocalAnalysis.RankThreeUC.StronglyEmbedded
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.KInputsSolvableOf
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.SEFive.Holds
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.CaseOneONanExit
 public import CFSG.LocalAnalysis.UniquenessCase.UC1OutFixCentralThreePRank
-public import CFSG.LocalAnalysis.UniquenessCase.UC1S3Defs341
-public import CFSG.LocalAnalysis.UniquenessCase.UC6K35Holds
-public import CFSG.LocalAnalysis.UniquenessCase.UC6N588A2
-public import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIB
 public import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIBA6
-public import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIBSmall
-public import CFSG.LocalAnalysis.UniquenessCase.UCK35w
 public import CFSG.LocalAnalysis.UniquenessCase.UCK35wHolds
-public import CFSG.LocalAnalysis.UniquenessCase.UCKInputs
-public import CFSG.LocalAnalysis.UniquenessCase.UCKInputs3
-public import CFSG.RankThree.LocalRank.SolvablePrimeComplementCore
-public import CFSG.RankThree.LocalRank.ThetaPlaneAlpha
-public import CFSG.RankThree.PartTwo.KFacts.KS44OutSz
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanK8K9
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanK9bCat
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanK2
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanKFacts
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanK12
 import CFSG.GroupTheory.SteinbergBKOddNoncyclicRankTwo
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanK5Gen
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanK332
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanSz
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanK4Theta
 public import CFSG.CGT.PushingUpLit.SolK.Inputs

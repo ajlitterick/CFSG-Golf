@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryInn
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUFrame
 
 public section
 

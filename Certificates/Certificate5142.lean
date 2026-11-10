@@ -1,15 +1,9 @@
 module
 
-public import CFSG.GH74.GLS.C3.Layer2.L5C2e
-public import CFSG.GH74.GLS.C3.Layer2.L5C2fInputs
 public import CFSG.GH74.GLS.C3.Layer2.L5C2fTableInputs
-public import Certificates.Certificate5045
-public import Certificates.Certificate5051
-public import Certificates.Certificate5056
 import CFSG.Certificates.Kernel.L5.BaseMul
 import CFSG.Certificates.Kernel.L5.EngOne
 import CFSG.Certificates.Kernel.L5.F5Code
-import CFSG.Certificates.Kernel.Common.DecideFV
 import Certificates.Kernel.L5.Sh2FusE
 import Certificates.Kernel.L5.Eng0Base
 import Certificates.Kernel.L5.Eng0Emb

@@ -1,9 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGIrred937F4Base
-public import CFSG.LocalAnalysis.StandardType.GGIrred937F4BDescent
-public import CFSG.LocalAnalysis.StandardType.GGIrred937F4BSplit
-public import CFSG.LocalAnalysis.StandardType.GGIrred937F4BFrames
 public import CFSG.LocalAnalysis.StandardType.GGIrred937F4BUnitary
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.ExcLangNF4Two
 

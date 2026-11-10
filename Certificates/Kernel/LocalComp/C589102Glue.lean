@@ -2,13 +2,10 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec7GzSKtLift
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourExactModel
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourEnumSpec
 public import Certificates.Kernel.LocalComp.C589102Pins
 public import CFSG.Certificates.Kernel.S1277K589102E16Sound
 import CFSG.Certificates.Kernel.L34KSnd.Tab
 import CFSG.Certificates.Kernel.BfsPinSetSound
-import CFSG.Certificates.Kernel.BfsPinUnpack
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.CharacterTheory.Wreathed.SmallerRecognitionOriginalFieldQuaternionConjugation

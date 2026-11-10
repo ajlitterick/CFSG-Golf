@@ -1,9 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWS6D4MF
-public import CFSG.ClassicalInvolution.RouteD.TWYCount
 public import CFSG.ClassicalInvolution.RouteD.TWYEven
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

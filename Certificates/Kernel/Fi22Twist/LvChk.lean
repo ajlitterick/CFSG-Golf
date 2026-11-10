@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Fi22Twist.LvBlocks
 import CFSG.Certificates.Kernel.Common.Each
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

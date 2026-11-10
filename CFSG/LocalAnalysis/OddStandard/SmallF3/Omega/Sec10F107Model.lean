@@ -3,8 +3,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10F107ModelBase
 
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10F107Over
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10TypesCert
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10ModelF1051
 public import Certificates.Certificate442006
 

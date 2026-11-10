@@ -1,10 +1,6 @@
 module
 
-public import Certificates.Kernel.LocalComp.BfsGen
-public import Certificates.Data.Kernel.BfsPinBase
 public import Certificates.Data.Kernel.BfsPinKeyY
-public import Certificates.Data.Kernel.Misc.ArrEnum
-public import CFSG.Certificates.Kernel.Spor.RawDefs
 public meta import CFSG.Certificates.Kernel.Common.Tab
 public meta import CFSG.Certificates.Kernel.Common.AddThm
 public meta import Certificates.Kernel.Sporadic.RawGen

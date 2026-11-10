@@ -4,7 +4,6 @@ public import CFSG.RankThree.GF2n.Parrott.CaseIIHvLift
 public import CFSG.RankThree.GF2n.Parrott.CaseIIHvLFt
 public import CFSG.RankThree.GF2n.Parrott.SpinHvChecks
 public import CFSG.RankThree.GF2n.Parrott.CaseIIF1Local
-public import CFSG.RankThree.GF2n.Parrott.QA45InvolutionClasses
 
 public section
 

@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootKillDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsLangCube
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldDescent
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
-import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

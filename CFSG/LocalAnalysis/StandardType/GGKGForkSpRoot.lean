@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealKGModelRoot
-public import CFSG.LocalAnalysis.StandardType.GGRealKGSignedRefl
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLayerGen
 public import CFSG.LocalAnalysis.StandardType.GGSpRootGenAvoid
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLatticeElt
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSp
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2PositionBHigh
 public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotQ2FieldDataWeyl
 

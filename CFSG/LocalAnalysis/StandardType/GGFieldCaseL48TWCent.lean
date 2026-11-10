@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TWCentAux
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseXL48RestTransfer
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseXL48TailCent
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL46
 
 public section
 

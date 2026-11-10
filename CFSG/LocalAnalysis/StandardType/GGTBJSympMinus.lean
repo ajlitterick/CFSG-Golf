@@ -2,15 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusSide
 public import CFSG.LocalAnalysis.StandardType.GGTBJLabelSides
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitClassical
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL4546Defs
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
 
 public section
 

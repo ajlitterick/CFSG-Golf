@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormWeylCoord
 public import CFSG.LocalAnalysis.StandardType.GGTBTorE8Cover
 public import CFSG.LocalAnalysis.StandardType.GGTorusE8Scalar
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfSylow
 
 public section
 

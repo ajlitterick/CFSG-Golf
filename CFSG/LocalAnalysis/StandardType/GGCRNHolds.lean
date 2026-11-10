@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGCRNLin
 public import CFSG.LocalAnalysis.StandardType.GGCRNLinNs
 public import CFSG.LocalAnalysis.StandardType.GGCRNSympOrth
 public import CFSG.LocalAnalysis.StandardType.GGCRNOrthNs
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3ExcRank
 
 public section

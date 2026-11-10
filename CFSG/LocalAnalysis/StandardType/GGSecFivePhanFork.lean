@@ -2,14 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanPrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePumpupDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanCount
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpCount
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRoots
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpupRoots
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpRoute
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

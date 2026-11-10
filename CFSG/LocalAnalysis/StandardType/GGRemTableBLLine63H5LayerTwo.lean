@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5LayerFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSU
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUComp
 
 public section
 

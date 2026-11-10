@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6Cover
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotSwapConjGenArith
 public import CFSG.RankThree.Chevalley.SteinbergBNExceptionalCyclotomicExhaustion
-public import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 
 public section
 

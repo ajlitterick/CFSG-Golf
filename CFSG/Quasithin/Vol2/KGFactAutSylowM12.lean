@@ -1,10 +1,8 @@
 module
 
-public import CFSG.Quasithin.Vol2.KGFactSporLatInputs
 public import CFSG.Quasithin.Vol2.KGFactAutSylowSpor
 public import CFSG.Quasithin.Vol2.Ch3Sec3InspA312
 public import CFSG.Quasithin.Background.HSporLatMathieu
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatExport
 public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAut
 public import Certificates.Certificate7142
 public import CFSG.Quasithin.Background.F6Amalgams

@@ -1,14 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamSLRecogDefs
-public import CFSG.LocalAnalysis.StandardType.GGFamRatComp
 public import CFSG.LocalAnalysis.StandardType.GGFamTameLang
 public import CFSG.LocalAnalysis.StandardType.GGFamTameRangeSpan
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.InnerCover
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Certs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.OuterField
 
 public section
 

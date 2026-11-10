@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalGroups.UnitaryFlag.HyperbolicWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMonomialIrred
 
 public section

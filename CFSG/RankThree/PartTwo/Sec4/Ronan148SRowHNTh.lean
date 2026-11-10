@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148SComp
-public import CFSG.RankThree.PartTwo.Sec4.Ronan148SRows
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowHHN
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowHTh
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNThreeShape

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1Defs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeToralCentHolds
-public import CFSG.HardMathSupport.Lang.E6Descent.RankTwistedE6
-public import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

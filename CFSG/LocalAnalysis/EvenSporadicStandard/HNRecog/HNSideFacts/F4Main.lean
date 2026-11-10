@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Defs
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HNSideFacts.F4Setup
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HNSideFacts.F4Plus
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HNSideFacts.F4Radical
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HNSideFacts.F4Quotient

@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6BadModel
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBE6Three
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 import CFSG.LocalAnalysis.StandardType.GGTBJWeyl
 import CFSG.LocalAnalysis.StandardType.GGWeylESystem
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
 
 public section

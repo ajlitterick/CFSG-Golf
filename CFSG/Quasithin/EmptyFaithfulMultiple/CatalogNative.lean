@@ -1,10 +1,6 @@
 module
 
-public import CFSG.Blueprint.Catalog
 public import CFSG.Quasithin.EmptyFaithfulMultiple.Statements
-public import CFSG.Quasithin.EmptyFaithful.Vocabulary
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.LocalAnalysis.SectionRank.NativeKGroup
 import CFSG.Quasithin.Recognition.ModelBridges
 import CFSG.Quasithin.Recognition.ModelBridgesJ3
 import CFSG.Timmesfeld.Final.PSU33

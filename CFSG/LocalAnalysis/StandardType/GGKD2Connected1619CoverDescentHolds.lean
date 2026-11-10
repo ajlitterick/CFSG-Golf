@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Contracts
 import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 
 public section
 

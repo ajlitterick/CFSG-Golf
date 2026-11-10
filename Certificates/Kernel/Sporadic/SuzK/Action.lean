@@ -2,15 +2,10 @@
 module
 
 public import Certificates.Kernel.Sporadic.SuzK.Act
-public import CFSG.Certificates.Kernel.Spor.TBfsSound
-public import CFSG.Certificates.Kernel.Spor.F3LaneSepSound
 import Certificates.Kernel.Sporadic.SuzK.TR0
 import Certificates.Kernel.Sporadic.SuzK.TR1
-import Certificates.Kernel.Sporadic.SuzK.Misc
 import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.NormNum
 public import CFSG.Blueprint.MatrixSeedIdentification
 public import CFSG.Certificates.SchreierStabilizerGenerators
 public import CFSG.Sporadic.Presentation.Common

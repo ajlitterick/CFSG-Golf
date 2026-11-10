@@ -3,16 +3,9 @@ module
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsMisc8Sp
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.ClassicalGL
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims1113
-import CFSG.LinearAlgebra.OddSolvableUnitary.CommutatorForm
-import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.OrdinaryProofs.PSolvableClosure
-import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.OrdinaryProofs.QuasisimpleSolvableNormal
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.S3AmalgamBound.OvergroupA5
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.AltInputs
-import CFSG.Quasithin.SteinbergCBAlternatingAut
 import CFSG.RankThree.PartOne.KA.AlternatingPlaneInner
-import CFSG.HardMathSupport.Timmesfeld.Tables.Alt.Basic
-import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma31Proof
-import CFSG.LocalAnalysis.ComponentClassification.Helpers
 public import CFSG.LocalAnalysis.GLTheoremA.S4.PGroupCover
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.CatalogInputs
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma1313Z

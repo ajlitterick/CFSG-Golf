@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TCD4Clique
-public import CFSG.ClassicalInvolution.RouteD.ExoticD4TwinModel
 
 public section
 

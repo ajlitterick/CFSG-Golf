@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Monster.GMS.S4Fusion
-public import CFSG.Monster.GMS.S342
-public import CFSG.Monster.GMS.TwoCentral
 public import CFSG.Monster.GMS.S4FamilyIso
 public import CFSG.Monster.GMS.F1Basic
 public import CFSG.Monster.GMS.NotConj

@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1Defs
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
-public import CFSG.HardMathSupport.Lang.E6Descent.RankTwistedE6
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 import CFSG.LocalAnalysis.StandardType.GGTwE6SigmaTorus
 import CFSG.LocalAnalysis.StandardType.GGTwE6LangRetype
 import all CFSG.LocalAnalysis.StandardType.GGL45NtLattice
-import CFSG.LieType.Chevalley.SignKernelStabilizer
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyCover
 
 public section

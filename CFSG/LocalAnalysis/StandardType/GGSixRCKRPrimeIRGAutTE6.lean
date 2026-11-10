@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutGraphTwE6
-public import CFSG.LieType.Chevalley.TwistedE6NormalFormActors
 
 public section
 

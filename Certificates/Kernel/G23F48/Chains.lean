@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Milestones.ASVolI.F48.Rest.G23Inputs
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Data.Kernel.Misc.ArrEnum
 public import Certificates.Data.Kernel.G23F48.Words

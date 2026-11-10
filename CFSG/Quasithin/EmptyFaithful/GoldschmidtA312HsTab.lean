@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsInputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatLat
 
 public section
 

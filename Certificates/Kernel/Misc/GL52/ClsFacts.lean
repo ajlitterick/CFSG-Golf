@@ -5,7 +5,6 @@ public import Certificates.Kernel.Misc.GL52.ClsChkC0
 public import Certificates.Kernel.Misc.GL52.ClsChkN
 public import Certificates.Kernel.Misc.GL52.ClsLemmas
 public import CFSG.Literature.GL52PassInputs
-import Mathlib.Tactic.IntervalCases
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

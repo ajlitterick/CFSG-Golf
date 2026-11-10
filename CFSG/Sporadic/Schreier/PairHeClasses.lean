@@ -4,22 +4,13 @@ module
 public import CFSG.Sporadic.Schreier.PairHeClassesBase
 import all CFSG.Sporadic.Schreier.PairHeClassesBase
 
-public import CFSG.Sporadic.HeldB.CertPChain
-public import CFSG.Sporadic.Schreier.PairHeCheck
 public import CFSG.Sporadic.Schreier.PairHeCountTwo
 public import CFSG.Sporadic.Schreier.PairHeTriple1
-public import CFSG.Sporadic.Schreier.PairCounts
-public import CFSG.Sporadic.Schreier.PairClassCover
-public import CFSG.Sporadic.HeldB.CertPChainData
-public import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.Schreier.PairHeCheckInputs
-public import Certificates.Data.CFSGNative.PairSchreier.Counts
 public meta import CFSG.Sporadic.Schreier.PairHeCheck
 public meta import CFSG.Sporadic.HeldB.HeBlocks
 public meta import CFSG.Sporadic.HeldB.CertPChainData
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.PairSchreier.Counts
-public import Certificates.Certificate2225Base
 
 public noncomputable section
 

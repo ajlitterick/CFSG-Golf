@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Blueprint.Catalog
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearAction
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGraphAction
 import CFSG.LinearAlgebra.FrobeniusSemilinearBasis
 import CFSG.LinearAlgebra.FrobeniusUnitaryLang

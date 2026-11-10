@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNPCompDefs
 public import CFSG.LocalAnalysis.StandardType.GGStructSOneHolds
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBFixedCentralQuotient
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBCentralQuotientDerived
 public import CFSG.LocalAnalysis.StandardType.GGSummandStructBasic
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVPComp
 public import CFSG.GroupTheory.MulAutCongr

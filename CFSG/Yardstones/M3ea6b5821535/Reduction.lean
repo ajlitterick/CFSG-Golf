@@ -1,10 +1,6 @@
 module
 
 public import CFSG.Yardstones.M3ea6b5821535.Definitions
-public import CFSG.Blueprint.Catalog
-public import CFSG.Blueprint.NativeCatalog
-public import CFSG.Blueprint.NativeSporadicReps
-public import CFSG.Open.StatedDefs
 public import CFSG.Monster.Visible.AlgebraAction
 
 public section

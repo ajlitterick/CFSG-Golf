@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xK335Defs
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.GroupTheory.PCore.Construction
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xKGammaLemmas
 
 public section

@@ -1,13 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOne
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagSp
-public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagLinear
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOrthogonalBlocks
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSymplectic
-public import CFSG.RankThree.PartTwo.KFacts.AutPSpFaithful
-public import CFSG.ClassicalGroups.Symplectic.Simple
 public import CFSG.GroupTheory.IsComponentOfMap
 public import CFSG.RankThree.GF2n.Stroth80.Sec5NatReindex
 

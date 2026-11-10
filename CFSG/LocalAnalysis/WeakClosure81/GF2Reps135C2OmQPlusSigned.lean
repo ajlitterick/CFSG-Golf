@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBRealize
-public import Mathlib.Data.ZMod.Basic
 
 public section
 

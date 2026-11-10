@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Bounds.LyAlt.DceS5
 public import CFSG.Certificates.Kernel.Bounds.LyAlt.Data.Sel
 import CFSG.Certificates.Kernel.Common.Harness
 

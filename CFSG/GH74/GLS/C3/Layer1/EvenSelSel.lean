@@ -2,9 +2,6 @@ module
 
 public import CFSG.GH74.GLS.C3.Layer1.EvenSelBasic
 public import CFSG.GH74.GLS.C3.Layer1.St1RigTop
-public import CFSG.GH74.GLS.C3.Layer1.Th2BalK10
-public import CFSG.GH74.GLS.C3.Layer1.Thm1P31s
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

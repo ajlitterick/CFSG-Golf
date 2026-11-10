@@ -2,8 +2,6 @@ module
 
 public import CFSG.Open.StatedDefs
 public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
-import CFSG.RankThree.Classical.SteinbergBJOrthogonalHighWitt
-import CFSG.GroupTheory.WeirSylow.OrthogonalModels
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.OrthBlocks
 import CFSG.RankThree.PartOne.KC.OrthogonalFieldDescentSimilarity
 import CFSG.RankThree.PartOne.S11d.LieCentralizerPSL

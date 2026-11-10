@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallD4Long
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallD4Seven
 public import CFSG.Quasithin.Background.SmithB45TorD4W
-import CFSG.Timmesfeld.Orders.ExceptionalTwisted
 import CFSG.Quasithin.Background.SmithB42D4Main
-import CFSG.Quasithin.Background.SmithB42D4Weyl
-import CFSG.Quasithin.Background.FixVLattice
-import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
 
 public section
 

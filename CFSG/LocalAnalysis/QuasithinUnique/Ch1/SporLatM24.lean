@@ -3,17 +3,7 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24Base
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRows
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
-import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieu
-public import CFSG.Blueprint.NativeSporadic
-public import Certificates.Data.CFSGNative.SporLat.Build
-public import Certificates.Data.CFSGNative.SporLat.Code
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24Inputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24Facts
 public import Certificates.Certificate4068
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieuInputs
-public import Certificates.Data.CFSGNative.Mathieu.M24
 
 public section
 

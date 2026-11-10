@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA
 
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGResFixedWeylCentralizer
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

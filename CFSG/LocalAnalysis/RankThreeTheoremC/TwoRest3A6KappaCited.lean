@@ -5,47 +5,9 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.TwoRest3A6Kappa
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D1CaseTwo3Kappa
 import CFSG.LocalAnalysis.RankThreeTheoremC.TwoRest3A6G23Discharge
 import CFSG.GroupTheory.ElementaryAbelianTransport
-import CFSG.LocalAnalysis.RankThreeTheoremC.TwoRest3A6Reduction
-import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockDefs
-import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockInputs
-import CFSG.LocalAnalysis.AGLEmbedding.AscEightFourAux
 import CFSG.LocalAnalysis.AGLEmbedding.AscTenThreeModule
-import CFSG.LocalAnalysis.AGLEmbedding.BlockInnerNormalizer
-import CFSG.LocalAnalysis.AGLEmbedding.BlockInnerNormalizerAux
-import CFSG.LocalAnalysis.AGLEmbedding.CharCore
-import CFSG.LocalAnalysis.AGLEmbedding.EscapeTwoCore
-import CFSG.LocalAnalysis.AGLEmbedding.PhaseThreeConfig
-import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockBasic
-import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockStructure
-import CFSG.LocalAnalysis.RankThreeTheoremC.D1CaseTwo3A6CubeN
-import CFSG.LocalAnalysis.AGLEmbedding.ZOneFacts
-import Mathlib.Data.Nat.ModEq
-import Mathlib.Dynamics.FixedPoints.Defs
-import Mathlib.GroupTheory.Perm.Cycle.Type
-import Mathlib.SetTheory.Cardinal.Finite
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Algebra.Group.End
-import Mathlib.Algebra.Group.Subgroup.Finite
-import Mathlib.Algebra.Group.Subgroup.Ker
-import Mathlib.Algebra.Group.Subgroup.Map
-import Mathlib.Data.Fintype.Card
-import Mathlib.Data.Nat.Prime.Basic
-import Mathlib.GroupTheory.Index
-import Mathlib.GroupTheory.PGroup
-import Mathlib.GroupTheory.Perm.Basic
-import Mathlib.Algebra.Group.Subgroup.Basic
-import Mathlib.Tactic.Group
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.GroupTheory.Fitting.CharacteristicP
-import Mathlib
-import CFSG.Quasithin.Background.Basic
-import CFSG.Open.LocalVocabulary
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellElem
-import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X3AutIso
 import CFSG.Quasithin.EmptyFaithful.S1414Group
-import CFSG.Quasithin.Background.B6Basic
-import CFSG.Quasithin.Background.C1GNNotation
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.L28AutThree
 import CFSG.LocalAnalysis.AGLEmbedding.AscEightSix
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2LocalCGT3
@@ -53,19 +15,9 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.TwoRest3A6CentralizingBase
 import CFSG.LocalAnalysis.AGLEmbedding.A15ComponentsAux
 import CFSG.HardMathSupport.Cooperstein.Proving.BarTransport
 import CFSG.HardMathSupport.Cooperstein.Coordinator.StarAux
-import CFSG.LieType.BorelTits.Basic
-import Mathlib.Algebra.CharP.Lemmas
-import Mathlib.Algebra.CharP.Two
-import Mathlib.Algebra.MonoidAlgebra.Basic
-import Mathlib.LinearAlgebra.Dual.Lemmas
-import Mathlib.LinearAlgebra.Matrix.ToLin
-import Mathlib.LinearAlgebra.Trace
-import Mathlib.RingTheory.LittleWedderburn
-import Mathlib.RingTheory.SimpleModule.Basic
 import CFSG.LocalAnalysis.RankThreeTheoremC.TwoRest3A6Prop3
 import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductionsIIASix
 import CFSG.GH74.Uniqueness.SU.SU1Basic
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.AGLEmbedding.AThreePLiftAux
 public import CFSG.LocalAnalysis.AGLEmbedding.OneLieCompetitor
 public import CFSG.LocalAnalysis.AGLEmbedding.OneLieNormalClosure

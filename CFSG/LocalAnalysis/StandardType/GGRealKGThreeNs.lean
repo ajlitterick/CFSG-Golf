@@ -1,19 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRealKGThree
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThreeLin
 public import CFSG.LocalAnalysis.StandardType.GGRealKGLinNsRoot
 public import CFSG.LocalAnalysis.StandardType.GGRealKGSpRoot
 public import CFSG.LocalAnalysis.StandardType.GGRealKGOmegaRow
 public import CFSG.LocalAnalysis.StandardType.GGRealKGUSplitRoot
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeA
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNinePGL
-public import CFSG.LocalAnalysis.StandardType.GGKGForkSmallRow
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
-public import CFSG.LocalAnalysis.StandardType.GGOutTwoCommInnerHolds
 public import CFSG.LocalAnalysis.StandardType.GGKnownInputsNoU6Classical
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma1315b
 public import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.P622K3ChevSimple
 
 public section

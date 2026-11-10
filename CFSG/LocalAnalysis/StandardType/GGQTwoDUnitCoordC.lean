@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCoordB
-import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameModule
-import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameCfg
 import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameMain
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCoordStd
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCoordA
-import Mathlib.Algebra.Group.TypeTags.Basic
 
 public section
 

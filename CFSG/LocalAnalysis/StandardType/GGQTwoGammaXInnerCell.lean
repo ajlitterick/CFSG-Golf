@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXInnerDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXDetCell
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrDatumInner
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112WeylA
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112WeylE7
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112WeylE8
 

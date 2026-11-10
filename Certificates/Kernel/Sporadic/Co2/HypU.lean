@@ -4,7 +4,6 @@ public import Certificates.Kernel.Sporadic.Co2.HypDefs
 public import Certificates.Kernel.SporSch.Co2M.ChainS
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.Sporadic.Co2.ChainA
 
 public section

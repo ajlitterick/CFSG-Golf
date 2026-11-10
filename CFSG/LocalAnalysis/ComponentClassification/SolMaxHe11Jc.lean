@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.SolMaxFiveU
 public import CFSG.LocalAnalysis.ComponentClassification.SolMaxSig33F
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aConjFix
 public import CFSG.RankThree.GroupTheory.SteinbergCEAlternatingPlaneCore
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 

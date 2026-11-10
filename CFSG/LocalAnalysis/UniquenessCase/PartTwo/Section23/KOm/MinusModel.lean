@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOm.Isometry
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOm.Pull
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23c.OmegaMinusFour
 public import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
-public import CFSG.LieType.Universal.SpinCenterMinus
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOm.MinusCoords
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOm.MinusSylow
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOm.RootGroupGL

@@ -1,14 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldOrthTail
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GU64Glue
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinFldGrp
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeMarking
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitzExcComp
 public import CFSG.LieType.SemisimpleCentralizers.HeldLangPSL
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVacOther
 

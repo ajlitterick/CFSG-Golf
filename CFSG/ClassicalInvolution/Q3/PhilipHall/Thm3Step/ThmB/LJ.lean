@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf47WR1Gen
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7Iso
-public import CFSG.Sporadic.Schreier.J4SSylow
 
 public section
 

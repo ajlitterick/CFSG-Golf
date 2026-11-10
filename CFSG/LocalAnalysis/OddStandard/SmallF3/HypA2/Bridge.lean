@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2.Defs
 import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Basic
 import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Transport
 import CFSG.LocalAnalysis.ComponentInitial.LocalBMaximalPropagation
-import CFSG.Foundations.GilmanSolomonGrammar
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.Blueprint.RecognitionDefs
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Defs
@@ -21,9 +20,7 @@ import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSAContainedSource
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalKGroup
 import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

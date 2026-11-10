@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.HNSchreier.OrbitCheck
 public import CFSG.Sporadic.HNSchreier.SeedsCheck
-public import Std.Data.HashMap
 public meta import CFSG.Sporadic.HNSchreier.OrbitCheck
 public meta import CFSG.Sporadic.HNSchreier.SeedsCheck
 

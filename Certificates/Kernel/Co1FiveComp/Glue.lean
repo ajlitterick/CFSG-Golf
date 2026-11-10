@@ -4,7 +4,6 @@ public import Certificates.Kernel.Co1FiveComp.Chk
 public import Certificates.Kernel.Co1FiveK.GlueB
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1FiveBase
 public import CFSG.Certificates.Kernel.Co1Seven.CenSound
-public import Certificates.Certificate3024
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo1Cen2BData
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo1EndData
 

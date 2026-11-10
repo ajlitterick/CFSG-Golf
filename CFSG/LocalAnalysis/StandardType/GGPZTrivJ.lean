@@ -2,15 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGPZEndpointSplit
 public import CFSG.LocalAnalysis.StandardType.GGPZMultHolds
-public import CFSG.LocalAnalysis.StandardType.GGPZRankTwo
-public import CFSG.LocalAnalysis.StandardType.GGPZTrivCoprime
 public import CFSG.LocalAnalysis.StandardType.GGPZTrivCore
 public import CFSG.LocalAnalysis.StandardType.GGPZTrivAut
 public import CFSG.LocalAnalysis.StandardType.GGPZTrivTypeA
 public import CFSG.LocalAnalysis.StandardType.GGPZTrivTwA
 public import CFSG.LocalAnalysis.StandardType.GGPZTrivD4
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 public import CFSG.Fischer.Classification.Symmetric.LocalData
 
 public section

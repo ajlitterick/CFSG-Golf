@@ -4,10 +4,6 @@ public import CFSG.RankThree.PartOne.K159H.O3B3
 public import CFSG.RankThree.PartOne.S15K.OrthModel
 public import CFSG.RankThree.PartOne.S11d.OrthModels
 public import CFSG.RankThree.PartOne.KC.OrthogonalSplitPrimeCoordinates
-public import CFSG.RankThree.PartOne.S12.Sec12A
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LieType.Chevalley.OddF4CosetDescent
 public import CFSG.LieType.Steinberg.Classical.SpinFrame
@@ -78,9 +74,6 @@ public import CFSG.RankThree.PartOne.S12.Sec15Items
 public import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.Walter.Defs
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials

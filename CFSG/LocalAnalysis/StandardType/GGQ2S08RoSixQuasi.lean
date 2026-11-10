@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Assembly.Defs
 public import CFSG.Assembly.Subnormal
 public import CFSG.LocalAnalysis.EvenBN.LinearThree.CentralLift
 

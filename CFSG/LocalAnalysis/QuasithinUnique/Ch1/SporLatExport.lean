@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCore
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.EvenClassicalStrong
 public import CFSG.LieType.BorelTits.Basic
 
 public section

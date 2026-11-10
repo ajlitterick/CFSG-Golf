@@ -9,7 +9,6 @@ public meta import CFSG.Sporadic.FischerOddCore.Fi23WitCheck
 public meta import CFSG.Sporadic.Fi24.ExtCert
 public import CFSG.Sporadic.Fi24.ExtCert
 public meta import Mathlib
-public import Mathlib
 
 public section
 

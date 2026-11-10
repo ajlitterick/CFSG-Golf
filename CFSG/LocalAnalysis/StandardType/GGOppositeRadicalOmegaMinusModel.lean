@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalOmegaPlusStd
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
-public import CFSG.LieType.Universal.SpinClause0
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalWittFlags
-public import CFSG.RankThree.OrthogonalInvolutions.Witt
 
 public section
 

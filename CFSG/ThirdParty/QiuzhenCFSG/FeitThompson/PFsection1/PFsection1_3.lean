@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_1
-public import Mathlib.Analysis.Complex.Basic
-public import Mathlib.LinearAlgebra.Basis.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Unbundled
 
 namespace CFSG
 end CFSG

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LieType.Chevalley.WeylRoots
 public import CFSG.LieType.Chevalley.ExactNormalFormE
-public import CFSG.LieType.Steinberg.Adjoint.Pairs
 
 public section
 

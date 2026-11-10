@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.RootSystem.Basic
-public import Mathlib.GroupTheory.Coxeter.Length
 public import TauCeti.GroupTheory.Coxeter.Parabolic
 import TauCeti.GroupTheory.Coxeter.Dihedral
 

@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3SelU43Check
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3SelU43Gen
 public import CFSG.LieType.Multipliers.U43
 public import CFSG.RankThree.PartTwo.Sec4.Item47Unitary
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.LangRootArithmetic
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData

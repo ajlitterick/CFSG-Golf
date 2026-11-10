@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1CDefs
-public import CFSG.LocalAnalysis.StandardType.GGK1Defs
 
 public section
 

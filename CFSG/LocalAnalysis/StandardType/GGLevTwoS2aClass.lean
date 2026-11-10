@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS2aAux
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoTrans
-public import CFSG.ClassicalInvolution.ModelFacts.Families
 
 public section
 

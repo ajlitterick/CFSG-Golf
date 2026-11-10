@@ -7,8 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeM3POmegaMinusDPOne
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeM3POmegaMinusFixed
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeM3POmegaMinusSDTwo
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeSpinFlag
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
 
 public section
 

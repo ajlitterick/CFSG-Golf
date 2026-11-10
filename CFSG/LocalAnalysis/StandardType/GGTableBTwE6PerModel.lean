@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6Torus
-public import CFSG.LieType.Chevalley.WeylRoots
 
 public section
 

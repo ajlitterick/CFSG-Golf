@@ -4,7 +4,6 @@ public import CFSG.Dihedral.BlueprintDefs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GWLemma21Trichotomy
 import all CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GWLemma21Trichotomy
 import all CFSG.Dihedral.BlueprintDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
 
 public noncomputable section
 

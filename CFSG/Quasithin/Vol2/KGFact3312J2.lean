@@ -2,18 +2,11 @@ module
 
 public import CFSG.Quasithin.Vol2.KGFact3312Base
 public import CFSG.Quasithin.Background.E2TwoProofSporJ2
-public import CFSG.Sporadic.Bridge.J2Native
-public import CFSG.Sporadic.J2.Simple
-import CFSG.Blueprint.NativeSporadic
 public import CFSG.Quasithin.Background.A3Structure312Facts
 public import CFSG.Quasithin.Background.B5Statement
 public import CFSG.Quasithin.Vol2.Ch1Faithful
 public import CFSG.Quasithin.Vol2.Ch3Sec3KGSylow
 public import CFSG.Quasithin.Vol2.Ch3Sec3Setup
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 
 public section
 

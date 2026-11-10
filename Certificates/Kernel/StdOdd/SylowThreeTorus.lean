@@ -2,12 +2,7 @@ module
 
 public import Certificates.Kernel.StdOdd.ThreeBlow
 public import CFSG.Monster.Existence.StdOdd.P5
-public import CFSG.Fischer.F4
 public import CFSG.Monster.Existence.StdOdd.Cert.SylowThreeTorusInputs
-public import CFSG.Monster.Existence.StdOdd.Cert.SylowThreeData
-public import CFSG.Monster.B.Classical.E6AdjointTable
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertSylowThree
-import CFSG.Fischer.F4
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

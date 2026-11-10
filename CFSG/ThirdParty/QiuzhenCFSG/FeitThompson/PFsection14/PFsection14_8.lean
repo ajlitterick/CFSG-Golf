@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection14.Basic
-import Mathlib.Analysis.Complex.Exponential
 import Mathlib.Analysis.SpecialFunctions.Log.Monotone
 
 namespace CFSG

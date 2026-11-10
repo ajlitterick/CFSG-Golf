@@ -2,10 +2,7 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldSquare
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddPowerHalfDivisor
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2NonsplitTorusFieldFixed
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2ConcreteNonsplitTorusCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DerivedSubgroup
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2InnerAction
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.SubgroupCardDivHalfOfIndexTwo
 import Mathlib.Tactic
 

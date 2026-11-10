@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVacLabel
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNinePGL
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanks
 import CFSG.LocalAnalysis.StandardType.GGTwF4SUThreeRank
-import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldLinear
-import CFSG.Adapters.SpecialLinearPerfect
 
 public section
 

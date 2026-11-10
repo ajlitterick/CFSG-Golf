@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.FourJ2J3.J3Data
 public import Certificates.Data.Kernel.FourJoinedK
 public import Certificates.Kernel.SporSch.PairJ3.Chain
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

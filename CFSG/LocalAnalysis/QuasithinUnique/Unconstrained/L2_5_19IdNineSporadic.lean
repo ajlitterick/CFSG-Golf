@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsFp
 public meta import Certificates.Data.CFSGNative.SectionRank.F2
 public meta import Certificates.Data.CFSGNative.SectionRank.Fp
-import CFSG.Blueprint.NativeSporadic
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdNineSporadicInputs
 public import Certificates.Certificate4042
 public import CFSG.CGT.Timmesfeld75.L2Pair

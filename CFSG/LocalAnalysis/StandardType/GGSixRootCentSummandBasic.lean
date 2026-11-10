@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerTailCanon
 public import CFSG.LocalAnalysis.StandardType.GGSixStepThreeCFRootCentAutK
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 import CFSG.LocalAnalysis.StandardType.GGSixOddIndexCore
-public import CFSG.Assembly.Subnormal
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.PlanesTwo.Bits
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.G2Pair
-public import CFSG.LieType.Chevalley.GraphFixedHighestRoot
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcConj
 
 public section

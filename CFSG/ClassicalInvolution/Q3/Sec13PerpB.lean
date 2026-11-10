@@ -3,17 +3,8 @@ module
 public import CFSG.ClassicalInvolution.Q3.Sec13PerpStar
 public import CFSG.ClassicalInvolution.Q3.Sec13EndMin
 public import CFSG.ClassicalInvolution.Q3.TL3T12_6E8Sec
-public import CFSG.ClassicalInvolution.Q3.TL3T12_6Dual
-public import CFSG.ClassicalInvolution.Q3.TL3T20
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscExitO2Phi
-public import CFSG.ClassicalInvolution.Q3.Q3CLSeven1
-public import CFSG.ClassicalInvolution.Q3.TL3T26
-public import CFSG.ClassicalInvolution.Q3.TL3C6
-public import CFSG.ClassicalInvolution.Q3.TL3T39
-public import CFSG.ClassicalInvolution.Q3.TL3T13
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThinPf15Ker
-public import CFSG.ClassicalInvolution.Q3.TL4SecIdE2AEC
-public import CFSG.ClassicalInvolution.Q3.TL4SecIdE2AEM
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThinComm
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThinE8
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThinPf10W

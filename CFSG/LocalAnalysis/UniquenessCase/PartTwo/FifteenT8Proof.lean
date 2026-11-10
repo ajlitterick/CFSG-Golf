@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenT8Xbar
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenT8Blocks
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenUniqueMax
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveShort
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P21p
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

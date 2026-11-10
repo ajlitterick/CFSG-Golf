@@ -1,9 +1,7 @@
 
 module
 
-public import Certificates.Kernel.SporSch.J4S.Eta
 public import Certificates.Kernel.SporSch.J4S.Three
-public import CFSG.Certificates.Kernel.SporSch.J4SGetSound
 public import CFSG.Sporadic.Schreier.J4SRankData
 meta import Certificates.Kernel.SporSch.J4S.Q3Data
 import CFSG.Certificates.Kernel.Common.Harness

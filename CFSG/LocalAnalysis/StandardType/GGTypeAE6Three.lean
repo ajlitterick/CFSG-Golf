@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTPNExcTwoSlices
 public import CFSG.LocalAnalysis.StandardType.GGE6TwoCenter
 public import CFSG.LocalAnalysis.StandardType.GGE6TwoLocalRank
 public import CFSG.LocalAnalysis.StandardType.GGE6CoverThreeHolds
-public import CFSG.LocalAnalysis.StandardType.GGTPNThmUClauses
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Rank
 public import CFSG.LocalAnalysis.StandardType.GGB36JExcE6Core
 

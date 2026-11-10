@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NinePieces
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Cent
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NineCoreAux
-public import CFSG.LocalAnalysis.SignalizerFunctor.InvariantSylowAmbient
 
 public section
 

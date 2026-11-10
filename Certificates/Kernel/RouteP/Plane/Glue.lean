@@ -9,10 +9,8 @@ public import Certificates.Kernel.RouteP.Plane.Act4
 public import Certificates.Kernel.RouteP.Plane.Act5
 public import Certificates.Kernel.RouteP.Plane.Act6
 public import Certificates.Kernel.RouteP.Text.PlaneFacts
-public import Certificates.Kernel.RouteP.Text.Texts
 public import Certificates.Kernel.RouteP.Obj.Run
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.RouteP.Model.Tables
-public import CFSG.Certificates.Kernel.Common.ForallTree
 
 public section
 

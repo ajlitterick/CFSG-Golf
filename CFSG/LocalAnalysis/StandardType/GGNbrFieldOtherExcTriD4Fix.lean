@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapTriD4
-import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevGeom
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVacOther
 
 public section

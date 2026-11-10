@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.OddStandard.GH71.S55D4Ord3Plus
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnNF
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4UnFrame
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4UnPolar
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4A2FoldDef
 
 public section
 

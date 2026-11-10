@@ -4,8 +4,6 @@ public import Certificates.Kernel.LocalComp.Co3IdentWords
 public import Certificates.Kernel.LocalComp.Co3BfsLemmas
 public import Certificates.Kernel.LocalComp.Co3BfsGen
 meta import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentModelInputs
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Co3BfsSound
 
 public section

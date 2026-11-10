@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.PartA.S2Odd
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.S5Props
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X3AutIso
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Common
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Main
@@ -14,9 +13,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerQuad
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerSect1
 public import CFSG.LocalAnalysis.QuasithinUnique.GammaFamiliesExtraComponents
 public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.PerfectResiduals
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 
 public section

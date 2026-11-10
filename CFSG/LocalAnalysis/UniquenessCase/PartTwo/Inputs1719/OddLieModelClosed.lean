@@ -1,21 +1,7 @@
 module
 
-public import CFSG.ClassicalInvolution.Generic.Induction
-public import CFSG.ClassicalInvolution.ModelFacts.Models
 public import CFSG.ClassicalInvolution.Q3.Q3OFCovEven
-public import CFSG.ClassicalInvolution.Q3.Q3OFCovK
-public import CFSG.LieType.Steinberg.CentralExt.SLCentrallyClosed
-public import CFSG.LieType.Steinberg.CentralExt.SUCentrallyClosed
-public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-public import CFSG.LieType.Steinberg.CentralExt.SpCentrallyClosed
-public import CFSG.LieType.Steinberg.CentralExt.SpinOddCentrallyClosed
-public import CFSG.LieType.Steinberg.CentralExt.SpinPlusCentrallyClosed
-public import CFSG.LieType.Steinberg.CentralExt.SpinMinusCentrallyClosed
 public import CFSG.LieType.Steinberg.CentralExt.G2Multiplier
-public import CFSG.LieType.Steinberg.CentralExt.F4E8Multiplier
-public import CFSG.LieType.Steinberg.CentralExt.MinusculeCentrallyClosed
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6PosLift
-public import CFSG.LieType.Steinberg.CentralExt.TrialityClosed
 public import CFSG.LieType.Steinberg.CentralExt.G2FourMultiplier
 public import CFSG.LieType.Steinberg.CentralExt.PSpEvenMultiplier
 public import CFSG.LieType.Steinberg.CentralExt.SpinSevenThree

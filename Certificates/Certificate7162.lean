@@ -3,10 +3,7 @@ module
 
 public import Certificates.Certificate7162Base
 
-public import CFSG.Quasithin.Vol2.KGFactG2RuInputs
 public meta import CFSG.Quasithin.Vol2.KGFactG2RuInputs
-import CFSG.Sporadic.Schreier.RuCheckBasicInputs
-import CFSG.Sporadic.Schreier.RuCheckInvInputs
 meta import CFSG.Sporadic.Schreier.RuTreeEltA
 meta import CFSG.Sporadic.Schreier.RuWitArrays
 meta import CFSG.Sporadic.Schreier.RuCheckChains

@@ -9,7 +9,6 @@ public import Certificates.Kernel.HN1408.ClsGChk0
 public import Certificates.Kernel.HN1408.ClsGChk1
 public import Certificates.Kernel.HN1408.ClsGSrt
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.SqFacts
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.TableISpec
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.OfMulEquivAux
 import CFSG.Certificates.Kernel.Common.ForallChunks
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.ShapeCongrK

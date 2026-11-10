@@ -1,16 +1,8 @@
 module
 
-public import Mathlib
-public import CFSG.Quasithin.Background.B4Statement
-public import CFSG.Quasithin.Background.B4Dual
 public import CFSG.Milestones.ASVolI.K1
-public import CFSG.Quasithin.Background.SmithB45MatMain
 public import CFSG.Quasithin.Background.HFCode22Dual
-public import CFSG.Quasithin.Background.HMathieuFacts
 public import CFSG.Quasithin.Background.SmithB45Holds
-public import CFSG.Quasithin.Background.SmithB45MatQ
-public import CFSG.Quasithin.Background.SmithB45J2Main
-public import CFSG.Quasithin.Background.ConjTransport
 public import CFSG.Quasithin.EmptyFaithful.S153ZP
 public import CFSG.LocalAnalysis.SeitzReduction.RankOneHallTwoArithAltSporSporadic
 public import CFSG.LocalAnalysis.EvenSmallLie.CatalogOrdersLie
@@ -18,7 +10,6 @@ public import Certificates.Certificate7275
 public import Certificates.Certificate7276
 public import Certificates.Certificate7277
 public import Certificates.Certificate7278
-public import Certificates.Kernel.Sporadic.Fi22.C3151
 public import CFSG.Monster.SteinbergMY443SimpleIsomorphism
 public import CFSG.Quasithin.EmptyFaithful.S153ZN
 public import CFSG.Quasithin.EmptyFaithful.S153ZO

@@ -2,18 +2,10 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.TL4SecIdE3S3
 public import CFSG.RankThree.PerfectCover.HopfCentralCovers
-public import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
-public import CFSG.RankThree.PerfectCover.HopfCentralCoversFinite
-public import CFSG.RankThree.PerfectCover.HopfFormula
-public import CFSG.LieType.Steinberg.CentralExt.PSLMultiplier
-public import CFSG.LieType.Steinberg.CentralExt.MultiplierCongr
 public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 public import CFSG.LieType.Steinberg.CentralExt.PSLAlternating
-public import CFSG.LinearAlgebra.LinearGroups.TwoQuadraticOddSections
 public import CFSG.LieType.SteinbergBRSemidirectSL2
-public import CFSG.LieType.HighestRoot.CentTrialityThree
 public import CFSG.GH74.Generic.Context
-public import CFSG.Adapters.LinearFieldTransport
 public import CFSG.ClassicalInvolution.Asc77.AscE187Cop
 public import CFSG.ClassicalInvolution.Asc77.AscFusionR7
 public import CFSG.ClassicalInvolution.Asc77.AscR10QVm

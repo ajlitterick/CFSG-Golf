@@ -4,7 +4,6 @@ module
 public import Certificates.Data.Kernel.GammaUOrbK
 public import CFSG.Certificates.Kernel.GammaUNormSound
 public import CFSG.Certificates.Kernel.GammaUSigmaSoundBase
-public import CFSG.GF2Type.Smith1979.GammaU.StepAOrbitFacts
 public import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
 
 public section

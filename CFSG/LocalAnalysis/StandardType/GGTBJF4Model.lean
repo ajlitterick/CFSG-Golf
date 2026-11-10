@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJF4Defs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4
 public import CFSG.LocalAnalysis.StandardType.GGTBRowF4Core
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenModel
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4ModelAux
 
 public section

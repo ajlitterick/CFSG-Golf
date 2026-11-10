@@ -1,7 +1,5 @@
 module
 
-public import Mathlib
-public import CFSG.Open.LocalVocabulary
 public import CFSG.Open.StatedDefs
 public import CFSG.Quasithin.Background.G6Natural
 public import CFSG.Quasithin.Background.A3ComponentsBasic

@@ -1,25 +1,13 @@
 module
 
 public import CFSG.GroupTheory.CoprimeCentralizerTransport
-public import CFSG.GroupTheory.PRankLeOfSylowLe
-public import CFSG.HardMathSupport.Solomon.Coordinator.L3AInner
-public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.I_6_8
-public import CFSG.LieType.Automorphisms.SteinbergBLCompleteIndexTwo
 public import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.FongLeviSmall
 public import CFSG.Quasithin.SteinbergBIEvenLinearThreeThreeSylowAction
 public import CFSG.RankThree.PartOne.F106.ZeroStar
-public import CFSG.RankThree.PartTwo.KFacts.AutPSU
 public import CFSG.RankThree.PartTwo.Sec15.Item153ClaimsTwin
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanKFacts
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPFF2
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPH2
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPH7
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPQ
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPQ3
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPR
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPZ
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPZs
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WS6
 public import CFSG.GroupTheory.CentralizerQuotientCard
 public import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderE6Order
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanOuterSylowGlue

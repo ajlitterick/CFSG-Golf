@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalDefs
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
 
 public section
 

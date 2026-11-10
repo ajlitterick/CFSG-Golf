@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4Three
-public import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
-public import CFSG.LieType.Chevalley.EvenCartanRootDiagonals
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.Chevalley.GraphFixedE6DiagonalCubes
 
 public section
 

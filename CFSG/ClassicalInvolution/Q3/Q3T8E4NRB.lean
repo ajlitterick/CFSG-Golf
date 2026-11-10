@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3T8E4NRSp
-public import CFSG.ClassicalInvolution.Q3.Q3T8E4NR
-public import CFSG.ClassicalInvolution.Q3.Q3T8E4NRDef
-public import CFSG.ClassicalInvolution.Q3.Q3T8E4Gen
 
 public section
 

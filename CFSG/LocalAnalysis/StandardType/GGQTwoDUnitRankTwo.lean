@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDShared
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSep
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosTorus
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosBlockAux
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosBlockAux4
 import CFSG.LocalAnalysis.StandardType.GGQTwoChartTwoThreeOdd
 

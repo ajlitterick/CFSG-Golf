@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.SuzH.Data
 public import Certificates.Kernel.Sporadic.Suz.Chain2306
 public import Certificates.Data.Kernel.Misc.ArrEnum
-public import Certificates.Data.Kernel.Spor.Raw
-import CFSG.Sporadic.SuzI301Cover.Inputs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

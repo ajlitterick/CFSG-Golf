@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.Data.Fin.VecNotation
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
 
 public section

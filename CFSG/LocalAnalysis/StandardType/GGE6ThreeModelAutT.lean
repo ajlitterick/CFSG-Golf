@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelTSpec
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelTFrame
 public import CFSG.RankThree.Chevalley.SteinbergBNG2QPlusLocalCore
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcAdLinear

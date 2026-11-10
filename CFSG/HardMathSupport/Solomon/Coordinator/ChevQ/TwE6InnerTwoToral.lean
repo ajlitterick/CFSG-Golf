@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6LongRootDefs
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4Cont
 public import CFSG.LieType.SeitzGeneration.ExcHigh.NativeCond
-public import CFSG.LieType.SeitzGeneration.HyperEx
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoRootSL2
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoClose
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoKill
@@ -57,7 +56,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

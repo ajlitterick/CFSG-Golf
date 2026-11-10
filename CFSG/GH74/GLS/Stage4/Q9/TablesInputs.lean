@@ -10,8 +10,6 @@ public import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion
 public import CFSG.CharacterTheory.TwoRankLowerBound.NormalComplementBlock
 public import CFSG.Open.Defs
 public meta import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Orthogonality
 
 public section
 

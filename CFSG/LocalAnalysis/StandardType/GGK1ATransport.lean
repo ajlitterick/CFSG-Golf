@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGK1ADefs
 public import CFSG.GH74.GLS.Stage4.SDWLayerFieldU
 public import CFSG.Quasithin.Background.GoldschmidtListedSolv
 public import CFSG.GroupTheory.OrderBelowSixtySolvable
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.GH74.GLS.IVK.L2.F1
 public import CFSG.GH74.GLS.IVK.L2.Hilbert90Core
 public import CFSG.GH74.GLS.IVK.L2.Lemma19c
@@ -28,7 +27,6 @@ public import CFSG.Quasithin.EmptyFaithful.S142Statements
 public import CFSG.Quasithin.H13.A5S1326
 public import CFSG.Quasithin.H13.A5Top
 public import CFSG.Quasithin.H13.StatementsL3
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 
 public section
 

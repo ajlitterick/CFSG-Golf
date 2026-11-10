@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangKGInputs
-public import CFSG.RankThree.PerfectCover.HopfCentralCoversFinite
-public import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenDefs
-public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl
-public import CFSG.RankThree.PartOne.KE.ConjRootSpan
 public import CFSG.RankThree.PartOne.KLCE.A2Sector
 
 public section

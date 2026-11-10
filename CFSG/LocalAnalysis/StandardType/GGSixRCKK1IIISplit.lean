@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISp
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.CFSGNative.MonsterB.Max2Pinned
 public import Certificates.Data.CFSGNative.MonsterB.BinaryFiles
-public import Certificates.Data.CFSGNative.MonsterB.PacketData
 
 public section
 

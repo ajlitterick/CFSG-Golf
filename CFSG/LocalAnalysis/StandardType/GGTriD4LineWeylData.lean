@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTriD4LineKGX
 public import CFSG.LocalAnalysis.StandardType.GGTriD4LineTransport
-import CFSG.LieType.Chevalley.EvenTrialityParameterData
 import CFSG.RankThree.PartOne.KGD.D4T36Core
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBTypeANormal
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBLift
-public import Mathlib.LinearAlgebra.Matrix.Permutation
 
 public section
 

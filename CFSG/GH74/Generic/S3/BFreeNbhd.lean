@@ -1,10 +1,7 @@
 module
 
-public import CFSG.GH74.Generic.S3.NbrR
 public import CFSG.GH74.Generic.S3.NbrComp
 public import CFSG.GH74.Generic.Gen4LiftJ
-public import CFSG.Sporadic.Th.Max3.Relations
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.Generic.S3.NoFus2
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
 

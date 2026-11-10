@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBNbrFrameDefs
-import CFSG.LocalAnalysis.StandardType.GGQ2AmbModelOfLin
 import CFSG.LocalAnalysis.StandardType.GGQ2CensusFrame
-import CFSG.LocalAnalysis.StandardType.GGQ2CensusBridge
 import CFSG.CGT.PushingUpLit.SYMB.ProdCard
 
 public section

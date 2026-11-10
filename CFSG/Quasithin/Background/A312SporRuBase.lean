@@ -1,15 +1,9 @@
 
 module
 
-public import CFSG.Quasithin.Background.A312SporAlt5
 public import CFSG.Quasithin.Background.A312SporE8
 public import CFSG.Quasithin.Background.A312SporRuInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListFamilies
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.Data.ZMod.Basic
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
 

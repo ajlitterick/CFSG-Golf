@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2MixedRange
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
 import CFSG.LocalAnalysis.StandardType.GGF4N2ChartLift
-import CFSG.LocalAnalysis.StandardType.GGF4N2JModelExclusions
-import CFSG.LocalAnalysis.StandardType.GGF4N2RootAut
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBFixLine
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGraphAction
 import CFSG.LieType.SpecialLinear.NormalizerLift.FieldGraph
 import CFSG.Quasithin.H13.U3L14E
 import CFSG.Quasithin.Vol2.Ch10SecAFactsOrth

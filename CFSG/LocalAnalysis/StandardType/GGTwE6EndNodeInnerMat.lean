@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootKernel
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldCoreDefs
-public import CFSG.Assembly.LargeEvenDefs
 import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaThreeEndComp
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-import CFSG.LocalAnalysis.GorensteinLyons.SteinbergCBExponentFourLayer
-import CFSG.LieType.Chevalley.RootCharacterConjugation
-import CFSG.LieType.Steinberg.Adjoint.Pairs
-import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

@@ -7,7 +7,6 @@ public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check0
 public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check1
 public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check2
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2Fast
-public import CFSG.Open.Defs
 public import Certificates.Data.CFSGNative.SectionRank.B
 
 public section

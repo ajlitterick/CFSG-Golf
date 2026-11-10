@@ -5,7 +5,6 @@ public import Certificates.Kernel.Co1B.Bfs17330
 public import Certificates.Kernel.Co1ThreeK.Letters
 public import Certificates.Data.Kernel.SporSch.Co1Bfs
 public import Certificates.Data.TabCo1ThreeB
-public import CFSG.Certificates.Kernel.Lie.CT.Core
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

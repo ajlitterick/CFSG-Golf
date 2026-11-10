@@ -3,11 +3,8 @@ module
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Defs
 import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.PCore
 import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.ShapeLocal
-import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.ShapeBlocks
 import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Witness
 import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Chain
-import CFSG.Timmesfeld.Bridge.Asc72Triangle
-import CFSG.Timmesfeld.Bridge.Asc72Local
 
 public section
 

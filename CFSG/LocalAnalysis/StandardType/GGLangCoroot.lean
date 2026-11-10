@@ -1,11 +1,8 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleLang
-public import CFSG.LieType.Chevalley.GraphFixedE6DiagonalCubes
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4ZRootTorus
 public import CFSG.LocalAnalysis.StandardType.GGLangModelIndex
 public import CFSG.LocalAnalysis.StandardType.GGLangRatComp
-public import CFSG.RankThree.Chevalley.EvenPinnedRootSL2
 
 public section
 

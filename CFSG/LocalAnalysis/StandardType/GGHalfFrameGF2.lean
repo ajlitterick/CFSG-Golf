@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLFrame
 public import CFSG.LocalAnalysis.StandardType.GGHalfBlockTorus
-public import Mathlib.Tactic.ComputeDegree
 
 public section
 

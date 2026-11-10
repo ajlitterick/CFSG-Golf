@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailBstar
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestCenter
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityHolds
 public import CFSG.LocalAnalysis.StandardType.GGHypSixD4RankClass
 
 public section

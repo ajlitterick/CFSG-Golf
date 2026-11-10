@@ -1,9 +1,6 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
 public import Mathlib.Data.Finite.Defs
-public import Mathlib.GroupTheory.Solvable
-import Mathlib.SetTheory.Cardinal.NatCard
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.Proposition12

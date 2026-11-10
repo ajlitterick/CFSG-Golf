@@ -1,14 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoCover
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoCoverTwo
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoInnerQ
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoLocal
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOrbit
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeyl
 
 public section
 

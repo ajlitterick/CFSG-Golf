@@ -3,19 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.KGLangS1EBridgeFix
 public import CFSG.LocalAnalysis.StandardType.KGLangS1ECover
 public import CFSG.LocalAnalysis.StandardType.KGLangS1ENormalFormTwE6
-public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
 
-import CFSG.LieType.AlgebraicGroups.E6RationalGraphCoset
-import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
-import CFSG.LieType.Chevalley.TrialityFullAmbientFixedGroup
 import CFSG.LocalAnalysis.StandardType.GGL45E67Center
 import CFSG.LocalAnalysis.StandardType.GGL45NtRecTwE6
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwisted
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Dvd
 import CFSG.LocalAnalysis.StandardType.KGLangTorusDatumOfModels
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

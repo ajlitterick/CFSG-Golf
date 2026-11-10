@@ -2,12 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongExcDatum
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
-public import CFSG.LieType.Steinberg.Adjoint.Group
-public import CFSG.LieType.Steinberg.Adjoint.Comm
-public import CFSG.LieType.Steinberg.Adjoint.ChevExtras
-public import CFSG.LieType.Steinberg.Adjoint.CertE7
-public import CFSG.LieType.HighestRoot.RootsBasic
-public import CFSG.LieType.Chevalley.RootOps.All
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Form
 public import CFSG.ClassicalInvolution.LBalance.Main
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover
@@ -28,7 +22,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

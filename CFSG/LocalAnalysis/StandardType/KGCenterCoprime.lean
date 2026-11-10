@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclicHolds
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangKGInputs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.KGTorsBoundReg
 public import CFSG.LocalAnalysis.StandardType.GGOddCenterPrimeLabel
-import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
 
 public section
 

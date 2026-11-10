@@ -3,13 +3,9 @@ module
 public import Certificates.Kernel.LocalComp.E8Tables
 public import Certificates.Kernel.LocalComp.Omega1Chain
 public import Certificates.Kernel.OmegaEight.Aut
-public import CFSG.Certificates.Kernel.O8ConstrSound
 public import CFSG.Certificates.Kernel.LocalCompBridgeSound
-public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Certificates.Kernel.LocalCompAglSound
-public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylBridgeData
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.LocalCompFrameSound
 public import CFSG.RankThree.Native.PermEnumeration
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Permutation.FiveTransitive.ThreeGroupTwentySevenNormalizer
 
 public section

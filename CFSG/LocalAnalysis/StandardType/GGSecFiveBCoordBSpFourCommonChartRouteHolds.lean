@@ -9,7 +9,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBSpCoordFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBSpCoordFrameFacts
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpFour
-import CFSG.ClassicalInvolution.Models.SymplecticPairs.ShortRoot
 import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenTriality
 import CFSG.LocalAnalysis.ComponentInitial.CLSFourGroupLinearThreeFour
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotHR4

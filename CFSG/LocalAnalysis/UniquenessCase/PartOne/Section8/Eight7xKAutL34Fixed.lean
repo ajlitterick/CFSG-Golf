@@ -1,20 +1,10 @@
 module
 
-public import CFSG.Blueprint.Catalog
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.RankThree.PartOne.AUTSL.Interface
-public import CFSG.Open.Defs
-public import CFSG.RankThree.PartTwo.KFacts.AutPSLOrderThree
 public import CFSG.RankThree.PartTwo.KFacts.L34Centralizers
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiMain
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiDiag
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsL34b
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KI2320A5
 public import CFSG.Adapters.CatalogueFieldBridges.Linear
-public import CFSG.LocalAnalysis.ComponentInitial.LinearThreeFourFixedNine
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherFieldInvolution
 public import CFSG.CGT.PushingUpLit.A78.LQ4Count
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Basic
 public import CFSG.CGT.PushingUp.BenderBridge
 public import CFSG.CGT.PushingUp.BlockOrder
 public import CFSG.CGT.PushingUpLit.BHS.SymNatOrbitsSL

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Definitions
-public import Mathlib.Algebra.Group.Subgroup.Map
-public import Mathlib.Algebra.Group.Subgroup.Lattice
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
 import Mathlib.NumberTheory.Padics.PadicVal.Basic
 

@@ -1,20 +1,12 @@
 module
 
-public import CFSG.OddTranspositions.Blocks
-public import CFSG.OddTranspositions.HypothesisC
 public import CFSG.OddTranspositions.FaithfulBlocks
 public import CFSG.OddTranspositions.PartThree.Statements
 import CFSG.OddTranspositions.PartThree.EightNine.Tools
 public import CFSG.OddTranspositions.SixNineUnconditional
-import CFSG.OddTranspositions.SixEight
 import CFSG.OddTranspositions.PartThree.Nine.ThreeBlocks
 import CFSG.OddTranspositions.PartThree.Ten.DalphaBlocks
-import CFSG.OddTranspositions.PartThree.HalphaCentralizer
 import CFSG.OddTranspositions.PartFour.LineTransport
-import CFSG.Timmesfeld.Bridge.Asc72Minimal
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

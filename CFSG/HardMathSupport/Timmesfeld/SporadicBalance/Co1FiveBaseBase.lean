@@ -4,10 +4,6 @@ module
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1FiveLeaf
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1FiveKit
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.AbelianSylow
-public import CFSG.Sporadic.Schreier.Co1ThreeLocal
-public import Certificates.Data.CFSGNative.Timmesfeld.Co1Five
-public import CFSG.Open.GLADefs
-public import Certificates.Data.CFSGNative.Co1.Data
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 
 @[expose] public section

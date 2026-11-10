@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourModel
 public import CFSG.ClassicalInvolution.RouteD.TypeDModel
 public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6TwinFact
-import CFSG.ClassicalInvolution.ModelFacts.FundPerfectMain
 public import CFSG.ClassicalInvolution.RouteD.NonClassicalShape
 public import CFSG.ClassicalInvolution.RouteD.NonClassicalTwin
 public import CFSG.ClassicalInvolution.RouteD.TypeEModel

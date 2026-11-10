@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSL9TwoModel
 public import TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Transvection
-public import Mathlib.Algebra.Group.Commutator
-public import Mathlib.GroupTheory.Commutator.Basic
 
 public section
 

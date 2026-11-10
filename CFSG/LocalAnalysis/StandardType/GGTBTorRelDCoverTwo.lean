@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOmegaPlusCentrallyClosed
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenIso
-public import CFSG.LieType.Steinberg.CentralExt.OrthogonalTwoMultiplier
 
 public section
 

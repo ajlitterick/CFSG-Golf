@@ -1,33 +1,11 @@
 module
-public import CFSG.Open.Defs
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3Core
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDet
 
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T1428CensusArith
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonTriLHolds
-import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcompIdx
-import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
-import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeTorus
 import CFSG.Quasithin.EmptyFaithful.Insp7NumB
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKFactParabolicLeviSubUArith
-import CFSG.Quasithin.Background.B1
-import CFSG.Quasithin.Background.B3Q
-import CFSG.Quasithin.Background.B3ThreeModel
-import CFSG.Quasithin.Background.B3ThreeStruct
-import CFSG.Quasithin.Background.G2Omega4PlusModule
 import CFSG.Quasithin.EmptyFaithful.Insp7NumA
-import CFSG.Quasithin.EmptyFaithful.S143FF
-import CFSG.Quasithin.EmptyFaithful.S143Final
-import CFSG.Quasithin.EmptyFaithful.S143HD
-import CFSG.Quasithin.EmptyFaithful.S143IG
-import CFSG.Quasithin.EmptyFaithful.S143JB
-import CFSG.Quasithin.EmptyFaithful.S143KO
-import CFSG.Quasithin.EmptyFaithful.S143KP
 import CFSG.SignalizerFunctorTheorem.NearModels.Unitary.Fixed
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcomp
 

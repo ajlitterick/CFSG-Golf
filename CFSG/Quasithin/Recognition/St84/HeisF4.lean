@@ -1,11 +1,6 @@
 module
 
 public import CFSG.Fischer.F4
-public import Mathlib.Algebra.Group.Equiv.Finite
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Basify
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
 public import Std.Tactic.BVDecide.Normalize.Prop
 
 public section

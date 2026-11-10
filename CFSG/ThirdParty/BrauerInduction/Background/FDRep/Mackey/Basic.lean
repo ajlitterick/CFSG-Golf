@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.ConjMap
-public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.Basic
 public import CFSG.ThirdParty.BrauerInduction.Background.Group.DoubleCoset
 
 public section

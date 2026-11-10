@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.C12643.CentData
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

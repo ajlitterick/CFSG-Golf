@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LieType.Sp6Spin.CaseAB
-public import CFSG.LieType.Sp6Spin.Frame
-public import CFSG.LieType.Sp6Spin.FrameModel
 public import CFSG.LieType.Sp6Spin.RecognitionAux
 public import CFSG.HardMathSupport.Kantor79.LongRoot
 

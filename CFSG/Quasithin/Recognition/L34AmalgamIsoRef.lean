@@ -1,17 +1,11 @@
 module
 
-public import CFSG.Quasithin.Recognition.L34AmalgamIsoGL
 public import CFSG.Quasithin.Recognition.L34AmalgamGen
 public meta import CFSG.Quasithin.Recognition.L34AmalgamIsoGL
 public meta import CFSG.Quasithin.Recognition.L34AmalgamData
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
 public meta import CFSG.Quasithin.Recognition.M22UniqueData
-public import Certificates.Certificate2195
-public import CFSG.Quasithin.Recognition.L34AmalgamIsoRefInputs
 public import Certificates.Certificate7040
-public import Certificates.Certificate7036
-public import Certificates.Certificate7037
-public import Certificates.Certificate7041
 
 public section
 

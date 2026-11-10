@@ -4,10 +4,6 @@ module
 public import Certificates.Kernel.SporSch.HN.StrongK
 public import Certificates.Kernel.SporSch.HN.Invol2099U
 public import Certificates.Data.Kernel.SporSch.HNF5Inv
-public import Certificates.Data.Kernel.SporSch.HNF5Mod
-public import Certificates.Data.Kernel.SporSch.HNF5KronT
-public import Certificates.Kernel.SporSch.HN.GenF5T
-public import CFSG.Sporadic.HNSchreier.InvolCheckInputs
 meta import CFSG.Sporadic.HNSchreier.InvolCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
 

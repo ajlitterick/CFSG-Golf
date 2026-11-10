@@ -2,21 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.MILabel
 public import CFSG.Yardstones.Md0ec50421ce4.Definitions
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestTypeDet
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreExcB
 public import CFSG.LocalAnalysis.StandardType.ChevTwoLieModel
-public import CFSG.LocalAnalysis.SeitzReduction.E8PilotCatTypeDet
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotCatTypeDetExc
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotCatTypeDetExcMinus
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotCatTypeDetExc
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotCatTypeDetExc
-public import CFSG.RankThree.PartOne.S12K.OrdRigidL
-public import CFSG.Timmesfeld.Orders.Distinct
 public import CFSG.Adapters.TauCetiLieModels
-public import CFSG.Adapters.TauCetiExceptional.BridgeAll
-public import CFSG.Adapters.TauCetiExceptional.EvenAll
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

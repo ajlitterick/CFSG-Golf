@@ -1,21 +1,11 @@
 module
 
 public import CFSG.LieType.Steinberg.Isogeny.E6Algebraic
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwConjClass
 import CFSG.LieType.SemisimpleCentralizers.HeldLangI5E6Torus
-import CFSG.LieType.Chevalley.E6GraphInvolutionFiniteReduction
-import Mathlib.GroupTheory.Subgroup.Center
-import Mathlib.Algebra.Group.Subgroup.Ker
 import CFSG.HardMathSupport.Lang.TwE6Step3.LangTorusMonomial
-import Mathlib.Data.ZMod.Basic
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimple
 import CFSG.LieType.Steinberg.Minuscule.E6Parity
-import CFSG.LieType.Steinberg.Minuscule.ChevExtras
-import CFSG.LieType.Steinberg.Minuscule.BruhatExtras
 import CFSG.LocalAnalysis.StandardType.GGStdPosTorusNorm
-import Mathlib.FieldTheory.IsAlgClosed.Basic
-import Mathlib.Tactic.Group
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -69,7 +59,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

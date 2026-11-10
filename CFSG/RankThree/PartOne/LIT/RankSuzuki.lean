@@ -1,10 +1,8 @@
 module
 
-public import Mathlib
 public import CFSG.StronglyEmbedded.Catalog.Suzuki
 public import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.RankThree.PartOne.LIT.RankMatrix
-public import CFSG.Open.Defs
 
 public section
 

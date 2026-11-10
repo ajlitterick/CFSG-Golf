@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.LocalComp.Tits.Bind
-public import Certificates.Data.Kernel.LocalComp.TitsChain
 import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Data.CFSGNative.SectionRank.TitsChain
 

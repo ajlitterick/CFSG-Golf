@@ -4,7 +4,6 @@ public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningRoots
 public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningFrobenius
 public import CFSG.LieType.AlgebraicGroups.RationalCentralizerCocycle
 public import CFSG.LieType.Chevalley.LatticeCharacterInterpolation
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

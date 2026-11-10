@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B113OverBasic
-public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 
 public section
 

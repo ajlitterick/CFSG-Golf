@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldSympComp
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.OutSp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinU64
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GU64Glue
-public import CFSG.RankThree.PartTwo.KFacts.AutKinds
 public import CFSG.GroupTheory.PCore.SubgroupCore
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisExc.ChevIndep
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisExc.GenPeriodic
@@ -16,7 +15,6 @@ public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeALocalBase
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeL1Orb
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.SpTwo
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.PslBadCover
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.E7
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.E8
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.Basic
@@ -24,13 +22,9 @@ public import CFSG.HardMathSupport.Dickson.Sec6.Up34SporAux.BMDownMGmat
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporBMInvB
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporBMInvM
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossSp
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoConfig
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoEscape
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrHom
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrLarge
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrXGen
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVIbDefs
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneProjSlice
 public import CFSG.LocalAnalysis.EvenBN.Common.CommutatorFixed
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1431ZMathHS5
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2
@@ -61,7 +55,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2RowOmegaClass
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2RowOmegaUnitaryRows
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2RowUnitaryCover
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotInvolutionTwoPartEvenInner
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtX1512DeltaA
 public import CFSG.RankThree.PartOne.KEXC.Basic
 public import CFSG.RankThree.PartOne.TCX.Ree.Perm
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434O8pE9Local

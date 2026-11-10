@@ -1,11 +1,7 @@
 module
 
 public import CFSG.CGT.PushingUpLit.BHS.FourSymA
-public import CFSG.CGT.PushingUpLit.BHS.LLemmaBasic
 public import CFSG.Permutation.SymmetricCoxeter
-public import CFSG.Timmesfeld.ARS.NaturalModule
-public import Mathlib.FieldTheory.Finite.GaloisField
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 
 public section
 

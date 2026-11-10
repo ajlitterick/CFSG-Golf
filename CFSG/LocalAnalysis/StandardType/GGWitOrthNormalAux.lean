@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
-public import Mathlib.LinearAlgebra.QuadraticForm.Basic
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerQ1
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

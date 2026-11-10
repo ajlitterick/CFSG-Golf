@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFFLocalFus
-public import CFSG.RankThree.PartTwo.Sec21.HeringFFStatement
 
 @[expose] public section
 

@@ -2,11 +2,6 @@ module
 
 public import Certificates.Data.YamakiEnum
 public import Certificates.Data.FoxCodes
-public import Mathlib.Data.Fintype.Pi
-public import Mathlib.Data.Fintype.Sum
-public import Mathlib.Data.Matrix.Mul
-public import Mathlib.Data.ZMod.Defs
-public import Mathlib.LinearAlgebra.Matrix.Notation
 
 public section
 

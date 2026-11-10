@@ -2,13 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoOrthSupportTwoComponent
 public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.QTwoRTwoModel
-public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.ThreePlaneFourierGeneration
 import CFSG.LocalAnalysis.ComponentInitial.ComponentNormalizeCentralize
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOmFrames
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorRecal
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthogonalBlocks
 import CFSG.GroupTheory.IsComponentOfMap
-import CFSG.GroupTheory.CentralizerMap
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
 
 public section

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.TcGen.F2
 public import Certificates.Kernel.TcGen.McL
 public import Certificates.Kernel.TcGen.Suz
-public import Certificates.Data.Kernel.OpsMcertT
 public import Certificates.Data.Kernel.OpsLayT
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.FongSporLocalMSecData
 import CFSG.Certificates.Kernel.Common.Harness

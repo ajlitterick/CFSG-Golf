@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.MinusEnum.Data
-public import Certificates.Data.Kernel.BfsPinKeys
 public import Certificates.Data.Kernel.BfsPinSeed
 
 set_option maxRecDepth 400000

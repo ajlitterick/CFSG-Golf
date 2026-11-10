@@ -2,13 +2,7 @@ module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.MainV30
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterFourSeitzBal2
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterFourSeitzUE
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterHighUnitaryGUTwo
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.U3CoreMain
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzHyperGoodIn
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterFourIn
-public import CFSG.HardMathSupport.Dickson.Bal207.Holds
-public import CFSG.HardMathSupport.Foote.FamilyReduction.ClassicalFive
 
 public section
 

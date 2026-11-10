@@ -3,12 +3,7 @@ module
 public import CFSG.RankThree.PartTwo.Sec14.Wales1411WL3
 public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Local45
 import CFSG.RankThree.PartTwo.Sec14.Wales1411WPoint
-import CFSG.RankThree.PartTwo.Sec14.Item1411HJ
 import CFSG.RankThree.PartTwo.Sec14.Item14Res6ProofRigid
-import CFSG.RankThree.PartTwo.KFacts.KS14HJNative
-import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutModel
-import CFSG.RankThree.PartTwo.Sec14.Item14Res5ProofTypesModel
-import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Sig5
 public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Hexads
 public import CFSG.RankThree.Asc83Table.PermTables
 public import CFSG.RankThree.PartTwo.Sec14.Item1413Proof1417
@@ -86,8 +81,6 @@ import CFSG.Sporadic.Presentation.McLExactData
 import CFSG.Sporadic.Presentation.McLExactInputs
 import CFSG.Sporadic.Schreier.RuLOdd
 import CFSG.Sporadic.Schreier.RuZClass
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.YGroups.DCE.B433Check
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials

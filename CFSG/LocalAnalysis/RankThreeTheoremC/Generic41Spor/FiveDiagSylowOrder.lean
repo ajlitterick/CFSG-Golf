@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.Adapters.StatedClassicalOrders
 public import CFSG.Adapters.StatedClassicalUnitaryOrders
 public import CFSG.LieType.BorelTits.CompleteFlag

@@ -7,20 +7,9 @@ public import CFSG.Sporadic.ThSchreier.OrbitCheck819
 public import CFSG.Sporadic.Th.Max3.Packet
 public meta import CFSG.Sporadic.ThSchreier.OrbitCheck819
 public meta import CFSG.Sporadic.Th.Max3.Packet
-public import CFSG.Sporadic.ThSchreier.TwoCentralizerInputs
 public import Certificates.Certificate2324
-public import CFSG.Sporadic.ThSchreier.LocalOrbitInputs
 public meta import CFSG.Sporadic.ThSchreier.Words
 public meta import CFSG.Sporadic.ThSchreier.LocalData
-public import Mathlib
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Blueprint.MatrixSeedIdentification
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.Certificates.SchreierStabilizerGenerators
-public import Certificates.Data.CFSGNative.Th.Certificate
-public import CFSG.Sporadic.Th.Max3.Core
-public import CFSG.Sporadic.Th.Max3.PacketInputs
-public import CFSG.Sporadic.Th.Max3.Data
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.ExcExt.CensusTwin
 public import Certificates.Kernel.ExcExt.Data
 public import Certificates.Kernel.ExcExt.CensusData
 import CFSG.Certificates.Kernel.Common.Harness

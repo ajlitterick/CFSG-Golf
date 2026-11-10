@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GS82ResidueL34
 public import CFSG.LocalAnalysis.ComponentClassification.GS82HLargeDatum
-public import CFSG.LocalAnalysis.ComponentClassification.GS82HDefs
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrSourceChange
-public import CFSG.CharacterTheory.Semidihedral.Principal.CoprimeFixedPointLifting
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.TwoThin.PumpData
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages

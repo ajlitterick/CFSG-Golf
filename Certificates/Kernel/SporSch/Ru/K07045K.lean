@@ -6,7 +6,6 @@ public import Certificates.Kernel.Misc.Tits.E07043K
 public import Certificates.Data.Kernel.SporSch.RuOrbKG
 public meta import CFSG.Quasithin.Recognition.RuRank3RuAutDataInputs
 public meta import CFSG.Quasithin.Recognition.RuRank3TitsSylInputs
-import Certificates.Kernel.Sporadic.RawGen
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

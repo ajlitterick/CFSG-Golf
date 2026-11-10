@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1LiftComp
 public import CFSG.LocalAnalysis.StandardType.GGKacK0V2
-public import CFSG.LocalAnalysis.StandardType.GGTCJDescent
 
 public section
 

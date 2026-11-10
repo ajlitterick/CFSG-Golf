@@ -1,14 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJOmCore
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlock
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmModel
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmTorus
-public import CFSG.LocalAnalysis.StandardType.GGTBJLift
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenLift
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
-public import CFSG.LocalAnalysis.StandardType.GGPropFourOneTransfer
 
 public section
 

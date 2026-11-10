@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveBElt
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveLayer
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 
 public section
 

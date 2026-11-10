@@ -1,20 +1,11 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.PermCheck
-public import CFSG.GH74.KGroups.Checks
-public import CFSG.GH74.KGroups.PSL2
-public import CFSG.Quasithin.Recognition.CertF9
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
 import CFSG.LocalAnalysis.ComponentInitial.OddLinearTwoAliases
 public meta import CFSG.GH74.KGroups.Checks
-public import CFSG.GH74.KGroups.A6Inputs
 public meta import CFSG.GH74.KGroups.A6Inputs
 public import Certificates.Certificate5108
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

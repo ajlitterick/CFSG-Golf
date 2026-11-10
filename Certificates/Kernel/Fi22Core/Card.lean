@@ -7,8 +7,6 @@ public import CFSG.Certificates.Kernel.Spor.PChainSound
 public import Certificates.Kernel.Fi22Core.Conj
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Sporadic.Presentation.Common
-import CFSG.Certificates.Kernel.Spor.Loops
-import Mathlib.Tactic.IntervalCases
 
 public section
 

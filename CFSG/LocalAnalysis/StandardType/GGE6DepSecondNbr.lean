@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6DepBlockDefs
 public import CFSG.LocalAnalysis.StandardType.GGE6DepStdSubMulPoint
 public import CFSG.LocalAnalysis.StandardType.GGE6DepNbrOfBlocks
 

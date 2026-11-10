@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.ChengHeldSec1Main
 public import CFSG.LocalAnalysis.OddStandard.ChengHeldModelNormalizer
-public import CFSG.LocalAnalysis.OddStandard.Seitz77L34Inv
-public import Certificates.Certificate6136
 public import Certificates.Certificate6137
 public import Certificates.Certificate6138
 

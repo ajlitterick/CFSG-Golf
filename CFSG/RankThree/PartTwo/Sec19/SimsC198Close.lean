@@ -1,11 +1,7 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec19.SimsC198Coprime
-public import CFSG.Blueprint.Chevalley
 public import CFSG.LieType.Ree.FixedSubgroupData
-public import CFSG.Open.PGLModelDefs
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Index
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 import CFSG.RankThree.PartTwo.Sec19.SimsC198AutCrit
 import CFSG.RankThree.PartTwo.Sec19.SimsC198Crit
 import CFSG.RankThree.PartTwo.Sec19.SimsC198Iso
@@ -14,18 +10,12 @@ import CFSG.RankThree.PartTwo.Sec19.SimsC198Lin
 import CFSG.RankThree.PartTwo.Sec19.SimsC198Lin2
 import CFSG.RankThree.PartTwo.Sec19.SimsC198G2
 import CFSG.RankThree.PartTwo.Sec19.SimsC198Ree
-import CFSG.Sporadic.Schreier.TitsOuter
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.TrialityThreeRank
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.Models.PGLOrders
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanG2QThree
 import CFSG.RankThree.PartTwo.Sec21.ReeF4ThreeLocalProofRank
-import CFSG.Sporadic.Schreier.TitsCert
-import CFSG.Sporadic.Bridge.M22
 import CFSG.LocalAnalysis.StandardType.ChevTwoLieModel
 import CFSG.RankThree.PartTwo.Census.Suzuki
-import CFSG.StronglyEmbedded.Catalog.Suzuki
 import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherL52
 public import CFSG.LieType.Chevalley.RootCommutatorData
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
@@ -63,19 +53,6 @@ import CFSG.RankThree.PartTwo.Sec11.KS11Lie6ProofKFacts
 import CFSG.RankThree.PartTwo.Sec21.Item211Res5ProofBlockMain
 import CFSG.RankThree.PartTwo.Sec21.Item211Res5ProofG2Data
 import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2S0LeQuotientTorus
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 
 public section
 

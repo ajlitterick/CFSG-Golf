@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch3Sec3G2XS3
 public import CFSG.Quasithin.Vol2.Ch3Sec3ThreeL32
-public import CFSG.Quasithin.Background.JonesParshallG2TwoH1
-public import CFSG.Quasithin.Vol2.KGNatCoord
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.CharacterTheory.Blocks.BrauerInduction
 public import CFSG.CharacterTheory.Semidihedral.Principal.PrimeOrderSylowColumn
@@ -11,17 +9,11 @@ public import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion
 public import CFSG.CharacterTheory.TwoRankLowerBound.NormalComplementCharacterSpace
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNine
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNineInvolutions
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.Quasithin.Background.B69Core
 public import CFSG.Quasithin.Background.FFC7G
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

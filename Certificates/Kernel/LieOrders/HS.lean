@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.PumpHSCatLie
-import CFSG.LocalAnalysis.EvenSmallLie.CatalogOrdersLie
 public import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Chevalley.RootCommutator
@@ -26,7 +23,6 @@ public import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

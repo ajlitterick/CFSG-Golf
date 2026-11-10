@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LargeExtraspecial.S14SMKTransCode
-public import CFSG.Fischer.Polar.Lines
-public import CFSG.Sporadic.Th.Max3.Data
 public import CFSG.LargeExtraspecial.S10FourG
 public import CFSG.LargeExtraspecial.S14C12Lit
 public import CFSG.LargeExtraspecial.S14SMHDefs

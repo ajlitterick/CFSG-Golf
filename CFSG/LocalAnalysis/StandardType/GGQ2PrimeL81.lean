@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeL81Cover
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeL81Coords
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeL81Action
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeABridge
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCoxeter
 public import CFSG.LieType.Multipliers.U62Sylow
 

@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4BstarCoords
 public import CFSG.LocalAnalysis.StandardType.GGF4Frame
-import CFSG.LocalAnalysis.StandardType.GGF4WeylMat
-import Mathlib.Tactic.FinCases
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.LinearCombination
 
 public section
 

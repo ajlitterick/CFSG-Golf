@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGSmallKGInputsTwE6
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6Torus
 
 public section
 

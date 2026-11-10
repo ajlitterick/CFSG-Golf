@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.EmptyFaithful.Stellmacher.OrdinaryProofs.OffenderB10
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.OffenderNilpotent
 public import CFSG.Quasithin.EmptyFaithful.Stellmacher.S35Fin1
 public import CFSG.Quasithin.EmptyFaithful.Stellmacher.S35Std1

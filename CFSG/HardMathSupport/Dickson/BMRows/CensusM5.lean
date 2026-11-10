@@ -1,23 +1,17 @@
 module
 
 public import CFSG.HardMathSupport.Dickson.BMRows.CensusShape
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMFiveNoComp
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMFiveNoCompK
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBFiveCentM
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBFiveCentA
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBFiveCentSeven
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMFiveCo1Bridge
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.MonsterFiveBGood
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.NoOrderSixtyFiveM
-public import CFSG.Sporadic.Bridge.Catalogue
 public import CFSG.HardMathSupport.Timmesfeld.Coordinator.ScopeBFrontier
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.TableComplete
-public import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterFrontier
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterKleinFrontier
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BFiveAClose
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1Five
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterFiveGmat
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13e
@@ -107,10 +101,6 @@ public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -219,7 +209,6 @@ public import CFSG.Sporadic.Recognition.HNMultiplier
 public import CFSG.Sporadic.Recognition.LyonsAmalgamModelYAut
 public import CFSG.Sporadic.Recognition.LyonsFinalDist2
 public import CFSG.Sporadic.Suz
-public import CFSG.Walter.J1Props
 public import Certificates.Kernel.J4Count.Prim
 
 public section

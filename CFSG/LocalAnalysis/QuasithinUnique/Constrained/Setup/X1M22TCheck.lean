@@ -1,11 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1PermCheck
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1MathieuGen
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1TightGen
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M22Check
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M22TA
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M22TData
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1PermCheck
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1MathieuGen
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1TightGen
@@ -14,7 +8,6 @@ public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M22TA
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M22TData
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM22Outer
 public meta import CFSG.Sporadic.Schreier.M22
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M22TCheckInputs
 public import Certificates.Certificate4070
 public import CFSG.LieType.CurtisTits.Recognition
 public meta import CFSG.LieType.CurtisTits.Recognition

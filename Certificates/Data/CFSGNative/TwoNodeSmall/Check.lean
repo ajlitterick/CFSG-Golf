@@ -1,7 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.TwoNodeSmall.Core
-public import Certificates.Data.CFSGNative.TwoNodeSmall.Verify
 public import Certificates.Data.CFSGNative.TwoNodeSmall.Search
 
 public section

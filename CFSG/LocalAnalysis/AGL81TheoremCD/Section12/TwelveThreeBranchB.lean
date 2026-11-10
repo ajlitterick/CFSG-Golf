@@ -2,15 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.NineTenBranches
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeNineStatements
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeTenAtQuotKer
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeTenDvdP1
 import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTwelveThirteenKerFrame
 import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.SevenHull
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CSixThreeOneBasic
-import CFSG.LocalAnalysis.ComponentClassification.SolvablePrimeCoreLayerLift
-import CFSG.Quasithin.Background.A1cSL2Facts
-import CFSG.CharacterTheory.PSL2Table.Basic
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeConclusion
 
 public section

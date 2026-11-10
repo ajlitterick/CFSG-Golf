@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicLinear
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicMatrix
-public import CFSG.LieType.Steinberg.Classical.Symplectic
-public import CFSG.ClassicalGroups.Symplectic.ProjectivePerfect
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusWeylMatrices
 
 public section
 

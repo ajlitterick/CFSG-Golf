@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.ImpExtDeg
-public import CFSG.LocalAnalysis.StandardType.ZS.TableDefs
 import CFSG.LocalAnalysis.StandardType.ZS.LemmaOneFour
-import CFSG.LocalAnalysis.StandardType.ZS.LemmaOneFive
-import CFSG.LocalAnalysis.StandardType.ZS.LemmaOneSix
-import CFSG.LocalAnalysis.StandardType.ZS.LemmaOneSixTen
 import CFSG.LocalAnalysis.StandardType.ZS.LemmaOneNine
 import CFSG.LocalAnalysis.StandardType.ZS.PropOneEight
 import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient

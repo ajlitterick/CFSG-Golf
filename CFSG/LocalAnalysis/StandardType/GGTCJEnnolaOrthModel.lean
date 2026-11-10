@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
 public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-import CFSG.ClassicalGroups.Orthogonal.Simple
 import CFSG.RankThree.PartOne.S11d.LieCentralizerPOmega
 public import CFSG.ClassicalInvolution.Orders.OrthogonalCount
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
@@ -41,7 +38,6 @@ import CFSG.RankThree.PartOne.Assembly
 import CFSG.RankThree.PartOne.KC.OrthogonalBinaryDickson
 import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 

@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.LocalBenderCenter
 
 import CFSG.CGT.Timmesfeld75.SimpleAssembly
-import CFSG.GroupTheory.ABGLocalTools.Constraint
 import CFSG.OddTranspositions.PartThree.LocalBenderInvolutions
 import CFSG.Timmesfeld.Bridge.Asc72ElemCompQuot
 import CFSG.CGT.Timmesfeld75.Derivations

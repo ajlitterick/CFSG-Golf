@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.EmptyFaithful.S146D4
 public import CFSG.Quasithin.EmptyFaithful.S146D5
 public import CFSG.Quasithin.EmptyFaithful.S146D6
-public import CFSG.Quasithin.Background.A3Structure312Embed
 
 public section
 

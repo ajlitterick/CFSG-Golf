@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Asch54.Co3Text
 public import Certificates.Kernel.Asch54.Co3Chains
 public import Certificates.Kernel.Sporadic.Co3.C
-public import Certificates.Data.Kernel.Spor.Prim
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

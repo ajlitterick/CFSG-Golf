@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtClOrth
-public import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

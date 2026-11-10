@@ -4,7 +4,6 @@ public import CFSG.GF2Type.Smith1980Orth.S3Bad
 import CFSG.GF2Type.Smith1980Orth.S3Count
 import CFSG.GF2Type.Smith1980Orth.S3CaseB
 import CFSG.GF2Type.Smith1980Orth.S3ThmALin
-import CFSG.LargeExtraspecial.S14SMKDeltaLin
 public import CFSG.CGT.Timmesfeld75.Derivations
 public import CFSG.CGT.Timmesfeld75.Main
 public import CFSG.Fischer.NoF25.Local
@@ -52,8 +51,6 @@ public import CFSG.Sporadic.FischerOddCore.FischerOuterBasic
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 public import CFSG.Sporadic.Th.Max3.Data
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore

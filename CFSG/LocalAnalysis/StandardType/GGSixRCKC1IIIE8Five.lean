@@ -4,12 +4,9 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIE8Transport
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIThreeDivisor
 public import CFSG.LocalAnalysis.StandardType.GGSixRCK1416Defs
 import CFSG.LocalAnalysis.StandardType.GGE8TwoFiveAssembly
-import CFSG.LocalAnalysis.StandardType.GGFieldFiveE8Centralizer
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpAction
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIINativeMinus
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeStepA
-import CFSG.LieType.Universal.Unitary.Clause0
-import CFSG.Blueprint.LieModelAPI
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInBCDCharTwo
 
 public section

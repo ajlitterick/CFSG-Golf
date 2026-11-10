@@ -3,10 +3,8 @@ module
 public import CFSG.Blueprint.Catalog
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 public import CFSG.Open.BenderStronglyEmbeddedMilestoneDefs
-import CFSG.ClassicalGroups.Unitary.Simple
 import CFSG.Timmesfeld.Orders.ClassicalLinear
 import CFSG.StronglyEmbedded.BenderUnitaryBorel
-import CFSG.StronglyEmbedded.BenderBorelTransport
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 import CFSG.Adapters.LieModelSimple
 import CFSG.CGT.Timmesfeld75.L2Pair
@@ -14,8 +12,6 @@ import CFSG.CGT.Timmesfeld75.ListWCBasic
 import CFSG.ClassicalGroups
 import CFSG.LieType.BorelTits.CompleteFlag
 import CFSG.StronglyEmbedded.ParityCriterion
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
 
 public section
 

@@ -7,7 +7,6 @@ meta import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicFi24TwoBK
 meta import Certificates.Kernel.LocalComp.BfsGen
 meta import Certificates.Kernel.Sporadic.RawGen
 import CFSG.Certificates.Kernel.Common.Harness
-import Certificates.Kernel.Sporadic.ON.Gen
 meta import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 meta import CFSG.LocalAnalysis.ComponentClassification.GeneralizedFitting
 meta import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

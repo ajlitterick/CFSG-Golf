@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HNSideFacts.F4Inputs
 import Certificates.Kernel.SchreierFam.C26777K
 import Certificates.Kernel.Sporadic.OddCore.HN2089
-import CFSG.Sporadic.Schreier.ONPermArr
-import CFSG.Certificates.Kernel.BfsPinUnpack
 import CFSG.Certificates.Kernel.Common.Harness
 import all Init.Data.Nat.Fold
 import all Init.Data.Range.Basic

@@ -3,13 +3,8 @@ module
 public import Certificates.Kernel.J2Fix280.CheckA
 public import Certificates.Kernel.J2Fix280.CheckBC
 public import CFSG.Certificates.Kernel.Item434.PkSound
-public import Certificates.Data.J2Fix280
-public import CFSG.Certificates.Kernel.Misc.PairCountSound
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.RankThree.F2Perm
 import Certificates.Kernel.LocalComp.Fi24TwoB.L15027
-import Mathlib.Tactic.IntervalCases
 public import Certificates.Kernel.Sporadic.Fi22.C3151A
 public import CFSG.Certificates.Kernel.Misc.ArrBind
 public import Certificates.Kernel.Sporadic.Fi22.C2068

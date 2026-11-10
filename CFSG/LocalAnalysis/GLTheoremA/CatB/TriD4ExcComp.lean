@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.TriD4Comp
-public import CFSG.Blueprint.Chevalley
-import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoPlumb
-import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoRat
 import CFSG.LocalAnalysis.GLTheoremA.CatB.I2610HF4Model
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeExcE678
-import CFSG.LocalAnalysis.SeitzReduction.E8PilotAutD
-import CFSG.GroupTheory.InnerNormalizedAutomorphisms
-import CFSG.Assembly.Subnormal
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I1431ChevTwoDefs
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171Facts
 

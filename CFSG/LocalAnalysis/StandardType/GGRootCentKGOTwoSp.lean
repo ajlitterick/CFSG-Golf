@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSp
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherAutomorphismData
 import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSpHolds
 import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSpTwo
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotCentralizerB1
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotCentralizerA2
 import CFSG.LocalAnalysis.StandardType.GGRootNormInner
-import CFSG.LocalAnalysis.ComponentInitial.ThreeFactorFactor
 
 public section
 

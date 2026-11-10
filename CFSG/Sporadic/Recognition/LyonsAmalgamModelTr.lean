@@ -4,7 +4,6 @@ public import CFSG.Sporadic.Recognition.LyonsAmalgamTrInputs
 public import CFSG.Sporadic.Recognition.LyonsAmalgamEnum
 public import CFSG.Sporadic.Recognition.LyonsAmalgamLines
 
-public import Mathlib.Order.CompletePartialOrder
 
 public section
 

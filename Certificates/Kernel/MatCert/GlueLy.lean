@@ -4,12 +4,7 @@ public import Certificates.Kernel.MatCert.Ly
 public import Certificates.Kernel.SporSch.Ly.Seven2189
 public import CFSG.Certificates.Kernel.OpsMcertNSound
 public import CFSG.Certificates.Kernel.OpsFpKSound
-public import CFSG.Certificates.Kernel.SporSch.LySevenSound
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.LyThreeDefs
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.LyFiveDefs
-public import CFSG.Certificates.Kernel.Spor.Loops
 import all CFSG.Blueprint.NativeSporadic
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -1,19 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenTwEightLang
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoFusionLang
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeAd
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CorootCoreFrame
 public import CFSG.LocalAnalysis.WeakClosure81.SU3RankRoots
 public import CFSG.HardMathSupport.Malle.SeitzCube.E6ThreeD4Torus
-public import CFSG.Adapters.TauCetiExceptional.BigCellEndgameE
-public import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6TwoFrame
-public import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6TwoD4
-public import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
 public import CFSG.RankThree.PartOne.Q1327T.Item7D4W
-public import CFSG.RankThree.PartOne.KE6.EqpOpp
-public import CFSG.LieType.Chevalley.GraphFixedRankOneImage
-public import CFSG.RankThree.Chevalley.EvenPinnedRootSL2
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeDiag
 
 public noncomputable section

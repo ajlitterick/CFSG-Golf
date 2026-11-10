@@ -4,7 +4,6 @@ public import CFSG.RepresentationTheory.TrivialKernelMaps
 public import CFSG.Quasithin.Background.RankOneCohomologyTensor
 public import CFSG.Quasithin.Background.TrivialLineExtension
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSp6H1Cohom
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.RepMap
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.RouteP.Obj.Rep
 public import Certificates.Kernel.RouteP.Lines.ObjL
 public import Certificates.Kernel.RouteP.Link.Glue
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.Open.StatedAPI
 import CFSG.Assembly.E6FourLabelArith
 
 public section

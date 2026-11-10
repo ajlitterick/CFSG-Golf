@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTCJDivLin
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniCore
 public import CFSG.LocalAnalysis.GLTheoremA.S11.Lemma117
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T263DXGlue
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 public import CFSG.GroupTheory.Fitting.LayerProjection
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnUniBlock
 public import CFSG.Goldschmidt.Steps.G37Core
@@ -42,10 +41,6 @@ public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -91,7 +86,6 @@ public import CFSG.Quasithin.Vol2.Ch11SecSI3
 public import CFSG.Quasithin.Vol2.Ch11SecSObl
 public import CFSG.Quasithin.Vol2.Ch9KGFFQR
 public import CFSG.Quasithin.Vol2.Ch9KGFFQRCase
-public import CFSG.Walter.J1Props
 public import Certificates.Kernel.J4Count.Prim
 
 public section

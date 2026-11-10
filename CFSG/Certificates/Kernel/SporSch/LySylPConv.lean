@@ -4,12 +4,10 @@ public import CFSG.Certificates.Kernel.SporSch.LySylDefs
 import all Init.Data.String.Legacy
 import all Init.Data.String.Slice
 import all Init.Data.String.Search
-import Batteries.Data.String.Lemmas
 import Std.Data.String.ToInt
 import Std.Data.String.ToNat
 import CFSG.Certificates.Kernel.SporSch.LyTxtLemmas
 import CFSG.Certificates.Kernel.Common.StrSplit
-import CFSG.Certificates.Kernel.Common.Loop
 public import CFSG.Certificates.Kernel.SporSch.LyMatSound
 public import CFSG.Sporadic.Schreier.LyCheckSeven
 

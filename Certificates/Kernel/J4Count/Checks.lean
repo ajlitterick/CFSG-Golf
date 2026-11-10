@@ -3,7 +3,6 @@ module
 
 public import Certificates.Data.Kernel.J4Count
 public import Certificates.Kernel.SporSch.J4S.NoCK
-public import Certificates.Kernel.SporSch.J4S.Orbits
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

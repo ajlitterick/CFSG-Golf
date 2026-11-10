@@ -4,7 +4,6 @@ public import Mathlib.GroupTheory.PGroup
 import CFSG.LocalAnalysis.StandardType.GGSporKHeis13Conj
 import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HeisThirteen
-import CFSG.Open.Defs
 
 public section
 

@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2LU4Weyl
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-public import CFSG.RankThree.PartOne.K1214.SylowShape
-public import CFSG.LieType.Ree.FixedSubgroupData
 import CFSG.LocalAnalysis.StandardType.GGTwF4SUThree
-import CFSG.RankThree.PartOne.K128.ReeShape
 import CFSG.RankThree.PartOne.SEITZ3.PlaneCount
-import CFSG.RankThree.PartOne.SEITZQ1.Plane
-import CFSG.RankThree.PartOne.KF.R9Perm
 
 public section
 

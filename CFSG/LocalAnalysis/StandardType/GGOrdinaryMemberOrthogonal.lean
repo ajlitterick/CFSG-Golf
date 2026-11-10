@@ -3,23 +3,15 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseOrthFrame
 public import CFSG.LocalAnalysis.StandardType.GGNsq2U62
 public import CFSG.LocalAnalysis.StandardType.GGOrthFrameCoxRefl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinHCRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGOrdinaryMemberTwistedE6
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinDCell
 import CFSG.LocalAnalysis.StandardType.GGOrdinaryMemberUnitary
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameSpinCover
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Weyl
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwoE
 import CFSG.LocalAnalysis.StandardType.GGMemberE7TwoRankOne
 import CFSG.LocalAnalysis.StandardType.GGResidualExcRows
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameOfMarking
-import CFSG.LocalAnalysis.StandardType.GGSecFiveQTwoInternal
 import CFSG.LocalAnalysis.StandardType.GGSecFiveOrderSixPZ
-import CFSG.LocalAnalysis.StandardType.GGResIBasic
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE7Three
-import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoRank
-import CFSG.LocalAnalysis.SeitzReduction.E8PilotLevi
-import CFSG.GroupTheory.CenterlessInnerCentralizer
 
 public noncomputable section
 

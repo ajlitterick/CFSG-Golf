@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Vol2.Ch12Sec7ModB
 public import CFSG.Quasithin.Vol2.Ch12Sec7ModData2
 import all CFSG.Quasithin.Vol2.Ch12Sec7ModData
 import all CFSG.Quasithin.Vol2.Ch12Sec7ModData2
-public import Mathlib.Data.LawfulXor.Basic
 public import Std.Tactic.BVDecide.Normalize.BitVec
 
 public section

@@ -1,8 +1,5 @@
 module
 
-public import CFSG.Quasithin.Recognition.RuTypeJ47a
-public import CFSG.Quasithin.Recognition.CertTitsAmalgamLocal
-public import CFSG.Quasithin.Recognition.CertSzZero
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsDModel
 
 public section

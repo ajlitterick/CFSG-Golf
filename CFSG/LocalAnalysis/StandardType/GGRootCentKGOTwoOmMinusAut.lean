@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoOmMinusSemi
 
 import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaMinus
 import CFSG.LocalAnalysis.ComponentInitial.ThreeFactorFactor
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSemilinearDataConjugation
 import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
 
 public section

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBRowR1Defs
-public import CFSG.LocalAnalysis.StandardType.GGTBRowR1Parity
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR1ADSplit
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR1Cond
 

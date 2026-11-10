@@ -5,10 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGE6TwoSevenLayers
 public import CFSG.LocalAnalysis.StandardType.GGE6TwoSevenLabelA2
 public import CFSG.LocalAnalysis.StandardType.GGE6TwoSevenLabelTriD4
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdE6
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOther
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
 public import CFSG.LocalAnalysis.StandardType.GGTCJCoverGen
 public import CFSG.LocalAnalysis.EvenBN.Common.CommutatorFixed

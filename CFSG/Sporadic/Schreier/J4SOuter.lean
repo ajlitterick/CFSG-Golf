@@ -5,22 +5,11 @@ public import CFSG.Sporadic.Schreier.J4SOuterBase1
 
 public import CFSG.Sporadic.Schreier.J4SAut
 public import CFSG.Sporadic.Schreier.J4SKernel
-public import CFSG.GroupActions.SelfCentralizingCoreOuterPrimeBound
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Schreier.J4SCols
-public import CFSG.Sporadic.Schreier.J4SFive
-public import CFSG.Sporadic.Schreier.J4SPointwise
 public meta import CFSG.Sporadic.J4.PrimSpec
-public import CFSG.Sporadic.Schreier.J4SOrbits
 public meta import CFSG.Sporadic.Schreier.J4SOrbits
-public import CFSG.Sporadic.Schreier.J4SPrimes
 public meta import CFSG.Sporadic.Schreier.J4SPrimes
-public import CFSG.Sporadic.Schreier.J4SProfile
 public meta import CFSG.Sporadic.Schreier.J4SProfile
-public import CFSG.Sporadic.Schreier.J4SSylowData
 public meta import CFSG.Sporadic.Schreier.J4SSylowData
-public import CFSG.Sporadic.J4.Local
 
 public noncomputable section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CGT.PushingUpLit.BHS.HomTransfer
-public import CFSG.CGT.PushingUpLit.BHS.Replacement
 public import CFSG.CGT.PushingUpLit.BHS.GlaubOne
 public import CFSG.CGT.PushingUp.BenderBridge
 public import CFSG.CGT.PushingUp.BlockOrder

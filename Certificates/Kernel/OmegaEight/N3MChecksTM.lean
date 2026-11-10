@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.OmegaEight.N3MChecksTR
 public import CFSG.Certificates.Kernel.O8N3MSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

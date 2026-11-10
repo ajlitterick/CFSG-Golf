@@ -5,14 +5,7 @@ import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeInnerSylowLine
 import CFSG.LocalAnalysis.StandardType.GGE6ToralNoPpdKac
 import CFSG.LocalAnalysis.StandardType.GGE6ToralNoPpdCell
 import CFSG.LocalAnalysis.StandardType.GGFamCentralizerBridge
-import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagE6Model
-import CFSG.LieType.Chevalley.Canonical
-import CFSG.LieType.Chevalley.PerfectSimpleRoot
-import CFSG.LieType.Chevalley.RootCharacterConjugation
-import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.WeylTorusAct
 import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.E6Index
-import CFSG.Timmesfeld.Orders.ExceptionalTorus
-import CFSG.Timmesfeld.Orders.Bang
 import CFSG.Certificates.CentralKernel
 import CFSG.Certificates.CosetTableWalkC
 import CFSG.Certificates.FusionF2
@@ -53,7 +46,6 @@ import CFSG.Monster.GMS.Fi23Gen
 import CFSG.Monster.GMS.Fi23GenIso
 import CFSG.Monster.GMS.Fi23GenSix
 import CFSG.Monster.GMS.LeechCoh
-import CFSG.Monster.GMS.LeechCohGroup
 import CFSG.Monster.GMS.S365Center
 import CFSG.Monster.GMS.S37
 import CFSG.Monster.GMS.S4Assembly

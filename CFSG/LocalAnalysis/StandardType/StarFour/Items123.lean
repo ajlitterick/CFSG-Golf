@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.StarFour.ItemsDatum
-public import CFSG.LocalAnalysis.StandardType.StarFour.BlockDatum
 public import CFSG.LocalAnalysis.StandardType.StarFour.FrameModel
 public import CFSG.LocalAnalysis.StandardType.StarFour.FrameNesting
 

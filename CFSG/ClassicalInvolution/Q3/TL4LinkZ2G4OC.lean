@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.TL4LinkZ2G4OB
-public import CFSG.ClassicalInvolution.Q3.TL4Mdl264OB
-public import CFSG.ClassicalInvolution.RouteD.TwinSmallWitt
 
 public section
 

@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanLieOutBasic
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsLie
 public import CFSG.LieType.Universal.Unitary.Extras
 public import CFSG.LieType.Steinberg.BruhatWeyl
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -24,8 +22,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.LocalRank.SelectorCases
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

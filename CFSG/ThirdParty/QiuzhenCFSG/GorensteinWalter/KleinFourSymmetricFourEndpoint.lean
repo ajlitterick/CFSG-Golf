@@ -2,7 +2,6 @@ module
 
 public import Mathlib.Data.Fintype.Perm
 public meta import Mathlib.Data.Fintype.Perm
-public import Mathlib.Algebra.Group.End
 public meta import Mathlib.Algebra.Group.End
 public import Mathlib.GroupTheory.SpecificGroups.KleinFour
 import Mathlib.Tactic

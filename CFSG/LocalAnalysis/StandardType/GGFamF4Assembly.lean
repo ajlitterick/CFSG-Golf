@@ -1,9 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs
-public import CFSG.LocalAnalysis.StandardType.GGFamComponent
-public import CFSG.LocalAnalysis.StandardType.GGFamF4Orbit
-public import CFSG.LocalAnalysis.StandardType.GGFamF4Shapes
 public import CFSG.LocalAnalysis.StandardType.GGFamF4TypeA
 public import CFSG.LocalAnalysis.StandardType.GGFamF4B2
 public import CFSG.LocalAnalysis.StandardType.GGFamF4RankThree

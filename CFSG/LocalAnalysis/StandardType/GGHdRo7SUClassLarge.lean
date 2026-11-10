@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGRCClassify
 import CFSG.LocalAnalysis.StandardType.GGRCWeylOfPerm
 import CFSG.LocalAnalysis.StandardType.GGRCArith
 public import CFSG.LocalAnalysis.StandardType.GGWAutDefs
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 import CFSG.LocalAnalysis.StandardType.ZS.MarkedWeyl
 import CFSG.LinearAlgebra.F3ConnectedPairingScalar
 

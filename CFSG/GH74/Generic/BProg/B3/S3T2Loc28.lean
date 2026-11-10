@@ -1,11 +1,9 @@
 module
 
-public import CFSG.GH74.Generic.BProg.B3.S3BootDefs
 public import CFSG.GH74.Generic.BProg.B3.S3Boot152
 public import CFSG.GH74.Generic.BProg.B3.S1Lemma282Bal
 public import CFSG.GH74.Generic.BProg.B3.LocBalL3
 public import CFSG.GH74.Generic.BProg.B2.T1Comp
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.Bg.Iii2.L41Comp
 public import CFSG.GH74.GLS.C3.Layer1.Th2Pump
 public import CFSG.GH74.Generic.BProg.B2.GenLocBasicExc

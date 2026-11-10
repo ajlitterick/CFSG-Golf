@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPay.SquareGen
 public import CFSG.LocalAnalysis.StandardType.ExcPay.SquareModelE7
-public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.WeylTorusAct
 public import CFSG.LocalAnalysis.StandardType.ExcPay.ModelE7
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE7Model
-import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
 
 public section
 

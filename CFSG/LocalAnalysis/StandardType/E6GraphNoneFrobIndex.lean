@@ -1,10 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeE6FourFusion
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagCartan
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Lang
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6Torus
 public import CFSG.LocalAnalysis.StandardType.E6GraphNoneStepTwo
 public import CFSG.RankThree.Classical2.TwistedE6Phi3A2Case
 public import CFSG.RankThree.PartOne.KLCE.Sector

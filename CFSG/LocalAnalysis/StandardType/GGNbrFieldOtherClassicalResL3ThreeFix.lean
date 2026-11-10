@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResL3ThreeSub
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinear
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinear
 
 public section
 

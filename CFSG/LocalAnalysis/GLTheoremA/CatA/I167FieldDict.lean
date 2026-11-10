@@ -2,29 +2,17 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S11.InputsElim
 public import CFSG.LocalAnalysis.GLTheoremA.S12.Inputs123
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
 public import CFSG.Adapters.LieModelOrders
 import CFSG.Adapters.TauCetiLieModels
 import CFSG.Models.Blueprint
-import CFSG.Adapters.ClassicalCatalogReverse
-import CFSG.Adapters.RankTwoModelTransports
 import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinDOdd
 import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDOdd
 import CFSG.Blueprint.SourceClassicalTransportOrthogonal
-import CFSG.Adapters.StatedClassicalSmallOrders
 import CFSG.Adapters.LieModelSmallOrders
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.Dihedral.DihedralFusionPrefixes
-public import CFSG.HardMathSupport.Solomon.LocalBalance.PartIInputs
 public import CFSG.HardMathSupport.Solomon.LocalBalance.ScpQuot
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Interface
 public import CFSG.LieType.Steinberg.Classical.SpinFrame
 public import CFSG.LieType.Steinberg.Families
 public import CFSG.LieType.Universal.Spin.Generation
@@ -33,8 +21,6 @@ public import CFSG.LieType.Universal.Spin.PlusCT
 public import CFSG.LieType.Universal.Spin.Structure
 public import CFSG.LieType.Universal.SpinOmega
 public import CFSG.LieType.Universal.Unitary
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
-public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.ComponentClassification.BlockCentralSylowEquality
 public import CFSG.LocalAnalysis.ComponentClassification.BlockFourFactorSupport
 public import CFSG.LocalAnalysis.ComponentClassification.BlockLargeProductInvolutions
@@ -65,20 +51,10 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.TopScalarLiftSquare
 public import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 import CFSG.Blueprint.LieModelAPI
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound

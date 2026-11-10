@@ -3,8 +3,6 @@ module
 public import Certificates.Data.Kernel.F42Lev.L0
 public import Certificates.Data.Kernel.F42Lev.L1
 public import Certificates.Kernel.LocalComp.BlockTac
-public import CFSG.Certificates.Kernel.Spor.RawSound
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeBigHeart
-public import CFSG.LocalAnalysis.StandardType.GGWAutDefs
 import CFSG.LocalAnalysis.StandardType.GGQ2HypRestrict
-import CFSG.LocalAnalysis.StandardType.GGWAutMonoNorm
-import CFSG.LocalAnalysis.StandardType.GGWAutE
-import CFSG.LocalAnalysis.StandardType.GGWAutCommon
 import CFSG.LocalAnalysis.StandardType.GGLargeDepNoSymPerm
 
 public section

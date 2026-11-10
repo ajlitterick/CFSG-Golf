@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofEndOddLieLPsl
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofEndOddLieLPsu
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

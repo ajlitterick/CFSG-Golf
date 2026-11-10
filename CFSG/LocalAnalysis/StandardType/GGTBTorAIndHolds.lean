@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTDLabels
-public import CFSG.LocalAnalysis.StandardType.GGTBTorRest
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModelCoprime
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverTwo
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNinePGL
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenUFour
 
 public section

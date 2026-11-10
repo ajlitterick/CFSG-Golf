@@ -1,13 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenResults
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenGlue
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenGlue2
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTools
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenFiveTen
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTwo
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenUniqueMax
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs15
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.OrdinaryProofs.FixedPointsTwo
 
 public section

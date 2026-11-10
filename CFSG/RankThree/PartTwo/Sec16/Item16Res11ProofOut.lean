@@ -3,37 +3,23 @@ module
 public import CFSG.RankThree.PartTwo.Sec16.Item16Res11ProofTools
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiItem412
 public import CFSG.RankThree.PartTwo.Sec4.Item41Narrow
-import CFSG.RankThree.PartTwo.Sec21.Item211ProofQuot
 import CFSG.RankThree.PartTwo.Sec21.Item2130Res5ProofLThree
 import CFSG.RankThree.PartTwo.Sec16.Item1613StepsProofFix
 import CFSG.RankThree.PartTwo.Sec15.NoModNine
-import CFSG.RankThree.PartTwo.KFacts.KSL3PiOrder3TypeC
 import CFSG.RankThree.PartTwo.Sec6.Item612Core
 import CFSG.RankThree.PartTwo.Sec8.Item82OneProofTransport
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseI
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.RankThree.PartTwo.Sec16.Item1613ResProofOut
 import CFSG.RankThree.PartTwo.Sec16.Item1613StepsProofInv
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail13Tools
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail13
-import CFSG.RankThree.PartTwo.Sec16.Item16Tail
 import CFSG.RankThree.PartTwo.Sec15.Item156Res4ProofInner
 import CFSG.RankThree.PartTwo.Sec15.Item158CartanProofFuse
 import CFSG.RankThree.PartTwo.Sec15.Item158StepsProof
-import CFSG.RankThree.PartTwo.Sec15.Item1514Steps1515
 import CFSG.RankThree.PartTwo.Sec14.Item142L3ResProofTypesCent
 import CFSG.RankThree.PartTwo.Sec13.Item138ProofOmega
 import CFSG.RankThree.PartTwo.Sec13.Item138NMod9
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
 import CFSG.RankThree.PartTwo.Sec13.Item136Pair
-import CFSG.RankThree.PartTwo.Sec13.Item13Prod
-import CFSG.RankThree.PartTwo.Sec13.Item13Theta
 import CFSG.RankThree.PartTwo.Sec13.Item133
-import CFSG.RankThree.PartTwo.Sec13.Naturality
-import CFSG.RankThree.PartTwo.Sec21.Implications
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
 import CFSG.RankThree.PartTwo.Sec5.Tools
-import CFSG.RankThree.PartTwo.Sec4.LThreePiHessian
 import CFSG.RankThree.PartTwo.KFacts.KS14Orders
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
@@ -100,7 +86,6 @@ import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 import CFSG.LocalAnalysis.SectionRank.TitsCover
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Vol2.KGFactC31RuRef
 import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 import CFSG.RankThree.PartTwo.Sec11.Theorem1134

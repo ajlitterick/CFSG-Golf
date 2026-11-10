@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.RankThreeUC.TheoremDReductions
 import CFSG.LocalAnalysis.RankThreeUC.TheoremDResidual
 import CFSG.LocalAnalysis.RankThreeUC.TIModule
 import CFSG.Quasithin.Background.B216Quotient
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 
 public section

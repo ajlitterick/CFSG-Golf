@@ -1,15 +1,12 @@
 module
 
 public import CFSG.Monster.B.GSide.HInnerFusionI3CertInputs
-public import Certificates.Kernel.BabyMonster.CTIB.InnerTab
 public import Certificates.Kernel.BabyMonster.CTIB.Cls3135Data
 public import Certificates.Kernel.BabyMonster.CTIB.Orb3135Data
 public import Certificates.Kernel.BabyMonster.CTIB.Outer3122
 public import Certificates.Kernel.BabyMonster.CTIB.CosetQBind
-public import Certificates.Kernel.BabyMonster.CTIB.QK
 public import CFSG.Certificates.Kernel.BabyMonster.OrbTreeWSound
 import Certificates.Certificate3110
-import Certificates.Kernel.BabyMonster.CTIB.CosetQCount
 import Certificates.Kernel.BabyMonster.CTIB.Orb3135.Tree
 import Certificates.Kernel.BabyMonster.CTIB.Orb3135.Clos0
 import Certificates.Kernel.BabyMonster.CTIB.Orb3135.Clos1
@@ -31,7 +28,6 @@ import Certificates.Kernel.BabyMonster.CTIB.Cls3135.Cnt0
 import Certificates.Kernel.BabyMonster.CTIB.Cls3135.Cnt1
 import Certificates.Kernel.BabyMonster.CTIB.Cls3135.Cnt2
 import Certificates.Kernel.BabyMonster.CTIB.Cls3135.Misc
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Monster.B.TwoA.Sp8.QuadCosetC
 
 public section

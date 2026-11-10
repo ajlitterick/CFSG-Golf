@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineThreeKFacts
-import CFSG.LocalAnalysis.AGLEmbedding.ReducedOrbitsAux
-import CFSG.Adapters.LinearCatalog
 import CFSG.StronglyEmbedded.Catalog.Suzuki
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.theorem_3_6
-import Mathlib.GroupTheory.NoncommCoprod
-import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.CGT.Timmesfeld75.Statements

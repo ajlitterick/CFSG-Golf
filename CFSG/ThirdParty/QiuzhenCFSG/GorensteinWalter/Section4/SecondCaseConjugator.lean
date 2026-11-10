@@ -1,10 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseHNotLeM
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FittingNormalizerGrowth
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

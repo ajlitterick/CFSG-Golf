@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGExcMaxToral
 public import CFSG.LocalAnalysis.StandardType.GGExcFiveFour
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeU
 public import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompatDefs

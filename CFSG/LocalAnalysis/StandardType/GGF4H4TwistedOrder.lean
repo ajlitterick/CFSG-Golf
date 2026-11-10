@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGF4H4TwistedAux1
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthKSLOrder
 import all CFSG.LocalAnalysis.StandardType.GGF4H4TwistedAux1
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLNoJ1Ppd
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDetOrders
 
 public section
 

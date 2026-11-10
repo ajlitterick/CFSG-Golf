@@ -8,7 +8,6 @@ public import Certificates.Kernel.L34W.Glue
 public import CFSG.Certificates.Kernel.L34Cov.T1Sound
 public import CFSG.Certificates.Kernel.L34Cov.AlphaOKSound
 public import CFSG.Certificates.Kernel.Common.ForallTree
-public import CFSG.Certificates.Kernel.Multipliers.MonoAllR
 
 public section
 

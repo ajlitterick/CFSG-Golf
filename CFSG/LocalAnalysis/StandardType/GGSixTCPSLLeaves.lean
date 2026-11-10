@@ -1,18 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.TableC.HypDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixTCPSLAux
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSLScalar
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSLBlock
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSLMatrix
 public import CFSG.LocalAnalysis.StandardType.GGSixTCMarkDict
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenCentJLieKnown
-public import CFSG.LocalAnalysis.StandardType.GGLinearSemisimple
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotCatTypeDet
-public import CFSG.LocalAnalysis.SeitzReduction.RankOneCatSL2TypeDet
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPSL
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelPSL
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 
 public section
 

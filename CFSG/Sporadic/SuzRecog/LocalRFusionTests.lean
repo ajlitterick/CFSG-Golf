@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.SuzRecog.TwistTests
-public import CFSG.Sporadic.SuzOddCore.InvTCheckInputs
 public meta import CFSG.Sporadic.SuzRecog.TwistTests
 public meta import CFSG.Sporadic.SuzOddCore.InvTCheckInputs
 

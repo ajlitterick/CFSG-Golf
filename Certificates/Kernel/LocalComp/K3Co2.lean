@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Kernel.LocalComp.K3Co2Data
 public import CFSG.Certificates.Kernel.K3Sound
-public import Certificates.Kernel.LocalComp.BlockGen
 public import Certificates.Kernel.LocalComp.K3Co2P0
 public import Certificates.Kernel.LocalComp.K3Co2P1
 public import Certificates.Kernel.LocalComp.K3Co2P2
@@ -30,8 +28,6 @@ public import Certificates.Kernel.LocalComp.K3Co2MP2
 public import Certificates.Kernel.LocalComp.K3Co2MP3
 public import Certificates.Kernel.LocalComp.BlockJoin
 public import CFSG.Certificates.Kernel.LBindSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 public section

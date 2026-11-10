@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.TwoF4Lie.Data
 public import Certificates.Data.Kernel.TwoF4LieK
 public import Certificates.Kernel.SporSch.Tits.Action2262
-public import Certificates.Kernel.SporSch.Tits.Common
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

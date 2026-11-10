@@ -6,15 +6,11 @@ public import CFSG.LocalAnalysis.StandardType.GGAm2Ab
 public import CFSG.LocalAnalysis.StandardType.GGOmegaTwoThree
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUKacQsOne
 public import CFSG.LocalAnalysis.StandardType.GGTPNClGen
-public import CFSG.LocalAnalysis.StandardType.GGK0ExcB3
-public import CFSG.LocalAnalysis.StandardType.GGTPNThmRACore
 public import CFSG.LocalAnalysis.StandardType.GGExcGen
 public import CFSG.LocalAnalysis.StandardType.GGTPNExcTwoSlices
 public import CFSG.LocalAnalysis.StandardType.GGE6TwoLocalRank
 public import CFSG.LocalAnalysis.StandardType.GGE6TwoCenter
-public import CFSG.LocalAnalysis.StandardType.GGE78LocalRank
 public import CFSG.LocalAnalysis.StandardType.GGTwE6LocalRankHolds
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTwE6
 
 public section
 

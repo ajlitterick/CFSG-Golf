@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSU
 public import CFSG.LocalAnalysis.StandardType.GGPRankBoundsBasic
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryDiagonalOuterOrder
-public import CFSG.LieType.Universal.Unitary.Clause0
-public import CFSG.Open.StatedAPI
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 

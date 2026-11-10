@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.H13.A5M12SylBase
-public import CFSG.Quasithin.H13.A5M12SylInputs
-public import CFSG.Quasithin.Background.HMathieuPred
 public import CFSG.Quasithin.Background.HMathieuEnumAll
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239CoversM11
 public import CFSG.Sporadic.Bridge.M11CheckInputs

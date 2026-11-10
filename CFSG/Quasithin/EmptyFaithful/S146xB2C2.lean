@@ -1,16 +1,7 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.S146xB2Aut
-public import CFSG.Quasithin.EmptyFaithful.S146G2
 public import CFSG.Quasithin.EmptyFaithful.S146E6
-public import CFSG.Quasithin.Background.E2Two
-public import CFSG.Quasithin.Background.B6Defs
-public import CFSG.Quasithin.Background.A1cRank
-public import CFSG.LieType.BorelTits.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Center
-public import CFSG.GH74.SmallRanks.PSL
-public import CFSG.Adapters.LinearFieldTransport
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyGL3Aut
 import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic

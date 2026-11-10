@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
-public import CFSG.Quasithin.Background.A1bBasic
-public import CFSG.Open.LocalVocabulary
 import CFSG.Quasithin.Vol2.Ch4Sec2Thm4213Typ
 import CFSG.Quasithin.Vol2.Ch11SecE3LieSL2
 public import CFSG.CGT.Timmesfeld75.Statements
@@ -32,26 +30,16 @@ import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7Iso
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122AProved
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageCompletion
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerPrimeCompatibility
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestrictionCompletion
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
-import CFSG.Quasithin.Background.A3Structure318Red
-import CFSG.Quasithin.Background.A3Structure36A
-import CFSG.Quasithin.Background.A3Structure36BBase
-import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
-import CFSG.Quasithin.Background.A3Structure36Base
 import CFSG.Quasithin.Background.B1More13A
 import CFSG.Quasithin.Background.B1More13Defs
 import CFSG.Quasithin.Background.B1MoreEleven
 import CFSG.Quasithin.Background.B5CompA
 import CFSG.Quasithin.Background.B5CompB
 import CFSG.Quasithin.Background.InternalSecB51
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.Vol2.Ch10SecA1012Three
 import CFSG.Quasithin.Vol2.Ch10SecA1012Two
 import CFSG.Quasithin.Vol2.Ch10SecAShapeCard
@@ -60,14 +48,10 @@ import CFSG.RankThree.Asc83Table.PermTables
 import CFSG.Sporadic.Schreier.M11
 import CFSG.Sporadic.Schreier.M22
 import CFSG.StronglyEmbedded.ParityCriterion
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 import CFSG.Walter.J1
 import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

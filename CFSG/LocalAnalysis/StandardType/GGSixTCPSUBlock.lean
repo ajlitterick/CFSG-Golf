@@ -1,15 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepACore
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDPSU
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDCommute
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.CompPSU
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
 public import CFSG.LocalAnalysis.StandardType.GGSixPositionDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixTCBlockField
 public import CFSG.LocalAnalysis.StandardType.GGSixTCLiftGroup
-public import CFSG.LieType.Universal.Unitary.Extras
-public import CFSG.LieType.BorelTits.UnitaryForm
 
 public section
 

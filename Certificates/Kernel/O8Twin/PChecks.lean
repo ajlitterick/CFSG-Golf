@@ -2,11 +2,9 @@ module
 
 public import Certificates.Kernel.O8Twin.PData
 public import Certificates.Data.Kernel.S7TwinK
-public import Certificates.Data.Kernel.Child3
 public import Certificates.Data.Kernel.J2Cover
 public import Certificates.Data.Kernel.SporSch.MathieuBT
 public import Certificates.Data.Kernel.AE6Core
-import CFSG.Certificates.Kernel.Common.Harness
 import all Init.Data.List.SplitOn.Basic
 
 public section

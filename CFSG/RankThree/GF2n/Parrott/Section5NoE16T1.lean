@@ -2,10 +2,7 @@ module
 
 public import CFSG.GroupTheory.QuaternionQuotientElementaryAbelian
 public import CFSG.RankThree.GF2n.Parrott.Section5CenterT1
-public import CFSG.RankThree.GF2n.Parrott.Section2CJ
-public import CFSG.RankThree.GF2n.Parrott.HPrimeJ1
 public import CFSG.RankThree.GF2n.Parrott.CommutatorNormalSigma1
-public import CFSG.RankThree.GF2n.Parrott.Section4EWeak
 public import TauCeti.Algebra.Group.Subgroup.ZPowers
 public import CFSG.RankThree.GF2n.Parrott.Section5LocalSigma
 

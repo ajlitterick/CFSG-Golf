@@ -1,21 +1,10 @@
 module
 
-public import CFSG.Quasithin.Recognition.CertPermOuter
-public import CFSG.Quasithin.Recognition.CertTitsSimpleMain
-public import CFSG.Quasithin.Recognition.CertDataTitsOuter
-public import Certificates.Data.CFSGNative.YGroups.ExactCheck
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Quasithin.Recognition.CertTitsSimpleMain
 public meta import CFSG.Quasithin.Recognition.CertDataTitsOuter
 public meta import Certificates.Data.CFSGNative.YGroups.ExactCheck
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Quasithin.Recognition.CertTitsOuterInputs
 public import Certificates.Certificate8075
-public import Certificates.Certificate8071
-public import Certificates.Certificate8077
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
-public import Certificates.Certificate19953
 
 public section
 

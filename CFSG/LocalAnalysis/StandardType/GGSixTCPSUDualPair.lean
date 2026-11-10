@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUDualPairEmb
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUSelfDual
-public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
-public import CFSG.LieType.Universal.SpecialLinear
 
 public section
 

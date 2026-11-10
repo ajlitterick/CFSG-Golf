@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigPairIndep
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08DatumCoxeter
 public import CFSG.LocalAnalysis.StandardType.GGTDAutomizer

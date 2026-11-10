@@ -6,8 +6,6 @@ public import Certificates.Kernel.SporSch.Co2M.FratSA
 public import Certificates.Kernel.SporSch.Co2M.FratSB
 public import Certificates.Kernel.SporSch.Co2M.FratSC
 public import Certificates.Kernel.SporSch.Co2M.FratYB1
-public import Certificates.Kernel.SporSch.Co2M.ChainS
-public import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.Certificates.Kernel.Spor.RawSiftKConv
 public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.SporSch.Co2ProfSound

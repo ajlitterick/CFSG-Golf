@@ -1,17 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankTransfer
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankE6
-public import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankF4Rank
-public import CFSG.LieType.SeitzGeneration.ExcTorusRankTw
 public import CFSG.LieType.SeitzGeneration.ExcTorusThreeTwRank
 public import CFSG.LieType.SeitzGeneration.ExcTwistedClasses
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSylow
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4Sylow
-public import CFSG.HardMathSupport.Lang.AnisoE6.TwPlane
-public import CFSG.HardMathSupport.Lang.AnisoE6.F4GraphFixed
-public import CFSG.LieType.Chevalley.GraphFixedData
-public import CFSG.LieType.Chevalley.TwistMapFixed
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4Close

@@ -3,11 +3,8 @@ module
 
 public import CFSG.Sporadic.Schreier.ONCheckChainBase
 
-public import CFSG.Sporadic.Schreier.ONActionData
-public import Certificates.Data.CFSGNative.ONSchreier.Vectors
 public meta import CFSG.Sporadic.Schreier.ONActionData
 public meta import Certificates.Data.CFSGNative.ONSchreier.Vectors
-public import CFSG.Sporadic.Schreier.ONCheckChainInputs
 public import Certificates.Certificate2212
 public import Certificates.Certificate2212Base
 

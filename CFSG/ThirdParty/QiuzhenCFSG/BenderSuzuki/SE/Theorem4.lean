@@ -1,18 +1,13 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.ConjugateAction
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Compat
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.InvolutionCore
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.StrongEmbeddingIntersections
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.StrongEmbeddingCounting
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.StrongEmbeddingOddCore
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.lemma_a
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.proposition_1_5
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection7.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
 
 namespace CFSG

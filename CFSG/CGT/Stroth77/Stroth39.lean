@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CGT.Stroth77.Stroth39Kill
-import CFSG.GroupTheory.FixedCosetCommutator
 
 public section
 

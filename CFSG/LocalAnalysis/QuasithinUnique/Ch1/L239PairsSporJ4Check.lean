@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4Data
-public import CFSG.Sporadic.J4.QTMask
-public import CFSG.Sporadic.Mathieu.M24
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4Data
 public meta import CFSG.Sporadic.J4.QTMask
 public meta import CFSG.Sporadic.Mathieu.M24
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4CheckInputs
 public import Certificates.Certificate4092
 
 public section

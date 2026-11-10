@@ -6,23 +6,10 @@ public import CFSG.LocalAnalysis.StandardType.GGTorsionDefs
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoLangComp
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoCoset
 import CFSG.LocalAnalysis.StandardType.GGLangRatComp
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.Untw
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.TwE6
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcAssemblyTw
-import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
-import CFSG.LieType.SeitzGeneration.ExcPlaneModel
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExc
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExcTw2
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangCore
-import CFSG.LocalAnalysis.StandardType.GGExcCompSLCat
-import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6LangComp
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
-import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TwE6
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.Transfer
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiag
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.PlanesSetup
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaPlusIota
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphUnitaryNormal
 import CFSG.LocalAnalysis.SeitzReduction.LinearPilotQ2RowNeighbour
@@ -46,7 +33,6 @@ import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2RowUnitaryCover
 import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotInvolutionTwoPartEvenInner
 import CFSG.RankThree.PartOne.KEXC.Basic
 import CFSG.RankThree.PartOne.TCX.Ree.Perm
-import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 
 public section
 

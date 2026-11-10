@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionDefs
-import CFSG.LocalAnalysis.StandardType.GGFusionShadowComponents
 import CFSG.LocalAnalysis.StandardType.GGFusionShadowOrthogonal
-import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 import CFSG.GroupTheory.CenterlessInnerCentralizer
 import CFSG.LocalAnalysis.ComponentInitial.CLSFourGroupLinearThreeFour
 import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec3L34GC1Inn

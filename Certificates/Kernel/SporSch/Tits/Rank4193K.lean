@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.EmptyFaithful.F112SInputs
 public import Certificates.Kernel.EvenBN.K27580D
 public import Certificates.Kernel.Misc.Tits.Pi7092
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import CFSG.Quasithin.EmptyFaithful.F112SInputs
 import CFSG.Certificates.Kernel.Common.Harness
 

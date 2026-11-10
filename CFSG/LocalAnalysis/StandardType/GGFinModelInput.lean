@@ -6,10 +6,8 @@ public import CFSG.LocalAnalysis.StandardType.GGFinModelAdj
 public import CFSG.LocalAnalysis.StandardType.GGFinModelBridge
 public import CFSG.LocalAnalysis.StandardType.GGFinModelBridgeE6
 public import CFSG.LocalAnalysis.StandardType.GGFinModelTw
-public import CFSG.LocalAnalysis.StandardType.GGFinModelRoots
 public import CFSG.LocalAnalysis.StandardType.GGFinModelPi
 public import CFSG.LocalAnalysis.StandardType.GGFinModelEps
-public import CFSG.LocalAnalysis.StandardType.GGLangData
 
 public section
 

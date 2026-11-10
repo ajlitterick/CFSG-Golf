@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.PrimeCommute
-public import CFSG.Sporadic.HNSchreier.Simple
 public import CFSG.Sporadic.HNSchreier.Sylow3
 public import Certificates.Certificate13609
 public import CFSG.RankThree.Classical.SteinbergBJUnitaryThreeInvolutions

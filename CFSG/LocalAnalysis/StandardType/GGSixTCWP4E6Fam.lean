@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6Form
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UG3
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4ULang
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs
 
 public section
 

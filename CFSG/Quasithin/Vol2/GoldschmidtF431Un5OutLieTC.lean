@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431Un5OutLieSet
-public import CFSG.LocalAnalysis.EvenBN.U5.Model
 public import CFSG.LocalAnalysis.EvenBN.U5.ModelLevi
 public import CFSG.LocalAnalysis.EvenBN.U5.ModelSylowRank
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
@@ -28,7 +27,6 @@ public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsModU5Stab
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsThree
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsU5Base
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsYamStd
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public noncomputable section
 

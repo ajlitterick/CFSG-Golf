@@ -1,13 +1,10 @@
 
 module
 
-public import CFSG.Sporadic.Co2Schreier.SylowCheckBase
 
 public import CFSG.Sporadic.Co2Schreier.ChainCheck
-public import CFSG.Sporadic.Schreier.RuEnum
 public meta import CFSG.Sporadic.Co2Schreier.ChainCheck
 public meta import CFSG.Sporadic.Schreier.RuEnum
-public import CFSG.Sporadic.Co2Schreier.SylowCheckInputs
 public import Certificates.Certificate2059
 
 public section

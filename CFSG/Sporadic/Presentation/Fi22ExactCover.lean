@@ -4,7 +4,6 @@ public import CFSG.Sporadic.Presentation.Fi22ExactWalks
 public import CFSG.Certificates.KernelOrder
 public import CFSG.Certificates.CosetTableAction
 public import Certificates.Certificate9108
-public import Certificates.Certificate9110
 public meta import CFSG.Sporadic.Presentation.Fi22ExactWalks
 public meta import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public meta import TauCeti.GroupTheory.SpecificGroups.CFSG.Index

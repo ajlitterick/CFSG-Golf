@@ -9,7 +9,6 @@ import CFSG.OddTranspositions.PartThree.Eleven.OneOne.ConjShared
 import CFSG.OddTranspositions.PartFour.SpLineCount
 import CFSG.OddTranspositions.PartFour.Fourteen.ShapeTransport
 import CFSG.OddTranspositions.WidthSylow
-import Mathlib.Algebra.Group.TypeTags.Basic
 import CFSG.OddTranspositions.O4PairTenWidth
 import CFSG.OddTranspositions.Width
 

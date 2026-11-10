@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCore
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatQuot
-public import Mathlib.Data.List.Sort
 import all Mathlib.Data.List.Sort
 
 public section

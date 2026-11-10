@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenOrth
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpen
 
 public section

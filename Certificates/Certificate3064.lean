@@ -3,9 +3,6 @@ module
 
 public import Certificates.Certificate3064Base
 
-public import CFSG.Monster.B.TwoA.Base.SevenPairCInputs
-public import CFSG.Certificates.Kernel.SortTreeSound
-public import Certificates.Kernel.MonsterB.Gl3064Data
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

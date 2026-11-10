@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5EndKGDescent
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78F5EndConc
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLInner
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog82A10
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog82A10Sym

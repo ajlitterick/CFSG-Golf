@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeTenCore
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGFLWTree
 public import CFSG.LocalAnalysis.StandardType.GGReflExtLin
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankNine
-public import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
-public import Mathlib.LinearAlgebra.RootSystem.CartanMatrix
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMModuleReflRestrict
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallRankDefs
 

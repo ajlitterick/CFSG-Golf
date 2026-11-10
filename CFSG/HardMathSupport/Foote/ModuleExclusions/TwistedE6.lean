@@ -1,9 +1,6 @@
 module
 
 public import CFSG.CGT.PushingUpLit.CGT6M.FiveInspD4
-public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalTwistedE6Reduce
-public import CFSG.Sporadic.ThSchreier.AutCore
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

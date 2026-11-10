@@ -1,9 +1,7 @@
 
 module
 
-public import CFSG.Monster.B.Co2.MatrixCertBase
 
-public import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
 public import Certificates.Certificate3028
 

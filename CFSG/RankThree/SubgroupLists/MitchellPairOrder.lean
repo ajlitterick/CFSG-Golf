@@ -1,10 +1,6 @@
 module
 
 public import CFSG.RankThree.SubgroupLists.SymplecticPartThreeBase
-import Mathlib.NumberTheory.LegendreSymbol.QuadraticReciprocity
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.Module
 
 public section
 

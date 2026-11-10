@@ -3,10 +3,8 @@ module
 public import Certificates.Kernel.K426.J3TData
 public import Certificates.Kernel.SporSch.J3K426.Text
 public import Certificates.Kernel.SporSch.PairJ3.ClData
-public import Certificates.Data.Kernel.HeLoc.Tree
 public import Certificates.Data.Kernel.HeLoc.PTail
 public import Certificates.Data.Kernel.MonsterB.BfsReplay
-public import Certificates.Data.Kernel.Spor.Prim
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

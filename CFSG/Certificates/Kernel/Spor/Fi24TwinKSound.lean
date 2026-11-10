@@ -3,8 +3,6 @@ module
 public import Certificates.Data.Kernel.Spor.Fi24TwinK
 public import CFSG.Certificates.Kernel.Spor.Fi24ThreeOSound
 public import CFSG.Certificates.Kernel.Spor.Fi24FixSound
-public import Mathlib.Combinatorics.Colex
-public import Mathlib.Data.Nat.Bitwise
 public import Std.Tactic.BVDecide.Normalize.BitVec
 
 public section

@@ -1,12 +1,7 @@
 module
 
-public import CFSG.Yardstones.Mf4cdcdf2e013.Definitions
-public import CFSG.RankThree.GF2n.Statements
-public import CFSG.RankThree.PartOne.S12.Sec15Final
 public import CFSG.LocalAnalysis.UniqueFourCatalog.AssemblyFinal
-public import CFSG.Yardstones.M50b1bb4a7c08.SlotInputs
 public import CFSG.RankThree.PartOne.S12.PushingUpOfCIT
-public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieInspection
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Theorem2219Four
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.AssemblyHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SlotsFourTailNoShapes
@@ -18,43 +13,16 @@ import CFSG.OddTranspositions.PartFour.Fourteen.IOneOpen
 import CFSG.OddTranspositions.Frontier
 import CFSG.LocalAnalysis.AGL81TheoremCD.RankFour.TheoremCDFourS14
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveTenOfFields
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4D4Data
-public import CFSG.Sporadic.J4.QT2LocX0Native
-public import Certificates.Data.CFSGNative.J4.PentScan
-import Certificates.Kernel.J4Q.QTBase
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
 import Certificates.Kernel.HSA312.Struct
 import Certificates.Kernel.HSQuot.Final
-public import CFSG.Sporadic.Ly.Setup
 import CFSG.Sporadic.Ly.GenSpecBase
-public import CFSG.GroupTheory.TwoWeightData
 import CFSG.Sporadic.Ly.TwoWeightsSpecBase
 import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P4S55LyHHBase
-public import CFSG.Monster.Existence.StdOdd.Defs
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
-public import CFSG.YGroups.Y443.Native.Swap13Word
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
-public import CFSG.GF2Type.Smith1979.GammaU.CensusDefs
 import Certificates.Kernel.GammaU.BaseBridge
-public import CFSG.Sporadic.Co2Smith.GlC0MarkInputs
-import Certificates.Kernel.Co2Smith.Cox
-import Certificates.Data.Kernel.Co2Smith.Mark
-import Certificates.Data.Kernel.Co2Smith.Cox
-import Certificates.Kernel.Co2Smith.LettersData
-import Certificates.Kernel.Co2Smith.CoxData
-import Certificates.Kernel.Co2Smith.MarkK
 public import CFSG.LocalAnalysis.UniquenessCase.UC6KernelsV6
-public import CFSG.LocalAnalysis.UniquenessCase.UC6K36SporPairs
 public import CFSG.Certificates.Kernel.SL4ModSound
 public import CFSG.Certificates.SchreierBaseImageDecoding
 public import CFSG.GF2Type.Smith1979.GammaU.Dict
@@ -167,7 +135,6 @@ import CFSG.Quasithin.Background.G118Hyp
 import CFSG.Quasithin.Background.G118NT
 import CFSG.Quasithin.Background.G93ApplyStmt
 import CFSG.Quasithin.Background.GoldschmidtE23J
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtL2BlockSecA
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtL2BlockSecB
 import CFSG.Quasithin.EmptyFaithful.S151CLG2D4Pkg
 import CFSG.Quasithin.EmptyFaithful.S1565C

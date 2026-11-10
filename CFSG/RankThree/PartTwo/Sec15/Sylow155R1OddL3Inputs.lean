@@ -2,12 +2,8 @@ module
 
 public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-import CFSG.CharacterTheory.Semidihedral.StructureTransport
-import CFSG.CharacterTheory.Wreathed.BaseAndDerived
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma44b
 import CFSG.LocalAnalysis.ComponentInitial.QTNQRLinearUnitaryOuterDerived
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.RankThree.SubgroupLists.SL3Involutions
 import CFSG.Dihedral.DihedralFusionPrefixes
 import CFSG.GH74.BNPair.Defs
 import CFSG.GH74.GLS.IVK.L2.F1
@@ -40,11 +36,6 @@ import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.LocalAnalysis.SectionRank.SignLines
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Remaining
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_6
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import CFSG.Walter.Defs
 import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials

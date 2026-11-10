@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsSmall
-public import CFSG.RankThree.PartOne.CTP.StrongPGlue
-public import CFSG.Adapters.LinearCatalog
 public import CFSG.Quasithin.Vol2.Ch11SecBL2UKp
-public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.Index
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs

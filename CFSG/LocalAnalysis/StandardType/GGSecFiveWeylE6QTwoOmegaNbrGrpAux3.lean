@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaNbrGrpAux
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaNbrGrpAux2
-public import CFSG.Quasithin.Background.A318PC7
 
 public section
 

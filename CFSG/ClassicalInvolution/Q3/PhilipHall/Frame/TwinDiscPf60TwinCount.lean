@@ -1,18 +1,8 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscExitUConnE
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf19AE
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf17Trans
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscExitUOdd
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf11Twin
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf11Sq
-public import CFSG.ClassicalInvolution.Q3.Q3T7W21Z02
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinIdentKind
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf9Lie
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf6Lift
-public import CFSG.ClassicalInvolution.Q3.TL4SecIdLieNR
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf12Cent
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf10U3
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf10Final
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3Pf7Distinct
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscExitUAE5
@@ -22,32 +12,10 @@ public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscBaseProved
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscExitE4Model
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.InductionBridge.Ih8
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscExitUMuRest
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinExitPf12Exact
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThmE189a
-public import CFSG.ClassicalInvolution.Q3.AE.E29
-public import CFSG.ClassicalInvolution.Q3.AE.E64
-public import Mathlib.GroupTheory.Perm.List
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDimTool
-public import CFSG.Timmesfeld.Orders.Classical
-public import CFSG.ClassicalInvolution.Q3.TL3DichComm
-public import CFSG.ClassicalInvolution.Q3.TL4Conn278Lay
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinExitPf14E4
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinModelSp62
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinModelD42
-public import CFSG.ClassicalInvolution.Q3.Q3MTModel1
-public import CFSG.ClassicalInvolution.Orders.Orthogonal
-public import CFSG.LieType.Universal.SpinOmega.Center
-public import CFSG.LieType.Universal.Catalog
-public import CFSG.ClassicalInvolution.ModelFacts.Models
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinExitPf15Odd
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinMuPf3A
-public import CFSG.ClassicalInvolution.SmallCases.Hat2A7S6Aux
-public import CFSG.ClassicalInvolution.AschTight.Sec6GenAPI2
-public import CFSG.ClassicalInvolution.SmallCases.A7Q1
-public import CFSG.ClassicalInvolution.Q3.Q3CPSix67
-public import CFSG.ClassicalInvolution.AschTight.Sec7L713F
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourMain
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.Asc77.AscC22N5
 public import CFSG.ClassicalInvolution.Asc77.AscC5O12
 public import CFSG.ClassicalInvolution.Asc77.AscC5OM21
@@ -144,7 +112,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.RankTwoFoundation
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.AppCCases
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Basic
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2pFactsPSL2More
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 
 public section
 

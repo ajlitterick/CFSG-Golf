@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLangCoroot
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviEnnComp
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenRank
-public import CFSG.RankThree.Classical2.SLnFrobeniusFormFixed
 public import CFSG.LocalAnalysis.StandardType.GGLangRootSym3
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleSplit
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleLang
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleField
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenAsm
 
 public section

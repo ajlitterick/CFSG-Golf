@@ -3,12 +3,6 @@ module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.Defs
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtFamJ4M2Q
-import CFSG.Sporadic.Schreier.J4SNative
-import CFSG.Sporadic.Schreier.J4SCols
-import CFSG.Sporadic.Schreier.J4SElevenData
-import CFSG.Sporadic.J4.QTNative
-import Certificates.Data.J4M2.QStruct
-import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4GamData
 meta import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4GamData
 import Certificates.Kernel.J4M2.C12609
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck

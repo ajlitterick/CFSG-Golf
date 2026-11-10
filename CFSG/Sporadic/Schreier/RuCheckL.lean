@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.Schreier.RuCheckChains
-public import CFSG.Sporadic.Schreier.RuWitArrays
 public meta import CFSG.Sporadic.Schreier.RuCheckChains
 public meta import CFSG.Sporadic.Schreier.RuWitArrays
-public import CFSG.Sporadic.Schreier.RuCheckLInputs
 public import Certificates.Certificate2252
 
 public section

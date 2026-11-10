@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08FullCoords
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08Cartan
 public import CFSG.LocalAnalysis.StandardType.GGQ2LDatumDims
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLDatumWeyl
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrDatumInner
 public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 
 public section
 

@@ -1,16 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField
 public import CFSG.LocalAnalysis.StandardType.GGTCJEnnolaOrthComp
-import CFSG.Assembly.Subnormal
-import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnOrthMark
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabel
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldOrthDict
-import CFSG.Open.StatedAPI
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011U64Types
 public import CFSG.LocalAnalysis.GLTheoremA.S11.Inputs119

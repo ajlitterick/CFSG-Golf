@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.CFSGNative.AS91.M24Kzero
 import CFSG.Certificates.Kernel.M24G.ReplayFacts
-import CFSG.Certificates.Kernel.M24G.DuadSound
 import CFSG.Certificates.Kernel.M24G.KzeroSound
 import CFSG.Certificates.Kernel.M24G.KzeroDerivSound
 import Certificates.Kernel.M24G.KzeroChecks

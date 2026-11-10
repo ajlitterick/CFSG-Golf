@@ -1,11 +1,7 @@
 module
 
 public import CFSG.Monster.B.Pinned.Primes.SixPrimes
-public import CFSG.Monster.B.Intertwiner.PairFacts
-public import Certificates.Data.CFSGNative.MonsterB.IntertwinerCheck
-public import Certificates.Data.CFSGNative.MonsterB.Primes
 public import CFSG.Monster.Existence.BabyTableIVOf
-public import CFSG.Monster.Existence.BabyW2Classes
 public import Certificates.Certificate17101
 public import CFSG.Monster.B.Pinned.Primes.SeedGL
 

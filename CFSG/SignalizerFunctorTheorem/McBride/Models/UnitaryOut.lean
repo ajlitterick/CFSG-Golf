@@ -1,9 +1,6 @@
 module
 
-public import Mathlib
-public import CFSG.Open.Catalog
 public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryDiagonalOuterOrder
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherRankOneSchreier
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
@@ -12,7 +9,6 @@ import CFSG.SignalizerFunctorTheorem.McBride.Models.NearSolvable.Arith
 import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 import CFSG.LieType.BorelTits.CompleteFlag
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

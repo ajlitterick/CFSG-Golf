@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6EndNodeThreeTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 
 public section
 

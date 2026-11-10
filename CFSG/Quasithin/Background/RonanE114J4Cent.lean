@@ -5,7 +5,6 @@ public import CFSG.Quasithin.Background.RonanE114J4Quot
 public import CFSG.Quasithin.Background.RonanE114C5M22
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4L4Cz0
 public import CFSG.Quasithin.EmptyFaithful.E22NJ4
-public import CFSG.Monster.B.TwoA.Fischer.M22Aut
 public import CFSG.Goldschmidt.StatementsG2
 public import CFSG.Goldschmidt.StatementsG3
 public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsFooteCore

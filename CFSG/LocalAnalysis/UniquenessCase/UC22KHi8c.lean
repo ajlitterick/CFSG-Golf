@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22KHi8b
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22t
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22v
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22ya
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22xg
-import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge3
-import CFSG.LocalAnalysis.EvenBN.Tits.N.P3Frob
 import CFSG.CGT.PushingUpLit.Transport
 import CFSG.CGT.PushingUpLit.Statements
 import CFSG.LocalAnalysis.ComponentClassification.SmallLocalFitting

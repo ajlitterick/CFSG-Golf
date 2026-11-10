@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePZKnown
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePZExc
-import CFSG.LocalAnalysis.StandardType.GGSixRCKU33Bridges
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I167TriLab
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldOrth
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T263DXQuasi
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.K3.Components
 import CFSG.HardMathSupport.Dickson.Bal207.OrthFCArith

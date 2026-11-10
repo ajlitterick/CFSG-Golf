@@ -5,11 +5,8 @@ public import Certificates.Kernel.Misc.Coset.C10009
 public import CFSG.Certificates.Kernel.Spor.PresCardPG
 public import CFSG.Certificates.Kernel.Spor.IndexTwo
 public import CFSG.Certificates.Kernel.Spor.RawCard
-public import CFSG.Certificates.Kernel.Spor.RawOrbSound
 public import CFSG.Certificates.Kernel.Spor.SiftRSound
 public import CFSG.Certificates.Kernel.Spor.SiftAMemOf
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

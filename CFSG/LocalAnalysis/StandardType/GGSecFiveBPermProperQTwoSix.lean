@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniLFrameClass
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
-import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveRoot
 import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveU52Root
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordReflGroup
-import CFSG.RankThree.PartOne.KF.ClsSUUpper
 
 public section
 

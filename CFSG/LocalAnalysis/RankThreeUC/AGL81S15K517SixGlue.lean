@@ -1,18 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsLie
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankCases
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K517SixSurv
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K517SixSUKill
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K541Even
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1512B
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.OrdinaryProofs.GNQuotient
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2Carrier
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinBBridge
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinDBridge
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDBridge
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Generic.Certificates
 public import CFSG.GH74.Statements

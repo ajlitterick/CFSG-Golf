@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.ShortRoot
-public import CFSG.LieType.Universal.SymplecticExtras.RankOne
 import all CFSG.LieType.Universal.SymplecticExtras.RankOne
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.TwoHS.F27020Q
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

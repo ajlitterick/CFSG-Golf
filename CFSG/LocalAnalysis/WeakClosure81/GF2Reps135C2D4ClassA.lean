@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2D4LongGen
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2D4Transfer
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2Gen
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2Ctx
-import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135Ctx
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.CyclicBlocks.Family

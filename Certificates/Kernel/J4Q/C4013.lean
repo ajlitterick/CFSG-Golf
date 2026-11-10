@@ -3,11 +3,6 @@ module
 
 public import Certificates.Kernel.J4Q.C4013Base
 
-public import CFSG.Sporadic.J4.QT2LocX0KNative
-public import Certificates.Kernel.J4Q.KOrbOk
-public import Certificates.Kernel.J4Q.C4027I
-public import Certificates.Kernel.J4Q.D4K
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

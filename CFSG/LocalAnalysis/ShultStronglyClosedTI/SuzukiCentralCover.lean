@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCoverInvariants
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCoverCentralizer
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.StronglyEmbedded.MatrixGroups.SzModel

@@ -1,13 +1,7 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_4
-public import Mathlib.Analysis.Complex.Basic
-public import Mathlib.GroupTheory.GroupAction.ConjAct
-public import Mathlib.GroupTheory.Index
-public import Mathlib.LinearAlgebra.Dual.Lemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Induction
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.SimpleCriteria
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Unbundled
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.CharacterValues
 
 namespace CFSG

@@ -3,12 +3,7 @@ module
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CK372Ge5Setup
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K36SporPairBase
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K36SporFinal
-public import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverList
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3SporAssemble
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.Sporadic
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1Five
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.OuterTrivial
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BMPairs
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BFiveAClose
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterFrontier
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterKleinFrontier
@@ -17,19 +12,11 @@ public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterSeven
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterSevenCensus
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.Co1SevenPair
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.Fi23FiveGen
-public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.Fi24FiveGen
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.Fi7Model
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.BSevenGen
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.MElevenCentGen
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.M13Gmat
-public import CFSG.LocalAnalysis.AGLEmbedding.Norton.Gen11.Gen
-public import CFSG.LocalAnalysis.AGLEmbedding.Norton.Gen13.Gen
-public import CFSG.LocalAnalysis.AGLEmbedding.Norton.GenD13.Gen
-public import CFSG.RankThree.PartOne.SPOR.OuterM
-import CFSG.YGroups.Y443.Tri.Finiteness
 import CFSG.LocalAnalysis.GL83PartI.I_24_3.List
-import CFSG.RankThree.PartTwo.KFacts.AutKinds
-import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Adapters.GeneralizedFitting
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
@@ -109,7 +96,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

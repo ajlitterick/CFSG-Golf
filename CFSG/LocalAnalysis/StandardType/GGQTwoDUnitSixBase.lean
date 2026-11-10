@@ -4,21 +4,11 @@ public import CFSG.LocalAnalysis.StandardType.GGNsq2NbrFrame
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosFinal
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAdapterAux
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryFiveCover
-public import CFSG.LocalAnalysis.ComponentClassification.CentralExtensions
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBlock
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBaseN
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCoord
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCoordC
 import CFSG.LocalAnalysis.StandardType.GGNsq2QuotAut
-import CFSG.LocalAnalysis.StandardType.GGQTwoChartDefs
-import CFSG.LocalAnalysis.StandardType.GGQTwoChartTwoThreeCent
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPerm
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosBlock
-import CFSG.Blueprint.LieModelAPI
-import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.ClassicalInvolution.Phan.Blocks
-import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
 
 public section
 

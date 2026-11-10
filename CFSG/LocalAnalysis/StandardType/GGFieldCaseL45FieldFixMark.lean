@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45KGForms
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-public import CFSG.LieType.Steinberg.Adjoint.Perfect
 
 public section
 

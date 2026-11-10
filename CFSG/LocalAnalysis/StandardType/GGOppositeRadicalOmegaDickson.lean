@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
 public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalAnisotropicPlaneRegular

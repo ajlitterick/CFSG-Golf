@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLemmaThreeThirteenFourteen
 public import CFSG.LocalAnalysis.ComponentInitial.KProperPumpUpStatement
-public import CFSG.Assembly.Subnormal
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 
 public section

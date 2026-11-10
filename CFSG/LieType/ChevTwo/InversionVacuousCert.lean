@@ -1,16 +1,10 @@
 module
 
-public import CFSG.LieType.ChevTwo.InversionFamilies
 public import CFSG.LieType.ChevTwo.InversionMain
 public import CFSG.LieType.ChevTwo.InversionE6Main
 public import CFSG.LieType.ChevTwo.InversionPlusMain
-import CFSG.Adapters.TauCetiExceptional.EvenAll
 import CFSG.LocalAnalysis.StandardType.ChevTwoLieModel
 import CFSG.Sporadic.Schreier.TitsOuterTwo
-import CFSG.RankThree.PartOne.S11d.OutExceptional
-import CFSG.RankThree.PartOne.S11d.OutEsix
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.GF2Thm1311.Assembly
 public import CFSG.LieType.Chevalley.EvenRootCommutatorF4
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
@@ -58,8 +52,6 @@ public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Walter.Defs
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

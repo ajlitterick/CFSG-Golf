@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveTwFaceD4Main
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveLayer
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.TwE6LeviRank
 
 public section
 

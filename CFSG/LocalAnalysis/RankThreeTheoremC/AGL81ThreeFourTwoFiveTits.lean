@@ -4,16 +4,10 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ThreeFourTwoDefs
 import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.JStarElimGeneric
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.TitsFiveLocal
-import CFSG.LocalAnalysis.AGLEmbeddingD2.SeitzTitsThree
-import CFSG.LocalAnalysis.PreuniquenessRankFour.Helpers
-import CFSG.LocalAnalysis.QuasithinUnique.CompNormSylow
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ThreeFourTwoFiveBase
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ThreeFourTwoTools
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.SignalizerTrivialSporadicBase
-import CFSG.LocalAnalysis.SectionRank.AmbientRank
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.RankThree.PartOne.CTP.SeitzExcModels
-import CFSG.Sporadic.Schreier.TitsIso
 import CFSG.Sporadic.Schreier.TitsOuter
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs

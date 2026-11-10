@@ -2,15 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortySevenE
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenSixtyOne
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Thirteen2
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SylowCentralOuter
 public import CFSG.GroupTheory.PRankCommutingSup
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma5_2
-public import CFSG.GroupTheory.ElemAbelianRank
 public import CFSG.GroupTheory.Commutator.JoinNormalizer
-public import CFSG.GroupTheory.SteinbergBSQuotientLifting
 public import CFSG.ClassicalInvolution.Q3.Q3SSylow
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DExt
 public import CFSG.Adapters.QiuzhenLegacy.Glauberman.RelIndexSup
 public import CFSG.GroupTheory.SylowNormalizedByPGroup
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitKG

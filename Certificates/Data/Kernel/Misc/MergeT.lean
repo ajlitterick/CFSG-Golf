@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Enum.Defs
 public import Certificates.Data.Kernel.YModel.Text
 public import Certificates.Data.Kernel.Spor.Chain
 

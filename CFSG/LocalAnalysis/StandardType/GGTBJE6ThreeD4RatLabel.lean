@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeD4Roots
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelAssembly
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RFam
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsExcAux.Reduce
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.Defs
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.Models

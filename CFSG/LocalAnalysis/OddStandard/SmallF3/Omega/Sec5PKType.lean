@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec3Defs
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10Defs
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10ZSub
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec79BA
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10TwoCore
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10Aux
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10Basic
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec3L34Lift

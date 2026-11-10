@@ -7,11 +7,9 @@ public import CFSG.Dihedral.FourgroupActionTransport
 public import CFSG.Dihedral.GorensteinWalter.ASevenFourgroupFullAction
 public import CFSG.Dihedral.GorensteinWalter.ASevenCentralizerFourgroup
 import all CFSG.Dihedral.BlueprintDefs
-import Mathlib.Tactic
 public import CFSG.Dihedral.OriginalPrimeStationarity
 public import CFSG.Dihedral.OriginalProjectiveExclusion
 public import CFSG.Dihedral.OriginalCosetSetup
-public import CFSG.Dihedral.GorensteinWalter.ASevenFourgroupFullActionInputs
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -19,10 +17,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
-public import Mathlib.LinearAlgebra.Projectivization.Basic
-public import Mathlib.LinearAlgebra.Quotient.Basic
-public import Mathlib.LinearAlgebra.TensorProduct.Basic
-public import Mathlib.LinearAlgebra.TensorProduct.Free
 
 public noncomputable section
 

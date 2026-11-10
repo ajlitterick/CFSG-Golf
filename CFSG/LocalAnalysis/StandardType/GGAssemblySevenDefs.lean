@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGAssemblySixDefs
-public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelLabels
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaInnerSU33
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6ThreeEndRecipe
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLComp
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSp
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSpComp
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordContrary
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerTailAssembly

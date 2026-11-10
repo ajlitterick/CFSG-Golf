@@ -11,7 +11,6 @@ public import CFSG.Certificates.Kernel.BabyMonster.HS.Check6
 public import CFSG.Certificates.Kernel.BabyMonster.HS.Check7
 public import CFSG.Certificates.Kernel.BabyMonster.HS.Wf
 public import CFSG.Certificates.Kernel.BabyMonster.Chain4Pair
-public import CFSG.Certificates.Kernel.BabyMonster.PairSound
 public import CFSG.Certificates.Kernel.Bounds.HSAlt.RelsTC
 public import Certificates.Kernel.BabyMonster.FiveM.Basic
 

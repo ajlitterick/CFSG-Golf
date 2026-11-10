@@ -3,8 +3,6 @@ module
 
 public import CFSG.Sporadic.Schreier.RuCheckLocalBase
 
-public import CFSG.Sporadic.Schreier.RuArrays
-public import CFSG.Certificates.NativeSetOrbit
 public meta import CFSG.Sporadic.Schreier.RuArrays
 public import Certificates.Certificate2253
 

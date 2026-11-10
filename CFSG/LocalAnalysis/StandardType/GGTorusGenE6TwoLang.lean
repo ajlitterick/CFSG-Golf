@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoFusionLang
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwoTorus
 public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl
-import CFSG.RankThree.Chevalley.EvenPinnedRootSL2
 import CFSG.LieType.Chevalley.OddDiagramFixedAmbientCentralizer
 
 public section

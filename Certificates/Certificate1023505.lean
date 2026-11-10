@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Blueprint.NativeSporadic
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestDefs
-public import Certificates.Certificate1020
 public import Certificates.Certificate1021
-public import Certificates.Certificate1022
 public import Certificates.Certificate16949
 import Certificates.Kernel.ThFive.Glue
 

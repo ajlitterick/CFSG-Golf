@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoD6LinDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoTransport
-public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrDatumDet
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrDatumInner
 
 public section

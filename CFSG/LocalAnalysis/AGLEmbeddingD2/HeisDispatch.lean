@@ -4,13 +4,9 @@ public import CFSG.LocalAnalysis.AGLEmbeddingD2.SquareDispatch
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.HeisEngine
 public import CFSG.LocalAnalysis.ComponentClassification.TBLitInputs
 import CFSG.LocalAnalysis.AGLEmbeddingD2.FiveCover
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2Carrier
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 import CFSG.RankThree.PartTwo.Census.Carrier.SpinBBridge
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinDBridge
 import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDBridge
 import CFSG.Adapters.TauCetiExceptional.EvenBridgeG2
-import CFSG.RankThree.PartOne.N143.Inspect613Even
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.LieType.Chevalley.RootCommutatorData
 public import CFSG.LieType.Multipliers.ProductKernel

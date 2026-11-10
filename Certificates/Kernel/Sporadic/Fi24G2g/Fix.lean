@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.Sporadic.Fi24G2g.Triple
 public import Certificates.Kernel.Sporadic.Fi24G2g.Reps
-public import Certificates.Kernel.Sporadic.Fi24G2d.Final
 
 public section
 

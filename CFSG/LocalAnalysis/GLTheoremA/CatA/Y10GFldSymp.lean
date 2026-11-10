@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldSympMark
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldSympComp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GSympLabel
-import CFSG.RankThree.Classical.SteinbergBYSymplecticFieldDescent
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GU64Glue
 import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLInner
 import CFSG.LocalAnalysis.ComponentClassification.BurgoyneProjSlice

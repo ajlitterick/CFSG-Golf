@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelModuleM
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelTSpec
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelLiftT
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelTFrame
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelTorusIdx
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelLangTorus
 

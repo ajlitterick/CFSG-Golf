@@ -1,11 +1,5 @@
 module
 
-public import CFSG.Sporadic.HNOddCore.XCheck
-public import CFSG.Sporadic.HNOddCore.SCheck
-public import CFSG.Sporadic.HNOddCore.FiveData
-public import CFSG.Sporadic.HNSchreier.FALocalCheck
-public import CFSG.Sporadic.HNOddCore.FiveCheckInputs
-public import CFSG.Sporadic.HNOddCore.FiveGens
 public import Certificates.Certificate2085
 
 public section

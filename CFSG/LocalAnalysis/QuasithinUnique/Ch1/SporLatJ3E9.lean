@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatJ3Dc
 public import CFSG.Quasithin.Background.E2TwoProofSporGen
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

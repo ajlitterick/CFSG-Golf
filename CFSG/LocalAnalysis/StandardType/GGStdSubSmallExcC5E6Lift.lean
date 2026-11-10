@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5E6Nodes
-public import CFSG.LieType.Chevalley.OddToralInvolutionComponents
-public import CFSG.LieType.Chevalley.SimplyLacedCommutation
 public import CFSG.RankThree.PartOne.S11c.G2Torus
 
 public section

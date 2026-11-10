@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGKGPosLocalHypTw
 public import CFSG.LocalAnalysis.StandardType.GGKGPosOmegaMinusRoot
 public import CFSG.LocalAnalysis.StandardType.GGKGPosOmegaMinusWeyl
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourSpinLifts
-public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenWeyl
-import CFSG.LocalAnalysis.StandardType.GGTriD4NoneRank
-import Mathlib.Tactic.Group
 
 public noncomputable section
 

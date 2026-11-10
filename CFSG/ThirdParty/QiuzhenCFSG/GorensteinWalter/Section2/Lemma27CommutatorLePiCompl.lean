@@ -1,18 +1,11 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970API
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ControlCore
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma23Core
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27Infra
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27TwoCoreTrivial
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27PiCentralizes
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27CommutatorCentralizes
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27CommutatorInPiCompl
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27ComponentLayer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27PiCoreInversion
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.MinimalCounterexample
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem26
 
 namespace CFSG
 end CFSG

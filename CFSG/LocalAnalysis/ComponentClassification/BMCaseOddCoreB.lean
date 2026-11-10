@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BMCaseBabySchreier
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueUMathieuVanishing
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueUSporadic
 public import CFSG.Monster.B.CTIB.OddCoreFree
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift

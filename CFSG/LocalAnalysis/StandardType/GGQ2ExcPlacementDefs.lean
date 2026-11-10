@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcRaw
 public import CFSG.LocalAnalysis.StandardType.GGQ2FrameSplit
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.Blueprint.Chevalley
 
 public section
 

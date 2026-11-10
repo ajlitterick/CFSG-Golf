@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ZStar.GroupAlgebraTwistedTrace
 public import CFSG.LocalAnalysis.ZStar.PadicBlockField
 public import CFSG.LocalAnalysis.ZStar.IntegralTraceBridge
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamOuterDFour
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelD4TwE6
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoRatLabelDStrict
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabelOuterD
 
 public section
 

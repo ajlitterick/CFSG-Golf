@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.Ru.Gens
 public import CFSG.Quasithin.Vol2.KGFactG2RuInputs
-public import Certificates.Data.Kernel.Spor.Prim
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

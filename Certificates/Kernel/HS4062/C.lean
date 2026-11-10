@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.HS4062.Fam
 public import Certificates.Kernel.LocalQT.SV.C4126T
-public import Certificates.Data.Kernel.Spor.Prim
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBaseNative
 import CFSG.Certificates.Kernel.Common.Harness
 

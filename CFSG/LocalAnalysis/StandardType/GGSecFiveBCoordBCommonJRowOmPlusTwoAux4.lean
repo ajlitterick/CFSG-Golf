@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowOmPlusTwoAux1
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowOmPlusTwoAux3
 import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndElt
-import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalEndNode
-import CFSG.LocalAnalysis.StandardType.GGQ2OrthPlaneForm
 import CFSG.LocalAnalysis.StandardType.GGQ2PlaneShapes
 
 public section

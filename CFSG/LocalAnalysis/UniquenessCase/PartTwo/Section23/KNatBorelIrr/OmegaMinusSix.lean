@@ -3,16 +3,10 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatBorelIrr.Model
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatBorelIrr.OmegaMinusRoot
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusLevi
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelCoordinates
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatBorelIrr.OmegaMinusTransfer
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatBorelIrr.RootTransfer
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.Om6mBorel
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.Om6mParabolic
-import CFSG.Adapters.SpecialLinearPerfect
-import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusResGroup
-import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointIsometryBasic
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
@@ -42,17 +36,12 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.Module
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.Blueprint.LieModelAPI
 import CFSG.CGT.PushingUpLit.CGT6.SixFour
 import CFSG.CGT.PushingUpLit.CGT6.SixSixteen
@@ -155,7 +144,6 @@ import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.C2PushThree
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -255,9 +243,6 @@ import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.NormalFormStabilizer
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.StabilizerLift
 import CFSG.Sporadic.Recognition.JankoWongPSLNine
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.PSL2Facts
 
 public section
 

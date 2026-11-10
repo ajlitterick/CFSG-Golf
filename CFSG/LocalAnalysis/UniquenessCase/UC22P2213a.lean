@@ -1,23 +1,16 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S21d
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S22a
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront78Nar
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront08UsePair
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22ud
 import CFSG.LocalAnalysis.UniquenessCase.UCFront08UseS
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2214c
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2214d
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846b
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22f
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22rj
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22ry
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22vd
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22ue
 import CFSG.LocalAnalysis.UniquenessCase.UC22P20d
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22i
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22a
-import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2214a
 import CFSG.Goldschmidt.StatementsG2

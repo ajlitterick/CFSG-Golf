@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMonomialIrred
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-public import CFSG.LieType.Steinberg.CentralExt.PSUMultiplier
-public import CFSG.ClassicalGroups.Unitary.Simple
-public import CFSG.ClassicalGroups.UnitaryFlag.ModelTransport
 
 public section
 

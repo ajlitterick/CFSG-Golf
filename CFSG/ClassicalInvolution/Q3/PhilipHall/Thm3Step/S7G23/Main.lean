@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Thm3Step.S7.Main
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Thm3Step.S7.CertFacts
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Thm3Step.S7G23.Map
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Thm3Step.S7G23.Model

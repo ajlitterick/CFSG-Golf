@@ -7,7 +7,6 @@ public import CFSG.Certificates.Kernel.Co2I301.SixCentSound
 public import CFSG.Certificates.Kernel.SporSch.CentNormAll
 public import CFSG.Certificates.Kernel.SporSch.SpanK3Sound
 public import CFSG.Certificates.Kernel.SporSch.J1PtSound
-import CFSG.Certificates.Kernel.Common.Harness
 import all Init.Data.Nat.Fold
 import all Init.Data.Range.Basic
 import all Init.Data.Array.Basic

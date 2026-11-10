@@ -1,9 +1,7 @@
 module
 
 public import CFSG.RankThree.Classical.SteinbergBYOrthogonalGates
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117Defs
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117Lift
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelWitness
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 
 public section

@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcThreeE8Rank
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcThreeE8Frame
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcThreeE8Norm
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcThreeE8Trick
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcThreeE8Line
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcThreeConj
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OConj
 public import CFSG.Adapters.GeneralizedFitting
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Rank1
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Generic
@@ -41,8 +39,6 @@ public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.InternalSecFF
 public import CFSG.Quasithin.EmptyFaithful.R3cBlocks

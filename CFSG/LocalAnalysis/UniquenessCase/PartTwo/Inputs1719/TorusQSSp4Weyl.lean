@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusWeylMatrices
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusRegular
-public import TauCeti.LinearAlgebra.Eigenspace.DiagonalBasis
 
 public section
 

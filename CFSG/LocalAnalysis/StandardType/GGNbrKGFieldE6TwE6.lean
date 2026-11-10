@@ -2,31 +2,15 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrKGFieldExcPlus
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixLabel
-public import CFSG.RankThree.PartOne.KF.F122Sp
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylKGInputNoU63OfRest
 public import CFSG.LocalAnalysis.StandardType.GGIrred937TwE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylRest13Known
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrWeylKGInputRest
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937Defs
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsBoth
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelInputs
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBE6
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitaryDvd
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylScIrred
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitFive
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937TwE6Center
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937TwE6Inn
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusHolds
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6TBIrred
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6TBModel
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownE6DerModel
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevRecipe
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.SmithEKG
-public import CFSG.LargeExtraspecial.SMod20BasicCheck
 public import CFSG.Certificates.Kernel.SmithEK.MSound
 public import CFSG.Certificates.Kernel.SmithEK.TvSound
 

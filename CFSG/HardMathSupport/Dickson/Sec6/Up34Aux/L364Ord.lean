@@ -1,7 +1,5 @@
 module
 
-public import Mathlib
-public import CFSG.Open.StatedDefs
 public import CFSG.Timmesfeld.Orders.ClassicalLinear
 public import CFSG.LieType.BorelTits.CompleteFlag
 

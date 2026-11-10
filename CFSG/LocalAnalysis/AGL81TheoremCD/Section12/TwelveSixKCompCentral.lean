@@ -37,7 +37,6 @@ import CFSG.GH74.Uniqueness.SU.SU13TA1Class
 import CFSG.GH74.Uniqueness.SU.SU8Stmts
 import CFSG.GroupTheory.PCore.Transport
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.InnerCoverBase
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 
 public section
 

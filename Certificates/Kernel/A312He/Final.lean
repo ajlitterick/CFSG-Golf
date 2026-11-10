@@ -5,8 +5,6 @@ public import Certificates.Kernel.A312He.Checks
 public import Certificates.Kernel.He7149.Final
 public import CFSG.Certificates.Kernel.A312HeKSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312WordsIdx
-public import CFSG.Quasithin.Background.A3StructureDefs
 import CFSG.Certificates.Kernel.Common.ForallTree
 public import Certificates.Certificate4167Base
 

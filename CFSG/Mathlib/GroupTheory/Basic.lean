@@ -3,7 +3,6 @@ module
 public import Mathlib.Algebra.Ring.Subring.Basic
 public import Mathlib.GroupTheory.Subgroup.Simple
 public import Mathlib.GroupTheory.Index
-public import Mathlib.GroupTheory.Subgroup.Centralizer
 
 public section
 

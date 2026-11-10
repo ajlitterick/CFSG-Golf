@@ -1,6 +1,5 @@
 module
 
-public import CFSG.SignalizerFunctorTheorem.Inheritance.Basic
 public import CFSG.SignalizerFunctorTheorem.Inheritance.HypB
 public import CFSG.SignalizerFunctorTheorem.Inheritance.Normalizer
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.AppendixH.H12.ModelAct
 public import CFSG.Certificates.Kernel.Mat12PSound
-public import CFSG.Quasithin.H13.L32NMatN
 
 public section
 

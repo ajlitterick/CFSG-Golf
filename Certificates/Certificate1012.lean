@@ -4,7 +4,6 @@ module
 public import Certificates.Certificate1012Base
 import all Certificates.Certificate1012Base
 
-public import Certificates.Data.CFSGNative.Fi23.Certificate
 import Certificates.Kernel.Fi23M.Final
 
 public section

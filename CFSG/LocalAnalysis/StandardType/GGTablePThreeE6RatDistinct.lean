@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabel
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcLang
-import CFSG.LieType.Chevalley.OrthogonalUnionBruhat
 
 public section
 

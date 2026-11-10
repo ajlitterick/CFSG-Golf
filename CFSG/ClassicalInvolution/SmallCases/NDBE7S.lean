@@ -3,10 +3,7 @@ module
 public import CFSG.ClassicalInvolution.SmallCases.NDBE6S
 public import CFSG.ClassicalInvolution.SmallCases.NDBE7Frame
 import CFSG.ClassicalInvolution.Asc77.WP3CFCZT
-import CFSG.ClassicalInvolution.Asc77.WP3FrameData
 import CFSG.ClassicalInvolution.Asc77.WP3FramePSCNine
-import CFSG.ClassicalInvolution.Asc77.WP3L52Main
-import CFSG.ClassicalInvolution.Balance.BootstrapAlphaDelta
 import CFSG.ClassicalInvolution.Asc77.WP3ChainVGen3
 import CFSG.ClassicalInvolution.Asc77.WP3S28WTag
 import CFSG.ClassicalInvolution.MilestoneAssemblyCore

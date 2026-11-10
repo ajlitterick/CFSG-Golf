@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4HDConnB
 public import CFSG.GroupTheory.ThompsonIndexTwo
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

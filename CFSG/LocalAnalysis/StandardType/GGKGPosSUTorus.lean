@@ -2,12 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdUnitaryDiag
 public import CFSG.LocalAnalysis.StandardType.GGStdPosTorusNorm
-public import CFSG.LieType.Universal.Unitary.Extras
-public import CFSG.LieType.Universal.Unitary.Extras.Unipotent
 public import CFSG.LieType.Steinberg.CentralExt.SUBruhatExtras
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.IntervalCases
 
 public section
 

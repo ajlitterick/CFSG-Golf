@@ -6,8 +6,6 @@ import CFSG.RankThree.PartOne.TAIL.LSideOutAut
 import CFSG.RankThree.PartTwo.Sec4.RonanK429RowFBlock
 import CFSG.RankThree.PartTwo.Sec4.RonanK429RowFGF4
 import CFSG.Quasithin.Vol2.Ch11SecA02Simple
-import Mathlib.Algebra.CharP.Two
-import Mathlib.Tactic.NoncommRing
 import CFSG.CharacterTheory.Semidihedral.SemilinearOuterQuotient
 import CFSG.Dihedral.FourgroupCycleControl
 import CFSG.Dihedral.OriginalCentralizerOddCore
@@ -31,8 +29,6 @@ import CFSG.RankThree.PartOne.Assembly
 import CFSG.RankThree.PartOne.S10.ThetaContract
 import CFSG.RankThree.PartOne.S12.InputsBase
 import CFSG.RankThree.PartOne.TAIL.KSideCen
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 

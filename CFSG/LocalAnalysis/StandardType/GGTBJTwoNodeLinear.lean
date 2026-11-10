@@ -1,20 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeLinearBlock
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySplitRefl
 public import CFSG.LocalAnalysis.StandardType.GGTBTorLiftADepHolds
-public import CFSG.LocalAnalysis.StandardType.GGRoundFourSmallALinearBlock
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimLinear
-public import CFSG.LocalAnalysis.StandardType.GGResJLineA3
 public import CFSG.LocalAnalysis.StandardType.GGResJLinearCubeAutomizer
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.HardMathSupport.Malle.E27Lie.Cross.RankPSL
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Bridge
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeLinearDatum
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTriD4Three
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTransport
 
 public section
 

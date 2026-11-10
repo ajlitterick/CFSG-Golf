@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSLTransport
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGRigid
 import CFSG.LocalAnalysis.StandardType.GGRootNormInner
-import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSLRank
-import CFSG.LocalAnalysis.StandardType.GGSixBstarUniqueRootPlaneA
 import CFSG.LocalAnalysis.StandardType.GGRootPlaneOm
-import CFSG.Open.StatedAPI
 import CFSG.GroupTheory.ElemAbelianRank
 import CFSG.LieType.SteinbergBRSemidirectSLEven
 import CFSG.LieType.SteinbergBRSemidirectSL2

@@ -3,9 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Stroth80.Sec108ConjLB
 public import CFSG.RankThree.GF2n.Stroth80.Sec108Fix
 import CFSG.RankThree.GF2n.Stroth80.HeringSec65NBar
-import CFSG.RankThree.GF2n.Stroth80.Sec108Norm
-import CFSG.ClassicalGroups.SpecialLinear.Transitive
-import CFSG.RankThree.GF2n.Stroth80.Sec7StepsBasic
 import CFSG.RankThree.GF2n.Stroth80.Sec78ConjFrame
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaMinusPiecesEmbed
 public import CFSG.RankThree.GF2n.Smith81.EStmt

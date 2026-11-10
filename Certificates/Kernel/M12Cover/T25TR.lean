@@ -2,10 +2,6 @@ module
 
 public import Certificates.Kernel.M12Cover.T25Bind
 public import CFSG.Certificates.Kernel.Spor.PK.Basic
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.Ring
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.Positivity
 
 public section
 

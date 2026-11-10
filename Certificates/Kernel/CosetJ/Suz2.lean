@@ -1,21 +1,14 @@
 module
 
 public import CFSG.Sporadic.Recognition.SuzMultiplierIndex
-import Certificates.Kernel.CosetJ.Suz2Facts
 import Certificates.Kernel.CosetJ.Suz2Lab
 import Certificates.Kernel.CosetJ.Suz
 public import Certificates.Kernel.CosetJ.Cover
-public import CFSG.Certificates.Kernel.Misc.Coset.PG
-public import CFSG.Certificates.Kernel.Bounds.CJSuz2.Rels
 public import CFSG.Certificates.Kernel.Bounds.CJSuz2.Data.T_Sel
 public import CFSG.Certificates.Kernel.Bounds.CJSuz2.Data.B_Sel
 public import Certificates.Kernel.Bounds.Suz.Binding
 public import Certificates.Kernel.Multipliers.Ent
-public import CFSG.Certificates.Kernel.LceSTabSound
 import CFSG.Certificates.Kernel.LceSHeRuSound
-import CFSG.Certificates.Kernel.CosetBounds
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 import all CFSG.Sporadic.Recognition.SuzMultiplierInputs
 import all CFSG.LieType.Multipliers.CoverWords
 import all CFSG.Certificates.CentralizerRelations

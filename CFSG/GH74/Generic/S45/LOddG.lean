@@ -3,10 +3,6 @@ module
 public import CFSG.GH74.Generic.S45.LOdd
 public import CFSG.GH74.Generic.S45.LG4Defs
 public import CFSG.GH74.Generic.S45.LOddPSU
-public import CFSG.GH74.Filter.Orthogonal.OddReflections
-public import CFSG.GH74.Filter.ClassicalOdd.Linear
-public import CFSG.GH74.Filter.ClassicalOdd.Symplectic
-public import CFSG.GH74.Filter.ClassicalOdd.Unitary
 public import CFSG.GH74.Generic.S45.LAltMain
 public import CFSG.GH74.Generic.S45.LSporRows
 public import CFSG.LieType.Chevalley.OddE6AllInvolutionComponents

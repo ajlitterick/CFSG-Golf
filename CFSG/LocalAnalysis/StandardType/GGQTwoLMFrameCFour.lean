@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLocalDefs
-import CFSG.LieType.Universal.Symplectic
-import CFSG.ClassicalGroups.Symplectic.ProjectivePerfect
-import CFSG.Adapters.ClassicalCatalogReverse
 import CFSG.GH74.GLS.Stage2.Signalizer.Odd87Sp4OutField
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting

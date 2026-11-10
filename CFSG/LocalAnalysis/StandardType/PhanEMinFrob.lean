@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Steinberg.Minuscule.Datum
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeScLift
 public import CFSG.LocalAnalysis.StandardType.PhanEStdFrob
 

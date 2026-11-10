@@ -3,7 +3,6 @@ module
 public import Mathlib.GroupTheory.SpecificGroups.Alternating
 import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
 import Mathlib.GroupTheory.IsPerfect
-import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 
 public section
 

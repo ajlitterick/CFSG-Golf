@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GH74.GLS.C3.Prop121.Card7F1
 public meta import CFSG.GH74.GLS.C3.Prop121.Card7F1
 public import Certificates.Certificate5076
 

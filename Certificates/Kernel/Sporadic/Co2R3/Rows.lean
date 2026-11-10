@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.Co2R3.Data
 public import Certificates.Data.Kernel.Fi22Nbr3153
 import Certificates.Kernel.Co1B.GenTri2045
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

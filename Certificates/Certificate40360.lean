@@ -3,12 +3,8 @@ module
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.SimsSporJ4Data
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.SimsSporJ4Facts
 import Certificates.Kernel.J4Row.Glue
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
-public import CFSG.Open.Defs
-public import CFSG.Sporadic.Schreier.ClassSum
 public import CFSG.Sporadic.Schreier.J4SNative
 public import CFSG.Sporadic.Schreier.M24Data
-public import CFSG.Sporadic.Th.F2Spec
 public import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
 
 public section

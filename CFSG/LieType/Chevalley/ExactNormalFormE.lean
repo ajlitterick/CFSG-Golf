@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LieType.Chevalley.IntrinsicDiagramPermutation
-public import CFSG.LieType.Chevalley.SylowOpposition
 public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import CFSG.LieType.Chevalley.GraphFixedBruhatEquivariance
 public import CFSG.LieType.Chevalley.DiagramGeneratorConjugation
 
 public noncomputable section

@@ -13,23 +13,7 @@ public meta import CFSG.Monster.B.Rep4371.Model
 public meta import CFSG.Monster.Existence.Census.FusionGens
 public meta import Certificates.Data.CFSGNative.MonsterB.CosetEnum
 public meta import Certificates.Data.CFSGNative.MonsterAxis.Dense
-public import CFSG.Monster.Existence.Census.CosetOneFusionInputs
 public import Certificates.Certificate6021
-public import Certificates.Certificate6022
-public import Certificates.Certificate6023
-public import Certificates.Certificate6007
-public import Certificates.Certificate1020
-public import Certificates.Certificate1022
-public import Certificates.Certificate3015
-public import Certificates.Certificate3016
-public import Certificates.Certificate3017
-public import Certificates.Certificate3018
-public import Certificates.Certificate3019
-public import Certificates.Certificate3020
-public import Certificates.Certificate3021
-public import Certificates.Certificate3022
-public import Certificates.Certificate3023
-public import CFSG.Sporadic.ThSchreier.Max3Action
 
 public section
 

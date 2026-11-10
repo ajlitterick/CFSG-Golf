@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.QTwoD6.Sound
 public import Mathlib.Algebra.Field.ZMod
-import Mathlib.Tactic.Module
 
 public section
 

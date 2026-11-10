@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentInitial.BenderDoubleCover
 public import CFSG.CGT.T75M.SzLemma
-public import CFSG.Models.BenderSuzuki
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTightEmbeddingData
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.GeneralizedFitting

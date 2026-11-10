@@ -2,23 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.KMultA1
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.KMultA1TD4Odd
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Coordinator.Bridge
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2311v
-public import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.ExcTriThree
-public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.R2Aux.G2Part3
-public import CFSG.LocalAnalysis.SeitzReduction.CrossChar
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-public import CFSG.Assembly.InCatalogConverse
-public import CFSG.RankThree.PartTwo.Sec11.SetUp1118ProofCarrier
-public import CFSG.RankThree.PartTwo.Sec13.Item136PGL
-public import CFSG.RankThree.PartTwo.Sec13.Item138NMod9
-public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowLiePGL
-public import CFSG.HardMathSupport.Lang.Triality.G2ClassOrder
-public import CFSG.HardMathSupport.Dickson.DefCharOuter.TrialityChar3.FieldActorFixed
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4Outer
-public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorBasic
-public import CFSG.GH74.GLS.IVK.Proofs2.GHInvShape
-public import CFSG.Assembly.Subnormal
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.ClosingMinus.Escape.Final
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResTD4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResTwF4

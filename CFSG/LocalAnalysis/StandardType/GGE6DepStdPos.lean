@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGE6DepStdFrame
 public import CFSG.LocalAnalysis.StandardType.GGE6DepExtract
 public import CFSG.LocalAnalysis.StandardType.GGE6DepModelShape
-public import CFSG.LocalAnalysis.StandardType.GGE6DepModelOrbit
 public import CFSG.LocalAnalysis.StandardType.GGE6DepModelReflClass
 public import CFSG.LocalAnalysis.StandardType.GGE6DepKClassForm
 

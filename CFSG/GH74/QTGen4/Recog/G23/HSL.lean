@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.Data.ZMod.Basic
 public meta import Mathlib.Data.ZMod.Defs
 public meta import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 

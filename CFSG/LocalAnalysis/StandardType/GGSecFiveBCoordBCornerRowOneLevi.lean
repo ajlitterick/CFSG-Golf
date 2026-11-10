@@ -2,12 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerRowOne
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclic
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBQTwoSpSparse
 import CFSG.LocalAnalysis.StandardType.GGTPNI1BC
 import CFSG.LocalAnalysis.StandardType.GGTPNThmULabel
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSparseSpLabel
 
 public section

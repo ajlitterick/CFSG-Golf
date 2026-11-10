@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.WeakBlockModuleData.ModelBridge
 public import CFSG.Open.StatedDefs
-public import Mathlib.GroupTheory.Perm.Cycle.Concrete
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.LinearAlgebra.Matrix.Permutation
-public import Mathlib.LinearAlgebra.Matrix.Action
-public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 
 public section
 

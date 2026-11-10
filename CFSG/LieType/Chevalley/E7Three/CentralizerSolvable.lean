@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.E7Three.CentralizerFixedField
-public import CFSG.LieType.Chevalley.E7Three.CentralizerComponent
 public import CFSG.LieType.SemisimpleCentralizers.LinearCentralizerSolvable
 public import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerE8Five

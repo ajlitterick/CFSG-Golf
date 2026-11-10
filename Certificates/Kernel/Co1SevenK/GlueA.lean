@@ -7,7 +7,6 @@ public import Certificates.Kernel.Co1SevenK.CenA
 public import Certificates.Kernel.Co1SevenK.CenAF
 public import Certificates.Kernel.Co1SevenK.CenAZ
 public import Certificates.Kernel.Co1B.C17330
-import Mathlib.Tactic.IntervalCases
 
 public section
 

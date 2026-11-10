@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derA6
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CoprimeSplit
 public import CFSG.LocalAnalysis.StandardType.GGQTwoU5Bridges
@@ -10,8 +9,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.I264bA6
 public import CFSG.LocalAnalysis.AGLEmbedding.AltAlpha
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight56Residual
 public import CFSG.HardMathSupport.Solomon.Coordinator.I11_2VSylow
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import CFSG.Alternating.Multipliers.Small
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.GroupTheory.CoprimeActionSupport.AbelianEquivalence
 public import CFSG.GroupTheory.CoprimeActionSupport.Geometry

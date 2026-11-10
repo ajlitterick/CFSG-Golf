@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoPairing
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoLabel
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaNbrGrpAux3

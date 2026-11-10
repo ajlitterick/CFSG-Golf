@@ -4,9 +4,7 @@ module
 public import Certificates.Certificate2314Base
 import all Certificates.Certificate2314Base
 
-public import CFSG.Sporadic.ThSchreier.NoTransvectionInputs
 public meta import CFSG.Sporadic.ThSchreier.RigidityBase
-import CFSG.Sporadic.ThSchreier.AutCoreBase
 meta import CFSG.Sporadic.ThSchreier.NoTransvectionInputs
 
 public section

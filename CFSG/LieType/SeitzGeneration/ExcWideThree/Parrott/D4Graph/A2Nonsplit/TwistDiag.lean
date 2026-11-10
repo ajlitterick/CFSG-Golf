@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2Nonsplit.Frame
-public import CFSG.HardMathSupport.Seitz.Proving.OrderThreeSLConj
 
 public section
 

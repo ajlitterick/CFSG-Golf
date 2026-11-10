@@ -9,8 +9,6 @@ public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.OddStandard.ResidualAlt
 import CFSG.ClassicalInvolution.OrderForm
 import CFSG.LocalAnalysis.ComponentClassification.GSLitBridge
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.Blueprint.RecognitionDefs
 public import CFSG.Certificates.WordSubgroupRel

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockZ
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenOrthFixed
-public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockG
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmCore
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpParabolicAut
 public import CFSG.LocalAnalysis.StandardType.GGResExactTwoOrthU42

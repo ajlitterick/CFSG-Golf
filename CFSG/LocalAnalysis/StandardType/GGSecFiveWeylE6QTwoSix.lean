@@ -1,17 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoUnitaryAux
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoPairing
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoTransfer
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixFrame
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixInner
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixPerm
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixCenter
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixModule
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoOuter
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixAux
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoLocal
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoCoverTwo
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoJoinPreimage
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoNotU12
 

@@ -1,13 +1,6 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.PermCheck
-public import CFSG.GH74.KGroups.Checks
 public import CFSG.GH74.KGroups.ClassCount
-public import CFSG.Blueprint.Catalog
-public import CFSG.Quasithin.Recognition.CertU33Psu
-public import CFSG.Quasithin.Recognition.CertU33Perm
 public import CFSG.Timmesfeld.Final.PSU33
 public import CFSG.GH74.KGroups.U33Inputs
 import Certificates.Kernel.Misc.KGroups.U33

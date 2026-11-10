@@ -3,13 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4H1Exceptional
 public import CFSG.LocalAnalysis.StandardType.GGTBXDatumResRest2
 public import CFSG.LocalAnalysis.StandardType.GGTBWeylRowResRest2Cases
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoThree
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRankExc
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMemberAux
 import CFSG.LocalAnalysis.StandardType.GGTPNNonExc
-import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeTorus
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 import CFSG.LocalAnalysis.StandardType.GGB48Assembly
 
 public section

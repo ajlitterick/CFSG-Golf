@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.Native.FiveTwoData
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF3
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsFp

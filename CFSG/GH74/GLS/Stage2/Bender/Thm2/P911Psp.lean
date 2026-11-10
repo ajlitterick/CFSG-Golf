@@ -2,10 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.P911Iso
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSpInner
-public import Mathlib.Algebra.QuadraticAlgebra.Basic
-import CFSG.ClassicalGroups.Symplectic.Simple
-import CFSG.ClassicalGroups.Symplectic.ProjectivePerfect
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.P911Glue
 public import CFSG.GH74.GLS.Stage2.Local.P34Main

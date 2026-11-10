@@ -3,19 +3,15 @@ module
 public import CFSG.OddTranspositions.PartThree.Twelve.SixComponent
 public import CFSG.OddTranspositions.PartFour.Fourteen.UnitaryCommonPerp
 import CFSG.OddTranspositions.PartThree.Twelve.Five
-import CFSG.OddTranspositions.PartFour.Fourteen.RootBlockUnitary
 import CFSG.OddTranspositions.PartFour.Fourteen.UnitaryShapeRigid
 import CFSG.OddTranspositions.PartFour.Fourteen.SpShapeRigid
 import CFSG.OddTranspositions.PartFour.Fourteen.ShapeTransport
 import CFSG.OddTranspositions.PartThree.Twelve.FourOrth
-import CFSG.ClassicalGroups.Unitary.Simple
-import CFSG.Quasithin.Background.E1TwoAbs
 import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.SolQuot.Hom
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotRecognizeSwap
 import CFSG.LocalAnalysis.EvenSporadicStandard.SolvableRadical
 import CFSG.OddTranspositions.WidthSylow
 import CFSG.OddTranspositions.PartThree.Nine.Setup
-import CFSG.LieType.SteinbergBRMulEquivCores
 import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalSmallSourceLinear
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherAntiunitaryDescent

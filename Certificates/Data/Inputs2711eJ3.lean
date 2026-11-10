@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Inputs2711eGen
 public import CFSG.RankThree.Asc83Table.J3Data
-public import Certificates.Data.CFSGNative.SectionRank.F2Fast
 public import CFSG.Blueprint.NativeSporadic
 
 public section

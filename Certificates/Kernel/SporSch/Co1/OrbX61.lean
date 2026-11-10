@@ -2,9 +2,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Co1.Stab
-public import Certificates.Data.Kernel.SporSch.Co1VOrb
-public import CFSG.Certificates.Kernel.Spor.RawSound
-public import CFSG.Sporadic.Schreier.Co1OrbEnumCheck
 public meta import Certificates.Kernel.SporSch.Co1.GenVOrb
 public meta import Certificates.Kernel.SporSch.Co1.Stab
 import CFSG.Certificates.Kernel.Common.Harness

@@ -1,15 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCoverSLPSL
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSymplectic
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaPlus
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaMinus
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestOmega
-public import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldSymplectic
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestInner
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaMinus
-public import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
 
 public section
 

@@ -31,10 +31,6 @@ import CFSG.Quasithin.Background.C1GNSolvConnect
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
-import CFSG.Quasithin.Background.F6CatRecogL2
-import CFSG.Quasithin.Background.F6CatRecogTools2
 import CFSG.Quasithin.Background.F918C6
 import CFSG.Quasithin.Background.FFC7G
 import CFSG.Quasithin.Background.FFC8A
@@ -82,7 +78,6 @@ import CFSG.RankThree.Classical2.TwistedE6Phi3A2Case
 import CFSG.RankThree.PartOne.KE.E7FiveBlock
 import CFSG.RankThree.PartOne.KE.E8D4Family
 import CFSG.RankThree.PartOne.KLCE.Sector
-import CFSG.Walter.J1Props
 import Certificates.Kernel.J4Count.Prim
 
 public section

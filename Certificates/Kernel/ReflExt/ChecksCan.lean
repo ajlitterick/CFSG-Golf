@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.ReflExt.Data
 public import Certificates.Data.Kernel.ReflExt.ReflExtKCan
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Common.Lce
 
 public section

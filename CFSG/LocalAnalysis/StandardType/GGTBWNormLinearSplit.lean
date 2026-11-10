@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormCenterless
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestTypeAOuter
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosureRefl
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerTypeADvdCent
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBPSL
 public import CFSG.Mathlib.GroupTheory.PermCenter
 

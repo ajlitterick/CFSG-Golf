@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.CentAFrame
-public import CFSG.Open.LocalVocabulary
 import CFSG.LocalAnalysis.StandardType.FF81.CentAModelSymp
 import CFSG.LocalAnalysis.StandardType.FF81.CentAModelUnip
 import CFSG.LocalAnalysis.StandardType.FF81.CentAO2
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ThompsonPQ
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 public section
 

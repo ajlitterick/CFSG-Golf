@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSUFrame
 public import CFSG.LocalAnalysis.StandardType.UnitaryCenterScalar
-public import CFSG.LieType.Universal.Unitary.Clause0
 public import CFSG.RankThree.PartOne.S15K.CentralCover
 
 public section

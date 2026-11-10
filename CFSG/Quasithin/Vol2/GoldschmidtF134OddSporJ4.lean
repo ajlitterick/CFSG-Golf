@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF134OddSporJ4Core
 public import CFSG.Quasithin.Vol2.GoldschmidtF134OddSporCore
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.EvenClassicalStrong
 
 public section
 

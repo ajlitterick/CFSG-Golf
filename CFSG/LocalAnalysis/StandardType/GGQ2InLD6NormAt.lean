@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2InLD6Mon
 public import CFSG.LocalAnalysis.StandardType.GGQTwoD6Group
-public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrLineStab
-public import CFSG.LocalAnalysis.StandardType.GGQTwoK1OfI1
 
 public section
 

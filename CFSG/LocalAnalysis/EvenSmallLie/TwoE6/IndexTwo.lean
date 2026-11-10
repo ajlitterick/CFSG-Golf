@@ -2,9 +2,6 @@ module
 
 public import CFSG.Monster.B.CTIB.HOuter
 public import CFSG.Monster.B.GSide.HInnerFusion
-public import CFSG.Monster.B.GSide.Setup
-public import CFSG.Monster.B.Recog.GenericIndexTwo
-public import CFSG.Monster.B.TwoA.Amalgam.DerivedCoverMain
 public import CFSG.Monster.B.TwoA.Amalgam.DistThreeOuterFinal
 
 public section

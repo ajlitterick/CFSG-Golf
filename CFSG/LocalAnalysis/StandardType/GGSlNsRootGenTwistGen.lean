@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenTwist
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenGen
 public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorusField
-public import CFSG.Sporadic.Th.Max3.Core
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6LongRootIrr
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6LongRootLevi
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6LongRootLeviTorus
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6LongRootPsiAdd
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6LongRootPsiGen
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6LongRootPsiOps
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6LongRootPsiWeyl

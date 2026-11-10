@@ -3,8 +3,6 @@ module
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8C12SpMono
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8C12Surv
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FSp4Out
-public import CFSG.RankThree.PartTwo.KFacts.AutPSp4Odd
-public import CFSG.GH74.GLS.Stage2.Final.ModelDisjoint
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.Closed
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.IVK812Stmt
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.Stmt10

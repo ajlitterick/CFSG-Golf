@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Background.E11Stmt
 public import CFSG.Quasithin.Background.E11Hom
 public import CFSG.Quasithin.Background.E11Alg
 public import CFSG.Assembly.QuasithinDefs
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

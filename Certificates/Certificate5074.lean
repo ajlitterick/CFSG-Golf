@@ -1,10 +1,5 @@
 module
 
-public import CFSG.GH74.GLS.C3.Layer2.L5Fin
-public import CFSG.GH74.GLS.C3.Layer2.NumMoved
-public import CFSG.GH74.GLS.C3.Layer3.Basic
-public import CFSG.GH74.GLS.C3.Layer3.AltInvolutions
-public import Mathlib.GroupTheory.Complement
 public import CFSG.GH74.GLS.C3.Layer2.L5Star9Inputs
 meta import Mathlib.GroupTheory.SpecificGroups.Alternating
 meta import CFSG.GH74.GLS.C3.Prop121.ModelFive

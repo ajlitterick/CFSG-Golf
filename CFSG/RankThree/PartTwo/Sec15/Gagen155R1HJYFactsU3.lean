@@ -3,15 +3,9 @@ module
 public import CFSG.RankThree.PartTwo.Sec15.Gagen155R1HJYFacts
 public import CFSG.RankThree.PartTwo.Sec18.Item189ListBasic
 public import CFSG.CGT.PushingUpLit.C2L.StrongTI
-public import CFSG.StronglyEmbedded.BenderUnitaryBorel
-public import CFSG.StronglyEmbedded.BenderBorelTransport
-public import CFSG.Open.PGLModelStated
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.Models.BenderSuzuki
 public import CFSG.SignalizerFunctorTheorem.McBride.Models.Unitary.Bender
 public import CFSG.SignalizerFunctorTheorem.NearModels.Unitary.Basic
 public import CFSG.Quasithin.Vol2.Ch10SecB5EvL2Q
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -75,7 +69,6 @@ public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.Sporadic.Schreier.RuLOdd
 public import CFSG.Sporadic.Schreier.RuZClass
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.YGroups.DCE.B433Check
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
 public import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 
 public section
 

@@ -3,20 +3,16 @@ module
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434G23Local
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434CharThree
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SporE81Kit
-public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SporKit
 public import Certificates.Certificate9570
 public import Certificates.Certificate9571
 public import Certificates.Certificate9572
 public import Certificates.Certificate9573
 import CFSG.RankThree.PartTwo.KFacts.OutFixCentralThreeProof
 import CFSG.RankThree.PartTwo.Sec4.Census.BridgeG2
-import CFSG.Adapters.TauCetiExceptional.BridgeG2
 import CFSG.RankThree.PartTwo.Sec5.Tools
-import CFSG.LocalAnalysis.ComponentClassification.PSL3FourGroupSpec
 import CFSG.RankThree.PartTwo.KFacts.OutFixCentralThree46
 import CFSG.Sporadic.ONOddCore.LiftHomCheckInputs
 import Certificates.Certificate2022
-import Certificates.Certificate2022Base
 import Certificates.Certificate2121
 import Certificates.Certificate2122
 import Certificates.Certificate2123

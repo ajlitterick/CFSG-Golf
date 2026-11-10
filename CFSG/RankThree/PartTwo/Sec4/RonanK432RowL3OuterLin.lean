@@ -2,10 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432RowL3OuterMat
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432L3HardRow
-import CFSG.RankThree.PartTwo.KFacts.AutPSLOrderThree
-import CFSG.RankThree.PartTwo.KFacts.L34Sections
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherFieldInvolution
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherOuterQuotients
 
 public section
 

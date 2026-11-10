@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBridgeWeyl
-public import CFSG.LocalAnalysis.StandardType.GGQTwoBridgeRefl
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBridgeHL
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBridgeOrbit
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCaseII
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveInputs
 
 public section
 

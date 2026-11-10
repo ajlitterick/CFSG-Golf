@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoCo1.ECoreInputs
 public import CFSG.Sporadic.Co1Block.XFix
-public import CFSG.Sporadic.Co1Block.PermData
 public meta import CFSG.Sporadic.Co1Block.XFix
 public meta import CFSG.Sporadic.Co1Block.PermData
 import Certificates.Kernel.Co1B.C24531

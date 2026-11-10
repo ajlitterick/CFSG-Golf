@@ -5,7 +5,6 @@ public import Certificates.Kernel.LocalComp.Census.Data
 public import CFSG.Certificates.Kernel.CensusFormSound
 public import CFSG.Certificates.Kernel.Common.Harness
 public meta import Certificates.Kernel.SporSch.Ru.RowsGen
-import CFSG.Fischer.F4
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3CensusCertBase
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointActionModels

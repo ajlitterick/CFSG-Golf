@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPZMultCore
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
 public import CFSG.Adapters.StatedClassicalOrders
-public import CFSG.Timmesfeld.Orders.Exceptional
 public import CFSG.LieType.Steinberg.CentralExt.GriessNativeModels
 public import CFSG.LieType.Multipliers.U62Sylow
 

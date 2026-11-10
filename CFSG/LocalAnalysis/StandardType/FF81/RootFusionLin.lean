@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.Defs
 public import CFSG.Adapters.StatedSLTwoField
-public import CFSG.LocalAnalysis.StandardType.FF81.RootFusionLinInv
 public import CFSG.LocalAnalysis.StandardType.FF81.RootFusionLinMark
 public import CFSG.LocalAnalysis.StandardType.FF81.RootFusionLinEmbed
 public import CFSG.LocalAnalysis.StandardType.FF81.RootFusionLinNoEmb

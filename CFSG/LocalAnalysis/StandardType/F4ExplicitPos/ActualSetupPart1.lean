@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.ToralDescent
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.ComponentAttachPart1
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.LangPositionPart1
 
 @[expose] public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicJ4FinkTests
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicJ4FinkData
 public import Certificates.Kernel.J4Q.C4016
 import CFSG.Certificates.Kernel.Common.Harness
 

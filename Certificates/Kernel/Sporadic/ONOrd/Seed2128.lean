@@ -1,9 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.ONOrd.Glue
-public import Certificates.Kernel.Sporadic.ONOrd.Defs
-import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Sporadic.ONOddCore.SeedOrdersCheckInputs
 
 public section
 

@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGPumpTwLabDefs
 public import CFSG.LocalAnalysis.StandardType.GGPumpTwLabRigid
 public import CFSG.LocalAnalysis.StandardType.GGPumpTwLabCompNe
 public import CFSG.LocalAnalysis.StandardType.GGKacK1
 public import CFSG.LocalAnalysis.StandardType.GGKacExcB2
 public import CFSG.LocalAnalysis.StandardType.GGTCJHolds
-import CFSG.LocalAnalysis.StandardType.GGKacTable
 
 public section
 

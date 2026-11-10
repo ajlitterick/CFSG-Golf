@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1R925Defs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen3a
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22uc
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20d
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront08
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveLeU42O8U42
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.OutU42Aut
 public import CFSG.Adapters.LieModelSimple

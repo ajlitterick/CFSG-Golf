@@ -2,18 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitLocalBalanceTypes
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitKernel
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitTypeClosure
 public import CFSG.GH74.KGroups.L27
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
-public import CFSG.Adapters.LinearSmallCatalog
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5bOrders
-public import Mathlib.GroupTheory.Perm.Centralizer
 public meta import CFSG.GH74.KGroups.L27
 public import Certificates.Certificate2331
-public import Certificates.Certificate43
-public import Certificates.Certificate5117
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LieType.Ree.SuzukiSimple
 public import CFSG.LieType.Universal.SpinOmega.Range

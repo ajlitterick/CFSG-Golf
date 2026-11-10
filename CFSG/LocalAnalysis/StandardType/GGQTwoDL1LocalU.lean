@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitRankTwo
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBlock
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPerm
-import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofLinPerm
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 import CFSG.GroupTheory.SwapCommute
 
 public section

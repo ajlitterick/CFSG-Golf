@@ -7,7 +7,6 @@ public import Certificates.Kernel.BabyMonster.CTIB.CosetQ10
 public import Certificates.Kernel.BabyMonster.CTIB.CosetQWords
 public import Certificates.Kernel.BabyMonster.CTIB.CosetQSym
 public import Certificates.Data.Kernel.BabyMonster.CTIB.CentWords
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

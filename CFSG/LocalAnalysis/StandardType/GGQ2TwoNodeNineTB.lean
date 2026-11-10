@@ -6,9 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoCavHeartReduction
 import CFSG.LocalAnalysis.StandardType.GGQ2GammaOfShape
 import CFSG.LocalAnalysis.StandardType.GGQ2LDatumDims
 import CFSG.LocalAnalysis.StandardType.GGQ2CavNbrHeart
-import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeI1Rank
-import CFSG.LocalAnalysis.StandardType.GGQTwoTBDerive
-import CFSG.LocalAnalysis.StandardType.GGFrameRouteQTwo
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Lemma104
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.PermutationQuotient
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Remaining
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection14.PFsection14_6
 
 namespace CFSG

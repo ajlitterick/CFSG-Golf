@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusNodes
 public import CFSG.ClassicalInvolution.RouteD.TWS7Grp
-public import CFSG.ClassicalInvolution.RouteD.TWS6SignModels
 public import CFSG.ClassicalInvolution.Models.TwistedPairs
 public import CFSG.ClassicalInvolution.RouteD.TypeTwistedDNodes
 

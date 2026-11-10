@@ -3,12 +3,9 @@ module
 public import CFSG.Sporadic.Recognition.McLASData
 public import CFSG.Sporadic.Recognition.McLASFiveData
 public import CFSG.Sporadic.SmallOddCore.McLCheckInputs
-public import CFSG.Sporadic.SmallOddCore.McLData
-public import CFSG.Sporadic.SmallOddCore.CentData
 public import CFSG.Sporadic.SmallOddCore.ClassSimple
 public import CFSG.Sporadic.SuzOddCore.RestrictDefs
 public import CFSG.RankThree.Native.HSMcLFiveCheckInputs
-public import CFSG.Monster.B.Mathieu.SylowCore
 public meta import CFSG.Sporadic.Recognition.McLASData
 public meta import CFSG.Sporadic.Recognition.McLASFiveData
 public meta import CFSG.Sporadic.SmallOddCore.McLCheckInputs

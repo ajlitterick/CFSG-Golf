@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.HNLocal.Regs
 public import CFSG.Certificates.Kernel.J4Hub.PcNormal
-public import CFSG.Certificates.Kernel.HNLocalSound
 public import CFSG.Certificates.Kernel.Orders.HN.Data.Sel
 import Certificates.Kernel.HNLocal.Fix
 import Certificates.Kernel.HNLocal.Checks.R
@@ -15,11 +14,8 @@ import Certificates.Kernel.HNLocal.Checks.Cen5
 import Certificates.Kernel.HNLocal.Checks.Cen6
 import Certificates.Kernel.HNLocal.Checks.Cen7
 import Certificates.Kernel.HN3166.Ord
-import CFSG.Certificates.Kernel.Orders.HN.Checks.S2
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Fam.Lin
-public import CFSG.Open.Defs
 
 set_option maxRecDepth 400000
 

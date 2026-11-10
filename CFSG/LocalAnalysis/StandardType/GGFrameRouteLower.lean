@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.WeylRoots
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLFaithful
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinWeylRank
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteNbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSylow

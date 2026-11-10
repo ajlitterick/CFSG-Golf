@@ -2,11 +2,7 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.J3BetaA5
 public import Certificates.Kernel.Sporadic.OddCore.J3Cent
-public import Certificates.Kernel.Sporadic.OddCore.MulHCmd
-public import Certificates.Kernel.Misc.Perm.HexCmd
-public import Certificates.Data.Kernel.Spor.MulHQ
 public import Certificates.Data.Kernel.PkPow
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaCheck
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaCheck
 meta import Certificates.Data.CFSGNative.PSL3Four.Basic
 meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain

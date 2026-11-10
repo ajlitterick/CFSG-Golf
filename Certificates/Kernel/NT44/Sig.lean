@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Kernel.NT44.Pack
 public import Certificates.Kernel.NT44.Pack2
-public import Certificates.Data.Kernel.Misc.ConjTab
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

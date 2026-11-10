@@ -3,11 +3,6 @@ module
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection9.PFsection9_3
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection8.PFsection8_5_b
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection9.PFsection9_6
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ElementaryAbelianAction
-import Mathlib.Algebra.CharP.CharAndCard
-import Mathlib.FieldTheory.Finite.GaloisField
-import Mathlib.GroupTheory.SpecificGroups.Cyclic
-import Mathlib.RingTheory.SimpleModule.Isotypic
 import Mathlib.RingTheory.ZMod.UnitsCyclic
 
 namespace CFSG

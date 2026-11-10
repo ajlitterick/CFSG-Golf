@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.DerivedData
 public import Certificates.Kernel.LocalComp.BfsGenSl
 public import Certificates.Kernel.SporSch.Th.GenV4
-public import Certificates.Kernel.Sporadic.RawGen
 public meta import CFSG.OddTranspositions.PartThree.Eleven.Minus.DerivedData
 public meta import Certificates.Kernel.Sporadic.RawGen
 

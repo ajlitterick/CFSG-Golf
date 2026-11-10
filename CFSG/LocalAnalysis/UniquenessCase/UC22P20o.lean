@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22P20d
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20i
 public import CFSG.Timmesfeld.Orders.Bang
 public import CFSG.LocalAnalysis.UniquenessCase.UC22ListB
-public import Certificates.Kernel.Sporadic.Fi22.C2068
-public import Certificates.Kernel.Sporadic.Fi22.C3151
 
 public section
 

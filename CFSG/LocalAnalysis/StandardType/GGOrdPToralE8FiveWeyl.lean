@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveIsotropic
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompKac
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSylow
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesCore
 
 public section
 

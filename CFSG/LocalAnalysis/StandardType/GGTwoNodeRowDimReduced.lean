@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimQuotient
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofOne
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.Transport
 
 public section
 

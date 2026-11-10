@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.SubgroupLists.MitchellDicksonTwo
 public import CFSG.RankThree.SubgroupLists.MitchellIsoCent
 public import CFSG.RankThree.SubgroupLists.MitchellIsoLevi
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.NoncommRing
 
 public section
 

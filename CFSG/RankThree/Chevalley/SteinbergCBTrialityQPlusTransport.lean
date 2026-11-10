@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.Chevalley.SteinbergCBTrialityQPlusCentralizers
 public import CFSG.RankThree.Chevalley.SteinbergBLTrialitySplitInner
 public import CFSG.RankThree.Chevalley.SteinbergBTTrialitySplitPrimePlane
-public import Mathlib.FieldTheory.Finite.Extension
 
 public noncomputable section
 

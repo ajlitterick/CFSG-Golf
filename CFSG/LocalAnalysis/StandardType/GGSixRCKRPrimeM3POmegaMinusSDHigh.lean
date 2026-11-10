@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeSpinFlagDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeFEBlockPOmegaMinusSD
-import CFSG.LieType.Universal.Spin.Forms
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeSUBlock
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeSpinFlag
 import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootLine

@@ -1,9 +1,6 @@
 module
 
-public import Certificates.Data.Kernel.OpsLayMcert
-public import Certificates.Kernel.LocalComp.LaySnaps
 public import Certificates.Kernel.TcGen.Fi23
-public import CFSG.Certificates.Kernel.Common.Each
 public import CFSG.Certificates.Kernel.Common.ForallTree
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.FusD2Fi23Inputs
 meta import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.FusD2Fi23Inputs

@@ -1,17 +1,10 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoFrameH0Defs
-import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeInnerLine
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwA2Conj
 import CFSG.HardMathSupport.Malle.E27Lie.ExcCross.TwE6Order
 import CFSG.HardMathSupport.Malle.E27Lie.ExcTwisted.SylowN
 import CFSG.HardMathSupport.Malle.E27Lie.ExcTwisted.OrdTwoMod
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeTwE6TwoModel
-import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyOrder
-import CFSG.LieType.Chevalley.AmbientTwistedFrobeniusFixedNormalizer
-import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
-import CFSG.LieType.Chevalley.WeylNormalizerQuotient
-import CFSG.LieType.SeitzGeneration.ExcTorusThreeTw
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -61,7 +54,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

@@ -4,14 +4,9 @@ public import CFSG.Quasithin.Vol2.KGFact12614
 public import CFSG.Quasithin.Vol2.KGFact12614U35
 public import CFSG.Quasithin.Vol2.KGFact12614Cases
 public import CFSG.Quasithin.Vol2.KGFact12614A7
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A3NativeBasic
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6Fin
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6Out
-public import CFSG.LocalAnalysis.QuasithinUnique.RankOneRecognitionCover
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Basic
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.ReducedImage
-public import CFSG.Quasithin.Background.A3ComponentsCore
-public import CFSG.Quasithin.Background.A4Aut
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
@@ -26,11 +21,7 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominatorCyclic
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122AProved
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageCompletion
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerPrimeCompatibility
@@ -40,9 +31,6 @@ public import CFSG.Open.SplitBNPair
 public import CFSG.Quasithin.Background.A1cA132Action
 public import CFSG.Quasithin.Background.A1cA133Three
 public import CFSG.Quasithin.Background.A3Structure319
-public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
-public import CFSG.Quasithin.Background.A3Structure36Base
 public import CFSG.Quasithin.Background.B1More13A
 public import CFSG.Quasithin.Background.B1More13Defs
 public import CFSG.Quasithin.Background.B1MoreEleven
@@ -59,7 +47,6 @@ public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.InternalSecData
 public import CFSG.Quasithin.Background.InternalSecIso
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S1417Glue
 public import CFSG.Quasithin.EmptyFaithful.S1421L246
 public import CFSG.Quasithin.EmptyFaithful.S143Pre
@@ -113,7 +100,6 @@ public import CFSG.Walter.PSL2Facts
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

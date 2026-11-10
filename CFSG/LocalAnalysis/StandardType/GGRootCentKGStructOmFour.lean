@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmFour
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGSummand
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGMarking
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 import CFSG.Quasithin.Background.SzG11G94Solv
 
 public section

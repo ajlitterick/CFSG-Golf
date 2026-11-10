@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3FTriality
-public import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
-public import CFSG.LieType.Chevalley.LangFiniteRootCentralizer
-public import CFSG.HardMathSupport.Lang.D4Three.NormalForm
 
 set_option linter.unusedSectionVars false
 

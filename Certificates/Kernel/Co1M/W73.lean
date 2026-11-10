@@ -8,7 +8,6 @@ public import Certificates.Kernel.Co1M.K73T3
 public import Certificates.Kernel.Co1M.K73T4
 public import Certificates.Kernel.Co1M.K73T5
 public import Certificates.Kernel.Co1M.K73Z
-public import Certificates.Kernel.Co1M.Regs10071
 public import Certificates.Kernel.Co1M.Z10071
 public import Certificates.Kernel.Co1M.Z71S0
 public import Certificates.Kernel.Co1M.Z71S1
@@ -17,8 +16,6 @@ public import Certificates.Kernel.Co1M.Z71S3
 public import Certificates.Kernel.Co1M.Z71S4
 public import Certificates.Kernel.Co1M.Z71S5
 public import Certificates.Kernel.Co1Cover.Bridge
-public import CFSG.Sporadic.Co1.Module.OddLitInputs
-public import CFSG.Certificates.Kernel.SortTreeSound
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

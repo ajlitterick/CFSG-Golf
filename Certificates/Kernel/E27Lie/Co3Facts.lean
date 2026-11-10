@@ -7,7 +7,6 @@ public import CFSG.Certificates.Kernel.Common.ForallTree
 public import CFSG.Certificates.Kernel.Spor.RawOrbHead
 public import CFSG.HardMathSupport.Foote.E27.LieTwo.MatChecks
 public import CFSG.Sporadic.Schreier.Co3Order
-public import CFSG.Sporadic.Schreier.Co3Cert
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 public import CFSG.HardMathSupport.Foote.E27.LieTwo.Kill
 

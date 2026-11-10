@@ -1,11 +1,9 @@
 module
 
-public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieNegPSp4Inputs
 public meta import CFSG.GH74.KGroups.NativeChecks2
 public meta import CFSG.Fischer.Classification.PartIII.Beta.Data
 public import Certificates.Kernel.Misc.PSp4.Twin77001K
 public import CFSG.Certificates.Kernel.BfsPinAlg
-import Mathlib.Tactic.IntervalCases
 
 public section
 

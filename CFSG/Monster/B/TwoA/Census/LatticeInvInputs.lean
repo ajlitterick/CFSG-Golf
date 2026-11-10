@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Monster.B.TwoA.Census.XiFusion
-public import CFSG.Monster.VisCert.FrameOrbit
-public import Mathlib.GroupTheory.Perm.Cycle.Type
 public import CFSG.Monster.B.TwoA.Census.SymTrace
 public meta import CFSG.Monster.B.TwoA.Census.XiFusion
 

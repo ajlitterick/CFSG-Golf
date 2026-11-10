@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGOrthKStructDefs
 public import CFSG.LocalAnalysis.StandardType.GGHalfTorusFrame
 import CFSG.GroupTheory.SupCommute
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

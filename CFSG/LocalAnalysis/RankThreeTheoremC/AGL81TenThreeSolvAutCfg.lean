@@ -2,18 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThirteenSolvDefs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeSolvAutParab
-public import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockInputs
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.NoXBlock
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeCfg
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransfer
-import CFSG.LocalAnalysis.AGLEmbedding.CZeroLift
-import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockStructure
-import CFSG.LocalAnalysis.AGLEmbedding.BlockFactsThreeFive
-import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsPLType
 import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsSpTwo
 import CFSG.LocalAnalysis.AGLEmbedding.BlockAltSevenPL
-import CFSG.HardMathSupport.Curtis.UnitaryLevi.PLTypeHolds
-import CFSG.LocalAnalysis.SectionRank.OddCover.DegreeThree
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.CGT.Timmesfeld75.Statements

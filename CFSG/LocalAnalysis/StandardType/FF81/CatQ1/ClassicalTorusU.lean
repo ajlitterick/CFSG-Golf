@@ -8,9 +8,6 @@ import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKD291OuterTorus
 import CFSG.HardMathSupport.Dickson.Bal207.UniFrame
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.BorelTits.CompleteFlag
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.Assembly.QuasithinDefs
 import CFSG.Foundations
 import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
@@ -36,8 +33,6 @@ import CFSG.RankThree.LocalRank.SelectorCases
 import CFSG.RankThree.PartOne.Assembly
 import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Basic
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

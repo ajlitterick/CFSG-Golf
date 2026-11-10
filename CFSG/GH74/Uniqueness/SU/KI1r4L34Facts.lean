@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.Uniqueness.SU.KI1r4L34Model
-public import CFSG.GH74.KGroups.Generic6
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.Basic
 public import CFSG.GH74.KGroups.L34Tables
 

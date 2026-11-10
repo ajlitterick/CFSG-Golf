@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.Minuscule.Unipotent
 public import CFSG.LieType.Steinberg.BruhatWeyl
-public import Mathlib.GroupTheory.Perm.Sign
-public import Mathlib.Algebra.Group.Subgroup.Lattice
 
 public noncomputable section
 

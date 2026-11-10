@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.SpinGeom.Classify
 public import CFSG.LieType.SpinGeom.Inv
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

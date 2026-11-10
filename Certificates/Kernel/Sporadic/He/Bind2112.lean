@@ -5,8 +5,6 @@ public import Certificates.Kernel.Sporadic.He.Stab2110
 public import CFSG.Certificates.Kernel.Spor.PresCard
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
-public import Mathlib
 
 public section
 

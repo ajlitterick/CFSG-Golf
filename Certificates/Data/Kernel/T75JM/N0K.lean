@@ -2,8 +2,6 @@ module
 
 public import Certificates.Data.Kernel.TabWordK
 public import Certificates.Data.Kernel.Misc.Base
-public import CFSG.CGT.T75JM.N6A6
-public import CFSG.CGT.T75JM.N6Rels
 public import CFSG.CGT.T75JM.Interfaces
 public import CFSG.CGT.Timmesfeld75.Derivations
 public import CFSG.CGT.Timmesfeld75.Sec5One

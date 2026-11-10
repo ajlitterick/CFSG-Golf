@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalDefs
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bLemma39
-public import CFSG.LocalAnalysis.ComponentClassification.AS76bLemma36
 
 public section
 

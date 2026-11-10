@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Co2S.GenSetReplaySplit
 public import Certificates.Kernel.SporSch.Co2M.Local
 public import Certificates.Data.Kernel.SporSch.Co2SFix
-public import Certificates.Data.Kernel.SporSch.SetReplay
 public import CFSG.Sporadic.Co2Schreier.OrbitCheck
 public meta import CFSG.Sporadic.Co2Schreier.Arrays
 public meta import Certificates.Data.Kernel.SporSch.Co2SFix

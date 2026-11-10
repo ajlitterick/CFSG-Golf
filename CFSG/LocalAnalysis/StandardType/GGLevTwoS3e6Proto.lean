@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Blueprint.ChevalleyRootArtifact
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompKac
 import CFSG.Mathlib.Decide.Nodup
 

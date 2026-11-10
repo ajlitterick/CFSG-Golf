@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.WP3S28TwinD
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthBridge
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourBasic
 public import CFSG.ClassicalInvolution.RouteD.TwinYSetup
 

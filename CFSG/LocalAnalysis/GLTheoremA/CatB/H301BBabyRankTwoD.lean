@@ -2,13 +2,9 @@ module
 
 public import CFSG.Monster.Existence.MilestoneInputs
 public import CFSG.Monster.B.GSide.TwoDNativeOrderFinal
-public import CFSG.Monster.B.CTIB.FourClasses
-public import CFSG.Monster.B.CTIB.UniqueComponent
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1016M5AssemblyInv
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1017Twist
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.Rank3
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
 public import CFSG.LargeExtraspecial.BridgeSetting
 public import CFSG.LargeExtraspecial.S3Asch

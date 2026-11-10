@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.N7FixDentGrp
 import CFSG.LocalAnalysis.StandardType.FS81.N7FixDentPerm
-import CFSG.LocalAnalysis.StandardType.FS81.N7FixQuotPerm
 import CFSG.LocalAnalysis.StandardType.FS81.N7FixQuotNormal
 
 public section

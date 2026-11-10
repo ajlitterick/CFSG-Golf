@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBlockDefs
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamClRed
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeGLMark
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamOutBase
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S171Basic

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RDefs
-public import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
-public import CFSG.LieType.Steinberg.Adjoint.Pairs
-import Certificates.Certificate113
-import Certificates.Certificate114
 import Certificates.Kernel.TcRes.Sound
 
 public section

@@ -1,12 +1,7 @@
 module
 
-public import CFSG.Assembly.Defs
 public import CFSG.RankThree.PartOne.KC.OrthogonalBlockDet
 
-import CFSG.Assembly.Subnormal
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmBlock
-import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaInnerCore
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthUnFourNorm
 public import CFSG.LieType.BorelTits.CompleteFlag
 

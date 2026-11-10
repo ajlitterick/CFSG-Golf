@@ -3,12 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTBCGraphDefs
 import CFSG.LocalAnalysis.StandardType.GGQTwoTBCLift
 import CFSG.LocalAnalysis.StandardType.GGQTwoTBCOrthCore
-import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXGraphLin
 import CFSG.LocalAnalysis.StandardType.GGE6DepFrameCentral
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
-import CFSG.Adapters.RankTwoModelTransports
 import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
-import CFSG.ClassicalGroups.Orthogonal.Matrix
 import CFSG.Open.StatedZModTwo
 import CFSG.GroupTheory.WeirSylow.OrthogonalTypes
 

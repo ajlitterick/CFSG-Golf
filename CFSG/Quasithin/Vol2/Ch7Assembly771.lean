@@ -1,20 +1,13 @@
 module
 
-public import CFSG.Quasithin.Vol2.Ch7Sp4PairA6
-public import CFSG.Quasithin.Vol2.Ch7SL3Pair
-public import CFSG.Quasithin.Vol2.Ch7Lem755
-public import CFSG.Quasithin.Vol2.Ch7Lem761End
 public import CFSG.Quasithin.Vol2.Ch7Lem771
 public import CFSG.Quasithin.Vol2.Ch7Lem735
-public import CFSG.Quasithin.Vol2.Ch7Lem741
 public import CFSG.Quasithin.Vol2.Ch7Lem754
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.F2Equiv

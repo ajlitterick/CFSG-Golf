@@ -9,7 +9,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
 import CFSG.LocalAnalysis.StandardType.GGTBJOrthLeft
 import CFSG.LocalAnalysis.StandardType.GGTBJOrthNbr
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrAxis
-import CFSG.LocalAnalysis.StandardType.GGTBJOrthLeftGlue
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSparseEndpoint
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKCrossing
 

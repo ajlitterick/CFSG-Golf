@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthChart
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthMember
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDCells
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1BaseO
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Edge
 import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameMain

@@ -4,7 +4,6 @@ public import Certificates.Data.OmegaOuter
 public import Certificates.Kernel.A45Cls.Check442016
 public import Certificates.Kernel.A45Cls.Glue218c
 public import CFSG.Certificates.Kernel.A45Cls.OuterSound
-public import CFSG.GH74.KGroups.PermCheck
 
 set_option maxRecDepth 400000
 

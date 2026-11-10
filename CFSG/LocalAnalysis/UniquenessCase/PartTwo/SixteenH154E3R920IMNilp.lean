@@ -2,7 +2,6 @@ module
 
 public import Mathlib.GroupTheory.Nilpotent
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.Nilpotent
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 
 public section
 

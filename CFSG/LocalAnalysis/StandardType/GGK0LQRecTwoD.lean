@@ -2,15 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGK0LQD4Untw
 public import CFSG.LocalAnalysis.StandardType.GGFamTwoDModel
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExc2
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTwoDRecog
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcD4Action
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcKacCount
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompAlcove
 
 public section
 

@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.SpecificGroups.Dihedral
-public import CFSG.Open.Defs
 public import CFSG.Open.StatedDefs
 public import CFSG.LieType.BorelTits.Basic
 

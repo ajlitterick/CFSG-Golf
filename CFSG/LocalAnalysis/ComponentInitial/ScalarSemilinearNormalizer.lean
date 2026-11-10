@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentInitial.CentralSL2Semilinear
 public import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
-public import Mathlib.GroupTheory.PGroup
-import Mathlib.GroupTheory.Index
 
 public section
 

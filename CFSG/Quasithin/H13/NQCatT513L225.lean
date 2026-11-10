@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.H13.NQCatT513L2p
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Cardinality
 
 public section
 

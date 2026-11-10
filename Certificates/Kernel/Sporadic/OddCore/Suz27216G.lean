@@ -3,18 +3,10 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.Suz27216K
 public import Certificates.Kernel.Sporadic.SuzInv.Inner0
 public import CFSG.Certificates.Kernel.Spor.Suz27216Sound
-public import CFSG.Certificates.Kernel.Spor.PEnumSound
 public import CFSG.Certificates.Kernel.Spor.LevelTrSound
-public import CFSG.Certificates.Kernel.Spor.RawSiftK
-public import CFSG.Certificates.Kernel.Spor.PackWord
-public import CFSG.Certificates.Kernel.Spor.PcompFacts
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.SuzN0Defs
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.SuzN0Scan
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourEnumSpec
 public import CFSG.Sporadic.SuzOddCore.OddCore
-public import CFSG.Sporadic.SuzOddCore.InvCentralizers
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.SuzOddCore.InvCentralizerBounds
 
 public section

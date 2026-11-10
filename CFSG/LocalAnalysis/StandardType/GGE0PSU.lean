@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE0PSUComp
 public import CFSG.LocalAnalysis.StandardType.GGE0PSUPairing
 
 public section

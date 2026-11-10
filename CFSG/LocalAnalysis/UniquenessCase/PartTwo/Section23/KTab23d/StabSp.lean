@@ -1,16 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Defs
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S20
-public import CFSG.Open.StatedDefs
 
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Levi
-import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockSympData
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockSympHas
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherParabolicData
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOrdNatural.PCoreSp
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting

@@ -1,15 +1,9 @@
 module
 
 public import CFSG.Quasithin.Background.A3StructureDefs
-public import CFSG.LieType.BorelTits.Suzuki
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.SignalizerFunctorTheorem.NearModels.Suzuki.Bridge
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.StronglyEmbedded.BenderBorelTransport
 public import CFSG.SignalizerFunctorTheorem.McBride.Models.Suzuki.Local
 public import CFSG.CGT.T75E.RootOrders
 public import CFSG.RankThree.S4Free.SuzukiEight
-import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderSuzukiBorel
 public import CFSG.CGT.T75E.Reduce
 public import CFSG.CGT.Timmesfeld75.Sec3TenCaseA
 public import CFSG.CGT.Timmesfeld75.Sec4CaseIBasic
@@ -42,9 +36,7 @@ public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryRootAutomorphism
 public import CFSG.Permutation.BurnsideSchur
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.RankThree.S4Free.Statement
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

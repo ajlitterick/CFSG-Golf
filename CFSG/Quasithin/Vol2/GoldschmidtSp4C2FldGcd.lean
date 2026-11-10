@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
 public import Mathlib.Algebra.CharP.Lemmas
 public import Mathlib.Algebra.Order.Field.Basic
 public import Mathlib.Data.Sym.Sym2.Init

@@ -12,7 +12,6 @@ public import CFSG.Open.MonsterY443Defs
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.Classical.SteinbergBJSymplecticSquareZeroCentralizer
 public import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneCore
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public noncomputable section
 

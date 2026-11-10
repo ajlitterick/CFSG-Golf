@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.C12643.EltsK
 public import Certificates.Kernel.Misc.Perm.J2Elts45
-public import CFSG.Certificates.Kernel.Misc.EnumBfsMem
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000

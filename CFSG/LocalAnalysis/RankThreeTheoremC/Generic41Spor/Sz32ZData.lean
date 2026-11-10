@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Defs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.SecondPointSz32
-import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.TypeIILemma45Gen
-import CFSG.LocalAnalysis.RankThreeTheoremC.ObstructionElements
 import CFSG.HardMathSupport.Timmesfeld.Proving.PRankCore
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
@@ -15,8 +11,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic5Abstract
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.PointConfig
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.TypeIICommon
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic49U3.PSU3.Aut
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

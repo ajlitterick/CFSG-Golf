@@ -3,15 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoModel
 public import CFSG.LocalAnalysis.SeitzReduction.EPilotCentralizerHigh
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviHom
-public import CFSG.Open.LocalVocabulary
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoExcStep
-import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviModel
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotQ2RowOverlap
 import CFSG.LocalAnalysis.SeitzReduction.EPilotHeisIrr
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotQ2OverlapGraphBlock
-import CFSG.LieType.Chevalley.E6GraphHighestRootData
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
@@ -25,7 +20,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 import CFSG.ClassicalInvolution.WeakCT.Main
 import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Defs
@@ -65,7 +59,6 @@ import CFSG.LocalAnalysis.SeitzReduction.RankOneHypStarDef
 import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotAlignImagesSwap
 import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotUniqueTypeGraph
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.B1MoreElevenD
 import CFSG.Quasithin.Background.B1MoreElevenF
 import CFSG.Quasithin.Background.B1MoreNineG
@@ -73,11 +66,6 @@ import CFSG.Quasithin.Background.B4ModelsAction
 import CFSG.Quasithin.Background.B4ModelsIso
 import CFSG.Quasithin.Background.C2Basic
 import CFSG.Quasithin.Background.E1
-import CFSG.Quasithin.Background.E1Sec4
-import CFSG.Quasithin.Background.E1Sec5
-import CFSG.Quasithin.Background.E1Sec8
-import CFSG.Quasithin.Background.E1Solv
-import CFSG.Quasithin.Background.E1Twelve
 import CFSG.Quasithin.Background.E3Cent
 import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl

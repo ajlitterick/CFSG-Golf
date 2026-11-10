@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5TwSurvivor
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5RC0
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5Act
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5L2Rank
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5Centre
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5InnerL
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5InnerO
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5Order

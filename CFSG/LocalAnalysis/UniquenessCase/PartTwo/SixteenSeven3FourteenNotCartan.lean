@@ -9,7 +9,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven3FourteenEle
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven3FourteenNine
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven3FourteenElevenCard
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven3CorrCaseThree
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenResults2
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DataKParam
 public import CFSG.Adapters.StatedClassicalSmallOrders
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteFSInputs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaTorus
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoUnitaryAux
 import CFSG.LocalAnalysis.StandardType.GGHalfRowData

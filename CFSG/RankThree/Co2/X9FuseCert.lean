@@ -1,7 +1,5 @@
 module
 
-public import CFSG.RankThree.Co2.XSylowCert
-public import CFSG.RankThree.Co2.CensusCert
 public meta import CFSG.RankThree.Co2.XSylowCert
 public meta import CFSG.RankThree.Co2.CensusCert
 public meta import CFSG.RankThree.Co2.Rows

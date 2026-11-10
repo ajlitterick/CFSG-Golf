@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK1ADefs
-public import CFSG.LocalAnalysis.StandardType.GGK1ALift
 public import CFSG.LocalAnalysis.StandardType.GGK1AMult
 public import CFSG.LocalAnalysis.StandardType.GGK1ABlocks
 public import CFSG.LocalAnalysis.StandardType.GGK1AKind
@@ -11,8 +9,6 @@ public import CFSG.LocalAnalysis.StandardType.GGK1ADvd
 public import CFSG.LocalAnalysis.StandardType.GGK1ACenter
 public import CFSG.LocalAnalysis.StandardType.GGK1AValid
 public import CFSG.LocalAnalysis.StandardType.GGK1ASigma
-public import CFSG.LocalAnalysis.StandardType.GGK1ABlocksLin
-public import CFSG.LocalAnalysis.StandardType.GGK1ABlocksUni
 
 public section
 

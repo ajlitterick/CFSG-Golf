@@ -3,13 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Local3
 public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Check45
 public import CFSG.GH74.M12.HypGroup
-public import Certificates.Certificate10019
-public import Certificates.Certificate8168
-public import Certificates.Certificate8169
-public import Certificates.Certificate3139
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Chevalley.LangRootArithmetic
@@ -20,7 +13,6 @@ public import CFSG.RankThree.GroupTheory.SteinbergBYAlphaTransport
 public import CFSG.RankThree.PartTwo.Sec4.StatementsCensus
 public import CFSG.RankThree.PartTwo.Sec4.StatementsSporadic
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

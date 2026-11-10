@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UC22FinThreeK1
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen3a
 import CFSG.LocalAnalysis.SeitzReduction.LinearPilotQ2SixLLift
 import CFSG.GroupTheory.PRankMapOfKerPrimeNotDvd
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

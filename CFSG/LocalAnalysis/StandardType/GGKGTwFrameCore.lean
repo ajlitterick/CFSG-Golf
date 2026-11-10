@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwKGLayerDefs
 public import CFSG.LocalAnalysis.StandardType.GGKGTwModelDiag
 public import CFSG.LocalAnalysis.StandardType.GGKGTwConj
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsT
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelKGFrameE
 
 public section
 

@@ -3,17 +3,11 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeNineTB
 public import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeSixLin
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBTwA3Row
-import CFSG.LocalAnalysis.StandardType.GGQTwoReduction
 import CFSG.LocalAnalysis.StandardType.GGQ2GammaOfShape
 import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXOffI1Holds
 import CFSG.LocalAnalysis.StandardType.GGQ2LDatumDims
 import CFSG.LocalAnalysis.StandardType.GGQ2LDatumMovesLine
-import CFSG.LocalAnalysis.StandardType.GGQ2MixedCentreRefl
-import CFSG.LocalAnalysis.StandardType.GGRCLinRefl
-import CFSG.LocalAnalysis.StandardType.GGWAutCommon
 import CFSG.LocalAnalysis.StandardType.GGQ2P3Hyp
-import CFSG.LocalAnalysis.StandardType.GGQTwoTBDerive
-import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeI1Rank
 
 public section
 

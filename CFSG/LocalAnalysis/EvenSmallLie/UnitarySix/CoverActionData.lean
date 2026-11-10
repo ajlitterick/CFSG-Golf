@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LieType.Multipliers.U62Bridge
-public import CFSG.LieType.Multipliers.U62Kernel
-public import CFSG.Certificates.WordSubgroup
 public meta import CFSG.LieType.Multipliers.U62Bridge
 public meta import CFSG.LieType.Multipliers.U62Kernel
 public meta import CFSG.LieType.Multipliers.U62Data
@@ -12,7 +9,6 @@ public meta import CFSG.Certificates.WordSubgroup
 public meta import Certificates.Data.CFSGNative.F4.T46Simple
 public meta import Certificates.Data.CFSGNative.Fi22.Local
 public meta import Certificates.Data.CFSGNative.Th.Tables
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.CoverActionDataInputs
 public import Certificates.Certificate3143
 
 public section

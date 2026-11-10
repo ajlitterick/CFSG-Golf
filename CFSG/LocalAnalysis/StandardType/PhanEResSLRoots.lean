@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.PhanEResSLPath
-import CFSG.LocalAnalysis.ComponentInitial.LinearCoverFourRoots
 
 public section
 

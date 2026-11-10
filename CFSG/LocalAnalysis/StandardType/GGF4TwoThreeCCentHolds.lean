@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGF4TwoThreeCCent
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5F4ThreeC
-import CFSG.Blueprint.ChevalleyRoots
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-import CFSG.LieType.Chevalley.GraphFixedE6DiagonalCubes
-import CFSG.RankThree.Chevalley.SteinbergCFERootSL2Traces
 
 public section
 

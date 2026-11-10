@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.WeakClosure81.W18Center
 public import CFSG.LocalAnalysis.WeakClosure81.W18Borel
 public import CFSG.LocalAnalysis.WeakClosure81.EightSeven
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveSixE
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
 public import CFSG.GroupTheory.ABGLocalTools.PStabilitySignalizer
 public import CFSG.Adapters.LieModelSimple
 public import CFSG.CGT.Timmesfeld75.Cfg214Gen
@@ -63,8 +62,6 @@ public import CFSG.Mathlib.LinearAlgebra.BilinForm.Determinant
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
 public import CFSG.Quasithin.Background.A3Structure312
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.Background.RonanE111Defs
 public import CFSG.Quasithin.H13.L1332Inputs

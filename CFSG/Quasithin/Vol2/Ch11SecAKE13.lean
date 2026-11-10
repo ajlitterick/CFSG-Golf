@@ -2,9 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch11SecAKDc
 public import CFSG.Quasithin.Background.A318PF4Frame
-public import CFSG.LocalAnalysis.SectionRank.LargeRee.Torus
-public import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
-public import CFSG.LieType.Chevalley.TrialityExactFiniteOrder
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6LargeRee
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Triality
 public import CFSG.RankThree.PartOne.KLC.TriTorus

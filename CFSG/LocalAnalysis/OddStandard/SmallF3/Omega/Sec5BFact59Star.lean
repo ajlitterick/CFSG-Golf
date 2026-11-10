@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5BFact59Bits
 import all Certificates.Data.Asc82Fact59
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5InputsB2
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5BHeartCoord
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5BHeartPerm
 
 public section

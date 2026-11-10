@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLargeFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGResXDatumARank
-public import CFSG.LocalAnalysis.StandardType.GGResHdRoNarrowDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepAssembly
 
 public section

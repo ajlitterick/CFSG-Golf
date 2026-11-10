@@ -3,10 +3,7 @@ module
 public import Certificates.Certificate10511
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatSeq
 public import CFSG.Sporadic.FischerOddCore.Fi24R2Order
-import CFSG.Certificates.NativeValidSchreier
 import CFSG.Certificates.SchreierBaseImageDecoding
-import CFSG.Certificates.Kernel.SporLatDc2Sound
-import CFSG.Certificates.Kernel.SporLatOmegaSound
 import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporCo1K
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import Certificates.Kernel.SporSch.J4S.NoCP

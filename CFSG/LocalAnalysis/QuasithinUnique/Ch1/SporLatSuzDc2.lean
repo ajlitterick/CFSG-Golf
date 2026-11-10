@@ -8,7 +8,6 @@ public import CFSG.Sporadic.Schreier.PairChain
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.Certificates.LiftedSchreierData
 public import CFSG.Certificates.NativeSchreierCard
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

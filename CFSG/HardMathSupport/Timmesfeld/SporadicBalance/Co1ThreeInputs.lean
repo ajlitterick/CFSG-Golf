@@ -3,10 +3,7 @@ module
 public import Certificates.Data.CFSGNative.Timmesfeld.Co1Leaf
 public import CFSG.Sporadic.Co1Block.PermData
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1ThreeData
-public import CFSG.Sporadic.Schreier.Co1ElemThreeCheckInputs
 public import CFSG.Sporadic.Schreier.Co1SplitCheckInputs
-public import CFSG.Sporadic.Schreier.Co1ThreeLocalInputs
-public import Std.Data.HashMap
 public meta import Certificates.Data.CFSGNative.Timmesfeld.Co1Leaf
 public meta import CFSG.Sporadic.Co1Block.PermData
 public meta import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1ThreeData

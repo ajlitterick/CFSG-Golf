@@ -3,9 +3,6 @@ module
 
 public import CFSG.Monster.B.TwoA.Base.SevenPairA
 public import CFSG.Monster.B.TwoA.Base.FrameBase
-public import CFSG.Monster.B.TwoA.Census.NatCert
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-public import Mathlib.LinearAlgebra.Matrix.ToLin
 public meta import CFSG.Monster.B.TwoA.Census.NatCert
 public import CFSG.Monster.B.Co2.MatrixCertBase
 public import CFSG.Monster.B.Co2.MatrixIsoBase

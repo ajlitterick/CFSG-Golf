@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.MainV24
 public import CFSG.HardMathSupport.Dickson.Bal207.Holds
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzExcOpenRest2
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterHighUnitaryGUTwo
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzExcOpenRest3
 public import CFSG.RankThree.PartOne.S15K.FixedWitt

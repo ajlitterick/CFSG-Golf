@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.G2.ProductCommute
 public import CFSG.LocalAnalysis.EvenBN.G2.EndgameBase
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Conjugacy
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.Misc.Tits.Text
-public import Certificates.Data.Kernel.Spor.Prim
-public import Certificates.Data.Kernel.Spor.Raw
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

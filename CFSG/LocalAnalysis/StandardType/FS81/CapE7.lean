@@ -2,18 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.ConstructYE7
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP10Cover
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.SeitzReduction.E8PilotAutD
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotHR4Basic
-import CFSG.GroupTheory.InnerCentralizerProjection
-import CFSG.GroupTheory.ConjTransport
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CentralizerSup
-import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 import CFSG.LocalAnalysis.StandardType.GGResQTwoTits
-import CFSG.LocalAnalysis.StandardType.FS81.SplitEAux
 import CFSG.LocalAnalysis.StandardType.FS81.SplitE
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CentralCoreReduction
-import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.ClassicalGroups.Alternating.TransvectionGenerationTwo
 
 public section

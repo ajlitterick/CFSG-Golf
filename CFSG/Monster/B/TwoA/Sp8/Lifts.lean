@@ -4,15 +4,8 @@ module
 public import CFSG.Monster.B.TwoA.Sp8.LiftsBase
 
 public import CFSG.Monster.B.TwoA.Sp8.Data
-public import CFSG.Monster.B.TwoA.Census.CentralSqrt
 public meta import CFSG.Monster.B.Rep4371.Model
-public import CFSG.Monster.B.TwoA.Sp8.LiftsInputs
 public import Certificates.Certificate3057
-public import Certificates.Data.CFSGNative.MonsterB.Short
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import CFSG.Certificates.Kernel.AxisPlane.Orbit
-public import Certificates.Data.Kernel.VisFrame.Gens
-public import CFSG.Monster.B.TwoA.Co2Inv.RowsInputs
 public import CFSG.Monster.B.TwoA.Co2Inv.CentOrder
 
 public noncomputable section

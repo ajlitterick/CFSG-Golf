@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.H13.NQCatLieCartanTools
 public import CFSG.Quasithin.H13.NQCatD4Center
 public import CFSG.Quasithin.Background.SmithB42D4Main
-public import CFSG.LieType.Chevalley.GraphFixedBorelSelfNormalizer
-public import CFSG.LieType.Chevalley.GraphFixedBorelCoreCenter
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.Co2.CrConj
 public import CFSG.Certificates.Kernel.Co2Syl.Words
-public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
 
 public section
 

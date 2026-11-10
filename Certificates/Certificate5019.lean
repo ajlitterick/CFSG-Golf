@@ -1,12 +1,8 @@
 module
 
-public import CFSG.GH74.E2.SDExtGeneric
-public import CFSG.GH74.E2.Ext2
 public meta import Mathlib
 public import CFSG.GH74.E2.SDExtCertInputs
 import CFSG.GH74.E2.Alpha1Core
-import CFSG.CharacterTheory.Semidihedral.Model
-public import CFSG.GH74.E2.SD16Cert
 
 public section
 

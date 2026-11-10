@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResThreeSettled
-public import CFSG.LocalAnalysis.StandardType.GGResF4ExactTwo
-public import CFSG.LocalAnalysis.StandardType.GGCentreTwoKnownHolds
 
 public section
 

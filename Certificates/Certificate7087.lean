@@ -2,11 +2,7 @@ module
 
 public import CFSG.Blueprint.NativeSporadic
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
-import CFSG.LocalAnalysis.QuasithinUnique.Setting
-import CFSG.Sporadic.HS
-import Certificates.Certificate3167
 import Certificates.Certificate4102
-import Certificates.Certificate4140
 
 public section
 

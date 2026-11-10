@@ -1,9 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Plus.FrameCheck
-public import Certificates.Kernel.LocalComp.BfsGenSl
-public import Certificates.Kernel.SporSch.Th.GenV4
-public import Certificates.Kernel.Sporadic.RawGen
 public meta import CFSG.OddTranspositions.PartThree.Eleven.Plus.FrameCheck
 public meta import Certificates.Kernel.PlusFactors.Data
 meta import Certificates.Kernel.Sporadic.RawGen

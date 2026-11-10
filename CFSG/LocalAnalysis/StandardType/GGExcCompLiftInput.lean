@@ -2,16 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcCompFieldInput
 public import CFSG.LocalAnalysis.StandardType.GGLabelIsoField
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitF4E78
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGNbrHalfSplitArith
 import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitMarking
 import CFSG.LocalAnalysis.StandardType.GGNbrPrimeFieldExcl
-import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
-import CFSG.LocalAnalysis.StandardType.GGAssemblyFiveDefs
 import CFSG.LocalAnalysis.StandardType.GGExclNoIso
 
 public section

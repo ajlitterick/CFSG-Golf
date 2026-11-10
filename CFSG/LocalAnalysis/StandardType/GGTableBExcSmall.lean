@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSylowCyclic
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwDThree
-public import CFSG.LocalAnalysis.StandardType.MarkingSmall
 public import CFSG.LieType.Ree.SuzukiOrder
 
 public section

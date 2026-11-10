@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.Open.LocalVocabulary
-import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

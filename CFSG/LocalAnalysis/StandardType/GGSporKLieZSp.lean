@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKLieZSpCent
 public import CFSG.LocalAnalysis.StandardType.GGSporKLieZQuot
-import CFSG.Open.StatedAPI
 
 public section
 

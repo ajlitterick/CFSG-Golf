@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2CentralizerPort
-public import CFSG.LocalAnalysis.StandardType.GGQTwoAssemble
 public import CFSG.LocalAnalysis.StandardType.GGXInLDispatch
 public import CFSG.LocalAnalysis.StandardType.GGCSRHolds
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVac

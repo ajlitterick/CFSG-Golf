@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TPCtx
 public import CFSG.ClassicalInvolution.Q3.Q3ZLiftLayer
-public import CFSG.ClassicalInvolution.RouteD.GapsAut
 public import CFSG.ClassicalInvolution.Q3.Q3TCCtx
 public import CFSG.ClassicalInvolution.Q3.Q3WAAllA1
 public import CFSG.ClassicalInvolution.Q3.Q3WAETLocal

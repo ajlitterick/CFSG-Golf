@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.LieType.SemisimpleCentralizers.HeldUnitaryComponents
 public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 public import CFSG.LocalAnalysis.StandardType.GGTCJEnnolaOrthModel
@@ -9,18 +8,6 @@ import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgOrthogonal
 import CFSG.HardMathSupport.Dickson.Bal207.OrthFixedType
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GCenterQuot
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniData
-import CFSG.RankThree.PartOne.S11d.LieCentralizerOrth
-import CFSG.RankThree.PartOne.KC.OrthogonalComponentFacts
-import CFSG.RankThree.PartOne.KC.OrthogonalLocalComponents
-import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
-import CFSG.RankThree.PartOne.KC.OrthogonalFixedRestrict
-import CFSG.RankThree.Classical.SteinbergBJOrthogonalHighWitt
-import CFSG.SignalizerFunctorTheorem.Inheritance.TransportA.Fitting
-import CFSG.ClassicalGroups.Orthogonal.Simple
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.Open.StatedAPI
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.Dihedral.DihedralFusionPrefixes
@@ -87,8 +74,6 @@ import CFSG.Quasithin.Background.C1GNSolvConnect
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918C6
 import CFSG.Quasithin.Background.FFC7G
 import CFSG.Quasithin.Background.FFC8A
@@ -137,7 +122,6 @@ import CFSG.Quasithin.Vol2.Ch9KGFFQR
 import CFSG.Quasithin.Vol2.Ch9KGFFQRCase
 import CFSG.RankThree.PartOne.S15K.FixedWitt
 import CFSG.RankThree.PartOne.S15K.LayerModel
-import CFSG.Walter.J1Props
 import Certificates.Kernel.J4Count.Prim
 
 public section

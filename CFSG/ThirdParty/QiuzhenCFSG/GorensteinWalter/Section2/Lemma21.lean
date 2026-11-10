@@ -1,9 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.MinimalCounterexample
 import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.FinalTheorem
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.A5
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Hyp11Bridge
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PreambleHSU
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PreambleInvolutions

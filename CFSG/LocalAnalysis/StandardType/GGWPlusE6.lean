@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGWPlusE6Quot
 public import CFSG.LocalAnalysis.StandardType.GGWPlusAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGWPlusPosition
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBMeta
 
 public section
 

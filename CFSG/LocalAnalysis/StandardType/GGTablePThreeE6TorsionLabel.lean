@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6CompLabCat
 public import CFSG.LocalAnalysis.StandardType.GGExcCompSLMarking
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6Bridge
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6Labels
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6UniqueCompLabelMarking
 

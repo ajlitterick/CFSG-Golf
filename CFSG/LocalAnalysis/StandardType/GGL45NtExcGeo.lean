@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGL45NtExcAbs
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeDefs
 public import CFSG.LocalAnalysis.StandardType.GGL45NtGeoNorm
 

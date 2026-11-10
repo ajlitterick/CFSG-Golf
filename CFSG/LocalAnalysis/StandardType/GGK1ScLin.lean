@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGK1ScCore
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.ThreeCoverClassical
 public import CFSG.LocalAnalysis.StandardType.GGSporKLieZSU
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotSwapLiftSplit
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenModel
-public import CFSG.Open.StatedAPI
 
 public section
 

@@ -1,12 +1,8 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.I19_10Red
-public import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalThreeSporadicRank
 public import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalTwoFrontier
-public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.SporadicGammaPairs
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThFive
-public import CFSG.Sporadic.Bridge.ThSurj
-public import CFSG.Sporadic.ThSchreier.NodeFullAutomorphism
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Prop22
 public import CFSG.HardMathSupport.Timmesfeld.Balance.Alt.Setup
 

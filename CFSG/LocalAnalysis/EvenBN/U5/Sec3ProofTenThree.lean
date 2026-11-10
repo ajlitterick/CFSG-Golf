@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.EvenBN.U5.CaseBSharedPartsB
 public import CFSG.LocalAnalysis.EvenBN.U5.Sec3ProofTenOrders
-public import CFSG.LocalAnalysis.EvenBN.U5.Sec3B6
 
 public noncomputable section
 

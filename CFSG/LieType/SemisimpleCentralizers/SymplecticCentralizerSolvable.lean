@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivFactors
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsSp
-public import CFSG.Quasithin.Background.A3ComponentsBasic
 public import CFSG.LocalAnalysis.ComponentClassification.LiteratureLocalPComponentCore
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.PLengthLemmas
 
 public section
 

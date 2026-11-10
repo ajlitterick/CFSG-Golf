@@ -1,13 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameNativeRoots
-public import CFSG.LocalAnalysis.SeitzReduction.E7PilotQ2Neighbour
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCores
 public import CFSG.LieType.Universal.SpinOmega.CommutatorEquiv
-public import CFSG.RankThree.Chevalley.EvenPinnedRootSL2
-public import CFSG.LocalAnalysis.StandardType.FS81.LocalOrthModels
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameSeven
-public import CFSG.RankThree.Literature.FSmithOrthogonal
 
 public noncomputable section
 

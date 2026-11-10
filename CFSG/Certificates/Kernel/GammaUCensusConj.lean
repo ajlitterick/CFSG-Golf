@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Certificates.Kernel.GammaUCensusSound
-public import CFSG.GF2Type.Smith1979.GammaU.StepAInputs
 public import CFSG.GF2Type.Smith1979.GammaU.Violation
 
 public section

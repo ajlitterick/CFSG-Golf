@@ -2,18 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcThreeE8Data
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcE6
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE8Model
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFiveOrbit
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyNormalizer
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Data
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoFusionE8
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameCentralizer
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.Root
-public import CFSG.LieType.Chevalley.GraphFixedRankOneImage
-public import CFSG.LieType.Chevalley.OddF4CosetDescent
-public import CFSG.LieType.Chevalley.D4TripleA2Lemmas
-public import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.Dihedral.DihedralFusionPrefixes
@@ -53,13 +46,7 @@ public import CFSG.RankThree.PartOne.KE6.Phi6Decomp
 public import CFSG.RankThree.PartOne.KE6.Phi6Excl
 public import CFSG.RankThree.PartOne.KE6.Phi6Frame
 public import CFSG.RankThree.PartOne.KF4.KernelTools
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 
 public section
 

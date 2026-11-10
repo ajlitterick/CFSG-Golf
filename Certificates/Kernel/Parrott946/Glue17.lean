@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Parrott946.Glue
 public import Certificates.Kernel.Parrott946.Alg
 public import Certificates.Kernel.Parrott946.Checks17
-public import Certificates.Data.ParrottPSp43L1
 
 set_option maxRecDepth 400000
 

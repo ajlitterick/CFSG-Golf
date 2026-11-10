@@ -1,9 +1,7 @@
 module
 
-public import CFSG.ClassicalGroups.Orthogonal.Restrict
 public import CFSG.ClassicalInvolution.RouteD.TWYPlane
 public import CFSG.ClassicalInvolution.RouteD.TWYType
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogQuadraticNormalForms
 public import CFSG.RankThree.PartOne.KC.OrthogonalNormPlaneFactors
 import CFSG.ClassicalGroups.Orthogonal.PolarPairPlane
 

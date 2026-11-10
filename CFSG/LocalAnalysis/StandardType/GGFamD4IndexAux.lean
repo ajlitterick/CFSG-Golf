@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamTameOrbit
-public import CFSG.LieType.Chevalley.RootGramDet
 public import CFSG.LieType.Chevalley.NonClosedRootCensus
 
 public section

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.WeylRoots
-public import Mathlib.GroupTheory.Solvable
-public import Mathlib.GroupTheory.Coxeter.Basic
-public import Mathlib.Algebra.Group.Commutator
-public import Mathlib.GroupTheory.Commutator.Basic
 
 public section
 

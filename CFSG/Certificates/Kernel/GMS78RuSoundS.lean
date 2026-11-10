@@ -1,8 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.GMS78Ru
-public import CFSG.Certificates.Kernel.GMS78RuGen
-public import CFSG.Certificates.Kernel.GMS78RuSoundBase
 public import CFSG.Certificates.Kernel.GMS78RuSoundC3
 
 public section

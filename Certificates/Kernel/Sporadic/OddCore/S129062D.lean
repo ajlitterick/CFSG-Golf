@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.S2307D
 public import Certificates.Kernel.LocalQT.PEnumD
-public import Certificates.Kernel.Misc.Perm.HexCmd
-public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.SuzCheck
 meta import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.SuzCheck
 meta import Certificates.Kernel.Sporadic.OddCore.S2307D

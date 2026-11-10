@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.Defs
-public import CFSG.GroupTheory.PCore.Construction
 import CFSG.LocalAnalysis.StandardType.FF81.E6Position
 import CFSG.LocalAnalysis.StandardType.FF81.CentralizerOdd
 import CFSG.LocalAnalysis.StandardType.FF81.TransvectionCentO2

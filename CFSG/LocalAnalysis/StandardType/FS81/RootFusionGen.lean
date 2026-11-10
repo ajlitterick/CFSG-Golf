@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.Defs
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.RouteP.Generation
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 
 public section
 

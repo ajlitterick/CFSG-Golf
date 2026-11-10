@@ -1,18 +1,15 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294CrossLargeTransfer
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Num
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinear
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-public import CFSG.HardMathSupport.Timmesfeld.LinearRank.ProjRank
 public import CFSG.HardMathSupport.Timmesfeld.LinearRank.UnitaryDiagonal
 public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.LinAut
 public import CFSG.GroupTheory.QuasiDihedralFusion.CharPowerSL2
 public import CFSG.Timmesfeld.Orders.Classical
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.InndiagInner
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryDiagonalOuterOrder
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Sporadic.M23.M23Group
 

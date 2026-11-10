@@ -2,9 +2,7 @@ module
 
 public import CFSG.LieType.Chevalley.GraphFixedF4Canonical
 public import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
-public import CFSG.LieType.Chevalley.SingleEdgePerfect
 public import CFSG.LieType.Chevalley.LangFiniteRootCentralizer
-public import CFSG.LieType.Chevalley.NativeMonomial
 
 public noncomputable section
 

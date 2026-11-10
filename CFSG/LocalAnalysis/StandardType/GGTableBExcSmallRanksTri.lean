@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksBasic
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
-public import CFSG.LieType.Chevalley.EvenTrialityTorusCoordinates
-public import CFSG.LieType.Chevalley.GraphFixedRootMonomialQuotient
-public import CFSG.LieType.Chevalley.FoldedWeylIdentification
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-public import Mathlib.FieldTheory.Finite.Extension
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Recognition.RuRank3RuAutData
-public import CFSG.Quasithin.Recognition.RuRank3PSL
 public meta import CFSG.Quasithin.Recognition.RuRank3RuAutData
 public meta import CFSG.Quasithin.Recognition.RuRank3PSL
 public meta import CFSG.Quasithin.Recognition.RuRank3TitsCls
@@ -10,7 +9,6 @@ public meta import CFSG.Quasithin.Recognition.RuRank3TitsSyl
 public meta import CFSG.Sporadic.Schreier.RuOrbit
 public meta import CFSG.Sporadic.Schreier.RuCheckChains
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Quasithin.Recognition.RuRank3E0DataInputs
 public import Certificates.Certificate7043
 
 public section

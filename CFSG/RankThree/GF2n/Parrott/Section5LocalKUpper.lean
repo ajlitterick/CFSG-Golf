@@ -2,11 +2,7 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.Section5LocalT
 public import CFSG.RankThree.GF2n.Parrott.Section5LocalJ
-public import CFSG.RankThree.GF2n.Parrott.SylowHFacts
-public import CFSG.RankThree.GF2n.Parrott.Section4EWeak
-public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42
 public import CFSG.RankThree.GF2n.Parrott.LiftSquare
-public import CFSG.RankThree.GF2n.Parrott.Cardinality
 public import CFSG.Holt.PSL2Natural.Defs
 public import CFSG.Holt.PermFacts
 public import CFSG.Holt.ThreePoint

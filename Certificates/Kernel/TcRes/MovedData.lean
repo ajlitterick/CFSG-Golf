@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.TcRes.Moved
 public import Certificates.Kernel.TcRes.PlaneData
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.NatItemsGz
 import CFSG.Certificates.Kernel.Common.Repo
 

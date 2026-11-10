@@ -5,7 +5,6 @@ public import CFSG.Monster.B.Fischer.Fi22OuterBase
 import all CFSG.Monster.B.Fischer.Fi22OuterBase
 
 public import CFSG.Monster.B.Fischer.Fi22OuterCheck
-public import CFSG.Fischer.F4
 import all CFSG.Fischer.F4
 
 public noncomputable section

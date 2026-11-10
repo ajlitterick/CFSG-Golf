@@ -1,9 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
-public import CFSG.LocalAnalysis.StandardType.GGDepAPerm
-public import CFSG.LocalAnalysis.StandardType.GGTypeAReflOverPair
-public import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepThreeLin
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepThreeRoot
 

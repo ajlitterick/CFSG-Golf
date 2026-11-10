@@ -1,22 +1,13 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.O89X
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.KFact76RankThree
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.LThreeTwoPowCore
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K89Sp
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1521PO
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.OraclesGen
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K89SMain
-public import CFSG.ClassicalInvolution.Balance.Basic
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KI2320SLRed
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15F1L3Odd
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15F1U3Odd
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactF2
-import CFSG.GH74.Uniqueness.Section7Lemma711
-import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.S3AmalgamBound.CoreFreeTools
-import CFSG.LocalAnalysis.GLTheoremB.ComponentTools
-import CFSG.LocalAnalysis.GLTheoremB.PQuotientTools
-public import Certificates.Certificate431004
 public import CFSG.GH74.AS16.Defs
 public import CFSG.GH74.E2.Components
 public import CFSG.GH74.E2.OddRankG

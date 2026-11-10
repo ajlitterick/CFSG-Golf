@@ -6,7 +6,6 @@ public import Certificates.Kernel.LocalComp.BlockGen
 public import Certificates.Data.Kernel.U6.HuntK
 public import Certificates.Data.Kernel.U6.M22CntL
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.HuntRankData
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

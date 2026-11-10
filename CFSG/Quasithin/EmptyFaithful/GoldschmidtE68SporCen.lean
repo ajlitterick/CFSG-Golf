@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtE68SporGr
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtCMaxCen
 public import CFSG.Quasithin.EmptyFaithful.S151S9TCen
 
 public section

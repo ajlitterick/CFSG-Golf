@@ -2,8 +2,6 @@ module
 
 public import CFSG.Fischer.Uniq.Fi22Facts
 public import CFSG.Fischer.Uniq.F23
-public import CFSG.Fischer.Uniq.CompTau
-public import CFSG.Fischer.Polar.Lines
 
 public section
 

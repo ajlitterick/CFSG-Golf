@@ -3,7 +3,6 @@ module
 public import CFSG.GH74.Uniqueness.SU.SU10Hyp
 public import CFSG.GH74.Uniqueness.SU.SU10Quat
 public import CFSG.GH74.Uniqueness.SU.SU10SL25Base
-public import CFSG.GH74.Uniqueness.SU.SU10Fusion
 
 public section
 

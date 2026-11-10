@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofX10LinDispatch
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

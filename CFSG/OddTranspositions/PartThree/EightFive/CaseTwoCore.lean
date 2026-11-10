@@ -9,7 +9,6 @@ import CFSG.OddTranspositions.PartThree.LocalBenderCenter
 import CFSG.OddTranspositions.SevenThreeQuotient
 import CFSG.Timmesfeld.Bridge.Asc72ElemCompQuot
 import CFSG.GroupTheory.ABGLocalTools.OddOrderLocal
-import CFSG.GroupTheory.PCore.SolvableRadical
 import CFSG.CGT.Timmesfeld75.Statements
 import CFSG.CGT.Timmesfeld75.Targets
 import CFSG.LocalAnalysis.ComponentClassification.Asc76BenderFacts

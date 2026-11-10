@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.TwE6MaxEleven.Defs
 public import CFSG.LieType.Chevalley.C2E6StdMatrixModel
-public import CFSG.LieType.Chevalley.C2E6FirstResidueLevi
 public import CFSG.Monster.B.E6.StdF4Opposite
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotQ2FamilyModel
 public import CFSG.Sporadic.Schreier.J4SOrder
@@ -44,7 +43,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotQ2FamilyCover
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotAlignImagesSwap
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotUniqueTypeGraph
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B1MoreElevenD
 public import CFSG.Quasithin.Background.B1MoreElevenF
 public import CFSG.Quasithin.Background.B1MoreNineG
@@ -52,11 +50,6 @@ public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.B4ModelsIso
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddSubgroupLeOddFactor
-public import Mathlib.GroupTheory.QuotientGroup.Basic
 import Mathlib.Tactic
 
 namespace CFSG

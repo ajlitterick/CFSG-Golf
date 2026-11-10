@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.RootFusionLinCent
-public import Mathlib.GroupTheory.PGroup
 
 import CFSG.GroupTheory.CoprimeActionSupport.FaithfulIrreduciblePCoreTrivial
-import Mathlib.Algebra.BigOperators.Pi
-import Mathlib.Algebra.Module.Pi
-import Mathlib.Data.Matrix.Basis
-import Mathlib.LinearAlgebra.GeneralLinearGroup.Basic
 import Mathlib.LinearAlgebra.Matrix.ElementaryRowOperations
 
 public section

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsPairs
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 public import CFSG.Timmesfeld.ARS.CaseOAWeyl
-import Mathlib.GroupTheory.Perm.Sign
-import Mathlib.Tactic.Group
 
 public section
 

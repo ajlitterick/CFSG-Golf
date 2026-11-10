@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcTwoCompList
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4PairRootLeviTransport
-public import CFSG.ClassicalInvolution.WeakCT.TwistedSpinModel
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2Cross
 import CFSG.RankThree.PartOne.CTP.SpinMinusEven
-import CFSG.RankThree.PartOne.CTP.SpinCenterEven
-import CFSG.ClassicalInvolution.Models.LinearPairs.Pairs
-import Mathlib.Tactic.Group
 
 public section
 

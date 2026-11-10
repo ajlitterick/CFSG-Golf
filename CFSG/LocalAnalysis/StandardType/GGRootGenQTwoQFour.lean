@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourDom
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

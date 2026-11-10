@@ -1,17 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtGlue
-public import CFSG.LocalAnalysis.StandardType.GGL45NtLift
-public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcThreePart
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyClosedLang
 public import CFSG.Quasithin.H13.NQSetupFieldPowerG2
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.E8FourAux.Lift
 public import CFSG.LocalAnalysis.StandardType.GGL45NtClBlocks
-public import CFSG.RankThree.PartOne.KE.CTLang
-public import CFSG.RankThree.PartOne.KE.A1Weyl
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Frames
 public import CFSG.LieType.Chevalley.OrdinaryRootHyperplaneGeneration
 public import CFSG.LieType.Chevalley.ParabolicRadicalsOpposite

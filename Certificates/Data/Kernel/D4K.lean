@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.B3S3K
-public import Certificates.Data.Kernel.Spor.Raw
 
 public section
 

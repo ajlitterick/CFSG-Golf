@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Vol2.KGFact12617LieW
 public import CFSG.LieType.BorelTits.SpecialLinear
 public import CFSG.LieType.BorelTits.FormFlag
 public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.Open.StatedAPI
 
 public section
 

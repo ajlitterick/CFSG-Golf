@@ -9,7 +9,6 @@ import CFSG.RankThree.PartTwo.Sec12.Hering129LOTwoL3Four
 import CFSG.RankThree.PartTwo.Sec12.Gap128OTwoHJCases
 import CFSG.RankThree.OddKernel.InvolutionDims
 import CFSG.RankThree.PartTwo.ExponentPrimeSmallRank
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.GroupTheory.ABGLocalTools.OddOrderLocal
 

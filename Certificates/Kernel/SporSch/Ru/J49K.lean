@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Ru.G2Ru7164K
-public import Certificates.Kernel.SporSch.GenPerms
 public import Certificates.Kernel.LocalQT.Cmd
 public import Certificates.Data.Kernel.SporSch.IntLines
 public import CFSG.Sporadic.Schreier.RuJ49Sl2

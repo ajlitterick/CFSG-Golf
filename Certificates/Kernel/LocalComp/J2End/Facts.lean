@@ -6,7 +6,6 @@ public import CFSG.Certificates.Kernel.BfsPinSetSound
 public import CFSG.Certificates.Kernel.HeFixKFix
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicJ2EndTests
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.GeneralizedFitting
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

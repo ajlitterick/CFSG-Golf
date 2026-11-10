@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3SporRows
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
-public import CFSG.Sporadic.Mathieu.M24
 
 public section
 

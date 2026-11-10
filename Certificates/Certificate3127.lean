@@ -1,11 +1,8 @@
 module
 
 public import CFSG.Monster.B.TwoA.Unitary.TransvSwitchInputs
-public import Certificates.Certificate3175
-public import Certificates.Certificate3081
 public import Certificates.Kernel.MonsterB.Sw3127Data
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Fischer.F4
 
 public section
 

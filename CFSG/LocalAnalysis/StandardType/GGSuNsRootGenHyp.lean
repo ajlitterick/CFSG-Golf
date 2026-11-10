@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSuNsRootGenDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenKGDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeLift
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeElt
 
 public section

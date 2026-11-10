@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeKnownSix
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6NotG2
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6D4Odd
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6Labels
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6KG5c
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6KG5f
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TableZ
 
 public section
 

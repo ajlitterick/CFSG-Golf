@@ -1,69 +1,28 @@
 module
 
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Classification
 import CFSG.Assembly.Catalog
-import CFSG.FeitThompson.OddOrderTheorem
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.Stroth22Native
 public import CFSG.Monster.B.GSide.HInnerFusionY3
-public import CFSG.Sporadic.J4.QT2LocFixLNative
-import Certificates.Kernel.J4Q.QTBase
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4D4Data
-public import CFSG.Sporadic.J4.QT2LocX0Native
 public import Certificates.Data.CFSGNative.J4.PentScan
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
-import Certificates.Kernel.HSA312.Struct
 import Certificates.Kernel.HSQuot.Final
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87F3Abs
-public import CFSG.Sporadic.Ly.Setup
 import CFSG.Sporadic.Ly.GenSpecBase
 public import CFSG.GroupTheory.TwoWeightData
 import CFSG.Sporadic.Ly.TwoWeightsSpecBase
 import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P4S55LyHHBase
-public import CFSG.Monster.Existence.StdOdd.Defs
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
 public import CFSG.Quasithin.Recognition.RuRank3T1CertInputs
 import Certificates.Kernel.RuT1.Data
-import Certificates.Data.Kernel.TitsOver.Check
-import Certificates.Kernel.Sporadic.Tits.Words2264
-import Certificates.Kernel.MaxD2.TitsD.Data
 import CFSG.Certificates.Kernel.Common.Each
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.MaxD2.Basic
-import CFSG.Certificates.Kernel.TitsOver.Base
-import CFSG.Certificates.Kernel.Spor.TextAtSound
 import Certificates.Kernel.TitsOver.TitsBase
-import CFSG.LocalAnalysis.StandardType.TitsGeneratorsBase
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Quasithin.Background.A312SporHSKInputs
-import Certificates.Kernel.HSA312.Y1
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.RankThree.PartOne.CTP.FusionSound
 import CFSG.Sporadic.Bridge.BFusSevenGen
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
-public import CFSG.YGroups.Y443.Native.Swap13Word
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
-public import CFSG.GF2Type.Smith1979.GammaU.CensusDefs
 import Certificates.Kernel.GammaU.BaseBridge
-public import CFSG.LocalAnalysis.AGLEmbedding.Norton.MON5_7.ThreeBData
-public import CFSG.YGroups.Y443.Native.Words
 import Certificates.Kernel.KDenseP.MonSevenB
 import Certificates.Kernel.KDenseP.MonSevenC
-public import CFSG.Sporadic.Co2Smith.GlC0MarkInputs
-import Certificates.Kernel.Co2Smith.Cox
-import Certificates.Data.Kernel.Co2Smith.Mark
-import Certificates.Data.Kernel.Co2Smith.Cox
-import Certificates.Kernel.Co2Smith.LettersData
-import Certificates.Kernel.Co2Smith.CoxData
-import Certificates.Kernel.Co2Smith.MarkK
 public import Certificates.Data.TitsAschbacherFive
 public import Certificates.Kernel.EvenBN.Bind
 public import Certificates.Kernel.EvenBN.DWord
@@ -71,33 +30,19 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HaradaModel.BasicC
 import Certificates.Kernel.HN1408.Basic
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.T1Facts
 import Certificates.Kernel.G2Three.Sec1T1Glue
-import Certificates.Data.Kernel.G2Three.Sec1T1
-import Certificates.Kernel.G2Three.Sec1T1Rec
-import CFSG.Certificates.Kernel.G2Three.Sec1Tab
 import CFSG.Certificates.Kernel.Co1DceCover
-import CFSG.Certificates.Kernel.Spor.Mat3Sound
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.ModelDef
 import Certificates.Kernel.G2Three.Sec1T3Glue
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.T5Facts
-import Certificates.Kernel.G2Three.Sec1T5Glue
-public import CFSG.HardMathSupport.Foote.E27.TableSylow
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Fi.U62CoversLarge
-public import Certificates.Data.E27Table
-public import Mathlib.GroupTheory.GroupAction.ConjAct
-public import Mathlib.GroupTheory.Index
-public import Mathlib.Data.Finset.Card
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeSc
 import Certificates.Kernel.E6RegPair.Assembly
 public import CFSG.Quasithin.Vol2.Ch8Sec2L822CovP3
-public import CFSG.LocalAnalysis.QuasithinUnique.Defs
 import Certificates.Kernel.M24Dc.Over
 public import Certificates.Data.DcHeOverV
 import Certificates.Kernel.He589203.Final
 import Certificates.Kernel.HSA312.Y2
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.U33.Sec4B.SbC414Defs
 import CFSG.Certificates.Kernel.PermCent.SmallF3TwinSound
-import Certificates.Data.Kernel.PermCent.SmallF3Twin
 public import CFSG.CGT.A8S.N0EnumInputs
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinEdgeDefs
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinEdgeSocCyc4
@@ -115,7 +60,6 @@ public import CFSG.ClassicalInvolution.Phan.Phan3KerA3
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6cTransport
 public import CFSG.ClassicalInvolution.Q3.Sec13End16N
 public import CFSG.ClassicalInvolution.Q3.TA3SOLCore
-public import CFSG.ClassicalInvolution.Q3.TA3SOLCoreRank
 public import CFSG.ClassicalInvolution.Q3.TA3SmallModelM12
 public import CFSG.ClassicalInvolution.SmallCases.Hat2A7S8Lift
 public import CFSG.GF2Type.Smith1979.GammaU.Dict
@@ -179,7 +123,6 @@ public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsidePrelim.ThompsonFactor
 public import CFSG.LocalAnalysis.ComponentClassification.CTUSol76SigGoodJoin
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4P1UTabs
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsRealModel
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsRealModelBase
 public import CFSG.LocalAnalysis.ComponentClassification.HSFLitA7Sec8MCFacts
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCensusW
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicConjWS
@@ -392,11 +335,6 @@ public import Certificates.Data.ONanCMChain
 public import Certificates.Data.Y2L.Coset
 public import Certificates.Kernel.Sporadic.SuzH.Proof
 public import Lean.Elab.Tactic.Omega
-import CFSG.Assembly.ComponentType
-import CFSG.Assembly.Disconnected
-import CFSG.Assembly.LargeEven
-import CFSG.Assembly.Quasithin
-import CFSG.Assembly.RankThreeEven
 import CFSG.Certificates.Kernel.E6RegPairSound
 
 public section

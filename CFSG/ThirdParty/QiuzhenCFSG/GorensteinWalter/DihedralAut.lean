@@ -2,9 +2,7 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralCore
 public import Mathlib.GroupTheory.SemidirectProduct
-public import Mathlib.Algebra.Group.Subgroup.Ker
 public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
 import Mathlib.Tactic
 
 namespace CFSG

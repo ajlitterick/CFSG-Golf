@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkInE
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkModel
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkDiag
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkGen
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkComp
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkCent
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkTransport

@@ -1,14 +1,9 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec14.Ronan148KT1Rows
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148KT1RowRuTh
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148KT1RowGH
 public import CFSG.RankThree.PartTwo.Sec6.BThreeCensusSp4Main
 public import CFSG.RankThree.PartTwo.Sec6.BThreeCensusSp4Odd
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticTwoSchreier
-import CFSG.ClassicalGroups.Symplectic.Simple
-import CFSG.Timmesfeld.Orders.ClassicalLinear
-import CFSG.GH74.GLS.IVK.L2.Fixed
 import CFSG.RankThree.PartTwo.KFacts.K71IdentPSU3
 public import CFSG.GH74.GLS.Balance.SolvAPIDefs
 public import CFSG.HardMathSupport.Cooperstein.Proving.NineThreeTransfer
@@ -39,7 +34,6 @@ public import CFSG.RankThree.PartTwo.Sec4.T444.Item434CharThreeAssembly
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoIVDefs
 public import CFSG.RankThree.S4Free.SuzukiEight
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.FixedFieldCard
-public import CFSG.Walter.J1Props
 
 public section
 

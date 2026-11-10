@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173ODefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeLin
 public import CFSG.LieType.SeitzGeneration.SpFourMix
 public import CFSG.HardMathSupport.Curtis.Coordinator.PerfThreeGLCore

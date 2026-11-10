@@ -6,8 +6,6 @@ public import Certificates.Kernel.J2Dc.Nodes
 public import Certificates.Kernel.LocalQT.HS4089.G
 public import CFSG.Certificates.Kernel.E68SporClassSound
 public import CFSG.Certificates.Kernel.SporLatCodeRSound
-public import CFSG.Certificates.Kernel.SporLatOmegaSound
-public import Certificates.Data.E68Spor.Chk
 import all CFSG.Certificates.Kernel.LocalQTPcWSound
 
 set_option maxRecDepth 100000

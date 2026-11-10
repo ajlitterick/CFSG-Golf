@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.AGLEmbeddingD2.Ambient
 public import CFSG.LocalAnalysis.ComponentClassification.ClassicalModelStatedBridge
 public import CFSG.LocalAnalysis.RankTwoShapes.UnitaryFour.Bridge
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.PowerMap
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.RankThree.PartTwo.ExponentPrimeSmallRank
 
 public section

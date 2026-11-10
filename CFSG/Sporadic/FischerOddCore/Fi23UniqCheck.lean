@@ -1,10 +1,7 @@
 module
 
-public import Certificates.Data.CFSGNative.Fi23.Classes
-public import Certificates.Data.CFSGNative.Fi23.Centralizer
 public meta import Certificates.Data.CFSGNative.Fi23.Classes
 public meta import Certificates.Data.CFSGNative.Fi23.Centralizer
-public import CFSG.Sporadic.FischerOddCore.Fi23UniqCheckInputs
 public import Certificates.Certificate2074
 
 public section

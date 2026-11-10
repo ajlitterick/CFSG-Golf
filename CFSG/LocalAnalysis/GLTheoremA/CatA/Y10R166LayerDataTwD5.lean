@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166LayerDataTwD3
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166LayerDataTwD4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166LayerData
 public import CFSG.Certificates.WordSubgroupRel

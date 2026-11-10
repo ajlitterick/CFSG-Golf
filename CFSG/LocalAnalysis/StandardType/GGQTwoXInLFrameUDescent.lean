@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLQuot
 public import CFSG.LocalAnalysis.StandardType.GGXInLDispatch
 public import CFSG.LocalAnalysis.StandardType.GGTCJDescent
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinLeviCount
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

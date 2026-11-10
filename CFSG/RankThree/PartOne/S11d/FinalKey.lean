@@ -1,22 +1,13 @@
 module
 
-public import CFSG.RankThree.PartOne.S11b.Sec11Indeed
-public import CFSG.RankThree.PartOne.S11d.Sec11Common
 public import CFSG.RankThree.PartOne.S11d.SitSwap
-public import CFSG.RankThree.PartOne.S11d.FourClaimAux
 public import CFSG.RankThree.PartOne.S11d.FiveClaimAux
-public import CFSG.RankThree.PartOne.S11d.ThetaCalc
-public import CFSG.RankThree.PartOne.S11d.FixedRes
-public import CFSG.RankThree.PartOne.S11d.Facts5
 public import CFSG.RankThree.PartOne.S11d.FactsFinal
-public import CFSG.RankThree.PartOne.S11d.FinalSylow
 public import CFSG.RankThree.PartOne.S11d.FinalOrders
 public import CFSG.RankThree.PartOne.S11d.PElements
 public import CFSG.RankThree.PartOne.S11d.Transvection
 public import CFSG.RankThree.PartOne.S11d.ThreeAux
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
-import CFSG.RankThree.PartOne.S10.AmbientTheta
 import CFSG.RankThree.PartOne.S10.SelectedPrimeNormalizeThetaComponents
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -33,8 +24,6 @@ public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.GroupTheory.SteinbergBMResidualCommonPlaneSylowTwo
 public import CFSG.RankThree.LocalRank.SelectorCases
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_4
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection5.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
 
 public section

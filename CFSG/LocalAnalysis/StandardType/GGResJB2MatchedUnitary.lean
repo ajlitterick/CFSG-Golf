@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResJA2UnitaryRecognition
-public import CFSG.LocalAnalysis.StandardType.GGResJUnitaryCubicBlock
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
-public import CFSG.RankThree.CentralExtension.ThreeCoverCubeLifting
-public import CFSG.HardMathSupport.Solomon.Coordinator.T112TRank
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 
 public section
 

@@ -3,12 +3,7 @@ module
 public import Certificates.Kernel.TitsW.Defs
 public import CFSG.Certificates.Kernel.BfsPinAlg
 public import CFSG.Sporadic.Schreier.TitsBasic
-import CFSG.Certificates.Kernel.Spor.PrimSound
-import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.Spor.RawOrbHead
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Spor.PinvSSound
-import CFSG.Monster.B.Co2.PermArr
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 

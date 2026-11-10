@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6dY
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23Sec
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscExitUAE5Lab
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf5Path
 
 public section
 

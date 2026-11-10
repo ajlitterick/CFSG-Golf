@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRestCore
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoRestSmall
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeVac
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangRestRank
-public import CFSG.LocalAnalysis.StandardType.GGPGLTorality
 
 public section
 

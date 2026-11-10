@@ -2,22 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.OddLieFunRank
 public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.TableGeneric
-public import CFSG.LocalAnalysis.GL83PartI.I713.Extension
 public import CFSG.LocalAnalysis.GL83PartI.I713.ExceptionalOuter
 public import CFSG.RankThree.PartOne.SEITZ3.G2Odd
 public import CFSG.RankThree.PartTwo.KFacts.OutFixCentralThreeProof
-public import CFSG.RankThree.PartOne.KF.F128Cls
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticModelOuterTwoPart
-public import CFSG.GH74.Generic.Context
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FSp4Cls
 public import CFSG.GroupTheory.WeirSylow.CrossRankLinear
-public import CFSG.GroupTheory.WeirSylow.Arith
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.LieType.Chevalley.ExceptionalG2F4ModelSchreier
 public import CFSG.LieType.Chevalley.OrdinaryExceptionalOuterTwoPart
 public import CFSG.Blueprint.LieModelAPI
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomy
 public import CFSG.ClassicalInvolution.Models.LinearFrames

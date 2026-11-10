@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.InvCent.Cat.Harris.KleinBasic
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearSemilinearAction
 import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentA6ClPSLSmallClass
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearSemilinearFaithfulness
-import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentA6ClPSLSmallInner
-import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddPSL
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearSemilinearConjugacy
-import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentA6Transport
 public import CFSG.GH74.Generic.Shapes
 public import CFSG.GH74.Statements
 public import CFSG.LieType.Ree.LargeReeEightTorus
@@ -51,15 +45,11 @@ public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
 public import CFSG.Sporadic.ThSchreier.KernelAut
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 public import CFSG.Walter.JRFacts
 import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentA6ClPSLSmallInner4
 import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorOddE6
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

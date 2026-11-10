@@ -2,16 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.TableC.PSpCore
 public import CFSG.LocalAnalysis.StandardType.GGRemStdSubTableBHolds
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
-public import CFSG.LocalAnalysis.StandardType.GGOddLayerCores
 public import CFSG.LocalAnalysis.StandardType.GGOddLayerCentreHolds
-public import CFSG.LocalAnalysis.StandardType.GGLayerCentInvolCores
-public import CFSG.LocalAnalysis.StandardType.GGWeylFamQuotSolvAll
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixEBundle
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGSpNbrKGRound12
 public import CFSG.LocalAnalysis.StandardType.GGTwF4SUThreeRank
-public import CFSG.LocalAnalysis.StandardType.GGTwE6LangRound
 
 public section
 namespace CFSG.StandardType

@@ -1,23 +1,14 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec14.Item148RankProofTen
-public import CFSG.RankThree.PartTwo.Sec13.Statements
-import CFSG.RankThree.PartTwo.Sec14.Item148RankProofTenTools
 import CFSG.RankThree.PartTwo.Sec14.Item148Res4ProofA10
 import CFSG.RankThree.PartTwo.Sec14.Item148MainProofKType
 import CFSG.RankThree.PartTwo.Sec14.Item148StepPGLAbel
-import CFSG.RankThree.PartTwo.Sec14.Item148StepOne
 import CFSG.RankThree.PartTwo.Sec14.Item1417
-import CFSG.RankThree.PartTwo.Sec14.Item14J2
-import CFSG.RankThree.PartTwo.Sec14.Item1411
-import CFSG.RankThree.PartTwo.Sec14.Item1446
-import CFSG.RankThree.PartTwo.Sec13.Naturality
 import CFSG.RankThree.PartTwo.Sec13.OmegaNonempty
 import CFSG.RankThree.PartTwo.Sec13.Item13Basic
 import CFSG.RankThree.PartTwo.Sec4.Sporadic.Item415
 public import CFSG.Certificates.Kernel.ThDemp.OrbCent
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -28,7 +19,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAut
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.RankThree.PartTwo.NotationBlocks
@@ -37,10 +27,8 @@ public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.Sporadic.J2
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.RankThree.PartTwo.Sec11.Data
 import CFSG.RankThree.PartTwo.Sec6.Statements
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_6
 
 public section
 

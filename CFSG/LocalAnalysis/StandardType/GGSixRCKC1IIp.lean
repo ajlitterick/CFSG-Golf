@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1Helpers
-public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 
 public section
 

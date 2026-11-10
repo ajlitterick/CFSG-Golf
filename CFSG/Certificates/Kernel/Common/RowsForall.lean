@@ -2,7 +2,6 @@ module
 
 public meta import Lean
 public meta import CFSG.Certificates.Kernel.Common.AddThm
-public import CFSG.Certificates.Kernel.Common.HarnessGz
 meta import all CFSG.Certificates.Kernel.Common.HarnessGz
 public import CFSG.Certificates.Kernel.Common.EachTrue
 

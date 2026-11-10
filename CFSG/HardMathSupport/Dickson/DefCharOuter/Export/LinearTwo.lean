@@ -2,15 +2,9 @@ module
 
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.LinearA
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LinearTwo
-public import CFSG.RankThree.SteinbergR3ELinearPointwiseAutomorphisms
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogRigidityCommon
-public import CFSG.Adapters.LinearSmallCatalog
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoPglFaithful
-public import CFSG.RankThree.PartTwo.KFacts.AutPSL2OrderThree
 public import CFSG.Adapters.StatedPSLTwoNine
 public import CFSG.Adapters.StatedSmallProjOrders
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.LieOuterA
-public import CFSG.LocalAnalysis.ComponentInitial.TwoPrimeSolvable
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
 public import CFSG.CharacterTheory.Semidihedral.Principal.PrimeTorusBlockAlignment
@@ -65,8 +59,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -112,8 +104,6 @@ public import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

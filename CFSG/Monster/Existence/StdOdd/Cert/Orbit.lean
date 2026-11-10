@@ -8,8 +8,6 @@ public meta import Certificates.Data.CFSGNative.Chevalley.C2E6CertOrbit
 public meta import CFSG.LieType.Chevalley.C2E6StdMatrixData
 public meta import CFSG.Monster.B.Classical.E6AdjointTable
 import all CFSG.LieType.Chevalley.C2E6StdMatrixModel
-public import CFSG.LieType.Chevalley.C2E6StdMatrixVec
-public import CFSG.LieType.Chevalley.C2E6StdMatrixModelInputs
 
 public section
 

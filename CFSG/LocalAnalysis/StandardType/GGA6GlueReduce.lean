@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedDefs
 public import CFSG.LocalAnalysis.StandardType.GGLieBridgeHolds
-public import CFSG.LocalAnalysis.StandardType.GGFinModelRoots
 
 public section
 

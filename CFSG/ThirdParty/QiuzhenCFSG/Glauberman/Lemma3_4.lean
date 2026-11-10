@@ -1,9 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.PGroup
-public import Mathlib.Algebra.Group.Action.Defs
-public import Mathlib.Algebra.Group.Action.End
-public import Mathlib.Algebra.Group.Equiv.TypeTags
 
 namespace CFSG
 end CFSG

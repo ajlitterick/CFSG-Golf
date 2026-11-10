@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6TTSplitLaw
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6SylowUnitary
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6TTRank
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6FrameDefs
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

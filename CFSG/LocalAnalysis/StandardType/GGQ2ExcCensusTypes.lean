@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.CFSGNative.ExcCensus.Core
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterForkProofBCDExt
 
 public section

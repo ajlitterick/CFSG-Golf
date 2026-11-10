@@ -1,14 +1,12 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.S152He4Core
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_8Small
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_8L33
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_8M11
 public import CFSG.Quasithin.Background.F420Orders
 public import CFSG.Quasithin.Background.F420Ln2
 public import CFSG.Quasithin.SteinbergBXPrimeThreeSylowCenters
 public import CFSG.RankThree.SteinbergR3EHigherLinearOuterOrder
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.Adapters.RankTwoModelTransports
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNineSylow
 

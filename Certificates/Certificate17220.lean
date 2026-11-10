@@ -1,8 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.Fi23ThirteenInputs
-import Certificates.Certificate9206
-import Certificates.Certificate9111
 import Certificates.Kernel.Fi23Five.Glue
 
 public section

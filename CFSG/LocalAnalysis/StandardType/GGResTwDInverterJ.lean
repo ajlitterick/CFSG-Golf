@@ -3,17 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGResTwDInverter
 public import CFSG.LocalAnalysis.StandardType.GGCartanALinear
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitary
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitaryDatum
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimUnitary
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepNine
-public import CFSG.LocalAnalysis.StandardType.GGCartanATypeArith
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkTransport
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdPair
-public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotBlocks
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 
 public section
 

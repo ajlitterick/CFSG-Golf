@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431U42Inv
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
 public import CFSG.Quasithin.Vol2.GoldschmidtF431U42AutLists
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Quasithin.Background.Basic

@@ -1,18 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatJoinCells
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrderSixAD
-public import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelected
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveF4Contracts
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveF4SmallDefs
 public import CFSG.LocalAnalysis.StandardType.GGF4LabelH3
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-import CFSG.LocalAnalysis.StandardType.GGRowKFrame
 import CFSG.LocalAnalysis.StandardType.GGF4CommonA2
 import CFSG.LocalAnalysis.StandardType.GGF4CoxeterSystem
-import CFSG.LocalAnalysis.StandardType.GGAutomizerJoinInduced
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallPosWeylSys
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallE8
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallRankDefs

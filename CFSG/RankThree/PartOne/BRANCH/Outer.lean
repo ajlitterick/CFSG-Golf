@@ -3,10 +3,7 @@ module
 public import CFSG.RankThree.PartOne.BRANCH.Defs
 public import CFSG.RankThree.PartOne.BRANCH.Inner
 public import CFSG.RankThree.PartOne.S11d.PSLVacuity
-public import CFSG.RankThree.PartOne.S11d.FieldTransfer
-public import CFSG.RankThree.PartOne.S11d.FieldFFTwo
 public import CFSG.RankThree.PartOne.S11d.LowRank
-public import CFSG.RankThree.PartOne.S12.InputsEleven
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.LieType.Multipliers.ProductKernel
@@ -75,12 +72,9 @@ public import CFSG.RankThree.PartOne.S11d.OutSymplectic
 public import CFSG.RankThree.PartOne.S11d.OutUnitary
 public import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.Walter.Defs
 public import CFSG.YGroups.Y322Central

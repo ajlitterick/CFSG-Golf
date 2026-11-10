@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcRestProofE6Ad
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeBlock
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.NonToralCubeFrame
-public import CFSG.Mathlib.RingTheory.UnitOrderOf
 public import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalThreeSporadicRank
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Assembly
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.PlanesSetup

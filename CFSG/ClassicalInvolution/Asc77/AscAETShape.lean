@@ -3,9 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootTwinFrame
 import CFSG.ClassicalInvolution.Asc77.AscT7AHyp51
 import CFSG.ClassicalInvolution.Asc77.AscE187Img
-import CFSG.ClassicalInvolution.Asc77.ModOApi
-import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
-import CFSG.ClassicalInvolution.Balance.PassTwoModelFacts
 import CFSG.ClassicalInvolution.Asc77.AscE187Basic
 import CFSG.ClassicalInvolution.Asc77.AscE187Cop
 import CFSG.ClassicalInvolution.Asc77.AscThmABasic

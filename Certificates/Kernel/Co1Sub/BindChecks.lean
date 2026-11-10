@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Co1Sub.Data
 public import Certificates.Data.Kernel.Co1Sub.Txt
-public import Certificates.Data.Kernel.Co1F2
 public import Certificates.Data.CFSGNative.Co1Sub.Check
 public import CFSG.Certificates.Kernel.Common.StrChars
 import CFSG.Certificates.Kernel.Common.Harness

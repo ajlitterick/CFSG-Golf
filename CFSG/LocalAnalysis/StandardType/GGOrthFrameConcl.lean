@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGOrthFrameRefl
 public import CFSG.LocalAnalysis.StandardType.GGOrthModelInputs
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinOutWeakPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylEltOfAutomizer
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
 
 public section
 

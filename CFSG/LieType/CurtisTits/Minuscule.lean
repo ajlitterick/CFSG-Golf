@@ -4,7 +4,6 @@ public import CFSG.LieType.CurtisTits.Conclusion
 public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
 public import CFSG.LieType.CurtisTits.ExceptionalModel
 public import CFSG.LieType.Steinberg.Exceptional.Universal
-public import CFSG.LieType.Chevalley.NativeTorus
 
 public section
 

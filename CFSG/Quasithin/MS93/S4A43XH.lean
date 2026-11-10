@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.MS93.S4A43XG
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Residual
 
 public section
 

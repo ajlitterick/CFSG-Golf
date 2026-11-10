@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSADefs
-public import CFSG.LieType.Universal.Unitary.Comparison
 import CFSG.LocalAnalysis.StandardType.GGPSUFirstPlaneAux
 
 public section

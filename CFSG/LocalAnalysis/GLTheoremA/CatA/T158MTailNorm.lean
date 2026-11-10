@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MTailRankU6
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.Shape
-public import CFSG.HardMathSupport.Solomon.Coordinator.I11_2FullCore
-public import CFSG.HardMathSupport.Solomon.Coordinator.I11_2FullTransport
-public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.I_11_2_Bar
-public import CFSG.Quasithin.EmptyFaithful.T1515C4Mod
 
 public section
 

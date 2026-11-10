@@ -4,13 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Defs
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelAssembly
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RationalB2Part2
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.B2Inner
-import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.NativePinFinalPart2
-import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.JointShapesPart2
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.SelectedLiteralPart2
-import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcPin
-import Mathlib.FieldTheory.Finite.GaloisField
-import Mathlib.FieldTheory.IsAlgClosed.Basic
 public import CFSG.LocalAnalysis.StandardType.GGFamAssembly
 
 public section

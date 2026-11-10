@@ -4,8 +4,6 @@ module
 public import CFSG.Certificates.Kernel.ThDemp.ChainExBase
 public import CFSG.Certificates.Kernel.ThDemp.OrbUnfoldBase
 public import CFSG.Certificates.Kernel.ThDemp.OrbFacts
-import Mathlib.Data.Fintype.Prod
-public import CFSG.Certificates.Kernel.Th.Spec.FwdRel
 
 public section
 

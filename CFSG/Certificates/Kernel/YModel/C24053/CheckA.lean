@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.YModel.C24053.Data
 import CFSG.Certificates.Kernel.Common.Each
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

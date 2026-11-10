@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeAd
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitTorus
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTorus
 import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameCentralizer
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-import CFSG.LieType.Chevalley.RootCharacterConjugation
 
 public section
 

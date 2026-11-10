@@ -4,8 +4,6 @@ public import Certificates.Kernel.Co3Five.Data
 public import Certificates.Kernel.Sporadic.Co3.C
 public import Certificates.Data.Kernel.Misc.ChainTail
 public import Certificates.Data.Kernel.Misc.PermWit
-public import Certificates.Data.Kernel.Misc.ArrEnum
-public import Certificates.Data.Kernel.BfsPinBase
 public import Certificates.Data.Kernel.B3S3K
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.EachUnfold

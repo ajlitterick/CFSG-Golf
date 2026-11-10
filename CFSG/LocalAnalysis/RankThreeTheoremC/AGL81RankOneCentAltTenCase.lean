@@ -2,23 +2,14 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentAssembly
 public import CFSG.LocalAnalysis.RankFourTheoremC.InvariantTwo.KFacts.CenterCyclic
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentStepTwo
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentStepFour
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentStepFiveOne
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentStepFiveTwo
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentStepFiveFour
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentStepFiveSeven
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentKpIrred
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentFrattiniTriv
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentAut
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupA10Perm
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.SubnormalPrimeCores
-import CFSG.LocalAnalysis.AGLEmbedding.CZeroBasic
-import CFSG.LocalAnalysis.AGLEmbedding.ComponentCase
-import CFSG.LocalAnalysis.AGLEmbeddingD2.AltPerm
-import CFSG.LocalAnalysis.PreuniquenessRankFour.Nongeneration
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsMisc7
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 import CFSG.Milestones.ASVolI.I2Covers
 public import CFSG.GH74.GLS.Bg.Statements
 public import CFSG.LieType.Chevalley.EvenRootCommutatorF4

@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLSmall
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLTorusBridge
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLOutsideTop
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLParity
-import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
-import CFSG.LocalAnalysis.StandardType.GGTableB
 
 public section
 

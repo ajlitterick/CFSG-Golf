@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGPRankBoundsSU
 public import CFSG.LocalAnalysis.StandardType.GGPRankBoundsEigen
-public import CFSG.LieType.BorelTits.UnitaryForm
-public import CFSG.Open.StatedAPI
 import CFSG.LocalAnalysis.EvenBN.UnitaryFiveTwo.Model
 
 public section

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSz32Group
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSz32Local
-import CFSG.RankThree.PartOne.CTP.SeitzExcModels
-import CFSG.RankThree.PartOne.K159.AutSzIso
 import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 

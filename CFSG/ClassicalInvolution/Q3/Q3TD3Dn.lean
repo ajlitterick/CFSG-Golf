@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TD3Nodes
 public import CFSG.ClassicalInvolution.Q3.Q3TY33
-public import CFSG.ClassicalInvolution.Q3.Q3TY23
-public import CFSG.ClassicalInvolution.RouteD.GapsFrNodes
 
 public section
 

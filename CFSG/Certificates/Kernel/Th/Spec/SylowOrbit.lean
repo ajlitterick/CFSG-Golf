@@ -5,13 +5,8 @@ public import CFSG.Certificates.Kernel.Th.Spec.SylowOrbitBase
 import all CFSG.Certificates.Kernel.Th.Spec.SylowOrbitBase
 
 public import CFSG.Certificates.Kernel.Th.Spec.FwdRel
-public import CFSG.Certificates.Kernel.Th.S.DceS
-public import CFSG.Certificates.Kernel.Th.S.SeedS
-public import CFSG.Blueprint.NativeSporadic
 import CFSG.Certificates.Kernel.Th.Spec.Seed
 import CFSG.Certificates.Kernel.Th.Spec.FwdSlp
-import CFSG.Certificates.Kernel.Th.Spec.DceMat
-import CFSG.Certificates.Kernel.DceLoops
 import CFSG.Certificates.Kernel.J4.ChainSound
 
 public section

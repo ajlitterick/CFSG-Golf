@@ -1,10 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.HN2089K
-public import CFSG.Certificates.Kernel.Spor.PrimSound
-public import CFSG.Certificates.Kernel.BfsPinSound
-import Mathlib.Tactic.IntervalCases
-import CFSG.Sporadic.Schreier.ONPermArr
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

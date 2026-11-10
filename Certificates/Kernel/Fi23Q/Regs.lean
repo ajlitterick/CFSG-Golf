@@ -1,16 +1,11 @@
 
 module
 
-public import Certificates.Kernel.Fi23M.Psi
-public import Certificates.Kernel.Fi23M.Keys
 public import Certificates.Kernel.Fi23C.Group
 public import Certificates.Kernel.Fi23R.Sound
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BThreeFi23Reps
-public import CFSG.Sporadic.Fi23.Centralizer
-public import CFSG.Sporadic.Fi23.Transposition
 import all Certificates.Kernel.Fi23M.Psi
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-import Mathlib
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC

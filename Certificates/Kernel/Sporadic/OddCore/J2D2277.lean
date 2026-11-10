@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.SmallOddCore.J2CentralizerDInputs
 public meta import CFSG.Sporadic.SmallOddCore.J2LocalCheck
 public meta import CFSG.Sporadic.Schreier.PairJ2Check
 public import Certificates.Kernel.Sporadic.OddCore.J2D2277Check

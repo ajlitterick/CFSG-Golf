@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIRestr
 public import CFSG.LocalAnalysis.StandardType.GGMarkingAllInduces
-public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
 public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
 public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphismsCongr
 public import CFSG.RankThree.PartTwo.Sec19.SimsC198Descent
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
@@ -24,7 +22,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.S12.Bridge
 public import CFSG.LocalAnalysis.GLTheoremA.S12.Prop123
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Proof
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 
 public section

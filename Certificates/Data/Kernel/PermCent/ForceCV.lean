@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.PermCent.CV
 public import Certificates.Data.Kernel.PermCent.SmallB
 public import Certificates.Data.Kernel.PermCent.SmallK
 public import Certificates.Data.Kernel.Census.CatFacts.PkWord

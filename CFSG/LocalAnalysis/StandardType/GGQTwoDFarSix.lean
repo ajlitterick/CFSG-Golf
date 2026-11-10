@@ -1,28 +1,15 @@
 module
 
 public import CFSG.ClassicalGroups.Orthogonal.SixPlane.Basic
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDCells
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMStabDefs
-public import CFSG.LocalAnalysis.StandardType.GGOrthFrameCore
-public import CFSG.LocalAnalysis.StandardType.GGOrthRk1GenComb
 import CFSG.ClassicalGroups.Orthogonal.SixPlane.Complete
 import CFSG.ClassicalGroups.Orthogonal.SixPlane.Lift
 import CFSG.ClassicalGroups.Orthogonal.SixPlane.Toral
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthChart
-import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameMain
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGQTwoDCoxEven
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMSel
-import CFSG.LocalAnalysis.StandardType.GGQTwoDTransport
 import CFSG.LocalAnalysis.StandardType.GGQTwoDSelModuleOfB2
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthBase
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMStabSix
-import CFSG.LocalAnalysis.StandardType.GGQTwoPThree
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGQTwoDShared
-import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameStd
 import CFSG.LocalAnalysis.StandardType.GGQTwoDFarSixChart
 import CFSG.LocalAnalysis.StandardType.GGQTwoDSixPlaneGen
 import CFSG.LocalAnalysis.StandardType.GGQTwoDSelBases

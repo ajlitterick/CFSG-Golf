@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Tits.Help
 public import Certificates.Kernel.SporSch.Tits.GenSurv
 public import Certificates.Kernel.SporSch.Tits.GenAll5
-public import CFSG.Certificates.Kernel.SporSch.TitsEnum5Sound
 public import Certificates.Kernel.Sporadic.Tits.LocS
 public import Certificates.Kernel.Sporadic.Tits.LocH
 public import Certificates.Kernel.Sporadic.Tits.LocN
@@ -12,7 +11,6 @@ public import Certificates.Kernel.Sporadic.Tits.LocK
 meta import CFSG.Sporadic.Schreier.TitsCentralCheckInputs
 public import CFSG.Certificates.Kernel.Spor.SiftRSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import Std.Tactic.BVDecide.Normalize.Bool
 
 public section

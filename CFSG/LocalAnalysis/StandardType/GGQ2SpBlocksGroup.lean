@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpStatements
 import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksIdem
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoAdj
-import CFSG.Open.StatedAPI
 
 public section
 

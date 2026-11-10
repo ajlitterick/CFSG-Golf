@@ -6,17 +6,7 @@ import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldSchur
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassical222ExcO8
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4UnCount
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I142NBase
-import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotTorusLayer
-import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotTori
-import CFSG.LocalAnalysis.ComponentInitial.FixedComponentCorrespondence
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-import CFSG.LocalAnalysis.StandardType.GGTriD4ComponentsPGLDer
 import CFSG.LocalAnalysis.StandardType.GGL45FixA2Comp
-import CFSG.LocalAnalysis.StandardType.GGTriD4NoneMarking
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaModel
-import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldMark
-import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
 import CFSG.GH74.BNPair.Coordinatization
 import CFSG.GH74.GLS.SP.Local.SPLFaith
 import CFSG.GH74.GLS.SP.Local.SPLRestrict

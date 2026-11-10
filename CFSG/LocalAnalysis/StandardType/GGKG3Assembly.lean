@@ -1,17 +1,7 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtUntw
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSylow
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerBridge
-public import CFSG.LieType.SeitzGeneration.ExcTorusE6Four
-public import CFSG.LieType.SeitzGeneration.ExcTorusE6Six
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-public import CFSG.RankThree.E6.RootLatticeTools
 public import CFSG.Assembly.E6FourCentLangPhi
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
 public import CFSG.RankThree.PartOne.KE6.Phi3Arith
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerE6TwoRows
 public import CFSG.LocalAnalysis.StandardType.GGKG3K3b
@@ -45,13 +35,10 @@ public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.Unitary
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.Background.F2Equiv
 public import CFSG.Quasithin.Background.G2Relaxed
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S152N11
 public import CFSG.Quasithin.Vol2.Ch12Sec8NonabHatTen
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef

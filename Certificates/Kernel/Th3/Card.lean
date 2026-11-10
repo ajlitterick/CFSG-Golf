@@ -2,7 +2,6 @@
 module
 
 public import Certificates.Kernel.Th3.ZOne
-public import Certificates.Kernel.Bounds.Family
 public import CFSG.Certificates.Kernel.Misc.Coset.TableFactSub
 public import CFSG.Sporadic.Recognition.CoverIndex
 

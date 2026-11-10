@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkSixWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkSixTorus
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkGen
-public import CFSG.LieType.CentralExt.CoprimeLift
 
 public section
 

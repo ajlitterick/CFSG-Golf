@@ -3,11 +3,6 @@ module
 public import Certificates.Kernel.HN1408.TabXGrpFacts
 public import Certificates.Kernel.HN1408.InvClassK
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3Model.TabXFacts
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HaradaModel.WordSub
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.TableIData
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.Elems
-import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3.HSide.Map
-import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3Model.OrbitCount
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.ShapeCongrK
 public import Certificates.Kernel.HN1408.ClsAZFacts
 

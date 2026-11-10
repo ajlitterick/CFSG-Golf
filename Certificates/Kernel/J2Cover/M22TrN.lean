@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.J2Cover.M22TrK
-public import Certificates.Kernel.LocalComp.BlockGen
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpCoord
-import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsBasic
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsWeyl
 
 public section

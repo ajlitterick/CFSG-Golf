@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CSixThreeOneDefs
 public import CFSG.RepresentationTheory.UniqueVectorOrbitTwisting
-public import CFSG.Open.StatedDefs
 import CFSG.GroupTheory.SteinbergCBFTHall
 import CFSG.GroupTheory.CoprimeActionSupport.FaithfulIrreduciblePCoreTrivial
-import CFSG.Open.StatedAPI
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.CGT.Timmesfeld75.Statements

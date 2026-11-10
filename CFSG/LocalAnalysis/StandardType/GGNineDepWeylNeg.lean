@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112K
-import Mathlib.LinearAlgebra.Basis.Basic
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.KGLangT3ModelNorm
 public import CFSG.LocalAnalysis.StandardType.KGLangT3ModelCyc
 public import CFSG.LocalAnalysis.StandardType.GGTriD4LineLocalA
-public import CFSG.LocalAnalysis.StandardType.GGTriD4LineLocalANormal
 public import CFSG.LocalAnalysis.StandardType.GGTriD4LineDiagonalize
 
 public section

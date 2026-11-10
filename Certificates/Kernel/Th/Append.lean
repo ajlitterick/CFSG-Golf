@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.Co2.Join
-public import CFSG.Certificates.Kernel.Th.S.BigS
-public import CFSG.Certificates.Kernel.Th.S.DceS
 public import CFSG.Certificates.Kernel.Th.S.OutS
 public import CFSG.Certificates.Kernel.Th.S.TsS
 public meta import Lean

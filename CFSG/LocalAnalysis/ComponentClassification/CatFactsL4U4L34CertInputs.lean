@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
-public import Certificates.Data.CFSGNative.PSL3Four.Certificate
 public meta import Certificates.Data.CFSGNative.PSL3Four.Certificate
 
 public section

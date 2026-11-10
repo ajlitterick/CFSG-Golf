@@ -2,14 +2,7 @@ module
 
 public import CFSG.OddTranspositions.PartThree.FiveReflection
 public import CFSG.OddTranspositions.PartThree.Eleven.IsomorphismTransport
-public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 
-import Mathlib.Algebra.Group.Commute.Hom
-import Mathlib.Algebra.Group.Subgroup.Map
-import Mathlib.GroupTheory.Commutator.Basic
-import Mathlib.GroupTheory.Index
-import Mathlib.GroupTheory.Subgroup.Simple
 
 public section
 

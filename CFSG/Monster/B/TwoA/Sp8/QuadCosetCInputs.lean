@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Monster.B.TwoA.Sp8.GenActionGenBase
 public import CFSG.Monster.B.TwoA.Sp8.GenActionOrbitBase
 public import CFSG.Monster.B.TwoA.Sp8.QuadInvBase
 public import Certificates.Data.CFSGNative.MonsterB.Orth8BFS

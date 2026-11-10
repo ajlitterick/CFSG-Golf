@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusFrame
-public import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
-import CFSG.LieType.Chevalley.OrdinaryEAlgebraicTorusCartanIndex
-import CFSG.LieType.Chevalley.LangFrobeniusFixedDerived
-import CFSG.LieType.Chevalley.E6GraphInvolutionFiniteReduction
 
 public section
 

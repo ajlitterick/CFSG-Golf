@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowF8D4Rank
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowF8Trans
-public import CFSG.RankThree.Chevalley.SteinbergBTCanonicalFieldCommon
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieOuterIdxD4Three
 public import CFSG.GF2Type.Smith1980Orth.TriD4Rank
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsTwAux.TriD4

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUSigned
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
-public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSp
 public import CFSG.LieType.Steinberg.CentralExt.PSpEvenMultiplier
 public import CFSG.LieType.Steinberg.CentralExt.PSpMultiplier
 

@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBE6Torus
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeScLift
 import CFSG.LieType.AlgebraicGroups.KernelRootDescent
 import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.E6HeisenbergAux.PairAuxSc
-import CFSG.LieType.Steinberg.CentralExt.PerfectLift
-import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
 import CFSG.RankThree.Classical2.TwistedE6Phi3A2Case
 import CFSG.RankThree.PartOne.KLCE.Sector
 

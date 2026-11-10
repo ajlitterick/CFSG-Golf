@@ -3,12 +3,9 @@ module
 public import CFSG.Quasithin.H13.A6S13825g
 public import CFSG.Quasithin.H13.A6S13825s
 public import CFSG.Quasithin.H13.A6S13825t
-public import CFSG.Quasithin.H13.A6S1385b
 public import CFSG.Quasithin.H13.A6S13816d
 public import CFSG.Quasithin.Background.S1549CStar
-public import CFSG.Quasithin.EmptyFaithful.S146G1
 public import CFSG.Quasithin.EmptyFaithful.SzN19Par
-public import CFSG.Quasithin.Background.FLcSL
 public import CFSG.Quasithin.EmptyFaithful.S151S8C2C
 public import CFSG.Dihedral.FourgroupCycleControl
 public import CFSG.Dihedral.OriginalCentralizerOddCore

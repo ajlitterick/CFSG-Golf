@@ -1,31 +1,17 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrOfEnnola
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplit
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowCasesLab
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrPRank
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNFrame
 import CFSG.LocalAnalysis.StandardType.GGTBJWeyl
-import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitFamilies
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
 import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusHolds
 import CFSG.LocalAnalysis.StandardType.GGUSixThreeWeylHolds
 import CFSG.LocalAnalysis.StandardType.GGNbrTableBE6Three
 import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
 import CFSG.LocalAnalysis.StandardType.GGNbrTableBExcWeyl
-import CFSG.LocalAnalysis.StandardType.GGF4AutWeylTableB
 import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6SplitHolds
 import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCube
 import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup
-import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
-import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRank
 
 public section
 

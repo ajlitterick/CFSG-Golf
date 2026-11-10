@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGWitOrthNormal
 public import CFSG.LocalAnalysis.StandardType.ZS.ClassReflClosure
 public import CFSG.LocalAnalysis.StandardType.ZS.ClassReflSmul
 public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
-public import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointActionModels
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelWitness

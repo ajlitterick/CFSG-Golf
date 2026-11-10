@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.SuzTwK
 public import CFSG.Certificates.Kernel.CosetLogSound
 public import CFSG.Certificates.Kernel.Spor.RawSlSound
-public import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

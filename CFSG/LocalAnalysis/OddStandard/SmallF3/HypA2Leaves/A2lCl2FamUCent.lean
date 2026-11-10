@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamModels
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddInnerUCent
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddInnerModels
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBUnitaryBCentralizer
 
 public noncomputable section
 

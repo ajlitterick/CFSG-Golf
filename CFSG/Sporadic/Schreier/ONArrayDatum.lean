@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.Schreier.ONCompactSpec
 public import CFSG.Sporadic.Schreier.ONWordDatum
 public import CFSG.Certificates.SchreierPointSiftSoundness
-public import CFSG.Certificates.SchreierSift
 
 public noncomputable section
 

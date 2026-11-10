@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.ON2122W
 public meta import Certificates.Kernel.Sporadic.OddCore.ON2122W
 public meta import Certificates.Kernel.Sporadic.RawGen
-public import Certificates.Kernel.Sporadic.RawGen
 public meta import CFSG.Sporadic.ONOddCore.LiftHomCheckInputs
 public import CFSG.Sporadic.ONOddCore.LiftHomCheckInputs
 public meta import Certificates.Kernel.Sporadic.RawGenSch3G

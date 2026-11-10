@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Fi22Twist.L5Data
-public import Certificates.Data.Kernel.Spor.Chain
 public import Certificates.Kernel.Sporadic.Fi22.X2069Final
 import CFSG.Certificates.Kernel.Common.Each
 import CFSG.Certificates.Kernel.Common.Harness

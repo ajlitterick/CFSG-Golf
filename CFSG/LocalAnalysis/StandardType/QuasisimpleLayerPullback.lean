@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Assembly.Defs
-public import CFSG.Foundations.QuasisimpleMulEquiv
 public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 public import CFSG.GroupTheory.LocalCores.Fitting

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPay.Defs
-public import CFSG.LieType.Chevalley.WeylRoots
-public import CFSG.LieType.Steinberg.Adjoint.Pairs
 
 public section
 

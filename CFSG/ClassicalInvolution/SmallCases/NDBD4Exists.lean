@@ -5,23 +5,9 @@ public import CFSG.ClassicalInvolution.SmallCases.NDBD4Ctx
 public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootTwinMain
 import CFSG.ClassicalInvolution.SmallCases.NDBD4AEmpty
 import CFSG.ClassicalInvolution.SmallCases.NDBD4GenT
-import CFSG.ClassicalInvolution.SmallCases.NDBC1
-import CFSG.ClassicalInvolution.Asc77.AscT7AHyp51
-import CFSG.ClassicalInvolution.Asc77.AscE187Img
-import CFSG.ClassicalInvolution.Asc77.ModOApi
-import CFSG.ClassicalInvolution.Asc77.WP3L52Main
-import CFSG.ClassicalInvolution.Asc77.WP3FrameP1
-import CFSG.ClassicalInvolution.Asc77.WP3FrameStar
 import CFSG.ClassicalInvolution.Asc77.AscT3UMain
-import CFSG.ClassicalInvolution.Asc77.AscIH8Thm678
-import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
-import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinU
 import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinRowsOuter
-import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Outer
 import CFSG.ClassicalInvolution.ModelFacts.Orth15RFixLift
-import CFSG.ClassicalInvolution.ModelFacts.Orth15SSec
-import CFSG.ClassicalInvolution.RouteD.G2D4Ih8Free
-import CFSG.ClassicalInvolution.Balance.PassTwoModelFacts
 import CFSG.ClassicalInvolution.Asc77.WP3SCSGenT
 import CFSG.ClassicalInvolution.AschTight.C195Wreath
 import CFSG.ClassicalInvolution.AschTight.Hall196Idx

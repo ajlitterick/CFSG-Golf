@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0ModelFrame
-public import CFSG.LocalAnalysis.StandardType.GGOuterInvModelData
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagConcl
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.LocalAnalysis.StandardType.GGLemmaThreeThirteenFourteenP
 
 public section
 

@@ -1,17 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCavSetup
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinear
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeRank
 public import CFSG.LocalAnalysis.StandardType.GGK1ACenterNoglue
-public import CFSG.Open.StatedZModTwo
-public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.GroupTheory.CenterlessInnerCentralizer
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeTriD4Rank
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTwF4
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOther
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3SelOrders
 public import CFSG.LocalAnalysis.StandardType.GGQTwoUnitaryFullComponent
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1DSmall
 

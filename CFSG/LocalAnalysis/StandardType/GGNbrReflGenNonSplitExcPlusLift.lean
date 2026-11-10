@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlus
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflInner
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
 import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
 import CFSG.GroupTheory.ElementaryAbelianTransport
 

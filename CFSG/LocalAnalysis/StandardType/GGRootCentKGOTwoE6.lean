@@ -1,15 +1,7 @@
 module
 
-public import CFSG.Blueprint.Chevalley
-public import CFSG.LieType.Chevalley.RootOps.Family
-public import CFSG.LieType.Steinberg.Adjoint.Group
-public import CFSG.LieType.Steinberg.Isogeny.E6
-public import CFSG.LieType.Steinberg.Minuscule.Datum
-public import CFSG.LocalAnalysis.SeitzReduction.EPilotFusionEntrywise
-public import CFSG.LocalAnalysis.SeitzReduction.LongRootPairsRoots
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcBruhat
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoExc
-public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoE6Step
 import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootExc
 

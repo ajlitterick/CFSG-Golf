@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLatPerpChecks
 public import CFSG.LocalAnalysis.StandardType.GGLatPerpRefl
-public import CFSG.Blueprint.ChevalleyRoots
 
 public section
 

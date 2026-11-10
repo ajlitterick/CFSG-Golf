@@ -3,12 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec21.Item211Res4ProofPlusProj
 public import CFSG.RankThree.PartTwo.Sec21.Item228Census5ProofL4
 import CFSG.RankThree.PartTwo.Sec21.Item211Lie2ProofExcInner
-import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
-import CFSG.LinearAlgebra.LinearGroups.Perfect
-import CFSG.RankThree.PartOne.KC.UnitaryRegularUnipotentLift
-import CFSG.RankThree.PartTwo.Sec4.Item47Bridges
-import CFSG.Adapters.RankTwoModelTransports
-import CFSG.ClassicalInvolution.SL2Facts
 
 public section
 

@@ -4,13 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGF4N2CentralImageE6
 public import CFSG.LocalAnalysis.StandardType.GGF4N2CentralImageE6Marked
 public import CFSG.LocalAnalysis.StandardType.GGF4N2ChartDefs
 public import CFSG.LocalAnalysis.StandardType.GGF4N2E6NativeDefs
-public import CFSG.RankThree.CentralCover.SteinbergBNSL2Elements
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCTGraphFamily
-import CFSG.RankThree.PartTwo.Census.Exceptional.Minuscule
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotNonsplit
-import CFSG.LocalAnalysis.SeitzReduction.E6PilotAmalgam
-import CFSG.LocalAnalysis.SeitzReduction.E6PilotCTField
-import CFSG.LieType.Steinberg.CentralExt.MinusculeCenter
 import CFSG.Permutation.FiveTransitive.PrimeFreeOrderLift
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestLift
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviPerp

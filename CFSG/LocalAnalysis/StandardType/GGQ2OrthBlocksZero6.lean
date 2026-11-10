@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2OrthBlocksGroup
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksCentExt
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksComp
 public import CFSG.ClassicalGroups.Orthogonal.MatrixIsometry
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Embed
 
 public section
 

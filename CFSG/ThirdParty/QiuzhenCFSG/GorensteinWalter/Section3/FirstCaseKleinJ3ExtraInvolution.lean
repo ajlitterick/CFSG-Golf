@@ -4,10 +4,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourSemidirectInvolution
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinCardThreeTransferNormalizer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinJ3NormalizerEven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinNoCentralizingInvolution
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseOrderInfra
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.CyclicTwoCorePInfPg
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

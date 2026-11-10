@@ -2,9 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.KFacts.KS21AutThreeU58
 public import CFSG.RankThree.PartTwo.Sec4.Item47CasesEven
-import CFSG.LocalAnalysis.SectionRank.EvenCover.Unitary
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.BaerSuzuki
 public import CFSG.GroupTheory.HallHigmanPiCore

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Data.CFSGNative.PairSchreier.J2Data
 public meta import Certificates.Data.CFSGNative.PairSchreier.J2Data

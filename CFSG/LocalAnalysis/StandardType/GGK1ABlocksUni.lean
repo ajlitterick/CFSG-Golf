@@ -1,18 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1ADefs
-public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeSpecial
-public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeCentralizer
-public import CFSG.RankThree.PartOne.KC.UnitaryPrimarySelfDual
-public import CFSG.RankThree.PartOne.KC.UnitaryPrimaryDet
-public import CFSG.RankThree.PartOne.KC.UnitaryRigidityBlock
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsUniAux.Block
 public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherUnitary
 public import CFSG.LocalAnalysis.StandardType.GGK1CBlFF
 public import CFSG.LocalAnalysis.StandardType.GGK1CBlIdx
-public import CFSG.RankThree.CentralLiftU.UnitaryThreeLift
-public import CFSG.Assembly.Subnormal
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.CentralQuotient
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.PsuHBlocks
 public import CFSG.Blueprint.LieModelAPI
@@ -56,7 +48,6 @@ public import CFSG.HardMathSupport.Timmesfeld.Proving.ExistsOrderPCentralizer
 public import CFSG.HardMathSupport.Timmesfeld.Proving.GLAPrimeCoreCentralizer
 public import CFSG.LieType.SeitzGeneration.OuterModel
 public import CFSG.LocalAnalysis.AGLEmbedding.SporadicBetaSmall
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofLeviProj
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofSplit
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.I1412Levels
@@ -90,13 +81,8 @@ public import CFSG.Quasithin.Background.B69Core
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -166,9 +152,6 @@ public import CFSG.Sporadic.Schreier.Fi22Schreier
 public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
 public import CFSG.YGroups.DCE.B433Check
 public import Certificates.Kernel.J4Count.Prim
 

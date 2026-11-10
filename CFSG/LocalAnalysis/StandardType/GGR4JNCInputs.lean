@@ -1,15 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetInputs
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetRow
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetMarking
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetData
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetNoL34
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetDefs
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetCard
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetDecomp
-public import CFSG.LocalAnalysis.StandardType.GGR4JNCDefs
 public import CFSG.LocalAnalysis.StandardType.GGR4JNCCentre
 public import CFSG.LocalAnalysis.StandardType.GGR4JNCCard
 public import CFSG.LocalAnalysis.StandardType.GGR4JNCLabel

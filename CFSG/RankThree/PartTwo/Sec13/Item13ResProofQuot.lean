@@ -4,7 +4,6 @@ public import CFSG.RankThree.LocalRank.SolvablePrimeComplementCore
 import CFSG.GroupTheory.PCore.PrimeCoreImages
 import CFSG.GroupTheory.ABGDGroups.LinearEmbedding
 import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

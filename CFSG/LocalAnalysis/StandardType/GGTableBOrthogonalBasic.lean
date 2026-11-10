@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticCover
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
-public import CFSG.ClassicalGroups.Orthogonal.Simple
 public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotAnisoEight
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Pairs
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
@@ -43,7 +39,6 @@ public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.RankThree.PartOne.S12.Sec1511Y1
 public import CFSG.RankThree.PartOne.S12.Sec15Items
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 
 public section

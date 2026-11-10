@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamTypeAField
-public import CFSG.LocalAnalysis.StandardType.GGFamTypeAFrames
 public import CFSG.LocalAnalysis.StandardType.GGFamF4Orbit
 public import CFSG.LocalAnalysis.StandardType.GGFamF4Shapes
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.SelectedLiteralPart1

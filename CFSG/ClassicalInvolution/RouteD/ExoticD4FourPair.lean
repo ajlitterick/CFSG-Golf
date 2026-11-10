@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourSpin
-public import CFSG.ClassicalInvolution.RouteD.ExoticD4TwinModel
-import CFSG.ClassicalInvolution.ModelFacts.FundPerfectMain
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Steinberg.Adjoint.Presentation
-public import CFSG.Blueprint.ChevalleyRoots
 
 public section
 

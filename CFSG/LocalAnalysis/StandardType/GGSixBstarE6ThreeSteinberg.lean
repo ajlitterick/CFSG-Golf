@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeIndex
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesFix
-public import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
 
 public section
 

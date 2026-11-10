@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.Catalog
 public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.Helpers
 
 public section

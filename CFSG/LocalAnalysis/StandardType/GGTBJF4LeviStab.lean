@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotRoots
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4Roots
-public import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
-public import CFSG.LieType.AlgebraicGroups.ToralRootCover
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart7
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.WeylCharStab
 public import CFSG.RankThree.PartOne.K133H.F4Weyl
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.F4ThreeLangInner
 

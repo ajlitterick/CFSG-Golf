@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusFixed
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpPlusSide
-public import CFSG.LocalAnalysis.StandardType.GGTBJTypeBSupported
-public import CFSG.LocalAnalysis.StandardType.GGTBJTypeBTwisted
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameCenter
 
 public section
 

@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDShared
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDStdModel
-public import CFSG.LocalAnalysis.StandardType.GGOrthFrameCore
 public import CFSG.LocalAnalysis.StandardType.GGOrthFramePairs
-public import CFSG.LocalAnalysis.StandardType.GGOrthFrameTransport
-public import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthPathsDefs
 
 public section

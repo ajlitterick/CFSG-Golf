@@ -1,11 +1,8 @@
 module
 
-public import CFSG.Quasithin.Vol2.Ch12Sec6T2J
 public import CFSG.Quasithin.Vol2.Ch12Sec6L11b
 public import CFSG.Quasithin.H13.A7Nat1238NQBase
 public import CFSG.Quasithin.MS93.S4A442FFD
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Hypotheses
-public import CFSG.Quasithin.Vol2.Ch11SecABasicV
 public import CFSG.GH74.SmallRanks.AltM11
 public import CFSG.LieType.SteinbergBRBlockParabolicDInf
 public import CFSG.LocalAnalysis.ComponentClassification.GSLitInputs

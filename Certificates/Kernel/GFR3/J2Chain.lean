@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR3J2Inputs
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import CFSG.HardMathSupport.Solomon.Coordinator.GFR3J2Inputs
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR3Core

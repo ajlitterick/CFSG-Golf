@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestBasic
-public import CFSG.Quasithin.Background.G2UGroups
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNineGroups
-public import CFSG.ClassicalGroups.Unitary.Simple
 
 public section
 

@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.PhanEMatchFrame
 public import CFSG.LocalAnalysis.StandardType.PhanEMatchPlist
-public import CFSG.LocalAnalysis.StandardType.PhanEMatchSeam
 public import CFSG.LocalAnalysis.StandardType.PhanEMatchShape
 public import CFSG.LocalAnalysis.StandardType.PhanEMatchExch
-public import CFSG.LocalAnalysis.StandardType.PhanEResSeamProd
 public import CFSG.LocalAnalysis.StandardType.PhanEResSeamProd3
 public import CFSG.LocalAnalysis.StandardType.PhanEResS2cExch
 public import CFSG.LocalAnalysis.StandardType.PhanEResS2cA2A1

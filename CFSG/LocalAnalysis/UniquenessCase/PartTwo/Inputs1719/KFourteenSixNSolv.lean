@@ -1,15 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.KFourteenSixNRank
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.Core
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 public import CFSG.GroupTheory.LocalLift.NormalizerQuotient
 public import CFSG.LocalAnalysis.UniquenessCase.UC1K327Core
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
-public import CFSG.LieType.BorelTits.Basic
 public import CFSG.GroupTheory.ABGLocalTools.OddOrderLocal
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Basic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Fischer.Classification.Unitary.Model
@@ -23,33 +19,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.Open.GeneralizedFittingSelfCentralizingMilestoneDefs
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
-public import Mathlib.Algebra.CharP.Lemmas
-public import Mathlib.Algebra.Group.Action.Defs
-public import Mathlib.Data.Matrix.Basis
-public import Mathlib.GroupTheory.GroupAction.MultipleTransitivity
-public import Mathlib.GroupTheory.Perm.Fin
-public import Mathlib.GroupTheory.RegularWreathProduct
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import Mathlib.GroupTheory.SpecificGroups.Quaternion
-public import Mathlib.LinearAlgebra.Determinant
-public import Mathlib.LinearAlgebra.Dimension.Constructions
-public import Mathlib.LinearAlgebra.Dimension.Finite
-public import Mathlib.LinearAlgebra.Dual.Lemmas
-public import Mathlib.LinearAlgebra.Matrix.Block
-public import Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff
-public import Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup
-public import Mathlib.LinearAlgebra.Matrix.Transvection
-public import Mathlib.LinearAlgebra.Projectivization.Basic
-public import Mathlib.LinearAlgebra.Projectivization.Cardinality
-public import Mathlib.LinearAlgebra.Quotient.Basic
-public import Mathlib.LinearAlgebra.Span.Basic
-public import Mathlib.LinearAlgebra.TensorProduct.Basic
-public import Mathlib.LinearAlgebra.TensorProduct.Free
-public import Mathlib.LinearAlgebra.TensorProduct.Tower
-public import Mathlib.LinearAlgebra.Transvection.Basic
-public import Mathlib.RingTheory.PrincipalIdealDomain
-public import Mathlib.RingTheory.RootsOfUnity.Complex
-public import Mathlib.RingTheory.TensorProduct.Finite
 
 public section
 

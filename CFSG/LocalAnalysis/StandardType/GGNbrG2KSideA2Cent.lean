@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2ThreeDefs
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Hom
-public import CFSG.RankThree.PartTwo.Sec4.Item417Res7ProofG2OddA
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res7ProofG2OddB
 public import CFSG.RankThree.PartTwo.Sec4.E27.D4StepALeavesAuxL2G2
-public import CFSG.CharacterTheory.Wreathed.CentralSL2.Basic
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LieType.Chevalley.SylowOpposition
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem3SixCaseOne
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem3SixProper
 public import CFSG.RankThree.PartOne.D4RC.RxIso

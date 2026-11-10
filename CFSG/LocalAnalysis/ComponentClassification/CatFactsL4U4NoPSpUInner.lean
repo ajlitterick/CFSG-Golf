@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4OrdU2
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4StabL
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4Blocks
 
 public section
 

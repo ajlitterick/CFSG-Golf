@@ -2,8 +2,6 @@ module
 
 public import Certificates.Data.Kernel.M24G.Replay
 public import Certificates.Data.Kernel.M24G.Steps
-public import Certificates.Data.Kernel.M24G.Lists
-public import Certificates.Data.CFSGNative.AS91.M24Geom
 
 public section
 

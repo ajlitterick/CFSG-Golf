@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdNbr
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModel
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverTwo
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModel
 
 public section

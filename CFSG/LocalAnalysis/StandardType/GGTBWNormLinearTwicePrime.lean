@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormLinearCentralCard
 public import CFSG.LocalAnalysis.StandardType.GGPGLQuadPhase
-public import CFSG.LocalAnalysis.StandardType.GGPGLCommForm
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormQuotMove
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherOuterQuotients
 
 public section
 

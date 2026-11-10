@@ -1,10 +1,6 @@
 module
 
-public import Mathlib.RingTheory.Polynomial.Cyclotomic.Roots
 public import Mathlib.RingTheory.Polynomial.Cyclotomic.Expand
-public import Mathlib.LinearAlgebra.Eigenspace.Minpoly
-public import Mathlib.LinearAlgebra.Matrix.Charpoly.Minpoly
-public import Mathlib.FieldTheory.Finite.Basic
 public import Mathlib.Analysis.Complex.Polynomial.Basic
 public import Mathlib.LinearAlgebra.Matrix.Charpoly.Eigs
 public import Mathlib.FieldTheory.IsAlgClosed.Spectrum

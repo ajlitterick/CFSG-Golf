@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33SRCommon
-public import CFSG.Sporadic.HN
 public import CFSG.Sporadic.Co2Schreier.OddCore
-public import CFSG.Sporadic.HNOddCore.Fusion
-public import CFSG.Sporadic.HNOddCore.ThreeInvol
 public import CFSG.Sporadic.HNOddCore.OuterFix
 public import CFSG.ClassicalInvolution.Models.LinearPairs
 public import CFSG.ClassicalInvolution.SubnormalClosure

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSp
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Embed
-public import CFSG.LieType.Universal.SymplecticExtras.Matrices
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Pairs
 
 public section

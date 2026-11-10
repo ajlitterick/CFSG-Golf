@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGDepED4False
 public import CFSG.LocalAnalysis.StandardType.GGDepEFrame
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepAssembly
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
 
 public section
 

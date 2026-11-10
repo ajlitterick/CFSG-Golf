@@ -3,14 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4SmallContracts
 public import CFSG.LocalAnalysis.StandardType.GGTriD4InnerCompHolds
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonTriCentHolds
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTriDiag
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
-public import CFSG.LieType.Chevalley.SylowOpposition
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerModel
 public import CFSG.LocalAnalysis.StandardType.GGTCJLabel
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase
 public import CFSG.Assembly.ComponentFreeOddCores
-public import CFSG.GH74.Uniqueness.Section15HeringEnd2
 
 public section
 

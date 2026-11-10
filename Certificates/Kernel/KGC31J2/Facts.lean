@@ -8,13 +8,8 @@ public import Certificates.Kernel.KGC31J2.Inv1
 public import Certificates.Kernel.KGC31J2.Inv2
 public import Certificates.Kernel.KGC31J2.Inv3
 public import CFSG.Certificates.Kernel.KGC31PGridSound
-public import CFSG.Certificates.Kernel.J2EnumSound
 public import CFSG.Certificates.Kernel.J2Enum.ClsMem
 public import CFSG.Certificates.Kernel.Common.ForallChunks
-public import CFSG.Quasithin.Vol2.KGFactC31J2Data
-public import CFSG.Sporadic.Schreier.ImagePairs
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Certificates.Kernel.HeModelKSound
 public import CFSG.Certificates.Kernel.HexaKSound

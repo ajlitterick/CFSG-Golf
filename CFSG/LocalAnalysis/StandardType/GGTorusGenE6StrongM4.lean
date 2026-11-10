@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6Desc
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6RGen
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsT
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelAbelianLift
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLLabelT
 
 public section

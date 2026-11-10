@@ -6,12 +6,9 @@ public import Certificates.Kernel.HeLoc.ChainFacts
 public import CFSG.Certificates.Kernel.HeLoc.PTailSound
 public import CFSG.Certificates.Kernel.HeLoc.TreeSound
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
-public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.J2HSound
 public import CFSG.Certificates.Kernel.B3S3KSound
 public import CFSG.Sporadic.Schreier.RuLocalFacts
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Sporadic.J2
 public import CFSG.Sporadic.Schreier.RuCheckOrbitsBase

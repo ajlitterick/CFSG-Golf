@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphEdgeStar
-public import Mathlib.Combinatorics.SimpleGraph.DegreeSum
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

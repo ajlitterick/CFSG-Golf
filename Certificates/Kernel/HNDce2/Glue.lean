@@ -1,10 +1,7 @@
 module
 
 public import CFSG.Sporadic.Recognition.HNMultiplier
-public import CFSG.Sporadic.Recognition.CoverChainSub
 public import Certificates.Kernel.HNMult.ChainCard
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Sporadic.HN
 public import CFSG.Sporadic.HN.CertificateBase
 public import CFSG.Sporadic.Recognition.HNMultiplierTables

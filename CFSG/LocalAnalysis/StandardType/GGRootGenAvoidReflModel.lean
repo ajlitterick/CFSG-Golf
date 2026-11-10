@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenAvoidKG
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerF4
 public import CFSG.LocalAnalysis.StandardType.GGRootGenAvoidInduced
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenCover
-public import CFSG.RankThree.CentralCover.SteinbergBNReflectionNormalizers
 public import CFSG.GroupTheory.IsComponentOfMap
 public import CFSG.GroupTheory.InnerNormalizedAutomorphisms
 public import CFSG.LocalAnalysis.LargeEvenClassification.C8FourSubgroupExhaustion

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameModelStep
-public import CFSG.LocalAnalysis.StandardType.GGCoxReflConv
-public import Mathlib.LinearAlgebra.Matrix.ToLin
 
 public section
 

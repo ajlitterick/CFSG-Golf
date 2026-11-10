@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcCore
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridge
-public import CFSG.LocalAnalysis.StandardType.GGL45NtExcFrame
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcFrameRee
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreToralHolds
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreLang

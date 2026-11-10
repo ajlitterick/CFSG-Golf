@@ -2,7 +2,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGOriginalCoefficientSquare
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6OrigCoverSCAction
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairTwCover78Aux1
-public import CFSG.LieType.Steinberg.Isogeny.E6Algebraic
 public import CFSG.ClassicalInvolution.WeakCT.TwistedE6MinusculeFixedField
 
 public noncomputable section

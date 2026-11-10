@@ -1,24 +1,11 @@
 
 module
 
-public import CFSG.Monster.B.TwoA.Fischer.CertFixedBase
 
 public import CFSG.Monster.B.TwoA.Fischer.CertGram
 public meta import CFSG.Monster.B.TwoA.Fischer.CertGram
 public meta import Certificates.Data.CFSGNative.MonsterB.BinaryRank
-public import CFSG.Monster.B.TwoA.Fischer.CertFixedInputs
 public import Certificates.Certificate3066
-public import CFSG.Monster.B.Fischer.HexadStabInputs
-public import CFSG.Monster.B.Fischer.HexadDiagInputs
-public import CFSG.Monster.B.Fischer.InducedEncodingInputs
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import Certificates.Data.CFSGNative.Mathieu.M22
-public import CFSG.Monster.B.Fischer.InducedChecksInputs
-public import CFSG.Monster.B.Fischer.InducedOrbitChecksInputs
-public import CFSG.Monster.B.Fischer.InducedOrbitChecks
-public import CFSG.Monster.B.Fischer.InducedSet
-public import CFSG.Monster.B.Fischer.InducedCodeInputs
-public import CFSG.Monster.B.Fischer.InducedChecks
 public import Certificates.Certificate3066Base
 
 public section

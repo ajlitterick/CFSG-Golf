@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTypeAIrred
 
 public section
 

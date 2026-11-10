@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CoreClassify
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CoreSym1
-public import Mathlib.GroupTheory.Perm.ClosureSwap
 
 public section
 

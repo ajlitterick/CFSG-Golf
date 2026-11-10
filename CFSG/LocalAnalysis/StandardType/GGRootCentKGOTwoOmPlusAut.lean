@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoOmPlusSemi
-public import CFSG.LieType.Universal.Spin.Action
-public import CFSG.LieType.Universal.Spin.Forms
-import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaPlus
 import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaPlusOTwo
-import CFSG.LocalAnalysis.ComponentInitial.ThreeFactorFactor
-import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSemilinearDataConjugation
 
 public section
 

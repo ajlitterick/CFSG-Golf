@@ -1,14 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicBClasses
-public import CFSG.Monster.B.CTIB.DistThreeProductFinal
-public import CFSG.Monster.B.CTIB.Rank2158Final
 public import CFSG.Monster.B.CTIB.HOuter
-public import CFSG.Monster.B.TwoA.Amalgam.Exact3510
-public import CFSG.Monster.B.TwoA.Amalgam.OrderFour
-public import CFSG.Monster.B.TwoA.Amalgam.DistThreeCentFinal
-public import CFSG.Monster.B.GSide.TwoBNative
-public import CFSG.Monster.B.GSide.CompletionFusion
 public import CFSG.Monster.B.GSide.TwoDNativeOrderFinal
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1

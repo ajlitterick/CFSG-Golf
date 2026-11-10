@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueWeightRoot
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueRoot
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 
 public section
 

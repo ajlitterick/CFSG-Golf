@@ -1,84 +1,36 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight6xCLie
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight56Spine
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight6xBR861Cover
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight6xBR861E
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
-public import CFSG.LocalAnalysis.UniquenessCase.UC6R3
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight5xAShared
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.CentralizerBar
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.SylowInfCenter
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.CentralizerBarCover
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.CoverUpperCentral
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.ExtraspecialCommutator
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.InnerBarDecomp
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.R69CenterApps
-import CFSG.GroupTheory.ABGLocalTools.Basic
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight61Conclusion
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.CentralizerBarCyclic
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.CentralizerBarKernel
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.OmegaOneNormalCyclic
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.SupDecomposition
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.UpperCentralTwo
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.InnerActionOut
 import CFSG.Adapters.LieModelSimple
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight6xBExtraspecial
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.OuterJ2
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.OuterLie
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22wb
-import CFSG.Sporadic.J2
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight65SylowCenter
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight6xCRest
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.OuterRu
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.OuterJ4
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.OuterSpor
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Aux.Spor
-public import CFSG.Sporadic.Schreier.PairHePairs
-import CFSG.SignalizerFunctorTheorem.CatalogBridge.Parity
-public import CFSG.Timmesfeld.Final.Simple
-public import CFSG.Sporadic.Mathieu.M12
-public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.Sporadic.He.Simple
-public import CFSG.Sporadic.Ru
-public import CFSG.Sporadic.J4
-public import CFSG.Blueprint.NativeSporadic
-public import Mathlib.Algebra.Group.Commutator
-public import Mathlib.GroupTheory.OrderOfElement
-public import Mathlib.Tactic.Group
-import Certificates.Data.Kernel.K1471PermTab
-import Mathlib.Data.Fintype.Prod
-import Mathlib.GroupTheory.Perm.List
 import CFSG.Certificates.Kernel.K1471PermTabSound
-import Certificates.Data.Kernel.K1471Mcert
-import Certificates.Data.Kernel.OpsMcertN
-import Certificates.Kernel.MatCert.Fp
-import Certificates.Kernel.MatCert.J4Seeds
-import Certificates.Kernel.SectionRankHS.RuSeeds
-import CFSG.Certificates.Kernel.Common.Harness
 import Certificates.Kernel.MatCert.Glue
 import CFSG.Certificates.Kernel.K1471McertSound
-import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2
-import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsFp
-import CFSG.Certificates.Kernel.OpsMcertNSound
-import CFSG.Certificates.Kernel.OpsFpKSound
-import CFSG.LocalAnalysis.RankThreeUC.SmallClassTwoGroups.IsExtraspecialExpP
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight65X0CardG2General
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.ExtraspecialTransport
-import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
-import CFSG.Blueprint.Catalog
-import CFSG.GH74.KGroups.L33
-import Certificates.Data.CFSGNative.SectionRank.Local
 import CFSG.RankThree.PartOne.N143X.G2Rank
-import CFSG.LieType.Chevalley.G2TorusRank
-import CFSG.LieType.Chevalley.AdjointCenter
 import CFSG.RankThree.Chevalley.SteinbergCDTrialityThreeSixSylow
-import CFSG.LieType.Chevalley.OddExceptionalOuterTwoRank
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight65SylowCenterU33
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineOneThreeWCTits
-import CFSG.RankThree.PartTwo.Sec4.T444.Item434RemTitsLocal
-import CFSG.Sporadic.Schreier.TitsOuter
-import CFSG.LocalAnalysis.ComponentClassification.GSLitChain
 public import CFSG.GroupTheory.CoprimeActionSupport.AbelianEquivalence
 public import CFSG.GroupTheory.CoprimeActionSupport.Geometry
 public import CFSG.GroupTheory.PRankBound
@@ -94,7 +46,6 @@ public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma58
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Inputs
 public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.AGLEmbedding.SporadicBetaSmall
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpWedge
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Block
@@ -129,10 +80,6 @@ public import CFSG.Quasithin.Background.B69Core
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -175,10 +122,6 @@ public import CFSG.Sporadic.Schreier.Fi22Schreier
 public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 public import Certificates.Kernel.J4Count.Prim
 public import Certificates.Kernel.Sporadic.Fi22.C2068
 public import Certificates.Kernel.Sporadic.Fi22.C3151

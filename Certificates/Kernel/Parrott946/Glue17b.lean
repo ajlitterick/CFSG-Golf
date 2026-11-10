@@ -2,7 +2,6 @@
 module
 
 public import Certificates.Kernel.Parrott946.Glue17a
-public import Certificates.Kernel.Parrott946.Glue16
 
 set_option maxRecDepth 400000
 

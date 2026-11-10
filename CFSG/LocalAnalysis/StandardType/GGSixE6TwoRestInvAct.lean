@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestInvQV
 public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalRoots
-public import CFSG.LieType.Chevalley.HeightSeries
-public import CFSG.LieType.Chevalley.BruhatCellFactorization
-public import CFSG.LieType.Chevalley.LangStronglyOrthogonalCommute
-public import CFSG.LieType.Chevalley.RootCommutatorReduction
 
 public section
 

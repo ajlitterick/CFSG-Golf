@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3EXCentral
-public import CFSG.ClassicalInvolution.ModelFacts.TG3OrthTags
 public import CFSG.ClassicalInvolution.ModelFacts.E8D8RowOrth
 public import CFSG.ClassicalInvolution.ModelFacts.E8ExclRowStmt
 

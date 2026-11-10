@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 import all CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.ActorInfCentralizerEqBot
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.OpenPCoreEq

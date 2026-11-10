@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZL1
-public import CFSG.LieType.Chevalley.A2Commutator
 
 set_option linter.unusedSectionVars false
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.O8Twin.PPairs
-import CFSG.Certificates.Kernel.Common.Harness
 import Init.Data.List.SplitOn.Basic
 
 public section

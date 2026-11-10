@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTwelveThirteenKer
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenInputsHolds
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineNineOneHolds
 public import CFSG.GroupTheory.CoprimeLiftElementaryAbelian
 public import CFSG.GroupTheory.GL52.SylowTools
 public import CFSG.GroupTheory.RegularModuleThree

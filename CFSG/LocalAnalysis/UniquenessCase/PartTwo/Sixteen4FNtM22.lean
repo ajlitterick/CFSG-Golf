@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen4FNtTwoGen
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen4FNtM22Mod
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen4FNtM22Class
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups
@@ -47,7 +44,6 @@ public import CFSG.Quasithin.Vol2.Ch3Sec2Inputs
 public import CFSG.RankThree.Asc83Table.PermTables
 public import CFSG.Sporadic.Schreier.M11
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.J1
 
 public section

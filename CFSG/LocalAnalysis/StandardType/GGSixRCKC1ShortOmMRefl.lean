@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupStabilizerFour
-public import CFSG.ClassicalGroups.Orthogonal.RootGroupChar
-public import CFSG.ClassicalGroups.Orthogonal.Hyperbolic
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupNormalizer
 public import CFSG.LieType.BorelTits.CompleteFlag
 

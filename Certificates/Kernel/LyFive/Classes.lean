@@ -21,7 +21,6 @@ public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyFixedSet
 public import CFSG.Sporadic.Schreier.LySevenProof
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.Sporadic.Th.OrbitSpec
 public import Certificates.Certificate3085Base
 

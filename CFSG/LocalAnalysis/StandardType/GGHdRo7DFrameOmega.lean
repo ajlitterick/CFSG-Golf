@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenCoherent
 import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenFrame
 import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenTorus
 import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenWeyl
-import CFSG.RankThree.PartOne.S11d.OrthCaseH
 
 public section
 

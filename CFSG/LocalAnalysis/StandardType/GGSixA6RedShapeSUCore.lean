@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedClDefs
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelCore
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCore
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresFamily
 public import CFSG.LocalAnalysis.StandardType.GGComponentOfSSup
 public import CFSG.LocalAnalysis.StandardType.GGSubgroupOfSSup

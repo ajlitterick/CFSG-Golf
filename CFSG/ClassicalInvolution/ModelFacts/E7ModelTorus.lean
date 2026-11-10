@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.E7ModelTorusNum
-public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalToralBasic
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE7Main
 public import CFSG.ClassicalInvolution.RouteD.TypeE8Block
 public import CFSG.ClassicalInvolution.ModelFacts.OrthAutWitt

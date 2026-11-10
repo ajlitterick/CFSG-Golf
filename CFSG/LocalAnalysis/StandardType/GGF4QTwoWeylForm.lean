@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.ReflectionGroups.F4ModThree
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-import TauCeti.GroupTheory.Coxeter.Geometric
 
 public section
 

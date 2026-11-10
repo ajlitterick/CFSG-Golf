@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2213e
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen1c
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

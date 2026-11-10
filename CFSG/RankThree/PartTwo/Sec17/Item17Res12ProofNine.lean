@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec3.AlternatingSLTwoLocalRank
 import CFSG.RankThree.PartTwo.ExponentPrimeSmallRank
 import CFSG.GroupTheory.FrattiniQuotient
 import CFSG.LocalAnalysis.SectionRank.Ccomm.OddCritical
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

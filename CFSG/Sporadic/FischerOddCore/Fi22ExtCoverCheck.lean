@@ -4,10 +4,8 @@ module
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtCoverCheckBase
 
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheck
-public import Certificates.Data.CFSGNative.FischerOddCore.Checks
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheck
 public meta import Certificates.Data.CFSGNative.FischerOddCore.Checks
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtCoverCheckInputs
 public import Certificates.Certificate2068
 
 public section

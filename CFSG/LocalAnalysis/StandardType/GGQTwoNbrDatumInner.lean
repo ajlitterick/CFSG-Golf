@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrDatumDet
-public import CFSG.LocalAnalysis.StandardType.GGQTwoPmWDatum
-public import CFSG.LocalAnalysis.StandardType.GGQTwoWDatumTransport
-public import CFSG.LocalAnalysis.StandardType.GGQTwoPosInLCells
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112K
 
 public section
 

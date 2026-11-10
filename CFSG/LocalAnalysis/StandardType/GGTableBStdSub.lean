@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
-public import CFSG.Assembly.Subnormal
 
 public section
 

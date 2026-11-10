@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.LocalComp.Fi24TwoB.H15027
-public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
-public import CFSG.Certificates.Kernel.Spor.RawOrbHead
 import CFSG.Certificates.Kernel.BfsPinSetSound
 import CFSG.Certificates.Kernel.Common.Harness
 

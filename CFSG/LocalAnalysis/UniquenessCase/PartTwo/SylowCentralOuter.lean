@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRank
 public import CFSG.LocalAnalysis.UniquenessCase.UC6Syl
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P21k
 public import CFSG.RankThree.SteinbergR3ELinearUnitaryOuterOrder

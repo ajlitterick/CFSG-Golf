@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Open.StatedDefs
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic
-public import Mathlib.GroupTheory.OrderOfElement
 
 public section
 

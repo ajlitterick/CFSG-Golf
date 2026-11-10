@@ -5,7 +5,6 @@ public import Certificates.Kernel.LocalComp.Child3Gen
 public import Certificates.Kernel.LocalComp.ExcU6.Words
 public meta import Certificates.Kernel.LocalComp.ExcU6.Words
 public meta import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassical222ExcU6Inputs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassical222ExcU6Inputs
 
 public section

@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.SporSch.Th.GenV4
 public import CFSG.Certificates.Kernel.SporSch.ThRowsSoundBase
 public import CFSG.Certificates.Kernel.Spor.Loops
-public import CFSG.Sporadic.ThSchreier.RowInputs
 meta import CFSG.Sporadic.ThSchreier.RowInputs
 import CFSG.Certificates.Kernel.Common.Harness
 

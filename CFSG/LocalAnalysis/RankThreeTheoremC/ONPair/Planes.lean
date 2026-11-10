@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.NQOvergroups
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.PlaneCheck
 public import CFSG.LocalAnalysis.AGLEmbedding.Norton.OrdinaryProofs.SylowTransport
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import Certificates.Certificate753501
 
 public section

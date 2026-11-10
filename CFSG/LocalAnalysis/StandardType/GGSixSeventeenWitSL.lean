@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitDefs
-public import CFSG.LocalAnalysis.StandardType.GGSLBstarFrame
 public import CFSG.LocalAnalysis.StandardType.GGRoundFourSmallALinearBlock
 
 public section

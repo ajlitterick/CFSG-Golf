@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.FrameE78.Data
 public import Certificates.Data.Kernel.FrameE78RootK
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000
 

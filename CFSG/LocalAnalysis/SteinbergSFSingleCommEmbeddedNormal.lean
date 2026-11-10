@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommEmbeddedDefs
-public import CFSG.LocalAnalysis.SteinbergSFSingleCommLocalSixFElementary
-public import CFSG.LocalAnalysis.SteinbergSFSingleCommRootStandardClosure
 
 public section
 

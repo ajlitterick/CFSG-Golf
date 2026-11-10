@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.HighestRoot.CentChevalleySLThree
 public import CFSG.LieType.Steinberg.TwistedD4.RankOne
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -1,9 +1,6 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1SevenBase
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Parts
-public import Certificates.Certificate2043
-public import Certificates.Certificate3024
 public import Certificates.Certificate13696
 public import Certificates.Certificate13697
 public import Certificates.Certificate13698

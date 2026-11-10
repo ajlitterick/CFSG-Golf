@@ -12,7 +12,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceSchreier
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAssembly
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectSp
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectSpinMinus
-public import CFSG.LocalAnalysis.StandardType.GGHypSixAssembly
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRest
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveTypeA
 public import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4Fixed

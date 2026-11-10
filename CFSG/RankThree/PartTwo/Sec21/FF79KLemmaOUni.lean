@@ -1,12 +1,8 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.FF79KLemmaOUniCore
-public import CFSG.Open.StatedDefs
-import CFSG.Timmesfeld.Orders.ClassicalLinear
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs256h
 import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.OrdinaryProofs.OutL5Proof
-import CFSG.RankThree.SteinbergR3ELinearUnitaryOuterOrder
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 public import CFSG.HardMathSupport.Dickson.I271.SporGenBM
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.RkBM
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMFiveHN

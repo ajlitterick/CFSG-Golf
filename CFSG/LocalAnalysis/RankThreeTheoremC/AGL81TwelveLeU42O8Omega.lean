@@ -2,15 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveLeU42O8Act
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ICitedHyp111K
-public import CFSG.Open.StatedDefs
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalElementary
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailRootData
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelCoordinates
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransvOmegaAut
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenTwelveRanksLeOrth
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelTransport
-import CFSG.ClassicalGroups.Orthogonal.Simple
-import CFSG.LieType.Universal.Spin.Forms
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusResGroup
 import CFSG.GH74.Uniqueness.SU.SU1Basic
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs

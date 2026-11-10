@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.J2VertK
 public import CFSG.Quasithin.Background.Harris.R1.J2VertCheck
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutData
 public import CFSG.Certificates.Kernel.LocalCompUnpack
-public import Certificates.Data.Kernel.Spor.Prim
 public import Certificates.Kernel.Misc.Perm.HexCmd
 meta import CFSG.Quasithin.Background.Harris.R1.J2VertCheck
 meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutData

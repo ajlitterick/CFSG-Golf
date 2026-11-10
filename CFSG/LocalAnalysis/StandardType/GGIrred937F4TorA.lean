@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGIrred937F4Base
 public import CFSG.LocalAnalysis.StandardType.GGIrred937F4TorAStab
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzExcOpenRest3
 
 public section
 

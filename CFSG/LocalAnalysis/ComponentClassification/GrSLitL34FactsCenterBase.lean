@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsTransfer
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsParabolic
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Inputs46
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Inputs47
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Basic
 public import CFSG.LieType.Multipliers.L34Upper
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB6Choice

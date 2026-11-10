@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGHLNbrInput
 public import CFSG.LocalAnalysis.StandardType.GGHLAutomizerK
 public import CFSG.LocalAnalysis.StandardType.GGResXDatumAHLK
-public import CFSG.LocalAnalysis.StandardType.GGResHdRoNarrowDefs
 
 public section
 

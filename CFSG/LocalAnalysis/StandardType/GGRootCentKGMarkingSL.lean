@@ -1,12 +1,7 @@
 module
 
-public import CFSG.Assembly.LargeEvenDefs
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeTypeA
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoKGroup
-import CFSG.Assembly.GL83LieDefs
-import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-import CFSG.LinearAlgebra.LinearGroups.Perfect
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_13
 
 public section
 

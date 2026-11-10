@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.OrthExtWitt
-public import CFSG.LocalAnalysis.StandardType.ZS.OrthExtLemmas
-public import CFSG.LocalAnalysis.StandardType.ZS.ClassReflOrder
-public import CFSG.LocalAnalysis.StandardType.ZS.DimThree.OrthRefl
 public import CFSG.RankThree.Classical.OddQuadraticFrame
-public import CFSG.ClassicalGroups.Orthogonal.Represents
 public import CFSG.ClassicalGroups.Orthogonal.TwoHyperplanes.Basic
 public import CFSG.LieType.Universal.SpinOmega.Reflections
 

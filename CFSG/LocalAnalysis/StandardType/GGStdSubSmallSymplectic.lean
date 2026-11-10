@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmall
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallTypeA
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplectic
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 
 public section
 

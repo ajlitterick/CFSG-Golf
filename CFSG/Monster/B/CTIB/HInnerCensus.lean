@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.B.CTIB.HInnerCert
 public import CFSG.Monster.B.CTIB.FourClasses
-public import CFSG.Monster.B.TwoA.Sp8.Par1
 
 public section
 

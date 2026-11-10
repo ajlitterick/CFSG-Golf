@@ -3,12 +3,9 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit35Inputs
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitL219D
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitCor441
-public import CFSG.LocalAnalysis.ComponentClassification.StandardRecognitionQuaternion
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aFStar
 public import CFSG.Dihedral.GorensteinWalter
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.Pattern
 public import CFSG.GH74.GLS.TwoThin.Basic
 public import CFSG.LieType.Universal.SpinOmega.Range
 public import CFSG.LocalAnalysis.ComponentClassification.GSFMMaximal
@@ -26,9 +23,6 @@ public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestricti
 public import CFSG.LocalAnalysis.RankTwoShapes.UnitaryFourPresentation
 public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Open.GorensteinHaradaSectionalRankFourMilestoneDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public noncomputable section
 

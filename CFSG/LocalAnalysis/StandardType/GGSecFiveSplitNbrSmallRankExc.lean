@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRank
-import CFSG.LocalAnalysis.StandardType.GGTableB
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmall
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineTwF4
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestG2
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallTits
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTwF4
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTwF4
 import CFSG.LocalAnalysis.StandardType.GGTwF4SUThreeRank
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsOrder

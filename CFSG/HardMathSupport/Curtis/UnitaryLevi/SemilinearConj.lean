@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Curtis.UnitaryLevi.OutRank
-public import CFSG.LocalAnalysis.SteinbergBNUnitaryThreeOuterInvolutionRigidity
 import all CFSG.LocalAnalysis.SteinbergBNUnitaryThreeOuterInvolutionRigidity
 
 public section

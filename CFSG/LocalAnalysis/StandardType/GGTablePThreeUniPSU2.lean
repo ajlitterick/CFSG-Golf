@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinDefs
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniModel
 import CFSG.Assembly.GL83StatedBridge
-import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepairBlock
 
 public section
 

@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Assembly.GL83LieDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGNbrTableBOrthPlus
 import CFSG.LocalAnalysis.StandardType.GGKGForkOrthRow
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
 
 public section
 

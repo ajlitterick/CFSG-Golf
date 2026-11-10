@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2011Base
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallL34RankInputs
 public meta import CFSG.GH74.KGroups.Checks3
 public meta import CFSG.LocalAnalysis.ComponentClassification.PSL3FourActionData
 import Certificates.Kernel.Census.CatFacts.C2011

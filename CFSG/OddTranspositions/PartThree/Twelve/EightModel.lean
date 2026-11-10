@@ -1,10 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.Five
-import CFSG.ClassicalGroups.Unitary.Transitivity
-import CFSG.LocalAnalysis.WeakClosure81.W16Gt2KFactsI
-import CFSG.LieType.Steinberg.CentralExt.UnitaryField
-import CFSG.LinearAlgebra.LinearGroups.UnitaryVectorCount
 import CFSG.OddTranspositions.WidthSylow
 import CFSG.GH74.Generic.BProg.B3.S1IdentSl2
 import CFSG.OddTranspositions.O4PairTenWidth

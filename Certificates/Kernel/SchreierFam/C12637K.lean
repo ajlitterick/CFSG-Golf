@@ -8,7 +8,6 @@ import CFSG.Certificates.Kernel.Common.Harness
 import all Init.Data.Range.Basic
 import all Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 
 public section
 

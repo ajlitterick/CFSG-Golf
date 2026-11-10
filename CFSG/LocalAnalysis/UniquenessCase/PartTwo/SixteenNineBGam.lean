@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsWeakClosure
 import CFSG.LocalAnalysis.StronglyEmbedded.GammaOne
 import CFSG.GroupTheory.PGroup.ElemAbelianSq
-import CFSG.RankThree.PartOne.S12.InputsSec15
 
 public section
 

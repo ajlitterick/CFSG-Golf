@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog81X10OrthMain
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

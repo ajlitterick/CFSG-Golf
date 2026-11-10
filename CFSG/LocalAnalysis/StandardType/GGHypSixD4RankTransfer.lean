@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHypSixD4RankOmega
 public import CFSG.LocalAnalysis.StandardType.GGHypSixRestRank
-import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGDepAFrame
-public import CFSG.LocalAnalysis.StandardType.GGDepAPerm
-public import CFSG.LocalAnalysis.StandardType.GGDepAArith
 public import CFSG.LocalAnalysis.StandardType.GGDepACaseI
 public import CFSG.LocalAnalysis.StandardType.GGDepACaseII
-public import CFSG.LocalAnalysis.StandardType.GGDepARefl
-public import CFSG.LocalAnalysis.StandardType.GGResKnownGroup
 
 public section
 

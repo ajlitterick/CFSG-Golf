@@ -1,12 +1,9 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.S152SMain
-public import CFSG.Quasithin.EmptyFaithful.S152TBender
 public import CFSG.Quasithin.EmptyFaithful.S152TL3
 public import CFSG.Quasithin.EmptyFaithful.S152TSp4
-public import CFSG.Quasithin.EmptyFaithful.S152TG2
 public import CFSG.Quasithin.EmptyFaithful.S152T3D4
-public import CFSG.Quasithin.EmptyFaithful.S152T2F4
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeBasic

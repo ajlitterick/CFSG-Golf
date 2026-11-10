@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixPositionDefs
 public import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoAdj
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Sp6

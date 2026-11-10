@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
 public import TauCeti.LinearAlgebra.Eigenspace.JointEigenvector.Basic
-public import CFSG.RankThree.OrthogonalInvolutions.Witt
-import TauCeti.LinearAlgebra.BilinearForm.SymplecticBasis
 
 public section
 

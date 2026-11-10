@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0Frame
-public import CFSG.LocalAnalysis.GLTheoremA.S10.Defs
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIInnDiag
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcCore
 public import CFSG.LocalAnalysis.StandardType.GGCanonicalToLegacy
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
-public import CFSG.GH74.GLS.IVK.Proofs2.Lemma31g
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 
 public section
 

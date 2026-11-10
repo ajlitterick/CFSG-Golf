@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC6K332Lists
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332RowsHolds
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332K33
 public import CFSG.LocalAnalysis.UniquenessCase.UC6N588A2
-public import CFSG.CharacterTheory.Semidihedral.Local.FourGroupCyclingOddControlSupport
 public import CFSG.CGT.Timmesfeld75.OddCenter
 public import CFSG.CGT.Timmesfeld75.Sec5FiveEng
 public import CFSG.CGT.Timmesfeld75.Sec5Nine
@@ -46,11 +44,9 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.D1Frontier3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2AltFiveBlock3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2Families3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2HSFive3
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Cover
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Fusion
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Impure
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Kmax
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Port3CoreFree
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Residue3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2LeavesNarrow3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2SporDatum3

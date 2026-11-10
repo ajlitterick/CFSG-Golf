@@ -1,14 +1,8 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralCore
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2DihedralProjection
-public import Mathlib.FieldTheory.Finite.GaloisField
-public import Mathlib.FieldTheory.Galois.Basic
 public import Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.LinearAlgebra.Matrix.Basis
 import Mathlib.NumberTheory.Multiplicity
-import Mathlib.SetTheory.Cardinal.Finite
 
 namespace CFSG
 end CFSG

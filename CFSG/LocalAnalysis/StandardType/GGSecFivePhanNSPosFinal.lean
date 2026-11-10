@@ -1,7 +1,6 @@
 module
 
 import Lean
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosTransport
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDiag
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPerm

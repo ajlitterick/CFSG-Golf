@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.RingTheory.Nilpotent.Exp
-public import Mathlib.Algebra.Algebra.Bilinear
 
 public noncomputable section
 

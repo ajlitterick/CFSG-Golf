@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf43L3E8Shape
-public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Assembly.RankThreeEvenDefs
 public import CFSG.ClassicalInvolution.Q3.TL4OmegaAOFBase
 public import CFSG.Fischer.Classification.Recognition.PSU6

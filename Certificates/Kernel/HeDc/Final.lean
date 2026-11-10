@@ -4,8 +4,6 @@ public import Certificates.Kernel.HeDc.Bridge
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatOfFacts
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRows
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatIncl
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHeCertificateInputs
-public import CFSG.Blueprint.NativeSporadic
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000

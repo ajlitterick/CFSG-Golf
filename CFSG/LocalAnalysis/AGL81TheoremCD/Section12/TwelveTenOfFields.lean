@@ -4,23 +4,15 @@ public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveTenFromSpine
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveSixOfCtx
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.BlockRankCount
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.BlockTypeLThree
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.BlockRankUpper
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.BlockRankLower
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveTenSpine
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.O812sixFi22
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.KFactFi22SPEHolds
 public import CFSG.LocalAnalysis.AGL81I.Section4.FourNineteenHolds
-public import CFSG.HardMathSupport.Foote.Coordinator.Downstream
-public import CFSG.CGT.PushingUpLit.TwoKHolds
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2LocalCGT3
-public import CFSG.LocalAnalysis.AGLEmbedding.AscEightFour
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TenFifteenProof
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourOneOf
 import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineHolds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveSixKbarOfCtx
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveSixKbarSingleProof
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.NineSixMoreoverPairFiveProof
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CKFactThreeFiveRankOne
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TenFifteenKFactParabolic
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TenFifteenKFactOutDerived
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.HGenFinal

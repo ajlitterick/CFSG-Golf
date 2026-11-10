@@ -1,10 +1,8 @@
 module
 
 public import CFSG.Foundations.Basic
-public import CFSG.GroupTheory.PCore.Construction
 public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.Open.Defs
 
 public section
 

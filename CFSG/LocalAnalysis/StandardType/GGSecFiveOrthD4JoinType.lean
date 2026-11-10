@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrd
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinCoxeterCard
-public import CFSG.LocalAnalysis.StandardType.GGSpFrameCoxeterCard
 public import CFSG.Monster.B.Geometry.CoxeterWords
 
 public section

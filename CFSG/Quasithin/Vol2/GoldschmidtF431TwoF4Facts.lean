@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4Forest
-public import Mathlib.Data.Fintype.Perm
 
 public section
 

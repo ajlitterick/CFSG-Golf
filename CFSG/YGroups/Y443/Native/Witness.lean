@@ -2,9 +2,6 @@ module
 
 public import CFSG.Monster.AxisCount.DenseWord
 public import CFSG.Monster.Griess.ThreeVectorSeparation
-public import CFSG.Monster.Griess.Invariance.Diagonal
-public import CFSG.Monster.Griess.Invariance.Octad.Basic
-public import Certificates.Data.CFSGNative.YGroups.Y443.Witness
 public import Certificates.Certificate10127
 public meta import Certificates.Data.CFSGNative.YGroups.Y443.Witness
 public import CFSG.Monster.Visible.SignCompat

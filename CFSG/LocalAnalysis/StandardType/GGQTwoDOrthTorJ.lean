@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorStruct
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorTransport
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorRed
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 
 public section
 

@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6R1FieldTwo
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeFullCentre1585RowTableCHolds
-public import CFSG.LocalAnalysis.StandardType.GGK0LQRecD
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2Inner
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialOuterQ2D4
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1625Pieces
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart14
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenAsm
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame.SuN
 public import CFSG.Quasithin.Background.G1Basic

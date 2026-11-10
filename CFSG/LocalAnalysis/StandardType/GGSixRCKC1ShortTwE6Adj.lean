@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotCentralizerU
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotCentralizerYF3Done
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotClassesRoots
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotHR7Split
 

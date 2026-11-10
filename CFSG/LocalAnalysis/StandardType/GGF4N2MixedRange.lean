@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2Alignment
 public import CFSG.LocalAnalysis.StandardType.GGNbrLineCover
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
-import CFSG.GroupTheory.SupCommute
 import CFSG.LocalAnalysis.StandardType.GGF4N2CoreBound
-import CFSG.LocalAnalysis.StandardType.GGF4N2Rank
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBFixLine
 
 public section

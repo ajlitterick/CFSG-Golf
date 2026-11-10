@@ -1,20 +1,12 @@
 module
 
-public import CFSG.CharacterTheory.PSL2Table.Partition
 public import CFSG.CharacterTheory.PSL2Table.Classes
 public import CFSG.Dihedral.Glauberman.DicksonMaxExist
-public import Mathlib.LinearAlgebra.Projectivization.Action
-public import Mathlib.GroupTheory.GroupAction.Primitive
-public import Mathlib.Algebra.QuadraticAlgebra.Basic
-public import Mathlib.RingTheory.IntegralDomain
 public import CFSG.CharacterTheory.PSL2Table.Halves
 public import CFSG.CharacterTheory.Semidihedral.Principal.DegreeZeroGram
 public import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion
 public import CFSG.CharacterTheory.TwoRankLowerBound.NormalComplementBlock
 public import CFSG.Open.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma114Models
 
 public section

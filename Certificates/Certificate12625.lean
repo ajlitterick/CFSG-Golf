@@ -5,7 +5,6 @@ public meta import Certificates.Data.CFSGNative.SmallOddCore.Check
 public meta import CFSG.Sporadic.SmallOddCore.CentData
 public meta import Certificates.Data.CFSGNative.SporadicSchreier.Classes
 import Certificates.Kernel.Sporadic.OddCore.J3Ord12625
-import Certificates.Data.Kernel.Spor.Prim
 import Certificates.Kernel.Sporadic.OddCore.CentGlue
 import CFSG.Certificates.Kernel.BfsPinAlg
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmHyp
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmMinus
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGSummand
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGMarking

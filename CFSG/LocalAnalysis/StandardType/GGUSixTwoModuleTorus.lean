@@ -1,17 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTorus
-public import Mathlib.Algebra.Module.Submodule.EqLocus
-public import Mathlib.LinearAlgebra.Dimension.Finrank
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTransvection
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.H81Orth.Weights
 public import CFSG.GF2Type.Smith1979.CaseI25Weights
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-public import Mathlib.GroupTheory.OrderOfElement
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.Algebra.Group.Subgroup.ZPowers.Lemmas
-public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
-public import Mathlib.GroupTheory.Perm.Support
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec6KGCompLie2BigL2
 public import CFSG.Quasithin.H13.L32ACSkPfU3
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherRankOneRoot
 public import CFSG.RankThree.CentralLiftU.HypRankOne
 import CFSG.Timmesfeld.Orders.Classical
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionCore
 public import CFSG.LieType.Steinberg.CentralExt.SUPosLift
 public import CFSG.LieType.HighestRoot.GenUnitary
-import Mathlib.Tactic.NoncommRing
 
 public section
 

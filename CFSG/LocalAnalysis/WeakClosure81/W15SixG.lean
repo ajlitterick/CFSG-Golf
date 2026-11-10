@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.W15SixF
 public import CFSG.LocalAnalysis.WeakClosure81.W15Inputs
-public import CFSG.LocalAnalysis.WeakClosure81.FiveTenFinal
 import all CFSG.LocalAnalysis.WeakClosure81.FiveDefs
 
 public section

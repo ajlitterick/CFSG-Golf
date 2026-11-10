@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GL83PartI.I_27_9.Orbits
-public import CFSG.LocalAnalysis.GL83PartI.I_27_9.GenAlt
 
 public section
 

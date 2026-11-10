@@ -1,10 +1,8 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Ten.WreathEndgame
-public import CFSG.Timmesfeld.Bridge.Asc72Basic
 import CFSG.OddTranspositions.PartThree.Ten.WreathClass
 import CFSG.OddTranspositions.PartThree.Ten.CentralSymSplit
-import CFSG.Timmesfeld.Bridge.Asc72Bender
 import CFSG.Timmesfeld.Bridge.Asc72BenderInvolution
 import CFSG.GroupTheory.SmallSymmetric
 

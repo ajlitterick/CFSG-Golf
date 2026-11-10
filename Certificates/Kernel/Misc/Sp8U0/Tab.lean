@@ -5,7 +5,6 @@ public import Certificates.Kernel.Misc.Sp8U0.ChecksB
 public import Certificates.Kernel.Misc.Sp8U0.ChecksB2
 public import Certificates.Kernel.Misc.Sp8U0.ChecksS
 public import Certificates.Kernel.Misc.Sp8U0.ChecksS2
-public import CFSG.Certificates.Kernel.Misc.BfsKWStepSound
 public import CFSG.Certificates.Kernel.Misc.BfsKWWalkSound
 import CFSG.Certificates.Kernel.Common.ForallChunks
 

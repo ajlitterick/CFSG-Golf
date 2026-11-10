@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagE6Model
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwisted
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitExcSixE
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 
 public section
 

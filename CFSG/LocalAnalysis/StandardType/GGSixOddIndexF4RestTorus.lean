@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4FactsTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4EndNode
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviRootSL2B2
-public import CFSG.LieType.Chevalley.ToralCentralizerQuotient
-public import CFSG.LieType.Ree.ReeTorus
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section

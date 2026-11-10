@@ -1,8 +1,5 @@
 module
 
-public import CFSG.Blueprint.Catalog
-public import CFSG.Foundations.Basic
-public import CFSG.Open.StatedDefs
 public import CFSG.LieType.SemisimpleCentralizers.HeldUnitaryComponents
 import CFSG.LocalAnalysis.StandardType.GGNbrLSideKitComm
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelPSU

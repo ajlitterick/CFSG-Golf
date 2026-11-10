@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartOne.HNB.UnitaryBridge
 public import CFSG.RankThree.PartOne.HNB.NativeTransfer
 public import CFSG.Sporadic.HNOddCore.Five
-public import CFSG.Sporadic.HNSchreier.Simple
 public import CFSG.ClassicalGroups.Unitary.Simple
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper

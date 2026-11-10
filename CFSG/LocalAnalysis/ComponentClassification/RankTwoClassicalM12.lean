@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalQuot
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalLevi
 public import CFSG.Adapters.LinearSmallCatalog
-public import CFSG.LocalAnalysis.ComponentInitial.KProperSubgroup
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

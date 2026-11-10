@@ -25,7 +25,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15FactsGen
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6
 public import CFSG.Permutation.AlternatingAutomorphism.Conjugation
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 set_option maxRecDepth 100000
 

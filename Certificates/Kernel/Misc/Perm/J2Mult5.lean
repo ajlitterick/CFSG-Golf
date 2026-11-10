@@ -1,16 +1,12 @@
 
 module
 
-public import CFSG.RankThree.PartTwo.KFacts.KS14MultCore
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Gen
 public import CFSG.RankThree.PartTwo.KFacts.KS14MultJ2Inputs
 public import Certificates.Kernel.Sporadic.RawGen
-public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Certificates.Kernel.Misc.ArrEnumSound
 public import CFSG.Certificates.Kernel.Misc.PairCountSound
 public import CFSG.Certificates.Kernel.Misc.PermClosSound
-public import CFSG.Monster.B.Co2.PermArr
 import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Certificates.Kernel.Spor.SiftRSound
 import CFSG.Certificates.Kernel.Common.Harness

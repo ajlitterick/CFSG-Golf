@@ -1,9 +1,7 @@
 module
 
 import Lean
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosTorus
-public import CFSG.ClassicalInvolution.Phan.Center
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosBlockAux4
 
 public section

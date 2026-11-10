@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTriD4Conj
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 public import CFSG.LieType.Chevalley.AmbientTwistedFrobeniusFixedNormalizer
 
 public section

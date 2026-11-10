@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P20o
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20r
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankTable
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsLie
 public import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU
 public import CFSG.LocalAnalysis.AGLEmbedding.TwoCoreObstruction

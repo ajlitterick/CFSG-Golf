@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
-public import Mathlib.LinearAlgebra.Dimension.Finrank
-public import Mathlib.Tactic.Abel
 
 public section
 

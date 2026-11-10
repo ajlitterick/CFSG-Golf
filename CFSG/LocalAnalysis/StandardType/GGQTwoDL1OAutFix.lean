@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1ONorm
 public import CFSG.LocalAnalysis.StandardType.GGHypSixD4RankOmega
 import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityNonsplit
 import CFSG.RankThree.PartOne.S11d.OrthModels
-public import CFSG.RankThree.PartOne.KC.OrthogonalAutSemilinear
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.OrthQ2Main
 import CFSG.LocalAnalysis.AGLEmbedding.ThreeCentLieTwoBasic
 import CFSG.LocalAnalysis.AGLEmbedding.ThreeCentLieTwoBlocks

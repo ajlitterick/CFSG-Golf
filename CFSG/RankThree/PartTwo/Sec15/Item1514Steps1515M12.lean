@@ -6,7 +6,6 @@ import CFSG.RankThree.PartTwo.Sec13.Item137Delta
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
 import CFSG.RankThree.PartTwo.Sec15.Item152Proof
-import CFSG.RankThree.LocalRank.SolvablePrimeComplementCore
 import CFSG.Certificates.CosetTableShort
 import CFSG.RankThree.S4Free.SuzukiEight
 

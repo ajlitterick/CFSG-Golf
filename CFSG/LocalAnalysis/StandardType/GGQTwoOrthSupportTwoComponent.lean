@@ -2,47 +2,19 @@ module
 
 public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Blocks
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKFrameDefs
-public import CFSG.Assembly.Subnormal
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGResXDichotomyDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
 public import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseNoBL5Aut
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL4546Defs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelDefs
-public import CFSG.LocalAnalysis.StandardType.GGSkeleton
-import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.BlockCast
-import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.BlockCentralizer
-import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Simple
-import CFSG.RankThree.PartOne.KC.OrthogonalSupportedScalar
-import CFSG.LocalAnalysis.ComponentInitial.EscapingNotAlternating
-import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Models
 import CFSG.RankThree.GF2n.Stroth80.GriessOrthSmall
-import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.RankThree.PartTwo.Sec12.Hering129D4HSL2
 import CFSG.GroupTheory.GroupAction.PerfectCommutingSL2
-import CFSG.GroupTheory.WeirSylow.Orthogonal
-import CFSG.LocalAnalysis.StandardType.GGQTwoOrthogonalBlocks
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJCore
-import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitzExcComp
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorChart
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorRecal
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthogonalPairs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrAxis
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
-import CFSG.LocalAnalysis.StandardType.GGNbrBalancePumpup
-import CFSG.LocalAnalysis.StandardType.GGPumpupBalance
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBSplitFourRadical
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
-import CFSG.GroupTheory.CentralizerMap
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupNormalizer
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Loc
 public import CFSG.Holt.Fixed

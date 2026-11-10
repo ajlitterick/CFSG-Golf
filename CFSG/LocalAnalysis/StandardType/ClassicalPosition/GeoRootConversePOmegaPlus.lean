@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixPositionDefs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.LieType.Universal.Spin.Datum
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoSiegelConj
 
 public section

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourInputs
 public import CFSG.ClassicalInvolution.RouteD.TypeERecog
 import CFSG.ClassicalInvolution.WeakCT.DLDiagrams
-import CFSG.ClassicalInvolution.WeakCT.Standard
 import CFSG.ClassicalInvolution.Balance.QNineStandard
 public import CFSG.ClassicalInvolution.Models.LinearFrames
 public import CFSG.ClassicalInvolution.Models.LinearPairs

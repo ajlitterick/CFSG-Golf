@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.Twin1711Pf5R4Data
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.Twin1711Pf5Words
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.Twin1711Pf5Count
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinE4PerfPf2Sp6Data
-public import CFSG.LocalAnalysis.EvenSmallLie.Sp6JCondition
 
 public section
 

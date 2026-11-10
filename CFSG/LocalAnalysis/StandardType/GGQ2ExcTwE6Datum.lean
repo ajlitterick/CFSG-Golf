@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeAd
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcRestProofE6Ad
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTorus
 import CFSG.LocalAnalysis.StandardType.GGL45NtExcW1

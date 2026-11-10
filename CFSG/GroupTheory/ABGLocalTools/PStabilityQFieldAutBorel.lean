@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityQBorel
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 
 public section
 

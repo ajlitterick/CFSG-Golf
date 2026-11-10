@@ -1,16 +1,9 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec19.Step1917EqProofPush
-import CFSG.RankThree.PartTwo.Sec19.Step1916Proof2
 import CFSG.RankThree.PartTwo.Sec19.Step1917ProofTools
 import CFSG.RankThree.PartTwo.Sec19.Step1917StepsBasic
-import CFSG.RankThree.PartTwo.Sec19.Step1916Proof2Tools
-import CFSG.RankThree.PartTwo.Sec19.Step1918ProofTools
-import CFSG.RankThree.PartTwo.Sec18.Components
-import CFSG.RankThree.PartTwo.Sec18.Item186a
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
-import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

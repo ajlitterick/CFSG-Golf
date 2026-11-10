@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKM3Gmat
-public import CFSG.Sporadic.Bridge.MonsterModels
-public import CFSG.RankThree.PartOne.SPOR.OuterM
 import CFSG.LocalAnalysis.StandardType.GGSporKBMBridgeZ
 import CFSG.LocalAnalysis.StandardType.GGSporKBMTransportA
 

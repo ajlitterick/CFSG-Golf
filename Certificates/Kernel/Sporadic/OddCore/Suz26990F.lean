@@ -10,16 +10,11 @@ public import Certificates.Kernel.Sporadic.OddCore.Suz26990E6
 public import Certificates.Kernel.Sporadic.OddCore.Suz26990E7
 public import Certificates.Kernel.Sporadic.OddCore.Suz26990E8
 public import Certificates.Kernel.Sporadic.OddCore.Suz26990E9
-public import CFSG.Certificates.Kernel.Spor.PrimSound
-public import CFSG.Certificates.Kernel.Spor.PEnumSound
 public import CFSG.Certificates.Kernel.L34KSnd.Tab
 public import CFSG.Certificates.Kernel.PermToolSound
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
-import CFSG.Certificates.Kernel.BfsPinUnpack
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Common.Harness
 import Certificates.Kernel.Sporadic.ON.Gen
-import Mathlib.Tactic.IntervalCases
 
 public section
 

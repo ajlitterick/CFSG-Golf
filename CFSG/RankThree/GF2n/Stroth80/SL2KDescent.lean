@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesDescent
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBaseChange
 public import TauCeti.FieldTheory.Finite.FrobeniusFixed
-public import Mathlib.Data.Int.Star
 
 public section
 

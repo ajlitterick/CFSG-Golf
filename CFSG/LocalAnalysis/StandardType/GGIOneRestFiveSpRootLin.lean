@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRuleSpFinNum
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeOrthSp
 public import CFSG.Sporadic.Suz.Setup
 public import CFSG.Sporadic.Suz.W64Spec
 

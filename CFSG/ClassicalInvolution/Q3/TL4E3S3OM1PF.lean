@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.TL4E3S3OM1Q8
 public import CFSG.ClassicalInvolution.Q3.TL4E3S3OM1SD
 public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-public import CFSG.LieType.Steinberg.CentralExt.PerfectCover
-public import CFSG.Open.StatedAPI
 public import CFSG.ClassicalInvolution.Asc77.AscT8X4
 public import CFSG.ClassicalInvolution.Asc77.AscT8YA3
 public import CFSG.ClassicalInvolution.AschTight.S1916F2a

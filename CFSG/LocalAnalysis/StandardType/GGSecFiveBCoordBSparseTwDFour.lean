@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSparseTwDFourSplitDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSparseTwDFourNonsplitDefs
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 
 public section
 

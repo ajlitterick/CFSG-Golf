@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcTwE6Defs
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcTwE6RankUnit
 import CFSG.LocalAnalysis.StandardType.GGQTwoVACOrth
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGTBWNormSmall
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 
 public section
 

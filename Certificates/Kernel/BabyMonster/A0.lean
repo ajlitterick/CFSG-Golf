@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.BabyMonster.PktTab
 public import Certificates.Kernel.BabyMonster.PktBind
-public import CFSG.Certificates.Kernel.BabyMonster.Dyadic.Gens
 public import CFSG.Certificates.Kernel.Common.Harness
 public import Mathlib.Algebra.Order.Ring.Int
 

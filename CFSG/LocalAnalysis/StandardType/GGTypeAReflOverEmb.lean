@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofChainFin
-public import Mathlib.GroupTheory.Perm.Sign
 public import Mathlib.GroupTheory.Perm.ViaEmbedding
 public import Mathlib.GroupTheory.Perm.Cycle.Concrete
 

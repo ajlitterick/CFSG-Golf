@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestDefs
-import CFSG.LieType.Universal.SpinOmega.Center
 
 public section
 

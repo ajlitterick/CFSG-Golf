@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4Noncomm
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4Model
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenLift
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

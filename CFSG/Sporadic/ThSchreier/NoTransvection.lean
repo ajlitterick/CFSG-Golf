@@ -5,15 +5,6 @@ public import CFSG.Sporadic.ThSchreier.NoTransvectionBase1
 
 public import CFSG.Sporadic.ThSchreier.AutCore
 public meta import CFSG.Sporadic.ThSchreier.Rigidity
-public import CFSG.Sporadic.ThSchreier.NoTransvectionInputs
-public import Certificates.Certificate2314
-public import Mathlib
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Blueprint.MatrixSeedIdentification
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.Certificates.SchreierStabilizerGenerators
-public import Certificates.Data.CFSGNative.Th.Certificate
-public import CFSG.Sporadic.Th.Max3.Data
 
 public section
 

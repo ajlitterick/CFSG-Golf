@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6Narrow
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TableZ
 
 public section
 

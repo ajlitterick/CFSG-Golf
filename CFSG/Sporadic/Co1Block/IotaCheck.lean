@@ -3,9 +3,6 @@ module
 
 public import CFSG.Sporadic.Co1Block.IotaCheckBase
 
-public import CFSG.Sporadic.Co1Block.IotaData
-public import CFSG.Sporadic.Schreier.Co1StabCheck
-public import CFSG.Sporadic.Co2Schreier.ThirdCheck
 public meta import CFSG.Sporadic.Co1Block.IotaData
 public meta import CFSG.Sporadic.Schreier.Co1StabCheck
 public meta import CFSG.Sporadic.Schreier.Co1ThreeLocal
@@ -19,7 +16,6 @@ public meta import Certificates.Data.CFSGNative.Co1.Data
 public meta import Certificates.Data.CFSGNative.HS.SmallF2
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
-public import CFSG.Sporadic.Co1Block.IotaCheckInputs
 public import Certificates.Certificate2042
 
 public section

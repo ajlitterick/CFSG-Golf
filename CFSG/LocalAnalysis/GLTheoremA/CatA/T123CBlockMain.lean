@@ -7,20 +7,9 @@ import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CBlockFieldL
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CBlockFieldO
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CBlockOrthE
 import CFSG.Adapters.LinearCatalogStated
-import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinDOdd
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDOdd
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelWitness
-import CFSG.RankThree.PartOne.KC.OrthogonalAutSemilinearBridge
 import CFSG.RankThree.PartOne.KFR4.Row4
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Interface
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
-public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBaseIso
@@ -41,7 +30,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.S9.Lemma94
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Lemma95A
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Proof
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 import CFSG.RankThree.PartOne.S11d.LieGoodConclusion

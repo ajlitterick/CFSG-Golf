@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalOmegaMinusTrans
-public import CFSG.LieType.Universal.Spin.Twisted.Generation
-public import CFSG.LieType.Universal.Spin.Generation.Frame
-public import CFSG.LieType.Universal.Spin.Chevalley.Commutator
 
 public section
 

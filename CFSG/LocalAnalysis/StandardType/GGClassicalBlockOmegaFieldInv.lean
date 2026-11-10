@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDefs
-public import CFSG.Blueprint.SourceClassicalTransportOrthogonal
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaTwoPart
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaDescent
 

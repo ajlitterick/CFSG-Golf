@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeDiag
-public import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
 
 public section
 

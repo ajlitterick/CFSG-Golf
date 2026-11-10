@@ -1,18 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSelectedF2
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoCommon
 import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoPSLChart
 import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PSLCores
 import CFSG.LocalAnalysis.StandardType.GGSelectedPSUModel
 import CFSG.LocalAnalysis.StandardType.GGLieKnownR2GeoSUShort
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSUTorus
 import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
-import CFSG.LieType.Steinberg.Classical.SpinPlus.Weyl
-import CFSG.LieType.Steinberg.CentralExt.UnitaryField
-import CFSG.ClassicalInvolution.ModelFacts.Families
-import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 
 public section
 

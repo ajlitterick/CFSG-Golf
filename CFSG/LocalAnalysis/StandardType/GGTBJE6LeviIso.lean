@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviCell
-public import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviFrame
-public import CFSG.LocalAnalysis.StandardType.GGTBJETypeCells
 
 public section
 

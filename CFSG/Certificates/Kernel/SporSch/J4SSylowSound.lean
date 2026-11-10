@@ -3,7 +3,6 @@ module
 
 public import Certificates.Data.Kernel.SporSch.J4SSylow
 public import CFSG.Certificates.Kernel.SporSch.J4SColsSound
-public import CFSG.Sporadic.Schreier.J4SSylowData
 import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 

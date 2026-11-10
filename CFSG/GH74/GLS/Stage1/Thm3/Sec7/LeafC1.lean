@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec7.LeafBal
 public import CFSG.RankThree.Transfer.Yoshida
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GH74.GLS.Defs
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec4.Prop41
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Statements
@@ -23,9 +21,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Critical
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

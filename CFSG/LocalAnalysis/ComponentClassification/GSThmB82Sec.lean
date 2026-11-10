@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82Set
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB81Statement
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7S3a
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aSec59
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7S3f
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5bOrders
 public import CFSG.LocalAnalysis.ComponentClassification.AlternatingUnbalancedDegree
-public import CFSG.ClassicalInvolution.OrderForm
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB58SubQData
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB58SubQComp
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog8L4

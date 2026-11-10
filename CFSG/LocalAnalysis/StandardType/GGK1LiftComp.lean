@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTCJCoverGen
-public import CFSG.LocalAnalysis.StandardType.GGTCJDescent
 
 public section
 

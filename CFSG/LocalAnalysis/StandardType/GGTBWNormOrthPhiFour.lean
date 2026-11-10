@@ -3,7 +3,6 @@ module
 public import CFSG.LinearAlgebra.FrobeniusIsometryEigen
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormCartanEigen
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormFormFrob
-public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
 
 public section
 

@@ -11,7 +11,6 @@ import CFSG.GroupTheory.CoprimeActionSupport.CentralizerKernel
 import CFSG.GroupTheory.PGroup.OmegaComm
 import CFSG.RankThree.PartOne.S12.Sec159Hom
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.FrattiniSylow
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

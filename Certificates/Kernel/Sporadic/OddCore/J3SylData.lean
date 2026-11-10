@@ -4,11 +4,8 @@ public import Certificates.Kernel.Sporadic.OddCore.J3SylMem
 public import Certificates.Kernel.Sporadic.OddCore.J3SylFourPF
 public import Certificates.Kernel.Sporadic.OddCore.J3SylFourRF
 public import Certificates.Kernel.Sporadic.OddCore.J3SylFourR1F
-public import Certificates.Kernel.Sporadic.OddCore.J3OutSylF
 public import Certificates.Kernel.Sporadic.OddCore.S16J3Sift27810
 public import CFSG.Certificates.Kernel.Spor.ClosedHSound
-import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.BfsPinAlg
 public import CFSG.Certificates.Kernel.Misc.RuInvHash
 
 public section

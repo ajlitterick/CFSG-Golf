@@ -6,7 +6,6 @@ public import Certificates.Kernel.Fi22F.TabHData
 public import CFSG.Certificates.Kernel.Fi22.Bound2.Data.M
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

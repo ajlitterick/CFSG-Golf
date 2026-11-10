@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceSix
-public import CFSG.LocalAnalysis.StandardType.GGPresentation
 public import CFSG.Milestones.CL_LIT_Curtis_Tits_presentation_theorem
 public import CFSG.LieType.CurtisTits
 

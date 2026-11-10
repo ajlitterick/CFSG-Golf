@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.StandardType.ZS.MovedGroup
 import CFSG.LocalAnalysis.StandardType.ZS.LemmaOneTwo
 import CFSG.LocalAnalysis.StandardType.ZS.LemmaOneFour
 import CFSG.LocalAnalysis.StandardType.ZS.Flag
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Complements
 import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 import CFSG.LocalAnalysis.StandardType.ZS.SubgroupSpaces
 public import CFSG.LocalAnalysis.StandardType.ZS.MovedAction

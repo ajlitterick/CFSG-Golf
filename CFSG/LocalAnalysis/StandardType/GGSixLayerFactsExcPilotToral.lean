@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcToral
-public import CFSG.LieType.Chevalley.ToralCentralizerQuotient
 
 public section
 

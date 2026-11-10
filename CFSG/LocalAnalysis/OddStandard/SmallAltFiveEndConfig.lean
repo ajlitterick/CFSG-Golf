@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.IsPerfect
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Centralizer
 public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 
 public section

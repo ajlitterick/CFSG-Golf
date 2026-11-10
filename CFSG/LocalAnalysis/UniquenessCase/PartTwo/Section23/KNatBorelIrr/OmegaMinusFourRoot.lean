@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23c.OmegaMinusFour
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Defs
 public import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
-public import CFSG.LieType.Universal.Spin.Forms
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatBorelIrr.Fixed
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOm.MinusSylow
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOm.RootGroupGL
@@ -11,7 +10,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23c.SylowLine
 import CFSG.ClassicalGroups.Orthogonal.RootGroupGLEichler
 import CFSG.GroupTheory.WeirSylow.UniqueE27Orthogonal
 import CFSG.ClassicalGroups.Orthogonal.MinusSplitTorus
-import Mathlib.FieldTheory.Finite.Basic
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -22,9 +20,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPoi
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSemilinearDataCompatibility
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 import CFSG.ClassicalGroups.Orthogonal.DiagonalTorusRankOddMinus
 

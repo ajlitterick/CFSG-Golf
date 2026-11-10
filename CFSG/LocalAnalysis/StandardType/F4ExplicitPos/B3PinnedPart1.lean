@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart29
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.B3Unconditional
 
 @[expose] public section
 

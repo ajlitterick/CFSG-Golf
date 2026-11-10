@@ -3,21 +3,14 @@ module
 
 public import CFSG.Certificates.Kernel.Th.SoundnessTsGenBase
 
-public import CFSG.Certificates.Kernel.Th.Gen.Ts
-public import CFSG.Sporadic.ThSchreier.LocalOrbitInputs
 public meta import CFSG.Sporadic.ThSchreier.WordsBase1
 public meta import CFSG.Sporadic.ThSchreier.LocalData
-public import CFSG.Sporadic.ThSchreier.TwoCentralizerInputs
 public meta import CFSG.Sporadic.ThSchreier.OrbitCheck819Base
 public meta import CFSG.Sporadic.Th.Max3.PacketBase1
 import CFSG.Certificates.Kernel.Common.Generalize
-import CFSG.Certificates.Kernel.Th.Spec.Big
 import CFSG.Certificates.Kernel.Th.Spec.Loops
 import CFSG.Certificates.Kernel.Th.Spec.Parse
-import CFSG.Certificates.Kernel.Th.Spec.Seed
-import CFSG.Certificates.Kernel.Th.Spec.Ts2313
 import CFSG.Certificates.Kernel.Th.Spec.Ts2324
-import CFSG.Certificates.Kernel.Th.Spec.TsLeaves
 public import CFSG.Sporadic.Th.BaseBase1
 public import CFSG.Sporadic.Th.ChainBase1
 public import CFSG.Sporadic.Th.Max3.AllConjBase1

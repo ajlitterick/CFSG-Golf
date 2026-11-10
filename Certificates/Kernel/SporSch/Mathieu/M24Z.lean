@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.SporSch.Mathieu.M24BT
 public import Certificates.Kernel.SporSch.Mathieu.M24Cls
 public meta import Certificates.Kernel.SporSch.Mathieu.M24BT
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialCases
 public import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialTwistConcrete
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.M12Cent.Cover
 public import Certificates.Kernel.LocalComp.M12Cent.Facts
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.SporSch.ConjClosureSpec
 
 public section

@@ -2,11 +2,6 @@ module
 
 public import Certificates.Data.Kernel.BfsPinSeed
 public import CFSG.Certificates.Kernel.BfsPinKeySound
-public import CFSG.Certificates.Kernel.BfsPinSetSound
-public import CFSG.Certificates.Kernel.MonsterB.ArrBfsSound
-import CFSG.Certificates.Kernel.Spor.PrimSound
-import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.Certificates.Kernel.BfsPinSound
 
 public section

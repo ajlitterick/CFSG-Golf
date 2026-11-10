@@ -3,12 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6K1LeviDefs
 import CFSG.LocalAnalysis.StandardType.GGTwE6K1LeviBlock
 import CFSG.LocalAnalysis.StandardType.GGTwE6K1LeviCyc
-import CFSG.LocalAnalysis.StandardType.GGTwE6K1LeviCycData
 import CFSG.LocalAnalysis.StandardType.GGTwE6K1LeviFin
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2TorusPlane
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToral
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralBlocks
-import CFSG.LieType.Chevalley.ToralCentralizerQuotient
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Defs
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCoreAssembly
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2ModelDefs
@@ -50,8 +46,6 @@ import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.C2PushThree
 import CFSG.Quasithin.Background.D2Cyclic
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2
 import CFSG.Quasithin.Background.GoldschmidtRankOneFacts

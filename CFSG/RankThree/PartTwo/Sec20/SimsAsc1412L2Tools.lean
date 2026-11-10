@@ -8,7 +8,6 @@ import CFSG.RankThree.PartTwo.Sec20.SimsAsc1411Hyp
 import CFSG.GroupTheory.Fitting.CharacteristicP
 import CFSG.HardMathSupport.Solomon.Coordinator.I10_20Basic
 import CFSG.RankThree.PartTwo.Sec4.ProjSLEquiv
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Center
 import CFSG.Models.PGLSimple
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

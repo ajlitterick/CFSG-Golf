@@ -2,25 +2,12 @@
 module
 
 public import Certificates.Certificate3084Base
-import Certificates.Kernel.J4Count.PrimBase
-import CFSG.Sporadic.Schreier.J4SOrbitsBase
 meta import CFSG.Sporadic.Schreier.J4SOrbitsBase
-public import CFSG.Sporadic.J4.QT2LocPath
-public import CFSG.Sporadic.J4.Action
 
-public import CFSG.Sporadic.J4.Local
 import Certificates.Kernel.J4Count.Prim
-import CFSG.Sporadic.Schreier.J4SNative
-import CFSG.Sporadic.Schreier.J4SCols
-import CFSG.Sporadic.Schreier.J4SFormData
-import CFSG.Sporadic.Schreier.J4SNoCompData
 meta import CFSG.Sporadic.Schreier.J4SNoCompData
-import CFSG.Sporadic.Schreier.J4SOrbits
 meta import CFSG.Sporadic.Schreier.J4SOrbits
 import Certificates.Certificate4008
-public import CFSG.Perm.ChainSpec
-public import CFSG.Sporadic.J4.CertParts
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

@@ -3,8 +3,6 @@ module
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.LinearGen
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Basic
 public import CFSG.RankThree.PartOne.CTP.SeitzLinear
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Families
 public import CFSG.HardMathSupport.Timmesfeld.Proving.ExistsOrderPCentralizer
 public import CFSG.HardMathSupport.Timmesfeld.Proving.GLAPrimeCoreCentralizer

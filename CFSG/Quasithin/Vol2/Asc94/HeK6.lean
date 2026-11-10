@@ -4,8 +4,6 @@ public import CFSG.Quasithin.Vol2.Asc94.HeK4
 public import CFSG.Quasithin.Vol2.Asc94.TSF6Model
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoL3FourE16Check
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoL3FourHypIICheck
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoFoundation
-public import CFSG.LocalAnalysis.ComponentClassification.AS76bLemma34
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Step11
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoFoundationFinal
 public import CFSG.ClassicalInvolution.Asc77.HypOmegaBasic

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenBN.U5.Model
 public import CFSG.RankThree.CentralLiftU.UnitaryTorus
 public import CFSG.RankThree.CentralLiftU.UnitaryBorelLift
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherSylow
 public import CFSG.RankThree.CentralLiftU.UnitaryTriRoots
 
 public noncomputable section

@@ -1,10 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.QuotientGroup.Basic
-public import Mathlib.GroupTheory.OrderOfElement
-public import Mathlib.GroupTheory.Coset.Card
-public import Mathlib.Data.Nat.Prime.Basic
 
 namespace CFSG
 end CFSG

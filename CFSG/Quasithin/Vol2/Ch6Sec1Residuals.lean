@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch6Sec1Lem25Act
 public import CFSG.Quasithin.H13.NParamRootFourLift
-public import CFSG.Quasithin.Background.G6Transvection
 public import CFSG.Quasithin.Vol2.Ch6Sec1Lem19S
 public import CFSG.Quasithin.Vol2.Ch6Sec1Lem25Inputs
 

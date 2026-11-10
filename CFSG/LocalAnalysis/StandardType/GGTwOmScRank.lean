@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwAutDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitOmRank
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailHolds
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
-public import CFSG.RankThree.PartOne.S11d.OrthModels
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinates
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173SplitFrame
 
 public section

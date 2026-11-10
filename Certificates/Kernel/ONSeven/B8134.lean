@@ -11,8 +11,6 @@ public import Certificates.Kernel.ONSeven.BB1
 public import Certificates.Kernel.ONSeven.BF3
 public import Certificates.Kernel.ONSeven.BX0
 public import Certificates.Kernel.ONSeven.BX1
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

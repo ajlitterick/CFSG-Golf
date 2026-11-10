@@ -3,11 +3,7 @@ module
 public import CFSG.Monster.B.GSide.HInnerFusionY3CertInputs
 import Certificates.Kernel.BabyMonster.CTIB.Y3136
 import Certificates.Kernel.BabyMonster.CTIB.CosetQBind
-import Certificates.Kernel.BabyMonster.CTIB.QK
-import Certificates.Kernel.BabyMonster.CTIB.InnerTab
-import Certificates.Kernel.BabyMonster.Census
 import CFSG.Certificates.Kernel.BabyMonster.OrbTreeSound
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

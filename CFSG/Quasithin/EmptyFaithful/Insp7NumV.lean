@@ -1,20 +1,10 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.Insp7NumT
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115SporadicMathieu
-import CFSG.Sporadic.Schreier.MathieuOddCoreM22
-import CFSG.Sporadic.Schreier.MathieuOddCoreM12
-public import Certificates.Certificate2193
-public import Certificates.Certificate2194
-public import Certificates.Certificate2195
 public import Certificates.Certificate2200
 public import Certificates.Certificate2202
-public import Certificates.Certificate3029
-public import Certificates.Certificate3086
-public import Certificates.Certificate3157
-public import Certificates.Kernel.J4Count.FixCE
 import CFSG.Sporadic.Schreier.MathieuOddCore
 import CFSG.Walter.J1
 

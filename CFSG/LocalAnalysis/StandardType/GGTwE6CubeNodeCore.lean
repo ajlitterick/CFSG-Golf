@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6CubeNodeMain
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CubeNodeRow
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CubeNodeExcl
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CubeNodeExclFalse
-public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsCoreDefs
 import CFSG.LocalAnalysis.StandardType.GGTwE6D5CoreFrame
-import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsLangCube
 import CFSG.LocalAnalysis.StandardType.GGTwE6EndNodeThreeMat
 
 public section

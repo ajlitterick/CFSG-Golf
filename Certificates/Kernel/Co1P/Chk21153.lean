@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Co1P.Defs21153
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Common.StrLits
 import CFSG.Certificates.Kernel.Common.StrLitsProj
 public import Certificates.Data.Kernel.Co1PText
 

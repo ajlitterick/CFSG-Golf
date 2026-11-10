@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.FrameData
-public import CFSG.RankThree.Native.PermEnumeration
 
 public section
 

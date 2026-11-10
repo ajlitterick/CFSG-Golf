@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Sporadic.Schreier.TitsCertCheck
-public import Certificates.Data.CFSGNative.SectionRank.TitsChain
 public meta import CFSG.Sporadic.Schreier.TitsData
 public meta import CFSG.Sporadic.Schreier.TitsArrays
 public meta import CFSG.Sporadic.Schreier.TitsBasic

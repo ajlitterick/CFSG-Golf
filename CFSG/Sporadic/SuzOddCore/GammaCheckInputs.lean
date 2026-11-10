@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.SuzOddCore.GraphArraysCheck
 public import CFSG.Sporadic.SuzOddCore.CertChainCheck
-public import Certificates.Data.CFSGNative.Schreier.Refine
 public import Mathlib.Data.Fintype.Card
 public meta import CFSG.Sporadic.SuzOddCore.GraphArraysCheck
 public meta import CFSG.Sporadic.SuzOddCore.CertChainCheck

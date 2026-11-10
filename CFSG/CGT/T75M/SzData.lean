@@ -2,19 +2,11 @@ module
 
 public import CFSG.CGT.Timmesfeld75.Sec3L2
 public import CFSG.CGT.Timmesfeld75.ConclusionIso
-public import CFSG.CGT.Timmesfeld75.Sec3Odd
 public import CFSG.CGT.Timmesfeld75.BenderInputs4
 public import CFSG.CGT.Timmesfeld75.BenderInputsBasic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.StronglyEmbedded.BenderBorelTransport
-public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.Models
-public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderSuzukiBorel
 public import CFSG.CGT.Timmesfeld75.Derivations
 public import CFSG.CGT.Timmesfeld75.SimpleCase
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.theorem_4_18_b
 
 public section
 

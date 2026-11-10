@@ -1,20 +1,11 @@
 
 module
 
-public import CFSG.Sporadic.Co1.Module.Forms
-public import CFSG.Sporadic.Co1.Module.PairsCheckInputs
 public import Certificates.Kernel.Co1M.Scan10076
 public import Certificates.Kernel.Co1M.Orb98280
 public import Certificates.Kernel.Co1Cover.Bridge
 public import CFSG.Certificates.Kernel.Co1M.BfsTreeSound
-public import CFSG.Certificates.Kernel.VecKRegs
-public import Certificates.Data.CFSGNative.Co1.Data
-public import CFSG.Sporadic.Co1.Module.Orbits
-public import CFSG.Sporadic.Co1.Module.FormsInputs
-public import CFSG.Sporadic.Co1
-public import CFSG.Sporadic.Co1.Module.OrbitsInputs
 public import CFSG.Sporadic.Co1.Module.PairsCheckBase
-public import CFSG.Certificates.Kernel.VecKSound
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

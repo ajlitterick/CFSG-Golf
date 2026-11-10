@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3WAEDict
-public import CFSG.ClassicalInvolution.Q3.Q3WLift
 public import CFSG.ClassicalInvolution.ModelFacts.E8ExclFrame
 public import CFSG.ClassicalInvolution.Q3.Q3WADict
 public import CFSG.ClassicalInvolution.Q3.Q3WMain

@@ -1,10 +1,6 @@
 
 module
 
-public import Std.Data.HashMap
-public import CFSG.Sporadic.Schreier.TitsStabCheck
-public import CFSG.Quasithin.Recognition.CertTitsEnum4
-public import CFSG.Quasithin.Recognition.CertVertexTable
 public meta import Std.Data.HashMap
 public meta import CFSG.Sporadic.Schreier.TitsData
 public meta import CFSG.Sporadic.Schreier.TitsArrays

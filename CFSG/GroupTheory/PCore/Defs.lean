@@ -1,10 +1,7 @@
 module
 
-public import Mathlib.GroupTheory.PGroup
 public import CFSG.GroupTheory.PCore.Construction
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Core
-import Mathlib.Data.Rat.Floor
 
 public section
 

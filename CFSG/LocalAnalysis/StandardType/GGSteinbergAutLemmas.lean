@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.TitsSimplicity.Core
 public import CFSG.LieType.Steinberg.CentralExt.BorelIndex
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerBorel
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SUSmallDefs
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCoxeter
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMModuleDefs
 
 public section
 

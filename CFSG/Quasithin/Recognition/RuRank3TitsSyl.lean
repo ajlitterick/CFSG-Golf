@@ -1,20 +1,9 @@
 module
 
-public import CFSG.Sporadic.Schreier.TitsInv
-public import CFSG.Sporadic.Schreier.TitsAbel
-public import CFSG.Sporadic.Schreier.RuOrbit
-public import CFSG.Quasithin.Recognition.RuRank3Defs
 public meta import CFSG.Sporadic.Schreier.TitsInv
 public meta import CFSG.Sporadic.Schreier.TitsAbel
 public meta import CFSG.Sporadic.Schreier.RuOrbit
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import Certificates.Certificate2261
-public import Certificates.Certificate2262
-public import Certificates.Certificate2264
-public import Certificates.Certificate2266
-public import Certificates.Certificate2268
-public import Certificates.Certificate2270
-public import CFSG.Quasithin.Recognition.RuRank3TitsSylInputs
 public import Certificates.Certificate7051
 
 public section

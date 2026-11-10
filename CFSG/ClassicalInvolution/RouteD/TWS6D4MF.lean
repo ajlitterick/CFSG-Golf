@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWS6D4V
-public import CFSG.ClassicalInvolution.RouteD.ExoticSingleWitt
-public import CFSG.ClassicalInvolution.RouteD.GapsFrSpin
 
 public section
 

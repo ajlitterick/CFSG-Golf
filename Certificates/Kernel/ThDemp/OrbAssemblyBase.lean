@@ -2,9 +2,6 @@
 module
 
 public import CFSG.Certificates.Kernel.ThDemp.OrbBoundBase
-public import CFSG.Sporadic.Th.SetupBase
-public import Certificates.Kernel.ThDemp.Data
-public import Certificates.Kernel.ThDemp.OrbData
 public import Certificates.Kernel.ThDemp.OrbFam
 import Certificates.Kernel.ThDemp.AssemblyBase
 import Certificates.Kernel.ThDemp.OrbInv

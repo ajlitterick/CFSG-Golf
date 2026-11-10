@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.DThreeConfig
 public import CFSG.Fischer.Classification.Orthogonal2.SpModel
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingIsometryBasis
 public import CFSG.LargeExtraspecial.S2Three
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenTriality
 public import CFSG.LocalAnalysis.SeitzReduction.E8PilotQ2PositionWork

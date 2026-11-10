@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoGlobDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxBasic
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDegFrame
 public import CFSG.LocalAnalysis.StandardType.GGResIICell
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarConnGen
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarData
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarLinData

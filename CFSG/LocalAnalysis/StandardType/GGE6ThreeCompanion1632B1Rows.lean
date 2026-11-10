@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632FrobTriv
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632Rat
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632RatOne
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632RatOpp
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632Lang
 
 public section
 

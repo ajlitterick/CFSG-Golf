@@ -3,7 +3,6 @@ module
 
 public import CFSG.GH74.E2.D8CertInputs
 import all CFSG.GH74.E2.D8CertBase
-public import CFSG.GH74.E2.SD16Cert
 import all CFSG.GH74.E2.SD16Cert
 import all CFSG.GH74.E2.D8CertInputs
 

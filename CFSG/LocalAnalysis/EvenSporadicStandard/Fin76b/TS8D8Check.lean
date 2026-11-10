@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.B.Co2.PermArr
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public import Std.Data.HashMap
 public meta import CFSG.Monster.B.Co2.PermArr
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain

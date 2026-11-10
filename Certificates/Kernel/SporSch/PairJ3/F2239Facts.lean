@@ -6,8 +6,6 @@ public import Certificates.Kernel.SporSch.PairJ3.Check2236
 public import Certificates.Kernel.Sporadic.J3K.Final
 public import Certificates.Kernel.J4Q.Mat
 public import CFSG.Certificates.Kernel.SporSch.J3F80Sound
-public import CFSG.Certificates.Kernel.Spor.Loops
-public import CFSG.Sporadic.Schreier.PairJ3FaithfulCheckInputs
 public meta import CFSG.Sporadic.Schreier.PairJ3Cert
 public meta import CFSG.Sporadic.Schreier.PairF2Sep
 public meta import Certificates.Data.CFSGNative.J3.Data

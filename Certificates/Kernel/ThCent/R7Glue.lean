@@ -4,7 +4,6 @@ public import Certificates.Kernel.ThCent.LGlue
 public import Certificates.Kernel.ThCent.R7C0
 public import Certificates.Kernel.ThCent.R7C1
 public import CFSG.Certificates.Kernel.ThCent.RankSound
-public import CFSG.Certificates.Kernel.Common.ForallTree
 
 public section
 

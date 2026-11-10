@@ -8,7 +8,6 @@ public meta import CFSG.Sporadic.Schreier.MathieuSylowAutM22Inputs
 public meta import CFSG.Sporadic.Schreier.MathieuSylowAutM22Derivs
 public meta import CFSG.Sporadic.Schreier.M22Data
 public meta import CFSG.Monster.B.Mathieu.Order
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

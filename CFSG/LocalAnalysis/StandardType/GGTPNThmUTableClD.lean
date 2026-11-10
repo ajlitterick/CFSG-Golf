@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUTableClDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

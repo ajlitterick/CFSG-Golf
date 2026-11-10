@@ -1,9 +1,7 @@
 module
 
 public import Certificates.Kernel.SchreierFam.C188002P
-public import Certificates.Kernel.SchreierFam.C188002C
 public import Certificates.Kernel.SchreierFam.C188002FG
-public import CFSG.Certificates.Kernel.Spor.RawSound
 public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.Spor.SiftRSound
 public import CFSG.Certificates.Kernel.Spor.PackWord
@@ -12,7 +10,6 @@ public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Certificates.Kernel.Misc.ArrBind
 public import CFSG.Certificates.Kernel.Misc.PairCountSound
 public import Certificates.Kernel.Sporadic.OddCore.ChainCheckGlue
-public import Certificates.Data.HuppertU38.Model
 public import CFSG.RankThree.PartOne.KS.PKit
 public import Certificates.Certificate188002Base
 public import CFSG.Certificates.Kernel.Spor.RawSlSound

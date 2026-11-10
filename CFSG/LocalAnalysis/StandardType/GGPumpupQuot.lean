@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOrbitLocation
 public import CFSG.LocalAnalysis.ComponentClassification.LBalanceQuotient
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreQuotient
-public import CFSG.LocalAnalysis.ComponentClassification.SolvablePrimeCoreLayerLift
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingTransport
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication
@@ -14,7 +12,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
 public import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
 public import CFSG.LocalAnalysis.ComponentInitial.PerfectOuterInjection
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

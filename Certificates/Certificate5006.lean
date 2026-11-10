@@ -4,7 +4,6 @@ public import CFSG.GH74.E2.CompCertsJ2Inputs
 import CFSG.Certificates.Kernel.OpsLayKSoundP
 import Certificates.Kernel.LocalComp.Fp.J2K
 import Certificates.Kernel.LocalComp.Fp.J2Glue
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

@@ -2,9 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6fVec
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6eSides
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6Hx
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6Sym
-public import Mathlib.GroupTheory.Perm.Cycle.Type
 
 public section
 

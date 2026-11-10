@@ -3,13 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTPNI1BC
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideSpTypeGL
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideSpTypeGU
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
 public import CFSG.Foundations.SteinbergCADefinitionNodes
 public import CFSG.LieType.SemisimpleCentralizers.HeldUCDTransfer
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenSymplecticNormalForm
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympInnerExport
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.SympInner
 import CFSG.LocalAnalysis.StandardType.GGLieModelPSULabel
 public import CFSG.LieType.SemisimpleCentralizers.HeldUCDField
 

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Ly3085.O2.Data
 public import Certificates.Data.Kernel.LyOmega.Canon
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Repo
 
 namespace CFSG.KD.LyO2

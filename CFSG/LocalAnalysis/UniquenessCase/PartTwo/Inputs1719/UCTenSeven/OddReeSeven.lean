@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCTenSeven.OddRee
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCTenSeven.OddReeSevenTools
-import CFSG.Walter.ReeOrder.JT.Section2
-import CFSG.Walter.ReeOrder.JT.Section7C
 import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductionsII
 import CFSG.Monster.B.GSide.HInnerFusion
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover

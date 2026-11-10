@@ -4,7 +4,6 @@ public import Certificates.Kernel.G24B.Checks733008
 public import Certificates.Kernel.G24B.RecChecks
 public import Certificates.Kernel.G24B.RecsZ
 public import Certificates.Kernel.G24B.RData
-public import Certificates.Data.G24IdentPc
 import CFSG.Certificates.Kernel.Common.Cover
 import CFSG.Certificates.Kernel.Common.Harness
 

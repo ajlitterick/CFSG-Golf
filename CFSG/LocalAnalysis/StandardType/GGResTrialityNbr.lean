@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTCJD4Tag
 public import CFSG.LocalAnalysis.StandardType.GGNbrLabelJOfTcjK
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGTCJHolds
 
 public section

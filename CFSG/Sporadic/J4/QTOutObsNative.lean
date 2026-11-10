@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.J4.QTOutMatNative
 public import CFSG.Sporadic.J4.QTOutCocNative
 public import CFSG.Sporadic.J4.QTOutObsData
-public import CFSG.Sporadic.J4.QTRankInvNative
 
 public section
 

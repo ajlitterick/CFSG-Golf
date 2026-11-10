@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP5UnitaryFix
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotBlocks
-public import CFSG.Open.StatedAPI
 public import CFSG.Assembly.Subnormal
 
 public section

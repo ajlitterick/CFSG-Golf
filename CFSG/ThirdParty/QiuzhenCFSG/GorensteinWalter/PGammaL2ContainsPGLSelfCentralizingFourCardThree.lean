@@ -1,15 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2Subgroups
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2InvolutionFusion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeEquiv
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GWLemma21
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GWLemma21Trichotomy
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-import Mathlib.GroupTheory.SpecificGroups.Alternating
-import Mathlib.GroupTheory.SpecificGroups.Alternating.KleinFour
-import Mathlib.GroupTheory.SpecificGroups.KleinFour
 
 namespace CFSG
 end CFSG

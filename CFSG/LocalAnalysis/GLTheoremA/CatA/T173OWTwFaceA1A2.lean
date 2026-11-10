@@ -2,14 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OWTwFaceFrame
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.TwE6LeviRank
-public import CFSG.Open.LocalVocabulary
 
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OWTwFaceLevi
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OWTwFaceTwist
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveTwFaceD4Rank
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.TwE6LeviChar
 import CFSG.LinearAlgebra.LinearGroups.SLConjugationEmb
-import Mathlib.RingTheory.RootsOfUnity.Basic
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiag
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerResiduals
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Reduction
@@ -50,7 +47,6 @@ public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

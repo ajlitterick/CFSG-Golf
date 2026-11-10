@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldFiveE8Classes
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsSp
 public import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
 public import CFSG.LocalAnalysis.ComponentInitial.BlockNormalizerControl
 

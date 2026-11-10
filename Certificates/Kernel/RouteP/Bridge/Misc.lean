@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.RouteP.Bridge.Defs
 import CFSG.Certificates.Kernel.Common.SliceRange
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Presentation.Common
 public import Mathlib
 

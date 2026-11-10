@@ -6,8 +6,6 @@ public import CFSG.Sporadic.Schreier.PairHSPairs
 public import CFSG.Sporadic.Schreier.PairCounts
 public meta import CFSG.Sporadic.Schreier.PairHSCheck
 public meta import Certificates.Data.CFSGNative.PairSchreier.Counts
-public import Certificates.Certificate2218
-public import Certificates.Certificate2219
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.GroupTheory.LocalCores.Fitting

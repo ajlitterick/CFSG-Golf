@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRank
-import CFSG.GroupTheory.ElementaryAbelianTransport
-import CFSG.LieType.Chevalley.AdjointCenter
-import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankF4Basic
 import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankF4Form
 import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankF4Lang
 import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankF4Transfer

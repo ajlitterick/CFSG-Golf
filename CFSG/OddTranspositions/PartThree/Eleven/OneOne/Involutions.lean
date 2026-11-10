@@ -2,7 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Frame
 import CFSG.OddTranspositions.SixFiveInputs
-import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 import CFSG.GroupTheory.CardSupInf
 import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 import CFSG.OddTranspositions.CommutatorSize

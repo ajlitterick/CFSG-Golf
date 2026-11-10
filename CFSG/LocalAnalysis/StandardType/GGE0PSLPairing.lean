@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE0LiftGeneric
 public import CFSG.LocalAnalysis.StandardType.GGE0PSLNotDvd
 public import CFSG.LocalAnalysis.StandardType.GGE0PSLRigid
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

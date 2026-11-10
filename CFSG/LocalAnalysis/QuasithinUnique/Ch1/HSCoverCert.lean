@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.HSCoverCheck
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.HSCoverCheck
 public import Certificates.Certificate4085
 

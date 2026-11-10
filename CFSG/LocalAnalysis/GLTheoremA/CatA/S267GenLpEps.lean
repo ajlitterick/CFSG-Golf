@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267GenDefs
-import CFSG.HardMathSupport.Timmesfeld.Tables.Multiplier.LinearCover
 import CFSG.HardMathSupport.Solomon.Coordinator.I10_20
-import CFSG.LieType.Steinberg.CentralExt.PSLMultiplier
-import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-import CFSG.LieType.Steinberg.CentralExt.MultiplierCongr
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CenterHopf
-import CFSG.Adapters.TauCetiLieModels
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267BadExcRed
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264Parts
 public import CFSG.LocalAnalysis.GLTheoremA.S4S.I145GW

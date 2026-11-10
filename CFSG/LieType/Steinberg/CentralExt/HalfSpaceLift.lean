@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.CentralExt.RootLift
-public import CFSG.LieType.Steinberg.PartBHalfSpace
-public import CFSG.LieType.Steinberg.RankTwo.ReparamRelations
 public import CFSG.LieType.Steinberg.RankTwo.Statement
 public import CFSG.Assembly.Subnormal
 public import CFSG.LieType.Steinberg.CentralExt.RankOne

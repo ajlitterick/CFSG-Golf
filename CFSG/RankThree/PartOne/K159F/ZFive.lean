@@ -1,18 +1,12 @@
 module
 
-public import CFSG.RankThree.PartOne.S12.Sec159FiveDefs
-public import CFSG.RankThree.PartOne.S12.Sec159Node
 public import CFSG.RankThree.PartOne.S12.Sec1511Y2Quot
 public import CFSG.RankThree.PartOne.K159F.Sz
 public import CFSG.RankThree.PartOne.K159F.CenterRankFive
 public import CFSG.RankThree.PartOne.N143.SectionCenter
 import CFSG.RankThree.PartOne.S10.EmbeddingFixedResidual
-import CFSG.RankThree.PartOne.S10.AmbientTheta
 import CFSG.RankThree.PartOne.S10.SelectedPrimeNormalizeThetaComponents
 import CFSG.RankThree.PartOne.S10.EmbeddingTransport
-import CFSG.RankThree.PartOne.S9.Sylow.ResidualBridge
-import CFSG.RankThree.PartOne.S12.Sec12FusChoice
-import CFSG.RankThree.OddKernel.ThreeComplementQuotient
 import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.LocalAnalysis.SectionRank.SectionAssembly
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
@@ -38,7 +32,6 @@ public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
 public import CFSG.Sporadic.ThSchreier.KernelAut
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 
 public section

@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Blueprint.ChevalleyStringsInputs
 public import Certificates.Certificate114
 
-public import CFSG.Blueprint.ChevalleyRoots
-public import Certificates.Certificate113
 
 public section
 

@@ -1,18 +1,13 @@
 module
 
-public import Certificates.Kernel.Sporadic.Fi24OrbL.FactsPrelude
 import all Certificates.Kernel.Sporadic.Fi24OrbL.FactsPrelude
 public import CFSG.Sporadic.Fi24.Simple
 
-public import Certificates.Kernel.Sporadic.Fi24OrbL.FactsBase
 import all Certificates.Kernel.Sporadic.Fi24OrbL.FactsBase
 
-public import Certificates.Kernel.Sporadic.Fi24OrbL.Bridge
-public import Certificates.Kernel.Sporadic.Fi24Form.Final
 import Certificates.Kernel.Sporadic.Fi24Orb.Small
 public import CFSG.Sporadic.Fi24.Faithful
 public import CFSG.Sporadic.Fi24.SepSpec
-public import Certificates.Certificate1016Base
 
 public section
 

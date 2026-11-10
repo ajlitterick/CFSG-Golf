@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsL33c
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsL33b
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.OrthInnerExport
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieComp.OrthInnerExport
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieComp.OrthFieldExport
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorOmega

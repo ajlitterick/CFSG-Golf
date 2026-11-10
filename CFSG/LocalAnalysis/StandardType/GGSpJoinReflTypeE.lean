@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinReflPairing
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylReflectionOfFixedPoints
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcDiagramAutomorphisms
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLFaithful
-public import CFSG.LieType.Chevalley.SimplyLacedFieldTwoCoverRoots
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralWeyl
 
 public section

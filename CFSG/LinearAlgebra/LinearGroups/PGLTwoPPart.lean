@@ -2,7 +2,6 @@ module
 
 public import CFSG.LinearAlgebra.LinearGroups.TameProjectiveSubgroups
 import CFSG.Dihedral.Glauberman.DicksonMaxList
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Cardinality
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtH23P4Mul
 

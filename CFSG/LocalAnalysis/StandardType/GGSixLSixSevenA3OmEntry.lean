@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3OmModel
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3OmNumerics
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenCases
 
 public section
 

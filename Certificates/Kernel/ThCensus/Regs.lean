@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.ThCensus.Defs
 public import Certificates.Kernel.ThCensus.Data
 public import CFSG.Certificates.Kernel.Th.S.Data.Sm_const
 public import CFSG.Certificates.Kernel.Th.S.Data.Seed_const
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Each
 
 public section

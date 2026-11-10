@@ -4,9 +4,6 @@ public import CFSG.ClassicalInvolution.SmallCases.NDBE0Stmt
 import CFSG.ClassicalInvolution.Asc77.WP3CFCZT
 import CFSG.ClassicalInvolution.Asc77.AscT8Basic
 import CFSG.ClassicalInvolution.Asc77.AscE187Img
-import CFSG.ClassicalInvolution.Asc77.WP3SCVPart
-import CFSG.ClassicalInvolution.SmallCases.DSplitEdge
-import CFSG.ClassicalInvolution.Balance.BootstrapLayersFuzzyFrames
 import CFSG.ClassicalInvolution.Asc77.AscE187Basic
 import CFSG.ClassicalInvolution.Asc77.AscE187Cop
 import CFSG.ClassicalInvolution.Asc77.AscT8Setup

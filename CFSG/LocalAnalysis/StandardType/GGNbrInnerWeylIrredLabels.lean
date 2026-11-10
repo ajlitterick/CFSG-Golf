@@ -3,11 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangWeylRestVac
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMoreSp
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMoreOrth
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMoreExc
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenUnitaryIrred
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpModel
 
 public section
 

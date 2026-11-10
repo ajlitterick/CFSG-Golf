@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
 import CFSG.ClassicalGroups.Orthogonal.RootGroupStabilizerFour
 public import CFSG.ClassicalGroups.Orthogonal.OmegaSiegelMinusThreeN
 public import CFSG.RankThree.GF2n.Smith81.OrthRootInvol

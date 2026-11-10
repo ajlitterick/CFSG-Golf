@@ -4,8 +4,6 @@ public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Hyp
 import CFSG.OddTranspositions.PartThree.Eleven.OneOne.DerivedShared
 public import CFSG.GH74.Generic.BProg.B2.L2Cover
 import CFSG.OddTranspositions.PartThree.Eleven.GroupLemmas
-import CFSG.Milestones.ASVolI.I2Covers
-import CFSG.LocalAnalysis.QuasithinUnique.CatalogBridgeLinear
 
 public section
 

@@ -7,7 +7,6 @@ public import Certificates.Data.Kernel.Spor.TextAt
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoRu.WordsInputs
 import CFSG.Certificates.Kernel.Common.Generalize
 import CFSG.Certificates.Kernel.Spor.RawOrbHead
-import CFSG.Monster.B.Co2.PermArr
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Rudvalis
 public import CFSG.Certificates.CosetTableCompactColumns

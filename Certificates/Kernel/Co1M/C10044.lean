@@ -1,14 +1,5 @@
 module
 
-public import CFSG.Sporadic.Co1.Module.Pairs
-public import CFSG.Sporadic.Co1.Module.Involutions
-public import CFSG.Sporadic.Co1.Module.InvAssemble
-public import CFSG.Monster.GMS.Facts.Co1OddPairs
-public import CFSG.Monster.GMS.Leech.Linear
-public import CFSG.Monster.GMS.S365RootInputs
-public import Certificates.Kernel.Co1Cover.Bridge
-public import Certificates.Kernel.Co1M.Orb98280
-public import Certificates.Kernel.Co1M.Data10044
 public import CFSG.Certificates.Kernel.Co1M.BfsTreeSound
 public import Certificates.Kernel.Co1M.Cov10044
 import CFSG.Certificates.Kernel.Common.Harness

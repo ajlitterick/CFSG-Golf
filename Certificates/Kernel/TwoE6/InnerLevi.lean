@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.TwoE6.Transport
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.Stroth23InnerLeviInputs
 import CFSG.Certificates.Kernel.Common.Harness
-public import Mathlib
 
 public section
 

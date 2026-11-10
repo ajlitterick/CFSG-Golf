@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0ModelFrameOn
 public import CFSG.LocalAnalysis.StandardType.GGE0ExcNoSuzukiReeAt
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.F151PExcNormCore
-public import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderTwistedE6Diag
 public import CFSG.Assembly.OpenBridges
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenAsm
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TwE6

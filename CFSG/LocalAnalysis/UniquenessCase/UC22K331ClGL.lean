@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22K331Basic
 public import CFSG.LocalAnalysis.UniquenessCase.UC22K331ClLift
-import CFSG.LocalAnalysis.UniquenessCase.UC22S206d
 import CFSG.LocalAnalysis.UniquenessCase.UC22S206e
-import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.UniquenessCase.UC22S206c
 
 public section

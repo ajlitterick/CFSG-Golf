@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.FischerOddCore.Fi22Cent
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheck
 public meta import CFSG.Sporadic.FischerOddCore.Fi22Cent
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheck
-public import CFSG.Sporadic.FischerOddCore.Fi22CentOrderCheckInputs
 public import Certificates.Certificate2066
 
 public section

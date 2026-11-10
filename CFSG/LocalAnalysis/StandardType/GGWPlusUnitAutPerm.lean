@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdNbr
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvRat
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitActCore
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBPermAut

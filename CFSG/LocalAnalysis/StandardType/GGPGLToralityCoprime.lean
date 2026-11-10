@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGPGLToralityMain
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdTorality
 
 public section

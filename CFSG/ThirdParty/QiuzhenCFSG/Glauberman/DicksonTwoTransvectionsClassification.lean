@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonClassification
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonTraceField
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonExceptionalF9
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonTwoTransvections

@@ -5,8 +5,6 @@ public import Certificates.Kernel.SuzThree13637.QChk
 public import Certificates.Kernel.SuzThree13637.HypFacts
 public import Certificates.Kernel.SuzThree13637.CFacts
 public import CFSG.Certificates.Kernel.Spor.QMdlKSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

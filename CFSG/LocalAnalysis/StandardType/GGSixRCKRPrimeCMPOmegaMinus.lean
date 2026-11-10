@@ -5,12 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMLiftPOmegaMinus
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMBlockOmega
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMBlockExt
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMExclPOmegaMinus
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeF1POmegaMinus
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeStepA
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaModel
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.Orthogonal
-public import CFSG.GroupTheory.IsComponentOfMap
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

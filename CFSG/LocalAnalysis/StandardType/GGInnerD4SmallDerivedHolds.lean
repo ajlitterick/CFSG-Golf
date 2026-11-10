@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4SmallContracts
-public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.MILabel
 
 public section

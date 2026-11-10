@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBaseThm
 public import CFSG.LocalAnalysis.StandardType.GGNsq2QuotNorm
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthBase
 import CFSG.LocalAnalysis.StandardType.GGNsq2QuotAut
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

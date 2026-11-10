@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6NPanel
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6NTor
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2FixedPointOdd
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Norm
 public import CFSG.ClassicalInvolution.ModelFacts.ChevAutLift
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6Torus
-public import CFSG.LieType.TitsSimplicity.LeviSteinberg
-public import CFSG.LieType.Steinberg.Collection
 
 public section
 

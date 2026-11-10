@@ -6,7 +6,6 @@ public import Certificates.Kernel.J4Q.Dec2Words
 public import Certificates.Kernel.J4Q.Dec2Data
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4Dec2B0Inputs
 import Certificates.Kernel.J4Q.AllN
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

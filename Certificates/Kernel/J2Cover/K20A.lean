@@ -5,9 +5,6 @@ public import Certificates.Kernel.J2Cover.ExtChains
 public import Certificates.Kernel.J2Cover.K21
 public import Certificates.Kernel.J2Cover.Orb
 meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverExternalData
-public import CFSG.Certificates.Kernel.Spor.SiftRSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

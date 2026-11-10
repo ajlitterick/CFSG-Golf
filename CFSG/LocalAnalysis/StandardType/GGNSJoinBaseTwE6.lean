@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNSJoinRMDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6BadWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTBRowTwE6Weyl
 public import CFSG.LocalAnalysis.StandardType.GGTBRowTwE6Rank
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1WeylE
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-import CFSG.LocalAnalysis.StandardType.GGStdSubExist
 
 public section
 

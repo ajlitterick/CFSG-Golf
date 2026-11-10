@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBaseNative
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatQuot
 
 public section

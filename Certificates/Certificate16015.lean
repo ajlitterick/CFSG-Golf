@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.B.TwoA.Amalgam.Flag2PlaneInputs
-public import CFSG.Fischer.F4
 import all CFSG.Fischer.F4
 public import CFSG.Monster.B.TwoA.Amalgam.DataBase
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Dihedral.OriginalPrimeStationarity
 public import CFSG.Dihedral.OriginalOneCycleFixedKernel
 public import CFSG.Dihedral.IndexTwoPGLCoordinates
 

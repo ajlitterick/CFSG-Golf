@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthD4JoinType
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthD4Join
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthAInf
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthD4KStruct
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthCount
 
 public section
 

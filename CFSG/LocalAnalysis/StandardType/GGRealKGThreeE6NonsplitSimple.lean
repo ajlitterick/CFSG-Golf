@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThreeE6NonsplitKernel
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThreeE6NonsplitFrame
-public import CFSG.LocalAnalysis.StandardType.GGRealKGExcNegJ
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThreeE6NonsplitPair
 
 public section

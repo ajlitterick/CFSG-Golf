@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.Co2Cent.Data
 public import Certificates.Data.Kernel.OrbRow.Cent
-public import Certificates.Data.Kernel.Spor.Raw
-public import Certificates.Data.Co2Cent
 public import Certificates.Kernel.Sporadic.Co2.ChainA
 public import Certificates.Kernel.Co2I301.ChainL
 import CFSG.Certificates.Kernel.Common.Harness

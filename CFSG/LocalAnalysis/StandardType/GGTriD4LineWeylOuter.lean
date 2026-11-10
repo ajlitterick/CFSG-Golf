@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTriD4LineWeylData
 import CFSG.LocalAnalysis.StandardType.GGTriD4LineWeylStruct
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTriality
 
 public section
 

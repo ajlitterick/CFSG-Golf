@@ -1,20 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGForkF1
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
-public import CFSG.LocalAnalysis.StandardType.GGRCWeylConnected
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-public import CFSG.LocalAnalysis.StandardType.GGWeylSimpleSystemsConj
-public import CFSG.LocalAnalysis.StandardType.GGResIBasic
 public import CFSG.LocalAnalysis.StandardType.GGResILineExit
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS4aAuxA
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
-public import CFSG.LocalAnalysis.StandardType.GGPZCartanRank
-public import CFSG.LocalAnalysis.StandardType.GGResXDatumA
-public import CFSG.LocalAnalysis.StandardType.GGRCTypeADet
 public import CFSG.RankThree.PartOne.S12.Sec1511EILin
-public import TauCeti.Combinatorics.SimpleGraph.BranchComponents
 
 public section
 

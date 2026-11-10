@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.SEITZU49.Stmt
-public import CFSG.RankThree.PartOne.CTP.SeitzU5Gen
 
 public section
 

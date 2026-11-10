@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGDepAOdd
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepThreeChain
-public import CFSG.LocalAnalysis.StandardType.GGRCAbsIrred
 import CFSG.LocalAnalysis.StandardType.GGCartanATypeArith
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeTenCoreA
 

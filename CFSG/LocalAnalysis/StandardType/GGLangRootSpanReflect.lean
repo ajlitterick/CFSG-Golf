@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamRatComp
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-public import CFSG.LieType.AlgebraicGroups.RootWordRegular
 public import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 public import CFSG.Fischer.Classification.Recognition.PSU6
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleSplit

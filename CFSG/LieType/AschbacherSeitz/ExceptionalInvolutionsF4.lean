@@ -3,8 +3,6 @@ module
 public import CFSG.LieType.AschbacherSeitz.ExceptionalInvolutionsDefs
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcF4Classes
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationShortAdjoint
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.ClassicalInvolution.Balance.PassTwoFinal
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
@@ -22,7 +20,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverFour
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.Quasithin.Background.A3ComponentsBasic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 
 public section

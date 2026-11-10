@@ -2,9 +2,6 @@ module
 
 public import Certificates.Data.Odd87F3J2
 public meta import Certificates.Data.Odd87F3J2
-import Certificates.Certificate2233
-import Certificates.Certificate2234
-import Certificates.Certificate2278
 import Certificates.Kernel.J2F3.Facts
 import CFSG.Certificates.Kernel.SporSch.MathieuOCSound
 import CFSG.GH74.GLS.IVK.Proofs2.OddTools

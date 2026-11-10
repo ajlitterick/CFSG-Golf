@@ -1,13 +1,9 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzFbC
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Spor.PackFld
 import CFSG.Certificates.Kernel.HeFixKFix
-import CFSG.Monster.B.Co2.PermArr
-import Mathlib.Data.List.Sort
-import Mathlib.Data.List.Intervals
 
 public section
 

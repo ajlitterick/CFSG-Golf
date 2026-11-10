@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs1415b
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs1419b
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs255r
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims1314
 public import CFSG.HardMathSupport.Dickson.BMRows.M13L33
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.SporTables3b
 

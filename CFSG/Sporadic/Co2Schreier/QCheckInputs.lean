@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Sporadic.Co2Schreier.WitCheck
 public import CFSG.Sporadic.Co2Schreier.SylowCheck
-public import Certificates.Data.CFSGNative.HS.SmallF2
 public meta import CFSG.Sporadic.Co2Schreier.WitCheck
 public meta import CFSG.Sporadic.Co2Schreier.SylowCheck
 public meta import Certificates.Data.CFSGNative.HS.SmallF2

@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpRecDefs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeF1PSL
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeM3PSL
-import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelPSL
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpSLOrder
 import CFSG.LocalAnalysis.StandardType.GGSixRCK1416Spin
 import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIpIso

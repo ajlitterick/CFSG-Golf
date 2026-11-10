@@ -1,15 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.BorelOvergroups
-public import CFSG.LieType.Chevalley.C2E6SubsystemBruhatDefs
-public import CFSG.LieType.Chevalley.ParabolicRadicalLevi
-public import CFSG.LieType.Chevalley.StandardParabolicCells
-public import CFSG.LieType.Chevalley.SylowOpposition
-public import CFSG.LieType.Chevalley.ChevalleySplitBN
-public import CFSG.LieType.Chevalley.RootOps.Comm
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcBruhat
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.Chevalley.GraphFixedE6DiagonalCubes
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4RestLocal
 

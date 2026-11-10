@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6SU6
-public import CFSG.ClassicalInvolution.Models.LinearPairs.Pairs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
 public import CFSG.ClassicalInvolution.LBalance.Main
 public import CFSG.ClassicalInvolution.Models.LinearFrames.Frame

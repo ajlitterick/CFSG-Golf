@@ -3,8 +3,6 @@ module
 
 public import Certificates.Data.Kernel.SporSch.J4SCols
 public import CFSG.Sporadic.Schreier.J4SKCentBase
-public import CFSG.Sporadic.Schreier.J4SOrbitsBase
-public import CFSG.Sporadic.Schreier.PairText
 import CFSG.Certificates.Kernel.Spor.PackFld
 
 public section

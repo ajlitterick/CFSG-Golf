@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimePumpUpAut
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalancePumpup
 public import CFSG.LocalAnalysis.StandardType.GGPumpupBalance
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
-public import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

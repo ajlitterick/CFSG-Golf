@@ -1,14 +1,9 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.S16J2K27810
-public import Certificates.Kernel.Sporadic.OddCore.MulHCmd
-public import Certificates.Kernel.Misc.Perm.HexCmd
-public import Certificates.Data.Kernel.Spor.MulHQ
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaCheck
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaCheck
 meta import Certificates.Data.CFSGNative.PSL3Four.Basic
 meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-import CFSG.Certificates.Kernel.Common.Harness
 meta import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 meta import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3

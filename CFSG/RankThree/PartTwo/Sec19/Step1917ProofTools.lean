@@ -4,8 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec19.Step1917ProofDefs
 public import CFSG.RankThree.PartTwo.Sec19.Step1918ProofEnd
 import CFSG.RankThree.PartTwo.Sec3.ThreeGroupCentralizer
 import CFSG.RankThree.PartTwo.Sec19.Step1919Narrow
-import CFSG.RankThree.PartTwo.Sec18.Components
-import CFSG.RankThree.PartTwo.Sec13.Item136PGL
 
 public section
 

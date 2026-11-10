@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDStdModel
-public import CFSG.LocalAnalysis.StandardType.GGOrthRk1GenComb
 
 public section
 

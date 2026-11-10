@@ -3,9 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec21.Item211Res4ProofMinusU4Tools
 public import CFSG.RankThree.PartTwo.Sec21.Item211Res4ProofMinusGlue
 public import CFSG.RankThree.PartTwo.Sec21.Item211Res4ProofPlusU4
-import CFSG.ClassicalGroups.Unitary.Simple
-import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.RankThree.PartTwo.Census.Classical.Bridges
 import CFSG.RankThree.PartTwo.Sec21.Item211Lie2ProofExcInner
 import CFSG.RankThree.PartTwo.Sec21.Item211Lie2ProofU42Char
 

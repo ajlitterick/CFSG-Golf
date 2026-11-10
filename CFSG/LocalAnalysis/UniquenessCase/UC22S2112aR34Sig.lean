@@ -39,12 +39,9 @@ import CFSG.LocalAnalysis.UniquenessCase.UC22P218c
 import CFSG.Models.Transport
 import CFSG.Quasithin.Background.B216Quotient
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.E3OffenderB
 import CFSG.Quasithin.Background.G2Relaxed
 import CFSG.Quasithin.EmptyFaithful.S14117
-import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-import CFSG.Quasithin.EmptyFaithful.S14117Rank
 import CFSG.Quasithin.EmptyFaithful.S152N11
 import CFSG.Quasithin.Vol2.Ch12Sec8NonabHatTen
 import CFSG.RankThree.PartOne.KC.OrthogonalHighWittFixedSpace

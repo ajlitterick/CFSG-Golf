@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Th.Max3.Data
 public import CFSG.Sporadic.Th.Recog.JLettersInputs
 public import CFSG.Sporadic.Bridge.ThSurj
 public import CFSG.Sporadic.Recognition.PresentedWordsClosure

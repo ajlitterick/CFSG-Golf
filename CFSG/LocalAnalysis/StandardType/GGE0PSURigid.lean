@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDPSU
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.CompPSU
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepToral
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepACore
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.HeisenbergRank
 public import CFSG.LocalAnalysis.StandardType.GGE0PSUComp
 public import CFSG.LocalAnalysis.StandardType.GGE0RigidCount
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
 
 public section
 

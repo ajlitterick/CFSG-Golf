@@ -2,14 +2,10 @@ module
 
 public import Certificates.Kernel.StdOdd.ThreeBlow
 public import Certificates.Kernel.StdOdd.ValsCmd
-public import CFSG.Monster.Existence.StdOdd.P5
 public import CFSG.Monster.Existence.StdOdd.Cert.SylowThreeExt
 public import CFSG.Monster.Existence.StdOdd.Cert.SylowThreeInputs
 public import CFSG.Monster.Existence.StdOdd.Cert.SylowThreeData
-public import CFSG.Monster.B.Classical.E6AdjointTable
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertSylowThree
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

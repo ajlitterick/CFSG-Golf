@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.LocalQT.PEnumD
 public import Certificates.Kernel.LocalQT.PEnumFamD
 import Certificates.Kernel.Sporadic.OrbRecGen
 meta import Certificates.Kernel.LocalQT.PEnumFamD

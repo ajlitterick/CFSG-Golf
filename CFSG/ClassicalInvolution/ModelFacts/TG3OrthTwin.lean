@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.ModelFacts.TG3Common
 public import CFSG.ClassicalInvolution.ModelFacts.TG3Lift
 public import CFSG.ClassicalInvolution.ModelFacts.CF3A
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinStd
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinSpin
 public import CFSG.ClassicalInvolution.ModelFacts.TG3OrthCore
 
 public section

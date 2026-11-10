@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
-public import CFSG.GH74.Defs
 
-import CFSG.GH74.SectionalRank
-import CFSG.LocalAnalysis.UniquenessCase.UC22P20a
 import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch512Alm
-import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch512Sect
-import CFSG.LocalAnalysis.WeakClosure81.W18ASNineCF
-import CFSG.Quasithin.Vol2.Ch8Sec2L829LN1
 import CFSG.CGT.Timmesfeld75.Derivations
 import CFSG.CGT.Timmesfeld75.Form2
 import CFSG.CGT.Timmesfeld75.Main
@@ -23,9 +17,6 @@ import CFSG.LocalAnalysis.ComponentClassification.Sol78Family
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7Iso
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122AProved
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4Quot
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19Defs
 import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2
 import CFSG.LocalAnalysis.WeakClosure81.EightNine
@@ -36,20 +27,16 @@ import CFSG.LocalAnalysis.WeakClosure81.W18PackRank
 import CFSG.LocalAnalysis.WeakClosure81.W19Conf
 import CFSG.LocalAnalysis.WeakClosure81.W19Hyp197
 import CFSG.LocalAnalysis.WeakClosure81.W19Min
-import CFSG.Quasithin.Background.A3Structure318Red
 import CFSG.Quasithin.Background.B216Quotient
 import CFSG.Quasithin.Background.B3Facts
 import CFSG.Quasithin.Background.B3FourConj
 import CFSG.Quasithin.Background.B69Core
 import CFSG.Quasithin.Background.C4Statement
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E2TwoLieQuotLift
 import CFSG.Quasithin.Background.E2TwoProofDefs
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Uniq
-import CFSG.Quasithin.Background.E4Solv
 import CFSG.Quasithin.Background.F9Sixteen
 import CFSG.Quasithin.Background.FFC7G
 import CFSG.Quasithin.Background.H16TwoM22
@@ -63,7 +50,6 @@ import CFSG.Quasithin.Background.SmithB42SL3Key
 import CFSG.Quasithin.Background.SmithB45SL3Label
 import CFSG.Quasithin.Background.SmithB45SL3Outer
 import CFSG.Quasithin.Background.SmithB51LnRealB
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.EmptyFaithful.S14110
 import CFSG.Quasithin.EmptyFaithful.S14117
 import CFSG.Quasithin.EmptyFaithful.S152N11
@@ -90,7 +76,6 @@ import Certificates.Kernel.J4Count.Cent11Base
 import Certificates.Kernel.J4Count.Fix5
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

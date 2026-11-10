@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreSix
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreExc
-public import CFSG.LocalAnalysis.StandardType.GGTwistedF4Diag
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTriDiag
 
 public section
 

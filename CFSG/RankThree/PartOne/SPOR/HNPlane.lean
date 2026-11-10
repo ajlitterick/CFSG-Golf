@@ -2,12 +2,7 @@ module
 
 public import CFSG.RankThree.PartOne.SPOR.HNCover
 public import CFSG.RankThree.PartOne.SPOR.HNChecks
-public import CFSG.Sporadic.HNOddCore.ThreeInvol
-public import CFSG.Sporadic.HNOddCore.Fusion
 public import CFSG.Sporadic.HNOddCore.OuterFix
-public import CFSG.Sporadic.HNSchreier.Order
-public import CFSG.Sporadic.HNSchreier.FullAut
-public import CFSG.RankThree.PartOne.KS.Assembly
 public import CFSG.RankThree.PartOne.KS.Arith
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -25,7 +20,6 @@ public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.Assembly
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 
 public section

@@ -1,17 +1,11 @@
 module
 
-public import CFSG.Open.StatedDefs
-public import Mathlib.LinearAlgebra.GeneralLinearGroup.Basic
 
 import CFSG.LieType.ChevTwo.OppCl.AutLiftsUnitary
 import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherSemilinearInvolution
-import CFSG.ClassicalGroups.UnitaryFlag.ModelTransport
-import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherSemilinearAut
 import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 import CFSG.LieType.BorelTits.CompleteFlag
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -2,20 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanPrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePumpupDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalancePumpup
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpMoves
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpLayerSub
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpRoute
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpSameSuppRoots
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsWeyl
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
 import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.Adapters.SpecialLinearPerfect
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneCard
-import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
 
 public section
 

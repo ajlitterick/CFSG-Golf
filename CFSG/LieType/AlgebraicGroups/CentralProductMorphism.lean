@@ -5,14 +5,9 @@ public import CFSG.LieType.AlgebraicGroups.G2ExceptionalComorphism
 public import TauCeti.RingTheory.FiniteType.Tensor.Product
 public import TauCeti.RingTheory.TensorProduct.PointSeparation
 public import TauCeti.Algebra.AlgebraicGroup.Semisimple.Center.Finite
-public import TauCeti.Algebra.AlgebraicGroup.HopfIdeal.Points.Kernel
 public import TauCeti.Algebra.AlgebraicGroup.Hopf.KernelPoints
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.RingTheory.Bialgebra.Convolution
-public import TauCeti.Algebra.AlgebraicGroup.Connected.AlgebraicallyClosed
 public import TauCeti.Algebra.AlgebraicGroup.ConstantGroup.Points
 public import TauCeti.Algebra.AlgebraicGroup.HopfIdeal.Points.Equalizer
-public import TauCeti.Algebra.AlgebraicGroup.Product
 
 public noncomputable section
 

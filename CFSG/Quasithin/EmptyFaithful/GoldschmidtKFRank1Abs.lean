@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtKFRank
 public import CFSG.LocalAnalysis.PreuniquenessRankFour.SamePrimeAction
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
 
 public section
 

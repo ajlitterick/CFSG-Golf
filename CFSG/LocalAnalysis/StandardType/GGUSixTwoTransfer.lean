@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRule
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperDefs
 
 public section
 

@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Mathieu.M23FourData
 public import Certificates.Kernel.SporSch.Mathieu.M23Cls
 public import Certificates.Data.Kernel.SporSch.FourK
-public import Certificates.Data.Kernel.Spor.MulH
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

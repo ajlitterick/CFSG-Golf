@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.RootD6ModelDefs
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerSymplecticOrth
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.Shared
 public import CFSG.HardMathSupport.Meierfrankenfeld.Proving.E7Curtis.E7Arith
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.Adapters.TauCetiExceptional.BridgeTransport
 
 public section
 

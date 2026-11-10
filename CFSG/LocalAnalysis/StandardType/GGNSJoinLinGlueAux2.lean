@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinLinGlueAux
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1CentLin
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinear
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CoverData
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWS6D4MF
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Ord
 public import CFSG.ClassicalInvolution.Asc77.AscT8ZA1
 
 public section

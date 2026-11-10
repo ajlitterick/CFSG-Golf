@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.E7RecogPieces
-public import CFSG.LocalAnalysis.SeitzReduction.E7PilotQ2SwapMain
 
 public section
 

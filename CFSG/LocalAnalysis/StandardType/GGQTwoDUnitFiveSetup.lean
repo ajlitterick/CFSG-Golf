@@ -2,19 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitFiveDel
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitNbrB
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitFiveNbr
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitNbrBA
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitLayer
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitTorus
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitXTransA
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCompA2
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosBlockAux
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 
 public section
 

@@ -2,10 +2,7 @@ module
 
 public import Certificates.Kernel.Asch54.Fi22Data
 public import Certificates.Kernel.Asch54.Fi22Chain
-public import Certificates.Kernel.Sporadic.Fi22.X2069Final
-public import Certificates.Kernel.Sporadic.Fi22.G3147
 public import Certificates.Kernel.Sporadic.Fi22.E2065T
-public import Certificates.Kernel.Sporadic.Fi22.E2067T
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -1,9 +1,6 @@
 module
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 
-import Mathlib.GroupTheory.IndexNormal
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Utils
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.Infrastructure
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
 
 namespace CFSG

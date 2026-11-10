@@ -1,10 +1,7 @@
 module
 
 public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.IndexNormal
 public import Mathlib.GroupTheory.Frattini
-public import Mathlib.GroupTheory.Nilpotent
 
 public section
 

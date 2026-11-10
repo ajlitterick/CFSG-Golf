@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.H13.NQCatT3Red
 public import Certificates.Certificate7157
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
 
 public section
 

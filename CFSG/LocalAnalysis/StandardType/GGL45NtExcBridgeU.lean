@@ -3,16 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyClosedLang
-public import CFSG.LieType.AlgebraicGroups.RationalCentralizerCocycle
-public import CFSG.LieType.Ree.Endo
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-public import CFSG.RankThree.Chevalley.EvenPinnedRootSL2
-public import CFSG.RankThree.Chevalley.G2F4FiniteFieldFixedMatrices
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E8FivePurityLang
 public import CFSG.LocalAnalysis.SeitzReduction.E7PilotAlignTori
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupDescent
-public import CFSG.LieType.Chevalley.GraphFixedData
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE7Data
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Rank1
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.E8.MPart

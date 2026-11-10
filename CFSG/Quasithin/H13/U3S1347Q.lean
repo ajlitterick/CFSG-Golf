@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.H13.U3S1347P
-public import CFSG.Quasithin.H13.A6Model4
 public import CFSG.Sporadic.Schreier.J4SSylowBase
 public import CFSG.Quasithin.H13.U3S1347QK
 

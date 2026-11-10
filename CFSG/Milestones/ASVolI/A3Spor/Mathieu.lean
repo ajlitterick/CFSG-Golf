@@ -1,10 +1,7 @@
 module
 
 public import CFSG.Milestones.ASVolI.A3Spor.Core
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListM11
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListM22
 public import CFSG.Quasithin.H13.NQCatT513Hall
-public import CFSG.Quasithin.H13.NQCatA314M23
 public import CFSG.Quasithin.H13.A7Nat1238YCases
 public import CFSG.Quasithin.Vol2.Ch10SecD33
 public import CFSG.Quasithin.Vol2.Ch10SecDClA
@@ -29,10 +26,6 @@ public import CFSG.Quasithin.Vol2.Ch5Sec1Lem5113
 public import CFSG.Quasithin.Vol2.Ch5Sec1Lem5113Type
 public import CFSG.Quasithin.Vol2.Ch5Sec1Lem512
 public import CFSG.Quasithin.Vol2.Ch6Sec1Lem4SpA
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 
 public section
 

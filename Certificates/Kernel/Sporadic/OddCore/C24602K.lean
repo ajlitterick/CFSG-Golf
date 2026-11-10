@@ -1,14 +1,10 @@
 module
 
 public import Certificates.Data.Kernel.Spor.ConjRun
-public import Certificates.Data.Kernel.Spor.MulHF
 public import Certificates.Kernel.Sporadic.OddCore.J3BetaA5
-public import Certificates.Kernel.SporSch.PairJ3.Chain
-public import Certificates.Kernel.Sporadic.OddCore.MulHCmd
 public import Certificates.Kernel.Sporadic.OddCore.RowsCmd
 public import Certificates.Kernel.Sporadic.OddCore.C24602D
 meta import Certificates.Kernel.Sporadic.OddCore.C24602D
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Each
 
 public section

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Fischer.T46Simple
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import CFSG.Sporadic.Schreier.MathieuOddCoreOuter
 public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizerData
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.SetOrbitTools
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourCertificate

@@ -2,21 +2,8 @@ module
 
 public import CFSG.Yardstones.M41b0c98b3153.Goals
 public import CFSG.Yardstones.M41b0c98b3153.Reduction
-public import CFSG.Open.StandardComponentRecognitionMilestoneDefs
-public import CFSG.Blueprint.EvenStandardExact
-public import CFSG.Assembly.Reduction
-public import CFSG.Monster.Existence.StdOdd.Defs
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
-public import CFSG.YGroups.Y443.Native.Swap13Word
-public import Certificates.Data.TitsAschbacherFive
-public import Certificates.Kernel.EvenBN.Bind
-public import Certificates.Kernel.EvenBN.DWord
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.ClassicalInvolution.ModelFacts.G2D4G2Edge
 public import CFSG.ClassicalInvolution.Orders.OddLieType
@@ -26,7 +13,6 @@ public import CFSG.Holt.TwoGroupsFocal
 public import CFSG.LargeExtraspecial.S8CBFSect
 public import CFSG.LieType.Multipliers.U62Sylow
 public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsCentModel
-public import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentA6ClExcCommon
 public import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentA6ClPSLSmallBasic
 public import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentA6ClPSUGraph
 public import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentA6ClPSpInner

@@ -1,11 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.pStability
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.GroupTheory.Index
-public import Mathlib.GroupTheory.Subgroup.Centralizer
 
 namespace CFSG
 end CFSG

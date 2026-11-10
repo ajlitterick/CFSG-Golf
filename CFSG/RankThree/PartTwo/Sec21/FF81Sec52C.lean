@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec21.FF81Defs
 public import CFSG.RankThree.PartTwo.Sec21.FF81Sec36Geom
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec53
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec54
@@ -10,7 +9,6 @@ import CFSG.RankThree.PartTwo.Sec21.FF81Step0
 import CFSG.RankThree.PartTwo.Sec21.FF81J
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec32A
 import CFSG.RankThree.PartTwo.Sec21.FF81Prop51
-import Mathlib.GroupTheory.Perm.Centralizer
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 

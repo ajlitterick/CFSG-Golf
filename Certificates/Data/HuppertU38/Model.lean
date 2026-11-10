@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Data.HuppertU38.Data
-public import Mathlib.Data.Fintype.Pi
-public import Mathlib.Data.Fin.VecNotation
 public import Mathlib.Algebra.Field.MinimalAxioms
 
 public section

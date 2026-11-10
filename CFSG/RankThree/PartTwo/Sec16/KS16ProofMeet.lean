@@ -1,13 +1,8 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec16.Item169GeneralDefs
-import CFSG.RankThree.PartTwo.Sec13.Item13Prod
 import CFSG.RankThree.PartTwo.Sec13.Item131Facts
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import CFSG.RankThree.PartTwo.Sec13.Item136PGL
 import CFSG.RankThree.PartTwo.Sec13.Item138ProofPGL
-import CFSG.RankThree.PartTwo.Sec4.LThreePiSinger
-import CFSG.RankThree.PartTwo.Sec4.LThreePiMain
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2

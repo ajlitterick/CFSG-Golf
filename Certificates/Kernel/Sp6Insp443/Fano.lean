@@ -2,11 +2,9 @@ module
 
 public import Certificates.Kernel.Sp6Insp443.Facts
 public import Certificates.Data.Kernel.A45Cls.Defs
-public import Certificates.Data.CFSGNative.Insp443.PermTests
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 import CFSG.Certificates.Kernel.Common.Each
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Common.Lce
 
 public section

@@ -3,9 +3,7 @@ module
 
 public import Certificates.Certificate2315Base
 public meta import CFSG.Sporadic.ThSchreier.LocalOrbitBase
-import Certificates.Kernel.SporSch.Th.Orb2315Base
 
-public import CFSG.Sporadic.ThSchreier.OrbitCheck819Inputs
 public meta import CFSG.Sporadic.ThSchreier.TransporterBase
 public meta import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
 import Certificates.Kernel.SporSch.Th.Orb2315

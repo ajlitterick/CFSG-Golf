@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGTBJD4FrameAux
 import CFSG.LocalAnalysis.StandardType.GGTBJD4Field
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmega
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentBstar
-import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitExcCore
 
 public section

@@ -2,10 +2,7 @@ module
 
 public import CFSG.RankThree.Native.Co2FiveStructures
 import Certificates.Kernel.Misc.Perm.C2Z
-import Certificates.Kernel.Misc.Perm.C2K
 import CFSG.Certificates.Kernel.Common.Harness
-import Certificates.Certificate3115
-import Certificates.Certificate3117
 public import CFSG.Certificates.InvariantMerge
 public import CFSG.Sporadic.Co2Cert.Order
 import CFSG.Certificates.Kernel.Misc.ArrEnumSound

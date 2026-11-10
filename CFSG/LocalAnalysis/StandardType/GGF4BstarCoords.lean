@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4B3CoreRep
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
-import CFSG.LocalAnalysis.StandardType.GGF4WeylMat
 import CFSG.LocalAnalysis.StandardType.GGF4Rk2Core
 
 public section

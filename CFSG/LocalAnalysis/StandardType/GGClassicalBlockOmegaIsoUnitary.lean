@@ -1,22 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDefs
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaDict
-public import CFSG.LocalAnalysis.StandardType.GGOuterInvFieldTags
-public import CFSG.LocalAnalysis.StandardType.GGE0Frame
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDecomp
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoAdj
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.ReducedAlgebra
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.TraceTransfer
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpIsoUnitary
-public import CFSG.RankThree.PartOne.KC.OrthogonalSelfDualBlock
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDickson
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBUnitaryIsometrySpaces
-public import CFSG.RankThree.PartOne.AUTSL.OmegaDickson
-public import CFSG.ClassicalGroups.Orthogonal.Matrix
-public import CFSG.GroupTheory.WeirSylow.UniqueE27Orthogonal
-public import CFSG.HardMathSupport.Dickson.Bal207.SemilinCoord
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthSU38Torus
 public import CFSG.HardMathSupport.Dickson.Bal207.Glue
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthSU38Comp

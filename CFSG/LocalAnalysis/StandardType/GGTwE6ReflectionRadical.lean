@@ -1,14 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ConnectedReflection
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ConnectedTwoReflection
-public import CFSG.LieType.AlgebraicGroups.RootSpanConnected
-public import CFSG.LieType.AlgebraicGroups.ExactAffineRealizationGroups
-public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalKempf
 public import CFSG.GroupTheory.WielandtProductBasic
-public import CFSG.LieType.Chevalley.ParabolicGradedAction
-public import CFSG.LieType.Chevalley.E6GraphInvolutionFiniteReduction
-public import CFSG.RankThree.Classical2.TwistedE6RationalOrder
 
 public noncomputable section
 

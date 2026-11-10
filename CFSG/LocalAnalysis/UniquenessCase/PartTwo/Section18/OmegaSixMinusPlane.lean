@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.OmegaSixMinusK
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC56Fix
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S16OPlane
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S16OParC
 public import CFSG.LocalAnalysis.ComponentClassification.CatFC.KGHS3ClassicalMinus
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrHom
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrLarge
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrXGen

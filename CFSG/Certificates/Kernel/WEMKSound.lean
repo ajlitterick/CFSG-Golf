@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.WEMK
 public import CFSG.LocalAnalysis.StandardType.GGWitExcModelRows
-public import CFSG.LocalAnalysis.StandardType.GGWitExcModelAbs
 public import CFSG.Certificates.Kernel.TWLK6Sound
 
 public section

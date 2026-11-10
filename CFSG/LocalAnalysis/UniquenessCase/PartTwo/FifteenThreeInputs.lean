@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs15
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront11
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront08
 
 public section

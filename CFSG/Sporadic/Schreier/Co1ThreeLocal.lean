@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Sporadic.Schreier.Co1Base
-public import CFSG.Sporadic.Co1
 public meta import Certificates.Data.CFSGNative.Co1Schreier.Base
 public meta import Certificates.Data.CFSGNative.Co1.Data
-public import CFSG.Sporadic.Schreier.Co1ThreeLocalInputs
 public import Certificates.Certificate2150
-public import Certificates.Certificate3024
 
 public section
 

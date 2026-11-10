@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwistedE6Factors
 public import CFSG.LocalAnalysis.StandardType.GGFinModelInput
-public import CFSG.LieType.Chevalley.RationalToralSignDiagramTheta
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.KillsRootComb
-public import CFSG.LieType.Chevalley.C2E6UnitaryFourCompound
 public import CFSG.LieType.Chevalley.RootGramNull
 public import CFSG.LocalAnalysis.StandardType.GGJ4dOrthogonalRank
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6U7Pieces

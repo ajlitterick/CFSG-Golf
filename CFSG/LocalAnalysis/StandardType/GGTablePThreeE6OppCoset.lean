@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6FrobDefs
-public import CFSG.LieType.Chevalley.WeylRoots
-public import CFSG.LieType.Steinberg.Adjoint.Pairs
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoDefs
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeSc
 

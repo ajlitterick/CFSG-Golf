@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenSmallLie.Sp6RootClassInputs
 public meta import CFSG.LocalAnalysis.EvenSmallLie.Sp6RootClassInputs
 import Certificates.Kernel.LocalComp.Sp6Root.Facts
-import Certificates.Kernel.LocalComp.Sp6Root.Checks
-import Certificates.Kernel.LocalComp.Sp6J.ClsC
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

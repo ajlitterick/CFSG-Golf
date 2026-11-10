@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRuleSpFinAbs
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameCenter
 public import Certificates.Kernel.ThCent.Leaves
 
 public section

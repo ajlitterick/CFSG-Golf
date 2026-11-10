@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsDim
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsLagrange
-public import Mathlib.LinearAlgebra.Dual.Lemmas
 
 public section
 

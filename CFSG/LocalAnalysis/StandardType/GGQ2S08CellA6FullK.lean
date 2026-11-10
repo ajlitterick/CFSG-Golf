@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08TestCertK
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CellA6Full
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08ReflBasics
-public import CFSG.LocalAnalysis.StandardType.GGQTwoPairsBasic
 
 public section
 

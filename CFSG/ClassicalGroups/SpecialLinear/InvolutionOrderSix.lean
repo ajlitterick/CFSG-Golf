@@ -1,17 +1,7 @@
 module
 
-public import Mathlib.Data.Matrix.Basic
-public import Mathlib.Data.Matrix.Mul
 public import Mathlib.LinearAlgebra.Matrix.Rank
 public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.Algebra.CharP.Two
-public import Mathlib.GroupTheory.OrderOfElement
-public import Mathlib.GroupTheory.QuotientGroup.Defs
-import Mathlib.Data.Matrix.Block
-import Mathlib.LinearAlgebra.Matrix.Reindex
-import Mathlib.LinearAlgebra.Matrix.Permutation
-import Mathlib.GroupTheory.Perm.Sign
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotPositionBNormalForm
 import CFSG.LocalAnalysis.SeitzReduction.LinearPilotFusionNotTransvectionCore
 import CFSG.Quasithin.Vol2.Ch8Sec2L829NKLin
 import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
@@ -19,9 +9,6 @@ import CFSG.LocalAnalysis.ComponentInitial.LinearHigherSubspaceIndex
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 import CFSG.Open.QuasithinDefs
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 import CFSG.Walter.JRFacts
 
 public section

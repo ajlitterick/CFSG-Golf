@@ -4,8 +4,6 @@ public import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
 import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankF4Rank
 import CFSG.LieType.SeitzGeneration.ExcPlaneF4Rest
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.LieType.Chevalley.C2E6SubsystemBruhat
 import CFSG.LieType.Ree.LargeReeEightTorus
 import CFSG.LieType.Ree.SmallReeModelSchreier
@@ -26,7 +24,6 @@ import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 import CFSG.Monster.B.Geometry.CoxeterWords
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.A3Structure36BAction
 import CFSG.Quasithin.Background.A3Structure36BBasic
 import CFSG.Quasithin.Background.A3Structure36BPrime
@@ -39,11 +36,9 @@ import CFSG.RankThree.PartOne.KE.SigmaUntwisted
 import CFSG.RankThree.PartOne.KLR.Master
 import CFSG.RankThree.PartOne.KLR.SectorAssembly
 import CFSG.RankThree.PartOne.S8.Statements
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M12
 import CFSG.Sporadic.Mathieu.M24
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

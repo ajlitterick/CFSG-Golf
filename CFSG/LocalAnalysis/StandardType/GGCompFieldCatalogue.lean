@@ -3,16 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGCompFieldLieModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxAll
 public import CFSG.LocalAnalysis.StandardType.GGLayerChevAdjoint
-public import CFSG.LocalAnalysis.GLTheoremA.PComp
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3LieRes
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LayerSimple
-public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.E6Aux.Diag
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.TwE6Aux.Diag
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CatTw
 public import CFSG.LieType.Chevalley.TwistedE6RootGroupPerfect
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeLift
 public import CFSG.GroupTheory.PCore.SubgroupCore
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossSp
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieOuterIdxSymplectic
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaPlusIota

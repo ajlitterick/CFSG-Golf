@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TableTDefs
-public import CFSG.Blueprint.ChevalleyRootsInputs
-public import CFSG.Blueprint.ChevalleyStringsInputs
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TableTTransport
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TableTStatic
 import CFSG.Certificates.Kernel.E6TT.CoverSound

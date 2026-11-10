@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKSmallLabel
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKU33Transport
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKU33Bridges
-import CFSG.GroupTheory.PCore.SubgroupCore
 
 public section
 

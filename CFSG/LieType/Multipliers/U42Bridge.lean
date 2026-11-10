@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Multipliers.U42Data
 public import CFSG.GH74.Exceptional.UnitaryFourTwo
 public import Certificates.Certificate10011
 public import CFSG.LieType.Multipliers.CoverBounds
@@ -14,9 +13,6 @@ public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.GroupTheory.LocalCores.Fitting
 public meta import CFSG.GroupTheory.LocalCores.Fitting
 public meta import CFSG.Open.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

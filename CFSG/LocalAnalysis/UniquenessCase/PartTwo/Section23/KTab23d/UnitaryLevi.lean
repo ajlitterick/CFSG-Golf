@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Defs
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S20
-public import CFSG.Open.StatedDefs
 public import CFSG.Quasithin.H13.U4ParPoint
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.UnitaryTransport
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Bar2Map
@@ -38,8 +36,6 @@ import CFSG.Quasithin.Background.B1More8
 import CFSG.Quasithin.Background.B1MoreNineG
 import CFSG.Quasithin.Background.B1MoreSeven
 import CFSG.Quasithin.Background.B6
-import CFSG.Quasithin.Background.B6Example
-import CFSG.Quasithin.Background.B6Offenders
 import CFSG.Quasithin.Background.E2Hyp
 import CFSG.Quasithin.Background.E2SolvTwo
 import CFSG.Quasithin.Background.F2Equiv
@@ -54,14 +50,9 @@ import CFSG.Quasithin.H13.StatementsL3
 import CFSG.Quasithin.Vol2.Ch5Sec1L34Inputs
 import CFSG.Quasithin.Vol2.Ch5StatementsB
 import CFSG.Quasithin.Vol2.Ch5StatementsDS
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M12
 import CFSG.Sporadic.Mathieu.M24
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 import CFSG.Walter.Defs
 
 public section

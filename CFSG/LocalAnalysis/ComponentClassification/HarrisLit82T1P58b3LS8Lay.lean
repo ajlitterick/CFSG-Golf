@@ -30,9 +30,6 @@ public import CFSG.Open.GorensteinHaradaSectionalRankFourMilestoneDefs
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.PartOne.KC.OrthogonalAutSemilinearBridge
 public import CFSG.RankThree.PartOne.KC.OrthogonalHighWittFixedSpace
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public noncomputable section
 

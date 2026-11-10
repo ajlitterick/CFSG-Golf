@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGA11FrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrCoordLift
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrLModel
-public import CFSG.LieType.Universal.SpecialLinear
 public import CFSG.Goldschmidt.Steps.G74Basic
 public import CFSG.Goldschmidt.StatementsG2
 

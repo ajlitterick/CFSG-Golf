@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4LabelPieces
 public import CFSG.LocalAnalysis.StandardType.GGF4SmallBook
-public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
-import CFSG.LocalAnalysis.StandardType.GGTBXDatumOfTor
 public import CFSG.LocalAnalysis.StandardType.GGTBE6
 public import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
 public import CFSG.LocalAnalysis.StandardType.GGF4H1Rows
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 public import CFSG.LocalAnalysis.StandardType.GGF4H1Coverage
 
 public section

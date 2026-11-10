@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Census.DoubleCoverRanks
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF3
 public import Certificates.Certificate8094
 import all CFSG.Blueprint.NativeSporadic
 

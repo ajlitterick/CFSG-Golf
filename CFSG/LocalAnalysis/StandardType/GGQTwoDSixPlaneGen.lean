@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDSixPlaneSU
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDGNOrthRefl
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSU34
 public import CFSG.LocalAnalysis.StandardType.GGUnitaryTwoResidual
-public import CFSG.ClassicalGroups.Unitary.Transitivity
 import CFSG.ClassicalInvolution.Phan.PhanDn.PanelStab
 import CFSG.ClassicalGroups.Orthogonal.SixPlane.Restrict
 import CFSG.RankThree.Literature.FSmithOrthogonal

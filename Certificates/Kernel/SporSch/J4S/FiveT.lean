@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.Schreier.J4SSylowData
 public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.SporSch.J4S.XY
 public import CFSG.Certificates.Kernel.SporSch.J4STokSound

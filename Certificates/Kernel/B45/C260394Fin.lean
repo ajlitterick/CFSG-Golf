@@ -8,8 +8,6 @@ public import CFSG.Certificates.Kernel.B45RuSylDblSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B42RuPerm
 import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 
 public section
 

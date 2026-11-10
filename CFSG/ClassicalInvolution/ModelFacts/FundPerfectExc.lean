@@ -1,13 +1,10 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.FundPerfectNodes
-public import CFSG.LieType.Steinberg.G2.RankOne
-public import CFSG.LieType.Steinberg.TwistedD4.RankOne
 public import CFSG.CharacterTheory.Semidihedral.ElementStructure
 public import CFSG.ClassicalInvolution.WeakCT.Main
 public import CFSG.ClassicalInvolution.WeakCT.SpinMinus
 public import CFSG.LieType.Steinberg.Classical.SpinFrame
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

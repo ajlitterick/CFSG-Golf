@@ -3,7 +3,6 @@ module
 public import Mathlib.RingTheory.SimpleModule.WedderburnArtin
 public import Mathlib.RepresentationTheory.Maschke
 public import Mathlib.RingTheory.LittleWedderburn
-public import Mathlib.LinearAlgebra.Matrix.ToLin
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 public import Mathlib.Algebra.Group.Pi.Units
 

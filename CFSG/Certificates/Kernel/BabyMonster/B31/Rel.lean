@@ -2,7 +2,6 @@ module
 
 import CFSG.Certificates.Kernel.BabyMonster.Load
 import CFSG.Certificates.Kernel.BabyMonster.LoadFour
-public import CFSG.Certificates.Kernel.BabyMonster.F2
 public import CFSG.Certificates.Kernel.BabyMonster.F2Four
 public import CFSG.Certificates.Kernel.BabyMonster.Max5.Data1
 public import CFSG.Certificates.Kernel.BabyMonster.B31.Data5

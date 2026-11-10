@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.Th.S.Data.Sm_const
 public import CFSG.Certificates.Kernel.Th.S.Data.Sm_regs
 public import CFSG.Certificates.Kernel.Th.S.Data.Sm_pay
 public import CFSG.Certificates.Kernel.Th.S.BigS
-public import CFSG.Certificates.Kernel.Th.S.DceS
 public import CFSG.Certificates.Kernel.Th.S.Data.DB_Sel
 
 #kc_select CFSG.KD.ThS RBf Rf_ 1004

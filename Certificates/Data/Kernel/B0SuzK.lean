@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.HexaK
-public import Certificates.Data.Kernel.Spor.Prim
 
 public section
 

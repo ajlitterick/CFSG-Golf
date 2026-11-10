@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE8Four10
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE8Spin8
 
 public noncomputable section
 

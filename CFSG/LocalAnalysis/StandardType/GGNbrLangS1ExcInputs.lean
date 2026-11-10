@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1Labels
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorJInputs
-public import CFSG.LocalAnalysis.StandardType.GGFixSub
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxToral
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangPow
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Conj
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 
 public section
 

@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreDefs
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcMonomial
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToral
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcW
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieInnGoodTrialityPlane
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenAsm
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TwE6

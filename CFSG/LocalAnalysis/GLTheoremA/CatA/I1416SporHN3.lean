@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416SporOrder181440
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416SporHN
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNThreeShape
 
 public section
 

@@ -1,21 +1,17 @@
 module
 
 public import CFSG.GH74.Generic.BProg.B3.SolvKGL2
-public import CFSG.GH74.GLS.Stage2.Bender.Thm2.P911Stmt
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.P911Psl
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.P911Psu
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.P911Psp
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.P911G2
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.P911D4
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.P911Ree
-public import CFSG.GH74.GLS.Stage2.Bender.Thm2.P911Spor
-public import CFSG.GH74.GLS.Stage2.Bender.Thm2.P911Ly
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.P911LyBridge
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.P911Two
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.P911Alt
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67LyAllInnerThm
 public import CFSG.Sporadic.Schreier.J1OddCore
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.Asc77.AscT3TypedExactMain
 public import CFSG.ClassicalInvolution.Asc77.AscT3TypedG2GenMax
 public import CFSG.ClassicalInvolution.Asc77.AscT3TypedMain

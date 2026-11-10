@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.J4M2.C12607Checks
-public import Certificates.Data.J4M2.Orbit
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.MaximalityAmbient.Over77Data
 import CFSG.Certificates.Kernel.Common.Harness
 

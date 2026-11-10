@@ -2,11 +2,8 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.IdentityComponentTangent
 public import CFSG.LieType.AlgebraicGroups.ToralCentralizerComponent
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.LieType.AlgebraicGroups.G2ExceptionalGraph
 public import TauCeti.Algebra.AlgebraicGroup.Connected.ComponentGroup.Group
-public import TauCeti.Algebra.AlgebraicGroup.Connected.GroupScheme
-public import TauCeti.RingTheory.Idempotents.Connected.Component
 
 public noncomputable section
 

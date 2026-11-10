@@ -1,46 +1,28 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitMaximal
-public import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.Foundations.MaxOrderThompson
-public import Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup
-public import Mathlib.FieldTheory.Finite.GaloisField
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldArithmetic
-import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldFullAutomorphism
 import CFSG.CGT.Timmesfeld75.L2Aut
-import CFSG.LocalAnalysis.ComponentClassification.GMS78BasicLinear
-import CFSG.LocalAnalysis.ComponentInitial.ScalarSemilinearNormalizer
-import CFSG.LocalAnalysis.ComponentClassification.GSThmB5bAction
 import CFSG.LocalAnalysis.ComponentClassification.GSThmB516Tools
-import CFSG.LocalAnalysis.ProperTwoGeneratedCore.RootCenterAutomorphismBasic
 import CFSG.LocalAnalysis.EvenBN.Tits.N.P5Strong
 import CFSG.LocalAnalysis.EvenBN.U5.PrelimModules
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.GroupTheory.ElemAbelianRank
-import CFSG.LocalAnalysis.RankTwoShapes.FourShapes.CyclicCriterion
 import CFSG.GH74.GLS.C3.Layer2.GenLemmas
 import CFSG.LocalAnalysis.SectionRank.GroupRankTransport
 import CFSG.GroupTheory.PGroup.OmegaComm
 import CFSG.GroupTheory.PGroup.RankTwoCommute
-import CFSG.LocalAnalysis.SectionRank.SQT
-import CFSG.LocalAnalysis.SectionRank.SubgroupRank
 import CFSG.GroupTheory.WielandtProductAux
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 import CFSG.GroupTheory.PGroup.NormalTwoCentralInvolutionContainment
 import CFSG.GroupTheory.SwappedFactorsOffenders
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.proposition_4_8_b
-import CFSG.ThirdParty.BrauerInduction.Background.Group.InternalDirectProduct
 import CFSG.RankThree.OddKernel.OddLift
 public import CFSG.LocalAnalysis.SeitzReduction.RankOneGoldschmidt
 import CFSG.LocalAnalysis.SeitzReduction.RankOneGMS43Closure
 import CFSG.LocalAnalysis.SeitzReduction.RankOneCatSL2TwoFixedA5
 import CFSG.LocalAnalysis.ComponentClassification.FooteLitClassical
-import CFSG.LocalAnalysis.ComponentInitial.QuasisimpleRankOne
 import CFSG.LocalAnalysis.OddStandard.Seitz77Sec26
 import CFSG.LocalAnalysis.OddStandard.Seitz77CaseACloseGal
 import CFSG.LinearAlgebra.ScalarGraphAction
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Wreathed.NonabelianCentralizer
 public import CFSG.Foundations
 public import CFSG.Goldschmidt.Statements
@@ -75,9 +57,6 @@ public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.Sporadic.Bridge.M11CheckInputs
 public import CFSG.Sporadic.Schreier.J4SSylow
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.Walter.J1
 public import CFSG.Walter.J1Recog
 public import CFSG.Walter.Ree.Thompson2.BaseFin
@@ -133,11 +112,6 @@ import CFSG.Quasithin.Background.B4ModelsAction
 import CFSG.Quasithin.Background.B4ModelsIso
 import CFSG.Quasithin.Background.C2Basic
 import CFSG.Quasithin.Background.E1
-import CFSG.Quasithin.Background.E1Sec4
-import CFSG.Quasithin.Background.E1Sec5
-import CFSG.Quasithin.Background.E1Sec8
-import CFSG.Quasithin.Background.E1Solv
-import CFSG.Quasithin.Background.E1Twelve
 import CFSG.Quasithin.Background.E3Cent
 import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual

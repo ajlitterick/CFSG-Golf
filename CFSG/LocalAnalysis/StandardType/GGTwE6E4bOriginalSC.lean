@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6E4bOriginalField
-public import CFSG.LocalAnalysis.StandardType.GGTwE6E4bOriginalActorLift
-public import CFSG.LocalAnalysis.StandardType.GGTwE6E4bActorSeed
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.Mathlib.GroupTheory.EquivariantNormalizer
 
 public noncomputable section

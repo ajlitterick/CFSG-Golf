@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUNotDvd
-public import CFSG.LieType.Steinberg.CentralExt.HermitianBasis
 public import CFSG.Models.Transport
 public import CFSG.Models.Blueprint
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 public import CFSG.Blueprint.LieModelAPI
 
 public section

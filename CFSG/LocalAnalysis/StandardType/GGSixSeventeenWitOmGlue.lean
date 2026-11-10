@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmMain
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSpNs
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitOmExcl
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 
 public section
 

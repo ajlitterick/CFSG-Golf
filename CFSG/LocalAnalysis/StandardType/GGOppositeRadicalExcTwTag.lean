@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalExcTwOpp
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalExcTag
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalOmegaMinusTag
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
-public import CFSG.LieType.CurtisTits.TwistedE6
-public import CFSG.LieType.Steinberg.Isogeny.TwistedE6
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 public import CFSG.RankThree.Chevalley.SteinbergBTE6HighestRootGraph
 import CFSG.RankThree.PartOne.Q1327T.Item7D4W
 public import CFSG.LieType.Chevalley.SignKernelComponentBruhat

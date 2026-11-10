@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.CentOverO2Inner
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven3Close16Opp
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveThirteenLift
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen5QuotBasic
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P21k
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22t
 public import CFSG.GroupTheory.SylowSupCentralizer
 public import CFSG.GroupTheory.OddOrderClosure

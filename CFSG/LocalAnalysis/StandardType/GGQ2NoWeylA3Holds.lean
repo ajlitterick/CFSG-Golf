@@ -1,14 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoAssemble
 public import CFSG.LocalAnalysis.StandardType.GGQ2TwD4Aut48
 public import CFSG.LocalAnalysis.StandardType.GGB48Assembly
-public import CFSG.LocalAnalysis.StandardType.GGStdSpSixExcl
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNoWeylA3Free
-public import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
-public import CFSG.LocalAnalysis.StandardType.GGF4QTwoHypA
-public import CFSG.CGT.Timmesfeld75.NodeAux
 
 public section
 

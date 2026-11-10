@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
 public import CFSG.LieType.Chevalley.EvenCanonicalFieldCentralizer
-import CFSG.RankThree.Chevalley.SteinbergBTCanonicalFieldCommon
 import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.SporthD4Stab
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField
 import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel

@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.SortTreeMul
 public import CFSG.Certificates.Kernel.SortTreeSlice
 public import Certificates.Kernel.MonsterB.Frame3055Data
-public import CFSG.Monster.B.TwoA.Census.PermBFS
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Monster.Code.Weights
 public import Mathlib.GroupTheory.Perm.Basic

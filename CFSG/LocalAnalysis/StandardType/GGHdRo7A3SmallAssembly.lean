@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7A3SmallDefs
-import CFSG.LocalAnalysis.StandardType.GGHdRo7A3Basic
 import CFSG.LocalAnalysis.StandardType.GGHdRo7A3SmallBasic
 import CFSG.LocalAnalysis.StandardType.GGHdRo7A3Normalizer
 import CFSG.LocalAnalysis.StandardType.GGHdRo7A3ReflFix

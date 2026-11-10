@@ -1,18 +1,10 @@
 module
 
-public import CFSG.HardMathSupport.Solomon.Coordinator.L2FldDefs
-public import CFSG.HardMathSupport.Solomon.Coordinator.L3AGap
-public import CFSG.HardMathSupport.Solomon.Coordinator.L3ALayer
-public import CFSG.HardMathSupport.Solomon.Coordinator.L3AFix
-public import CFSG.HardMathSupport.Solomon.Coordinator.L3AModel
-public import CFSG.HardMathSupport.Solomon.Coordinator.L3G515CovBasic
 public import CFSG.HardMathSupport.Dickson.KD.CharPAux.Layer
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.ChevQ
-public import CFSG.LocalAnalysis.GLTheoremB.QuotientTools
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911ATL
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.L2CentBridge
 public import CFSG.GH74.GLS.IVK.Lifted.SL2KGroup
-public import CFSG.LinearAlgebra.SL2MinimalFaithfulMatrix
 public import CFSG.GH74.GLS.IVK.Lifted.GroupAux
 public import CFSG.GH74.GLS.IVK.Lifted.Outer14
 public import CFSG.GH74.GLS.IVK.Lifted.SolvAut

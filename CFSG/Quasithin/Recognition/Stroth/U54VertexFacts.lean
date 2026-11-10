@@ -1,17 +1,10 @@
 module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431Un5LieF
-public import CFSG.Quasithin.Vol2.GoldschmidtF431Un5LieDefs
-public import CFSG.Quasithin.Recognition.F112RShapes
 public import CFSG.Quasithin.Recognition.GoldschmidtF112RG24
-public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsModU5Par
-public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsModU5Pt
 public import CFSG.LocalAnalysis.EvenBN.U5.ModelA2N2Two
-public import CFSG.LocalAnalysis.EvenBN.U5.ModelA2N2
 public import CFSG.LocalAnalysis.EvenBN.U5.ModelParabolic
 public import CFSG.LocalAnalysis.EvenBN.U5.Sec3V
-public import CFSG.Quasithin.Background.A3ComponentsBasic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.QuasisimpleOddCenterNormalAbsorption
 public import CFSG.RankThree.PartTwo.Sec4.RonanKChevTwoReeF4
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockUniBlocks
@@ -66,8 +59,6 @@ public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.HeldB.Common
 public import CFSG.Sporadic.Schreier.RuPair
 public import CFSG.Sporadic.Schreier.RuSylow
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

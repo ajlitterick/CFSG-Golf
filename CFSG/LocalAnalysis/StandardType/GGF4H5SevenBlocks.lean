@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealKGModelRoot
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenModel
-public import CFSG.Adapters.SpecialLinearPerfect
-public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerLinearNsFrame
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLinNsB
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenCoverComp
-public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenWeyl
-public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenTwist
 public import CFSG.LocalAnalysis.StandardType.GGRealKGCoverComp
 
 public section

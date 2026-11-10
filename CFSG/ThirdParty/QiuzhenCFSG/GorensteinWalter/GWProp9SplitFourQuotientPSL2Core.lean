@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Classification
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ComplementConjugacy
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
 import Mathlib.Tactic

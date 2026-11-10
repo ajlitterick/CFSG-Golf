@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.TwistedE6TwoSound
 public import Certificates.Kernel.Misc.E6SlpGens
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExcHypIITwistedE6TwoTests
 meta import CFSG.LocalAnalysis.ComponentClassification.RankTwoExcHypIITwistedE6TwoTests
 import CFSG.Certificates.Kernel.Common.Harness
 

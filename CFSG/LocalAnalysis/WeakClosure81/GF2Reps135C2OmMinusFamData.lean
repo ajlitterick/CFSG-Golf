@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallO8mCurtis
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusFinite
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusLabel
-import CFSG.LieType.Universal.Spin.Twisted.Datum
 import CFSG.LieType.Steinberg.CurtisDatum.TorusSums
 
 public section

@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeM3RSDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUBlock
-public import CFSG.Timmesfeld.LieEmbed.UnitaryForms
-public import CFSG.LieType.SemisimpleCentralizers.HeldUCDTransfer
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoAdj
-public import CFSG.LinearAlgebra.SelfAdjointIdempotent
-public import CFSG.LieType.Universal.Unitary.Comparison
 
 public section
 

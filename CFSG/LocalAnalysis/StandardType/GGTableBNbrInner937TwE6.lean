@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937Defs
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerSCrComp
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937TwE6Center
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937TwE6Inn
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6
 
 public section
 

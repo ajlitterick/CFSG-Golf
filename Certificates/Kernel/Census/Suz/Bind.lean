@@ -8,7 +8,6 @@ public import CFSG.Certificates.Kernel.Census.Sound
 public import CFSG.Certificates.Kernel.Census.ExcSound
 public import CFSG.Certificates.Kernel.Census.SiftSound
 public import CFSG.Certificates.Kernel.Spor.SiftEq
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 import all Certificates.Kernel.Census.Suz.Data
 import all Certificates.Kernel.Census.Suz.DataII
 import all Certificates.Kernel.Census.Suz.DataExc

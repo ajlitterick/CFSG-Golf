@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Common.Loop
-public import CFSG.Certificates.Kernel.Common.LceS
 public import Certificates.Data.Kernel.Spor.Fi24FixK
 
 public section

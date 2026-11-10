@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22LowIndexInputs
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Hexads
-import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22HexadStabilizer
-import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22PointStabilizer
-import Certificates.Certificate2195
 meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22LowIndexInputs
 import Certificates.Kernel.LocalComp.WittA2033
-import Certificates.Certificate2195
 
 public section
 

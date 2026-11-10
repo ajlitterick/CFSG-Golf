@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.E7CentPieces
 public import CFSG.LocalAnalysis.StandardType.FS81.L3TwoFixedPointFree
 public import CFSG.GroupTheory.CoprimeCosetFixed
-public import CFSG.GroupTheory.BurnsideNormalComplement
 public import CFSG.GroupTheory.ClosurePairInvert
 public import CFSG.RankThree.PartOne.MB3.FixedPoint
 public import TauCeti.Algebra.Group.Subgroup.ZPowers

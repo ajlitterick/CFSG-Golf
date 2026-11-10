@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Contracts
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddEndMat
-public import CFSG.RankThree.PartOne.AUTSL.OmegaModel
 
 public section
 

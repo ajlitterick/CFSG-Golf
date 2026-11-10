@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXDetDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLDatumWeyl
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrDatumDet
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCor123
-public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrLineStab
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 
 public section
 

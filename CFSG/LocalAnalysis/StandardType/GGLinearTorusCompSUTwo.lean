@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUComp
 public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUModel
 import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSU
-import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
 
 public section
 

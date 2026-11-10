@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
-public import CFSG.LocalAnalysis.StandardType.GGPDDefs
-public import CFSG.LocalAnalysis.StandardType.GGPDCoords
 public import CFSG.LocalAnalysis.StandardType.GGPDComm
-public import CFSG.LocalAnalysis.StandardType.GGPDLift
 public import CFSG.LocalAnalysis.StandardType.GGPDInversion
 public import CFSG.LocalAnalysis.StandardType.GGPDSection
 

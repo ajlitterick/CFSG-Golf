@@ -3,11 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRootGenAvoidCoverTorus
 public import CFSG.LocalAnalysis.StandardType.GGTorusWeylEltHypCent
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpDefs
-import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompDefs
-import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicTransfer
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CBlockAbs
 public import CFSG.LocalAnalysis.StandardType.GGLayerChevAdjoint
-public import CFSG.LocalAnalysis.StandardType.GGLayerAbelianInd
 import CFSG.Assembly.LargeEvenGLABridge
 import CFSG.Assembly.OpenBridges
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2

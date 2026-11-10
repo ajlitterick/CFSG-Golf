@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item4443SLTools
 import CFSG.RankThree.PartTwo.Sec4.Item4442Proof
 import CFSG.RankThree.PartTwo.KFacts.KS18OuterHeisCore
-import CFSG.RankThree.PartTwo.KFacts.KS18OuterCore
 import CFSG.RankThree.Asc83Table.E27
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
@@ -46,8 +45,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.RankThree.PartTwo.Sec4.T444.Step451
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

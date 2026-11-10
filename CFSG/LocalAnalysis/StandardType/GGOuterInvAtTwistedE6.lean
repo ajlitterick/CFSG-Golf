@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvModelData
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
-public import CFSG.LieType.Steinberg.Isogeny.TwistedE6
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergE6Twisted
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMarkingE6TwRankOne
 

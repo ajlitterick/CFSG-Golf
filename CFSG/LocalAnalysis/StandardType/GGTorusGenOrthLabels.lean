@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenOrth
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRTransfer
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExc
 
 public section
 

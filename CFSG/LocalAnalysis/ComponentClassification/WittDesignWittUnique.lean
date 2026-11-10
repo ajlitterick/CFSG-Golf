@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignHyperovals
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignPlaneUnique
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignHyperovals
-public import Certificates.Certificate2028
-public import Certificates.Certificate2037
-public import Certificates.Certificate2038
 public import Certificates.Certificate2040
 
 public section

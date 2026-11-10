@@ -2,16 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.YS14.Fi22E16Inputs
 import Certificates.Kernel.Sporadic.Fi22.E16Chk
-import Certificates.Kernel.Sporadic.Fi22.E2067
 import Certificates.Kernel.Sporadic.Fi22.C2068
-import CFSG.Certificates.Kernel.Spor.TextSound
-import CFSG.Certificates.Kernel.SporSch.DerivsSound
 import CFSG.Certificates.Kernel.BfsPinAlg
-import CFSG.Certificates.Kernel.BfsPinUnpack
-import CFSG.Monster.B.Co2.PermArr
-import CFSG.Certificates.Kernel.Spor.PcompFacts
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 400000
 

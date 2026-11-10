@@ -5,10 +5,7 @@ public import CFSG.Sporadic.Co1Block.PermBase
 import all CFSG.Sporadic.Co1Block.PermBase
 
 public import CFSG.Sporadic.Co1Block.PermCheck
-public import CFSG.Sporadic.Schreier.Co1AutTrivial
-public import CFSG.Monster.B.Co2.PermArr
 import all CFSG.Blueprint.NativeSporadic
-public import CFSG.Sporadic.Co1Block.PermCheckInputs
 public meta import CFSG.Sporadic.Co1Block.PermData
 public meta import CFSG.Sporadic.Schreier.Co1StabFix
 public meta import CFSG.Sporadic.Schreier.Co1StabCheck
@@ -18,17 +15,11 @@ public meta import Certificates.Data.CFSGNative.Co1.Data
 public meta import Certificates.Data.CFSGNative.HS.SmallF2
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Sporadic.Schreier.Co1FullOrbCheckInputs
-public import CFSG.Sporadic.Schreier.Co1OrbEnum
-public import CFSG.Sporadic.Schreier.Co1ThreeLocal
-public import CFSG.Sporadic.Schreier.Co1XSet
-public import CFSG.Sporadic.Schreier.Co1StabCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co1OrbEnumCheck
 public meta import CFSG.Sporadic.Schreier.Co1StabData
 public meta import CFSG.Sporadic.Schreier.Co1FullOrbCheck
 public meta import Certificates.Data.CFSGNative.Th.Tables
 public meta import Certificates.Data.CFSGNative.Th.Orbit
-public import Certificates.Data.CFSGNative.Co1.Data
 
 public section
 

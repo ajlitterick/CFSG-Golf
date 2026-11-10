@@ -5,7 +5,6 @@ public import CFSG.LieType.Universal.IrreducibleQuadratic
 import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.GraphTwisted
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeD
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.TypeD
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Frobenius
 import all TauCeti.Algebra.CharP.Frobenius.Fixed

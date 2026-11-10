@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.KE.Rank3Lines
 public import CFSG.RankThree.PartOne.KE.E7ClassLists
-public import CFSG.RankThree.PartOne.KE.E7TwelveLattice
 public meta import CFSG.RankThree.PartOne.KE.Rank3Lines
 public meta import CFSG.RankThree.PartOne.KE.E7ClassLists
 public meta import CFSG.RankThree.PartOne.KE.E7TwelveLattice

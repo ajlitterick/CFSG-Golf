@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedOn
 
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenOrth
 import CFSG.LocalAnalysis.StandardType.GGL45FixA2Centre
 import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedOmegaMinus
 import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedSLTwo

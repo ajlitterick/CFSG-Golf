@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsEndAut
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldCoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGIOneExcTwE6
-import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsLangCube
 import CFSG.LocalAnalysis.StandardType.GGTwE6FieldLangThree
-import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestDefs
 
 public section
 

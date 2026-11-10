@@ -5,7 +5,6 @@ public import CFSG.RankThree.PartOne.S9.StatementsSylow
 import CFSG.RankThree.PartOne.S9.Top.Dichotomy
 import CFSG.RankThree.PartOne.S9.Sylow.ExclusionRank
 import CFSG.RankThree.OddKernel.ThreeComplementQuotient
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.RankThree.GroupTheory.SteinbergBYRelativeCores
 public import CFSG.RankThree.LocalRank.SelectorCases
 

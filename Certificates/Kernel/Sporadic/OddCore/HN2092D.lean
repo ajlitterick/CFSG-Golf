@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.ChainCheckGlue
 public import Certificates.Kernel.Sporadic.OddCore.BfsLCmd
 public import Certificates.Kernel.Sporadic.OddCore.RowsCmd
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Sporadic.HNOddCore.SixCheckInputs
 meta import CFSG.Sporadic.HNOddCore.SixCheckInputs

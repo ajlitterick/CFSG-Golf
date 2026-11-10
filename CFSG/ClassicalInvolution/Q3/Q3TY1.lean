@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.Chart
 public import CFSG.ClassicalInvolution.Q3.Generation
 public import CFSG.ClassicalInvolution.Q3.Q3TCP1
 public import CFSG.ClassicalInvolution.RouteD.TwinYStatements

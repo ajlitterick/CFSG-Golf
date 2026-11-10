@@ -2,9 +2,6 @@ module
 
 public import CFSG.Assembly.GL83LieDefs
 import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryField
-import Mathlib.LinearAlgebra.Matrix.Trace
-import Mathlib.Algebra.CharP.Lemmas
 import CFSG.LieType.BorelTits.CompleteFlag
 
 public section

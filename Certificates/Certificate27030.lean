@@ -1,10 +1,8 @@
 module
 
-public import Certificates.Data.U52Yamada
 public import CFSG.Certificates.Kernel.EvenBN.YamadaKSound
 import Certificates.Kernel.EvenBN.K27030
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpSmP43Model
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpSmBase
-public import CFSG.ClassicalInvolution.Q3.TL3Ident
-public import CFSG.ClassicalInvolution.Q3.TL3Lift
 public import Certificates.Certificate397501
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinPerpCentral
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinSmallM2
@@ -31,7 +29,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3T8P26T02
 public import CFSG.ClassicalInvolution.Q3.Q3T8P26TH01
 public import CFSG.ClassicalInvolution.Q3.Q3TIYOAMain
 public import CFSG.ClassicalInvolution.Q3.TA3SOLCore
-public import CFSG.ClassicalInvolution.Q3.TA3SOLCoreRank
 public import CFSG.ClassicalInvolution.Q3.TL3S8Gold
 public import CFSG.ClassicalInvolution.Q3.TL3S8Sd
 public import CFSG.ClassicalInvolution.Q3.TL4Conn274M
@@ -62,7 +59,6 @@ public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeCheckBase
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.AschbacherCanonicalRemaining
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.ExceptionalEightPlaneCentralizer
 public import CFSG.Permutation.BurnsideSchur
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Timmesfeld.Moufang.Three
 
 public section

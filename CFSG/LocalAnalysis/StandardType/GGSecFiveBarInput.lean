@@ -1,15 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPrimed
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBranchInputs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMModuleBarAbs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarBridge
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarConnGen
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarPump
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarDim
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarLinData
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNarrowInputs
 
 public section
 

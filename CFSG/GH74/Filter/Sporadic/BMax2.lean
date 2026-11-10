@@ -1,11 +1,7 @@
 module
 
 public import CFSG.GH74.Filter.ElemAbelian
-public import CFSG.GH74.Filter.Witness
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.Elem3
-public import CFSG.Monster.B.Final.Simple
 public import CFSG.Monster.B.Final.Max2Nodes
-public import CFSG.Monster.B.Rep4371.ExactActions
 public import CFSG.Monster.B.Pinned.Primes.SeedGL
 
 public section

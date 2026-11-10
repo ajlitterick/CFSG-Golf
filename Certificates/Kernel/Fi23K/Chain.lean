@@ -12,7 +12,6 @@ import Certificates.Kernel.Fi23K.Misc
 import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.NormNum
 public import CFSG.Certificates.Kernel.Spor.RawSound
 public import Mathlib.GroupTheory.Perm.Basic
 

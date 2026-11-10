@@ -2,8 +2,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallA6Inputs
-public import CFSG.GH74.KGroups.Checks
-public import CFSG.GH74.KGroups.A6
 public import Certificates.Data.Kernel.Census.CatFacts.PkDefs
 
 public section

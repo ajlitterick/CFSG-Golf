@@ -3,18 +3,13 @@ module
 public import Certificates.Data.Kernel.Co2Kill
 public import CFSG.Certificates.Kernel.HOrbSound
 public import Mathlib.Data.Matrix.Basic
-public import Mathlib.Data.ZMod.Defs
 import Mathlib.Algebra.BigOperators.Fin
-import Mathlib.Data.Matrix.Mul
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Tactic.Group
-import Mathlib.Tactic.FinCases
 import CFSG.Certificates.Kernel.LceSP.Main
 import CFSG.Certificates.Kernel.Common.Harness
 import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.Ring
 
 public section
 

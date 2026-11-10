@@ -1,14 +1,9 @@
 module
 
-public import CFSG.Quasithin.H13.J4Quot
-public import CFSG.Quasithin.H13.J4Chain12Spec
 public meta import Certificates.Data.CFSGNative.H13.J4Chain12
 public meta import Certificates.Data.CFSGNative.H13.J4Data
-import Certificates.Data.CFSGNative.H13.J4Data
 public import CFSG.Quasithin.H13.J4ImageInputs
 public import Certificates.Certificate7013
-public import Certificates.Certificate7015
-public import Certificates.Certificate7018
 
 public noncomputable section
 

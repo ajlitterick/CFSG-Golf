@@ -3,12 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Local
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1InvFixU
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1InvFixO
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1BaseU
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1BaseO
 import CFSG.LocalAnalysis.StandardType.GGQTwoDSevenPrelim
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthModel
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 
 public section
 

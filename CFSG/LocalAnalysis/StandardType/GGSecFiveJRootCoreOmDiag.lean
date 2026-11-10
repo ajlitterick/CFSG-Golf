@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
-public import CFSG.LieType.Universal.Spin.Datum
-public import CFSG.ClassicalGroups.Orthogonal.Eichler
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.TorusM8POmegaPlus
-import CFSG.LieType.Universal.Spin.Generation.Eichler
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsSL
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompCentre
-public import CFSG.LocalAnalysis.StandardType.GGLinearFusionCyclic
 
 public section
 

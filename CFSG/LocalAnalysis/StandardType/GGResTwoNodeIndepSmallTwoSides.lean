@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepSmallTwo
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepFrame
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepFrameK
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepTransfer
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeSides
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepMove
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepSmall
 
 public section

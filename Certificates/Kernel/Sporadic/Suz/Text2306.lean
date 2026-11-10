@@ -1,10 +1,8 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Certificates.Kernel.MtxKSound
-public import CFSG.Sporadic.SuzOddCore.Arrays
 meta import CFSG.Sporadic.SuzOddCore.Arrays
 import all CFSG.Sporadic.SuzOddCore.Arrays
 import CFSG.Certificates.Kernel.Common.Harness

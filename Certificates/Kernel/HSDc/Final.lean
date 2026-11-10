@@ -8,8 +8,6 @@ public import Certificates.Kernel.HSDc.C3
 public import Certificates.Kernel.LocalQT.HS4089.G
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHSDcInputs
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-public import Certificates.Kernel.SporSch.J4S.NoCP
 
 set_option maxRecDepth 100000
 

@@ -7,7 +7,6 @@ public import Certificates.Kernel.Sporadic.Co2.ChainAL1a
 public import Certificates.Kernel.Sporadic.Co2.ChainAL1b
 public import Certificates.Kernel.Sporadic.Co2.ChainAL2
 public import CFSG.Certificates.Kernel.Spor.BindList
-public import CFSG.Sporadic.Co2Cert.Data
 public meta import CFSG.Sporadic.Co2Cert.Data
 import CFSG.Certificates.Kernel.Common.Harness
 

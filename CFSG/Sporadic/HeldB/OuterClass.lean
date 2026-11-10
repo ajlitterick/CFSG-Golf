@@ -4,19 +4,8 @@ module
 public import CFSG.Sporadic.HeldB.OuterClassBase
 
 public import CFSG.Sporadic.HeldB.OuterClassCheck
-public import CFSG.Sporadic.HeldB.BaseTests
-public import CFSG.Sporadic.HeldB.OuterArith
-public import CFSG.Sporadic.HeldB.FixCount
-public import CFSG.Sporadic.HeldB.FixedTransport
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import CFSG.Sporadic.HeldB.CertPChainData
-public import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.HeldB.OuterArithCheckInputs
 public meta import CFSG.Sporadic.HeldB.AutData
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.HeldB.HeBlocks
-public import CFSG.Sporadic.HeldB.OuterArithCheck
-public import Certificates.Data.CFSGNative.HeldB.Tests
 public meta import CFSG.Sporadic.HeldB.HeBlocks
 public meta import CFSG.Sporadic.HeldB.OuterArithCheck
 public meta import Certificates.Data.CFSGNative.HeldB.Tests

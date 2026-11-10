@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LieType.Steinberg.Classical.SpinOdd.Commutator
 public import CFSG.LieType.Steinberg.Classical.SpinOdd.Weyl
 public import CFSG.LieType.Steinberg.Classical.SpinOdd.RankOne
-public import CFSG.LieType.Steinberg.Classical.SpinOdd.Unipotent
 public import CFSG.LieType.Steinberg.Classical.SpinOdd.RankTwo
 public import CFSG.LieType.CurtisTits.Spin
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.RankTwo.G2ExtrasRankTwo
-public import CFSG.LieType.Steinberg.G2.Extras
-public import CFSG.LieType.Steinberg.Conclusion
 
 public section
 

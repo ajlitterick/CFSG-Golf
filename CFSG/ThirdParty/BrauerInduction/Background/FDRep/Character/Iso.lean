@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.Character.Orthogonality
-public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.SimpleDecomposition
 
 public section
 

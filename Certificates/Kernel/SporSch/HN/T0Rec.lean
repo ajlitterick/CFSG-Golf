@@ -4,7 +4,6 @@ public import Certificates.Kernel.SporSch.HN.T0Data
 public import Certificates.Data.Kernel.Spor.EnumBase
 public import Certificates.Data.Kernel.BfsPinBase
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000
 

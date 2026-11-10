@@ -3,15 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourPlusFrame
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourSpinLifts
 public import CFSG.LocalAnalysis.StandardType.GGHyperplaneMem
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 public import CFSG.LocalAnalysis.StandardType.GGResQTwoLinearJ
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddLayer
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneRank
 public import CFSG.LieType.Universal.SpinOmega.CommutatorEquiv
-public import CFSG.RankThree.PartOne.CTP.SpinCenterEven
 public import CFSG.RankThree.PartOne.S15K.OrthModel
-import Mathlib.Tactic.Group
 
 public section
 

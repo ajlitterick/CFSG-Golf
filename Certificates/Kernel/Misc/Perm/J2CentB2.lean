@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Misc.Perm.J2CentData
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

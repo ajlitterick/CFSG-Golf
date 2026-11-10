@@ -4,11 +4,7 @@ public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BSevenJ
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BSevenJQuasi
 public import CFSG.LocalAnalysis.StandardType.GGSporKBSevenCompAt
 public import CFSG.LocalAnalysis.StandardType.GGSporKBMTransportA
-import CFSG.Foundations.QuasisimpleMulEquiv
 public import CFSG.HardMathSupport.Dickson.BMRows.CensusB7
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BSeven
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BSevenCensus
-public import CFSG.Sporadic.Bridge.BBound
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BSevenElements
 
 public section

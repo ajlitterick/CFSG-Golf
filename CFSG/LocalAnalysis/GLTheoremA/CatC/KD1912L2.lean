@@ -1,20 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD1912Core
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD1912Facts
-public import CFSG.CharacterTheory.PSL2Table.Partition
-public import CFSG.CharacterTheory.PSL2Table.Classes
-public import CFSG.Dihedral.Glauberman.DicksonMaxStructure
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureTwoCoreGrowthLinearOddCentralizer
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOddQuadraticIsotropy
 public import CFSG.RankThree.PartTwo.KFacts.K72FixL2
 public import CFSG.RankThree.PartTwo.KFacts.K71bOutAbelian
 public import CFSG.HardMathSupport.Solomon.Coordinator.I19_5_2L2Fix
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_14
-public import CFSG.Foundations.SteinbergCADefinitionNodes
-public import CFSG.HardMathSupport.Timmesfeld.Proving.GLAPPrimeCoreBasics
-public import CFSG.Adapters.LinearCatalog
 
 public section
 

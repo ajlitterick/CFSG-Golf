@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Kernel.LocalComp.BfsGen
 public import Certificates.Kernel.LocalComp.BfsGenSl
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.SporSch.Th.GenV4
 public import Certificates.Kernel.HS100.ChainData
 public import Certificates.Data.Kernel.BfsPinBase

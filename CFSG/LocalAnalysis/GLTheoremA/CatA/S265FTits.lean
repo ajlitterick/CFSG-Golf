@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265FSz
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265FTitsAut
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MILabel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172XTransport
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I264bTools
-public import CFSG.LocalAnalysis.StandardType.ChevTwoLieModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBaseIso
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FFix

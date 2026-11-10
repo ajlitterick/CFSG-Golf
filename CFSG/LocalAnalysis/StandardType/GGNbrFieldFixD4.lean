@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixD4Cyc
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixD4Defs
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixD4Known
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixD4Rows
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVacOther
 
 public section
 

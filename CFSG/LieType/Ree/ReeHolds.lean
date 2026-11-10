@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.FixedNative
-public import CFSG.LieType.Chevalley.FixedCollection
 public import CFSG.LieType.Ree.RelWeylRee
 public import CFSG.LieType.Ree.ReeUnipotent
 

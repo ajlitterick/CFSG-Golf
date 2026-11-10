@@ -6,8 +6,6 @@ public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.ClassicalInvolution.Phan.Blocks
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LargeExtraspecial.OrthoF2
-public import CFSG.LargeExtraspecial.OrthoF2Fixed
-public import CFSG.LargeExtraspecial.OrthoF2SpRadical
 public import CFSG.LieType.CurtisTits.SpecialLinear
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts
@@ -18,7 +16,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.RankThree.GroupTheory.ClassTwoThree
 public import CFSG.RankThree.OrthogonalInvolutions.SuzukiTypes
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Utils
 
 public section
 

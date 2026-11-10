@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsCoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsLangCube
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 import CFSG.LocalAnalysis.StandardType.GGTwE6RootKernelCount
 
 public section

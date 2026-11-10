@@ -1,15 +1,9 @@
 module
 
 public import Certificates.Kernel.SporSch.Mathieu.M23H1Data
-public import Certificates.Data.Kernel.Child3
 public import Certificates.Data.Kernel.J2Cover
-public import Certificates.Data.Kernel.Spor.M11
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.M23Inputs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Generic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 
 public section

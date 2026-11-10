@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBE2Frame
-import CFSG.ClassicalInvolution.SmallCases.NDB5Sec
 import CFSG.ClassicalInvolution.SmallCases.NDB5eG2
 
 public section

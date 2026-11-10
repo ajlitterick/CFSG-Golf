@@ -1,14 +1,10 @@
 module
 
 public import CFSG.RankThree.GF2n.Tim79a34QEIn
-public import CFSG.RankThree.GF2n.Tim79a34Lemma13
-public import CFSG.RankThree.GF2n.Tim79a34GammaComm
 public import CFSG.RankThree.GF2n.Tim79a34TwoKernel
-public import CFSG.RankThree.GF2n.Tim79a34TwoModel
 public import CFSG.RankThree.GF2n.Tim79a34TwoSpace
 public import CFSG.RankThree.GF2n.Tim79a34TwoGame
 public import CFSG.Sporadic.Th.Chain
-public import CFSG.Sporadic.ThSchreier.Row
 public import CFSG.Dihedral.DisconnectedInvolutionGraph.RankOneQuaternionRecognition
 public import CFSG.LargeExtraspecial.S12Basic
 public import CFSG.LargeExtraspecial.S3Asch

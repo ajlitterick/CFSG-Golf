@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.LieType.Universal.Spin.Action
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 import all CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPOmegaMinus
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpAltEightProj
 

@@ -3,8 +3,6 @@ module
 public import CFSG.CGT.Stroth77.Section227Frame
 public import CFSG.CGT.Stroth77.StrothAmbient
 import CFSG.CGT.Stroth77.Section223Family
-import CFSG.CGT.Stroth77.Section310Char
-import CFSG.CGT.Stroth77.Section41
 import CFSG.CGT.Stroth77.Section224
 import CFSG.CGT.Stroth77.Stroth31Proof
 import CFSG.CGT.Stroth77.StrothFrameAmbient
@@ -22,21 +20,16 @@ import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 import CFSG.LocalAnalysis.SectionRank.TitsCover
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.B4ModelsAction
 import CFSG.Quasithin.Background.B4Statement
 import CFSG.Quasithin.Background.B5Statement
 import CFSG.Quasithin.Background.F9Basic
 import CFSG.Quasithin.Background.G2A5Setting
 import CFSG.Quasithin.H13.Sp62D3
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M12
 import CFSG.Sporadic.Mathieu.M24
 import CFSG.Sporadic.Schreier.J4SBinary
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Mathieu.RootData
 public import Certificates.Kernel.Mathieu.M11Chains
 public import Certificates.Data.Kernel.Mathieu.SylowK
-import CFSG.Certificates.Kernel.Common.Harness
 
 namespace CertificateChecks.KernelMathieu
 

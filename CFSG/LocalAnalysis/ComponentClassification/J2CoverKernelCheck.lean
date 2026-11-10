@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverKernelNative
 public import Certificates.Certificate10021
 public meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverKernelNative
 public meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckBase

@@ -4,14 +4,12 @@ public import CFSG.LieType.AlgebraicGroups.ToralCentralizerComponent
 public import CFSG.LieType.AlgebraicGroups.ToralRootCover
 public import CFSG.LieType.AlgebraicGroups.ExactAffineRealization
 public import CFSG.LieType.Chevalley.OddToralInvolutionComponents
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication
 public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public noncomputable section
 

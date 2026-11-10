@@ -3,7 +3,6 @@ module
 public import CFSG.GH74.GLS.LU.Local.Conj
 public import CFSG.GH74.GLS.LU.Local.GenCore
 public import CFSG.GH74.GLS.IVK.Lifted.Out
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.CharacterTheory.Semidihedral.InvolutionFusion
 public import CFSG.CharacterTheory.Semidihedral.Local.LocalNormalizerQuotients
 public import CFSG.Dihedral.GorensteinWalter.GLSemilinearDescent
@@ -20,19 +19,8 @@ public import CFSG.GH74.GLS.Stage1.Thm3.Sec6.Closed2
 public import CFSG.GH74.GLS.Stage1.Thm6.Sec12.Defs
 public import CFSG.GH74.GLS.Stage1.Thm6.Sec12.Ext
 public import CFSG.GroupTheory.QuasiDihedralFusion.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.ClassFunction
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2InnerInvolutionFusion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_19
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CoprimeActionNontrivialTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseComponentData
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character
 public import CFSG.Walter.J1.Inv
 
 public section

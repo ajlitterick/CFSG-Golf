@@ -1,20 +1,7 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Algebra.Group.Subgroup.Defs
-public import Mathlib.Data.Bracket
 public import Mathlib.Data.Finite.Defs
-public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.GroupTheory.Nilpotent
-public import Mathlib.GroupTheory.Solvable
 
-import Mathlib.Algebra.Group.Subgroup.Lattice
-import Mathlib.Algebra.Notation.Defs
-import Mathlib.GroupTheory.QuotientGroup.Basic
-import Mathlib.GroupTheory.Sylow
-import Mathlib.Order.SetNotation
-import Mathlib.Tactic.Basic
-import Mathlib.Tactic.TypeStar
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core

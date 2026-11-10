@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFixSub
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylClauseFive
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylCompDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVacOtherTypeDet
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
 
 public section
 

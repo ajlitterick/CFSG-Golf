@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusDefs
-import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpDecomp
 import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagModel
 import CFSG.LocalAnalysis.StandardType.GGSixTCPSUDvd
-import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusLinearCenter
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GSympLabel
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GCenterQuot
-import CFSG.ClassicalInvolution.Models.SymplecticPairs.RootSp2
 import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
 import CFSG.ClassicalGroups.Symplectic.DiagonalTorusRank
 

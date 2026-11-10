@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.Asc83Table.MatCertDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.DerDefs
 
 public section

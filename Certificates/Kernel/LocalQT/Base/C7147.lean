@@ -1,18 +1,13 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicRuInputs
-public import CFSG.Quasithin.Vol2.KGFactRankRuData
 public import Certificates.Kernel.LocalQT.Base.C7147C
 public import Certificates.Kernel.LocalQT.Base.C7147T
 public import Certificates.Kernel.LocalQT.Base.C7147A
 public import Certificates.Kernel.LocalQT.Base.C7147B
 public import Certificates.Kernel.LocalQT.Base.C4076
 public import CFSG.Certificates.Kernel.LocalQTTreeRSound
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicRu
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3SporPermK1
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKRank
 public import CFSG.Certificates.Kernel.Common.ForallTree
-import Certificates.Data.CFSGNative.Ru.Data
 
 set_option maxRecDepth 100000
 

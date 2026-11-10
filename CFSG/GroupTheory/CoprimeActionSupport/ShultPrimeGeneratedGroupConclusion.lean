@@ -1,7 +1,5 @@
 module
 
-import Mathlib.Tactic.Basic
-import Mathlib.Tactic.Ext
 meta import Lean.Elab.Tactic.NormCast
 public import CFSG.GroupTheory.CoprimeActionSupport.FixedFreePrimeGeneratedPGroupSpecial
 public import CFSG.GroupTheory.CoprimeActionSupport.PrimeCyclicNormalizerIrreducibleRestriction
@@ -9,7 +7,6 @@ public import CFSG.LargeExtraspecial.RepresentationSupport.FaithfulIrreducibleSp
 public import CFSG.LargeExtraspecial.RepresentationSupport.ExtraspecialIrreducibleDegreePower
 public import CFSG.GroupTheory.CoprimeActionSupport.CoprimeAutomorphismFixedQuotientLift
 public import CFSG.LargeExtraspecial.RepresentationSupport.ShultPrimeExtraspecialFixedFree
-public import CFSG.LocalAnalysis.RankThreeUC.Section3.CoprimeSpecialGroups.CommPowPow
 import all CFSG.LocalAnalysis.RankThreeUC.Section3.CoprimeSpecialGroups.CommPowPow
 
 public section

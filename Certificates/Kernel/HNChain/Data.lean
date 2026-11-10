@@ -1,11 +1,8 @@
 module
 
-public import Certificates.Data.Kernel.HNLocalK
-public import Certificates.Data.Kernel.HNMultK
 public import Certificates.Kernel.HNLocal.Data
 public import CFSG.Certificates.Kernel.Bounds.Core3
 import CFSG.Certificates.Kernel.Bounds.LoadRoot
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Repo
 
 #kc_repo #kc_items_root CFSG.KD.HNChain.RB "Certificates/Kernel/HNChain/data/rb.bin" 1034105 1507436749272669732

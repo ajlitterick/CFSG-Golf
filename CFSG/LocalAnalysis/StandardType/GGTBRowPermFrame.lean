@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBRowFrame
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGTBRowSignedFrameW
 public import CFSG.LocalAnalysis.StandardType.GGTBRowPermFrameAux
 public import CFSG.LocalAnalysis.StandardType.GGTDAutomizer

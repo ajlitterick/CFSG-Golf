@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.Data.Complex.Basic
-public import Mathlib.GroupTheory.Index
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.ClassFunction
 
 namespace CFSG

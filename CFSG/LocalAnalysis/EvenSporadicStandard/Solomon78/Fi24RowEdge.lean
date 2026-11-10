@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Fi24.EdgeCent
 public import CFSG.Sporadic.Fi24.Out
 public import CFSG.Sporadic.Fi24.Complete
 public import CFSG.Sporadic.Fi24.Ext

@@ -1,10 +1,7 @@
 module
 
 public import Certificates.Kernel.SporSch.Mathieu.M22H1Data
-public import Certificates.Data.Kernel.Child3
 public import Certificates.Data.Kernel.J2Cover
-public import Certificates.Data.Kernel.Spor.M11
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKU33Bridges
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.GroupTheory.PLayer.CenterQuotientAction
 
 public section
 

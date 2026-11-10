@@ -5,9 +5,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Clifford
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.problem_7_1
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_1
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_6
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection2.PFsection2_6
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection3.PFsection3_5
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection5.Basic
 

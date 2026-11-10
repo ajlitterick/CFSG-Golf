@@ -3,10 +3,7 @@ module
 public import Certificates.Data.Kernel.Spor.PEnumT
 public import CFSG.Certificates.Kernel.Spor.MulHSound
 public import CFSG.Certificates.Kernel.Spor.HBfsReplayT
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.BfsPinAlg
-import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Spor.RawOrbHead
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 

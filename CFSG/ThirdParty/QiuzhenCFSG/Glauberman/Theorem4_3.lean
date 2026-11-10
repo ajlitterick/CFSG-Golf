@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Theorem4_2
-public import Mathlib.GroupTheory.Nilpotent
 
 namespace CFSG
 end CFSG

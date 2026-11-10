@@ -3,12 +3,8 @@ module
 public import CFSG.Quasithin.H13.NQCatT3Perm
 public import CFSG.Quasithin.H13.NQCatT3Inv
 public import CFSG.Quasithin.H13.NQCatT3Lat
-public import CFSG.Quasithin.Background.E2TwoProofSporJ2
 public import CFSG.Quasithin.EmptyFaithful.S146zYFSJ2
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAut
 public import CFSG.RankThree.PartTwo.Sec4.Sporadic.Item415
-public import CFSG.Timmesfeld.RankOne.SL2
-public import CFSG.Sporadic.J2
 public import Certificates.Certificate7161
 
 public section

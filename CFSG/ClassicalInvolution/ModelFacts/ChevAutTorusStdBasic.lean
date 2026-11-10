@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LieType.Steinberg.Bridge
 public import CFSG.LieType.Steinberg.Bruhat
-public import CFSG.LieType.Steinberg.Collection
 
 public section
 

@@ -3,10 +3,7 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsMemBase
 
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsPCore
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsQuot
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatIncl
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 
 public section

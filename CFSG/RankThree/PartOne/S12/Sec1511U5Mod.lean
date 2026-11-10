@@ -2,12 +2,10 @@ module
 
 public import CFSG.RankThree.PartOne.S12.Sec1511U5ModA
 public import CFSG.RankThree.PartOne.S12.Sec1511U5Two
-public import CFSG.RankThree.PartOne.KC.EvenUnitaryFiveEigen
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeSetting
 public import CFSG.RankThree.PartOne.KC.UnitaryGoodSpecial
 public import CFSG.RankThree.PartOne.S12.Sec1511U5Irr
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

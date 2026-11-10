@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Census.Carrier.SpinBPoints
 public import CFSG.RankThree.PartTwo.Census.Carrier.SpinBGen
 public import CFSG.RankThree.PartTwo.Census.Carrier.SpinDPoints
 

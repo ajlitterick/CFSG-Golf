@@ -5,7 +5,6 @@ public import CFSG.HardMathSupport.Foote.Coordinator.AnisoCube.Descent
 public import CFSG.HardMathSupport.Foote.Coordinator.AnisoCube.SingerDiag
 public import CFSG.HardMathSupport.Malle.SeitzCube.E6ThreeKernel
 public import CFSG.HardMathSupport.Malle.SeitzCube.E6ThreeSL3Sign
-public import CFSG.HardMathSupport.Malle.SeitzCube.FrameBaseChange
 public import CFSG.LieType.Chevalley.E6EvenRootTorusCentralizer
 public import CFSG.LieType.Chevalley.SimplyLacedFieldTwoCover
 public import CFSG.LocalAnalysis.ComponentInitial.CentralCoverAbelian

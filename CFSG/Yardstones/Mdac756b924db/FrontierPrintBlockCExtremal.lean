@@ -1,46 +1,15 @@
 module
 
 public import CFSG.Yardstones.Mdac756b924db.Definitions
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D1CaseOne3AEightThirteen
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D1CaseOne3AEightThirteenR3
-import CFSG.LocalAnalysis.RankThreeTheoremC.D1KlingenIdent
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGLHyp111E16
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGLHyp111ElevenTwentySeven
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactNineFourSylowIrredProof
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactNineThreeRankOneProof
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactNineThreeListRankOneProof
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenNineteenItemOneExt
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenSixCfgOf
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenElevenCfgOf
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineOneProof
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ICitedTenFourteenThree
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeCore
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransv
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeAlt
-public import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockInputs
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenTwelveOneOf
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenSevenCfgOf
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenFiveAtOf
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineNormal
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineNormalNX
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenElevenOtherCfgOf
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenSevenFourL34Of
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenFourteenThreeAll
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenFourteenThreeCfgGenOf
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenThreeInspection
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenElevenJZero
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenFiveAtNoRem
 import CFSG.LocalAnalysis.AGLEmbedding.SUThreeTwoDeterminedHolds
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenElevenParabolicOf
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineOneThreeOf
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineOneThreeListOf
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenElevenRankOneJZeroOf
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenElevenOneLie
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenNineFieldAutOf
-import CFSG.LocalAnalysis.AGLEmbedding.PhaseThreeConfig
-import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockStructure
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineThreeNormalRank
-import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenElevenOneSLThreeHolds
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenElevenOneSLThreeOddHolds
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenOneEightHolds
@@ -51,38 +20,23 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenElevenOneLieClFieldTwoG2Proo
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81FourSixteenHolds
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentCitedMain
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenElevenParabolicCommOf
-public import CFSG.LocalAnalysis.RankFourTheoremC.InvariantTwo.KFacts.CenterCyclic
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSz32Local
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CaseTwoLocalL28
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.SplitExc
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenSevenCfgNoN2
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenThreeDvdCfgOf
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactCaseTwoSylowAutProof
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81L34ThreeRankTwoProof
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeCasesProof
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveNormalizesNoSU
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveLeOf
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveNotLeOf
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveNotLeGraph
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveLeCartan
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveLeSmall
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveLeU42O8
-import CFSG.LocalAnalysis.RankThreeTheoremC.D1Component3
-import CFSG.LocalAnalysis.AGLEmbedding.NoXBlockBridgeK
-import CFSG.HardMathSupport.Foote.Coordinator.Downstream
-import CFSG.CGT.PushingUpLit.TwoKHolds
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenFourteenTwoListGammaRest
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenFourteenTwoListGammaMcL
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenFourteenTwoListGammaExcluded
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThirteenOf
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThirteenPerfectHolds
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThirteenAltTenOf
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenTwelveSolvSigmaDefs
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThirteenSolvDefs
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenTwelveSolvSigmaOf
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenTwelveSolvSigmaKP
-import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.TightPairAndPureRank.U33Proved
-import CFSG.HardMathSupport.Curtis.UnitaryLevi.PLTypeHolds
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThirteenSp62Holds
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThirteenSolvOf
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeSolvStructCfg
@@ -103,30 +57,22 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81AutSectionHolds
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineTwelveLThreeFourOf
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81LThreeFourAutHolds
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactNineThreeInvolvedA6L34Proof
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenOneSixCenterOf
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenOneNoAFiveOf
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenOneCZeroProof
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeTwoAtProof
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenOneCenterRankProof
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenCfgChain
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeCfg
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81SylNormSym
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81SylNormSymProd
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81SylNormTrivSp
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineEightFourProof
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommHolds
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineThreeOutPClosedHolds
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81SevenFourTwoOf
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineEightTwoEntriesSpor
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenNineFieldIndexWDispatch
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenNineFieldIndexW
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenTwelveRanksNotLe
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81SevenOneThreeRankTwoHolds
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81FiveTwentySixDefs
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81FiveTwentySixHolds
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81LnTwoCentralizerLift
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ThreeOneDefs
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ThreeOneOf
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ThreeOneSporPlaneOf
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenTwelveRanksLe
@@ -135,17 +81,12 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenNineWHolds
 import CFSG.RankThree.PartTwo.Census.Item433
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineOneThreeA7Ai
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenTenCfgOf
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenTenNotXOf
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineFourCfgOf
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeOneProof
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabPerfectThreeHolds
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenElevenOneLieCl
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenFiveXOf
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenSixOf
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenTenNormIOf
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenTenClaimOf
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransvThreeOf
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransvThree
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ThreeOneSporPlaneMonster
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ThreeOneSporPlaneTh
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenSixXNoTwo
@@ -155,115 +96,49 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenSixXOf
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineTwelveOneCfgOf
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenSixTwelveSolvOf
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeAltOf
-import CFSG.RankThree.PartOne.TCB.SchreierFinal
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineEightTwoRestThree
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81CZeroThreePerfectProof
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactWiring3
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanP1ThreeLieCharPAll
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.P1ThreeLieOffCharHolds
 import CFSG.LocalAnalysis.RankThreeTheoremC.K1NoBMSeitz
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanIdentAlt
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanIdentCharPSmall
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanIdentFamilies
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanIdentOffCharGen
-import CFSG.LieType.SeitzGeneration.SeitzStatus
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanIdentSporSmall
-import CFSG.RankThree.PartOne.TCB.Sporadic
-import CFSG.LocalAnalysis.AGLEmbeddingD2.SporadicTable
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanIdentSporHS5
 import CFSG.LocalAnalysis.RankThreeTheoremC.D1BetaRank3K1NoBM
-import CFSG.LocalAnalysis.RankThreeTheoremC.D1CaseThree3SporSections
-import CFSG.LocalAnalysis.RankThreeTheoremC.D1ConstrainedNext3Main
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.BlockSylowThreeAutHolds
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.BlockHeisHolds
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.BlockPerfectCoreThreeHolds
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanOutElemRank
 import CFSG.LocalAnalysis.RankThreeTheoremC.D1AlphaKFacts3Assembly
 import CFSG.LocalAnalysis.RankThreeTheoremC.D1AlphaListE4
-import CFSG.RankThree.PartOne.S11c.ETypeRankThree
 import CFSG.LocalAnalysis.RankThreeTheoremC.D1AlphaListLifts
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.AlphaRowONan
-import CFSG.LocalAnalysis.RankThreeTheoremC.D1AlphaSL3LiftMain
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSL3LiftFour
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSL3LiftField
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSL3LiftUnitaryFieldAll
-import CFSG.LocalAnalysis.RankThreeTheoremC.D1AlphaList3
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactWiring3Griess
-import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.BlockFieldIndexFiveAbstract
-import CFSG.LocalAnalysis.RankThreeTheoremC.ParabCensus.Assembly
-import CFSG.LocalAnalysis.RankThreeTheoremC.ParabCensus.Reduce
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineEightTwoEntriesRankOne
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineSeventeenFirstTwo
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineThreeSevenFiveHolds
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineOneThreeWCQChain
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabIrrHolds
-import CFSG.LocalAnalysis.RankThreeTheoremC.D2Ambient3
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineOneThreeShapeProd
-import CFSG.LocalAnalysis.AGLEmbedding.AscEightFive
-import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.BlockB.NineThree
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4D4Data
-public import CFSG.Sporadic.J4.QT2LocX0Native
-public import Certificates.Data.CFSGNative.J4.PentScan
-import Certificates.Kernel.J4Q.QTBase
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
 import Certificates.Kernel.HSA312.Struct
 import Certificates.Kernel.HSQuot.Final
-public import CFSG.Sporadic.Ly.Setup
 import CFSG.Sporadic.Ly.GenSpecBase
-public import CFSG.GroupTheory.TwoWeightData
 import CFSG.Sporadic.Ly.TwoWeightsSpecBase
 import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P4S55LyHHBase
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.RankThree.PartOne.CTP.FusionSound
-import CFSG.Sporadic.Bridge.BFusSevenGen
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenOneExistsOf
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineThreeXCfgOf
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenFourteenThreeProof
-import CFSG.LocalAnalysis.RankThreeTheoremC.D1Cases3
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineOneThreeProof
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81CfgRankNormalOf
-public import CFSG.LocalAnalysis.ComponentClassification.GoldschmidtTDGriess
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductionsIICenter
 public import CFSG.LocalAnalysis.RankThreeTheoremC.OutCyclicThree
-import CFSG.LocalAnalysis.AGLEmbedding.AscEightFour
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2LocalCGT3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactNineThreeComponentL34Proof
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentTenFourteenList
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineThreeCfgHolds
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentCentralThree
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentLinUnitParab
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineOneThreeWCCore
-public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3M11TransProved
-public import CFSG.GH74.KGroups.M11
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3M11Model
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3SylowKleinTools
-import CFSG.Sporadic.Bridge.M11
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGLHyp111AltSixIrred
-import CFSG.RankThree.PartTwo.Sec15.Item15Res8ProofDiagK
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineOneThreeWCAlt9
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineOneThreeWCL33
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineOneThreeWCM12
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineOneThreeWCL2
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineOneThreeWCL34
-import CFSG.Sporadic.Bridge.M12
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineSeventeenFirst
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineEightTwoEntries
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ThreeFourTwoOfSevenPairs
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ThreeFourTwoFiTwentyFour
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ThreeFourTwoHolds
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.NQOvergroupsHolds
 public import CFSG.RankThree.PartTwo.Sec20.TwoNeverHolds
 public import CFSG.RankThree.PartTwo.Sec19.Item1912OfLeaves
 public import CFSG.RankThree.PartTwo.Late.Item2010Item236OfStones
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineSeventeenOf
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineEightTwoProof
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineThreeRankTwoOf
 import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
 public import CFSG.Adapters.CatalogueFieldBridges.UnitarySU
@@ -282,7 +157,6 @@ public import CFSG.ClassicalInvolution.Phan.Phan3KerA3
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6cTransport
 public import CFSG.ClassicalInvolution.Q3.Sec13End16N
 public import CFSG.ClassicalInvolution.Q3.TA3SOLCore
-public import CFSG.ClassicalInvolution.Q3.TA3SOLCoreRank
 public import CFSG.ClassicalInvolution.Q3.TA3SmallModelM12
 public import CFSG.ClassicalInvolution.Q3.TL4ExitTwoSt0K
 public import CFSG.ClassicalInvolution.Q3.TL4Thm6Defs
@@ -360,14 +234,12 @@ public import CFSG.LocalAnalysis.QuasithinUnique.CharTwoTransport
 public import CFSG.LocalAnalysis.RankFourTheoremC.Nongeneration.Main
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2AltFiveBlock3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2Families3
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Cover
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Impure
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Kmax
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3NoncycFactor
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3TwoEscA
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3TwoEscB
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3WAssembly
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Port3CoreFree
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Residue3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2LeavesNarrow3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2PairStrong3Residues

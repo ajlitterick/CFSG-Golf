@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.KsEight.CentGlue
 public import Certificates.Kernel.KsEight.Syl
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TC3UExt
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M24Std.CU43Cover
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionLinearWitness
-import Mathlib.Tactic.NoncommRing
 
 public section
 

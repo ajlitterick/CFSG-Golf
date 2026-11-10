@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.S11d.FixedFacts
-public import CFSG.RankThree.PartOne.S11c.Sec66PSL
 public import CFSG.RankThree.PartOne.S11c.Sec66PSL2
 public import CFSG.RankThree.PartOne.S11c.Sec66TorusPSL
 public import CFSG.SignalizerFunctorTheorem.NonLocal.LinearMain
@@ -36,12 +35,9 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.RankThree.PartOne.S11d.OutSymplectic
 public import CFSG.RankThree.PartOne.S11d.OutUnitary
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Defs
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

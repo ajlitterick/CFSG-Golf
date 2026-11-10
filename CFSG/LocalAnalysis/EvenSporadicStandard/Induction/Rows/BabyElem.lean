@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.FixLift
-public import CFSG.Monster.B.CTIB.Action
-public import CFSG.Monster.B.CTIB.Census
-public import CFSG.Monster.B.CTIB.CoreCensus
 public import CFSG.Monster.B.CTIB.TableSix
-public import CFSG.Monster.B.CTIB.FourClasses
 public import CFSG.Monster.Existence.BabyW3Count
 
 public section

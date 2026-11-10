@@ -4,12 +4,7 @@ module
 public import Certificates.Kernel.KDenseP.TwoPoint.Base
 public import Certificates.Kernel.KDenseP.ReplayN
 public import CFSG.Certificates.Kernel.KDenseP.TwoPoint.MonoAll
-public import CFSG.Certificates.Kernel.KDense.Data.Checks
 import Certificates.Kernel.KDenseP.MonoTabL
-public import CFSG.Certificates.Kernel.KDenseP.TwoPoint.MonoEChk0
-public import CFSG.Certificates.Kernel.KDenseP.TwoPoint.MonoEChk1
-public import CFSG.Certificates.Kernel.KDenseP.TwoPoint.MonoEChk2
-public import CFSG.Certificates.Kernel.KDenseP.TwoPoint.MonoEChk3
 
 public section
 

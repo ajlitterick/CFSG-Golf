@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.Co3.Single
-public import Certificates.Data.Kernel.Spor.Prim
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

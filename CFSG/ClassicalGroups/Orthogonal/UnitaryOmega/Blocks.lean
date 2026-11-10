@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Models
 public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.PlaneTorus
 public import CFSG.RankThree.PartOne.KC.OrthogonalPlanePermutations
-public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotGenTwoWindows
 
 public section
 

@@ -1,12 +1,9 @@
 module
 
-public import CFSG.Open.GLADefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2TwAModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.Shared
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerSymplecticOrth
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.Adapters.TauCetiExceptional.BridgeTransport
 public import Certificates.Certificate13603
 public import Certificates.Certificate63001
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32

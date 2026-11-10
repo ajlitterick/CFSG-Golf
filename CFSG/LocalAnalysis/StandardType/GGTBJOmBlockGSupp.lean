@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.KC.OrthogonalFixedBlock
-public import CFSG.RankThree.PartOne.KC.OrthogonalSupportedBlocks
 public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.LieType.BorelTits.CompleteFlag

@@ -1,13 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTypeA
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpModel
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMoreOrth
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMoreExc
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinear
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSymplectic
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVacOther
 
 public section

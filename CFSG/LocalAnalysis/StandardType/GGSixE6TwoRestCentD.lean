@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestBasic
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoComponent
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoCent

@@ -1,19 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusTwA
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusOmegaSel
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusOmegaNonsplit
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1DSmall
 import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVac
-import CFSG.LocalAnalysis.StandardType.GGTableBTwDThree
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
-import CFSG.LocalAnalysis.StandardType.KGLangS1ALinTypeDet
-import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenIso
-import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaSec
-import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagConcl
-import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
-import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
 import CFSG.Mathlib.GroupTheory.Automorphism.ConjCommute
 
 public section

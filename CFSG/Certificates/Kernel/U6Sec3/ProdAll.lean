@@ -3,17 +3,12 @@ module
 public import CFSG.Certificates.Kernel.Spor.SiftEq
 public import Certificates.Data.Kernel.U6.Sec3K
 public import CFSG.Certificates.Kernel.Spor.RawSlSound
-public import CFSG.Certificates.Kernel.Spor.RawSound
 public import CFSG.Certificates.NativeValidSchreier
 public import CFSG.RankThree.Native.PermEnumeration
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaSec3Tabs
 import CFSG.Certificates.Kernel.U6Sec3Defs
-import CFSG.Certificates.Kernel.Spor.RawAgree
 import CFSG.Certificates.Kernel.Spor.RawSiftK
-import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Spor.RawOrbHead
 import CFSG.Certificates.Kernel.Spor.PackWord
-public import Mathlib.GroupTheory.Schreier
 public import Std.Data.HashMap
 import Std.Tactic.BVDecide.Normalize.BitVec
 

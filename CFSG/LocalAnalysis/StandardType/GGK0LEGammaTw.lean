@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwistedE6Base
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidDescent
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnSyl
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerE8Five
@@ -47,7 +46,6 @@ public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

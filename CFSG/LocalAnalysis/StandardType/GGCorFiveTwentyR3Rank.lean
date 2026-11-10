@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyA11
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 
 public section
 

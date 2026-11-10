@@ -4,8 +4,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3TWWEvalB
 public import CFSG.ClassicalInvolution.Q3.Q3VF4Ext
 public import CFSG.ClassicalInvolution.Q3.Q3ZAdjChain
 public import CFSG.ClassicalInvolution.WeakCT.Main
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 
 public section
 

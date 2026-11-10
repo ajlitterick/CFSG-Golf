@@ -1,18 +1,10 @@
 module
 
-public import CFSG.GH74.E2.Cl2Quot
-public import CFSG.GH74.E2.FrattiniRank
-public import CFSG.GH74.E2.DirectProd
-public import CFSG.CharacterTheory.Semidihedral.Presentation
-public import CFSG.CharacterTheory.Semidihedral.NormalForm
 public meta import Mathlib
 public meta import CFSG.CharacterTheory.Semidihedral.Model
 public meta import CFSG.GH74.E2.SD16Cert
-public import CFSG.GH74.E2.Alpha1AutCertInputs
 public meta import CFSG.GH74.E2.Alpha1AutCertInputs
 public import Certificates.Certificate5004
-public import CFSG.GH74.E2.SD16CertBase
-public import CFSG.GH74.E2.SD16Cert
 
 public section
 

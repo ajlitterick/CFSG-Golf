@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniGeom
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinear
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2A2Plus
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2L4

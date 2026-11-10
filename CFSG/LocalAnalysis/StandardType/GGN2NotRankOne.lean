@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGN2Defs
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUTableClDefs
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

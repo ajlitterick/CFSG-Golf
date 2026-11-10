@@ -3,8 +3,6 @@ module
 
 public import CFSG.Sporadic.Co1.Module.FormsBase
 
-public import CFSG.Sporadic.Co1.Module.OrbitsBase
-public import CFSG.Sporadic.Co1.Module.FormsInputs
 public import Certificates.Certificate10069
 public meta import CFSG.Sporadic.Co1.Module.OrbitsBase
 public meta import Certificates.Data.CFSGNative.Co1.Data

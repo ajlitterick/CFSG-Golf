@@ -2,11 +2,7 @@ module
 
 public import CFSG.RankThree.Chevalley.EvenRealThreeCentralizingInvolution
 public import CFSG.LocalAnalysis.SectionRank.ExceptionalModels
-public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.LieType.Chevalley.TorusCoordinates
 public import CFSG.LieType.Chevalley.EvenTrialityTorusCoordinates
-public import CFSG.LieType.Chevalley.GraphFixedParameterFields
 
 public noncomputable section
 

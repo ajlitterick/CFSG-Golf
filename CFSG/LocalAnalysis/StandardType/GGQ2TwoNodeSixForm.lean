@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGWAutDefs
-public import CFSG.ClassicalGroups.Orthogonal.Derived
 import CFSG.LocalAnalysis.StandardType.GGWAutMonoNorm
 import CFSG.LocalAnalysis.StandardType.GGRCMonomialHom
 import CFSG.LocalAnalysis.StandardType.GGLargeDepNoSymPerm

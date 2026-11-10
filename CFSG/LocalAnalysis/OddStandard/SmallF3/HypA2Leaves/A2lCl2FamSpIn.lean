@@ -1,13 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamModels
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddInnerCent
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddInnerModels
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticBLinearBranches
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddInnerLift
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSpSelf
-public import CFSG.LocalAnalysis.ComponentInitial.FixedComponentCorrespondence
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSpField
 
 public noncomputable section

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Fi24Rk.Data
 public import Certificates.Kernel.Sporadic.Fi24K.K2077
 public import Certificates.Data.Kernel.Fi22Rk.Defs
-public import Certificates.Data.Kernel.Spor.Raw
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Each
 

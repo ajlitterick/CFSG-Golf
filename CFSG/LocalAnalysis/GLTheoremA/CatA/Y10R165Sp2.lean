@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Blocks5
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Concl
-public import CFSG.RankThree.PartOne.KC.SymplecticIsotypicFixed
 public import CFSG.GroupTheory.CentralizerSup
 public import CFSG.GroupTheory.PLayer.PIndex
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcAction

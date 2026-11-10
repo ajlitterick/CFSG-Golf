@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2S08CoreRedKer
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CoreRes
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CoreAbs
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CoreFull
-public import CFSG.LocalAnalysis.StandardType.GGWAutCommon
 
 public section
 

@@ -1,11 +1,6 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
-public import Mathlib.Data.ZMod.Defs
-public import Mathlib.SetTheory.Cardinal.Finite
 public import CFSG.Certificates.Kernel.C7109.Sound
-public import Mathlib.LinearAlgebra.Matrix.Block
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 public import Mathlib.GroupTheory.Sylow
 public import Mathlib.Algebra.Field.ZMod

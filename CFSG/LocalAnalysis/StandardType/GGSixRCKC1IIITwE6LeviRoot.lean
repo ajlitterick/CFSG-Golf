@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISUCoordRoot
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGStructTwE6Levi
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCTGraphTwisted
-public import CFSG.LieType.Chevalley.E6GraphLeviRealization
-public import CFSG.LieType.Chevalley.E6GraphRadicalCoords
-public import CFSG.LieType.Steinberg.TwistedE6.Local
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviHom
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortF4IsoLen
 
 public section

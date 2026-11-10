@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.SporSch.Ru.C2253
 public import Certificates.Kernel.SporSch.Ru.RFacts
 public import CFSG.Certificates.Kernel.SporSch.RuImgSound
-public import CFSG.Certificates.Kernel.Spor.PrimSound
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

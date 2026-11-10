@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Background.G6Natural
 public import CFSG.Quasithin.Background.HModChk
 public import CFSG.Permutation.FinPack
 

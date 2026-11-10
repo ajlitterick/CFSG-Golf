@@ -4,10 +4,8 @@ public import Certificates.Kernel.Item434.J2Chain
 public import Certificates.Kernel.J2Cover.AutChain
 public import CFSG.Certificates.Kernel.Item434.PkSound
 public import CFSG.Certificates.Kernel.O8ConstrSound
-public import CFSG.Certificates.Kernel.Spor.SiftRSound
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.Stage1ModelData
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.Stage2Cand

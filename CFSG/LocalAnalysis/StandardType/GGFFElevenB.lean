@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFFLocal
 public import CFSG.LocalAnalysis.StandardType.GGFFModelNDefs
-import Mathlib.GroupTheory.Sylow
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 

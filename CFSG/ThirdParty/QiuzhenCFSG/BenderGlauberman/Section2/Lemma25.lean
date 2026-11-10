@@ -1,7 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Coherence
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Lemma25Core
 
 namespace CFSG

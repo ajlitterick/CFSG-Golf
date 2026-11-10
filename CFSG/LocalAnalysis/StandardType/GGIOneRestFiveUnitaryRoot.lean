@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveUnitaryDvd
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperUnitary
 public import CFSG.GH74.GLS.Stage2.Final.ModelOrd
 
 public section

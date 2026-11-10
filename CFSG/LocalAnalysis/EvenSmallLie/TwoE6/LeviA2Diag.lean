@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.LeviA2DiagEmbed
-public import CFSG.LieType.Chevalley.GraphFixedCompatibleDiagonal
 import all CFSG.Fischer.F4
 
 public noncomputable section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.Defs
-public import CFSG.HardMathSupport.Lang.D4Three.Assembly
 public import CFSG.HardMathSupport.Malle.E27Lie.Outer.Assembly9
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC

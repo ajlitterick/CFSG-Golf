@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.Sol76Hq4L34
 public import CFSG.RankThree.PartTwo.Sec4.Census.DoubleCoverRanks
 public import CFSG.RankThree.SteinbergR3ESuzukiInvolutionCentralizers
 public import CFSG.RankThree.PartTwo.KFacts.KP7Suzuki
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
 public import CFSG.Certificates.LiftedSchreierData
 public import CFSG.LieType.Multipliers.U62Sylow
 public import CFSG.LieType.Steinberg.CentralExt.GriessTable
@@ -39,7 +38,6 @@ public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
 public import CFSG.Sporadic.Ly.OrbitSpec
-public import CFSG.Sporadic.Ly.PrimitiveBase
 public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyChain11

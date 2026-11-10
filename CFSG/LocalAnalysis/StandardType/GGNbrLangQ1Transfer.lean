@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Regimes
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TransferData
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TransferMark
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 
 public section
 

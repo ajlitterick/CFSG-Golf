@@ -1,8 +1,6 @@
 module
 
 public import CFSG.GF2Type.SmithTypeE.DMod.Act
-public import CFSG.GF2Type.SmithTypeE.DMod.Clifford
-public import Certificates.Data.Kernel.SmithD6.WtCheck
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LargeExtraspecial.OrthoF2
 public import CFSG.LargeExtraspecial.S2Basic
@@ -13,9 +11,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPoi
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSemilinearDataCompatibility
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import Certificates.Data.SmithD6Check
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 

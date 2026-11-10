@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOrdinaryMemberE7RootRecognition
 public import CFSG.LocalAnalysis.StandardType.ExcPos.E6RationalRootPairs
 public import CFSG.LocalAnalysis.StandardType.GGOrdinaryMemberTwistedE6Pullback
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcFrameStab
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcIso
-public import CFSG.LocalAnalysis.StandardType.GGL45NtExcIdx
 
 public section
 

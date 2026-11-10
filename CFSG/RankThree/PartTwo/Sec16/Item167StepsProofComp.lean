@@ -4,9 +4,7 @@ public import CFSG.RankThree.PartTwo.Sec16.Item167ProofCrit
 public import CFSG.GroupTheory.LocalCores.Layer
 import CFSG.RankThree.PartTwo.Sec4.Census.Item44Core
 import CFSG.GroupTheory.Fitting.CharacteristicP
-import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.LocalAnalysis.SectionRank.Ccomm.Centralization
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.RankThree.Transfer.Yoshida
 import CFSG.RankThree.PartTwo.Sec14.Item1446
 import CFSG.RankThree.PartTwo.Sec16.Item167ProofGL2

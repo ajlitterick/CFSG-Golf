@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec21.Item21Early2ProofModels
 import CFSG.RankThree.Asc83Table.M22
 import CFSG.RankThree.Asc83Table.M23
-import CFSG.RankThree.Asc83Table.Reduction
 import CFSG.LocalAnalysis.SectionRank.Sporadic.HSLocal
 import CFSG.LocalAnalysis.SectionRank.Sporadic.HeLocal
 import CFSG.LocalAnalysis.SectionRank.Sporadic.J2Local
@@ -11,15 +10,11 @@ import CFSG.LocalAnalysis.SectionRank.Sporadic.RuLocal
 import CFSG.LocalAnalysis.SectionRank.Sporadic.J4Local
 import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocal
 import CFSG.LocalAnalysis.SectionRank.Sporadic.J3
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.RankThree.PartTwo.Late.GammaZero
 import CFSG.RankThree.PartTwo.Sec13.Item13ResProofCentral
 import CFSG.RankThree.PartTwo.Sec13.Item136PGL
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import CFSG.RankThree.PartTwo.Sec13.Item135SimpleReduce
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A134EvenClassical
 import CFSG.RankThree.PartOne.S12.ModelTransport
-import CFSG.Adapters.RankTwoModelTransports
 import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoIVTorus
 import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherUTools
 import CFSG.RankThree.PartTwo.Sec4.Item47CasesEven

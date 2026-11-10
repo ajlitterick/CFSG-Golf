@@ -2,8 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModelGen
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModelSign
-public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModelSpan
-public import CFSG.Sporadic.Th.Max3.Data
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.D6FrameAux
-public import CFSG.LocalAnalysis.StandardType.FS81.D6ModelRel
 public import CFSG.LocalAnalysis.StandardType.FS81.D6ModelTorus
 public import CFSG.LocalAnalysis.StandardType.FS81.D6Plane
 

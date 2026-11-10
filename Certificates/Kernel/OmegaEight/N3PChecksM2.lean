@@ -5,7 +5,6 @@ public import Certificates.Kernel.OmegaEight.PlusNodeData
 public import CFSG.Certificates.Kernel.O8NodeSound
 public import CFSG.Certificates.Kernel.O8N3Sound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.O8MinusSound
 
 public section

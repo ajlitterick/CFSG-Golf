@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Quasithin.Background.AutOnBasics
 public import CFSG.Quasithin.Vol2.Ch12Sec8Setup
 public import CFSG.Quasithin.Background.G2
-public import CFSG.Quasithin.Background.B2Factorization
 
 public section
 

@@ -4,14 +4,10 @@ public import CFSG.Sporadic.HN.Commutant
 public import CFSG.Sporadic.HNSchreier.LevelInputs
 public import Certificates.Kernel.HNChain.Data
 public import CFSG.Certificates.Kernel.Spor.OrdSound
-public import CFSG.Certificates.Kernel.Orders.HN.Data.Const
 import Certificates.Kernel.HNChain.Checks.R
 import Certificates.Kernel.HN3166.Ord
-import Certificates.Kernel.HN3166.Seed
 import Certificates.Kernel.VecCert.WordProg
-import CFSG.Certificates.Kernel.Orders.HN.Data.Sel
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 400000
 

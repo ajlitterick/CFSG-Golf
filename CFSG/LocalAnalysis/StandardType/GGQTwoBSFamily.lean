@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBSDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoPhanDefs
 import CFSG.LocalAnalysis.StandardType.GGQTwoBSAlign
-import CFSG.ClassicalInvolution.Phan.Blocks
 
 public section
 

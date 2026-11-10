@@ -5,21 +5,11 @@ public import Certificates.Certificate8071Base1
 import all Certificates.Certificate8071Base
 import all Certificates.Certificate8071Base1
 
-public import CFSG.Open.QuasithinDefs
-public import CFSG.Blueprint.MatrixSeedIdentification
-public import CFSG.Quasithin.Recognition.CertChain
-public import CFSG.Quasithin.Recognition.CertDataTits
-public import Certificates.Data.CFSGNative.YGroups.ExactCheck
-public import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Quasithin.Recognition.CertTitsInputs
-import Certificates.Certificate8072
 import Certificates.Kernel.Misc.Tits.Chain8071
 import Certificates.Kernel.Sporadic.Tits.Order2264
 import Certificates.Kernel.Sporadic.OddCore.ChainCheckGlue
 import Certificates.Kernel.YModel.Basic
 import CFSG.Certificates.Kernel.Spor.DecLinesRead
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

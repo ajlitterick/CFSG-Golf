@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 import TauCeti.LinearAlgebra.QuadraticForm.CartanDieudonne.Basic
-import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.Basic
 
 public section
 

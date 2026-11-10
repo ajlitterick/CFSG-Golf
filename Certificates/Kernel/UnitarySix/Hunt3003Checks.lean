@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.UnitarySix.M22Chunks
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

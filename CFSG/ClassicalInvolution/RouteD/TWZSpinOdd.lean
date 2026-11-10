@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWZSpinMinus
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

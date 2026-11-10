@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthTorus
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthSmall
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthType
-import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentComp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentFix
-import CFSG.LocalAnalysis.GLTheoremA.ExcClubList
 public import CFSG.Holt.Fixed
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLInner
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneProjSlice

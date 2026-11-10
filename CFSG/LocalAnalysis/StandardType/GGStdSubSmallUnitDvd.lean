@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdNorm
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdDelta
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeLabels
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdLabel
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryOutdiag
 
 public section
 

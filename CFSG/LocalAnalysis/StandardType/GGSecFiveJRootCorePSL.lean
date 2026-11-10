@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreTags
-import CFSG.LocalAnalysis.StandardType.GGLinearFusionSLCent
-import CFSG.LocalAnalysis.StandardType.GGLinearSemisimple
 
 public section
 

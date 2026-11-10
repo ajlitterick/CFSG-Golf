@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentBridge
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentRigid
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentCube
 
 public section
 

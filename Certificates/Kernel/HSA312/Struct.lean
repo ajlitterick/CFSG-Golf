@@ -3,12 +3,10 @@ module
 public import Certificates.Kernel.HSA312.CI
 public import Certificates.Kernel.HSA312.MV1
 public import Certificates.Kernel.HSA312.MV2
-public import Certificates.Kernel.LocalQT.HS4089.G
 public import Certificates.Kernel.HSDc.Final
 public import CFSG.Certificates.Kernel.HSA312Sound
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHSDc
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 100000
 

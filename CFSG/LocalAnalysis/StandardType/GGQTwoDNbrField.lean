@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrA
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnolaLabel
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosCommCornerGrp
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
 

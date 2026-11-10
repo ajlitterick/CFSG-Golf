@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.Co1Patterson.GraphTits
 public import CFSG.Sporadic.Co1Patterson.AmalgamLocal
-public import CFSG.Sporadic.Co1Patterson.AmalgamInputs
 public import Certificates.Certificate21157
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bDefs
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo1Cen2AData

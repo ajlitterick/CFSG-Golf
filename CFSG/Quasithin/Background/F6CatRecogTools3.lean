@@ -1,10 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.F6CatRecogTools2
-public import CFSG.Quasithin.EmptyFaithfulMultiple.Lemma15422Sym
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2DihedralProjection
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DihedralSylow
 public import CFSG.Quasithin.Background.F6CatRecogOut
 public import CFSG.Walter.J1Props
 public import CFSG.Quasithin.Background.F6CatRecogL2
@@ -29,59 +25,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.MacWilliamsReduction
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
-public import Mathlib.Algebra.AffineMonoid.Basic
-public import Mathlib.Algebra.Algebra.Subalgebra.Lattice
-public import Mathlib.Algebra.BigOperators.Fin
-public import Mathlib.Algebra.BigOperators.Group.Finset.Lemmas
-public import Mathlib.Algebra.CharP.Basic
-public import Mathlib.Algebra.CharP.Frobenius
-public import Mathlib.Algebra.CharP.Two
-public import Mathlib.Algebra.Group.Commutator
-public import Mathlib.Algebra.Group.Pointwise.Set.Card
-public import Mathlib.Algebra.Group.Subgroup.Even
-public import Mathlib.Algebra.Group.Submonoid.Operations
-public import Mathlib.Algebra.Group.TypeTags.Hom
-public import Mathlib.Algebra.Order.Ring.GeomSum
-public import Mathlib.Algebra.Polynomial.Roots
-public import Mathlib.Algebra.QuadraticAlgebra.NormDeterminant
-public import Mathlib.Algebra.Ring.Commute
-public import Mathlib.Analysis.Fourier.FiniteAbelian.PontryaginDuality
-public import Mathlib.Data.Fin.VecNotation
-public import Mathlib.Data.Fintype.EquivFin
-public import Mathlib.Data.Matrix.Basis
-public import Mathlib.Data.Matrix.Mul
-public import Mathlib.Data.ZMod.QuotientGroup
-public import Mathlib.FieldTheory.Finiteness
-public import Mathlib.FieldTheory.Fixed
-public import Mathlib.GroupTheory.GroupExtension.Basic
-public import Mathlib.GroupTheory.Perm.Closure
-public import Mathlib.GroupTheory.Perm.Fin
-public import Mathlib.GroupTheory.Perm.Finite
-public import Mathlib.GroupTheory.RegularWreathProduct
-public import Mathlib.LinearAlgebra.CliffordAlgebra.SpinGroup
-public import Mathlib.LinearAlgebra.Dimension.Finite
-public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
-public import Mathlib.LinearAlgebra.Matrix.Notation
-public import Mathlib.LinearAlgebra.Matrix.Transvection
-public import Mathlib.LinearAlgebra.Projectivization.Basic
-public import Mathlib.LinearAlgebra.QuadraticForm.Basic
-public import Mathlib.LinearAlgebra.QuadraticForm.Prod
-public import Mathlib.LinearAlgebra.QuadraticForm.Radical
-public import Mathlib.LinearAlgebra.Quotient.Basic
-public import Mathlib.LinearAlgebra.TensorProduct.Basic
-public import Mathlib.LinearAlgebra.TensorProduct.Free
-public import Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.GaussSum
-public import Mathlib.Order.Interval.Finset.Nat
-public import Mathlib.Tactic.FieldSimp
-public import Mathlib.Tactic.Linarith
-public import Mathlib.Tactic.Module
-public import Mathlib.Tactic.Push
-public import Mathlib.Tactic.Ring
-public import TauCeti.Algebra.Central.TensorProduct
-public import TauCeti.LinearAlgebra.ExteriorAlgebra.Dimension
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Symplectic.Basic
-public import TauCeti.LinearAlgebra.SymplecticGroup
-public import TauCeti.RepresentationTheory.Spin.Polarization.Split.Even
 
 public section
 

@@ -2,19 +2,12 @@ module
 
 public import Certificates.Data.Kernel.Spor.MulH
 public import CFSG.Certificates.Kernel.Spor.PEnumSound
-public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import Certificates.Data.CFSGNative.SmallOddCore.Check
 public import CFSG.Certificates.Kernel.Spor.TabWords
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Certificates.Kernel.Spor.HBfsReplay
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.BfsPinAlg
-import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Spor.RawOrbHead
-import Mathlib.Data.Finset.Card
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 public section

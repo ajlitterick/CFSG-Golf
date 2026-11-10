@@ -7,10 +7,6 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ThreeFourOneOf
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CaseTwoLocalL28
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.L28AutThree
 import CFSG.LocalAnalysis.AGLEmbedding.SUPairCommute
-import CFSG.LocalAnalysis.AGLEmbedding.CZeroSubnormalCommute
-import CFSG.LocalAnalysis.QuasithinUnique.CompNormSylow
-import CFSG.LieType.BorelTits.Basic
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.LocalCore
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs

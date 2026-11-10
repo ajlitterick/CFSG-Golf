@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindCTUAlignTwist
-public import CFSG.Fischer.F4
 import all CFSG.Fischer.F4
 public import CFSG.Fischer.Classification.Basic.Heisenberg
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2Torus

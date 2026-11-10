@@ -9,7 +9,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoScalarStable
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFinishK
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSpanOfDet
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNoF4
-public import CFSG.LocalAnalysis.StandardType.GGQTwoBridgeWeyl
 import CFSG.LocalAnalysis.StandardType.GGQTwoTBWNormModelA
 
 public section

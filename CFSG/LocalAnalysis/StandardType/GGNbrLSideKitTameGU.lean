@@ -3,14 +3,7 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniData
 import CFSG.LocalAnalysis.StandardType.GGNbrLSideKitComm
-import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryHermitian
 import CFSG.LocalAnalysis.ComponentInitial.ProjectiveUnitaryLocalComponentUnitary
-import CFSG.LocalAnalysis.ComponentInitial.TwoPrimeSolvable
-import CFSG.LinearAlgebra.LinearGroups.UnitaryFourOrder
-import CFSG.LinearAlgebra.LinearGroups.UnitaryOrder
-import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear
-import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeSpecial
-import CFSG.LieType.SemisimpleCentralizers.HeldUCDTransfer
 public import CFSG.Assembly.GL83StatedBridge
 public import CFSG.Assembly.OpenBridges
 public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3LInput

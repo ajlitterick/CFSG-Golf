@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.HS3850.D23005
 public import Certificates.Kernel.HS3850.Small
 public import Certificates.Kernel.LocalQT.Tc.Gen
-public import Certificates.Data.Kernel.Spor.Chain
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

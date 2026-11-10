@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSelectedF2
 public import CFSG.ClassicalInvolution.WeakCT.TwistedSpinNodes
 public import CFSG.LieType.HighestRoot.RootsBasic
-public import CFSG.ClassicalInvolution.ModelFacts.WeylTransitive
-public import CFSG.ClassicalInvolution.ModelFacts.Families
 
 public section
 

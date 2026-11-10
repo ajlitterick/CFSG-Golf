@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3ExcRank
 
 public section
 

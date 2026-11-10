@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.B.TwoA.Amalgam.CosetGraphPoints
 public import CFSG.Monster.B.TwoA.Amalgam.CentralExt
-public import CFSG.Monster.B.TwoA.Sp8.Par1Center
 public import CFSG.Monster.B.E6.StdF4Points
 public import CFSG.LieType.Chevalley.C2E6MinusSixStabilizer
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular

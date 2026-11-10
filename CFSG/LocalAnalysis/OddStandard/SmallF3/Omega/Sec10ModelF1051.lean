@@ -4,8 +4,6 @@ module
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10ModelF1051Base
 
 public import Certificates.Certificate442004
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10ModelT0
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10TwoCore
 
 public section
 

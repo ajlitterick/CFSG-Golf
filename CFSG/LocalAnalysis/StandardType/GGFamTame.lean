@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamTameInner
 public import CFSG.LocalAnalysis.StandardType.GGFamTameSuN
-public import CFSG.LocalAnalysis.StandardType.GGFamTameTwoDHigh
-public import CFSG.LocalAnalysis.StandardType.GGFamTameD4
 public import CFSG.LocalAnalysis.StandardType.GGFamTameExc
 
 public section

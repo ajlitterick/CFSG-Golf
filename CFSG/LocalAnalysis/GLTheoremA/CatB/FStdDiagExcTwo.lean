@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.FStdDiagDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.HStdExclHolds
-public import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoRat
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExc
 public import CFSG.Goldschmidt.Steps.G310Comp
 public import CFSG.HardMathSupport.Dickson.Bal207.LocalBalClassical
 public import CFSG.HardMathSupport.Dickson.Bal207.LocalBalRows

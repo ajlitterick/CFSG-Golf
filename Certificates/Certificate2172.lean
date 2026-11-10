@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2172Base
 
-public import CFSG.Sporadic.Schreier.J4SInvData
 import Certificates.Kernel.SporSch.J4S.InvP
 
 public section

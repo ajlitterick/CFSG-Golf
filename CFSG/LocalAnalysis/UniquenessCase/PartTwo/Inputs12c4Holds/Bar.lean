@@ -2,15 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveTwentyFiveA
-import CFSG.Quasithin.Background.A3ComponentsQuotient
 import CFSG.Quasithin.Background.VolIE54
 import CFSG.RankThree.PartTwo.Sec15.F153L3C2Quot
 import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU
 import CFSG.LocalAnalysis.AGLEmbedding.TwoCoreObstruction
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 import CFSG.Quasithin.Background.B6
-import CFSG.Quasithin.Background.B6Example
-import CFSG.Quasithin.Background.B6Offenders
 import CFSG.Quasithin.Background.E2Hyp
 import CFSG.Quasithin.Background.E2SolvTwo
 import CFSG.Quasithin.Background.F2Equiv

@@ -4,8 +4,6 @@ public import Certificates.Kernel.A312M23.Checks
 public import Certificates.Kernel.M23Dc.Bridge
 public import CFSG.Certificates.Kernel.A312M23KSound
 public import CFSG.Quasithin.Background.HSporLatM23Sg
-public import CFSG.LieType.Multipliers.L34Data
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListBender
 
 set_option maxRecDepth 100000

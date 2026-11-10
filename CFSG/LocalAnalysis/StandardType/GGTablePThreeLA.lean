@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeRank
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeDatum
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentLSide
-import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitMarking
 
 public section
 

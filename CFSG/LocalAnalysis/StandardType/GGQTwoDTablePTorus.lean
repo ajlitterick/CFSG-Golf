@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryDvdFrame
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmRABase
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryTorusCard

@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6Narrow
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLow2Z
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoCompLabCat
 import CFSG.LocalAnalysis.StandardType.KGCoverLift
-import CFSG.LocalAnalysis.StandardType.GGTCJDivLin
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoLeafModel
 
 public section

@@ -3,7 +3,6 @@ module
 
 public import CFSG.Fischer.Polar.DeltaBase
 public import Certificates.Kernel.Misc.PolarMath
-public import Certificates.Data.CFSGNative.Fischer.Polar
 public import CFSG.Sporadic.Recognition.LyonsAmalgamInv
 import all CFSG.Fischer.F4
 

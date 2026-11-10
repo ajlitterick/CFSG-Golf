@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.SEITZ6.G2MSwap
-public import CFSG.LieType.Steinberg.Collection
 public import CFSG.RankThree.PartOne.RF4.Basic
 public import CFSG.RankThree.PartOne.SEITZ6.G2Close
 

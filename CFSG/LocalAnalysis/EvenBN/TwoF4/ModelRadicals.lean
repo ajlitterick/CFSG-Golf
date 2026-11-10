@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.TwoF4.ModelCommutators
 public import CFSG.LocalAnalysis.EvenBN.TwoF4.ModelTorusBraces
-public import CFSG.LocalAnalysis.EvenBN.TwoF4.Model
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2PlaneRaw
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CuKE6
-public import CFSG.LocalAnalysis.StandardType.GGQTwoK1OfI1
 
 public section
 

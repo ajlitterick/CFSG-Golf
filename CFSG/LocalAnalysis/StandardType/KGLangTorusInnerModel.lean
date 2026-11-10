@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.KGLangTorusMPartDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixLabel
-public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeMarking
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45KGForms
 import CFSG.LocalAnalysis.StandardType.KGLangTorusModel
 import CFSG.LocalAnalysis.StandardType.KGLangTorusDatumOfModels

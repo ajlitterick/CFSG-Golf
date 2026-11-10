@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.Commutator.Basic
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.FritzII.FzCSy3Cos
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4L0GenData
 public meta import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4L0GenData
 public import Certificates.Kernel.J4M2.SlpB
 import CFSG.Certificates.Kernel.Common.Harness

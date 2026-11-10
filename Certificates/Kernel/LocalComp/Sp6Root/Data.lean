@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.LocalComp.Sp6J.Data
 public meta import Certificates.Kernel.LocalComp.Sp6J.Data
 public import Certificates.Kernel.SporSch.Mathieu.GenNL
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

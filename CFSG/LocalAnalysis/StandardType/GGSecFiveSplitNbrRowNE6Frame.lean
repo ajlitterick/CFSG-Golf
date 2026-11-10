@@ -2,13 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNInvol
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeAct
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylTorusAut
 import CFSG.LocalAnalysis.StandardType.GGTwE6WeylRealize
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeFrame
 import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotToral
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesSplit
-import CFSG.LieType.Chevalley.LatticeWeylGroup
 
 public section
 

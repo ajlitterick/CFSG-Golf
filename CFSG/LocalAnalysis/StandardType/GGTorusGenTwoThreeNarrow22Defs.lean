@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenTwoANarrow21Defs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeSp
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenOmegaPlusTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenOmegaMinusTwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcCoverRows
 
 public section
 

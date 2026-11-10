@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResXDatumOfWeylTypeCard
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeF4Three
-public import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRank
 public import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCube
 public import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCubeHolds
 

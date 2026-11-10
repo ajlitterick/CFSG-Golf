@@ -2,10 +2,7 @@ module
 
 public import CFSG.Sporadic.Co1.Module.Pairs
 public import CFSG.Sporadic.Co1.Module.Involutions
-public import CFSG.Sporadic.Co1.Module.InvAssemble
-public import CFSG.Monster.GMS.Facts.Co1OddPairs
 public import CFSG.Monster.GMS.Leech.Linear
-public import CFSG.Monster.GMS.S365RootInputs
 public import Certificates.Certificate10044
 public meta import CFSG.Sporadic.Co1.Module.PairsCheck
 public meta import CFSG.Sporadic.Co1.Module.InvData

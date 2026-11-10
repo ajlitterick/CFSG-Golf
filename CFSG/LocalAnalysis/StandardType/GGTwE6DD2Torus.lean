@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveSylow
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeA2BlockTwo
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveInner
-public import CFSG.GroupTheory.ElemAbelianClosure
 
 public noncomputable section
 

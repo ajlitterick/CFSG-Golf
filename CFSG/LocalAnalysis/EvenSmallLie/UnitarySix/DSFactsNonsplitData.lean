@@ -1,15 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.CoverActionData
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeData
 public meta import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.CoverActionData
 public meta import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeData
 public meta import CFSG.LieType.Multipliers.U62Bridge
 public meta import CFSG.LieType.Multipliers.U62Kernel
 public meta import Certificates.Data.CFSGNative.F4.T46Simple
 public meta import Certificates.Data.CFSGNative.Fi22.Local
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.DSFactsNonsplitDataInputs
-public import Certificates.Certificate3180
 public import Certificates.Certificate3144
 
 public section

@@ -3,10 +3,7 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzBtOG
 public import Certificates.Kernel.Sporadic.OddCore.SuzBtTF
-public import CFSG.Sporadic.SuzRecog.SuzL34.Bridge
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.RawGen
-public import Certificates.Data.CFSGNative.McL.Data
 public import CFSG.Sporadic.Recognition.McLMultiplierInputs
 public import CFSG.Certificates.CosetTableCompactColumns
 public import CFSG.Certificates.CosetTableShort

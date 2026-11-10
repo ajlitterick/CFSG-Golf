@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangRatLift
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.BigAnyTorus
-import Mathlib.LinearAlgebra.FreeModule.PID
-import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
-import Mathlib.LinearAlgebra.Matrix.Adjugate
-import Mathlib.FieldTheory.IsAlgClosed.Basic
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.BigAnyDefs
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialPoly
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidField

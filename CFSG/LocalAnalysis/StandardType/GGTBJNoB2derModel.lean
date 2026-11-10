@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derModelDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derModelAux
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derModelHom
 

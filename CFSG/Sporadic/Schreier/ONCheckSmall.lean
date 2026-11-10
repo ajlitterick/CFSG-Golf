@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.Schreier.ONOuterData
-public import Certificates.Data.CFSGNative.ONSchreier.Compact
 public meta import CFSG.Sporadic.Schreier.ONOuterData
 public meta import Certificates.Data.CFSGNative.ONSchreier.Compact
-public import CFSG.Sporadic.Schreier.ONCheckSmallInputs
 public import Certificates.Certificate2215
 
 public section

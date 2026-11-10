@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qNFqElem
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieD4Facts
-import CFSG.LieType.Chevalley.GraphFixedParabolicNormalizer
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qNFqCard
 
 public section

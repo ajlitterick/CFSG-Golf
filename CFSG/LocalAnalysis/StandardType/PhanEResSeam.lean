@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.PhanEResSeamGen
 public import CFSG.LocalAnalysis.StandardType.PhanEResFrame
-public import CFSG.LocalAnalysis.StandardType.PhanEStdSetting
 
 public section
 

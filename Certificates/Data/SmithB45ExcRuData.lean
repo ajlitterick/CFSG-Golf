@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.SmithB45ExcHSRuWit
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B42RuCheckInputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1HeSylArr
 public import CFSG.Sporadic.Schreier.RuCheckInvInputs
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

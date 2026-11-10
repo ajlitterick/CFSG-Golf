@@ -8,7 +8,6 @@ public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

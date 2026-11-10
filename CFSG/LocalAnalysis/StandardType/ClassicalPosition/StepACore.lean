@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.ComponentNormal
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I142NLift
-public import Mathlib.Tactic.Group
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSCore
-import CFSG.Adapters.SpecialLinearPerfect
 
 public section
 

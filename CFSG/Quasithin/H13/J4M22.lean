@@ -1,20 +1,8 @@
 module
 
-public import CFSG.Quasithin.H13.J4Normal3
-public import CFSG.Sporadic.Bridge.M22
-public import CFSG.Sporadic.Mathieu.M22
 public meta import Certificates.Data.CFSGNative.H13.J4Local
 public meta import CFSG.Quasithin.H13.J4QuotGroup
-import Certificates.Data.CFSGNative.H13.J4Local
-public import Certificates.Certificate7012
-public import Certificates.Certificate7013
-public import Certificates.Certificate7014
-public import Certificates.Certificate7015
-public import Certificates.Certificate7016
-public import Certificates.Certificate7018
-public import CFSG.Quasithin.H13.J4M22Inputs
 public import Certificates.Certificate7027
-public import Certificates.Certificate3029
 
 public noncomputable section
 

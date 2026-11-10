@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGL45NtExcLang
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcL44
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcPSatData
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcG2Three
-public import CFSG.LocalAnalysis.StandardType.GGL45NtLattice
 public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
 public import CFSG.Blueprint.SourceExceptionalRootData
 public import CFSG.Certificates.WordSubgroupRel

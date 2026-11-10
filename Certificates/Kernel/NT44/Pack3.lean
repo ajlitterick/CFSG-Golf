@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.NT44Model.Inputs
 public import Certificates.Data.NT44Commutator.Inputs
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import Certificates.Data.NT44Model.Inputs

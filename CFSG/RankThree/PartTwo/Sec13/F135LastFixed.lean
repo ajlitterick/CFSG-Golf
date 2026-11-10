@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec13.F135LastDefs
 public import CFSG.RankThree.PartTwo.ExponentPrimeSmallRank
 public import CFSG.GroupTheory.FrattiniQuotient
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

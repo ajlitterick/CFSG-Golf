@@ -1,14 +1,8 @@
 module
 
-public import CFSG.GH74.GLS.C3.Prop121.Card7Facts2
-public import CFSG.GH74.GLS.C3.Prop121.Card7H1
 public meta import CFSG.GH74.GLS.C3.Prop121.Card7H1
-public import CFSG.GH74.GLS.C3.Layer2.NumMoved
 public meta import CFSG.GH74.GLS.C3.Layer2.NumMoved
-public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 public meta import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import CFSG.GH74.GLS.C3.Prop121.Card7SylInputs
 public meta import CFSG.GH74.GLS.C3.Prop121.Card7SylInputs
 public import Certificates.Certificate5083
 

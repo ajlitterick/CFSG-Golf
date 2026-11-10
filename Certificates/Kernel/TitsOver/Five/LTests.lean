@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.TitsOver.Five.LEnum
 public import Certificates.Kernel.TitsOver.Five.LData
-public import Certificates.Data.Kernel.MaxD2.Check
 public import Certificates.Data.Kernel.MaxD2.Pair
 import CFSG.Certificates.Kernel.Common.Harness
 

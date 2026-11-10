@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGR4JCardDefs
-public import CFSG.LocalAnalysis.StandardType.GGForkIndefLattice
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.Assembly.LargeEvenDefs
 
 public section
 

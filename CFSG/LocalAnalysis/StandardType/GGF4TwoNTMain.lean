@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4TwoNTHalfCount
 public import CFSG.LocalAnalysis.StandardType.GGF4TwoNTPlane
 public import CFSG.LocalAnalysis.StandardType.GGF4TwoNTFrame
-public import CFSG.LocalAnalysis.StandardType.GGF4TwoThreeCCent
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoTBInputs
 
 public section
 

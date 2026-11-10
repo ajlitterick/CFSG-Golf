@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModelCoprime
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkLabel
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSLTransfer
 
 public section

@@ -1,9 +1,7 @@
 module
 
 public import Certificates.Kernel.MonsterExist.ShortKey.Data
-public import CFSG.Certificates.Kernel.Common.Loop
 public import Certificates.Data.Kernel.KDense.Twins
-public import Certificates.Data.CFSGNative.MonsterAxis.Basic
 public import CFSG.Monster.B.Rep4371.Model
 
 public section

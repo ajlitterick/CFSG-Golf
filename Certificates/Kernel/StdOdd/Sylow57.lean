@@ -8,7 +8,6 @@ import all CFSG.Monster.Existence.StdOdd.Cert.Sylow57Data
 meta import CFSG.Monster.Existence.StdOdd.Cert.Sylow57Data
 meta import Certificates.Kernel.Misc.E6StdData
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.LieType.Chevalley.C2E6ExactRootRestrictions
 public import CFSG.LieType.Chevalley.C2E6NativeF4Building

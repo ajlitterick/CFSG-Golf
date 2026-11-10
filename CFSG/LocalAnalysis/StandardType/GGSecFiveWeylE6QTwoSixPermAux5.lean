@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixPermAux4
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixFrame
-public import CFSG.GroupTheory.CoprimeActionSupport.NormalSubgroupSylowJoin
 
 public section
 

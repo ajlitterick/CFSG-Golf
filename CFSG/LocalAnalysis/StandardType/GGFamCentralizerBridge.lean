@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixEToral
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyOrder
-import CFSG.LieType.Chevalley.ToralCentralizerBruhat
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyCover
 
 public noncomputable section

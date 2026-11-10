@@ -1,10 +1,8 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HN
-public import CFSG.Sporadic.HNSchreier.ThreeCheckInputs
 public meta import CFSG.Sporadic.HNSchreier.LocalCheck
 public meta import CFSG.Sporadic.HNSchreier.FAData
-public import CFSG.Sporadic.HNSchreier.ThreeSpec
 public import Certificates.Certificate13602
 
 public section

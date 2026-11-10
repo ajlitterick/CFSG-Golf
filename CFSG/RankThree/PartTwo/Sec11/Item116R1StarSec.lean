@@ -2,20 +2,9 @@ module
 
 public import CFSG.RankThree.PartOne.S9.OddCore.RecognitionCritical
 public import CFSG.RankThree.PartTwo.Sec11.Item116R1StarDefs
-public import CFSG.RankThree.PartTwo.Sec3.TwoGroupPrimeFiveAction
-public import CFSG.LocalAnalysis.SectionRank.Ccomm.OddCritical
-public import CFSG.RankThree.PartTwo.Sec16.Item166Res2ProofSix
 public import CFSG.RankThree.Coprime.InvolutionFixedRankBound
-public import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 public import CFSG.RankThree.GroupTheory.SteinbergBMClassTwoExtraspecialAction
-public import CFSG.Assembly.OrderReductions.FrattiniAutomorphisms
-public import CFSG.Assembly.OrderReductions.FrattiniElementary
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 public import CFSG.LinearAlgebra.OddSolvableUnitary.CommutatorForm
-public import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeFactorization
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.LocalAnalysis.SignalizerFunctor.Maximality
 public import CFSG.RankThree.PartOne.S9.OddCore.TorsionBridge
 public import CFSG.RankThree.PartOne.S9.MinTwoAction.LiftingSelectedBase
 public import CFSG.RankThree.PartTwo.Sec11.Item116R1StarMod
@@ -37,7 +26,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstructi
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
 public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
 public import CFSG.RankThree.PartTwo.Sec11.Item116E2
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.SubnormalPSubgroupLeQCore
 public import CFSG.Walter.Bender1970.S2
 public import CFSG.Walter.Bender1970.S3.Basic

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigDefs
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08CoreClassify
-public import CFSG.LocalAnalysis.StandardType.GGRCMonomial
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthSPerm
 
 public section

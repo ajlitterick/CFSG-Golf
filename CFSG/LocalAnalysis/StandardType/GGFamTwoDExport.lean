@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGFamTwoDGraph
 public import CFSG.LocalAnalysis.StandardType.GGFamTameTransfer
 public import CFSG.LocalAnalysis.StandardType.GGExcCompSLDefs
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleLang
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwoDHighPin
 
 public section
 

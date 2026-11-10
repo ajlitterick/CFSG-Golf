@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRank
-public import CFSG.LocalAnalysis.AGLEmbedding.RankLemmas
-public import CFSG.LocalAnalysis.SectionRank.SubgroupRank
-public import CFSG.HardMathSupport.Lang.Triality.SylowInnerExt
 public import CFSG.GroupTheory.CoprimeCentralizerRank
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentStepFour
 public import CFSG.Adapters.StatedClassicalSmallOrders

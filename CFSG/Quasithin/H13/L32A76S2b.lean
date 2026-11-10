@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.H13.L32A76S2a
 public import CFSG.Quasithin.H13.L32A706g
-public import CFSG.Quasithin.Background.D2Thirteen
 public import CFSG.Assembly.OrderReductions.LinearOrders
 public import CFSG.LieType.Ree.SuzukiSimple
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
@@ -27,10 +26,6 @@ public import CFSG.Quasithin.Background.B69Core
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F420Orders
 public import CFSG.Quasithin.Background.FFC5Final
 public import CFSG.Quasithin.Background.FFC6U

@@ -9,8 +9,6 @@ import CFSG.Certificates.Kernel.SporSch.DerivsSound
 import CFSG.Certificates.Kernel.SporSch.PairJ3FaithSound
 import CFSG.Certificates.Kernel.Child3Reps
 import CFSG.Sporadic.Schreier.Co3Restrict
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.HNOddCore.FourPairA
 
 public section

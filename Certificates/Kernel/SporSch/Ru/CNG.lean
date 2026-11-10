@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.Ru.CNU
 public import Certificates.Kernel.Sporadic.RawGenSchG
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.LyOmega.Tree
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.HarnessParts
 import CFSG.Certificates.Kernel.Common.NatItemsGz
 import CFSG.Certificates.Kernel.Common.Repo

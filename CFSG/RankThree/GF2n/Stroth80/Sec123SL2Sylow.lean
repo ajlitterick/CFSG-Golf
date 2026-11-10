@@ -1,16 +1,9 @@
 module
 
 public import CFSG.ClassicalGroups.SpecialLinear.CyclicRootGroups
-public import Mathlib.Data.Nat.Factorization.Basic
 public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.GroupTheory.Index
 public import Mathlib.GroupTheory.Sylow
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-public import Mathlib.Tactic.FieldSimp
-public import Mathlib.Tactic.FinCases
-public import Mathlib.Tactic.Group
-public import Mathlib.Tactic.Linarith
-public import Mathlib.Tactic.LinearCombination
 
 public section
 

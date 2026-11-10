@@ -1,13 +1,5 @@
 module
 
-public import CFSG.Open.LocalVocabulary
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotRoots
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerTypeADvdModel
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeLinearDatum
-public import CFSG.LocalAnalysis.StandardType.GGResSideDatumDefs
-public import CFSG.LocalAnalysis.StandardType.GGPZWeylType
 public import CFSG.LocalAnalysis.StandardType.GGTWZKRank
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeLinearNbr
 

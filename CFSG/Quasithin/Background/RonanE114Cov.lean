@@ -2,10 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch11SecOE7M
 public import CFSG.Quasithin.Vol2.Ch11SecE3Sz
-public import CFSG.Quasithin.Vol2.Ch11SecE3LieL2Up
-public import CFSG.Quasithin.Vol2.Ch11SecE3LieSL2
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.Quasithin.Vol2.Ch11SecOE7A

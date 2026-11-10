@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS10I1416QPerm
-public import CFSG.GH74.Exceptional.UnitaryFourTwo
 public import CFSG.HardMathSupport.Dickson.I271.Support.AmbU4
-public import CFSG.LieType.Multipliers.U42
 public import CFSG.RankThree.PartTwo.Sec4.Census.DoubleCoverRanksU42
-public import CFSG.GH74.SmallRanks.Basic
 public import CFSG.HardMathSupport.Dickson.I271.I202Full
 public import CFSG.HardMathSupport.Solomon.Coordinator.I27_1Fam
 public import CFSG.HardMathSupport.Solomon.Coordinator.L2FldBasic
@@ -29,7 +26,6 @@ public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.AltThreeRank
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.ScalarTorus
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Survivor
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 public import CFSG.LocalAnalysis.ComponentClassification.BlockCentralSylowEquality
 public import CFSG.LocalAnalysis.ComponentClassification.BlockFourFactorSupport
 public import CFSG.LocalAnalysis.ComponentClassification.BlockLargeProductInvolutions
@@ -69,10 +65,6 @@ public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -152,10 +144,6 @@ public import CFSG.RankThree.PartTwo.Sec4.LThreePiSLOn
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 public import Certificates.Kernel.J4Count.Prim
 
 public section

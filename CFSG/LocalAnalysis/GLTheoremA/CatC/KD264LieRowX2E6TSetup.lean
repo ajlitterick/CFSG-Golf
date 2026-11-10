@@ -3,15 +3,10 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX2E6LMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX2E6LCent
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtTwE6
-public import CFSG.LieType.SeitzGeneration.ExcTorusTwE6Three
-public import CFSG.LieType.SeitzGeneration.ExcTorusTwE6Four
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerBridge
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.AlgSetupUntw
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.PlanesSetup
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFivePairRigid
-public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Normalizer
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeTwE6TwoModel
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSylow
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.BigAnyDefs
@@ -24,7 +19,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.S10.Bridge
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105
 public import CFSG.LocalAnalysis.GLTheoremA.S10.InputsBeta
 public import CFSG.LocalAnalysis.GLTheoremA.S11.Defs
-public import CFSG.LocalAnalysis.GLTheoremA.S3.Inputs
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Inputs
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
 public import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel

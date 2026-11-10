@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeOmMinusBlocks
-public import CFSG.LargeExtraspecial.O62Basic
-public import CFSG.LargeExtraspecial.S4Restrict
 
 public section
 

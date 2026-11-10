@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowSignedFrameW
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUSigned
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

@@ -1,13 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthDefs
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthInner
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeSmall
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreOrth
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreField
 public import CFSG.LocalAnalysis.StandardType.GGIOneFieldCFHolds
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailFinal
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 
 public section
 

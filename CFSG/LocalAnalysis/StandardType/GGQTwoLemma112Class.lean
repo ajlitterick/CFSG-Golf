@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112ClassA
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112ClassD
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112ClassBC
 

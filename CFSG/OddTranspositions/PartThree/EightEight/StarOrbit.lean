@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.EightEight.Star
-public import CFSG.Timmesfeld.Bridge.Asc72Minimal
 
 import CFSG.OddTranspositions.PartThree.EightEight.DeltaOrbit
 import CFSG.OddTranspositions.PartThree.EightEight.Eighteen

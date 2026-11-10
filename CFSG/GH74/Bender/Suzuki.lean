@@ -1,18 +1,11 @@
 module
 
 public import CFSG.Blueprint.Catalog
-public import CFSG.Open.Catalog
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Comparator.Defs
 public import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 import CFSG.LieType.BorelTits.Suzuki
 import CFSG.Models.BenderSuzuki
-public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.Models
 public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderSuzukiBorel
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
 
 public section
 

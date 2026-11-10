@@ -1,14 +1,10 @@
 module
 
-public import CFSG.RankThree.GF2n.Tim79a34BigModel
 public import CFSG.RankThree.GF2n.Tim79a34BigGammaBasic
 import CFSG.RankThree.GF2n.Tim79a34BigB
 import CFSG.RankThree.GF2n.Tim79a34BigIWProof
 import CFSG.RankThree.GF2n.Tim79a34BigNaturalProof
-import CFSG.RankThree.GF2n.Tim79a34BigPAct
 import CFSG.RankThree.GF2n.Tim79a34BigRoot
-import CFSG.RankThree.GF2n.Tim79a34BigWCentral
-import CFSG.RankThree.GF2n.Tim79a34SpRadLine
 import CFSG.GroupTheory.ChiefSectionPGroup
 import CFSG.GroupTheory.SupMulCommutative
 import CFSG.GroupTheory.SteinbergCBFTCores

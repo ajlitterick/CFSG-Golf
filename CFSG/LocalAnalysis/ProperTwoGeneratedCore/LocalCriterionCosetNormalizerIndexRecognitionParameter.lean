@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionCosetNormalizerIndexModelParameter
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Models
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionModelPairLinear
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionModelPairSuzuki
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84TorusModels
 
 public noncomputable section

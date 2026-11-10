@@ -2,4 +2,3 @@ module
 
 public import CFSG.Sporadic.ThSchreier.NodeFullAutomorphism
 public import CFSG.Sporadic.ThSchreier.ThSchreierCase
-public import CFSG.LocalAnalysis.ComponentClassification.SporadicSchreierDispatch

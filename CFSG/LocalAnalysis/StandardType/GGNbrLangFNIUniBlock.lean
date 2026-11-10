@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154UniPsu
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154UniMark
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinear
 import CFSG.GroupTheory.IsComponentOfMap
 public import CFSG.HardMathSupport.Dickson.Bal207.Glue
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.UnitaryInnerExport

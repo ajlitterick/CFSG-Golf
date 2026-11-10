@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNFullDiagonal
-public import CFSG.LocalAnalysis.StandardType.GGQTwoTableBI1
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoCloseDefs
-public import CFSG.LocalAnalysis.StandardType.GGHdRo7SULCoordModelA
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SULCoordModelB
 
 public section

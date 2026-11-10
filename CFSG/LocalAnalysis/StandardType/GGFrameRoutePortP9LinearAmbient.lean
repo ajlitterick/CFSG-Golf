@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9LinearCover
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9LinearTorus
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9La
 public import CFSG.LocalAnalysis.StandardType.GGAutomizerEquiv
-import CFSG.GH74.Exceptional.LinearFourTwo
 import CFSG.Mathlib.GroupTheory.Automorphism.ConjCommute
 import CFSG.RankThree.PartTwo.Sec14.Ronan148JInner
 

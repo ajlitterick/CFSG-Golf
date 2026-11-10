@@ -1,7 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Extraspecial
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.Omega
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.theorem_4_16
 

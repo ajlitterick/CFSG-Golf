@@ -1,13 +1,9 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.J5B
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Certificates.Kernel.Spor.PrimSound
-public import CFSG.Sporadic.Schreier.PairJ2CheckInputs
 meta import CFSG.Sporadic.Schreier.PairJ2CheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

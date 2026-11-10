@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveCommutant
-public import CFSG.Assembly.LargeEvenDefs
-public import CFSG.Foundations.QuasisimpleMulEquiv
-public import CFSG.RankThree.Classical2.SLnRootPermutingFixedGroups
 
 public section
 

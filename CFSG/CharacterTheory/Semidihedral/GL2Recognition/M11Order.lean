@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Bridge.M11
-public import CFSG.Open.StatedDefs
 public import CFSG.Assembly.LowTwoRankDefs
 public import CFSG.Sporadic.Bridge.M11CheckInputs
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKnownInputsNoU6Classical
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDet
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.Timmesfeld.Orders.ClassicalLinear
 
 public section
 

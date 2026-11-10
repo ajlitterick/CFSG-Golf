@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87P47Plus
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FL3Cases
-public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FL3CharCls
 public import CFSG.GH74.GLS.Stage2.Signalizer.L46EAutC
 public import CFSG.GH74.GLS.Stage2.Signalizer.Bridge
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson

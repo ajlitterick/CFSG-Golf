@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch5Bridge
 public import CFSG.LocalAnalysis.WeakClosure81.EightTwelveFam
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.CyclicBlocks.Family

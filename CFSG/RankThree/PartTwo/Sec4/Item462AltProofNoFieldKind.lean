@@ -6,20 +6,11 @@ import CFSG.RankThree.PartTwo.Sec4.Item462AltNoFieldModels
 public import CFSG.RankThree.PartTwo.Sec4.Item462AltNoFieldOrders
 import all CFSG.RankThree.PartTwo.Sec4.Item462AltNoFieldOrders
 public import CFSG.RankThree.PartTwo.Sec4.Item462AltProofKFacts
-public import CFSG.RankThree.PartTwo.Sec4.Statements
-public import CFSG.RankThree.PartTwo.Sec4.Vocabulary
-public import CFSG.RankThree.PartTwo.KFacts.AutKindsStd
 import CFSG.RankThree.PartTwo.KFacts.KS14Orders
-import CFSG.RankThree.PartTwo.KFacts.K71OddChar
 import CFSG.LocalAnalysis.SectionRank.OddCover.DegreeThreeSU
-import CFSG.Open.StatedAPI
-import CFSG.Open.Defs
 import CFSG.RankThree.PartOne.SEITZ8.D4Order
 import CFSG.RankThree.SteinbergR3ELargeReeOrder
 import CFSG.RankThree.PartOne.RF4.Basic
-import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Chevalley.LangRootArithmetic
@@ -32,7 +23,6 @@ public import CFSG.RankThree.PartTwo.Sec4.StatementsComponents
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.LieType.Ree.LargeReeEightTorus
 import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsCentModel
 import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsFieldAut

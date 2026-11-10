@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.SectionRank.NativeKGroup
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.FStar
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.GlobBalance
 

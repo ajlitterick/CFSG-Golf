@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGWPlusD4CardPos
 public import CFSG.LocalAnalysis.StandardType.GGWPlusD4CardOrth
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMoreOrth
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBBridge
 
 public section
 

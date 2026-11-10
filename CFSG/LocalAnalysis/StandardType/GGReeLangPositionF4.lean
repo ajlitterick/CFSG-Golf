@@ -4,13 +4,7 @@ public import CFSG.RankThree.PartOne.TCX.Ree.Closure
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
 import CFSG.HardMathSupport.Timmesfeld.Torality.LangAssembly
 import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyClosedLang
-import CFSG.LieType.AlgebraicGroups.ToralCentralizerComponent
 import CFSG.LieType.AlgebraicGroups.E6GraphCentralizerLangCurves
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
-import CFSG.RankThree.PartOne.KLR.FrameTorus
-import CFSG.LieType.AlgebraicGroups.SeminaireExp3Basic
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Blueprint.ChevalleyRootArtifact
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyCover
@@ -21,8 +15,6 @@ public import CFSG.RankThree.PartOne.KE.CTMain
 public import CFSG.RankThree.PartOne.KLR.CoreGroup
 public import CFSG.RankThree.PartOne.KLR.FrobTrick
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
 
 public noncomputable section
 

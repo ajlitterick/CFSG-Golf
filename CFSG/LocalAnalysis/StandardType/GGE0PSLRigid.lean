@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDPSL
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.CompPSL
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarUniqueToralA
 public import CFSG.LocalAnalysis.StandardType.GGE0PSLComp
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepACore
 public import CFSG.LocalAnalysis.StandardType.GGE0RigidCount
 
 public section

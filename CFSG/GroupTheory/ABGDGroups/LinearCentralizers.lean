@@ -1,14 +1,9 @@
 module
 
-public import Mathlib
 public import CFSG.GroupTheory.ABGDGroups.LinearOddCyclic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralGenerators
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ReflectedCyclicIndexTwoSubgroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2KleinFourSelfCentralizer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.PSL2ReflectedTorusCard
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeEquiv
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearRingEquiv
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2S0LeQuotientTorus
 
 public noncomputable section
 

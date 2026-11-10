@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK1CDefs
 public import CFSG.LocalAnalysis.StandardType.GGK1CLift
-public import CFSG.RankThree.PartOne.KC.UnitaryPrimaryCentralizer
-public import CFSG.RankThree.PartOne.KC.UnitaryGoodSpecial
-public import CFSG.RankThree.Classical2.UnitarySplitPrimeRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticLift
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoFrame
 
 public section

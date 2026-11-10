@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusLinSplit
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusLinIrred
 import CFSG.LocalAnalysis.StandardType.GGNSJoinLinTwoAux
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1CentLin
-import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
 
 public section
 

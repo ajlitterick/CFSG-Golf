@@ -3,7 +3,6 @@ module
 
 public import CFSG.Certificates.Kernel.ThCent.PinSoundBase
 
-public import Certificates.Data.Kernel.ThCent.Pin
 public import CFSG.Certificates.Kernel.Th.Spec.FwdRel
 
 public section

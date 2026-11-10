@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsBasic
-public import CFSG.LieType.RootSystem.Positivity
 public import CFSG.Timmesfeld.ARS.CaseOAWeyl
-import Mathlib.Tactic.Group
 
 public section
 

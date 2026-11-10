@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.LocalVocabulary
 public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.GroupTheory.TwoReflections
 public import CFSG.CGT.Timmesfeld75.L2Sylow

@@ -6,7 +6,6 @@ public import CFSG.Certificates.Kernel.SporSch.J4SBfsSound
 public import CFSG.Sporadic.Schreier.J4SProfile
 import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.F4M3BSound
 import CFSG.Certificates.Kernel.AS35QTS.CountSound
 
 public section

@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.S1421QA19Stage
 public import CFSG.Quasithin.EmptyFaithful.S1421QNSComp
-public import CFSG.Timmesfeld.Orders.Classical
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Statements
 public import CFSG.LocalAnalysis.ComponentClassification.BlockCentralSylowEquality

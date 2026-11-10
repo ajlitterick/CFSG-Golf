@@ -9,7 +9,6 @@ public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FinalTorus
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
 public import CFSG.ClassicalInvolution.Orders.OrthogonalCount
 public import CFSG.RankThree.GF2n.Stroth80.Sec7SingularVectors
-import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

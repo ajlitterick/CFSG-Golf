@@ -1,19 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLPairs
-import CFSG.LocalAnalysis.StandardType.GGTwistedF4Diag
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTwF4
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
-import CFSG.LocalAnalysis.StandardType.GGTableB
-import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 import CFSG.LocalAnalysis.StandardType.GGHalfFiveInnAll
 import CFSG.LocalAnalysis.StandardType.GGHalfCentGroup
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofReeConj
-import CFSG.RankThree.PartTwo.Sec8.Item87ProofGamma
-import CFSG.GroupTheory.CenterlessInnerCentralizer
-import CFSG.Foundations.QuasisimpleMulEquiv
 
 public section
 

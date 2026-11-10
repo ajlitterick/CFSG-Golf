@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorJInputs
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreCl
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotCatTypeDet
 
 public section
 

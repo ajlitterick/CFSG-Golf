@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.RankThree.Classical2.TwistedE6Phi3Torus
 public import CFSG.HardMathSupport.Lang.TwE6Step3.LangTorusMonomial
 

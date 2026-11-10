@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.BabyMonster.CTIB.Cls3135Data
 public import Certificates.Kernel.BabyMonster.CTIB.Orb3135Data
 public import Certificates.Kernel.BabyMonster.CTIB.Outer3122
-public import Certificates.Kernel.LocalComp.BlockTac
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

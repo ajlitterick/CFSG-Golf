@@ -4,7 +4,6 @@ public import CFSG.Goldschmidt.Steps.G3aBorel
 public import CFSG.Goldschmidt.Steps.G36TypeI
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.SignalizerFunctorTheorem.McBride.Models.NearSolvable.Orders
-public import CFSG.LocalAnalysis.ComponentClassification.Helpers
 public import CFSG.Goldschmidt.Statements
 public import CFSG.Goldschmidt.StatementsH
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -22,7 +21,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.MacWilliamsReduction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstruction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
 public import CFSG.LocalAnalysis.RankTwoShapes.AlperinFusion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Bender1970.S3.Setup
 public import CFSG.Walter.JRFacts
 

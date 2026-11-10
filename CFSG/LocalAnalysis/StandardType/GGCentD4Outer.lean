@@ -1,10 +1,8 @@
 module
 
 public import CFSG.HardMathSupport.Lang.D4Three.NormalForm
-public import CFSG.LieType.Chevalley.BorelSelfNormalizer
 public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningSemilinear
 public import CFSG.LieType.Chevalley.E6ToralGraphInvolution
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 
 public section
 

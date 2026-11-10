@@ -1,15 +1,10 @@
 
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignSteiner3
-public import CFSG.Monster.B.Classical.PlaneData
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
 public meta import CFSG.Monster.B.Classical.PlaneData
-public import CFSG.Sporadic.Schreier.M22Data
 public meta import CFSG.Sporadic.Schreier.M22Data
 public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22HexadsInputs
-public import Certificates.Data.CFSGNative.Mathieu.M22
 
 @[expose] public section
 

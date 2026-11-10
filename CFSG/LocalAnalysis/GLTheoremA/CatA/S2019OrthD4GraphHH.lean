@@ -1,29 +1,15 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S2019ClassicalParts
-public import CFSG.HardMathSupport.Lang.Coordinator.D4Bridge.Bridge
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.Basic
 public import Certificates.Certificate1952
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
-public import Certificates.Certificate8064
 public import Certificates.Certificate13659
 public import Certificates.Certificate13660
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S2019Cubic
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S2019OrthFixed
-import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2Nonsplit.Frame
-import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.G2Pair
-import CFSG.Adapters.TauCetiExceptional.MinusculeAd
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.ClassOne
-import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterHighD4Three4
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterHighD4OddMinus
-import CFSG.RankThree.PartTwo.Sec13.Item136PGL
 import CFSG.RankThree.PartTwo.Sec4.RonanK429RowLiePGL
 import CFSG.HardMathSupport.Dickson.Bal207.D4GraphBridgeIso
-import CFSG.SignalizerFunctorTheorem.CatalogBridge.HallHigman
-import CFSG.LocalAnalysis.GLTheoremB.PCompBasics
-import CFSG.Assembly.Subnormal
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -69,7 +55,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

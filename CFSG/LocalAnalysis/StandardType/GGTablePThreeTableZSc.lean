@@ -10,11 +10,6 @@ import CFSG.LocalAnalysis.StandardType.GGTablePThreeTableZNine
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeTableZSU3
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24EightComps
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24A2CubeShape
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcAssemblyTw
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcMonomial
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24A2CubeCentre
 import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Lift
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoLeafModel

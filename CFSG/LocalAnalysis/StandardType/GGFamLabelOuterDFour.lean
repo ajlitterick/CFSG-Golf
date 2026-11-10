@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFamOuterDFour
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelD4Selected
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelKind

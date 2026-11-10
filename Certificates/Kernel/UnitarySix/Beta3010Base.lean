@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.UnitarySix.Struct3010Base
 public import Certificates.Kernel.UnitarySix.PolarBase
-import CFSG.Certificates.Kernel.Common.Harness
 
 @[expose] public section
 

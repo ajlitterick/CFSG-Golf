@@ -1,15 +1,9 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27QuotientIndex
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GWLemma21Trichotomy
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DerivedSubgroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearRingEquiv
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Cardinality
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeEquiv
-import Mathlib.GroupTheory.SpecificGroups.Alternating
 import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

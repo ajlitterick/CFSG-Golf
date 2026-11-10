@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.S153G93DCovG2Two
-public import CFSG.Quasithin.Background.JonesParshallG2Field
 public import CFSG.Quasithin.EmptyFaithful.S153EB6C
 
 public section

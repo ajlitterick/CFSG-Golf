@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate12613Base
 
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThreeCore.M24Check
 public import CFSG.Monster.B.Mathieu.M24CheckInputs
 import Certificates.Kernel.M24Three.Glue
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThreeCore.M24Base

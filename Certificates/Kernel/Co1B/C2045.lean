@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.Co1B.C2045Base
 
-public import CFSG.Sporadic.Co1Block.TwoBCheckInputs
 public meta import CFSG.Sporadic.Co1Block.TwoBData
 public meta import CFSG.Sporadic.Co1Block.TwoBCheckDefs
 public meta import CFSG.Sporadic.Co1Block.CentCheck
@@ -20,9 +19,7 @@ public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.Schreier.Merge
 public meta import Certificates.Data.CFSGNative.ONSchreier.Compact
-public import Certificates.Kernel.Co1B.Cent2045
 public import Certificates.Kernel.Co1B.Tri2045
-public import Certificates.Kernel.Co1B.Prim2045
 
 public section
 

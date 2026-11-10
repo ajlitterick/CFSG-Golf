@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I91T11
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I91T8
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I91T6
-public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I91T13
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I91T15
 

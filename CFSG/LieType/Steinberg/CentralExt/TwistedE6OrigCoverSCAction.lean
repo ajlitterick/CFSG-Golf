@@ -2,11 +2,7 @@ module
 
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6OrigCoverSC
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6TwoToralCoords
-import CFSG.LieType.Steinberg.CentralExt.TwistedE6PosLift
 import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelKernelCore
-import CFSG.LieType.Steinberg.TwistedE6.Clause0
-import CFSG.LieType.Steinberg.CentralExt.TwistedE6Torus
-import CFSG.RankThree.PartOne.S11d.PerfectCentral
 
 set_option linter.style.haveILetI false
 

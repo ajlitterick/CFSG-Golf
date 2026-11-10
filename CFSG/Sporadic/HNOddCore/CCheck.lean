@@ -1,11 +1,8 @@
 
 module
 
-public import CFSG.Sporadic.HNOddCore.CCheckBase
 
-public import CFSG.Sporadic.HNSchreier.ThreeCheck
 public meta import CFSG.Sporadic.HNSchreier.ThreeCheck
-public import CFSG.Sporadic.HNOddCore.CCheckInputs
 public import Certificates.Certificate2083
 
 public section

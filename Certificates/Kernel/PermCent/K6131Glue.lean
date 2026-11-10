@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.PermCent.K6131F
 public import CFSG.Certificates.Kernel.PermCent.CVSound
-public import Certificates.Data.Seitz77Sec27L34Ord3
 public meta import Certificates.Data.Seitz77Sec27L34Ord3
 
 public section

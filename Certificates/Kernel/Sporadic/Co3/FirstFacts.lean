@@ -3,13 +3,10 @@ module
 public import Certificates.Kernel.Sporadic.Co3.First
 public import Certificates.Kernel.Sporadic.Co3.M
 public import Certificates.Kernel.Sporadic.Co3.Sp36
-public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.PermToolSound
 public import CFSG.Certificates.Kernel.Spor.SiftRSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.Certificates.Kernel.Spor.RawSlSound
 
 public section

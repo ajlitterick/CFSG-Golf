@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModelCoprime
-public import CFSG.LocalAnalysis.StandardType.GGCoverRkPSU
 public import CFSG.LocalAnalysis.StandardType.GGCoverRkUnitLabel
 
 public section

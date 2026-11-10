@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3EXD4FKind
 public import CFSG.ClassicalInvolution.Q3.Q3EXD4FComp
-public import CFSG.ClassicalInvolution.Q3.Q3EXD4Local
-public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourTwins
 
 public section
 

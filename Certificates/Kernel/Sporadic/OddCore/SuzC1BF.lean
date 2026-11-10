@@ -3,9 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.SuzC1BD
 public import Certificates.Kernel.Sporadic.OddCore.SuzMGF
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
-public import CFSG.Sporadic.SuzRecog.C1ModelTests
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

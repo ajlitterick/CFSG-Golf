@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.StatementsFitting
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.StatementsUniqueN
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P21c
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P20b
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P20c
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20o
 public import CFSG.LocalAnalysis.UniquenessCase.UC22BarLemmas
 public import CFSG.Adapters.WholeGroupLayer
-public import CFSG.GroupTheory.ABGLocalTools.OddOrderLocal
 public import CFSG.GroupTheory.GL52.Basic
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.StatementsSL3
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S22b

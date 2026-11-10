@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Steps
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSBFixedLayer
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeDL
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalCorrespondenceTools
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrNestedNormalClosure
 public import CFSG.GH74.Generic.S45.LDiagCore
 
 public section

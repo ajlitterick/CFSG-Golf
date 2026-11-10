@@ -2,12 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTorusWeylFrameSigned
-public import CFSG.LocalAnalysis.StandardType.GGTorusWeylFrame
 public import CFSG.LocalAnalysis.StandardType.GGTorusWeylBstar
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagSpin
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindOmegaMinusPiecesTwisted
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2OmegaPESpinM
-import Mathlib.Tactic.Group
 public import CFSG.LieType.Ree.LargeReeInvolutionTwoCentralizers
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafOddB
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenTriality

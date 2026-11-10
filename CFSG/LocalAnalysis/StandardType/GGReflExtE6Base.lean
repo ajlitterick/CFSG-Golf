@@ -4,7 +4,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGReflExtFinal
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeE6AllDefs
 public import Certificates.Data.CFSGNative.ReflExt.E6
-public import Mathlib.LinearAlgebra.Matrix.Notation
 
 @[expose] public section
 

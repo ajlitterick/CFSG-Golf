@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.CFSGNative.ReflExt.Core
 public import Certificates.Data.CFSGNative.TwoNodeSmall.SearchPos
-public import Certificates.Data.CFSGNative.TwoNodeSmall.SearchPosO
 
 public section
 

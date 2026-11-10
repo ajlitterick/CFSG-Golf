@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.KGFactC31M11Data
 public import CFSG.Sporadic.Schreier.ImagePairs
 import Certificates.Kernel.KGC31M11.Facts
-import Certificates.Kernel.KGC31M11.Defs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Quasithin.Vol2.KGFactC31ActCheck
 public import CFSG.Sporadic.Schreier.M11Data
 import CFSG.Certificates.Kernel.BfsPinSound

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNTPlaneA2Orbit
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneA2Split
 
 public section

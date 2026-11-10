@@ -2,10 +2,8 @@ module
 
 public import CFSG.Quasithin.Background.B3Q
 public import CFSG.Quasithin.Background.B15P4Repl
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.FFC2Ident
 public import CFSG.Quasithin.Background.B4HypCore
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.Fischer.Pairs
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication
@@ -24,7 +22,6 @@ public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B5FinOut
 public import CFSG.Quasithin.Background.B5Models
 public import CFSG.Sporadic.Schreier.J4SSylow
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
 

@@ -2,19 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsSeitz3
 public import CFSG.LieType.SeitzGeneration.SeitzStatus
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzHyperGoodIn
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzCubeInner
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzCubeOrthTwo
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzCubeUnitary
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzCubeUnitaryPow
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzExcOpenRest
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Seitz3D48Proof
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterHighClassical
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterHighExc
-public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Dispatch
 public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.U3Heis.Main
-public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Exc.Assembly
-public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Exc.TrialityThree
 public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Exc.TOdd.Final
 public import CFSG.Assembly.CompletedOddCoreElimination
 public import CFSG.CGT.Foote81L6.TStruct.DihSub

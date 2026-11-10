@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityHolds
-public import CFSG.RankThree.PartOne.KC.OrthogonalAutSemilinearBridge
-public import CFSG.RankThree.PartOne.KC.OrthogonalCommutatorBridge
-import CFSG.RankThree.PartOne.AUTSL.OmegaModel
 
 public section
 

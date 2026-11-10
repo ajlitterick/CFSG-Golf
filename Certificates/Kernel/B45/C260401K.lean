@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.B45Perm.GenW
 public import Certificates.Data.SmithB45MatGen
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

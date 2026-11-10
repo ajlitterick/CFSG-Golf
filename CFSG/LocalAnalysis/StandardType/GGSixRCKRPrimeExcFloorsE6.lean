@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcDefs
 public import CFSG.LocalAnalysis.StandardType.GGB36JExcE6Hard
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
-public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.I_11_2_Bar
 
 public section
 

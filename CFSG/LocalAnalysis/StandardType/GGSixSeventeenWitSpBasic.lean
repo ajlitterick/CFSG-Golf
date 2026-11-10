@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotCores
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Embed
-public import CFSG.LieType.Universal.Symplectic
 public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 public import CFSG.GroupTheory.LocalCores.Fitting

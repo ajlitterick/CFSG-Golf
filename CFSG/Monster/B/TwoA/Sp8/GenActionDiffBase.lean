@@ -1,17 +1,10 @@
 
 module
 
-public import CFSG.Monster.B.TwoA.Sp8.GenActionLiftsBase
-public import Certificates.Data.CFSGNative.MonsterB.Sp8Check
 public meta import Certificates.Data.CFSGNative.MonsterB.Sp8Check
 public meta import CFSG.Monster.B.Rep4371.GlueDefs
 public meta import CFSG.Monster.B.TwoA.Sp8.GenActionLiftsBase
 public import CFSG.Monster.B.TwoA.Sp8.GenActionDiffInputs
-public import CFSG.Monster.B.TwoA.Sp8.A8Inputs
-public import CFSG.Monster.B.TwoA.Base.WCls
-public import CFSG.Monster.B.TwoA.Census.PermBFS
-public import CFSG.Monster.B.TwoA.Co2Inv.Data
-public import CFSG.Monster.B.TwoA.Co2Inv.RowsInputs
 
 @[expose] public noncomputable section
 

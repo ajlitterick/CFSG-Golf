@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGExcKnownGroups
-public import CFSG.LocalAnalysis.StandardType.GGLatOrth
 public import CFSG.LocalAnalysis.StandardType.GGExcKGInvolutionsF4
 public import CFSG.LocalAnalysis.StandardType.GGExcKGInvolutionsE6
 public import CFSG.LocalAnalysis.StandardType.GGExcKGInvolutionsE7

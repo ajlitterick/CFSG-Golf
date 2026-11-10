@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.MonsterB.PacketData
 public import CFSG.Certificates.Kernel.BabyMonster.PktSound
 public import CFSG.Certificates.Kernel.BabyMonster.PktShapeSound
 public import CFSG.Certificates.Kernel.BabyMonster.PktBind.Check0

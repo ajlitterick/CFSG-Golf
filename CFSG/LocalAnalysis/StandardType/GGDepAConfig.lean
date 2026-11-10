@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGDepAFrame
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-public import CFSG.LocalAnalysis.StandardType.GGTBFix
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
 
 public section
 

@@ -2,10 +2,8 @@ module
 
 public import CFSG.Quasithin.Background.RonanE114Pair
 public import CFSG.Quasithin.Background.RonanE114A7
-public import CFSG.Quasithin.EmptyFaithful.S151S9TM24Inputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatIncl
-import CFSG.Blueprint.NativeSporadic
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListAlt7
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4Quot
@@ -18,7 +16,6 @@ public import CFSG.Quasithin.Background.B1MoreEleven
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E1ElevenIso
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.EmptyFaithful.E22NParam

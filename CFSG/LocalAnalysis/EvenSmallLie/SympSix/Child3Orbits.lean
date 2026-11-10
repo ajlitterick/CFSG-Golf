@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3Labels
-public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixFusionOrbits
 
 public noncomputable section
 

@@ -4,7 +4,6 @@ public import CFSG.LieType.SeitzGeneration.ExcPlanePair
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortDefs
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP5Cover
 public import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndSmall
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LieType.SeitzGeneration.ExcPlaneBridge
 public import CFSG.LieType.SeitzGeneration.Lift
 public import CFSG.LieType.SeitzGeneration.RegimesExcFamilies

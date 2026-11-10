@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.OrthClassGenRoot
-public import Mathlib.Algebra.Field.ZMod
 import CFSG.ClassicalGroups.Orthogonal.RootGroupChar
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294CrossThreeOmSevenRefl
 import CFSG.ClassicalGroups.Orthogonal.RootGroupCard

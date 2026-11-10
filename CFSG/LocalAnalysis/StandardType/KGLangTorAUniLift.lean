@@ -1,15 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.KGLangTorAFields
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSpUUnitary
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
 import CFSG.LocalAnalysis.StandardType.GGL45TGSU
 import CFSG.Assembly.GL83StatedBridge
-import CFSG.LocalAnalysis.GLTheoremA.CatA.FQMat
 
 public section
 

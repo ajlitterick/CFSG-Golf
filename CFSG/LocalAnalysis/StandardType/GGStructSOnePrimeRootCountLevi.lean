@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootCount
 public import CFSG.LieType.ChevTwo.LayeredClassical
-public import CFSG.Timmesfeld.Orders.ClassicalLinear
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.LeviAssembly
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.Basic
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.D4Dichotomy

@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.LieQ.Tag
 public import CFSG.HardMathSupport.Lang.Coordinator.D4Bridge.Bridge
-public import CFSG.Open.StatedDefs
 public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalLift
 public import CFSG.LieType.Universal.Spin.Roots
 public import CFSG.LieType.Universal.SpinOmega

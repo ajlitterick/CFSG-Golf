@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P54E7Model
-public import CFSG.LieType.Steinberg.CentralExt.E6E7Multiplier
 public import CFSG.LieType.Steinberg.CentralExt.GriessCentralCoverRows
 public import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverChevalley
 public import CFSG.Certificates.Kernel.Spor.ONKSound

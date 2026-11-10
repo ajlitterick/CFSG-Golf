@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelSporTh5
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelSporHe7
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelSporFi24
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelSporFi24Seven
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriA2Minus
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KDL227
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelSporHN
 

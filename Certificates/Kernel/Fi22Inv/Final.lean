@@ -5,10 +5,7 @@ public import Certificates.Kernel.Fi22Inv.Checks
 public import Certificates.Kernel.Fi22Syl.Final
 public import Certificates.Kernel.Fi22Cent.Final
 public import CFSG.Sporadic.Fi22.InvFixBase
-import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Spor.Loops
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Fischer.T46Unitary
 public import CFSG.Sporadic.Fi22.InvCertBase
 public import CFSG.Sporadic.Fi22.Nfp

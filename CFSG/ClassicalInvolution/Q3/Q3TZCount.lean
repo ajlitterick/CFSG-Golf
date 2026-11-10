@@ -1,9 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TIVLayer
-public import CFSG.ClassicalInvolution.Q3.Q3WARoot
 public import CFSG.ClassicalInvolution.RouteD.TwinYStatements
-public import CFSG.ClassicalInvolution.ModelFacts.G2D4Block
 public import CFSG.ClassicalInvolution.Q3.Q3NGInv
 public import CFSG.ClassicalInvolution.Q3.Q3TCCtx
 public import CFSG.ClassicalInvolution.Q3.Q3WAAllA1

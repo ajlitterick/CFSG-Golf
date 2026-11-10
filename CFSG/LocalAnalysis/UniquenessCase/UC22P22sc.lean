@@ -1,15 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22sb
-public import CFSG.LocalAnalysis.UniquenessCase.UC6R2
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22t
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22v
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22yb
-import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge3
 import CFSG.CGT.PushingUpLit.Transport
 import CFSG.RankThree.PartTwo.KFacts.KS116ProofTools
-import CFSG.LocalAnalysis.EvenBN.Tits.N.P3Frob
 import CFSG.CGT.PushingUpLit.Statements
 import CFSG.LocalAnalysis.ComponentClassification.SmallLocalFitting
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellBasic

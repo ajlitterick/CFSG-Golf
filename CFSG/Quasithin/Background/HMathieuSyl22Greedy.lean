@@ -1,13 +1,8 @@
 
 module
 
-public import CFSG.Quasithin.Background.HMathieuSyl22GreedyBase
 
-public import CFSG.Quasithin.Background.HMathieuSyl22
 public meta import CFSG.Quasithin.Background.HMathieuSyl22
-public import CFSG.Quasithin.Background.HMathieuSyl22Inputs
-public import CFSG.Quasithin.Background.HMathieuPT24
-public import CFSG.Quasithin.Background.HMathieuPred
 public import Certificates.Certificate7069
 public import Certificates.Certificate7075Base
 public import Certificates.Kernel.HMathieu.C7075

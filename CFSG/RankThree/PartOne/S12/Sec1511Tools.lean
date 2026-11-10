@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.RankThree.PartOne.S12.Sec1511Y1
 public import CFSG.RankThree.PartOne.S12.Sec1511Y2W
 

@@ -2,9 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3VF4SDefs
 public import CFSG.ClassicalInvolution.Q3.Q3VChain3Row
-public import CFSG.ClassicalInvolution.Q3.Q3VFrameLayer
-public import CFSG.ClassicalInvolution.Q3.Q3VFrameComm
-public import CFSG.ClassicalInvolution.Q3.Q3VLiftMain
 public import CFSG.ClassicalInvolution.RouteD.TypeF4PatternModel
 public import CFSG.ClassicalInvolution.RouteD.TypeF4PatternNodes
 

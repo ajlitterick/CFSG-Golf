@@ -3,10 +3,7 @@ module
 public import CFSG.RankThree.PartTwo.Sec16.Item166CtrMain
 public import CFSG.RankThree.PartTwo.Sec16.Item166KdAssembly
 public import CFSG.RankThree.PartTwo.Sec15.Item15Res6ProofExcl
-public import CFSG.RankThree.PartTwo.Sec15.Ronan152StellIIIKP
 public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
 public import CFSG.Monster.Existence.StdOdd.Defs
 public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
@@ -16,13 +13,10 @@ import Certificates.Kernel.Misc.E6StdSlp
 public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
 public import CFSG.YGroups.Y443.Native.Swap13Word
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
 import CFSG.RankThree.PartTwo.Sec15.LiebeckClosed
 import CFSG.RankThree.PartTwo.Sec15.Gagen148FourKHolds
 import CFSG.RankThree.PartTwo.Sec15.Item15Res8ProofProd
 import CFSG.RankThree.PartTwo.Sec15.Item322TwoJ1Proof
-import CFSG.RankThree.PartTwo.Sec15.ThmCM2Main
 import CFSG.RankThree.PartTwo.Sec16.Wales166From1444
 import CFSG.RankThree.PartTwo.Sec16.Item166ThreeRoute
 import CFSG.RankThree.PartTwo.Sec16.Item165StepsProof

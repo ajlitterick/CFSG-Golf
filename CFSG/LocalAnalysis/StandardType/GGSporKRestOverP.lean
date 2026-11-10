@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestDefs
-import CFSG.GroupTheory.Fitting.CharacteristicP
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
-import CFSG.GroupTheory.LocalCores.Components
 import CFSG.LocalAnalysis.StandardType.GGSporKRestComp
 import CFSG.Quasithin.Background.E1Solv
 import CFSG.Sporadic.Presentation.J4

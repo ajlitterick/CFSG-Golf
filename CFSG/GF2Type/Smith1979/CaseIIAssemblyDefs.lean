@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GF2Type.Smith1979.CaseIIA8
-public import CFSG.Open.StatedDefs
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.LargeExtraspecial.OrthoF2
 public import CFSG.LargeExtraspecial.S5Comp

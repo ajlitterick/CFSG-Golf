@@ -8,8 +8,6 @@ public import CFSG.Certificates.Kernel.Spor.BaseExt
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtSylow
 import CFSG.Certificates.Kernel.Spor.GraphSepProof
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -1,13 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.K3.Defs
-public import CFSG.RankThree.PartTwo.Sec11.Wreath
 public import CFSG.LocalAnalysis.RankThreeTheoremC.SignalizerBalance
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallSmallPFrame
 public import CFSG.RankThree.PartTwo.KFacts.K73Wreath
 public import CFSG.LocalAnalysis.RankThreeTheoremC.WreathThompson
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -34,9 +31,6 @@ public import CFSG.RankThree.GroupTheory.SteinbergCEQuaternionDihedral
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.Assembly
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

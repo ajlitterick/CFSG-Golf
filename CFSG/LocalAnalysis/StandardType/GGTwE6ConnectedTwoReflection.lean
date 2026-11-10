@@ -2,16 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ConnectedReflection
 public import CFSG.LieType.AlgebraicGroups.RootSpanConnected
-public import CFSG.LieType.AlgebraicGroups.MatrixFixedIdentityComponent
 public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalKempf
-public import CFSG.LieType.Chevalley.ParabolicRadicalLevi
-public import CFSG.LieType.AlgebraicGroups.FixedComponentNorm
-public import CFSG.LieType.AlgebraicGroups.ConnectedCentralizerReflection
-public import CFSG.Blueprint.ChevalleyRootGroupsTriangular
-public import CFSG.LieType.AlgebraicGroups.ClosedIdentityComponentFunctorial
-public import CFSG.LieType.AlgebraicGroups.CentralizerComponentInduction
-public import CFSG.LieType.AlgebraicGroups.FixedUnipotentConnected
-public import CFSG.LieType.AlgebraicGroups.UnipotentFinitePoints
 public import CFSG.GroupTheory.TwoElementGeneration
 public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalLift
 

@@ -2,7 +2,6 @@ module
 
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Data.Kernel.SporCov.OrdP
-public import CFSG.Certificates.Kernel.Orders.Mat
 public import CFSG.Certificates.Kernel.Fam.HNSeed.Data.Sel
 public import Certificates.Kernel.SporSch.HN.PtC
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeU6Type9Basic
-import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUFrame
 
 public section
 

@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TorsionLabel
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6Labels
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TableZ
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplit
 import CFSG.LocalAnalysis.StandardType.KGCoverLift
-import CFSG.LocalAnalysis.StandardType.GGTCJDivLin
 
 public section
 

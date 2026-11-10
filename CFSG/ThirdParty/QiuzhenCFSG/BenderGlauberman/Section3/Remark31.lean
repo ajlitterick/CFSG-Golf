@@ -1,10 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Coherence
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.ClassFunction
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 namespace CFSG
 end CFSG

@@ -1,16 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeReturnedFrame
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.OuterE6
-public import CFSG.LocalAnalysis.StandardType.GGFinModelTw
 public import CFSG.LocalAnalysis.StandardType.GGFinModelBCTwGen
-public import CFSG.LocalAnalysis.StandardType.GGFinModelInput
-public import CFSG.Blueprint.ChevalleyRootGroups
-public import CFSG.Blueprint.ChevalleyPinnedLemmas
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 public import CFSG.ClassicalInvolution.RouteD.RootCert
-public import TauCeti.LinearAlgebra.RootSystem.FiniteType.Dynkin
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
 
 public section
 

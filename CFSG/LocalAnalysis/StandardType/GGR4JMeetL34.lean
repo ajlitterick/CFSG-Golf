@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
 public import CFSG.RankThree.PartTwo.Sec19.Step1918ProofInner
 public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.Open.StatedAPI
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T2021RankHolds
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011U64Types

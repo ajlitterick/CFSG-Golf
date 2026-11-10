@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwoDepSmallS0
 public import CFSG.LocalAnalysis.StandardType.GGHLLines
-public import CFSG.LocalAnalysis.StandardType.GGDepAFrame
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMModuleDefs
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MTailFaith
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSetup
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I91T1
-public import CFSG.RankThree.PartTwo.Census.TripleCoverLift
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeLowerBase
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResAll
 

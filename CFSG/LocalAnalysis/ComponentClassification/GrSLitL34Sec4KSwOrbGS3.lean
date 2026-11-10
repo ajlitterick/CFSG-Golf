@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSwOrb
-import CFSG.LocalAnalysis.ComponentClassification.FooteLitThm32Tools
-import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Fixed
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrTwoLocalTools
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

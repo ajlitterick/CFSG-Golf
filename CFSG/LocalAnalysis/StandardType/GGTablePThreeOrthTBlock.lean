@@ -2,40 +2,19 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplitR
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-public import CFSG.RankThree.PartOne.KC.OrthogonalLocalComponentDefs
-public import CFSG.RankThree.PartOne.KC.OrthogonalComponentFacts
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
-public import CFSG.RankThree.PartOne.KC.OrthogonalReciprocal
-public import CFSG.Assembly.GL83LieDefs
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinDefs
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniModel
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeKnownSix
-import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
 import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsOrthBlock
 import CFSG.LocalAnalysis.StandardType.GGNbrLSideOrthSelfDual
 import CFSG.LocalAnalysis.StandardType.GGNbrLSideOrthFixed
 import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTCompU6
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnOrthModel
 import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Orth2
-import CFSG.HardMathSupport.Dickson.Bal207.OrthFixedType
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelPSU
-import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerModel
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinPLab
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinCore
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GCenterQuot
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniScal
-import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryField
-import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryHermitian
-import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryNorm
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryTransvectionGeneration
-import CFSG.LocalAnalysis.ComponentInitial.TwoPrimeSolvable
-import CFSG.RankThree.PartOne.KC.OrthogonalTraceModels
-import CFSG.RankThree.Classical.SteinbergBJUnitaryTwoBlock
-import CFSG.RankThree.CentralLiftU.UnitaryThreeLift
-import CFSG.LieType.Universal.Unitary.Comparison
-import CFSG.LinearAlgebra.LinearGroups.UnitaryOrder
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentTwo
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TypeAOne
 import CFSG.Goldschmidt.Steps.G310Comp

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResSideDatumParabolic
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenWeylLift
 
 public section
 

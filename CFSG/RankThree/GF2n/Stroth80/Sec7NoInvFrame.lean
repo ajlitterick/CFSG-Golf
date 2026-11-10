@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Stroth80.Sec7NoInvGom
-public import CFSG.ClassicalGroups.Orthogonal.Transitive
-public import CFSG.ClassicalGroups.Orthogonal.RootGroupSwap
 
 public section
 

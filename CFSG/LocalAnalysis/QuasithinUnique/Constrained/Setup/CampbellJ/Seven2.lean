@@ -3,19 +3,10 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.Defs
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.Seven1
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.JBasic
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.JLocal
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.JLocalTr
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.JLocalAimg
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.ThmB52
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.ThmB
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.Six3b
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.Six4a
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.Six4b
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellUtil
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellCalc
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellMotion
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellMnorm
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellTwoElement
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellDouble
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting

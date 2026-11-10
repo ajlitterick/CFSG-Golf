@@ -4,9 +4,6 @@ public import CFSG.GF2Type.Smith1979W3.NoTS2
 public import CFSG.LargeExtraspecial.DW3CaseIIGood
 public import CFSG.LargeExtraspecial.DW3CaseIIBad
 public import CFSG.LargeExtraspecial.CorBGL32
-public import CFSG.LargeExtraspecial.S8CBFMain
-public import CFSG.LargeExtraspecial.S8CBF3D4Sect
-public import CFSG.Timmesfeld.CorollaryB
 
 public section
 

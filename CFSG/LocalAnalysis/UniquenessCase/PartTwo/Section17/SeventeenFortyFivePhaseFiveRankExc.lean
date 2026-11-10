@@ -13,7 +13,6 @@ public import CFSG.Assembly.ComponentTypeDefs
 public import CFSG.Assembly.LowTwoRankDefs
 public import CFSG.Assembly.RankThreeEvenDefs
 public import CFSG.Blueprint.Chevalley
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKD291OuterLieDefs
 

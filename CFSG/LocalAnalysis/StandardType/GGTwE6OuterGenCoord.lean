@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsCoreDefs
-import CFSG.LieType.Chevalley.E6ToralGraphInvolution
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 
 public section
 

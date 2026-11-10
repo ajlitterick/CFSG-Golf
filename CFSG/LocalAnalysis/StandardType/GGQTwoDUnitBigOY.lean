@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigOSplit
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigB
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusCentOrthFixed
 public import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU
 public import CFSG.LocalAnalysis.AGLEmbedding.TwoCoreObstruction

@@ -2,22 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabel
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6FrobDefs
-import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabelOuterD
-import CFSG.RankThree.PartOne.KD4T.Emb
-import CFSG.RankThree.PartOne.KD4T.Inj
-import CFSG.RankThree.PartOne.KE.D4TranspositionInterface
-import CFSG.RankThree.PartOne.KE6.E6LAct
-import CFSG.LieType.Chevalley.WeylRoots
-import CFSG.LieType.Chevalley.KernelComponentRoots
-import CFSG.LieType.Chevalley.StandardParabolic
-import CFSG.LieType.Chevalley.StandardParabolicCells
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcD4Action
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
-import CFSG.LocalAnalysis.GLTheoremA.CatA.L154NonCfgRank4B
-import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcTD4D4
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame
-import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoRatLabelDLeafPerm
-import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoRatLabelDStrictBase
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoRatLabelDStrict
 
 public section

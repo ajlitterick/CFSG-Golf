@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.S146zFNoFF
-public import CFSG.Quasithin.EmptyFaithful.S146zRank2
-public import CFSG.Quasithin.EmptyFaithful.S146F16
 
 public section
 

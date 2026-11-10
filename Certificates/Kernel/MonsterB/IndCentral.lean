@@ -2,7 +2,6 @@
 module
 
 public import Certificates.Kernel.MonsterB.IndOrbChecks
-public import CFSG.Monster.B.Fischer.InducedCodeInputs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

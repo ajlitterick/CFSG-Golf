@@ -1,11 +1,9 @@
 module
 
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowOmPlusTwoAux1
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowOmPlusTwoAux2
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowOmPlusTwoAux3
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowOmPlusTwoAux4
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJNativeConj
-import CFSG.LieType.BorelTits.Classical
 
 public section
 

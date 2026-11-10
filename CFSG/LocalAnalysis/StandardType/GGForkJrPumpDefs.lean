@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGWeylCasePrime
 public import CFSG.LocalAnalysis.StandardType.GGForkCellsDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGNbrPrimeFieldExcl

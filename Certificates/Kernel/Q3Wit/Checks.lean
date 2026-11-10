@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Misc.WitK
-public import Certificates.Data.Kernel.Misc.ArrEnum
 public import Certificates.Kernel.J2Cover.AutChains
 public import Certificates.Kernel.Census.J2H.Chains
 public import Certificates.Kernel.SchreierFam.J3Cq

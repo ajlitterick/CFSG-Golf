@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenFourteenNGOmegaFrame
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenFourteenNGOmegaRot
 public import CFSG.ClassicalGroups.Orthogonal.Matrix
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Open.StatedDefs
 public import CFSG.Quasithin.Background.D2Basic
 
 public section

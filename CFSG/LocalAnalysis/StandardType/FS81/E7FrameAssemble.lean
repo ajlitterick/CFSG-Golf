@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameNativeRoots
 public import CFSG.LocalAnalysis.StandardType.FS81.ConstructYE7
-public import CFSG.ClassicalInvolution.Models.LinearPairs.Pairs
-public import CFSG.LieType.Chevalley.LangRootRankOneTorus
-public import CFSG.Sporadic.Th.Max3.Core
 
 public noncomputable section
 

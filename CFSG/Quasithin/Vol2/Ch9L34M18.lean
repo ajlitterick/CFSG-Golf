@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch9L34M9
-public import Mathlib.Data.LawfulXor.Basic
 
 public section
 

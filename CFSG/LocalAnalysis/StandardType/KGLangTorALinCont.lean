@@ -2,14 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorARankKG
 import CFSG.LocalAnalysis.StandardType.KGLangTorAGeneric
-import CFSG.LocalAnalysis.StandardType.KGLangTorALinLift
 import CFSG.LocalAnalysis.StandardType.KGLangTorALinCore
-import CFSG.LocalAnalysis.StandardType.KGLangTorAFields
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinearProj
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinear
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclicLabels
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinearLang
-import CFSG.LinearAlgebra.LinearGroups.Perfect
 
 public section
 

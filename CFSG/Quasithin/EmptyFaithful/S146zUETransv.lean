@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.F9Sixteen
-public import CFSG.Quasithin.Background.F9Tilde
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Quasithin.Background.F9G2
 

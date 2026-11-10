@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1J2Data
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicJ2
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1J2Data
 public meta import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicJ2

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154UniBranch
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154UniData
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Omega
 
 public section
 

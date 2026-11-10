@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKFact1019Hom
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKFact1019PSL
 public import CFSG.Open.StatedDefs
-public import CFSG.Open.Defs
 
 public section
 

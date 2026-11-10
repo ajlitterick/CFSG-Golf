@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfE6GlueCheck
 public import CFSG.LocalAnalysis.StandardType.GGHalfX0Group
-public import CFSG.LocalAnalysis.StandardType.GGHalfX0Bridge
-public import CFSG.LocalAnalysis.StandardType.GGHalfX0Data
-public import CFSG.LocalAnalysis.StandardType.GGHalfX0Kernel
-public import Mathlib.GroupTheory.Commutator.Basic
 public import CFSG.LocalAnalysis.StandardType.GGHalfX0KernelSound
 public import CFSG.LocalAnalysis.StandardType.GGHalfGraphTheta
-public import CFSG.LocalAnalysis.StandardType.GGHalfSlOnLevi
 public import CFSG.CGT.T75P.Chain4
 public import CFSG.CGT.T75P.Aut
 public import CFSG.CGT.Timmesfeld75.OddCenter

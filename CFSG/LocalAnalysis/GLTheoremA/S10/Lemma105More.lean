@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Lemma105
-public import CFSG.HardMathSupport.Solomon.LocalBalance.TwoLocalTools
 
 public section
 

@@ -4,7 +4,6 @@ module
 public import CFSG.Sporadic.Co1.Module.FormsBase1
 
 public import CFSG.Sporadic.Co1.Module.Orbits
-public import CFSG.Sporadic.Co1.Module.FormsInputs
 public meta import CFSG.Sporadic.Co1.Module.Orbits
 public meta import Certificates.Data.CFSGNative.Co1.Data
 

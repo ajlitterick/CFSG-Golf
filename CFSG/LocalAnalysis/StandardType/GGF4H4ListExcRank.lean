@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRank
 public import CFSG.LocalAnalysis.StandardType.GGTBTorF4NonsplitFrame
 import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup
-import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
 
 public section
 

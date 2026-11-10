@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.GMS78.W
 public import Certificates.Kernel.LocalComp.BlockGen
 public import Certificates.Data.GMS78RuCzRigidCheck
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

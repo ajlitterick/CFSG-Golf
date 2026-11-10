@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22LowIndexCasesInputs
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22LowIndex
-import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22LowIndex
-import Certificates.Certificate2037
-import Certificates.Certificate2038
-import Certificates.Certificate2195
 meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22LowIndexCasesInputs
 import Certificates.Kernel.LocalComp.WittA2034
-import Certificates.Certificate2195
 
 public section
 

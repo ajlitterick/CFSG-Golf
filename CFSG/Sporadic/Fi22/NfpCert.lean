@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.Fi22.Nfp
 public meta import Certificates.Data.CFSGNative.Fi22.Nfp
 public import Certificates.Certificate1010
 

@@ -1,10 +1,6 @@
 module
 
-public import Certificates.Data.Kernel.L34W.Tab42
-public import Certificates.Data.Kernel.L34W.Model
 public import Certificates.Data.Kernel.L34W.Outer
-public import Certificates.Data.Kernel.Spor.Prim
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsParabolicCertInputs
 
 public section
 

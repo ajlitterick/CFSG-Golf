@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.AscR10D3a
-public import CFSG.ClassicalInvolution.Asc77.AscThm5IHBase
 public import CFSG.ClassicalInvolution.Asc77.AscT3UG2D4
 public import CFSG.ClassicalInvolution.Q3.ModelOddCentralizerGaussUnitary
 public import CFSG.ClassicalInvolution.Uniform.U5Three

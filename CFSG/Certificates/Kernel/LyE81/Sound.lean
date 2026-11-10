@@ -6,8 +6,6 @@ public import CFSG.Certificates.Kernel.ArrBfsSim
 public import CFSG.Certificates.Kernel.LyS0.Sound
 public import CFSG.Certificates.Kernel.LocalQTSecLemmas
 import CFSG.Certificates.Kernel.SporSch.LyLoop
-import Mathlib.Tactic.IntervalCases
-public import CFSG.Open.Defs
 
 public section
 

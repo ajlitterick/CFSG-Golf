@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9OrthCover
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9OrthAut
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueIdentC
 import CFSG.LieType.ChevTwo.OrthogonalAutLarge
-import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 
 public section
 

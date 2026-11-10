@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Universal.Spin.Twisted.Frame
 public import CFSG.LieType.Universal.SpinOmega.Kernel
-public import CFSG.ClassicalGroups.PCoreSection
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupStabilizer
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupNormalizer
 public import CFSG.LieType.Universal.Spin.Chevalley.Odd

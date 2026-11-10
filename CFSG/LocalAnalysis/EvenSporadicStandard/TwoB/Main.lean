@@ -2,20 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoB.Constrained
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoB.Extraspecial
-public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoB.Setting
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoB.Leech
-public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoB.Local
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoB.CoverMonster
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoB.Centralizer
 public import CFSG.Milestones.CL_LIT_GMS_Monster_uniqueness
-public import CFSG.Monster.GMS.ExistenceBridge
-public import CFSG.YGroups.Y443.Tri.AssemblyLit
 public import CFSG.Milestones.FAM_M_simplicity
-public import CFSG.RankThree.PartOne.SPOR.OuterM
-public import CFSG.Monster.Tri.TriangleStabMaximal
-public import CFSG.Monster.Existence.DLevelRank
-public import CFSG.Monster.Existence.BabyTableIIIOf
-public import CFSG.Sporadic.B
 public import CFSG.Sporadic.Bridge.Y443Relabel
 import CFSG.Sporadic.Bridge.MonsterModelsGriess
 public import CFSG.ClassicalInvolution.ModelFacts.FundPerfectMain
@@ -29,10 +20,8 @@ public import CFSG.ClassicalInvolution.Q3.ModelCenter
 public import CFSG.ClassicalInvolution.RouteD.LocalLift
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.Pattern
 public import CFSG.Goldschmidt.StatementsG4
 public import CFSG.Goldschmidt.StatementsH
-public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Multipliers.ProductKernel
 public import CFSG.LieType.Multipliers.U42Bridge
 public import CFSG.LieType.Multipliers.U43Action
@@ -71,13 +60,11 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly
 public import CFSG.Monster.GMS.S4CohB
 public import CFSG.Monster.GMS.S5Inputs
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverList
 public import CFSG.Sporadic.Bridge.LyData
 public import CFSG.Sporadic.Bridge.SuzSurj

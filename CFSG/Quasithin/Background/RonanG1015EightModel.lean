@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.ChevTwo.OrthogonalAutEight
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointPlusSwap
 import CFSG.ClassicalInvolution.ModelFacts.OrthAutSim
 
 public section

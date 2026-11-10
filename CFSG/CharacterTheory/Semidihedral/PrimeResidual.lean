@@ -3,8 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.PGroupQuotientOfPPrimeElements
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection11.PFsection11_9
 public import Mathlib.GroupTheory.Focal
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Definitions
 
 public section
 

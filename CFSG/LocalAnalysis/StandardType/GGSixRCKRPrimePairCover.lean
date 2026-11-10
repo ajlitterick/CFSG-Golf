@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeReturnedFrame
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.InnerCover
-public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcCtx
-public import CFSG.LieType.Chevalley.GraphFixedOrbitCollection
-public import CFSG.LieType.AlgebraicGroups.ToralTwistSemilinearDatum
 
 public section
 

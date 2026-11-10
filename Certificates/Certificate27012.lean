@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.TitsAschbacherParrott
 public import Certificates.Kernel.EvenBN.Bind
 public import CFSG.Certificates.Kernel.Spor.SiftEq
 import CFSG.Certificates.Kernel.Common.Harness

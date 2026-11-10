@@ -4,7 +4,6 @@ public import CFSG.GH74.Generic.NativeCerts
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2
 public meta import Certificates.Data.CFSGNative.Filter.Sec2
 public meta import Certificates.Data.CFSGNative.SectionRank.F2
-import CFSG.Blueprint.NativeSporadic
 
 public section
 

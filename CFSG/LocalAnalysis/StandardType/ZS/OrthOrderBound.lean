@@ -1,13 +1,10 @@
 module
 
 public import Mathlib.LinearAlgebra.QuadraticForm.Basic
-public import Mathlib.SetTheory.Cardinal.Finite
-public import Mathlib.Data.ZMod.Basic
 import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 import CFSG.Mathlib.Algebra.Order.ProdOneSub
 import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalOrthIso
 import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalOrthList
-import CFSG.LieType.Universal.SpinOmega.Reflections
 import CFSG.ClassicalInvolution.Orders.OrthogonalIndex
 import CFSG.LieType.Universal.SpinOmega.Range
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound

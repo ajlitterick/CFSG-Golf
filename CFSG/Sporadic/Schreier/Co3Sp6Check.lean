@@ -1,11 +1,7 @@
 module
 
-public import CFSG.Sporadic.Schreier.Co3Outer
-public import Mathlib.Data.Matrix.Block
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 public meta import CFSG.Sporadic.Schreier.Co3Outer
 public meta import Mathlib.Data.Matrix.Block
-public import CFSG.Sporadic.Schreier.Co3Sp6CheckInputs
 public import Certificates.Certificate2161
 
 public section

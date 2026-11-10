@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGA11NbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGA11J9Gen
 
 public section

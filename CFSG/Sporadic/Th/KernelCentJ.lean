@@ -3,13 +3,10 @@ module
 
 public import CFSG.Sporadic.Th.KernelCentJBase
 
-public import CFSG.Sporadic.Th.KernelCent
 public import CFSG.Sporadic.Th.KernelOrder
 public import CFSG.Certificates.Kernel.ThCent.WitSound
 public import CFSG.Certificates.Kernel.Th.Spec.FwdExt
-public import CFSG.Certificates.Kernel.Th.SoundnessGen
 import CFSG.Certificates.Kernel.Th.Spec.Dce
-import CFSG.Certificates.Kernel.Th.Spec.DceHsw
 
 public section
 

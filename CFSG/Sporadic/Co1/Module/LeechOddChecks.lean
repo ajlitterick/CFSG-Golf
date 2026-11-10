@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Sporadic.Co1.Module.OddChecks
-public import CFSG.Sporadic.Co1.Module.LeechOddChecksInputs
-public import CFSG.Sporadic.Co1.Module.LeechOddLitInputs
 public import Certificates.Certificate10071
 public meta import CFSG.Sporadic.Co1.Module.OddProg
 public meta import CFSG.Sporadic.Co1.Module.OddChecks

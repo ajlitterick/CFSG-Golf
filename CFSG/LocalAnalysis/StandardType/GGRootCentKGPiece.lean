@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
-import CFSG.LocalAnalysis.StandardType.GGSixStepTwoDefs
 
 public section
 

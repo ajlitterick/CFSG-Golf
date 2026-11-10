@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LargeExtraspecial.AS35QIxBad2
-public import CFSG.Monster.B.TwoA.Unitary.LinThree
-public import CFSG.Sporadic.ThSchreier.Row
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Fischer.NoF25.Local
 public import CFSG.Goldschmidt.Statements
 public import CFSG.Goldschmidt.StatementsG4

@@ -1,10 +1,7 @@
 module
 
-public import CFSG.OddTranspositions.AscTheoremTwo
 public import CFSG.OddTranspositions.HalphaQuotient
 public import CFSG.OddTranspositions.PartThree.Statements
-public import CFSG.Timmesfeld.Bridge.Asc72Triangle
-public import CFSG.Timmesfeld.Closure.MinCex
 
 import CFSG.OddTranspositions.PartThree.EightEight.Components
 import CFSG.OddTranspositions.PartThree.EightEight.Triangles

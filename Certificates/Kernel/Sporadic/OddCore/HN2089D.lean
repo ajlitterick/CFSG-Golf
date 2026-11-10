@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.HND0
 public import Certificates.Kernel.Sporadic.OddCore.ChainCheckGlue
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Sporadic.HNOddCore.QCheckInputs
 meta import CFSG.Sporadic.HNOddCore.QCheckInputs

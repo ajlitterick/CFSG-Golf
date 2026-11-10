@@ -1,13 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166FamA8Two2
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166FamA8Two
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166LayerData
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Layer
 public import CFSG.LargeExtraspecial.DW37Input
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2EUp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.TablesHolds
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.UpperShared
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcAction
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Lemma106107
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15ACoreArith

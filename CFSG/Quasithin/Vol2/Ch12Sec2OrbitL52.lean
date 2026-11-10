@@ -1,13 +1,8 @@
 module
 
-public import CFSG.Quasithin.Vol2.Ch12Sec2OrbitL52Rep
 public meta import Mathlib.Algebra.Field.ZMod
 public meta import CFSG.Quasithin.Background.JonesParshallWedge
-public import CFSG.Quasithin.Vol2.Ch12Sec2OrbitL52Inputs
 public import Certificates.Certificate7053
-public import Certificates.Certificate17000
-public import Certificates.Certificate17022
-public import Certificates.Certificate17026
 
 public section
 

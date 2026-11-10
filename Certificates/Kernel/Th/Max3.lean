@@ -2,10 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.Th.Gen.Max3
 public import Certificates.Kernel.Th.Assemble
-public import CFSG.Certificates.Kernel.Th.S.Data.M3_const
-public import CFSG.Certificates.Kernel.Th.S.Data.Seed_const
-public import CFSG.Certificates.Kernel.Th.S.Data.Sm_Sel
-public import CFSG.Certificates.Kernel.Th.S.Data.Sm_const
 public import CFSG.Certificates.Kernel.Th.Checks2.Sm_C
 public import CFSG.Certificates.Kernel.Th.Checks2.Seed_S
 public import CFSG.Certificates.Kernel.Th.Checks2.M3_R

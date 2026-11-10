@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJOmRank
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmRow
-public import CFSG.LocalAnalysis.StandardType.GGTBJRowR5O2
-public import CFSG.LocalAnalysis.StandardType.GGTBJOrthLeftGlue
 public import CFSG.LocalAnalysis.StandardType.GGTBJOrthLeftD
 public import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameCenter
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
 
 public section
 

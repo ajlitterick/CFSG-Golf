@@ -2,17 +2,13 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec16.Item1617StepsProofTools
 public import CFSG.RankThree.PartTwo.Sec16.Item167StepsProofNonsolv
-public import CFSG.RankThree.PartTwo.Sec17.RouteForms
 import CFSG.RankThree.PartTwo.Sec16.Item167StepsProofComp
-import CFSG.RankThree.PartTwo.Sec14.Concrete
 import CFSG.FeitThompson.OddOrderTheorem
 import CFSG.GroupTheory.PerfectResidualNodes
-import CFSG.GroupTheory.Fitting.CharacteristicP
 import CFSG.GroupTheory.ABGLocalTools.OddOrderLocal
 import CFSG.RankThree.PartOne.S10.EmbeddingTransport
 import CFSG.RankThree.PartOne.S10.EmbeddingFixedResidual
 import CFSG.LocalAnalysis.SignalizerFunctor.InvariantSylowAmbient
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.PerfectResiduals
 import CFSG.RankThree.Transfer.Yoshida
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail
 import CFSG.RankThree.PartTwo.Sec16.Item16TailEnd

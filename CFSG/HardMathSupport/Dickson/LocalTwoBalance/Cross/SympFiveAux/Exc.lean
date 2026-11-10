@@ -2,11 +2,9 @@ module
 
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.Basic
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SymplecticPlaneQ
-public import CFSG.RankThree.PartOne.KC.SymplecticSubfieldFixed
 public import CFSG.RankThree.PartOne.KC.SymplecticSubfieldOuter
 public import CFSG.RankThree.PartOne.KC.SymplecticSubfieldSemilinear
 public import CFSG.RankThree.PartOne.KC.SymplecticSubfieldCentralizer
-public import CFSG.RankThree.PartOne.KC.SymplecticNoninnerPlaneDescent
 public import CFSG.RankThree.SteinbergR3ECASymplecticPrimeSubfield
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerResiduals
 public import CFSG.LieType.Chevalley.EvenTrialityOuterInvolutions
@@ -44,7 +42,6 @@ public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

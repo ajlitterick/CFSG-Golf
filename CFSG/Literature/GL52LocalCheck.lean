@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Literature.GL52Isos
-public import CFSG.Literature.GL52Pass
 public meta import CFSG.Literature.GL52Isos
 public meta import CFSG.Literature.GL52Pass
-public import CFSG.Literature.GL52LocalCheckInputs
 public import Certificates.Certificate2002
 
 public section

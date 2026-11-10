@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Misc.ArrEnum
-public import Certificates.Data.Kernel.Spor.Prim
 
 public section
 

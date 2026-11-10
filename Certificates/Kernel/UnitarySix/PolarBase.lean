@@ -3,10 +3,6 @@ module
 
 public import Certificates.Kernel.UnitarySix.YamadaBase
 public import CFSG.Certificates.Kernel.U6Sound3004
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeDataBase
-public import Certificates.Data.CFSGNative.Fischer.Polar
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeDataInputs
-import CFSG.Certificates.Kernel.Common.Harness
 
 @[expose] public section
 

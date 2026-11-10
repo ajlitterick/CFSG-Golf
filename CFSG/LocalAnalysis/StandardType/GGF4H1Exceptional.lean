@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResRowF4ThreeOn
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofFinal
-import CFSG.LocalAnalysis.StandardType.GGStdSubExist
-import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
 
 public section
 

@@ -1,28 +1,16 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GNegBCLab
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField
-public import CFSG.Open.GLADefs
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherAutomorphismData
-public import CFSG.LieType.SemisimpleCentralizers.HeldUnitaryComponents
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympInnerExport
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSL
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSU
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSp
-import CFSG.HardMathSupport.Solomon.Coordinator.B3LieCore
-import CFSG.LocalAnalysis.GLTheoremB.PCompBasics
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinCore
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinFldGrp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GCenterQuot
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldSympMark
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnSympRed
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GSympLabel
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsSympA6
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LocalAnalysis.StandardType.MarkingSmall
-import CFSG.LocalAnalysis.ComponentClassification.PresentationLocalSymplecticSix
 import CFSG.LieType.SemisimpleCentralizers.HeldLangPSL
 import CFSG.Quasithin.Vol2.Ch5Sec1L34FiveA7
 import CFSG.Quasithin.Vol2.Ch6Sec1Lem4SpA
@@ -34,10 +22,6 @@ import CFSG.RankThree.PartTwo.Sec11.Item118
 import CFSG.RankThree.PartTwo.Sec4.Item426A6
 import CFSG.RankThree.PartTwo.Sec4.Statements423
 import CFSG.RankThree.PartTwo.Sec6.Statements
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.PSL2Facts
-import CFSG.Walter.W67.Statements
 
 public section
 

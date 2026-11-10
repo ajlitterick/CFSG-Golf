@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
-public import CFSG.LieType.Universal.SpecialLinearRoots
 public import CFSG.LieType.Universal.SpecialLinearExtras
 
 public section

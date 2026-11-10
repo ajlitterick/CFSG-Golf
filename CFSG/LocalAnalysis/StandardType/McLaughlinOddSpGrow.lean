@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.McLaughlinOddSL
 public import CFSG.LocalAnalysis.StandardType.McLaughlinOddSpBasic
 public import CFSG.RankThree.PartOne.LIT.McSpShape
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.Module
-import Mathlib.Tactic.Ring
 
 public section
 

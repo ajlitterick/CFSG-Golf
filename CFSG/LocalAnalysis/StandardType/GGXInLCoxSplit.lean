@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.Coxeter.Basic
-public import Mathlib.GroupTheory.Commutator.Basic
 public import Mathlib.GroupTheory.OrderOfElement
 
 public section

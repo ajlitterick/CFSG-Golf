@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Co2Schreier.CoreCheckInputs
 public import CFSG.Sporadic.Co2Schreier.SixCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.CoreCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.SixCheckInputs

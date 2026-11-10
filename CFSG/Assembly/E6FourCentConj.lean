@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Assembly.E6FourCentSetup
-public import CFSG.Assembly.E6FourCentTorus
 public import CFSG.Assembly.E6FourCentSols
 public import CFSG.Assembly.E6FourNeighbourSylow
 import CFSG.RankThree.PartOne.KE6.EqpTorsion

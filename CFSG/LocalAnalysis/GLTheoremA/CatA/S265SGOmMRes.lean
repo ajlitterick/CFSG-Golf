@@ -5,7 +5,6 @@ import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.OrthInner
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGOmPCent
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGOmPConj
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGOmTwoM
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
 
 public section
 

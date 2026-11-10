@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.Ly.GenLy
 public import CFSG.Certificates.Kernel.Orders.Ly.Data.Const
-public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.Sporadic.Schreier.SteinbergBSLyOuterCheck
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Schreier.LyCheckSeven

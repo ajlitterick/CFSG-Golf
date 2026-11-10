@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcD4ClassLeaves
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcTD4E6
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154NonCfgRank4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158GInn3
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotCatTypeDet
-public import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoKac
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcTD4Class
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcTwoPartDefs
 

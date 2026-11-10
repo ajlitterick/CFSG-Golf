@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
-public import Mathlib.GroupTheory.Sylow
 import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.OrdinaryProofs.A7Index15
 import CFSG.LocalAnalysis.AGLEmbeddingD2.GN.AltSevenA1Orbit
 import CFSG.LocalAnalysis.SectionRank.Ccomm.ElementaryAut

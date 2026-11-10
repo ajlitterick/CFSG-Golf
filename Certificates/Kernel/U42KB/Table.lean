@@ -2,12 +2,9 @@ module
 
 public import Certificates.Data.U42Presentation
 public import Certificates.Data.Kernel.Bounds.TableFact
-public import CFSG.Certificates.Kernel.Bounds.Checks
 public import Certificates.Kernel.Bounds.Assemble
-import CFSG.Certificates.Kernel.Bounds.Load
 import CFSG.Certificates.Kernel.Bounds.LoadRoot
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 
 open CFSG.HardMathSupport.Dickson.I271.U42Presentation
 

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.PermCent.U43QuatRelG
 public import Certificates.Kernel.PermCent.U43QuatCfg
 public import CFSG.ClassicalInvolution.Q3.TL4E3S3OM1U0
-public import CFSG.ClassicalInvolution.Q3.TL4E3S3OM1U0
 
 set_option maxRecDepth 400000
 

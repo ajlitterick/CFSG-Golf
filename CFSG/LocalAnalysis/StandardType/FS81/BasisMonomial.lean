@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.LocalGen
 import CFSG.LocalAnalysis.StandardType.FS81.OmMonomial
-import CFSG.LocalAnalysis.StandardType.FS81.AutMat
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBG8
-import CFSG.ClassicalInvolution.Asc77.AscAETSecFinal
 import CFSG.ClassicalInvolution.SmallCases.NDBG5Weak
 
 public section

@@ -10,14 +10,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1420LyCo1
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.BMTypeB3
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.BMTypeM3
 
-import CFSG.HardMathSupport.Solomon.Coordinator.SporOrders
-import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-import CFSG.HardMathSupport.Timmesfeld.Proving.SporadicOuterLeTwo
-import CFSG.LocalAnalysis.GLTheoremA.CatC.LieComp3
-import CFSG.LocalAnalysis.GLTheoremA.CatC.LieCompHolds
-import CFSG.LocalAnalysis.GLTheoremA.PartI.AltDown
-import CFSG.Sporadic.Bridge.Catalogue
-import CFSG.Sporadic.McL
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs1415b
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeALocalBase
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeL1Orb

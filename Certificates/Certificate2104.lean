@@ -3,14 +3,11 @@ module
 
 public import Certificates.Certificate2104Base
 
-public import CFSG.Sporadic.HNSchreier.PrimCheckInputs
 public meta import CFSG.Sporadic.HNSchreier.OrbitCheck
 public meta import Certificates.Data.CFSGNative.ONSchreier.Vectors
 public meta import Certificates.Data.CFSGNative.Perm.Chain
 import Certificates.Kernel.SporSch.HN.Prim2104
 import Certificates.Kernel.SporSch.HN.Order2104
-import CFSG.Sporadic.HNSchreier.OrbitCheckInputs
-import CFSG.Sporadic.HNSchreier.SeedsCheckInputs
 
 public section
 

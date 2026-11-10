@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Misc.Perm.J2C3A
-public import Certificates.Data.J2ThreeB
 public import Certificates.Data.Kernel.J2ThreeBK
 public import CFSG.Certificates.Kernel.BfsPinUnpack
 import CFSG.Certificates.Kernel.Common.Harness

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Monster.B.TwoA.Unitary.Transv
 public meta import CFSG.Monster.B.TwoA.Unitary.Planes
 public meta import CFSG.Monster.B.TwoA.Unitary.Form
 public meta import CFSG.Monster.B.TwoA.Unitary.NData
@@ -8,21 +7,7 @@ public meta import CFSG.Monster.B.TwoA.Co2Inv.Rows
 public meta import CFSG.Monster.B.Co2.Data
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
-public import CFSG.Monster.B.TwoA.Unitary.TransvSwitchInputs
 public import Certificates.Certificate3127
-public import Certificates.Certificate3041
-public import Certificates.Certificate3042
-public import Certificates.Certificate3061
-public import Certificates.Certificate3062
-public import Certificates.Certificate3175
-public import Certificates.Certificate3014
-public import Certificates.Certificate3017
-public import Certificates.Certificate3019
-public import Certificates.Certificate3025
-public import Certificates.Certificate3026
-public import Certificates.Certificate3028
-public import Certificates.Certificate16016
-import CFSG.Fischer.F4
 
 public noncomputable section
 

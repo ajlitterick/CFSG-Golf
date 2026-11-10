@@ -5,7 +5,6 @@ public import Certificates.Kernel.ThU.Data
 public import CFSG.Certificates.Kernel.Th.S.Data.Sm_const
 public import CFSG.Certificates.Kernel.Th.S.Data.Seed_const
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.Local3DataTh
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Certificates.NativeSchreierCard
 public import CFSG.GroupTheory.LocalCores.Fitting

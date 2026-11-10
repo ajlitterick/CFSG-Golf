@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1431ZBase
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabJ3Shape
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNThreeShape
-public import CFSG.Sporadic.Bridge.HNSurj
-public import CFSG.Sporadic.HN
 public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalModel
 public import CFSG.LieType.Multipliers.U62Sylow
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcF4O2

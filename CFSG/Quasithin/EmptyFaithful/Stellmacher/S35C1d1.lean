@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.Algebra.Group.End
 public import Mathlib.Data.Fintype.Perm
 public import Mathlib.Data.Sym.Sym2.Init
 public import Mathlib.Tactic.NormNum.GCD

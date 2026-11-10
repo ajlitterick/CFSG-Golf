@@ -1,14 +1,11 @@
 module
 
-public import CFSG.LieType.Universal.Unitary.Comparison
-public import CFSG.ClassicalGroups.Unitary.Finite
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 import CFSG.ClassicalInvolution.Phan.Center
 import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.LocalAnalysis.StandardType.GGXInLUF2Aux2
 import CFSG.LieType.SemisimpleCentralizers.HeldLangUnitFix
 import CFSG.RankThree.PartOne.KF.UnitaryDiag
-import Mathlib.Tactic.Group
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
 

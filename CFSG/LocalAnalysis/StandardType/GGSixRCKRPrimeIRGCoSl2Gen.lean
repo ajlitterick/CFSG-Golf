@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGA1Sl2
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
-public import CFSG.ClassicalInvolution.ModelFacts.Families
-public import CFSG.ClassicalInvolution.RouteD.LocalTwinModel
-public import CFSG.LieType.Steinberg.OfCartan
 
 public section
 

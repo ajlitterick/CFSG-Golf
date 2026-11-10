@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TLKAut
 public import CFSG.ClassicalInvolution.RouteD.TWZSpinB
-public import CFSG.ClassicalInvolution.Q3.Q3TY14
 public import CFSG.ClassicalInvolution.Q3.Q3TY17
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenSpLocalForms
 public import CFSG.OddTranspositions.PartThree.Twelve.Branches
-public import CFSG.Fischer.Uniq.Graph
 import CFSG.OddTranspositions.PartThree.Twelve.NineGraphIso
 import CFSG.OddTranspositions.PartThree.Twelve.ElevenSpModelOrder
 import CFSG.RankThree.PartOne.KC.SymplecticFullRankTwo

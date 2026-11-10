@@ -3,10 +3,6 @@ module
 import Lean
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSADefs
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSARk1
-import CFSG.ClassicalInvolution.Phan.Blocks
-import CFSG.LieType.Steinberg.CentralExt.SUThreeThree
-import CFSG.LieType.Steinberg.CentralExt.SUTwo
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInner
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtE68SporAsm
 public import CFSG.Quasithin.EmptyFaithful.S151S9TJ2
 public import Certificates.Certificate4214
-import CFSG.Quasithin.Background.E2TwoProofSporJ2
 
 public section
 

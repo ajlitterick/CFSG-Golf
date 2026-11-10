@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKA6Label
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKA6Classical
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKA6PSp
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKA6F4
 public import CFSG.LocalAnalysis.StandardType.GGPsiInnerDiagOfMarking
-public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRank
-import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

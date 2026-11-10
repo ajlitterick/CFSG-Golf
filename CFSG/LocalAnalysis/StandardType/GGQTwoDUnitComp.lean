@@ -2,9 +2,6 @@ module
 
 public import CFSG.Assembly.LargeEvenDefs
 public import CFSG.ClassicalInvolution.Phan.Defs
-public import CFSG.Open.LocalVocabulary
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCompA2
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCompC1
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCompC2
 
 public section

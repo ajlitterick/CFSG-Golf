@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveTwFaceD4
-public import CFSG.LieType.Chevalley.E6SignedGraphRankOneGroups
-public import CFSG.LieType.Chevalley.E6SignedGraphRoots
-public import CFSG.LieType.Chevalley.FoldedRootOrbits
-public import CFSG.LieType.Chevalley.E6FieldGraphFieldPointwiseCentralizer
-public import CFSG.LocalAnalysis.ComponentInitial.CentralSL2Semilinear
 public import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6TwoAssembly
 public import CFSG.LieType.SeitzGeneration.ExcHigh.Product
 

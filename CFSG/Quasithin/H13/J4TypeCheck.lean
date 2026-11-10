@@ -4,7 +4,6 @@ public import CFSG.Quasithin.H13.J4Core
 public meta import CFSG.Quasithin.H13.J4Core
 public meta import CFSG.Quasithin.H13.J4Defs
 public meta import Certificates.Data.CFSGNative.H13.J4Elems
-public import CFSG.Quasithin.H13.J4TypeCheckInputs
 public import Certificates.Certificate7017
 
 public section

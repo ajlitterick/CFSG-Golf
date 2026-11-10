@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Sp43.Code
 public import Certificates.Data.Sp43.Data
 
 public section

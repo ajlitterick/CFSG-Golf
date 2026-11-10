@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeComponent
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeU52Bridge
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeStepTwo
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.Assembly.Subnormal
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.LargeExtraspecial.OrthoF2
 public import CFSG.LargeExtraspecial.S2Basic

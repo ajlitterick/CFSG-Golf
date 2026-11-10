@@ -1,17 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK0LQD4TwE6
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabelOuterD
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcE6
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcD4Action
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcKacCount
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompAlcove
-public import CFSG.RankThree.PartOne.KD4L.TrialityLayer
 
 public section
 

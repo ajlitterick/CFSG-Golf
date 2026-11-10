@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.GLS.C3.Prop121.MooreFinite7
 public meta import CFSG.GH74.GLS.C3.Prop121.MooreFinite7
-public import Mathlib.GroupTheory.Perm.Cycle.Type
 public meta import Mathlib.Algebra.Group.End
 public meta import Mathlib.GroupTheory.Perm.Sign
 public meta import Mathlib.GroupTheory.Perm.Basic

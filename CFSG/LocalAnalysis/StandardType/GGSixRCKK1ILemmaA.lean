@@ -1,13 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IPerfect
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1ILongRootConj
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1ILemmaATI
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1ILongNotShort
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OddCenter
-public import CFSG.LieType.HighestRoot.GenModels
-public import CFSG.Assembly.Subnormal
 
 public section
 

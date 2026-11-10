@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.LocalModelE7Torus
 public import CFSG.LocalAnalysis.StandardType.FS81.LocalOrthTorus
 public import CFSG.LocalAnalysis.StandardType.FS81.RealizedNormalizer
-public import CFSG.LocalAnalysis.StandardType.FS81.OddCoreTransvOrth
 
 public section
 

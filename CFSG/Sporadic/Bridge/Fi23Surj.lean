@@ -1,17 +1,9 @@
 module
 
 public import CFSG.Sporadic.Fi23.Simple
-public import CFSG.Sporadic.Bridge.Common
-public import CFSG.Sporadic.Presentation.Fi23
-public import Certificates.Data.CFSGNative.Bridge.Fi23GPL
 public meta import Certificates.Data.CFSGNative.Bridge.Fi23GPL
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import Certificates.Certificate9111
 public import Certificates.Certificate9206
-public import Certificates.Certificate1012
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import CFSG.Sporadic.Th.F2Spec
-public import Certificates.Certificate9206Base
 
 public section
 

@@ -2,9 +2,7 @@ module
 
 public import CFSG.Open.SporadicBabyMonsterRecognitionMilestoneDefs
 public import CFSG.Monster.Existence.BabyOrder
-public import CFSG.Sporadic.B
 public import CFSG.Monster.B.GSide.CompletionFusion
-public import CFSG.Monster.B.GSide.HInnerFusion
 
 public noncomputable section
 

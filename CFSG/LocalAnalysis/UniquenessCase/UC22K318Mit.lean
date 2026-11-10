@@ -3,13 +3,9 @@ module
 public import CFSG.RankThree.SubgroupLists.MitchellQuasisimple
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K318Low
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
-public import CFSG.Blueprint.Catalog
 import CFSG.RankThree.SubgroupLists.SymplecticFischerSp
-import CFSG.RankThree.SubgroupLists.SymplecticFischerOrth
 import CFSG.RankThree.SubgroupLists.SymplecticFischerUnitary
 import CFSG.RankThree.SubgroupLists.SymplecticFischerRefl
-import CFSG.RankThree.SubgroupLists.SymplecticInvolutions
-import CFSG.ClassicalGroups.Symplectic.Simple
 import CFSG.Adapters.StatedPSLTwoNine
 import TauCeti.RepresentationTheory.CharacterTable.Solvable
 public import CFSG.CGT.Timmesfeld75.L2Pair

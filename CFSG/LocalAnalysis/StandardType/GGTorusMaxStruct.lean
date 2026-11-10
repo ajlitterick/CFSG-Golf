@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteOrder
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylTorusAut
 public import CFSG.LocalAnalysis.StandardType.GGIrred937Lattice
 import CFSG.LocalAnalysis.StandardType.GGTorusMaxStructAux2
 

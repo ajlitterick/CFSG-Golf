@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.StatementsOmeg
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOm.Isometry
 import CFSG.GroupTheory.WeirSylow.UniqueE27Orthogonal
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23c.OmegaMinusFour
-import CFSG.LieType.Universal.Spin.Forms
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23c.SylowLine
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23c.Transfer
-import CFSG.RankThree.GF2n.Stroth80.Sec5NatScalars
 public import CFSG.GroupTheory.GL52.Basic
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.StatementsComponents
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.StatementsSL3

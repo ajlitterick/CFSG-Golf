@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Defs
-public import CFSG.Timmesfeld.Bridge.Asc72Local
 
 public section
 

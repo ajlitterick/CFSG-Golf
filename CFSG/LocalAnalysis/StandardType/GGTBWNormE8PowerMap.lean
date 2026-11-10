@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBWNorm
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowZDet
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusTransferCore
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 public import CFSG.LieType.SeitzGeneration.Lift
 public import CFSG.LieType.SeitzGeneration.RegimesExcFamilies
 

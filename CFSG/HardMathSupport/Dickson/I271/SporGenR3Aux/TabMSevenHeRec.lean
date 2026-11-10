@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMSevenRec
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.StrongHSHe
 public import CFSG.Sporadic.HeldB.InnerClass
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 
 public section

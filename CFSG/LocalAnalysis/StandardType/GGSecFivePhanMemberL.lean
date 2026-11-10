@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanPrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePumpupDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanCount
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpCount
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpupMemberRoots
@@ -11,7 +10,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsPairs
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpSignedTop
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpJoinWeyl
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpFix
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeABridge
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpRoute
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Blueprint.NativeSporadic
 public import CFSG.Monster.B.Final.Simple
-public import CFSG.Monster.B.Rep4371.ExactActions
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBar
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBranchOrth
 import CFSG.LocalAnalysis.StandardType.GGZSMonWit
 
 public section

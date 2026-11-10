@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoPSUCent
-public import CFSG.LieType.Steinberg.CentralExt.SUOddFieldThreeLevi
 
 public section
 

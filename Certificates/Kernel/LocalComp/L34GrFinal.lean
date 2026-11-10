@@ -8,7 +8,6 @@ public import Certificates.Kernel.LocalComp.L34Bo.Final
 import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.BfsPinSetSound
 import CFSG.Certificates.Kernel.L34KSnd.Tab
-import CFSG.Certificates.Kernel.L34ScanSound
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 
 public section

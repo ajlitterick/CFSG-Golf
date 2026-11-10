@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.EvenBN.LinearThree.CaseBModule
 public import CFSG.LocalAnalysis.EvenBN.LinearThree.Excl27Layer
 public import CFSG.LocalAnalysis.EvenBN.LinearThree.Excl27Field
 public import CFSG.RankThree.PartOne.AUTSL.Interface
-public import CFSG.Timmesfeld.Orders.Bang
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.E6SecondGraphFullCentralizer
 public import CFSG.LocalAnalysis.EvenBN.LinearThree.CaseAFieldAut

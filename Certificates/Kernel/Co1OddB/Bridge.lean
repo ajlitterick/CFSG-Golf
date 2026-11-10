@@ -4,11 +4,8 @@ public import Certificates.Kernel.Co1OddB.Cand0
 public import Certificates.Kernel.Co1OddB.Cand1
 public import Certificates.Kernel.Co1OddB.Cand2
 public import Certificates.Kernel.Co1OddB.Cand3
-public import Certificates.Kernel.Co1Cover.Bridge
 public import Certificates.Kernel.Co1B.C2046
 public import CFSG.Certificates.Kernel.Co1OddBSound
-public import CFSG.Certificates.Kernel.Co1M.FixListSound
-public import CFSG.Sporadic.Schreier.Co1OddBCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co1OddData
 public meta import CFSG.Sporadic.Schreier.Co1OddACCheck
 public meta import CFSG.Sporadic.Co1.Module.TwoBData

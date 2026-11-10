@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormLinearCentralCard
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormLinearTwicePrime
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterPrimeSquare
-public import CFSG.Mathlib.GroupTheory.Automorphism.Translations
 public import CFSG.Mathlib.GroupTheory.PrimeOrderPair
 public import CFSG.LocalAnalysis.StandardType.GGPGLBlockFrobeniusWord
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormQuotTwoShears
-public import Mathlib.Algebra.Order.BigOperators.Group.Finset
 public meta import Lean.Elab.Tactic.Omega
 
 public section

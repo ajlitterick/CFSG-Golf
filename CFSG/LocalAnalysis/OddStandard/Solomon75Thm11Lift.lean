@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.Solomon75Thm11Transport
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
-public import CFSG.LocalAnalysis.ComponentClassification.PrimeComplementQuotientComponents
 public import CFSG.GH74.GLS.Stage12.McLCover
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups

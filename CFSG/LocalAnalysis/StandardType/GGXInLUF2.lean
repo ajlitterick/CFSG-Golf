@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGXInLUDefs
 public import CFSG.LocalAnalysis.StandardType.GGXInLUF2Aux2
 public import CFSG.LocalAnalysis.StandardType.GGXInLUF2Aux4
 public import CFSG.LocalAnalysis.StandardType.GGXInLUF2Aux5

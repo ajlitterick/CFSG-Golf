@@ -3,11 +3,8 @@ module
 public import CFSG.Quasithin.Background.A312SporGen
 public import CFSG.Quasithin.Background.A312SporJ1Inputs
 public import CFSG.Quasithin.Background.E2TwoProofSporJ1
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListFamilies
 public import CFSG.Sporadic.Schreier.J1QT
-public import CFSG.Sporadic.Schreier.J1Centralizer
 public import Certificates.Certificate7128
-public import CFSG.Blueprint.NativeSporadic
 public import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 
 public section

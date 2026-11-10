@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.KS.PKit
 public import CFSG.Sporadic.Schreier.Co3OrderCheckInputs
-public import Certificates.Data.CFSGNative.Co3Schreier.Basic
-public import CFSG.Monster.B.Mathieu.SylowCore
 public meta import CFSG.RankThree.PartOne.KS.PKit
 public meta import CFSG.Sporadic.Schreier.Co3OrderCheckInputs
 public meta import Certificates.Data.CFSGNative.Co3Schreier.Basic

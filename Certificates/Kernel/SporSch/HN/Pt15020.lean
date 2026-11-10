@@ -4,13 +4,8 @@ public import Certificates.Kernel.SporSch.HN.Pt2086
 public import Certificates.Kernel.SporSch.HN.Pt15020K
 public import Certificates.Kernel.Sporadic.OddCore.HNT4K
 public import Certificates.Kernel.Sporadic.OddCore.HN2088
-public import Certificates.Kernel.Sporadic.OddCore.HN2089
 public import CFSG.Certificates.Kernel.Spor.HNT4Sound
-public import CFSG.Certificates.Kernel.Spor.HNAOrbSound
-public import CFSG.Certificates.Kernel.Spor.EnumBaseSound
 public import CFSG.Certificates.Kernel.LocalQTNatsXSound
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicHNTests
-import CFSG.Sporadic.Schreier.ONPermArr
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

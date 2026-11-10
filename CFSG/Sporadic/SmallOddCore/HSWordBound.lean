@@ -3,21 +3,13 @@ module
 
 public import CFSG.Sporadic.SmallOddCore.HSWordBoundBase
 
-public import CFSG.Sporadic.SmallOddCore.HS
-public import CFSG.Sporadic.SmallOddCore.AutCount
-public import CFSG.Sporadic.Schreier.PairHSPairs
-public import CFSG.Sporadic.Schreier.PairCounts
 public meta import CFSG.Sporadic.Schreier.PairHSCheck
 public meta import Certificates.Data.CFSGNative.PairSchreier.Counts
-public import CFSG.Sporadic.Schreier.PairHSCertInputs
-public import CFSG.Sporadic.Schreier.PairHSCheckInputs
 public meta import CFSG.Sporadic.Schreier.PairHSCert
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Sporadic.SmallOddCore.HSWordBoundInputs
 public import Certificates.Certificate2274
-public import CFSG.Sporadic.SmallOddCore.HSCheckInputs
 
 public section
 

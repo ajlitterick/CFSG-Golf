@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryInnTorus
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepWitt
-public import CFSG.LocalAnalysis.StandardType.GGSixLinearModelMono
 public import CFSG.LocalAnalysis.StandardType.GGSixLinearModelCoords
 
 public section

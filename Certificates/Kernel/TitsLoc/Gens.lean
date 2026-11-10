@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.TwoF4Lie.Checks
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

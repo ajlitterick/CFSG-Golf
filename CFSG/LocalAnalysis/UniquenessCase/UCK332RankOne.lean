@@ -3,16 +3,7 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332T3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83P3KFacts
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma99Tools
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.GroupTheory.ElemAbelianRank
-public import CFSG.GroupTheory.QuasisimpleCommutingProductBound
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import CFSG.Foundations.QuasisimpleMulEquiv
-public import CFSG.Quasithin.Background.A3ComponentsQuotient
-public import CFSG.LocalAnalysis.ComponentClassification.Helpers
-public import CFSG.Foundations.KCoreOpen
 public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Proof
 public import CFSG.LocalAnalysis.GLTheoremB.PCompBasics

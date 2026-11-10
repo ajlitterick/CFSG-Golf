@@ -3,11 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJNaWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTBJCount
 public import CFSG.LocalAnalysis.StandardType.GGTBJLift
-public import CFSG.LocalAnalysis.StandardType.GGTBJWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwenty
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
-public import CFSG.Assembly.Subnormal
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
 
 public section
 

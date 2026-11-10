@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.AschbacherSeitz.RootGroupInvolution
 public import CFSG.GroupTheory.CommutingConjugatePair
-public import CFSG.LieType.Steinberg.CentralExt.MinusculeCenter
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6Center
 
 public section

@@ -3,24 +3,14 @@ module
 public import CFSG.RankThree.Classical2.SLnRootAutomorphism
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22L3LinL5
-public import CFSG.Open.StatedDefs
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
 import CFSG.LocalAnalysis.ComponentInitial.LinearHigherLinearAutNormal
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherOuterQuotients
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismTransport
 import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUProjectivePlaneCoprimeCentral
-import CFSG.GH74.KGroups.L3EpsLin
 import CFSG.RankThree.PartTwo.Sec15.Sylow155R3L125Cop
 import CFSG.RankThree.PartTwo.Sec15.Sylow155R3L125W
 import CFSG.RankThree.PartTwo.Sec15.Sylow155R1OddL3Inputs
-import Mathlib.Data.ZMod.Basic
-import Mathlib.Tactic.FinCases
-import Mathlib.Tactic.LinearCombination
-public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 import CFSG.GroupTheory.PCore.SubgroupCore
 import CFSG.HardMathSupport.Solomon.LocalBalance.Defs
 import CFSG.LocalAnalysis.GLTheoremB.UniqInputs
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.Defs
 
 public section

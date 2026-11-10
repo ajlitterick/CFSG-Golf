@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.J4Ov.Fam
 public import Certificates.Data.J4Ov.Reps
-public import Std.Data.HashMap
 public import Std.Data.HashSet
 
 public section

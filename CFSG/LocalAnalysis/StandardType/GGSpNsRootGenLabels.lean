@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRootGenSpOrthSplitAvoid
 public import CFSG.LocalAnalysis.StandardType.GGTorusRootGenAvoidModel
 import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenAsm
-import CFSG.LieType.Steinberg.CentralExt.PSpEvenMultiplier
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNsLiftSp
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 import CFSG.ClassicalGroups.Symplectic.StandardForm
 import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
 import CFSG.ClassicalGroups.Symplectic.DiagonalTorusRank

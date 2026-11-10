@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreCore
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmMark
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSLRank
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLNonsplitGroup
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRest
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherFieldInvolution
 public import CFSG.LieType.SeitzGeneration.OuterLinearLift
 public import CFSG.LocalAnalysis.SeitzReduction.CrossChar
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder

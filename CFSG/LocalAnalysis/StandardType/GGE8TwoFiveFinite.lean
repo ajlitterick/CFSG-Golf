@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldFiveE8Centralizer
-public import CFSG.LocalAnalysis.StandardType.GGFieldFiveE8Classes
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompKac
 public import CFSG.LieType.AlgebraicGroups.ToralRootCover
 public import CFSG.Sporadic.Schreier.J4SProfileNode

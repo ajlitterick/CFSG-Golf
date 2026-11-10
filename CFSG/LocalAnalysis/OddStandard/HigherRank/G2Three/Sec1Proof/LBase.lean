@@ -1,42 +1,19 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.T1Data
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.TabDecode
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.TabPc
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.Words5
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.LChk1
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.LChk5
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.TabPred4
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.FrameDefs
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.TabOps1
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.TabOps4
-public import Mathlib.GroupTheory.OrderOfElement
 public import Std.Data.HashSet
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.TabPred2
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.TabRank
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.FrameKit
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.TabHom
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.Data.ZMod.Basic
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.SylowConj
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.ConjFacts
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.FrameLe
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.LGroup
 import Certificates.Kernel.G2Three.Sec1T1Glue
-import Certificates.Data.Kernel.G2Three.Sec1T1
-import Certificates.Kernel.G2Three.Sec1T1Rec
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.G2Three.Sec1Tab
 import CFSG.Certificates.Kernel.Co1DceCover
-import CFSG.Certificates.Kernel.Spor.Mat3Sound
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.Words3
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.ModelDef
 import Certificates.Kernel.G2Three.Sec1T3Glue
-import Certificates.Kernel.G2Three.Sec1T5Glue
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.ModelL
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.T5Facts
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.T1Facts
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.AutBound
 public import Certificates.Certificate442055
 public import Certificates.Certificate442056

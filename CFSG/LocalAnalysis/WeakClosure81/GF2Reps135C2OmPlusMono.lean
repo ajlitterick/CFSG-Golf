@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmPlusCurtis
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmPlusWeyl
-public import Mathlib.LinearAlgebra.Matrix.Permutation
 
 public section
 

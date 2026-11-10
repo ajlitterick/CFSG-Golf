@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveSylow
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeA2BlockTwist
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveInner
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeSCShapeBridge
-public import CFSG.GroupTheory.ElemAbelianClosure
 
 public noncomputable section
 

@@ -2,21 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvFieldTags
 public import CFSG.LocalAnalysis.StandardType.GGE0Frame
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDefs
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDict
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockGUOrder
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDecomp
-public import CFSG.Blueprint.SourceClassicalTransportOrthogonal
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs256q
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.OmegaPlusFourShape
-public import CFSG.RankThree.PartOne.S11d.OrthCaseN
 public import CFSG.RankThree.PartOne.S11d.OrthSplitAbs
-public import CFSG.RankThree.PartOne.KC.OrthogonalCommutatorBridge
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearTwoFixedField
-public import CFSG.HardMathSupport.Foote.ModuleExclusions.Hilbert90
-public import CFSG.ClassicalGroups.Orthogonal.Matrix
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
 public import CFSG.RankThree.GF2n.Smith81.Orth28Omega
 public import CFSG.RankThree.GF2n.Stroth80.Sec310ClOmegaPlusFour
 public import CFSG.LargeExtraspecial.DWFldOrth

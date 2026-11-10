@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.KGFactJ4M3Core
 public import CFSG.Quasithin.Vol2.KGFactC31E16
 public import CFSG.Quasithin.Vol2.KGFactC31E8
-public import CFSG.Quasithin.Background.A3ComponentsCore
-public import CFSG.Quasithin.Background.Ordering
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4OvMaxBase
 
 public section

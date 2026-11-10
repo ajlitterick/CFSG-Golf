@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.Fam.Lin
 public import CFSG.Certificates.Kernel.Fam.LySeed.Data.Sel
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 

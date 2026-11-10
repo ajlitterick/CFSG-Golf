@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.SubgroupLists.MitchellFrameGroup
-public import CFSG.RankThree.SubgroupLists.SymplecticTwoRotations
-import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 
 public section
 

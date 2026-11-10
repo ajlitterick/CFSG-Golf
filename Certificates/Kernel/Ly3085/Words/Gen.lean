@@ -1,11 +1,9 @@
 module
 
 public import Certificates.Kernel.Ly3085.Omega.Data
-public import Certificates.Kernel.SporSch.Ly.BSData
 public import Certificates.Kernel.SporSch.Ly.SevA
 public import Certificates.Data.Kernel.LyOmega.Words
 public import Certificates.Data.GH74.LyGen
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 

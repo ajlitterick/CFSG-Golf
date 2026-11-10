@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.C12643.EnumK
 public import Certificates.Kernel.Misc.Perm.J2Enum
-public import CFSG.Certificates.Kernel.Misc.ArrEnumSound
-public import CFSG.Certificates.Kernel.Misc.EnumBfsOfOK
 import CFSG.Certificates.Kernel.Common.ForallChunks
 import CFSG.Certificates.Kernel.Common.Harness
 

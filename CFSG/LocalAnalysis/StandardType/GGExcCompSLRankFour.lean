@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcCompSLDefs
 
-import CFSG.LocalAnalysis.GLTheoremA.CatA.L154NonCfgRank4B
 import CFSG.LocalAnalysis.GLTheoremA.CatA.L154NonCfgRank4
-import CFSG.LocalAnalysis.StandardType.GGCompFieldLieModel
 import CFSG.ClassicalInvolution.Q3.Q3TWWMinus
-import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Defs
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCoreAssembly
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24Plane
@@ -16,7 +13,6 @@ import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Rank4
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Rank4All
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TwE6
-import CFSG.LieType.SeitzGeneration.SeitzStatus
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyU3Top
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotCTFieldCenter
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotClassesRoots

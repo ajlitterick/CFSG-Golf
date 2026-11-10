@@ -1,16 +1,11 @@
 
 module
 
-public import CFSG.Sporadic.Co1.Module.OddCentCardInputs
-public import Certificates.Kernel.Co1Cover.Bridge
 public import Certificates.Kernel.Co1M.K10072
 public import Certificates.Kernel.Co1M.Regs10072
 public import Certificates.Kernel.Co1M.C10071
 public import CFSG.Certificates.Kernel.Co1M.VTreeLitSound
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Sporadic.J4.ParSpec
-public import CFSG.Sporadic.J4.Setup
-public import Certificates.Data.Kernel.J4Q.MatChk
 
 public section
 

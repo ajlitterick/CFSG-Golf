@@ -1,8 +1,6 @@
 module
 
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection9.PFsection9_3
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection9.Basic
 
 namespace CFSG

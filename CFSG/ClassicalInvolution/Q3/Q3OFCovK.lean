@@ -3,11 +3,8 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3OFCov
 public import CFSG.ClassicalInvolution.Q3.Q3URTransfer
 public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-public import CFSG.LieType.Steinberg.CentralExt.SpinPlusThree
 public import CFSG.LieType.Steinberg.CentralExt.SpinMinusFour
-public import CFSG.LieType.Steinberg.CentralExt.SpinOddThree
 public import CFSG.LieType.Steinberg.CentralExt.FieldThreeF4Multiplier
-public import CFSG.LieType.Steinberg.CentralExt.FieldThreeMultiplier
 public import CFSG.LieType.Steinberg.CentralExt.FieldThreeE7Multiplier
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6Three
 public import CFSG.ClassicalInvolution.Q3.OddCoreCentral
@@ -16,7 +13,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3OFAlg
 public import CFSG.ClassicalInvolution.Q3.Q3OFUnique
 public import CFSG.ClassicalInvolution.Q3.Q3TY1
 public import CFSG.ClassicalInvolution.Q3.Q3URDict
-public import CFSG.ClassicalInvolution.Q3.Q3URStd
 public import CFSG.ClassicalInvolution.Q3.Q3WAComp
 public import CFSG.ClassicalInvolution.Q3.Q3WAEDict
 public import CFSG.ClassicalInvolution.Q3.Q3WARow

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACLinCell
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveBlockRank
-public import CFSG.LocalAnalysis.StandardType.GGHalfWeylTorusCoord
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymmetricThreeBasic
 public import CFSG.GroupTheory.ElementaryAbelianBasis
 public import CFSG.LieType.BorelTits.LeviOrder

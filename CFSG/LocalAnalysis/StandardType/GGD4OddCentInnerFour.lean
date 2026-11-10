@@ -4,13 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerMark
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerBridge
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgOrthogonal
 import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmSmallMain
-import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmSmallBlock
-import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmFix
 import CFSG.HardMathSupport.Dickson.Bal207.OrthFixedType
-import CFSG.SignalizerFunctorTheorem.Inheritance.TransportA.Fitting
-import CFSG.RankThree.PartOne.S11d.OrthLayer
-import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinates
 import CFSG.Goldschmidt.Steps.G37Core
 import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.PsuGoodAux.Descent
 import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain
@@ -44,8 +38,6 @@ import CFSG.Quasithin.Background.C1GNSolvConnect
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918C6
 import CFSG.Quasithin.Background.FFC7G
 import CFSG.Quasithin.Background.FFC8A
@@ -94,7 +86,6 @@ import CFSG.Quasithin.Vol2.Ch9KGFFQR
 import CFSG.Quasithin.Vol2.Ch9KGFFQRCase
 import CFSG.RankThree.PartOne.S15K.FixedWitt
 import CFSG.RankThree.PartOne.S15K.LayerModel
-import CFSG.Walter.J1Props
 import Certificates.Kernel.J4Count.Prim
 
 public section

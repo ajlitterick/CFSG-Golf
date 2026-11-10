@@ -2,10 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWT4Vis
 public import CFSG.ClassicalInvolution.RouteD.TWYLayer
-public import CFSG.ClassicalInvolution.RouteD.TWYArith
 public import CFSG.ClassicalInvolution.RouteD.TWYArith2
-public import CFSG.ClassicalInvolution.RouteD.TWYBridge
-public import CFSG.ClassicalInvolution.RouteD.TWZSmall
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section

@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthBase
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMBridge
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBaseThm
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGQTwoPThree
 
 public section
 

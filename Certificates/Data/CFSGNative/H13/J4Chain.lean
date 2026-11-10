@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.CFSGNative.J4.Cert
-public import Std.Data.HashMap
 
 public section
 

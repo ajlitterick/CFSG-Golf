@@ -3,7 +3,6 @@ module
 public import Certificates.Data.GrSLitL34FactsCF23ONOutK2Data
 import Certificates.Kernel.ONOut.Out2
 import CFSG.Certificates.Kernel.Common.Harness
-import Certificates.Kernel.ONOut.Data
 
 public section
 

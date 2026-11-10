@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.L6CMat
-import Mathlib.LinearAlgebra.Semisimple
-import Mathlib.FieldTheory.Separable
 
 public section
 

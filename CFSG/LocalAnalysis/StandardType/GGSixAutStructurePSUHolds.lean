@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSUCoreCases
-public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSLTransport
 
 public section
 

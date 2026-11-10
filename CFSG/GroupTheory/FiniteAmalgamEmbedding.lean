@@ -1,9 +1,7 @@
 module
 
 public import Mathlib.Algebra.Group.End
-public import Mathlib.Algebra.Group.Hom.Defs
 public import Mathlib.Basic.Finite.Prod
-public import Mathlib.Data.Fintype.EquivFin
 
 public section
 

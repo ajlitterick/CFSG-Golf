@@ -3,7 +3,6 @@ module
 public import CFSG.GH74.Generic.BProg.B2.Thm2Assembly
 public import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyC23
 public import CFSG.GH74.Generic.BProg.B2.GenLoc4Defs
-import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyBasic
 import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyC1
 import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyC2
 import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyC3
@@ -12,7 +11,6 @@ import CFSG.GH74.Generic.BProg.B2.Lemma82
 import CFSG.GH74.Generic.BProg.B2.Lemma83Bar
 import CFSG.GH74.Generic.BProg.B2.Thm2Comp
 import CFSG.GH74.Generic.BProg.B2.TwoA7
-public import Certificates.Kernel.ThCent.Leaves
 import CFSG.GH74.Generic.BProg.B2.TwoA7Comp
 
 public section

@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoTBTvFrame
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBIrred
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6TBIrred
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLLine
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 
 public section
 

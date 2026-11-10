@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.SectionRank.Local
 public import Certificates.Data.CFSGNative.SectionRank.LocalDet
 public import CFSG.RankThree.PartTwo.Sec4.Census.CoverCenterThreeRestCover
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsAutField
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeForm
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 import CFSG.RankThree.SteinbergR3EUnitaryFieldDescent
 import CFSG.RankThree.PartOne.S11d.OutUnitary
 

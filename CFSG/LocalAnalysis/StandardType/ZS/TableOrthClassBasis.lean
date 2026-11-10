@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.TableCommon
 public import CFSG.LocalAnalysis.StandardType.ZS.UseInputOfCases
-public import CFSG.ClassicalGroups.Orthogonal.Derived
 import CFSG.LocalAnalysis.StandardType.ZS.OrthClass
 import CFSG.LocalAnalysis.StandardType.ZS.TableOrth
-import CFSG.LocalAnalysis.StandardType.GGWitOrthClassDim3Aux
 import CFSG.LocalAnalysis.StandardType.GGWitOrthClassDim3Aux2
 import CFSG.ClassicalGroups.Orthogonal.PlaneSignChangeSylow
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple

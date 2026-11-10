@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.CFSGNative.H13.LocDblDc
 public import Certificates.Data.CFSGNative.Co2Rank.Dfs
-public import Std.Data.HashMap
 
 public section
 

@@ -1,13 +1,11 @@
 module
 
-public import CFSG.Certificates.Kernel.Bounds.LyAlt.DceS5
 public import CFSG.Certificates.Kernel.Bounds.LyAlt.Data.Sel
 public import CFSG.Certificates.Kernel.Bounds.Core3
 public import Certificates.Data.Kernel.LceSSeg
 import CFSG.Certificates.Kernel.Bounds.LoadRoot
 import CFSG.Certificates.Kernel.Common.Repo
 import CFSG.Certificates.Kernel.Common.EachUnfold
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

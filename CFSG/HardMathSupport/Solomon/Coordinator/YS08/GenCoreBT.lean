@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.BorelTitsConstrained
 public import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalThreeReduction
 public import CFSG.Quasithin.EmptyFaithful.S1422Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.NoncyclicAbelianPGroup
 
 public section
 

@@ -1,11 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpDefs
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpSeven
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

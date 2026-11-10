@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3Y2Orth
 public import CFSG.ClassicalInvolution.ModelFacts.TG3SmallSp
 public import CFSG.ClassicalInvolution.ModelFacts.TG3SmallSL
-public import CFSG.ClassicalInvolution.ModelFacts.TG3VacPSL
-public import CFSG.ClassicalInvolution.ModelFacts.TG3VacPSp
 
 public section
 

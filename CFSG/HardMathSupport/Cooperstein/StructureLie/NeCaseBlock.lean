@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Cooperstein.StructureLie.NeCaseAux
 public import CFSG.HardMathSupport.Cooperstein.StructureLie.Transvection
 public import CFSG.HardMathSupport.Cooperstein.StructureLie.ShortCommutator
-public import CFSG.LocalAnalysis.AGLEmbedding.AscTenThreeModule
 public import CFSG.Quasithin.Background.D14Normal
 
 public section

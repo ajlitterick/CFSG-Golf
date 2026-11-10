@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Quasithin.H13.L32N1449Inputs
 public import Certificates.Kernel.H13.Q1449Inv
 import Certificates.Kernel.H13.ElemsO3
-import CFSG.Certificates.Kernel.Mat8PSound
 
 public section
 

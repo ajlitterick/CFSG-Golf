@@ -1,26 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenKG
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenRefl
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcRestProofE6Hyp
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcAdLinear
-public import CFSG.RankThree.PartOne.KE.A1Centralizer
-public import CFSG.LocalAnalysis.StandardType.GGOTwoPrimeMap
 public import CFSG.LocalAnalysis.StandardType.GGRk1ConclExSix
-import CFSG.RankThree.PartOne.S11c.G2Torus
-import CFSG.LieType.Chevalley.CorootCoordinates
 import CFSG.LocalAnalysis.StandardType.GGTBJF4RootsAux
 import CFSG.LocalAnalysis.AGLEmbedding.SymThreeCentralExt
 import CFSG.LocalAnalysis.StandardType.GGFixedTwoKernelTransport
-import CFSG.LocalAnalysis.StandardType.GGOTwoPrimeOddProduct
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommLinTransferS3
 import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
-import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenLift
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
-import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourPlusRankOneNative
 
 public section

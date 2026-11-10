@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockAFiveCensus
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThirteenAltTenBlockTwoTypes
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThirteenAltTenBlockTwoSL
 import CFSG.HardMathSupport.Curtis.UnitaryLevi.PLTypeHolds
-import CFSG.LocalAnalysis.RankThreeTheoremC.D2LocalCGT3
 import CFSG.LocalAnalysis.AGLEmbedding.AscEightFive
 import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsSpTwo
 import CFSG.LocalAnalysis.AGLEmbedding.BlockAltSevenPL

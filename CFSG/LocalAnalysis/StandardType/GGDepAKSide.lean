@@ -1,15 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGDepAFrame
 public import CFSG.LocalAnalysis.StandardType.GGDepAOdd
-public import CFSG.LocalAnalysis.StandardType.GGDepAPerm
 public import CFSG.LocalAnalysis.StandardType.GGRCCaseIIBasic
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixNbrDefs
-public import CFSG.LocalAnalysis.StandardType.GGResKnownGroup
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-public import CFSG.LocalAnalysis.StandardType.GGTBFix
 public import CFSG.LocalAnalysis.StandardType.GGRCKoneKerConn
 
 public section

@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Kernel.LocalComp.K3SuzData
 public import CFSG.Certificates.Kernel.K3Sound
-public import Certificates.Kernel.LocalComp.BlockGen
 public import Certificates.Kernel.LocalComp.K3SuzP0
 public import Certificates.Kernel.LocalComp.K3SuzP1
 public import Certificates.Kernel.LocalComp.K3SuzP2
@@ -63,9 +61,7 @@ public import Certificates.Kernel.LocalComp.K3SuzMP7
 public import Certificates.Kernel.LocalComp.BlockJoin
 public import CFSG.Certificates.Kernel.MtxKSound
 meta import CFSG.Sporadic.SuzOddCore.Text
-import CFSG.Certificates.Kernel.Common.Harness
 import all CFSG.Sporadic.SuzOddCore.Arrays
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 public section

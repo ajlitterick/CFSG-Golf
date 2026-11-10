@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfCentAlign
 public import CFSG.LocalAnalysis.StandardType.GGHalfCentSupp
-public import CFSG.LocalAnalysis.StandardType.GGHalfCentDefs
 public import CFSG.LocalAnalysis.StandardType.GGHalfCentStruct
 public import CFSG.LocalAnalysis.StandardType.GGHalfCentComp
 public import CFSG.LocalAnalysis.StandardType.GGHalfCentCard

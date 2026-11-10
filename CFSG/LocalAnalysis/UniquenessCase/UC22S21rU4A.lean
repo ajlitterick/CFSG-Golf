@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2213Defs
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22ud
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S22a
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront08UsePair
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront78Nar
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2213a

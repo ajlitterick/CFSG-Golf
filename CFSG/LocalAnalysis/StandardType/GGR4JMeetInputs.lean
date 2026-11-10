@@ -1,14 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetRow
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetMarking
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetData
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetRank
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetNoL34
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetDecomp
-public import CFSG.LocalAnalysis.StandardType.GGR4Lemma47c
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
 
 public section
 

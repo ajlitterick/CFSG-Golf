@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKSmallDefs
 public import CFSG.LocalAnalysis.ComponentClassification.EvenLieFieldExponent
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.MILabel
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
 
 public section
 

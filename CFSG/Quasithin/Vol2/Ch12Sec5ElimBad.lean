@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.Ch12Sec5Bad
 public import CFSG.Quasithin.Vol2.Ch12Sec5BetaJ4
 public import CFSG.Quasithin.Vol2.Ch12Sec5KGJ4Beta
-public import CFSG.Quasithin.Vol2.Ch12Sec2StatementsPrime
 
 public section
 

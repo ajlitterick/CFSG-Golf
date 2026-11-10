@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyU
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusTransferCore
 

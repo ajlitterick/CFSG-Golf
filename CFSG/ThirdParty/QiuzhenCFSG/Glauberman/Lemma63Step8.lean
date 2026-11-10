@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.QdMulEquivOfComplement
-public import Mathlib.GroupTheory.Complement
-public import Mathlib.LinearAlgebra.GeneralLinearGroup.Basic
 
 namespace CFSG
 end CFSG

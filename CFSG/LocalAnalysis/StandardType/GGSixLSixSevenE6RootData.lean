@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 public import CFSG.Blueprint.Catalog
-public import CFSG.Assembly.Defs
 
 public section
 

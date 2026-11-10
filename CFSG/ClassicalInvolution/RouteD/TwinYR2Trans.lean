@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TwinYR2
 public import CFSG.ClassicalInvolution.RouteD.TwinYR2Cover
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2Rows
 
 public section
 

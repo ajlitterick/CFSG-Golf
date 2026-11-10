@@ -1,7 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusNodes
-public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusSmallWeyl
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallTwin
 
 public section

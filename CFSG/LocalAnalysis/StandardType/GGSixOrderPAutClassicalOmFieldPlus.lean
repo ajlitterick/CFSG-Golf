@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalOmPlus
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalGraphPlus
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaConjLabels
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinberg
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLRestField
 
 public section

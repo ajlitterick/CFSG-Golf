@@ -5,7 +5,6 @@ public import CFSG.GroupTheory.ABGLocalTools.SL2FieldAutInner
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityQFieldAutBorel
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.Open.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

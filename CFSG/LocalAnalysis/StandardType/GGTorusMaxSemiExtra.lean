@@ -1,16 +1,10 @@
 module
 
 public import Mathlib.Algebra.Group.Subgroup.Finite
-import Mathlib.GroupTheory.Abelianization.Defs
 import Mathlib.GroupTheory.FiniteAbelian.Duality
-import Mathlib.Algebra.Module.ZMod
 import Mathlib.Algebra.Field.ZMod
 import Mathlib.LinearAlgebra.Dual.Lemmas
 import Mathlib.FieldTheory.Finiteness
-import Mathlib.RingTheory.Finiteness.Cardinality
-import Mathlib.Algebra.Group.TypeTags.Hom
-import Mathlib.GroupTheory.SpecificGroups.Cyclic
-import Mathlib.Algebra.Group.Equiv.Basic
 
 public section
 

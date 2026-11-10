@@ -4,14 +4,7 @@ public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.CoverActionDataInputs
 public import CFSG.Certificates.Kernel.Misc.Coset.T46WordsSound
 public import Certificates.Kernel.Misc.T46
 public import Certificates.Kernel.Misc.Coset.XT46W.Data
-public import Certificates.Kernel.Misc.Coset.ActBlocks
 public import Certificates.Kernel.Misc.Coset.C10017
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.LieType.Multipliers.U62BridgeInputs
-import CFSG.LieType.Multipliers.U62Data
-import CFSG.LieType.Multipliers.CoverWords
-import CFSG.Certificates.PresentationLetters
-import CFSG.Certificates.CosetTablePresented
 
 public section
 

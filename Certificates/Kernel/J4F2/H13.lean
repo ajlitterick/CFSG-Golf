@@ -1,17 +1,8 @@
 
 module
 
-public import CFSG.Quasithin.H13.J4CoreInputs
-public import CFSG.Quasithin.H13.J4WordsBase
-public import CFSG.Certificates.ExtraspecialNormalForm
 public import CFSG.Quasithin.H13.J4TypeCheckInputs
-public import CFSG.Quasithin.H13.J4CoreBase
-public import CFSG.Quasithin.H13.J4WordsInputs
-public import CFSG.Quasithin.H13.J4Defs
-public import CFSG.Quasithin.H13.J4ChainSpec
-public import Certificates.Data.CFSGNative.H13.J4Elems
 public import Certificates.Kernel.J4F2.Pair
-public import Certificates.Kernel.J4Q.Mat
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

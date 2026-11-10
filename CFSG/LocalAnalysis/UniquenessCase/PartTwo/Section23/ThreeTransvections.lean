@@ -15,8 +15,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.PushingUp.C5Counting
 public import CFSG.Open.SplitBNPair
 public import CFSG.Quasithin.Background.A3Structure312Defs
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.C2Nine
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.Vol2.Ch10StatementsE

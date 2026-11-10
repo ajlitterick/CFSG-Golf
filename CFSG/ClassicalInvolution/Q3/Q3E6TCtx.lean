@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3E6TPartX
 public import CFSG.ClassicalInvolution.Q3.Q3E6TRowThm
 public import CFSG.ClassicalInvolution.Q3.Q3NGStar
-public import CFSG.ClassicalInvolution.Q3.Q3WAM11Comp
 public import CFSG.ClassicalInvolution.Q3.Q3TCP1
 public import CFSG.ClassicalInvolution.Q3.Q3EXOrthLarge
 public import CFSG.ClassicalInvolution.Q3.Q3E6TVis

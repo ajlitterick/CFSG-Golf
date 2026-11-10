@@ -1,11 +1,7 @@
 module
 
-public import CFSG.ClassicalInvolution.SmallCases.NobqLists
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.M22
-public import Certificates.Certificate2195
-public import Certificates.Certificate2202
 public import Certificates.Certificate9305
-public import Certificates.Certificate3157
 public meta import CFSG.ClassicalInvolution.SmallCases.NobqLists
 public meta import CFSG.ClassicalInvolution.SmallCases.Sporadic.M22
 

@@ -1,7 +1,6 @@
 
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Monster.B.Fischer.InducedData
 meta import CFSG.Monster.B.Fischer.InducedOrbitChecksInputs

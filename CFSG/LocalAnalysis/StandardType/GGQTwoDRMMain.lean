@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMSat
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRM6Order
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMWit
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDGen
-public import CFSG.LocalAnalysis.StandardType.GGQTwoPThree
 
 public section
 

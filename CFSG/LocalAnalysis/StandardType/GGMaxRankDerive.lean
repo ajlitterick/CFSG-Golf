@@ -1,15 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGMaxRankSide
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankDatum
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankJReflection
 import CFSG.LocalAnalysis.StandardType.GGMaxRankJBridge
-public import CFSG.LocalAnalysis.StandardType.GGMaxRankE8Typed
-public import CFSG.LocalAnalysis.StandardType.GGResMaxRankModel
-public import CFSG.LocalAnalysis.StandardType.GGCoxReflConv
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 
 public section
 

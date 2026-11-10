@@ -1,18 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGExcMaxToral
 public import CFSG.LocalAnalysis.StandardType.GGExcFiveFour
 public import CFSG.LocalAnalysis.StandardType.GGExcPRankBound
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtDatum
-public import CFSG.LieType.SeitzGeneration.ExcTorusE7One
-public import CFSG.LieType.SeitzGeneration.ExcTorusE7Two
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8One
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Two
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Three
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Four
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Six
-public import CFSG.LieType.SeitzGeneration.ExcTorusF4One
-public import CFSG.LieType.SeitzGeneration.ExcTorusF4Two
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtCore
 
 public section

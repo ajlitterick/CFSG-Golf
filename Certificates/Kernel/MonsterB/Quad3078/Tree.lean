@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.MonsterB.Quad3078Data
 public import Certificates.Kernel.LocalComp.BlockTac
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

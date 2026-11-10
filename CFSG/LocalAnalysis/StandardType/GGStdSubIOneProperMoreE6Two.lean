@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreE6
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotToral
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwoTorus
 
 public section
 

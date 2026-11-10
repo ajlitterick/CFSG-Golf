@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoUnitary
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNISpPrimary
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNISpSelfDualCoordAux
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNISpVecMap
 

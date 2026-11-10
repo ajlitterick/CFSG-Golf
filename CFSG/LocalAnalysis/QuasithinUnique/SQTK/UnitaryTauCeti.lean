@@ -3,9 +3,7 @@ module
 public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryCarrier
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.TypeA.Basic
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeA.Agreement
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.TypeA.Agreement
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.GraphTwisted
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Index

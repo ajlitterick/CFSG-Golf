@@ -5,9 +5,6 @@ public import CFSG.Sporadic.SmallOddCore.AutCount
 public import CFSG.Sporadic.Schreier.PairJ3Pairs
 public meta import CFSG.Sporadic.Schreier.PairJ3Check
 public meta import Certificates.Data.CFSGNative.PairSchreier.Preds
-public import Certificates.Certificate2236
-public import Certificates.Certificate2237
-public import Certificates.Certificate2238
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.GroupTheory.LocalCores.Fitting

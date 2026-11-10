@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Open.StatedDefs
-public import Mathlib.GroupTheory.QuotientGroup.Defs
-public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.GroupTheory.Coset.Card
 
 public section
 

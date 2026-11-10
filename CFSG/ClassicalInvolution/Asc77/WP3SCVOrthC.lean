@@ -1,11 +1,8 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.WP3SCVOrthB
-public import CFSG.ClassicalInvolution.Asc77.WP3SCVSigma
 public import CFSG.ClassicalInvolution.Asc77.WP3SCVSp4
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinStd
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinModel
-import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthBridge
 import CFSG.ClassicalInvolution.Asc77.AscE189Orth
 public import CFSG.ClassicalInvolution.RouteD.MultiStarStd
 

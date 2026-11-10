@@ -1,14 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.Defs
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsModule
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsWeakClosure
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Statements
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Lie
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10
-public import Certificates.Kernel.Sporadic.Fi22.C3151
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.CyclicBlocks.Family

@@ -6,21 +6,6 @@ public import CFSG.Certificates.Kernel.BabyMonster.Max5.All
 public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check0
 public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check2
 public import Certificates.Data.BThirtyOne
-public import CFSG.Certificates.Kernel.BabyMonster.B31.Check0
-public import CFSG.Certificates.Kernel.BabyMonster.B31.Check1
-public import CFSG.Certificates.Kernel.BabyMonster.B31.Check2
-public import CFSG.Certificates.Kernel.BabyMonster.B31.Check3
-public import CFSG.Certificates.Kernel.BabyMonster.B31.Check4
-public import CFSG.Certificates.Kernel.BabyMonster.B31.Check5
-public import CFSG.Certificates.Kernel.BabyMonster.B31.Rel
-public import CFSG.Certificates.Kernel.BabyMonster.Max5.Check0
-public import CFSG.Certificates.Kernel.BabyMonster.Max5.Check1
-public import CFSG.Certificates.Kernel.BabyMonster.Max5.Check2
-public import CFSG.Certificates.Kernel.BabyMonster.Max5.Check3
-public import CFSG.Certificates.Kernel.BabyMonster.Max5.Check4
-public import CFSG.Certificates.Kernel.BabyMonster.Max5.Check5
-public import CFSG.Certificates.Kernel.BabyMonster.Max5.Check6
-public import CFSG.Certificates.Kernel.BabyMonster.Max5.Check7
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.Co2.JFacts
-import Certificates.Kernel.Co2J.Facts
 import Certificates.Kernel.Co2Fuse.Final
 
 public section

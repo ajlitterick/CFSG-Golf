@@ -1,9 +1,7 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.Section5LocalW
-public import CFSG.RankThree.GF2n.Parrott.Section5LocalSpin
 public import CFSG.RankThree.GF2n.Parrott.Section5SigmaThree
-public import CFSG.RankThree.GF2n.Parrott.QA45InvolutionClasses
 public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42ClassVSpin
 
 public section

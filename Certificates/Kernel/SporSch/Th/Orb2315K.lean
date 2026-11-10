@@ -3,8 +3,6 @@ module
 
 public import Certificates.Kernel.SporSch.Th.GenOrb
 public import Certificates.Kernel.SporSch.Th.Plane2320K
-public import Certificates.Kernel.SporSch.Th.GenV4
-public import Certificates.Kernel.Co1B.GenTri2045
 public import CFSG.Sporadic.ThSchreier.OrbitCheck819Inputs
 meta import CFSG.Sporadic.ThSchreier.OrbitCheck819Inputs
 import CFSG.Certificates.Kernel.Common.Harness

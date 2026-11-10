@@ -5,29 +5,16 @@ public import CFSG.Sporadic.HeldB.InnerClassBase
 
 public import CFSG.Sporadic.HeldB.InnerClassCheck
 public import CFSG.Sporadic.HeldB.OuterClass
-public import CFSG.Sporadic.HeldB.InnerRestrict
-public import CFSG.Sporadic.HeldB.CertPBridge
-public import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
-public import CFSG.Sporadic.HeldB.CertPBridgeCheckInputs
-public import CFSG.Sporadic.HeldB.CertPChainData
-public import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.HeldB.InnerCheckInputs
 public meta import CFSG.Sporadic.HeldB.InnerData
 public meta import CFSG.Sporadic.HeldB.Common
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
-public import CFSG.Sporadic.HeldB.InnerClassCheckInputs
 public meta import CFSG.Sporadic.HeldB.HeBlocks
 public meta import CFSG.Sporadic.HeldB.InnerCheck
 public meta import Certificates.Data.CFSGNative.HeldB.Tests
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
-public import CFSG.Sporadic.HeldB.OuterArithCheckInputs
 public meta import CFSG.Sporadic.HeldB.AutData
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.HeldB.HeBlocks
-public import CFSG.Sporadic.HeldB.OuterArithCheck
-public import Certificates.Data.CFSGNative.HeldB.Tests
 public meta import CFSG.Sporadic.HeldB.OuterArithCheck
-public import Certificates.Data.CFSGNative.He.Certificate
 
 public noncomputable section
 

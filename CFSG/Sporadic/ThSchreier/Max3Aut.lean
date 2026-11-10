@@ -5,21 +5,7 @@ public import CFSG.Sporadic.ThSchreier.Max3AutBase1
 
 public import CFSG.Sporadic.ThSchreier.AutCore
 public import CFSG.Sporadic.ThSchreier.Max3Action
-public import Mathlib
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Blueprint.MatrixSeedIdentification
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.Certificates.SchreierStabilizerGenerators
-public import Certificates.Data.CFSGNative.Th.Certificate
-public import CFSG.Sporadic.Th.Max3.Core
-public import CFSG.Sporadic.Th.Max3.AltNine
-public import CFSG.LocalAnalysis.ComponentClassification.PresentationLocalCarmichael
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.Sporadic.Th.Max3.QuotientInputs
-public import CFSG.Sporadic.Th.Max3.Data
-public import CFSG.Sporadic.ThSchreier.RigidityInputs
 public meta import CFSG.Sporadic.ThSchreier.Enc8
-public import CFSG.Sporadic.Th.Max3.Quotient
 public import Certificates.Certificate10091Base
 
 public section

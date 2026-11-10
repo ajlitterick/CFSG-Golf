@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.KFacts.K71G2
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2ThreeOffCard
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2ThreeOffTorsion
 

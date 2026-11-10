@@ -1,9 +1,5 @@
 module
 
-public import CFSG.Sporadic.Schreier.TitsStabCheck
-public import CFSG.Sporadic.Schreier.TitsOrbit
-public import CFSG.Quasithin.Recognition.CertMergeTargets
-public import CFSG.Quasithin.Recognition.CertDataTitsOvergroup
 public meta import CFSG.Sporadic.Schreier.TitsData
 public meta import CFSG.Sporadic.Schreier.TitsArrays
 public meta import CFSG.Sporadic.Schreier.TitsBasic
@@ -19,7 +15,6 @@ public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public meta import CFSG.Quasithin.Recognition.CertMergeTargets
 public meta import CFSG.Quasithin.Recognition.CertDataTitsOvergroup
-public import CFSG.Quasithin.Recognition.CertTitsOvergroupCheckInputs
 public import Certificates.Certificate8076
 
 public section

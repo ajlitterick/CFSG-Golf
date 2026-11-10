@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.M12CoverModelsDecompP
-public import CFSG.LocalAnalysis.ComponentClassification.M12CoverModelsDecompIH
-public import CFSG.LocalAnalysis.ComponentClassification.M12CoverModelsTransversalCheckInputs
 public import Certificates.Certificate10025
 public meta import CFSG.LocalAnalysis.ComponentClassification.M12CoverModelsDecompP
 public meta import CFSG.LocalAnalysis.ComponentClassification.M12CoverModelsDecompIH

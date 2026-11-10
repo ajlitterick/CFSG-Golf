@@ -1,9 +1,7 @@
 module
 
-public import Certificates.Data.NT44Model
 public import Certificates.Data.NT44Commutator.Inputs
 public import CFSG.Monster.B.Co2.PermArr
-public import CFSG.Certificates.SchreierChainData
 public import Mathlib.Logic.Equiv.Fin.Basic
 public import Mathlib.Data.Vector.Basic
 public import Mathlib.GroupTheory.Perm.Basic

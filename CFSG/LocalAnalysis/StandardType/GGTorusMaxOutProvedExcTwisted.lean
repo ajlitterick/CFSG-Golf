@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxSieveDefs
 import CFSG.RankThree.PartTwo.Sec13.K135GL12Out
-import CFSG.LieType.SeitzGeneration.ExcVacuousSuzuki
-import CFSG.LieType.SeitzGeneration.ExcParabolicReeG2
-import CFSG.LocalAnalysis.ComponentClassification.LiteratureLocalSmallReeOuter
-import CFSG.HardMathSupport.Timmesfeld.DefChar.LieOuterTwisted
 import CFSG.LocalAnalysis.StandardType.GGSporKOrdBMOut
 public import CFSG.LieType.Chevalley.RootCommutatorData
 import CFSG.HardMathSupport.Solomon.Coordinator.I22_4Glue

@@ -5,9 +5,6 @@ public import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryOuter
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Unitary32Base
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Unitary32Count
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Unitary32Rigid
-import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.HardMathSupport.Curtis.Proving.ToralCaseSplit
@@ -24,7 +21,6 @@ public import CFSG.RankThree.PartOne.Assembly
 public import CFSG.RankThree.PartOne.CTP.StrongPSylow
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

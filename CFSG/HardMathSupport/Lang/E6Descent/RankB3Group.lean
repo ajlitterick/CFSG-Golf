@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Lang.E6Descent.RankB3Eichler
-public import CFSG.Open.StatedDefs
 public import CFSG.Blueprint.SourceClassicalTransportOrthogonal
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointActionModels

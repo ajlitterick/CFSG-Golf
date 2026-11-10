@@ -5,15 +5,9 @@ public import CFSG.LocalAnalysis.SeitzReduction.LongRootPairsRoots
 import CFSG.LocalAnalysis.SeitzReduction.E8PilotPositionCenter
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviAut
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
-public import CFSG.Open.Defs
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 import CFSG.ClassicalInvolution.Models.SymplecticPairs.Pairs
 import CFSG.LieType.Chevalley.C2E6StandardFixedData

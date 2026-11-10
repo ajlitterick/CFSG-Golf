@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Data.CFSGNative.CTIB.Census
 public meta import Certificates.Data.CFSGNative.CTIB.Census
-public import CFSG.Monster.B.CTIB.HInnerCertInputs
 public import Certificates.Certificate3013
 
 public section

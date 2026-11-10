@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE8
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Three
 
 public section
 

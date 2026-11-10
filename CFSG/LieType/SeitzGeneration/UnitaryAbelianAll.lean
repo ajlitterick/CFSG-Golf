@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.SeitzGeneration.UnitaryAbelianGen
 public import CFSG.LieType.SeitzGeneration.UnitaryNonCube
 
 public section

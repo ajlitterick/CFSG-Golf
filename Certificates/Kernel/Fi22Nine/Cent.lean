@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Fi22Nine.Defs
-public import Certificates.Kernel.Sporadic.ON.Gen
 
 public section
 

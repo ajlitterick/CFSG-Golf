@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenDefs
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTypeAIrred
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenTypeABlock
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerTypeADvdModel
-import CFSG.CGT.Timmesfeld75.ListWCLinBasic
 public import CFSG.Sporadic.Th.Max3.Core
 
 public section

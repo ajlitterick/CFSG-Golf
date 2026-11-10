@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISUCoord
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2GeoSU
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 
 public section
 

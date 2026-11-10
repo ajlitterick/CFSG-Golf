@@ -2,17 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.Parrott.P614KTwoBasic
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeForm
-public import CFSG.Open.Catalog
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryDiagonalOuterOrder
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoSemilinear
-import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 import CFSG.SignalizerFunctorTheorem.NearModels.Unitary.Basic
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.LieType.BorelTits.CompleteFlag
 import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

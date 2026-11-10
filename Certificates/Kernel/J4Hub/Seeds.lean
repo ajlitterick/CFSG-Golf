@@ -5,14 +5,8 @@ public import Certificates.Kernel.Sporadic.OrdCommon
 public import CFSG.Certificates.Kernel.Spor.OrdSound
 public import CFSG.Certificates.Kernel.Fam.J4.Checks.D
 public import CFSG.Certificates.Kernel.Fam.J4.Checks.K
-public import CFSG.Certificates.Kernel.Fam.J4.Data.Pay
 public import CFSG.Certificates.Kernel.Orders.J4.Checks.D
 public import CFSG.Certificates.Kernel.Orders.J4.Checks.K
-public import CFSG.Certificates.Kernel.Orders.J4.Data.Pay
-public import CFSG.Certificates.Kernel.Fam.J4.Data.Sel
-public import CFSG.Certificates.Kernel.Fam.J4.Data.Const
-public import CFSG.Certificates.Kernel.Orders.J4.Data.Sel
-public import CFSG.Certificates.Kernel.Orders.J4.Data.Const
 import CFSG.Certificates.Kernel.Common.Harness
 import all CFSG.Blueprint.NativeSporadic
 

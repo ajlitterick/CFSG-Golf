@@ -2,21 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedA8Seven
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedExceptionalToral
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE8Three
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflDom
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.E8FivePositioning
-public import CFSG.LieType.Chevalley.GraphFixedE6DiagonalCubes
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
-public import Certificates.Certificate13720
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate3951
-public import Certificates.Certificate8033
-public import Certificates.Certificate8064
 
 public section
 

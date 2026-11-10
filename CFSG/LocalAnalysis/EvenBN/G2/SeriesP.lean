@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.G2.LocalNDefs
 public import CFSG.LocalAnalysis.EvenBN.G2.LocalQ55
-public import CFSG.LocalAnalysis.EvenBN.Common.FreeSeries
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.ProductDefs
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
 

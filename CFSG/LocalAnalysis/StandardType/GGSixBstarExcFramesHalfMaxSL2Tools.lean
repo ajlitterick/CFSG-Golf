@@ -1,7 +1,5 @@
 module
 
-public import CFSG.RankThree.Chevalley.SteinbergBIRootSL2Tools
-public import CFSG.RankThree.PartOne.KE.CTTorusFixed
 public import CFSG.HardMathSupport.Timmesfeld.Torality.LangAssembly
 
 public section

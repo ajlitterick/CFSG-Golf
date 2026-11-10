@@ -1,16 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1RLevel
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Transfer
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagModel
-public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaSec
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenIso
 public import CFSG.RankThree.GF2n.Stroth80.Sec1110CMLmConsumer
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerReduce
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldFixed
-public import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldMark
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
-public import CFSG.Timmesfeld.Orders.Classical
 public import CFSG.GroupTheory.ConjKerCenter
 
 public section

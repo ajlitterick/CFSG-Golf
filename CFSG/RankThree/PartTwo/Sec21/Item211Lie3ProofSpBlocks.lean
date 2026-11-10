@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.SubgroupLists.SymplecticPlusBlock
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusWeylMatrices
 
 public section
 

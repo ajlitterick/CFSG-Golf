@@ -1,19 +1,13 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmCoordinates
-public import CFSG.RankThree.PartOne.KC.OrthogonalSupportedScalarDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBJTypeBDatum
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
-public import CFSG.Assembly.Defs
-public import CFSG.Assembly.LargeEvenDefs
 import CFSG.LocalAnalysis.StandardType.GGTBJOmSupportCentralizer
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNativeImageNormB
-import CFSG.RankThree.PartOne.KC.OrthogonalSupportedMaps
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneBlocks
 import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownComp
 import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddLayer
-import CFSG.Foundations.QuasisimpleMulEquiv
-import TauCeti.GroupTheory.DerivedCentralQuotient
 
 public section
 

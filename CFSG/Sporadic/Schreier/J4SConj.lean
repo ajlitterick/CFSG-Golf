@@ -4,8 +4,6 @@ module
 public import CFSG.Sporadic.Schreier.J4SConjBase
 
 public import CFSG.Sporadic.Schreier.J4SBinary
-public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Schreier.J4SCols
 
 public noncomputable section
 

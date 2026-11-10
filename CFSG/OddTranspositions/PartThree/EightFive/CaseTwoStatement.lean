@@ -3,9 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.EightFive.Defs
 public import CFSG.Timmesfeld.Bridge.Asc72Local
 public import CFSG.Timmesfeld.Bridge.OddTranspDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.Timmesfeld.Bridge.Asc72Lift
 public import CFSG.Timmesfeld.Bridge.Asc73Quotient
 

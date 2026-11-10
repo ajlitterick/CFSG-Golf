@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorDefs
 public import CFSG.GroupTheory.CenterlessInnerCentralizer
-public import TauCeti.Algebra.BigOperators.ZPow
 public import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 public import TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeD.SimpleRoots
 public import CFSG.GroupTheory.PCore.SubgroupCore

@@ -1,13 +1,6 @@
 module
 
-public import CFSG.LieType.Steinberg.TwistedD4.Quasisimple
-public import CFSG.LieType.Steinberg.TwistedD4.Bruhat
-public import CFSG.LieType.Steinberg.TwistedD4.RankOne
-public import CFSG.LieType.Steinberg.CentralExt.TrialityCoprime
 public import CFSG.LieType.Steinberg.CentralExt.TrialityClosed
-public import CFSG.LieType.HighestRoot.GenModels
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabHub
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabThreeG2
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.S3AmalgamBound.RankTwoCoverBig
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.TightPairAndPureRank.CoverCore
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
@@ -57,10 +50,7 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpWedg
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyBasic
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.Unitary
@@ -82,13 +72,9 @@ public import CFSG.Open.SplitBNPair
 public import CFSG.Quasithin.Background.B1More13A
 public import CFSG.Quasithin.Background.B1More13Defs
 public import CFSG.Quasithin.Background.B1MoreEleven
-public import CFSG.Quasithin.Background.B4ModelsAction
-public import CFSG.Quasithin.Background.B4ModelsIso
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B69Core
-public import CFSG.Quasithin.Background.C2Inputs
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.H13.StatementsL1
 public import CFSG.Quasithin.Vol2.Ch10StatementsE
 public import CFSG.Quasithin.Vol2.Ch10StatementsInputs
@@ -139,7 +125,6 @@ public import CFSG.Sporadic.Schreier.RuZClass
 public import CFSG.YGroups.DCE.B433Check
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

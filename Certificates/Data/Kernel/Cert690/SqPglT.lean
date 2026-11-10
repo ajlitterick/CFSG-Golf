@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Cert690.SqA8T
-public import Certificates.Data.Kernel.Cert690.CBase
 public import Certificates.Data.Kernel.Cert690.Pgl
 
 public section

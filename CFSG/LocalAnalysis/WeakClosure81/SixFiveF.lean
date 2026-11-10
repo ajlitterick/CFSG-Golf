@@ -1,10 +1,7 @@
 module
 
 public import CFSG.RankThree.GF2n.QuotPair
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsWeakClosure
 public import CFSG.LocalAnalysis.WeakClosure81.SixFourSz
-import CFSG.CGT.T75N.BenderCenter
-import CFSG.CGT.T75N.UnitaryTwoGen
 import CFSG.Quasithin.Background.I62Main
 import CFSG.SignalizerFunctorTheorem.McBride.Models.Suzuki.Local
 public import CFSG.Blueprint.SourceExceptionalModels
@@ -31,11 +28,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsSetting
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.Walter.Defs
 import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.AschbacherCanonicalRemaining
@@ -51,14 +43,12 @@ import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryRootAutomorphism
 import CFSG.Open.SplitBNPair
 import CFSG.Permutation.BurnsideSchur
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.B2FactorizationResidual
 import CFSG.Quasithin.Background.B4Statement
 import CFSG.Quasithin.H13.StatementsL1
 import CFSG.Quasithin.Vol2.Ch10StatementsE
 import CFSG.Quasithin.Vol2.Ch10StatementsInputs
 import CFSG.Quasithin.Vol2.Ch10StatementsInputsAS2
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M12
 import CFSG.Timmesfeld.Moufang.Three

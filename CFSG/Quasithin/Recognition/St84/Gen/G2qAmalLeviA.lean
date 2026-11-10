@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2Even
 
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenLongCentralizer
 import CFSG.Quasithin.H13.NQCatG2RadModel
-import CFSG.LinearAlgebra.SL2MinimalFaithfulMatrix
 import CFSG.GroupTheory.CoprimeActionSupport.NormalSubgroupSylowJoin
 import CFSG.Sporadic.Schreier.J4SFrattini
 

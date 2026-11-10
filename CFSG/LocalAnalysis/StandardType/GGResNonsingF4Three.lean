@@ -1,15 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResJTwE6Lagrange
-public import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRankDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclic
-public import CFSG.LocalAnalysis.StandardType.GGTBRowCoordFrame
 import CFSG.LocalAnalysis.StandardType.GGResRowF4ThreeOn
 import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeF4ThreeAux
-import CFSG.LocalAnalysis.StandardType.GGTBRowFrame
 import CFSG.LocalAnalysis.StandardType.GGF4TypeCards
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
-import CFSG.LocalAnalysis.StandardType.GGTBJWeyl
 
 public section
 

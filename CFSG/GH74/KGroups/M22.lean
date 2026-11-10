@@ -1,18 +1,8 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.PermCheck
-public import CFSG.GH74.KGroups.Checks
-public import CFSG.GH74.KGroups.Checks2
-public import CFSG.GH74.KGroups.Checks3
-public import CFSG.GH74.KGroups.CoverRank
-public import CFSG.GH74.Generic.Shapes
-public import CFSG.Sporadic.Mathieu.M22
 public meta import CFSG.GH74.KGroups.Checks2
 public meta import CFSG.GH74.KGroups.Checks3
 public meta import CFSG.Sporadic.Mathieu.M22
-public import CFSG.GH74.KGroups.M22Inputs
 public meta import CFSG.GH74.KGroups.M22Inputs
 public import Certificates.Certificate5127
 

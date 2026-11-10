@@ -4,7 +4,6 @@ import CFSG.RankThree.GroupTheory.SteinbergCEOddCoreCommutator
 import CFSG.RankThree.GroupTheory.SteinbergCDFixedNormalCentralComplement
 import CFSG.LocalAnalysis.SectionRank.Ccomm.OddCritical
 import CFSG.RankThree.GroupTheory.SteinbergCDRankOneAutPrimes
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.RankThree.PartOne.S9.Sylow.GlobalBridge
 
 public section

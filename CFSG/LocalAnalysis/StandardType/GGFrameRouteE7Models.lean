@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGFrameRouteFSInputs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePresTags
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBSelfCent
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R16ExcLabel
-public import CFSG.LieType.Steinberg.Isogeny.E7
-public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
-public import CFSG.LieType.CurtisTits.Recognition
 
 public section
 

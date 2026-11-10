@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineFiveFamilies
-public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSetup
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.HSFiveCaseTwo
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitThm47Statement
 public import CFSG.LocalAnalysis.EvenSporadicStandard.CentralTwoJ3

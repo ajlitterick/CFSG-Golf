@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.WeakClosure81.EightEightDefs
 public import CFSG.Quasithin.Background.A3Structure38Facts
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Ambient
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsE

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.GammaUSylowK
-public import Certificates.Data.Kernel.IdxFourSiftK
 public import Certificates.Kernel.GammaU.Sigma0Data
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo

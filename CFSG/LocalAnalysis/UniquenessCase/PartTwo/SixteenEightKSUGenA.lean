@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightF8Mod
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightF8Pred
-public import CFSG.ClassicalGroups.Unitary.Transitivity
-public import CFSG.ClassicalGroups.Unitary.Finite
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CenterHopf
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven3Close16CoverR119
 

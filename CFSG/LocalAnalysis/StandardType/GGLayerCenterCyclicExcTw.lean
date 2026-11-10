@@ -4,11 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicExcAdj
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTwF4
 public import CFSG.LocalAnalysis.StandardType.GGTwistedF4Diag
-public import CFSG.LocalAnalysis.SectionRank.TrialityEvenCover
-public import CFSG.LocalAnalysis.SectionRank.LargeRee.Catalog
 public import CFSG.LocalAnalysis.SectionRank.LargeRee.SuzukiData
-public import CFSG.LieType.Steinberg.TwistedD4.Quasisimple
-public import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
 public import CFSG.LieType.Ree.LargeReeInvolutionCentralizersRankOne
 
 public section

@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Stroth80.Sec715LayerSplitStmt
 public import CFSG.ClassicalGroups.Orthogonal.OddOrder
 public import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
-public import CFSG.ClassicalGroups.Orthogonal.Hyperbolic
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 public import CFSG.GroupTheory.Fitting.LayerTopBot
@@ -34,8 +33,6 @@ public import CFSG.RankThree.GF2n.Tim79CentL
 public import CFSG.RankThree.GF2n.Tim79Mod
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Basic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 
 public section

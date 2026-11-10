@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec4.T444.DiagFinalDefs
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res5ProofU43
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res5ProofMcL
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.ON
 public import CFSG.RankThree.OddKernel.EightGroupDims
 public import CFSG.RankThree.PartOne.S10.PlaneLocalRankContract
 public import CFSG.RankThree.PartTwo.Sec4.Item426A6

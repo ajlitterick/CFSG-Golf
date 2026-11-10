@@ -2,14 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
-public import CFSG.LieType.Universal.Catalog
 public import CFSG.ClassicalGroups.Orthogonal.OmegaMinus8ThreeLocalFrame
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
 import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
 import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
-import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
 import CFSG.Blueprint.SourceClassicalTransport
-import CFSG.LieType.Universal.SpinClause0
 public import CFSG.ClassicalInvolution.Orders.OrthogonalCount
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointActionModels

@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDB5eAlp
 public import CFSG.ClassicalInvolution.SmallCases.NDB5Glue
-import CFSG.ClassicalInvolution.Asc77.AscT7AHyp51
 public import CFSG.ClassicalInvolution.SmallCases.NDB5eG2
 
 public section

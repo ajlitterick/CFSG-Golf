@@ -3,9 +3,7 @@ module
 
 public import Certificates.Kernel.Sporadic.Fi24G2g.Pt
 public import Certificates.Kernel.Sporadic.Fi24G2e.Reps
-public import CFSG.Sporadic.FischerOddCore.Fi23Cent
 public import CFSG.Sporadic.FischerOddCore.Fi24Act
-public import CFSG.Sporadic.FischerOddCore.Fi24G2dFacts
 public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -15,7 +13,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.Sporadic.Fi24.Ext
-public import CFSG.Sporadic.Fi24.ExtOuter
 public import CFSG.Sporadic.FischerOddCore.Fi24Stab
 public import CFSG.Sporadic.FischerOddCore.Fi24WitCheckBase
 

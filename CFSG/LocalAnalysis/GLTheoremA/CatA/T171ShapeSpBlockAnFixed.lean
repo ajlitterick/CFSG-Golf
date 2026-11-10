@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpBlockAnDefs
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpBlockComm
-public import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneFixed
-public import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneAlt6
-public import CFSG.RankThree.PartOne.KC.SymplecticFullCentralizerTransvection
-public import CFSG.LocalAnalysis.GLTheoremA.S3.ChevTools
 public import CFSG.LocalAnalysis.GLTheoremA.S11.Basic
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Symp2
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.I269SBlk

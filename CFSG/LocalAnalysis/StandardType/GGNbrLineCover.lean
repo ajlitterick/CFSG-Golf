@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBFixLine
 
 public section

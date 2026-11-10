@@ -1,10 +1,7 @@
 module
 
-public import CFSG.RankThree.GF2n.Stroth80.HeringSec93XH
 public import CFSG.RankThree.GF2n.Stroth80.HeringSec93TF
-public import CFSG.CGT.Timmesfeld75.L2Defs
 public import CFSG.RankThree.GF2n.Stroth80.CarterSec93CNInv
-public import CFSG.CGT.Timmesfeld75.L2Sylow
 public import CFSG.CGT.T75P.A8ExclE16
 public import CFSG.CGT.T75P.A8ExclGen
 public import CFSG.CGT.T75P.A8ExclPGL

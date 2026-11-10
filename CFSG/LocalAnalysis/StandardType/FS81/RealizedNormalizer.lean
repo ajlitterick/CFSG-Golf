@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.AutMat
 public import CFSG.LocalAnalysis.StandardType.FS81.LocalGen
 public import CFSG.LocalAnalysis.StandardType.FS81.OddCoreTransvOrth
 public import CFSG.GroupTheory.MulAutCongr

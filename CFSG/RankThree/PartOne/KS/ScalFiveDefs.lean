@@ -3,9 +3,7 @@ module
 public import CFSG.Sporadic.GLQ.RegisterProgram
 public meta import CFSG.Sporadic.GLQ.RegisterProgram
 public meta import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 public meta import CFSG.Open.Defs
-public import CFSG.Open.Defs
 
 public section
 

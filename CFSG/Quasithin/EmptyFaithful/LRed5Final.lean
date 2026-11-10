@@ -3,23 +3,8 @@ module
 public import CFSG.Quasithin.EmptyFaithful.LRed5Plumb
 public import CFSG.Quasithin.EmptyFaithful.LRed5Pair
 public import CFSG.Quasithin.EmptyFaithful.S146yU3
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects
-public import CFSG.CharacterTheory.Semidihedral.Principal.DegreeZeroGram
-public import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion
 public import CFSG.Dihedral.FourgroupCycleControl
 public import CFSG.Dihedral.OriginalCentralizerOddCore
-public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwo
-public import CFSG.LocalAnalysis.LargeEvenClassification.C8FourSubgroupExhaustion
-public import CFSG.LocalAnalysis.LargeEvenClassification.C8FourSubgroupRanks
-public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicFourLarge
-public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicTwoFourGenerators
-public import CFSG.LocalAnalysis.LargeEvenClassification.MacWilliamsReduction
-public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstruction
-public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListAlt7
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19Defs
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2
@@ -40,10 +25,6 @@ public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E2Three
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.FFC5Case1
 public import CFSG.Quasithin.Background.FFC5Dich
 public import CFSG.Quasithin.Background.FFC5Main
@@ -74,10 +55,6 @@ public import CFSG.Quasithin.Vol2.Ch11SecAFacts04
 public import CFSG.Quasithin.Vol2.Ch11SecAVi2
 public import CFSG.Quasithin.Vol2.Ch12Sec9Lemma8
 public import CFSG.Sporadic.Schreier.J4SProfileNode
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 
 public section
 

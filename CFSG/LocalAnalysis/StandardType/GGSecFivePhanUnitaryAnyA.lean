@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaMain
 public import CFSG.LocalAnalysis.StandardType.GGNsq2Main
 public import CFSG.LocalAnalysis.StandardType.GGNsq2NbrMain
 public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveDataResDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMember
 
 public section

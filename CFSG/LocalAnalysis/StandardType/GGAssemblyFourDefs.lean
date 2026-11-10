@@ -8,7 +8,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLRestMain
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutGraphAssembly
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionAltAssembly
 public import CFSG.LocalAnalysis.StandardType.GGSixStepThreeCFSeventeenCases
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylB
 
 public section

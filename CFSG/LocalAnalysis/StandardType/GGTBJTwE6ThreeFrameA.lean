@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeData
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
 
 public section
 

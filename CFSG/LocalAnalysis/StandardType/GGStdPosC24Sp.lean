@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUSigned
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGStdPosC24Signed
 import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
 

@@ -5,8 +5,6 @@ public import CFSG.Timmesfeld.ARS.CaseEWeight
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentCoroot
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentWeyl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentConj
-import CFSG.LieType.Steinberg.OfCartan
-import Mathlib.Tactic.Group
 
 public section
 

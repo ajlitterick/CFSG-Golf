@@ -1,12 +1,7 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec18.Item185InnerBase
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J3E27Classes
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J3E27
-public import CFSG.RankThree.PartTwo.Sec21.HeringSec217OutLocal
 public import CFSG.RankThree.PartTwo.Sec21.HeringSec217OutElemJ3
-public import CFSG.RankThree.Asc83Table.J3
-public import CFSG.Sporadic.Bridge.J3Surj
 public import CFSG.Holt.Basic
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Census228Spor.Normalizer
 public import CFSG.LocalAnalysis.ComponentInitial.GL3TwoFixedModelSelector

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Sol76PclsLinear
 public import CFSG.RankThree.PartTwo.Sec4.Census.DoubleCoverRanks
-public import CFSG.Adapters.LinearSmallCatalog
 public import CFSG.LieType.Steinberg.Classical.SpinFrame
 public import CFSG.LieType.Steinberg.Families
 public import CFSG.LieType.Universal.Spin.Generation

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwAutDefs
-public import CFSG.LocalAnalysis.StandardType.GGR4PumpDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalSpSC
 public import CFSG.LocalAnalysis.StandardType.GGKGAAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGKGARank
 

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.RankThree.GF2n.Tim79a34TwoRoot
-public import CFSG.RankThree.GF2n.Tim79a34TwoSpace
 public import CFSG.RankThree.GF2n.Tim79a34TwoAct
-public import CFSG.RankThree.GF2n.Tim79a34TwoGame
 public import CFSG.RankThree.GF2n.Tim79a34TwoGameEnd
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.LocalQT.PcOm
 public import CFSG.Certificates.Kernel.LocalQTPcWSound
-import Mathlib.Data.List.Sort
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtThreeDLocKer
 
 public section

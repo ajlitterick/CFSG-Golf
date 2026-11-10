@@ -4,18 +4,12 @@ public import CFSG.Yardstones.M64f425cd8476.Definitions
 public import CFSG.Quasithin.Recognition.F112Crit.S3OddFiveHolds
 public import CFSG.Quasithin.Recognition.F112Crit.R1QPlusFive
 public import CFSG.Quasithin.Recognition.F112Crit.L2EvenThree
-public import CFSG.Quasithin.Recognition.GoldschmidtF112A5
-public import CFSG.Quasithin.Recognition.GoldschmidtF112RQ
 public import CFSG.Quasithin.Recognition.St84.Gen.BigL2Slice
-public import CFSG.Quasithin.Recognition.GoldschmidtF112RL34
-public import CFSG.Quasithin.Recognition.GoldschmidtF112RSp44
-public import CFSG.Quasithin.Recognition.GoldschmidtF112RG24
 import CFSG.Quasithin.Recognition.St84.Gen.D4q
 import CFSG.Quasithin.Recognition.St84.Gen.G2q
 import CFSG.Quasithin.Recognition.St84.Gen.L3q
 import CFSG.Quasithin.Recognition.St84.Gen.Sp4q
 import CFSG.Quasithin.Recognition.St84.Gen.U4q
-public import CFSG.Quasithin.H13.F112DSPartsC
 public import CFSG.Quasithin.Recognition.Stroth.Y9U54
 public import CFSG.Quasithin.Recognition.Stroth.Y9TwistedF4
 public import CFSG.GH74.BNPair.WeylIso
@@ -28,7 +22,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.AschbacherComponentInvo
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherComponentInvolutionMoved
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem5Containment
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem5TransitiveComponents
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 public import CFSG.LocalAnalysis.ComponentClassification.FittingNilpotence
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalSmallSourceLinear
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.AschbacherCanonicalRemaining
@@ -53,8 +46,6 @@ public import CFSG.Monster.Existence.Defs
 public import CFSG.Open.MonsterY443Defs
 public import CFSG.Permutation.BurnsideSchur
 public import CFSG.Quasithin.Background.E2NParamStar
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.G10Four
 public import CFSG.Quasithin.Background.G64Case1
@@ -162,10 +153,6 @@ public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 public import CFSG.SignalizerFunctorTheorem.NonLocal.Cross
 public import CFSG.SignalizerFunctorTheorem.NonLocal.SpData
 public import CFSG.SignalizerFunctorTheorem.NonLocalExc.Unipotent
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Statements
 import CFSG.Quasithin.Vol2.Ch11StatementsInputs
 import CFSG.Quasithin.Vol2.Ch5Sec1Lem5111K1

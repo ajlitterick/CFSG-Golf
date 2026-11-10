@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Multipliers.CoverWords
-public import CFSG.Sporadic.Bridge.Common
 import all CFSG.Sporadic.Bridge.Common
 
 public section

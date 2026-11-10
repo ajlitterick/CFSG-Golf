@@ -4,10 +4,8 @@ public import Certificates.Kernel.J4Q.LocVec
 public import Certificates.Kernel.J4Q.VOrbData
 public import Certificates.Kernel.J4Q.VOrbSq
 public import CFSG.Certificates.Kernel.J4Q.RepVOrbB
-public import CFSG.Sporadic.J4.QT2LocCntNative
 public import CFSG.Sporadic.J4.QT2LocFixLNative
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Sporadic.J4.QTRankWitNative
 
 @[expose] public section
 

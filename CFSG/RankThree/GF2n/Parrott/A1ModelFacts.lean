@@ -1,10 +1,7 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.QA45SigmaCentralizers
-public import CFSG.RankThree.GF2n.Parrott.SylowHFacts
-public import CFSG.RankThree.GF2n.Parrott.LocalData
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.InvolutionCountingOrderFormula
-public import CFSG.LocalAnalysis.ComponentInitial.QuaternionMatrices
 public import CFSG.GroupTheory.QuaternionAutPrime
 
 public section

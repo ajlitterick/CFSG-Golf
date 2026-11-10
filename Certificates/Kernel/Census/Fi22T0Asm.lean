@@ -23,16 +23,7 @@ public import Certificates.Kernel.Census.Fi22T0OP
 public import CFSG.Certificates.Kernel.Census.PackedRootPProof
 public import CFSG.Certificates.Kernel.Census.RootConjJoin
 public import CFSG.Certificates.Kernel.Census.ConjFSound
-public import CFSG.Certificates.Kernel.Census.Sound
-public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicFi22Tests
-import Certificates.Kernel.Census.Fi22RDefs
-import Certificates.Kernel.Census.Fi22RDefsT0
-import Certificates.Kernel.Census.Fi22PkT0R
-import Certificates.Kernel.Census.Fi22PkT0A
-import Certificates.Kernel.Census.Fi22PkT0W
-import Certificates.Data.Kernel.Census.PackedRootBit
-import Certificates.Data.Kernel.Census.PackedRoot
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Census.ToMainConj
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

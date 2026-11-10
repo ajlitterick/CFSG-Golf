@@ -2,13 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SUDefs
 import CFSG.LocalAnalysis.StandardType.GGRCLinRefl
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bInvol
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7Iso
-import Mathlib.Combinatorics.SimpleGraph.Basic
-import Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected
-import Mathlib.Data.Sym.Sym2
-import Mathlib.Data.ZMod.Basic
-import Mathlib.FieldTheory.Finite.Basic
 
 public section
 

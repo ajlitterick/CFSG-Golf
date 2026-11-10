@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Census.J2H.Chains
 public import Certificates.Kernel.J2Cover.AutChains
-public import Certificates.Data.Kernel.Spor.Prim
 import CFSG.Certificates.Kernel.Common.Harness
 import Mathlib.Tactic.IntervalCases
 

@@ -1,12 +1,10 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi24ThreeClasses
 public import CFSG.HardMathSupport.Foote.E27.TableSylow
 public import Certificates.Certificate13693
 public import Certificates.Data.CFSGNative.Timmesfeld.Fi24Cl
 public import CFSG.Sporadic.Fi24.Faithful
 public import CFSG.Sporadic.Fi24.SepSpec
-public import Certificates.Certificate1016Base
 
 public section
 

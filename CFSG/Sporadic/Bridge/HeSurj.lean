@@ -1,19 +1,13 @@
 module
 
 public import CFSG.Sporadic.He
-public import CFSG.Sporadic.Bridge.TwoGen
 public import CFSG.Sporadic.Presentation.HeExact
-public import Certificates.Data.CFSGNative.Bridge.SurjA
 public meta import Certificates.Data.CFSGNative.Bridge.SurjA
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import Certificates.Certificate9118
 public import Certificates.Certificate9210
-public import Certificates.Certificate3168
 public meta import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import CFSG.Certificates.CosetTableCompactPresented
 public import CFSG.Sporadic.Presentation.Common
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

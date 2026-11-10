@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6PerpOrthLayer
 public import CFSG.ClassicalInvolution.RouteD.ExoticSingleWitt
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyOrth
-public import CFSG.ClassicalInvolution.RouteD.GapsEnd4Aux
-public import CFSG.ClassicalInvolution.RouteD.LocalTwinPartner
 public import CFSG.ClassicalInvolution.RouteD.NonClassicalTwin
 public import CFSG.ClassicalInvolution.RouteD.NonClassicalShape
 

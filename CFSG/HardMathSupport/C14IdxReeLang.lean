@@ -1,14 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcIdx
-public import CFSG.RankThree.PartOne.TCX.Ree.Closure
 public import CFSG.HardMathSupport.Timmesfeld.Torality.LangAssembly
-public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyClosedLang
-public import CFSG.LieType.AlgebraicGroups.ToralCentralizerComponent
-public import CFSG.LieType.AlgebraicGroups.E6GraphCentralizerLangCurves
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
-public import CFSG.RankThree.PartOne.KLR.FrameTorus
-public import CFSG.LieType.AlgebraicGroups.SeminaireExp3Basic
 public import CFSG.HardMathSupport.C14IdxReeEndo
 import CFSG.LocalAnalysis.StandardType.GGReeLangPositionF4
 

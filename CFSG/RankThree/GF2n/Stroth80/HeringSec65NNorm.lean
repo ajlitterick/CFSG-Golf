@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Stroth80.HeringSec64Cor
 public import CFSG.RankThree.GF2n.Stroth80.HeringSec65NBar
-public import CFSG.RankThree.GF2n.Stroth80.ClassicalQuasisimple
 public import CFSG.CGT.T75P.A8ExclE16
 public import CFSG.CGT.T75P.A8ExclGen
 public import CFSG.CGT.T75P.A8ExclPGL

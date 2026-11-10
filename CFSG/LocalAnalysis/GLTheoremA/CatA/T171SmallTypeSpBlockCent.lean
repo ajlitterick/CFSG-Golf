@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeSpBlockBase
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeSpBlockScalar
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Sp6
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentGrp
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotTorus
 public import CFSG.HardMathSupport.Solomon.Coordinator.McLaughlinTypesForms
 public import CFSG.GroupTheory.Commutator.SupNormalizer
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeIso

@@ -3,7 +3,6 @@ module
 public import CFSG.GH74.Generic.BProg.B3.S3Sec29A3
 public import CFSG.GH74.Generic.BProg.B3.S3Sec29A2
 public import CFSG.GH74.Generic.BProg.B3.S3Ctx29wFacts
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.Generic.BProg.B3.S3Sec29Defs
 
 public section

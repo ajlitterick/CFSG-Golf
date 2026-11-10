@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesDensity
-public import Mathlib.Algebra.Module.StablyFree.Basic
-public import Mathlib.GroupTheory.Nilpotent
-public import Mathlib.LinearAlgebra.Matrix.FiniteDimensional
-public import Mathlib.RingTheory.Coalgebra.IsFrobenius
-public import Mathlib.RingTheory.HopfAlgebra.Basic
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.Existence.BabyW2Classes
 public import CFSG.Monster.GMS.BabyCover
-public import CFSG.Monster.GMS.Facts.BabyTables
 public import CFSG.Monster.B.Pinned.Primes.SeedGL
 
 public section

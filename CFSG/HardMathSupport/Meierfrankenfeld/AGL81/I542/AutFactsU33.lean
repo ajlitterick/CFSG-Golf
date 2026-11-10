@@ -2,10 +2,7 @@ module
 
 public import CFSG.Quasithin.Recognition.CertU33AutBound
 public import CFSG.Quasithin.Recognition.CertU33Simple
-public import CFSG.Quasithin.Recognition.CertU33Perm
 public import CFSG.Timmesfeld.Final.PSU33
-public import CFSG.Open.StatedDefs
-public import CFSG.Blueprint.Catalog
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryTrace
 public import CFSG.Quasithin.Background.Basic

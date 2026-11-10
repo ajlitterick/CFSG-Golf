@@ -1,13 +1,6 @@
 module
 
-public import Mathlib.Algebra.Field.Defs
-public import Mathlib.LinearAlgebra.SpecialLinearGroup
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotRoots
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotPositionBNormalForm
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotQ2OverlapGraphBlock
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerTypeADvdModel
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimAction
 
 public section

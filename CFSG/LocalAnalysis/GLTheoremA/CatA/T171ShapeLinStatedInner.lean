@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeLinStatedMain
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamClRed
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInLUComp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInLinTransComm
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamOutBase

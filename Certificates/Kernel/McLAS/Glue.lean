@@ -3,14 +3,11 @@ module
 public import Certificates.Kernel.McLAS.Tabs
 public import Certificates.Kernel.Census.McLChain
 public import Certificates.Kernel.Sporadic.OddCore.CentGlue
-public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue3
 public import Certificates.Data.Kernel.McLAS.Slices
 public import Certificates.Data.Kernel.McLAS.Pair
-public import CFSG.Sporadic.Recognition.LyonsLocalMcLInputs
 public import CFSG.Certificates.Kernel.Spor.SiftEq
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Spor.PcompFacts
 import CFSG.Certificates.Kernel.Spor.RawOrbHead
 public import CFSG.Certificates.Kernel.Spor.RawSlSound
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.G2.ProductG0
-public import CFSG.LocalAnalysis.EvenBN.G2.ProductEnd
 public import CFSG.LocalAnalysis.EvenBN.G2.ProductEndFour
 public import CFSG.LocalAnalysis.EvenBN.G2.ProductPair
 

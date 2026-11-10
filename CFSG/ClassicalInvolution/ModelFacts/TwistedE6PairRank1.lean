@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.ModelFacts.TwistedE6PairData
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcConn
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLevi
 public import CFSG.LieType.AlgebraicGroups.ToralTwistPinning
-public import CFSG.LieType.Chevalley.LangStronglyOrthogonalCommute
 
 public section
 

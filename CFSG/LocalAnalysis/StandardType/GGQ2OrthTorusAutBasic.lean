@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthNormalizerStatements
-import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksCent
 import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksCentExt
 
 public section

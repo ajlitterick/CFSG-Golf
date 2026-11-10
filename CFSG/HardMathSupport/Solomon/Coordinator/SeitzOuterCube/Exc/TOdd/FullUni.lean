@@ -3,14 +3,10 @@ module
 public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Exc.TOdd.FullLin
 public import CFSG.RankThree.PartTwo.KFacts.AutPSU
 
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.Module
-import Mathlib.Tactic.NoncommRing
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

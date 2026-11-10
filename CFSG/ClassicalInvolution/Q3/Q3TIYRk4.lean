@@ -1,13 +1,9 @@
 module
 
-public import CFSG.ClassicalInvolution.RouteD.TWYEven
-public import CFSG.ClassicalInvolution.RouteD.TWYOdd
-public import CFSG.ClassicalInvolution.Q3.Q3TY14
 public import CFSG.ClassicalInvolution.Q3.Q3TIYDefs
 public import CFSG.ClassicalInvolution.Q3.Q3TIYRk3
 public import CFSG.ClassicalInvolution.Q3.Q3TWY4
 public import CFSG.ClassicalInvolution.Q3.Q3E8BCent
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.ClassicalInvolution.Q3.Q3TY1
 
 public section

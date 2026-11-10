@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Smith81.TiD3Descent
 public import CFSG.RankThree.GF2n.Smith81.TiD3Quad
-public import Mathlib.RingTheory.Etale.Weakly
-public import Mathlib.RingTheory.TotallySplit
 
 public section
 

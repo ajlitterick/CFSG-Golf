@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SolvableMinimalNormal
 public import CFSG.Quasithin.Background.A1cA131
 public import CFSG.Quasithin.EmptyFaithful.S14110AuxWreath

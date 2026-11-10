@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrRecAuxCover
 public import CFSG.GH74.Uniqueness.Section14Primary
 public import CFSG.GroupTheory.PerfectCoverProduct
-public import Mathlib.Algebra.Group.Subgroup.Pointwise
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWZSpinB
 public import CFSG.ClassicalInvolution.RouteD.TwinYR3Frames
-public import CFSG.ClassicalInvolution.RouteD.GapsR2
-public import CFSG.ClassicalInvolution.Asc77.AscE189OrthV
 
 public section
 

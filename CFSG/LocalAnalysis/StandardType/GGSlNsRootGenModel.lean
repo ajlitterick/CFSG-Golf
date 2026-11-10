@@ -7,8 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeLift
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinTwoTvFrame
 public import CFSG.GroupTheory.ElemAbelianClosure
 
-import Mathlib.Data.Fin.SuccPred
-import Mathlib.Logic.Equiv.Fin.Basic
 
 public section
 

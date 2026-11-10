@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticFourWeyl
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticTorusActions
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticSupport
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCyclicAutomizer
-public import CFSG.Sporadic.Suz.Setup
 
 public section
 

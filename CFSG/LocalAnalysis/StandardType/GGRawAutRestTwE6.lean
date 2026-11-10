@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRawAutRestCore
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6Torus
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangSz
 
 public section

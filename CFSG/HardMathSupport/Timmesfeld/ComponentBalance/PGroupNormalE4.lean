@@ -1,14 +1,12 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.NormalSubgroups
-public import CFSG.LocalAnalysis.SectionRank.Ccomm.Torsion
 public import CFSG.RankThree.PGroups.MaximalNormalElementaryCentralizer
 public import CFSG.LocalAnalysis.RankFourTheoremC.PPointRankFour
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.RankFourTheoremC.Refined
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.FrattiniAut
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.OddCritical
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

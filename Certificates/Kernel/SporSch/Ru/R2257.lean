@@ -3,8 +3,6 @@ module
 
 public import Certificates.Kernel.SporSch.Ru.RFacts
 public import Certificates.Kernel.SporSch.Ru.F1920
-public import Certificates.Kernel.SporSch.Ru.RowsGen
-public import Certificates.Kernel.SporSch.GenPerms
 public import CFSG.Sporadic.Schreier.RuCheckProfileInputs
 meta import CFSG.Sporadic.Schreier.RuCheckProfileInputs
 import CFSG.Certificates.Kernel.Common.Harness

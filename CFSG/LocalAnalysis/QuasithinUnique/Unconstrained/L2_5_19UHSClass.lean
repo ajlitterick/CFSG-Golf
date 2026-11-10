@@ -5,10 +5,7 @@ public import CFSG.Sporadic.Schreier.PairClassCover
 public meta import CFSG.Sporadic.Schreier.PairHSCheck
 public meta import CFSG.Sporadic.Schreier.PairHSCert
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
-public import Certificates.Certificate2219
-public import Certificates.Certificate2220
 public import Certificates.Certificate4081
-public import Certificates.Certificate2218
 
 public noncomputable section
 

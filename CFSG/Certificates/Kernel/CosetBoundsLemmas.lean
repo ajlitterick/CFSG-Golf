@@ -3,10 +3,8 @@ module
 public import Certificates.Data.Kernel.Bounds.Table
 public import Mathlib.GroupTheory.Index
 import Mathlib.Data.Nat.Bitwise
-import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Group
 public import Std.Tactic.BVDecide.Normalize.BitVec
 public import Std.Tactic.BVDecide.Normalize.Prop

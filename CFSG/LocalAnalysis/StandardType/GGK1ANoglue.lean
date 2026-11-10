@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1ADefs
-public import CFSG.Open.StatedAPI
 public import CFSG.LocalAnalysis.StandardType.GGSporKLieZSU
-public import CFSG.LocalAnalysis.StandardType.GGSporKLieZQuot
 
 public section
 

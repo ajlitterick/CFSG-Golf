@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLevTwoS3bSem
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS3bE8Link
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS3bTables3
 import CFSG.LocalAnalysis.StandardType.GGLevTwoS3aDict

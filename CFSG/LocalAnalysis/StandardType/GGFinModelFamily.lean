@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG4b
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5
-public import CFSG.LocalAnalysis.StandardType.GGLangData
 
 public section
 

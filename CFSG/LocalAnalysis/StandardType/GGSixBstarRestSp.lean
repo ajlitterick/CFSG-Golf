@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarRestDefs
-public import CFSG.LieType.Steinberg.Classical.Symplectic
-public import CFSG.LieType.Universal.SymplecticExtras
 
 public section
 

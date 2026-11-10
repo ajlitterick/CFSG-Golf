@@ -1,24 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.KGLangTorusDatum
-public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeMarking
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclic
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcFrame
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridge
 public import CFSG.LocalAnalysis.StandardType.GGL45NtRecHolds
 public import CFSG.LocalAnalysis.StandardType.GGL45NtSimp
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclicLabels
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldE6
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestTwE6
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwisted
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreToralHolds
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreLang
-public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyCover
-public import CFSG.LieType.AlgebraicGroups.ConnectedToralLangFrobenius
-public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningFrobenius
-public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningSemilinear
-public import CFSG.LieType.Chevalley.WeylNormalizerQuotient
-public import CFSG.LieType.Chevalley.E7SupportedBruhatTorus
 public import CFSG.LocalAnalysis.StandardType.KGLangTorusMPartDefs
 import CFSG.LocalAnalysis.StandardType.KGLangLT5ExcGlue
 import CFSG.LocalAnalysis.StandardType.KGLangLT5ExcTorus

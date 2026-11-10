@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item211Lie3ProofOrth2
 public import CFSG.RankThree.SubgroupLists.SymplecticRegulus
-public import CFSG.RankThree.SubgroupLists.SymplecticInvolutions
 
 public section
 

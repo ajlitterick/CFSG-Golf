@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Sporadic.HNOddCore.OuterFix
-public import CFSG.Sporadic.HNOddCore.CRec
-public import CFSG.Sporadic.HNOddCore.InvRow6
 
 public section
 

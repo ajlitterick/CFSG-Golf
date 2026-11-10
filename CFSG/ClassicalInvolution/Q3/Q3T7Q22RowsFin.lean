@@ -5,9 +5,7 @@ public import CFSG.ClassicalInvolution.Q3.Q3OTShape
 public import CFSG.ClassicalInvolution.Q3.Q3OTSqAll
 public import CFSG.ClassicalInvolution.Q3.Q3OTOuterAll
 public import CFSG.ClassicalInvolution.Q3.Q3OTSmallSp
-public import CFSG.ClassicalInvolution.Q3.Q3OTSmallSU
 public import CFSG.ClassicalInvolution.Q3.Q3OTSmallSUClass
-public import CFSG.ClassicalInvolution.Q3.Q3OTSmallExc
 public import CFSG.ClassicalInvolution.Asc77.AscC25W13
 public import CFSG.ClassicalInvolution.Asc77.AscS22F
 public import CFSG.ClassicalInvolution.Asc77.AscS22G

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.M22CoverCheck
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.M22CoverCheck
 public import Certificates.Certificate4101
 public meta import CFSG.Certificates.NativeSchreierCard

@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166FamF4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Mult
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Layer
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Build
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4EndNode
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviSp6
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotToral
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCentralizerTUStd
 public import CFSG.LieType.SeitzGeneration.ExcOuterLeOne.EntryLemma
 public import CFSG.LocalAnalysis.ComponentClassification.GoldschmidtTDGriess
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExc

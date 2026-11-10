@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRowR3Defs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyNbrRowR3
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrSCFourData
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

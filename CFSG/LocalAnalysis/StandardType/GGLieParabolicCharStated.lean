@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharCoatom
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharLin
 import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharSp
 import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharUni
-import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-import CFSG.ClassicalGroups.UnitaryFlag.ModelTransport
 
 public section
 

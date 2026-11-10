@@ -8,15 +8,11 @@ public import Certificates.Certificate919004
 public import Certificates.Certificate919010
 import CFSG.CGT.Foote82.T66.CertProofsBASMaximalAlt
 import CFSG.CGT.Foote82.T66.CertProofsBASMaximal
-import CFSG.CGT.Foote82.T66.CertProofsOmegaSixNormalizer
-import CFSG.CGT.Foote82.T66.CertProofsOmegaSixA6Centralizer
 import CFSG.CGT.Foote82.T66.CertProofsInvolAutA6
 import CFSG.CGT.Foote82.T66.OmegaMinusMatrix
 import CFSG.CGT.Foote82.T66.BranchARecog
-import CFSG.CGT.Foote82.T66.GLSixCodes
 import CFSG.CGT.Foote82.T66.FaithfulBasic
 import CFSG.Quasithin.Background.G11Basic
-import Mathlib.Tactic.Group
 public import CFSG.CGT.Foote82.T66.MC1Steps
 public import CFSG.CGT.Foote82.T66.Steps
 public import CFSG.CGT.PushingUp.BenderBridge
@@ -42,11 +38,9 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Monster.Code.Weights
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.RankThree.PartTwo.Sec19.Item194Used
 public import CFSG.RankThree.PartTwo.Sec19.SimsTheoremCTypes
 public import CFSG.RankThree.PartTwo.Sec6.Statements
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Sporadic.Co2Schreier.WitCheck
-public import CFSG.Sporadic.Co2Schreier.ChainCheck
 public import CFSG.Sporadic.Co2Schreier.Lin
 public meta import CFSG.Sporadic.Co2Schreier.WitCheck
 public meta import CFSG.Sporadic.Co2Schreier.ChainCheck

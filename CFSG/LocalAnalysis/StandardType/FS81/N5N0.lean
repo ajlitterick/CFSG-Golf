@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.EvenN0Line
 public import CFSG.LocalAnalysis.StandardType.FS81.N5N0Line
 
 public section

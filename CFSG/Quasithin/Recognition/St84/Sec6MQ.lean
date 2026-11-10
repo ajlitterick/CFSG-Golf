@@ -1,24 +1,10 @@
 module
 
 public import CFSG.Quasithin.Recognition.St84.Sec6Abelian
-public import CFSG.Quasithin.Recognition.St84.Sec6NatQuot
-public import CFSG.GroupTheory.PResidualLocalFinite
-public import CFSG.Quasithin.Recognition.St84.PushUp
-public import CFSG.Quasithin.EmptyFaithful.Stellmacher.PushingUpAndModuleTheory.PushPRA5
-public import CFSG.Quasithin.EmptyFaithful.SzF53MUni
-public import CFSG.Quasithin.EmptyFaithful.Stellmacher.PushingUpAndModuleTheory.PushNatPerm
-public import CFSG.Quasithin.Background.TwoReduced
 public import CFSG.GroupTheory.AlternatingFive.SylowTwo
 public import CFSG.Quasithin.Background.HA5Weyl
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.GroupTheory.QuasisimpleCommutingProductBound
-public import CFSG.Quasithin.Background.A1cBridge
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtX1512Syl
-public import CFSG.Quasithin.EmptyFaithfulMultiple.Lemma15422Quot
 public import CFSG.Quasithin.SteinbergCDIndexThreeTripleCores
-public import Mathlib.Tactic.Group
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
-public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 public import CFSG.Quasithin.Recognition.St84.Sec6BaumannS3
 public import CFSG.Timmesfeld.LocalTwoSubgroups.CoprimeActionBounds
 public import CFSG.Quasithin.Background.RonanF713Sylow

@@ -2,11 +2,8 @@ module
 
 public import CFSG.GH74.Generic.S3.OnlyInvO2
 public import CFSG.GH74.Generic.S3.Main19
-public import CFSG.GH74.Orders.LieType
 public import CFSG.LocalAnalysis.ComponentInitial.BlockAschbacherTheorem5
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoStandardDefs
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoFoundationFinal
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.Asc77.HypOmegaBasic
 public import CFSG.ClassicalInvolution.Asc77.Lemma310
 public import CFSG.ClassicalInvolution.Asc77.ThmEStatement

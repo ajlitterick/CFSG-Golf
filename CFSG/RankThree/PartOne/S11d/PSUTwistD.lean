@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.S11d.PSUTwistSigma
 public import CFSG.RankThree.PartOne.S11d.PSUTwistRat
-public import CFSG.RankThree.PartOne.S11d.PSUGood
-public import CFSG.RankThree.PartOne.S11d.PSUModel
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
@@ -67,12 +65,9 @@ public import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 public import CFSG.RankThree.PerfectCover.HopfCentralCoversFinite
 public import CFSG.RankThree.SteinbergR3ECAFieldFixedLayerQuotient
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Walter.Defs
 public import CFSG.YGroups.Y322Central
 

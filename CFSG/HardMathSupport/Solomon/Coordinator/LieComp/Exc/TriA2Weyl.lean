@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LieType.Steinberg.TwistedD4.Weyl
 public import CFSG.LieType.Steinberg.TwistedD4.Perfect
-public import CFSG.LieType.Chevalley.BraidWalk
-public import CFSG.LieType.Chevalley.RootOps.Instance
 
 public section
 

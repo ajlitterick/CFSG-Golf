@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Statements
 public import CFSG.OddTranspositions.HalphaQuotient
 public import CFSG.OddTranspositions.HalphaNonsolvable
-public import Mathlib.GroupTheory.Solvable
 import CFSG.OddTranspositions.PartThree.EightNine.O4
 import CFSG.OddTranspositions.TheoremTwo.WCover
 public import CFSG.OddTranspositions.O4PairTenThreeTranspositions

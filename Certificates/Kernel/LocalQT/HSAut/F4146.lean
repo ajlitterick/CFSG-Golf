@@ -16,20 +16,6 @@ public import Certificates.Kernel.LocalQT.HSAut.C4146E11
 public import Certificates.Kernel.SporSch.PairHS.Check2219
 public import Certificates.Kernel.LocalQT.SV.C4126TB
 public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
-public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
-public import CFSG.Certificates.Kernel.Spor.PEnumSound
-public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
-public import CFSG.Certificates.NativeSchreierCard
-public import CFSG.Sporadic.Schreier.PairHSOrder
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19HSAutOuter
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19UHSFusion
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19UHSA6
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19HSAutNodesCheckInputs
-import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Spor.PackWord
-import CFSG.Certificates.Kernel.Spor.RawSiftK
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.SmallOddCore.ClassSimple
 
 public section

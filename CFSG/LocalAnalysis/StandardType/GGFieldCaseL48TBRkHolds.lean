@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRk
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVac
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBMeta
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseXL48NbrFieldHolds
-public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
 
 public section
 

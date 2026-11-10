@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModelBridge
-public import Mathlib.Data.Fin.SuccPred
 
 public section
 

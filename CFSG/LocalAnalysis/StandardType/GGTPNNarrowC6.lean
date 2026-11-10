@@ -8,7 +8,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTPNTrCardB
 public import CFSG.LocalAnalysis.StandardType.GGTPNTrSelfCent
 public import CFSG.LocalAnalysis.StandardType.GGTPNTrMarked
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentKLocal
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

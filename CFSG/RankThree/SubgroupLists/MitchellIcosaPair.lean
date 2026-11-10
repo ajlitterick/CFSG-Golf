@@ -5,8 +5,6 @@ import CFSG.RankThree.SubgroupLists.MitchellFourFrame
 import CFSG.RankThree.SubgroupLists.MitchellFourSquares
 import CFSG.RankThree.SubgroupLists.MitchellIcosa
 import CFSG.RankThree.SubgroupLists.MitchellIcosaSecond
-import CFSG.RankThree.SubgroupLists.MitchellNondegenerate
-import CFSG.RankThree.SubgroupLists.MitchellQOne
 
 public section
 

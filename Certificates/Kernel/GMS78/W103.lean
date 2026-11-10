@@ -1,9 +1,6 @@
 module
 
 public import Certificates.Kernel.GMS78.W
-public import CFSG.Sporadic.Bridge.VecSurj
-public import Certificates.Data.CFSGNative.Ru.Data
-public import Certificates.Data.GMS78RuPi7RuData
 
 public section
 

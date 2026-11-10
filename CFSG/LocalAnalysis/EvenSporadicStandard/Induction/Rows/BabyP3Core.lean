@@ -2,16 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.BabyP3Gen
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.InvolutionsN1
-public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.NativeFacts
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.Stroth21Aut
-public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.IndexTwo
-public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.Stroth22Native
-public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.Stroth22
-public import CFSG.Monster.B.CTIB.HOuter
-public import CFSG.Monster.B.TwoA.Sp8.Par1
-public import CFSG.Monster.B.GSide.HSylowCenter
-public import CFSG.Monster.B.TwoA.Amalgam.CentralExt
-public import CFSG.Monster.B.TwoA.Amalgam.DistThreeCentDefs
 public import CFSG.LocalAnalysis.ComponentInitial.Finkelstein1977Commuting
 
 public section

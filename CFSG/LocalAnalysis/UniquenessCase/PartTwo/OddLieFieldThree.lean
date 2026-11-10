@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Blueprint.Catalog
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.ComponentClassification.GS82PumpOddChar
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafLieOrder
 public import CFSG.LieType.Ree.LargeReeEightTorus
@@ -28,9 +26,6 @@ public import CFSG.LocalAnalysis.SectionRank.LargeReeCover
 public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Open.GorensteinHaradaSectionalRankFourMilestoneDefs
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

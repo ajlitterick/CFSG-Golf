@@ -3,15 +3,12 @@ module
 public import CFSG.GroupTheory.ABGLocalTools.PStabilitySL2Props
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 public import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalOddPSubgroupAlternatingFour
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeEquiv
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearRingEquiv
 import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
 import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
-import Mathlib.RingTheory.IntegralDomain
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-import Mathlib.RingTheory.ZMod.Torsion
 
 public section
 

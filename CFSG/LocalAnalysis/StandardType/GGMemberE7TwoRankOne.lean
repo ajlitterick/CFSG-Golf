@@ -1,13 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGMemberE7TwoTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenLift
 public import CFSG.LocalAnalysis.StandardType.GGRootGenAvoidInduced
 public import CFSG.LocalAnalysis.StandardType.GGE4bOriginalA2Fixed
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1MovingLine
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
 public import CFSG.LocalAnalysis.StandardType.GGResE78Module
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
 

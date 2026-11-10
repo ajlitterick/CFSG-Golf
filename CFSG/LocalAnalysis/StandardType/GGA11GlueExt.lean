@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGA11FrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGA11GraphAut
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrGlue
-public import CFSG.LocalAnalysis.StandardType.GGA8NbrPlumb
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrTorusNorm
-public import Certificates.Certificate476001
 
 public section
 

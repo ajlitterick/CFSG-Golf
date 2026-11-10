@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.Background.GoldschmidtS146RLatGen
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2BorelA6Six
 public import CFSG.Quasithin.H13.U3U33Fixed
-public import CFSG.Timmesfeld.Final.PSU33
-public import CFSG.Quasithin.Recognition.CertU33Psu
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting

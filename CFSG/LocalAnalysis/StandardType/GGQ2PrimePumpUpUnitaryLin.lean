@@ -1,22 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.UnitaryFiveTwo.Model
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryFourOrder
-public import CFSG.Open.StatedDefs
 import CFSG.RankThree.OddKernel.SectionRep
-import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.LinearAlgebra.Dimension.Constructions
-import Mathlib.LinearAlgebra.Span.Basic
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-import Mathlib.LinearAlgebra.Determinant
-import Mathlib.LinearAlgebra.Projection
-import Mathlib.FieldTheory.Finite.Basic
-import Mathlib.GroupTheory.NoncommCoprod
-import Mathlib.GroupTheory.SpecificGroups.Cyclic
-import Mathlib.GroupTheory.Abelianization.Defs
-import Mathlib.GroupTheory.Index
-import Mathlib.Algebra.CharP.CharAndCard
 public import CFSG.LieType.BorelTits.CompleteFlag
 
 public section

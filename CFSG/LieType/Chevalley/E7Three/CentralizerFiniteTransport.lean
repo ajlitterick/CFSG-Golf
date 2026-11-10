@@ -1,10 +1,8 @@
 module
 public import CFSG.LieType.Chevalley.E7Three.CentralizerSolvable
 public import CFSG.LieType.Chevalley.E7Three.CentralizerInner
-public import CFSG.LieType.Chevalley.E7Three.CentralizerFour
 public import CFSG.LieType.Chevalley.E7Three.CentralizerOvergroup
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeU
-public import CFSG.LocalAnalysis.ABGTheoremB.CoverEmbedding
 public import CFSG.LieType.Chevalley.E7Three.ScalarReach
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxToral
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.PlanesSetup

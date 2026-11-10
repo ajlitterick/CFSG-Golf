@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTWHLCover
-public import CFSG.LocalAnalysis.StandardType.GGTWLowOf
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepFrame
-public import CFSG.LocalAnalysis.StandardType.GGTWPat2Base
-public import CFSG.LocalAnalysis.StandardType.GGRowKFrameDim
 
 public section
 

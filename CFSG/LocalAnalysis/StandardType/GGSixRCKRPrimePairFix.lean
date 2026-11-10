@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeReturnedFrame
-public import CFSG.LocalAnalysis.StandardType.GGLangRatCompTorusLift
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.CommonFactor
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleSplit
 
 public section
 

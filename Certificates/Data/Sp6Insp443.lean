@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.PermOrbKit
-public import CFSG.Sporadic.Schreier.Co3Sp6CheckInputs
 public import CFSG.Sporadic.Schreier.Co3FirstCheckInputs
 public import CFSG.Sporadic.Schreier.J1Tables
 

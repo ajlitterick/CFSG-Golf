@@ -2,14 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtAssembly
 public import CFSG.LocalAnalysis.StandardType.GGL45NtAutAsm
-public import CFSG.LocalAnalysis.StandardType.GGL45FamCover
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclicLabels
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinear
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiagLinear
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherUnitary
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GLinMat
-public import CFSG.ClassicalGroups.Unitary.Simple
 
 public section
 

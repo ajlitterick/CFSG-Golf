@@ -3,12 +3,9 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.StatementsB
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.J1Local17
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.EighteenSevenDiag
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveShort
 public import CFSG.GroupTheory.ConjActionModPCore
 public import CFSG.GroupTheory.SubgroupOfLattice
-public import CFSG.GroupTheory.PCore.OpenTransport
 public import CFSG.Quasithin.EmptyFaithful.S151S4D
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
 public import CFSG.Quasithin.H13.A5S1327j
 public import CFSG.GroupTheory.AlternatingFive.SylowTwo
 public import CFSG.Goldschmidt.StatementsG3
@@ -47,8 +44,6 @@ public import CFSG.Quasithin.Background.C1PackS15368
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E2TwoProofDefs
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.InternalSecData
 public import CFSG.Quasithin.Background.InternalSecIso
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC

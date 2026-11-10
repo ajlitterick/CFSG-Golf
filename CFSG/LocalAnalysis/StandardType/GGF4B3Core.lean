@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4B3CoreDefs
-import CFSG.LocalAnalysis.StandardType.GGF4B3CoreRep
 import CFSG.LocalAnalysis.StandardType.GGF4OrigRep
 
 public section

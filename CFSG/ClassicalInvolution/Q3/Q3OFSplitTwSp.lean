@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3OFSplitTwLay
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.TypeCModel
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.RootSp2
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15ChainLModel
 public import CFSG.ClassicalInvolution.Q3.Q3NHMain
 public import CFSG.ClassicalInvolution.Q3.Q3NTUnitary
@@ -14,7 +12,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3PPEdgeKinds
 public import CFSG.ClassicalInvolution.Q3.Q3PPEdgeShape
 public import CFSG.ClassicalInvolution.Q3.Q3TCPartner
 public import CFSG.ClassicalInvolution.Q3.Q3URDict
-public import CFSG.ClassicalInvolution.Q3.Q3URStd
 
 public section
 

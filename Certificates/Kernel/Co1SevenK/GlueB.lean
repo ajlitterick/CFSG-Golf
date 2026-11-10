@@ -5,7 +5,6 @@ public import Certificates.Kernel.Co1SevenK.BndChk
 public import Certificates.Kernel.Co1SevenK.BndLvlB
 public import Certificates.Kernel.Co1SevenK.CenB
 public import Certificates.Kernel.Co1B.C17330
-import Mathlib.Tactic.IntervalCases
 
 public section
 

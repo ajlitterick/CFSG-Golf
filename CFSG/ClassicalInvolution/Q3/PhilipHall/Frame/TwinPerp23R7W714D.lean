@@ -2,25 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7EGenD
 import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7W14
-import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7ECent
-import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7E8
-import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7Fus
-import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7Cover
-import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23Mem
-import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDimToolE1
 import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6jB
-import CFSG.ClassicalInvolution.Q3.Sec13L94Tight
-import CFSG.ClassicalInvolution.Q3.Q3CPSat
-import CFSG.ClassicalInvolution.Q3.Q3CLSeven1
-import CFSG.ClassicalInvolution.Q3.Q3CLSeven2
-import CFSG.ClassicalInvolution.Q3.Q3CLBasic
-import CFSG.ClassicalInvolution.Q3.Q3T7P24A03
-import CFSG.ClassicalInvolution.Q3.Q3T8P1Seven
-import CFSG.ClassicalInvolution.Q3.Q3T8P26T02
-import CFSG.ClassicalInvolution.Asc77.AscT8Layer
-import CFSG.ClassicalInvolution.Asc77.AscE184Cent
-import CFSG.ClassicalInvolution.Asc77.AscP1SevenRep
-import CFSG.ClassicalInvolution.Asc77.AscP1ThompsonBasic
 import CFSG.ClassicalInvolution.AschTight.Sec7L714F
 import CFSG.ClassicalInvolution.AschTight.Sec7L714D
 

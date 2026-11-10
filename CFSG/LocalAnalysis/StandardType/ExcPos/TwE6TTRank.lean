@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6TTUnits
-public import CFSG.LieType.SeitzGeneration.ExcTorusRankTw
-import CFSG.RankThree.Classical2.TwistedE6RationalOrder
 import CFSG.LocalAnalysis.StandardType.GGExcFieldRankTwE6
 
 public section

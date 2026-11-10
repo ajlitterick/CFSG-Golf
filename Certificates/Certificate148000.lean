@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.L37.ModelToJ
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.ComponentPrimary.L3SevenNamed
-public import CFSG.Sporadic.ON.Action
 import Certificates.Kernel.Sporadic.ONL37.Glue
 public import CFSG.ClassicalGroups.Symplectic.Simple
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple

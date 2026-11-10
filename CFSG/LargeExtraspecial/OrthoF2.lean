@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LargeExtraspecial.OrthoF2Basic
-public import CFSG.LargeExtraspecial.OrthoF2Eichler
 public import CFSG.LargeExtraspecial.OrthoF2Alt
 public import CFSG.LargeExtraspecial.OrthoF2Timmesfeld12
 public import CFSG.LargeExtraspecial.OrthoF2Radical

@@ -6,7 +6,6 @@ public import Certificates.Kernel.Sporadic.Tits.LocJ
 public import Certificates.Kernel.Sporadic.Tits.LocK
 public import Certificates.Kernel.Sporadic.Tits.LocN
 public import Certificates.Kernel.SporSch.Tits.GenList
-public import CFSG.Certificates.Kernel.Spor.SiftEq
 public import CFSG.Quasithin.Vol2.Ch6Sec1Lem4TInputs
 public meta import CFSG.Quasithin.Vol2.Ch6Sec1Lem4TInputs
 import CFSG.Certificates.Kernel.Common.Harness

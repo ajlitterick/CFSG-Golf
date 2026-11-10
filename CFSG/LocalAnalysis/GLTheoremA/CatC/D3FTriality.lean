@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3FStable
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04D3
 public import CFSG.HardMathSupport.Dickson.Bal207.D4GraphBridgeIso
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreDFour
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelWitness
 
 set_option linter.unusedSectionVars false
 

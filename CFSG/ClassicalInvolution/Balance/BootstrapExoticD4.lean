@@ -2,15 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Balance.BootstrapExoticD4Sl3
 public import CFSG.ClassicalInvolution.Balance.BootstrapExoticG2
-public import CFSG.ClassicalInvolution.Balance.QNineShape
-public import CFSG.ClassicalInvolution.ModelFacts.FundPerfectExc
-public import CFSG.ClassicalInvolution.ModelFacts.FundamentalSL2Tags
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairModels
-public import CFSG.ClassicalInvolution.ModelFacts.WeylTransitive
-public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalSplit
-public import CFSG.ClassicalInvolution.PerfectCase.Basic
-public import CFSG.ClassicalInvolution.RouteD.LocalPair
-public import CFSG.LinearAlgebra.SL2MinimalFaithfulMatrix
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 
 public section

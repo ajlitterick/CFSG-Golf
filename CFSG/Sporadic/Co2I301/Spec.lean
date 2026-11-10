@@ -1,10 +1,6 @@
 module
 
 public import Certificates.Certificate810301
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo2Cent
-public import CFSG.Sporadic.Co2Schreier.SixGroup
-public import CFSG.Sporadic.Co2Schreier.Centralizers
-public import CFSG.Sporadic.Co2I301.SpecAux
 
 public noncomputable section
 

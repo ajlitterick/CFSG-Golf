@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81SylNormW
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransvU42Check
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.P21HU42
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-public import Certificates.Certificate2012
-public import Certificates.Certificate26121
 public import Certificates.Certificate26122
 import CFSG.LocalAnalysis.RankThreeTheoremC.ParabCensus.SpTwo
 import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.OutU42Aut

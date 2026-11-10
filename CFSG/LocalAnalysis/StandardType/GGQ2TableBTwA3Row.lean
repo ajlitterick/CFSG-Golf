@@ -1,25 +1,14 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1Tor
-public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
 public import CFSG.LocalAnalysis.StandardType.GGTPNLineDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDefs
-import CFSG.LocalAnalysis.StandardType.GGTBTorAIndUFourTwo
 import CFSG.LocalAnalysis.StandardType.GGTBTorCHolds
 import CFSG.LocalAnalysis.StandardType.GGTBTorD
 import CFSG.LocalAnalysis.StandardType.GGTBTorRelDHolds
 import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeFrame
 import CFSG.LocalAnalysis.StandardType.GGResIPumpLineA3Rows
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup
 import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeI1Rank
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallPosWeylSys
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-import CFSG.LocalAnalysis.StandardType.GGCoxeterForkProofBCDExt
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
-import CFSG.LocalAnalysis.StandardType.GGStdSubExist
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallE8
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallRankDefs
 

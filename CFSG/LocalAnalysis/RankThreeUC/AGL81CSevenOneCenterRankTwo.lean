@@ -6,8 +6,6 @@ public import CFSG.HardMathSupport.Meierfrankenfeld.LieOdd.U43Inputs
 public import CFSG.LocalAnalysis.GL83PartI.I_24_3.CoverCentre
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K36Cat
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
-public import CFSG.LocalAnalysis.SectionRank.SubgroupRank
-public import CFSG.LocalAnalysis.AGLEmbedding.CatalogComponent
 public import CFSG.GH74.GLS.IVK.Proofs2.NoOuter
 public import CFSG.GH74.GLS.IVK.Proofs2.TwoTori
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
@@ -29,11 +27,8 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.Bal3Orbit
 public import CFSG.Milestones.ASVolI.F431.Final4
 public import CFSG.Quasithin.Background.B15P4LayerDict
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S152N11
 public import CFSG.Quasithin.Vol2.Ch12Sec8NonabHatTen
 public import CFSG.Quasithin.Vol2.GoldschmidtF431U42Comp2

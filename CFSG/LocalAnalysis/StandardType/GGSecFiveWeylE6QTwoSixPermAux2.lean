@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixPermAux
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixCenter
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Gorenstein.Chapter8_2
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.NormalizerLeNormalizerCentralizer
 public import CFSG.GroupTheory.CardSupInf
-public import Mathlib.GroupTheory.Sylow
 
 public section
 

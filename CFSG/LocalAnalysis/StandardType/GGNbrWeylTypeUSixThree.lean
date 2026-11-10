@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeDefs
-import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeUSixThreeAux
 import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeUSixThreeAux2
 import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverOdd
 import CFSG.LocalAnalysis.StandardType.GGUSixThreeWeylHolds

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.SporSch.Th.GenV4
 public meta import Certificates.Data.TriD4TwoRow
 public import CFSG.Open.LocalVocabulary

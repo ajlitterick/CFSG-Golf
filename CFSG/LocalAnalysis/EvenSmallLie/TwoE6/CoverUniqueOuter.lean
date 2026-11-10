@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.TwistedE6NormalForm
-public import CFSG.LieType.Chevalley.C2E6StandardFixedTorus
 public import CFSG.LieType.Chevalley.C2E6StandardLevi
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.LieType.Chevalley.C2E6ExactRootRestrictions

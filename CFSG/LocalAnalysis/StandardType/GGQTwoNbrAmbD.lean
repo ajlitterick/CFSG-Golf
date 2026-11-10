@@ -4,13 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrAmbDSel
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDLeafNorm
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDLeafTail
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAmbSpan
-public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXPosAmb
-public import CFSG.LocalAnalysis.StandardType.GGQTwoFinishGen
-public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrLineStab
-public import CFSG.LocalAnalysis.StandardType.GGQTwoK1OfI1
-public import CFSG.LocalAnalysis.StandardType.GGQTwoAjSetting
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaNbrPosE6
-public import TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeD.SimpleRoots
 
 public section
 

@@ -3,9 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Parrott.LiftClaimC
 public import CFSG.RankThree.GF2n.Parrott.SpinConfig
 public import CFSG.RankThree.GF2n.Parrott.Section4SpinGlue
-public import CFSG.RankThree.GF2n.Parrott.Section4SylowFiveStructure
-public import CFSG.RankThree.GF2n.Parrott.SpinFixedCardUT
-public import CFSG.RankThree.GF2n.Parrott.SpinFixedCardMore
 public import CFSG.RankThree.GF2n.Parrott.Section4NoFusionLift
 public import CFSG.RankThree.GF2n.Parrott.QA45SylowFacts
 public import CFSG.RankThree.GF2n.Parrott.QA45ElementaryAbelian

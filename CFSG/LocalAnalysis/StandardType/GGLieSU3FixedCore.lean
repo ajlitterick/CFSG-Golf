@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedPattern
 public import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedTrace
 public import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedNormal
-import CFSG.RankThree.PartOne.KF.UnitaryDiag
-import CFSG.RankThree.PartOne.KF.R9Perm
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterFourSeitzD4b
-import CFSG.Assembly.Subnormal
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterFourSeitzBal2
 
 public section

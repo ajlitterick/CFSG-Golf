@@ -1,16 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.Rank3Sp
 public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
 import CFSG.LocalAnalysis.StandardType.GGResOrthogonalExactTwo
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusCore
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameCharSum
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

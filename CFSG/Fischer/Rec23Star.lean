@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Fischer.Uniq.F23Uniq
-public import CFSG.Fischer.Polar.Lines
 
 public section
 

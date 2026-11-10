@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.MinusEnum.Data
 public import Certificates.Kernel.MinusFrame.Data
-public import Certificates.Data.Kernel.BfsPin
 
 public section
 

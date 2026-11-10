@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Quasithin.Vol2.Asc94.TSModel1b
-public import CFSG.Quasithin.Vol2.Asc94.TSModel2
 public import CFSG.Quasithin.Vol2.Asc94.TSF6Model
 public import CFSG.LocalAnalysis.ComponentClassification.GHarrisGL3
 

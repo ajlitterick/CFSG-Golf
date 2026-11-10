@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.Co1Block.TwoBExtraCheckInputs
 public meta import CFSG.Sporadic.Co1Block.ConjBData
 public meta import CFSG.Sporadic.Co1Block.TwoBData
 public meta import CFSG.Sporadic.Co1Block.TwoBCheckDefs

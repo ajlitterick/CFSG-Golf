@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Ru.Gens
-public import Certificates.Data.Kernel.SporSch.RuK
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

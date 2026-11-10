@@ -1,15 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanAMarked
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSADefs
 public import CFSG.LocalAnalysis.StandardType.GGSelectedPSU
-public import CFSG.LocalAnalysis.StandardType.GGCompatNbrSomeDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSAPairAux
 
 public section
 

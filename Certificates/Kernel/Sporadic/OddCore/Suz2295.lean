@@ -5,7 +5,6 @@ public import Certificates.Kernel.Sporadic.OddCore.SuzOuter
 public import Certificates.Kernel.Sporadic.OddCore.SuzCenter
 public import Certificates.Kernel.Sporadic.OddCore.SuzLocal
 public import CFSG.Certificates.Kernel.Spor.MatKSound
-public import CFSG.Sporadic.SuzOddCore.GraphArraysCheckInputs
 import all CFSG.Sporadic.SuzOddCore.GraphArrays
 import all Init.Data.Nat.Fold
 import all Init.Data.Range.Basic

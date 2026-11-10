@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.GH71.S55D4Ord3Move
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4OddIdx
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MonoNF
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4ThreeNF
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.Der61a
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.Der69

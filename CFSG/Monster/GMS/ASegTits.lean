@@ -1,11 +1,6 @@
 module
 
-public import CFSG.Monster.GMS.S4FamilyIso
-public import CFSG.Monster.GMS.S4FamilyAdjust
 public import CFSG.Monster.GMS.S4FamilyModify
-public import CFSG.Monster.GMS.S4FamilyAssemble
-public import CFSG.Monster.GMS.S4FamilyGroup
-public import CFSG.Monster.GMS.S4FamilyTwoB
 public import CFSG.Monster.GMS.S4FamilyCases
 public import CFSG.Monster.GMS.S365
 public import CFSG.Monster.GMS.TwoAGraph

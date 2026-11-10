@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGDepEDefs
 public import CFSG.LocalAnalysis.StandardType.GGDepAPattern
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
 import CFSG.LocalAnalysis.StandardType.GGDepEPatternPack
 
 public section

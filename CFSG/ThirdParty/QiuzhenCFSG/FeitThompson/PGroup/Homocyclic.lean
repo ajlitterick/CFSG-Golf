@@ -1,14 +1,8 @@
 module
 
-public import Mathlib.Algebra.Group.Equiv.TypeTags
-public import Mathlib.Algebra.Group.TypeTags.Finite
 public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.Algebra.Module.ZMod
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
 public import Mathlib.LinearAlgebra.Basis.VectorSpace
 public import Mathlib.LinearAlgebra.Dimension.Constructions
-public import Mathlib.LinearAlgebra.GeneralLinearGroup.Basic
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 

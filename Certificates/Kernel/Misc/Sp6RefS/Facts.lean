@@ -4,14 +4,10 @@ public import CFSG.RankThree.PartTwo.Sec21.RudvalisFF81Sp6RefSFacts
 public import Certificates.Kernel.Misc.Sp6RefS.Checks
 public import CFSG.Certificates.Kernel.Misc.Sp6RefSSound
 public import Certificates.Kernel.Misc.Sp6Transv.Facts
-public import Certificates.Certificate8036
-public import Certificates.Kernel.Sp62.Final
 public import Certificates.Kernel.Sp6A2.Final
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoIIISp62Check
 import CFSG.RankThree.PartTwo.Sec21.FF79Lemma41Base
 import CFSG.Certificates.Kernel.Misc.PermClosProof
-import CFSG.Certificates.Kernel.Misc.Sp6TransvKit
-import CFSG.RankThree.PartTwo.Census.Carrier.G2Three
 
 public section
 

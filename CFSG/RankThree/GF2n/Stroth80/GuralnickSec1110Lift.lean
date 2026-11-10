@@ -1,14 +1,8 @@
 module
 
 public import CFSG.RankThree.GF2n.Stroth80.GuralnickSec1110FieldEq
-public import CFSG.Open.StatedDefs
-public import CFSG.CGT.Timmesfeld75.SLTransvection
 import CFSG.GroupTheory.CentralQuotientLift
 import CFSG.Quasithin.Background.SmithA36Lift
-import CFSG.RankThree.GF2n.Stroth80.Sec11Ebar
-import CFSG.RankThree.GF2n.Stroth80.Sec11CM
-import CFSG.RankThree.GF2n.Stroth80.Sec112Basic
-import CFSG.RankThree.GF2n.Stroth80.Sec1110TwoCenter
 import CFSG.RankThree.GF2n.Stroth80.HeringSec118Center
 import CFSG.Adapters.StatedSLPerfect
 import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.PerfectCoreCover

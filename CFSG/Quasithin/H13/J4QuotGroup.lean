@@ -1,17 +1,9 @@
 module
 
-public import CFSG.Quasithin.H13.J4SecondLocal
-public import Certificates.Data.CFSGNative.H13.J4Local
 public meta import Certificates.Data.CFSGNative.H13.J4Local
 public meta import Certificates.Data.CFSGNative.H13.J4Data
 public meta import CFSG.Quasithin.H13.J4Image
-public import CFSG.Quasithin.H13.J4QuotGroupInputs
 public import Certificates.Certificate7016
-public import Certificates.Certificate7013
-public import Certificates.Certificate7012
-public import Certificates.Certificate7014
-public import Certificates.Certificate7015
-public import Certificates.Certificate7018
 
 public noncomputable section
 

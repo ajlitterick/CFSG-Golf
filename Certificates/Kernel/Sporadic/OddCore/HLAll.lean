@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.OddCore.HL
 public import Certificates.Kernel.Sporadic.OddCore.HLK0
 public import Certificates.Kernel.Sporadic.OddCore.HLK1
 public import Certificates.Kernel.Sporadic.OddCore.HLK2

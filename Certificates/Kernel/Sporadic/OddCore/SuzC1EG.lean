@@ -2,9 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzC1BF
 public import Certificates.Kernel.Sporadic.OddCore.SuzC1ED
-public import CFSG.Certificates.Kernel.Spor.PEnumSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

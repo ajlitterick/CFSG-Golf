@@ -1,34 +1,20 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoExc
-public import CFSG.LocalAnalysis.StandardType.ExcPos.U1aBridge
 public import CFSG.LocalAnalysis.StandardType.ExcPos.U1aFrame
 public import CFSG.LocalAnalysis.StandardType.ExcPos.U1aComponent
 public import CFSG.LocalAnalysis.StandardType.ExcPos.U1aRootSub
-public import CFSG.LocalAnalysis.StandardType.GGLangExhaust
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeReturnedFrame
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwistedE6Base
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeNCStdEnvelope
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeShapeLeaves
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCoverPairA1
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCoverPairSL
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCoverPairSU
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairD
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCoverPairTwoD
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairE6
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairE7
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairE8
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairTwE6
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCoverPairTriD4
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcShapeFourKac
-import CFSG.LieType.AlgebraicGroups.KernelRootGroup
-import CFSG.LieType.Chevalley.GraphFixedE6DiagonalCubes
-import CFSG.LieType.Chevalley.SignKernelComponentBorel
-import CFSG.LieType.Chevalley.AdjointCenter
-import CFSG.LieType.Steinberg.CentralExt.MinusculeCenter
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcMonomial
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
 
 public section
 

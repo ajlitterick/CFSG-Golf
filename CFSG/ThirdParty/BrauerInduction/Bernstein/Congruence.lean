@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.BrauerInduction.Bernstein.PrimeToP
 public import CFSG.ThirdParty.BrauerInduction.Background.ClassFun.PrimePowerCongruence
-public import CFSG.ThirdParty.BrauerInduction.Elementary.LocalSum
 
 public section
 

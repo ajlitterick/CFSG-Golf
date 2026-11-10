@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreLabels
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestEndRankMinus
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailFinal
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestCenter
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestBstar
 
 public section
 

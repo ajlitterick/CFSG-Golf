@@ -12,7 +12,6 @@ public import CFSG.Certificates.Kernel.BabyMonster.FiveA.RkW88
 public import CFSG.Certificates.Kernel.BabyMonster.FiveA.RkW89
 public import CFSG.Certificates.Kernel.BabyMonster.FiveA.Wf
 public import Certificates.Kernel.BabyMonster.ChainN
-public import Certificates.Kernel.BabyMonster.FiveA.Basic
 public import Certificates.Kernel.BabyMonster.FiveA.Facts13625
 public import Certificates.Kernel.BabyMonster.FiveA.RankLin
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.OrthogonalFoldedWeyl
 public import CFSG.LieType.Chevalley.OrthogonalSemilinearFixedCells
 public import CFSG.LieType.Chevalley.SignKernelComponentBruhat
 

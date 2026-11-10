@@ -1,13 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGF4JoinMemberPSL
-public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagLinear
-public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnLin
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoOneLinear
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMBlockCore
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoUnitary
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelectedSp
-public import CFSG.LocalAnalysis.StandardType.GGSixTCPSLAux
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinFixedOmega
 
 public section

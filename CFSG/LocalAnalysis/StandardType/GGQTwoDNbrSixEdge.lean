@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrSixFrame
 public import CFSG.LocalAnalysis.StandardType.GGNsq2RankOne
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDShared
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitRankTwo
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBlock
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Edge
 import CFSG.LocalAnalysis.StandardType.GGNsq2U62
 import CFSG.ClassicalGroups.Unitary.SUThreeTwoDiagHom
@@ -15,8 +12,6 @@ import CFSG.LocalAnalysis.StandardType.GGNsq2QuotCover
 import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrSixGen
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1UOdd
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1BaseU
-import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Lift
-import CFSG.LocalAnalysis.StandardType.GGLinearFusionSLCent
 import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrDefs
 
 public section

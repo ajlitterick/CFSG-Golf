@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitSpNsCore
 public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitComp
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitClSpNs
-public import CFSG.Sporadic.Suz.Setup
 
 public section
 

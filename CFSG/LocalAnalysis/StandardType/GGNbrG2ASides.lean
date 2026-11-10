@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2ASidesDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 
 public section
 

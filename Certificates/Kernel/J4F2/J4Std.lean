@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.J4Std.Data11Native
 public import CFSG.LocalAnalysis.EvenSporadicStandard.J4Std.DataModLiftNative
 public import Certificates.Kernel.J4Q.MaskRep
 import CFSG.Certificates.Kernel.Common.Harness
-public import Certificates.Kernel.J4Q.QTBase
 
 public section
 

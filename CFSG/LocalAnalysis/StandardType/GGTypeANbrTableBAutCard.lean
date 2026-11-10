@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBPermAut
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBTypeAMono
 
 public section
 
