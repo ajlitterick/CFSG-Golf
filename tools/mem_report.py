@@ -101,9 +101,10 @@ def main() -> int:
     for r in samples:
         for p in r["lean"]:
             m = mods.setdefault(p["mod"], {"anon": 0, "rss": 0, "file": 0, "swap": 0,
-                                           "hwm": 0, "seen": 0, "thr": 0})
+                                           "hwm": 0, "seen": 0, "thr": 0, "cpu": 0})
             for k in ("anon", "rss", "file", "swap", "hwm", "thr"):
                 m[k] = max(m[k], p[k])
+            m["cpu"] = max(m["cpu"], p.get("cpu") or 0)  # cumulative, so max = last seen
             m["seen"] += 1
     interval = (samples[-1]["t"] - samples[0]["t"]) / max(1, len(samples) - 1)
 
@@ -132,17 +133,31 @@ def main() -> int:
         rows.append({"module": name, "peak_anon_mb": m["anon"], "peak_rss_mb": m["rss"],
                      "peak_file_mb": m["file"], "swap_mb": m["swap"], "vmhwm_mb": m["hwm"],
                      "samples": m["seen"], "seen_s": round(m["seen"] * interval, 1),
+                     "cpu_s": m["cpu"], "threads": m["thr"],
+                     "cpu_per_wall": round(m["cpu"] / (m["seen"] * interval), 2)
+                     if m["seen"] and m["cpu"] else None,
                      "lines": gm.lines if gm else None, "bytes": gm.bytes if gm else None,
                      "olean_mb": olean_mb(name)})
     rows.sort(key=lambda r: -r["peak_anon_mb"])
 
     print(f"\n== top {a.top} modules by peak anonymous memory")
-    print(f"{'peak anon':>10} {'rss':>8} {'swap':>7} {'seen s':>7} {'lines':>8} {'olean':>7}  module")
+    print(f"{'peak anon':>10} {'rss':>8} {'swap':>7} {'seen s':>7} {'cpu s':>7} {'cpu/wall':>8} "
+          f"{'lines':>8} {'olean':>7}  module")
     for r in rows[:a.top]:
         print(f"{r['peak_anon_mb']:>8.0f}MB {r['peak_rss_mb']:>6.0f}MB {r['swap_mb']:>5.0f}MB "
-              f"{r['seen_s']:>7.0f} {r['lines'] if r['lines'] is not None else '-':>8} "
+              f"{r['seen_s']:>7.0f} {r['cpu_s']:>7.0f} "
+              f"{(format(r['cpu_per_wall'], '.1f') if r['cpu_per_wall'] is not None else '-'):>8} "
+              f"{r['lines'] if r['lines'] is not None else '-':>8} "
               f"{(format(r['olean_mb'], '.1f') + 'M') if r['olean_mb'] is not None else '-':>7}  "
               f"{r['module']}")
+    print(f"\n== top {a.top} modules by CPU time (cpu s is a lower bound: last sample before exit)")
+    print("   cpu/wall << threads while MemAvailable is low means the module was stalled on "
+          "swap, not computing")
+    for r in sorted(rows, key=lambda r: -r["cpu_s"])[:a.top]:
+        print(f"  {r['cpu_s']:>7.0f}s cpu  {r['seen_s']:>6.0f}s wall  "
+              f"{(format(r['cpu_per_wall'], '.1f') if r['cpu_per_wall'] is not None else '-'):>5} cpu/wall"
+              f"  peak {r['peak_anon_mb']:>6.0f}MB  {r['module']}")
+    print(f"   total CPU across modules seen: {sum(r['cpu_s'] for r in rows) / 3600:.1f} h")
     xs = [(math.log1p(r["lines"]), math.log1p(r["peak_anon_mb"])) for r in rows if r["lines"]]
     c = pearson([x for x, _ in xs], [y for _, y in xs])
     if c is not None:

@@ -21,6 +21,10 @@ Killing the sampler or the build leaves a usable file.
 
 * top modules by peak **anonymous** memory (`RssAnon`; oleans are mmapped and show up as
   reclaimable `RssFile`), with lines/bytes and olean size for comparison;
+* top modules by CPU time, plus `cpu/wall` (CPU seconds per observed wall second): well below
+  the thread count while MemAvailable is low means the module was stalled on swap, not
+  computing.  CPU figures from a full build are a lower bound (last sample before exit);
+  `module` mode reports exact wall time, CPU time and max RSS from `getrusage`;
 * pressure episodes (low MemAvailable, high PSI `full`, heavy swap-in) and the lean
   processes live at the time -- thrashing is usually several big modules at once;
 * total lean memory vs. number of concurrent lean processes, and a worst-case estimate for

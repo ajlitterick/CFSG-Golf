@@ -17,7 +17,7 @@ What is recorded per sample (every --interval seconds, default 2):
   * system: MemAvailable, swap used, PSI memory some/full avg10, swap-in/out and major-fault
     rates, cgroup memory.current/max if present;
   * every `lean` process: pid, module being compiled (from its command line), VmRSS, RssAnon,
-    RssFile, VmSwap, VmHWM and thread count;
+    RssFile, VmSwap, VmHWM, thread count and cumulative CPU seconds (user+sys);
   * every other process in the build tree (lake, cc, ld, ...): summed RSS and the largest one.
 
 RssAnon is the number to watch: oleans are mmapped, so RssFile is reclaimable cache, while
@@ -32,12 +32,14 @@ import argparse
 import json
 import os
 import re
+import resource
 import signal
 import subprocess
 import sys
 import time
 
 PAGE = os.sysconf("SC_PAGE_SIZE")
+TICK = os.sysconf("SC_CLK_TCK")
 OUT_DIR = os.path.join(".cache", "membench")
 
 
@@ -158,7 +160,13 @@ def proc_sample(pid: int) -> dict | None:
     st = kv_kb(read(f"/proc/{pid}/status"))
     if "VmRSS" not in st:
         return None  # kernel thread or exited
+    cpu = None
+    stat = read(f"/proc/{pid}/stat")
+    if stat:
+        f = stat[stat.rfind(")") + 2:].split()
+        cpu = round((int(f[11]) + int(f[12])) / TICK, 2)  # utime+stime, cumulative seconds
     return {
+        "cpu": cpu,
         "rss": mb(st.get("VmRSS")), "anon": mb(st.get("RssAnon")),
         "file": mb(st.get("RssFile")), "swap": mb(st.get("VmSwap")),
         "hwm": mb(st.get("VmHWM")), "thr": st.get("Threads", 0),
@@ -276,8 +284,12 @@ def cmd_module(a) -> int:
         for p in r["lean"]:
             peaks[p["pid"]] = max(peaks.get(p["pid"], (0, 0)), (p["anon"], p["hwm"]))
     anon, hwm = max(peaks.values(), default=(0, 0))
-    print(f"{a.module}: exit {child.returncode}, {time.time() - t0:.0f}s wall, "
-          f"peak anon {anon:.0f} MB, VmHWM {hwm:.0f} MB, threads={a.threads}")
+    wall = time.time() - t0
+    ru = resource.getrusage(resource.RUSAGE_CHILDREN)  # exact: our only child tree
+    print(f"{a.module}: exit {child.returncode}, {wall:.1f}s wall, "
+          f"{ru.ru_utime + ru.ru_stime:.1f}s CPU (user {ru.ru_utime:.1f} + sys {ru.ru_stime:.1f}), "
+          f"peak anon {anon:.0f} MB (sampled), max RSS {ru.ru_maxrss / 1024:.0f} MB (exact), "
+          f"threads={a.threads}")
     return child.returncode
 
 
