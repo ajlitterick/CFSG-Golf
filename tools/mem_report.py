@@ -179,6 +179,22 @@ def main() -> int:
         for mname, v in ms:
             print(f"      {v / 1024:5.1f}G  {mname}")
 
+    gev = [(r["t"], e) for r in samples for e in r.get("guard", [])]
+    if gev:
+        held: dict[str, float] = {}
+        for _t, e in gev:
+            if e["ev"] == "resume":
+                held[e["mod"]] = held.get(e["mod"], 0) + e["held_s"]
+        npause = sum(1 for _t, e in gev if e["ev"] == "pause")
+        print(f"\n== guard: {npause} pauses, {sum(held.values()):.0f}s total paused time "
+              f"(wall time traded for memory)")
+        for mname, v in sorted(held.items(), key=lambda kv: -kv[1])[:10]:
+            print(f"  {v:7.0f}s paused  {mname}")
+        forced = sum(1 for _t, e in gev if e["ev"] == "resume" and e["forced"])
+        if forced:
+            print(f"  {forced} forced resume(s): the paused process was the only one left to "
+                  "run; if memory was still low then, that module alone is too big")
+
     print("\n== concurrency (samples grouped by number of live lean processes)")
     by_n: dict[int, list[float]] = {}
     for r in samples:

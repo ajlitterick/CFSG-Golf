@@ -38,6 +38,29 @@ Runs `lake env lean -R . --threads=N file.lean` (nothing is written to `.lake`),
 imports must already be built.  Compare peak with the full-build figure: if isolated is
 much smaller, the cost is concurrency; if similar, the module itself is the problem.
 
+## 4. Memory guard (trade time for not thrashing)
+
+    python3 -I tools/mem_watch.py run --guard --interval 1 -- lake build
+    # tune: --pause-below-gb 4 --resume-above-gb 8 --pause-psi 20 --hold 20 --cooldown 5
+
+Under pressure (MemAvailable below `--pause-below-gb`, or PSI `full` above `--pause-psi`) it
+SIGSTOPs the biggest running `lean` process.  A stopped process keeps its memory but stops
+touching it, so the kernel swaps its cold pages out and the others run on a working set that
+fits in RAM.  It resumes the longest-paused process once MemAvailable (less that process's
+swapped part) is above `--resume-above-gb` and it has been held `--hold` seconds.
+
+Limits, so you know what to expect:
+* It cannot help if a single module needs more than RAM+swap.  The last running `lean` is
+  never paused (deadlock), and when nothing else is running the paused one is resumed
+  (logged as a "forced resume" in the report -- that module is your real problem).
+* It needs swap to do any good (WSL: set `swap=` in `.wslconfig`).
+* Only `lean` processes are paused, not `cc`/`ld` steps of precompiled modules.
+* Every exit path (normal, Ctrl-C, SIGTERM, errors) continues paused processes.  If the sampler
+  is SIGKILLed, a paused `lean` stays frozen and the build looks hung:
+  run `python3 -I tools/mem_watch.py resume`.
+* Thresholds are in absolute GB; defaults suit a ~48 GB VM.  Check the report's "guard" section
+  and episode list to see whether it kicked in and whether pressure persisted.
+
 ## Suggested workflow
 
 1. Baseline: `lake build` with `LEAN_NUM_THREADS`/`weakLeanArgs` as you run it today.

@@ -10,6 +10,10 @@ file (default .cache/membench/<label>.jsonl); analyse it with tools/mem_report.p
     # or attach to an already-running build (every process whose executable is `lean`)
     python3 -I tools/mem_watch.py attach --label full
 
+    # same, but pause the biggest lean process when memory runs low (slower, no thrashing)
+    python3 -I tools/mem_watch.py run --guard --interval 1 -- lake build
+    python3 -I tools/mem_watch.py resume      # emergency: un-freeze lean if the sampler was killed
+
     # measure ONE module in isolation (single thread, imports must already be built)
     python3 -I tools/mem_watch.py module CFSG.Foo.Bar [-- extra lean args]
 
@@ -173,9 +177,84 @@ def proc_sample(pid: int) -> dict | None:
     }
 
 
+# ---------------------------------------------------------------- memory guard
+class Guard:
+    """Pause (SIGSTOP) the biggest running lean process under memory pressure; resume it later.
+
+    A stopped process keeps its memory, but it stops touching it, so the kernel can swap its
+    cold pages out while the remaining processes make progress on a working set that fits in
+    RAM.  Trades wall time for not thrashing.  It cannot help if ONE module needs more than
+    RAM+swap: only the last runnable lean process is never paused (that would deadlock).
+    """
+
+    def __init__(self, pause_gb: float, resume_gb: float, psi: float, min_running: int,
+                 hold: float, cooldown: float):
+        assert resume_gb > pause_gb, "--resume-above-gb must exceed --pause-below-gb"
+        self.pause_mb, self.resume_mb = pause_gb * 1024, resume_gb * 1024
+        self.psi, self.min_running = psi, min_running
+        self.hold, self.cooldown = hold, cooldown
+        self.paused: dict[int, dict] = {}
+        self.last = -1e9
+
+    def _signal(self, pid: int, sig) -> bool:
+        try:
+            os.kill(pid, sig)
+            return True
+        except ProcessLookupError:
+            return False
+
+    def step(self, now: float, sysd: dict, lean: list[dict]) -> list[dict]:
+        ev = []
+        live = {p["pid"]: p for p in lean}
+        for pid in [k for k in self.paused if k not in live]:
+            ev.append({"ev": "gone", "pid": pid, "mod": self.paused.pop(pid)["mod"]})
+        running = [p for p in lean if p["pid"] not in self.paused]
+        avail = sysd["avail_mb"]
+        pressure = avail < self.pause_mb or (self.psi > 0 and (sysd.get("psi_full") or 0) >= self.psi)
+        ready = now - self.last >= self.cooldown
+        if pressure and len(running) > self.min_running and ready:
+            v = max(running, key=lambda p: p["anon"])
+            if self._signal(v["pid"], signal.SIGSTOP):
+                self.paused[v["pid"]] = {"t": now, "mod": v["mod"]}
+                self.last = now
+                ev.append({"ev": "pause", "pid": v["pid"], "mod": v["mod"], "anon": v["anon"],
+                           "avail": avail})
+        elif self.paused and ready:
+            pid = min(self.paused, key=lambda k: self.paused[k]["t"])
+            info = self.paused[pid]
+            forced = not running  # nothing else can make progress: must continue
+            # a resumed process pages its swapped part back in: leave room for that
+            room = avail - live[pid]["swap"] > self.resume_mb
+            if forced or (not pressure and now - info["t"] >= self.hold and room):
+                if self._signal(pid, signal.SIGCONT):
+                    self.last = now
+                ev.append({"ev": "resume", "pid": pid, "mod": info["mod"],
+                           "held_s": round(now - info["t"], 1), "forced": forced,
+                           "avail": avail})
+                del self.paused[pid]
+        return ev
+
+    def resume_all(self) -> None:
+        for pid in list(self.paused):
+            self._signal(pid, signal.SIGCONT)
+        self.paused.clear()
+
+
+GUARD: Guard | None = None
+
+
 # ---------------------------------------------------------------- sampling loop
 def sample_loop(out, interval: float, root_pid: int | None, stop, live: bool,
                 warn_avail_gb: float) -> None:
+    try:
+        _sample_loop(out, interval, root_pid, stop, live, warn_avail_gb)
+    finally:
+        if GUARD:
+            GUARD.resume_all()  # never leave a build frozen
+
+
+def _sample_loop(out, interval: float, root_pid: int | None, stop, live: bool,
+                 warn_avail_gb: float) -> None:
     prev, t_prev = None, time.time()
     t0 = t_prev
     last_live = 0.0
@@ -206,6 +285,16 @@ def sample_loop(out, interval: float, root_pid: int | None, stop, live: bool,
         del sysd["vm"]
         rec = {"t": round(now - t0, 2), "sys": sysd, "lean": lean,
                "other_rss": round(other_rss, 1), "other_top": other_top[0]}
+        if GUARD:
+            events = GUARD.step(now, sysd, lean)
+            if events:
+                rec["guard"] = events
+                for e in events:
+                    print(f"[mem GUARD] {e['ev']} {e['mod']} (pid {e['pid']}) "
+                          f"avail={e.get('avail', sysd['avail_mb']) / 1024:.1f}G"
+                          + (f" held {e['held_s']}s{' (forced)' if e['forced'] else ''}"
+                             if e["ev"] == "resume" else ""), file=sys.stderr)
+            rec["paused"] = sorted(GUARD.paused)
         out.write(json.dumps(rec, separators=(",", ":")) + "\n")
         out.flush()
         if live and now - last_live >= 10:
@@ -239,6 +328,8 @@ def cmd_run(a) -> int:
     child = subprocess.Popen(a.cmd, start_new_session=True)
 
     def fwd(sig, _f):
+        if GUARD:
+            GUARD.resume_all()  # a stopped process would not see SIGINT/SIGTERM
         try:
             os.killpg(child.pid, sig)
         except ProcessLookupError:
@@ -259,6 +350,8 @@ def cmd_attach(a) -> int:
     done = []
     signal.signal(signal.SIGINT, lambda *_: done.append(1))
     signal.signal(signal.SIGTERM, lambda *_: done.append(1))
+    if GUARD is None:
+        print("[mem] note: attach without --guard only observes", file=sys.stderr)
     sample_loop(out, a.interval, None, lambda: bool(done), True, a.warn_avail_gb)
     out.close()
     print(f"[mem] report: python3 -I tools/mem_report.py {path}", file=sys.stderr)
@@ -293,16 +386,48 @@ def cmd_module(a) -> int:
     return child.returncode
 
 
+def cmd_resume(a) -> int:
+    """Emergency: SIGCONT every stopped lean process (e.g. the sampler was SIGKILLed)."""
+    n = 0
+    for pid, (_pp, comm) in proc_table().items():
+        st = read(f"/proc/{pid}/stat") or ""
+        state = st[st.rfind(")") + 2:].split()[:1]
+        if state == ["T"] and is_lean(pid, comm):
+            os.kill(pid, signal.SIGCONT)
+            n += 1
+            print(f"continued pid {pid}: {module_from_cmdline(pid)}")
+    print(f"{n} process(es) continued")
+    return 0
+
+
 def main() -> int:
+    global GUARD
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     common = argparse.ArgumentParser(add_help=False)
     common.add_argument("--interval", type=float, default=2.0, help="seconds between samples")
     common.add_argument("--outdir", default=OUT_DIR)
     common.add_argument("--warn-avail-gb", type=float, default=2.0,
                         help="print a warning when MemAvailable drops below this")
+    gd = argparse.ArgumentParser(add_help=False)
+    gd.add_argument("--guard", action="store_true",
+                    help="pause the biggest lean process under memory pressure (see Guard)")
+    gd.add_argument("--pause-below-gb", type=float, default=4.0,
+                    help="pause when MemAvailable falls below this (default 4)")
+    gd.add_argument("--resume-above-gb", type=float, default=8.0,
+                    help="resume when MemAvailable (minus the process's swapped part) is above "
+                    "this (default 8)")
+    gd.add_argument("--pause-psi", type=float, default=0.0,
+                    help="also pause when PSI memory 'full' avg10 %% reaches this (0 = off)")
+    gd.add_argument("--min-running", type=int, default=1,
+                    help="never pause below this many running lean processes (default 1)")
+    gd.add_argument("--hold", type=float, default=20.0,
+                    help="minimum seconds a process stays paused (default 20)")
+    gd.add_argument("--cooldown", type=float, default=5.0,
+                    help="minimum seconds between pause/resume actions (default 5)")
     sub = ap.add_subparsers(dest="mode", required=True)
+    sub.add_parser("resume").set_defaults(fn=cmd_resume)
     for name, fn in (("run", cmd_run), ("attach", cmd_attach), ("module", cmd_module)):
-        p = sub.add_parser(name, parents=[common])
+        p = sub.add_parser(name, parents=[common] + ([gd] if name != "module" else []))
         p.set_defaults(fn=fn)
         if name != "module":
             p.add_argument("--label", default="build")
@@ -314,6 +439,9 @@ def main() -> int:
     a = ap.parse_args()
     if getattr(a, "cmd", None) and a.cmd[:1] == ["--"]:
         a.cmd = a.cmd[1:]
+    if getattr(a, "guard", False):
+        GUARD = Guard(a.pause_below_gb, a.resume_above_gb, a.pause_psi, a.min_running,
+                      a.hold, a.cooldown)
     return a.fn(a)
 
 
