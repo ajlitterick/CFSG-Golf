@@ -43,8 +43,10 @@ much smaller, the cost is concurrency; if similar, the module itself is the prob
 1. Baseline: `lake build` with `LEAN_NUM_THREADS`/`weakLeanArgs` as you run it today.
 2. Report; take the top modules and the episodes' module lists.
 3. Re-run each top module with `module` to separate "big alone" from "big together".
-4. Re-record with fewer parallel jobs (`lake build -j2`, or `--threads=` in `lakefile.toml`) to
-   see how far peak memory falls; then split the offenders.
+4. Re-record with less parallelism and see how far peak memory falls; then split the
+   offenders.  Knobs this repo already uses: `LEAN_NUM_THREADS=N` in the environment and
+   `weakLeanArgs = ["--threads=3"]` in `lakefile.toml`.  Check `lake build --help` for a job
+   limit (this repo uses a patched Lake, so I have not verified one exists).
 
 ## WSL notes
 
