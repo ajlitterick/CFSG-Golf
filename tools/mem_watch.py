@@ -434,11 +434,15 @@ def main() -> int:
         if name == "module":
             p.add_argument("module")
             p.add_argument("--threads", type=int, default=1)
-        if name != "attach":
-            p.add_argument("cmd", nargs=argparse.REMAINDER)
-    a = ap.parse_args()
-    if getattr(a, "cmd", None) and a.cmd[:1] == ["--"]:
-        a.cmd = a.cmd[1:]
+    # everything after the first `--` is the command (run) / extra lean args (module);
+    # splitting here keeps options placed after the module name from being swallowed
+    argv = sys.argv[1:]
+    rest: list[str] = []
+    if "--" in argv:
+        i = argv.index("--")
+        argv, rest = argv[:i], argv[i + 1:]
+    a = ap.parse_args(argv)
+    a.cmd = rest
     if getattr(a, "guard", False):
         GUARD = Guard(a.pause_below_gb, a.resume_above_gb, a.pause_psi, a.min_running,
                       a.hold, a.cooldown)

@@ -80,3 +80,8 @@ Limits, so you know what to expect:
 * Keep the checkout on the WSL ext4 filesystem (not `/mnt/c`): oleans are mmapped.
 * `/proc/pressure/memory` needs a WSL2 kernel with PSI; if absent, those fields are null and
   the swap/MemAvailable signals still work.
+
+## Automating it
+
+`tools/mem_detect.sh` runs the whole detector pipeline and writes `findings.json`;
+`tools/MEMORY_AGENTS.md` specifies the detector/fixer hand-off, priorities and acceptance rules.

@@ -12,7 +12,11 @@ Sections:
   4. concurrency: how total lean memory grows with the number of parallel lean processes;
   5. advice: the largest safe `-j`/`--threads` for your RAM given the observed peaks.
 
-Multiple files are merged per module by taking the maximum.
+Multiple files are merged per module by taking the maximum.  Files named module-*.jsonl
+(from `mem_watch.py module`) are kept apart: they supply each module's *isolated* peak.
+
+    --json findings.json   machine-readable hand-off for a fixer (schema: docs in
+                           tools/MEMORY_AGENTS.md)
 """
 from __future__ import annotations
 
@@ -70,6 +74,74 @@ def episodes(samples, avail_gb, psi, gap=10.0):
     return out
 
 
+def write_findings(a, samples, rows, mods, eps, gev, isolated, total_mb) -> None:
+    flag_mb = a.flag_gb * 1024
+    ep_top: dict[str, int] = {}
+    for e in eps:
+        for mname, _v in sorted(e["mods"].items(), key=lambda kv: -kv[1])[:3]:
+            ep_top[mname] = ep_top.get(mname, 0) + 1
+    forced = {e["mod"] for _t, e in gev if e["ev"] == "resume" and e["forced"]}
+    paused_s: dict[str, float] = {}
+    for _t, e in gev:
+        if e["ev"] == "resume":
+            paused_s[e["mod"]] = paused_s.get(e["mod"], 0) + e["held_s"]
+    out_mods = []
+    for r in rows:
+        name = r["module"]
+        reasons = []
+        if r["peak_anon_mb"] >= flag_mb:
+            reasons.append(f"peak_anon>={a.flag_gb:g}GB")
+        if name in ep_top:
+            reasons.append("top3_in_pressure_episode")
+        if name in forced:
+            reasons.append("forced_resume")
+        if not reasons and r["peak_anon_mb"] < flag_mb / 3:
+            continue  # keep the list short: unflagged modules well below the threshold
+        iso = isolated.get(name)
+        out_mods.append({
+            **{k: r[k] for k in ("module", "peak_anon_mb", "peak_rss_mb", "cpu_s", "seen_s",
+                                 "cpu_per_wall", "lines", "bytes", "olean_mb")},
+            "flagged": bool(reasons), "reasons": reasons,
+            "isolated_peak_anon_mb": iso,
+            "alone_vs_together": (None if iso is None else
+                                  "problem_is_concurrency" if iso < 0.6 * r["peak_anon_mb"]
+                                  else "big_alone"),
+            "pressure_episodes_top3": ep_top.get(name, 0),
+            "guard_paused_s": paused_s.get(name, 0),
+            "co_running_at_peak": [{"module": m, "anon_mb": v} for m, v in mods[name]["co"]],
+        })
+    out_mods.sort(key=lambda m: (not m["flagged"], -m["peak_anon_mb"]))
+    f = {
+        "version": 1,
+        "created": __import__("time").strftime("%Y-%m-%dT%H:%M:%S%z"),
+        "inputs": a.files,
+        "host": {"mem_total_gb": round(total_mb / 1024, 1)},
+        "thresholds": {"flag_gb": a.flag_gb, "pressure_avail_gb": a.avail_gb,
+                       "pressure_psi_full": a.psi},
+        "summary": {
+            "hours": round(samples[-1]["t"] / 3600, 2),
+            "min_avail_gb": round(min(r["sys"]["avail_mb"] for r in samples) / 1024, 1),
+            "peak_swap_gb": round(max(r["sys"]["swap_used_mb"] for r in samples) / 1024, 1),
+            "max_psi_full": max((r["sys"].get("psi_full") or 0) for r in samples),
+            "peak_lean_anon_gb": round(max(sum(p["anon"] for p in r["lean"])
+                                           for r in samples) / 1024, 1),
+            "pressure_episodes": len(eps),
+            "guard_pauses": sum(1 for _t, e in gev if e["ev"] == "pause"),
+            "modules_seen": len(rows),
+            "modules_flagged": sum(1 for m in out_mods if m["flagged"]),
+        },
+        "modules": out_mods,
+        "episodes": [{"start_s": e["start"], "end_s": e["end"],
+                      "min_avail_gb": round(e["min_avail"] / 1024, 1),
+                      "peak_lean_anon_gb": round(e["peak_anon"] / 1024, 1),
+                      "modules": [{"module": m, "anon_mb": v} for m, v in
+                                  sorted(e["mods"].items(), key=lambda kv: -kv[1])[:6]]}
+                     for e in eps],
+    }
+    with open(a.json, "w") as fh:
+        json.dump(f, fh, indent=1)
+
+
 def pearson(xs, ys):
     n = len(xs)
     if n < 3:
@@ -92,19 +164,32 @@ def main() -> int:
     ap.add_argument("--ram-gb", type=float, help="budget for the advice section "
                     "(default: MemTotal seen in the log)")
     ap.add_argument("--repo", default=".")
+    ap.add_argument("--json", help="write findings for an automated fixer to this file")
+    ap.add_argument("--flag-gb", type=float, default=6.0,
+                    help="flag modules whose peak anonymous memory is at least this (default 6)")
     a = ap.parse_args()
 
-    samples = sorted(load(a.files), key=lambda r: 0)  # keep file order; t restarts per file
+    iso_files = [f for f in a.files if os.path.basename(f).startswith("module-")]
+    full_files = [f for f in a.files if f not in iso_files]
+    isolated: dict[str, float] = {}
+    for f in iso_files:
+        name = os.path.basename(f)[len("module-"):].rsplit("-", 2)[0]
+        peak = max((p["anon"] for r in load([f]) for p in r["lean"]), default=0)
+        isolated[name] = max(isolated.get(name, 0), peak)
+    samples = list(load(full_files))  # file order; t restarts per file
     if not samples:
-        sys.exit("no samples")
+        sys.exit("no full-build samples (only module-*.jsonl given?)")
     mods: dict[str, dict] = {}
     for r in samples:
         for p in r["lean"]:
             m = mods.setdefault(p["mod"], {"anon": 0, "rss": 0, "file": 0, "swap": 0,
-                                           "hwm": 0, "seen": 0, "thr": 0, "cpu": 0})
+                                           "hwm": 0, "seen": 0, "thr": 0, "cpu": 0, "co": []})
             for k in ("anon", "rss", "file", "swap", "hwm", "thr"):
                 m[k] = max(m[k], p[k])
             m["cpu"] = max(m["cpu"], p.get("cpu") or 0)  # cumulative, so max = last seen
+            if p["anon"] >= m["anon"]:  # at this module's peak: who else was running?
+                m["co"] = sorted(((q["mod"], q["anon"]) for q in r["lean"] if q is not p),
+                                 key=lambda x: -x[1])[:5]
             m["seen"] += 1
     interval = (samples[-1]["t"] - samples[0]["t"]) / max(1, len(samples) - 1)
 
@@ -214,6 +299,10 @@ def main() -> int:
               f"{'OK' if worst <= budget else 'EXCEEDS budget'}")
     print("  (worst case is pessimistic: Lake rarely schedules the k biggest at once; compare "
           "with the observed maxima above.)")
+
+    if a.json:
+        write_findings(a, samples, rows, mods, eps, gev if gev else [], isolated, total_mb)
+        print(f"\nwrote {a.json}")
 
     if a.csv:
         with open(a.csv, "w", newline="") as f:
